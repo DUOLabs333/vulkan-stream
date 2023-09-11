@@ -34,16 +34,31 @@ The driver only supports parsing pointers with a single level of indirection, ie
 So, the driver must transform an variable of arbitrary type into a single pointer of arbitrary type.
 
 To do so, the driver uses this algorithm:
-Let parse be some function that takes a variable of arbitrary type and outputs a json object.
+Let parse be some function that takes a variable of arbitrary type and returns a json object.
 Set up an empty json object with an empty dictionary at "members"
-1. If the type is "char *"/"char"/"int", add key at "value" with value of casting the value to (char *). Return
+1. If the type is "char *"/"int *"/"void *", return parse_{type}(arg)
 2. If the argument is a list, run parse on each of the arguments, adding each one of them to "members" by stringifying the index and mapping the returned json object to that string index
 3. If the argument is a pointer that has an indirection greater than 1, return parse on the dereferenced argument
 4. If the argument is a pointer that has an indirection less than 1, return parse on the referenced argument
-5. If the argument is a pointer to a struct, run parse on each of the arguments, adding them to "members" by mapping their stringified key to the returned json object
+5. If the argument is a pointer to a struct, return parse_{struct}(arg)
 
+parse_{struct} is a function that takes a pointer to that struct that returns a json object
+Set up an empty json object with an empty dictionary at "members":
+1. For each attribute in struct, run parse on the attribute and add them to "members" by mapping their stringified attribute to the returned json object
 
-	
-Optimization --- pn server, don't reserialize argument if const --- not meant to be changed
+parse_{type} is a function that takes a pointer to the type and returns a json object
+Set up an empty json object
+1. Cast pointer into (char *) and write that the string into the "value" key
+
+Before we can send our command object, there's one more thing to take care of: Synchronization
+
+SYNCHRONIZATION:
+vkMapMemory, like the name suggests, maps vkDeviceMemory into a buffer on the process's address space. However, the client and server can't share memory. So, when vkMapMemory is called on the server, a buffer of equal length is created on the client. To keep the contents in sync, the driver and server will at times, send synchronization objects to each other.
+
+WHEN SHOULD THIS HAPPEN:
+
+HOW DOES IT WORK:
+
+Optimization --- on server, don't reserialise argument if const --- not meant to be changed
 
 Syncing of buffers
