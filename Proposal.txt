@@ -9,8 +9,23 @@ A client<->server flow looks like this:
 	8. The driver deserializes the response object
 	9. The driver sets the arguments the client passed in based on the parsed arguments
 	10. The function returns
-There are some other parts that will be discussed later, but this is the main procedure
-	
-Optimization --- don't reserialize argument if const --- not meant to be changed
+There are some other parts that will be discussed later, but this is the main procedure.
 
-Syncing
+We'll deal with each part separately:
+
+I. Client calls a Vulkan function
+There are two types of functions: those that return PFN_vkVoidFunction and those that return something else. We'll deal with both of them separately
+
+Functions that return PFN_vkVoidFunction:
+There are exactly 2 functions that return this value: vkGetDeviceProcAddr and vkGetInstanceProcAddr. For these function, the normal behavior below is overwritten to follow the behavior written here: https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGet{Device,Instance}ProcAddr.html. Because these functions do not dispatch to the server, there's not much to say here.
+
+Functions that return something:
+For each of these functions, the driver dispatches the command to the server as a command object. The command object is a json object with the following keys: "command", which is the name of the command being dispatched; and "arguments", which points to a list of json objects that describe the arguments that were passed in.
+
+To populate "arguments", 
+
+talk here about referencing, dereferencing --- should be a pointer
+	
+Optimization --- pn server, don't reserialize argument if const --- not meant to be changed
+
+Syncing of buffers
