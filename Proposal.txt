@@ -1,0 +1,16 @@
+A client<->server flow looks like this:
+	1. The client calls a Vulkan function
+	2. The driver serializes all the arguments passed in, as a command object to the server
+	3. The server receives the command object
+	4. The server deserializes the command object
+	5. The server executes the command with the parsed arguments
+	6. The server then serializes the returned object, as well as the arguments into a response object
+	7. The server sends the response object back to the driver
+	8. The driver deserializes the response object
+	9. The driver sets the arguments the client passed in based on the parsed arguments
+	10. The function returns
+There are some other parts that will be discussed later, but this is the main procedure
+	
+Optimization --- don't reserialize argument if const --- not meant to be changed
+
+Syncing
