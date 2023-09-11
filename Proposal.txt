@@ -36,6 +36,7 @@ So, the driver must transform an variable of arbitrary type into a single pointe
 To do so, the driver uses this algorithm:
 Let parse be some function that takes a variable of arbitrary type and returns a json object.
 Set up an empty json object with an empty dictionary at "members"
+1. if arg is null, map key "NULL" to "true"
 1. If the type is "char *"/"int *"/"void *", return parse_{type}(arg)
 2. If the argument is a list, run parse on each of the arguments, adding each one of them to "members" by stringifying the index and mapping the returned json object to that string index
 3. If the argument is a pointer that has an indirection greater than 1, return parse on the dereferenced argument
@@ -56,7 +57,9 @@ SYNCHRONIZATION:
 vkMapMemory, like the name suggests, maps vkDeviceMemory into a buffer on the process's address space. However, the client and server can't share memory. So, when vkMapMemory is called on the server, a buffer of equal length is created on the client. To keep the contents in sync, the driver and server will at times, send synchronization objects to each other.
 
 WHEN SHOULD THIS HAPPEN:
+Client->Server --- When vkMapMemory is called on a vkDeviceMemory mem, mem is placed in a dict called mapped. The keys are vkDeviceMemory, and the values are the buffers the memory is mapped to. If a vkDeviceMemory in mapped is mentioned between a vkBeginCommandBuffer and vkEndCommandBuffer, then when vkEndCommandBuffer is mentioned, sync the mem.
 
+Client<-Server --- Sync commands are sent
 HOW DOES IT WORK:
 
 Optimization --- on server, don't reserialise argument if const --- not meant to be changed
