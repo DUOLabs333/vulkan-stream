@@ -17,7 +17,7 @@ I. Client calls a Vulkan function
 There are two types of functions: those that return PFN_vkVoidFunction and those that return something else. We'll deal with both of them separately
 
 Functions that return PFN_vkVoidFunction:
-There are exactly 2 functions that return this value: vkGetDeviceProcAddr and vkGetInstanceProcAddr. For these functions, the normal behavior below is overwritten: 
+There are exactly 2 functions that return this value: vkGetDeviceProcAddr and vkGetInstanceProcAddr. For these functions, the normal behavior described below is overwritten. Instead this algorithm is followed: 
 1. Follow the behavior here: https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/vkGet{Device,Instance}ProcAddr.html, and save the address client_addr.
 2. Dispatch the function to the server using the serialization protocol described below
 3. Get the returned address host_addr using the deserialization protocol described below
@@ -56,13 +56,13 @@ serialize_{type} is a function that takes a pointer to the type and returns a js
 Set up an empty json object
 1. If type is a function pointer:
 	a. If type PFN_vkVoidFunction, dereference pointer, and set arg to client_to_host[arg]
-	b. Else, set
-2. Cast pointer into (char *) and write that the string into the "value" key
+	b. Else, set "funcpointer" key to {type} and return.
+	For all other funcpointers, tell host to create a function that records the information into buffer and send data back
+2. Cast arg pointer into (char *) and write that the string into the "value" key
 
 Before we can send our command object, there's one more thing to take care of: Synchronization
-For all other funcpointers, tell host to create a function that records the information into buffer and send data back
 SYNCHRONIZATION:
-vkMapMemory, like the name suggests, maps vkDeviceMemory into a buffer on the process's address space. However, the client and server can't share memory. So, when vkMapMemory is called on the server, a buffer of equal length is created on the client. To keep the contents in sync, the driver and server will at times, send synchronization objects to each other.
+vkMapMemory, like the name suggests, maps vkDeviceMemory into a buffer on the process's address space. However, the client and server can't share memory. So, when vkMapMemory is called on the server, a buffer of equal length is created on the client, and they are mapped with client_to_host[client_mem_pointer]=host_mem_pointer. To keep the contents in sync, the driver and server will at times, send synchronization objects to each other.
 
 WHEN SHOULD THIS HAPPEN:
 Client->Server --- When vkMapMemory is called on a vkDeviceMemory mem, mem is placed in a dict called mapped. The keys are vkDeviceMemory, and the values are the buffers the memory is mapped to. If a vkDeviceMemory in mapped is mentioned between a vkBeginCommandBuffer and vkEndCommandBuffer, then when vkEndCommandBuffer is mentioned, a synchronization object is sent to the server before sending the command object.
@@ -70,12 +70,26 @@ Client->Server --- When vkMapMemory is called on a vkDeviceMemory mem, mem is pl
 Client<-Server --- Synchronization objects for all mem mentioned (as explained in the previous paragraph) are sent when a command object corresponding to synchronization commands (has possible return code VK_TIMEOUT) are recieved. The synchronization object is sent before the corresponding command object is sent to the client.
  
 HOW DOES IT WORK:
+Client->Server:
 When synchronizing a buffer of length n, the driver first splits n into 10 ranges, such that the length of each range is no larger than 1 more than the length of any other range.
 
+Then, the driver creates a Synchronization object with "name" key "Synchronization", "pointer" key being (int)client_to_host[mem] and "members" an empty list.
 Then, the driver iterates through each range r:
 1. Find the hash of the bytes in the range specified by r.
-2. Create a Sync_
+2. Appends "members" with [{r.start},{r.end},{hash}]
+
+The client sends this object to the server, and waits for a reply for a server, which is detailed below.
+
+Once the client has received the replied Synchronization object o, it then does this:
+Create a new Synchronization object a with "name" key "Synchronization", and "members" an empty list
+1. Go through o["members"]
+	a. Get bytes specified by range r, cast to (char *), and add it to a["members"]
+
+The driver sends a to server, and waits for a reply (which is described below), before exiting.
+
+Client<-Server:
+When the server recieves a 
 
 Optimization --- on server, don't reserialise argument if const --- not meant to be changed
 
-Syncing of buffers
+Talk about special reserializing on server
