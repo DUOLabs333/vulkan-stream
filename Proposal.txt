@@ -46,7 +46,7 @@ Set up an empty json object with an empty dictionary at "members"
 3. If the argument is a pointer that has an indirection greater than 1, return serialize on the dereferenced argument
 4. If the argument is a pointer that has an indirection less than 1, return serialize on the referenced argument
 5. If the argument is a pointer to a struct, return serialize_{struct}(arg)
-6. If the type is pointer to a non-struct "char *"/"int *"/"void *", return serialize_{type}(arg)
+6. If the type is pointer to a non-struct "char *"/"int *"/"void *"/Vk*, return serialize_{type}(arg)
 
 serialize_{struct} is a function that takes a pointer to that struct that returns a json object
 Set up an empty json object with an empty dictionary at "members":
@@ -65,7 +65,7 @@ SYNCHRONIZATION:
 vkMapMemory, like the name suggests, maps vkDeviceMemory into a buffer on the process's address space. However, the client and server can't share memory. So, when vkMapMemory is called on the server, a buffer of equal length is created on the client, and they are mapped with client_to_host_mem[client_mem_pointer]=host_mem_pointer and  host_to_client_mem[host_mem_pointer]=client_mem_pointer. To keep the contents in sync, the driver and server will at times, send synchronization objects to each other.
 
 WHEN SHOULD THIS HAPPEN:
-Client->Server --- When vkMapMemory is called on a vkDeviceMemory mem, mem is placed in a dict called mapped. The keys are vkDeviceMemory, and the values are the buffers the memory is mapped to. If a vkDeviceMemory in mapped is mentioned between a vkBeginCommandBuffer and vkEndCommandBuffer, then when vkEndCommandBuffer is mentioned, a synchronization object is sent to the server before sending the command object.
+Client->Server --- When vkMapMemory is called on a vkDeviceMemory mem, mem is placed in a dict called mapped. The keys are vkDeviceMemory, and the values are the buffers the memory is mapped to. If a vkDeviceMemory in mapped is mentioned between a vkBeginCommandBuffer and vkEndCommandBuffer, or an object mem has been bound to has been mentioned, then when vkEndCommandBuffer is mentioned, a synchronization object is sent to the server before sending the command object.
 
 Client<-Server --- Synchronization objects for all mem mentioned (as explained in the previous paragraph) are sent when a command object corresponding to synchronization commands (has possible return code VK_TIMEOUT) are recieved. The synchronization object is sent before the corresponding command object is sent to the client.
  
