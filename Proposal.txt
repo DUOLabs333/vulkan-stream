@@ -57,12 +57,12 @@ Set up an empty json object
 1. If type is a function pointer:
 	a. If type PFN_vkVoidFunction, dereference pointer, and set arg to client_to_host[arg]
 	b. Else, set "funcpointer" key to {type} and return.
-	For all other funcpointers, tell host to create a function that records the information into buffer and send data back
+	For all other funcpointers, tell host to create a function that records the information into buffer and send data back as it is being called.
 2. Cast arg pointer into (char *) and write that the string into the "value" key
 
 Before we can send our command object, there's one more thing to take care of: Synchronization
 SYNCHRONIZATION:
-vkMapMemory, like the name suggests, maps vkDeviceMemory into a buffer on the process's address space. However, the client and server can't share memory. So, when vkMapMemory is called on the server, a buffer of equal length is created on the client, and they are mapped with client_to_host[client_mem_pointer]=host_mem_pointer. To keep the contents in sync, the driver and server will at times, send synchronization objects to each other.
+vkMapMemory, like the name suggests, maps vkDeviceMemory into a buffer on the process's address space. However, the client and server can't share memory. So, when vkMapMemory is called on the server, a buffer of equal length is created on the client, and they are mapped with client_to_host_mem[client_mem_pointer]=host_mem_pointer and  host_to_client_mem[host_mem_pointer]=client_mem_pointer. To keep the contents in sync, the driver and server will at times, send synchronization objects to each other.
 
 WHEN SHOULD THIS HAPPEN:
 Client->Server --- When vkMapMemory is called on a vkDeviceMemory mem, mem is placed in a dict called mapped. The keys are vkDeviceMemory, and the values are the buffers the memory is mapped to. If a vkDeviceMemory in mapped is mentioned between a vkBeginCommandBuffer and vkEndCommandBuffer, then when vkEndCommandBuffer is mentioned, a synchronization object is sent to the server before sending the command object.
@@ -73,22 +73,61 @@ HOW DOES IT WORK:
 Client->Server:
 When synchronizing a buffer of length n, the driver first splits n into 10 ranges, such that the length of each range is no larger than 1 more than the length of any other range.
 
-Then, the driver creates a Synchronization object with "name" key "Synchronization", "pointer" key being (int)client_to_host[mem] and "members" an empty list.
+Then, the driver creates a Synchronization object with "name" key "Synchronization", type "init" "pointer" key being (int)client_to_host[mem] and "members" an empty list.
 Then, the driver iterates through each range r:
 1. Find the hash of the bytes in the range specified by r.
 2. Appends "members" with [{r.start},{r.end},{hash}]
 
 The client sends this object to the server, and waits for a reply for a server, which is detailed below.
 
-Once the client has received the replied Synchronization object o, it then does this:
-Create a new Synchronization object a with "name" key "Synchronization", and "members" an empty list
+Once the client has received the "Synchronization-request" object o, it then does this:
+Create a new Synchronization object a with "name" key "Synchronization", type "response", "pointer" key being (int)client_to_host[mem], "members" an empty list
 1. Go through o["members"]
-	a. Get bytes specified by range r, cast to (char *), and add it to a["members"]
+	a. Get bytes specified by range r to (int) host_to_client[o["pointer"]], cast to (char *), and add it to a["members"]
 
 The driver sends a to server, and waits for a reply (which is described below), before exiting.
 
 Client<-Server:
-When the server recieves a 
+When the server receives a "Synchronization-init" object o , it creates a Synchronization object a, type "request", "pointer" o[pointer], "members" empty list
+
+1. For every range in r:
+	Get the hash of (void *)(int)o[pointer] at the range specified at r
+	If the hash isn't the same as the corresponding index in o, add the range to a["members"]
+
+The server then sends a back to the driver, and waits for a response, which is described above.
+
+When the server receives a "Synchronization-response" object o
+For each byte array in b:
+1. Set the range of the bytes corresponding to each index to b[i]
+
+The server then sends a Synchronization object, type "ACK" to the client and return
+
+For the server to synchronize with the client, it is similar, just in reverse, with the client mapping the deserialized server pointer back to a client pointer.
+
+Now we can talk about 
+
+SENDING:
+Relative to everything else, this is very simple:
+1. Convert the json object to a string
+2. Send the string to the host through a TCP connection
+
+After the client sends the object to the server, it waits for the server to return
+
+3. The server receives the command object
+
+RECIEVING:
+When the server recieves a command object, it executes an algorithm similar to sending, but in reverse:
+1. If null, set the pointer to null
+1. If the variable is a list, malloc a new list of that type, and run deserialize on each part of the list
+2. If the variable is a pointer with an indirection greater than 0, make a pointer to the result of deserialize of the dereferenced type.
+3. If struct, run deserialize_{struct}
+4. If primitive type, then run deserialize_{type}
+
+Deserialize_struct:
+1. create structure, and fill in fields with result of deserialize on each field
+
+Deserialize_type:
+1. Write to variable as you would normally
 
 Optimization --- on server, don't reserialise argument if const --- not meant to be changed
 
