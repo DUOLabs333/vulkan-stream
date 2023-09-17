@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 from pprint import pprint
-
+import re
 
 vk=ET.parse("../Vulkan-Headers/registry/vk.xml").getroot()
 
@@ -12,6 +12,10 @@ commands={}
 funcpointers={}
 primitive_types=set()
 
+def clean(string):
+    return re.sub(r'[^a-zA-Z0-9]','',string)
+    
+#Make header for commands --- replace tags with delimiters
 for item in vk.findall("./types/type"):
     type=item.attrib.get("category","")
     if type=="struct":
@@ -28,11 +32,15 @@ for item in vk.findall("./types/type"):
             
             for i,member in enumerate(members):
                 result={}
+                
+                result["name"]=member.find("name").text
                 result["const"]=(member.tail or "").startswith("const")
                 result["length"]=member.attrib.get("len","").split(",")[::-1]
+                
                 _type=member.find("type")
                 result["type"]=_type.text
                 result["num_indirection"]=_type.tail.count("*")
+                
                 members[i]=result
             
         structs[name]=members
@@ -49,26 +57,49 @@ for item in vk.findall("./types/type"):
         elif alias:
             handles.add(alias)
     elif type=="funcpointer":
-        #print(item)
-        pass
-for item in vk["commands"]["command"]:
+        name=item.find("name").text
+        members=item.findall("type")
+        
+        cur_tail=item.find("name").tail
+        for i,member in enumerate(members):
+            result={}
+            
+            qualifiers=clean(cur_tail.split(",")[-1]) #Get previous tail and split from the back
+            result["const"]=qualifiers.startswith("const")
+            
+            result["type"]=member.text
+            result["num_indirection"]=member.tail.lstrip().count("*")
+            
+            cur_tail=member.tail
+            result["name"]=clean(cur_tail.split(",")[0]) #Split from the head
+            
+            result["header"]=ET.tostring(item, encoding='utf8', method='text').decode().rstrip(";") #Remove tags
+            
+            members[i]=result
+            
+        funcpointers[name]=members
+        
+for item in vk.findall("./commands/command"):
     command={}
-    if "@alias" in item:
-        name=item["@alias"]
-        if name not in commands:
-            aliases[name]=item["@name"] #For aliases that are defined before their parrent is defined
+    name=item.find("proto/name").text
+    if "alias" in item.attrib:
+        alias=item.attrib["alias"]
+        if alias not in commands:
+            aliases[alias]=name #For aliases that are defined before their parrent is defined
             continue
-        command=commands[name]
+        else:
+            command=commands[alias]
     else:
-        name=item["proto"]["name"]
-        item["@successcodes"]=item.get("@successcodes","")
-        item["@errorcodes"]=item.get("@errorcodes","")
-        if ("VK_TIMEOUT" in item["@successcodes"].split(",")) or ("VK_TIMEOUT" in (item["@errorcodes"].split(","))):
+        if ("VK_TIMEOUT" in item.attrib.get("successcodes","").split()+item.attrib.get("errorcodes","").split()):
             command["sync"]=True
         else:
             command["sync"]=False
-        command["return"]=item["proto"]["type"]
-        command["arguments"]=item["param"]
+    
+        command["return"]=item.find("proto/type").text
+        
+        params=item.findall("param")
+        
+        
     
     commands[name]=command
     
