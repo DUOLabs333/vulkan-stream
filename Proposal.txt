@@ -42,7 +42,7 @@ To do so, the driver uses this algorithm:
 Let serialize be some function that takes a variable of arbitrary type and returns a json object.
 Set up an empty json object with an empty dictionary at "members"
 1. if arg is null, map key "NULL" to "true"
-2. If the argument is a list, run serialize on each of the arguments, adding each one of them to "members" by stringifying the index and mapping the returned json object to that string index
+2. If the argument is a list, get length from last element of "len", run serialize on each of the arguments (pop list from len argument), adding each one of them to "members" by stringifying the index and mapping the returned json object to that string index
 3. If the argument is a pointer that has an indirection greater than 1, return serialize on the dereferenced argument
 4. If the argument is a pointer that has an indirection less than 1, return serialize on the referenced argument
 5. If the argument is a pointer to a struct, return serialize_{struct}(arg)

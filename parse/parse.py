@@ -1,10 +1,9 @@
-import sys
+import xml.etree.ElementTree as ET
 from pprint import pprint
-sys.path.append("_vendor")
 
-import xmltodict
 
-vk=xmltodict.parse(open("../Vulkan-Headers/registry/vk.xml").read())["registry"]
+vk=ET.parse("../Vulkan-Headers/registry/vk.xml").getroot()
+
 aliases={}
 
 handles=set()
@@ -13,35 +12,45 @@ commands={}
 funcpointers={}
 primitive_types=set()
 
-for item in vk["types"]["type"]:
-    type=item.get("@category","")
-        
+for item in vk.findall("./types/type"):
+    type=item.attrib.get("category","")
     if type=="struct":
-        if "@alias" in item:
-            if item["@alias"] not in structs:
-                aliases[item["@alias"]]=item["@name"] #For aliases that are defined before their parrent is defined (only one case though)
+        name=item.attrib["name"]
+        if "alias" in item.attrib:
+            alias=item.attrib["alias"]
+            if alias not in structs: #For aliases that are defined before their parrent is defined (only one case though)
+                aliases[alias]=name
                 continue
-            members=structs[item["@alias"]]
+            else:
+                members=structs[alias]
         else:
-            members=item["member"]
-            if isinstance(members,dict):
-                members=[members]
-            for member in members:
-                keys=list(member.keys())
-                for key in keys:
-                    if key not in ["name","type"]:
-                        del member[key]
-        structs[item["@name"]]=members
-        if item["@name"] in aliases:
-            structs[aliases[item["@name"]]]=members
-            del aliases[item["@name"]]
+            members=item.findall("member")
+            
+            for i,member in enumerate(members):
+                result={}
+                result["const"]=(member.tail or "").startswith("const")
+                result["length"]=member.attrib.get("len","").split(",")[::-1]
+                _type=member.find("type")
+                result["type"]=_type.text
+                result["num_indirection"]=_type.tail.count("*")
+                members[i]=result
+            
+        structs[name]=members
+        if name in aliases:
+            structs[aliases[name]]=members
+            del aliases[name]
+        
     elif type=="handle":
-        if "name" in item:
-            handles.add(item["name"])
-        elif "@alias" in item:
-            handles.add(item["@alias"])
+        name=item.find("name")
+        alias=item.attrib.get("alias",None)
+        if name:
+            handles.add(name.text)
+            
+        elif alias:
+            handles.add(alias)
     elif type=="funcpointer":
-        print(item)
+        #print(item)
+        pass
 for item in vk["commands"]["command"]:
     command={}
     if "@alias" in item:
