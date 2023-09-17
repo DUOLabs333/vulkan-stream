@@ -81,8 +81,9 @@ for item in vk.findall("./types/type"):
         
 for item in vk.findall("./commands/command"):
     command={}
-    name=item.find("proto/name").text
+    
     if "alias" in item.attrib:
+        name=item.attrib["name"]
         alias=item.attrib["alias"]
         if alias not in commands:
             aliases[alias]=name #For aliases that are defined before their parrent is defined
@@ -90,6 +91,7 @@ for item in vk.findall("./commands/command"):
         else:
             command=commands[alias]
     else:
+        name=item.find("proto/name").text
         if ("VK_TIMEOUT" in item.attrib.get("successcodes","").split()+item.attrib.get("errorcodes","").split()):
             command["sync"]=True
         else:
@@ -99,10 +101,21 @@ for item in vk.findall("./commands/command"):
         
         params=item.findall("param")
         
-        
-    
+        for i, param in enumerate(params):
+            result={}
+            
+            result["const"]=(param.text or "").startswith("const")
+            result["num_indirection"]=param.find("type").tail.count("*")
+            result["length"]=param.attrib.get("len","").split(",")[::-1]
+            
+            result["type"]=param.find("type").text
+            result["name"]=param.find("name").text
+            
+            params[i]=result
+        command["params"]=params
     commands[name]=command
     
     if name in aliases:
         commands[aliases[name]]=command
         del aliases[name]
+pprint(commands)
