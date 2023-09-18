@@ -58,7 +58,7 @@ Set up an empty json object
 	a. If type PFN_vkVoidFunction, dereference pointer, and set arg to client_to_host[arg]
 	b. Else, set "funcpointer" key to {type} and return.
 	For all other funcpointers, tell host to create a function that records the information into buffer and send data back as it is being called.
-2. Cast arg pointer into (char *) and write that the string into the "value" key
+2. Set "value" to the variable
 
 Before we can send our command object, there's one more thing to take care of: Synchronization
 SYNCHRONIZATION:

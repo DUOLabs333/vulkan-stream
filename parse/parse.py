@@ -1,23 +1,26 @@
 import xml.etree.ElementTree as ET
 from pprint import pprint
 import re
+import json
 
 vk=ET.parse("../Vulkan-Headers/registry/vk.xml").getroot()
 
 aliases={}
 
-handles=set()
+handles={}
+primitive_types={"int":1}
+
 structs={}
 commands={}
 funcpointers={}
-primitive_types=set()
 
 def clean(string):
     return re.sub(r'[^a-zA-Z0-9]','',string)
     
-#Make header for commands --- replace tags with delimiters
+
 for item in vk.findall("./types/type"):
     type=item.attrib.get("category","")
+    
     if type=="struct":
         name=item.attrib["name"]
         if "alias" in item.attrib:
@@ -49,13 +52,15 @@ for item in vk.findall("./types/type"):
             del aliases[name]
         
     elif type=="handle":
-        name=item.find("name")
-        alias=item.attrib.get("alias",None)
-        if name:
-            handles.add(name.text)
+        print(ET.tostring(item))
+
+        if not(item.find("name") is None):
+            name=item.find("name").text
+        elif item.attrib.get("name",None):
+            name=item.attrib["name"]
+        
+        handles[name]=1
             
-        elif alias:
-            handles.add(alias)
     elif type=="funcpointer":
         name=item.find("name").text
         members=item.findall("type")
@@ -78,10 +83,12 @@ for item in vk.findall("./types/type"):
             members[i]=result
             
         funcpointers[name]=members
+    
+    if (item.attrib.get("requires",None)=="vk_platform") or (type=="enum"):
+        primitive_types[item.attrib["name"]]=1
         
 for item in vk.findall("./commands/command"):
     command={}
-    
     if "alias" in item.attrib:
         name=item.attrib["name"]
         alias=item.attrib["alias"]
@@ -91,6 +98,8 @@ for item in vk.findall("./commands/command"):
         else:
             command=commands[alias]
     else:
+        header=[]
+        header.append(f"""{item.find("proto/type").text} {item.find("proto/name").text}(\n""")
         name=item.find("proto/name").text
         if ("VK_TIMEOUT" in item.attrib.get("successcodes","").split()+item.attrib.get("errorcodes","").split()):
             command["sync"]=True
@@ -111,11 +120,19 @@ for item in vk.findall("./commands/command"):
             result["type"]=param.find("type").text
             result["name"]=param.find("name").text
             
+            header.append("".join([(param.text or ""),param.find("type").text,(param.find("type").tail or ""),param.find("name").text,(param.find("name").tail or "")]))
             params[i]=result
+        
+        header.append(")")
+        
+        command["header"]=header[0]+",\n ".join(header[1:-1])+"\n"+header[-1]
+        
         command["params"]=params
     commands[name]=command
     
     if name in aliases:
         commands[aliases[name]]=command
         del aliases[name]
-pprint(commands)
+
+json.dump({key:globals()[key] for key in ["handles","primitive_types","structs","commands","funcpointers"]},open("parsed.json","w+"))
+#Save uint, int, float, etc to primitive types, along with all enums. Then, add that to an object and pickle it.
