@@ -17,17 +17,22 @@ json [&](){{
     json result=json({{}});
     
     if ({name}==NULL){{
-        result={serialize(name,"NULL",num_indirection,length,client)}
+        result={serialize(name,"NULL",num_indirection,length,client)};
     }} 
-    else if ({len(length)>0 and length[-1]!=''}){{
+    else if ({(len(length)>0 and length[-1]!='') and not(type=="char" and num_indirection==1)}){{
+        result["members"]={{}};
         for(int i=0; i < {length[-1]}; i++){{
-            {name+"[i]"}={serialize(name+"[i]",num_indirection-1,length[:-1],client}
+            result["members"][std::to_string(i)].push_back({serialize(name+"[i]",num_indirection-1,length[:-1],client});
         }}
     }}
-    else if 
-    
+    else if ({num_indirection>0}){{
+        result={serialize("*"+name,type,num_indirection-1,length,client)};
+    }}
+    else {{
+        result=serialize_{type}(name,{client});
+    }}
     return result;
-}};
+}}();
 """
     return result
 def write(line,header=False):

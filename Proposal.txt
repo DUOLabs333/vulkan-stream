@@ -43,8 +43,7 @@ Let serialize be some function that takes a variable of arbitrary type and retur
 Set up an empty json object with an empty dictionary at "members"
 1. if arg is null, map key "NULL" to "true"
 2. If the argument is a list, get length from last element of "len", run serialize on each of the arguments (pop list from len argument), adding each one of them to "members" by stringifying the index and mapping the returned json object to that string index
-3. If the argument is a pointer that has an indirection greater than 1, return serialize on the dereferenced argument
-4. If the argument is a pointer that has an indirection less than 1, return serialize on the referenced argument
+3. If the argument is a pointer that has an indirection greater than 0, return serialize on the dereferenced argument
 5. If the argument is a pointer to a struct, return serialize_{struct}(arg)
 6. If the type is pointer to a non-struct "char *"/"int *"/"void *"/Vk*, return serialize_{type}(arg)
 
