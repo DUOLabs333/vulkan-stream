@@ -18,14 +18,17 @@ json [&](){{
     
     if ({name}==NULL){{
         result={{"null":true}};
-    }} 
-    else if ({(len(length)>0 and (length[-1] not in ['',"null-terminated"])) and not(type=="char" and num_indirection==1)}){{
+    }}
+    else if ({type in ["char", "void"] and num_indirection==1}){{
+        return serialize_{type}_p({name});
+    }}
+    else if ({(len(length)>0 and (length[-1]!=""))}){{
         result["members"]={{}};
         for(int i=0; i < {length[-1]}; i++){{
             result["members"][std::to_string(i)].push_back({serialize(name+"[i]",num_indirection-1,length[:-1])});
         }}
     }}
-    else if ({num_indirection>0}){{
+    else if ({num_indirection>0 }){{
         result={serialize("*"+name,type,num_indirection-1,length)};
     }}
     else {{
@@ -41,7 +44,10 @@ def deserialize(name,type,num_indirection,length):
     if ({name}.contains("null")){{
         return NULL;
     }}
-    else if ({(len(length)>0 and (length[-1] not in ['',"null-terminated"])) and not(type=="char" and num_indirection==1)}){{
+    else if ({type in ["char", "void"] and num_indirection==1}){{
+        return deserialize_{type}_p({name});
+    }}
+    else if ({(len(length)>0 and (length[-1]!=""))}){{
         auto members=malloc({length[-1]}*{type+"*"*(num_indirection-1)});
         for (int i=0; i < {length[-1]}; i++){{
             members[i]={deserialize({name+'["members"][i]'},type,num_indirection-1,length[:-1])}

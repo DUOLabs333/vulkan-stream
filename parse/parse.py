@@ -8,7 +8,7 @@ vk=ET.parse("../Vulkan-Headers/registry/vk.xml").getroot()
 aliases={}
 
 handles={}
-primitive_types={"int":1}
+primitive_types={"int":1,"void":1}
 
 structs={}
 commands={}
@@ -63,8 +63,13 @@ for item in vk.findall("./types/type"):
             
     elif type=="funcpointer":
         name=item.find("name").text
-        members=item.findall("type")
         
+        result={}
+        result["header"]=ET.tostring(item, encoding='utf8', method='text').decode().rstrip(";").replace("typedef","",1).replace("VKAPI_PTR","",1).replace("(","",1).replace(")","",1) #Remove tags and typedef
+        
+        result["type"]=result["header"].split()[0] #Get return type
+        
+        members=item.findall("type")
         cur_tail=item.find("name").tail
         for i,member in enumerate(members):
             result={}
@@ -78,11 +83,12 @@ for item in vk.findall("./types/type"):
             cur_tail=member.tail
             result["name"]=clean(cur_tail.split(",")[0]) #Split from the head
             
-            result["header"]=ET.tostring(item, encoding='utf8', method='text').decode().rstrip(";") #Remove tags
+            result["length"]=member.attrib.get("len","").split(",")[::-1]
             
             members[i]=result
-            
-        funcpointers[name]=members
+        result["params"]=members
+           
+        funcpointers[name]=result
     
     if (item.attrib.get("requires",None)=="vk_platform") or (type=="enum"):
         primitive_types[item.attrib["name"]]=1
