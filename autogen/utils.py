@@ -11,22 +11,22 @@ header_lines=[]
 import json
 parsed=json.load("../parse/parsed.json")
 
-def serialize(name,type,num_indirection,length,client=True):
+def serialize(name,type,num_indirection,length):
     result=f"""
 json [&](){{
     json result=json({{}});
     
     if ({name}==NULL){{
-        result={serialize_null(name,client)};
+        result={{"null":true}};
     }} 
     else if ({(len(length)>0 and (length[-1] not in ['',"null-terminated"])) and not(type=="char" and num_indirection==1)}){{
         result["members"]={{}};
         for(int i=0; i < {length[-1]}; i++){{
-            result["members"][std::to_string(i)].push_back({serialize(name+"[i]",num_indirection-1,length[:-1],client)});
+            result["members"][std::to_string(i)].push_back({serialize(name+"[i]",num_indirection-1,length[:-1])});
         }}
     }}
     else if ({num_indirection>0}){{
-        result={serialize("*"+name,type,num_indirection-1,length,client)};
+        result={serialize("*"+name,type,num_indirection-1,length)};
     }}
     else {{
         result=serialize_{type}(name,{client});
@@ -36,21 +36,20 @@ json [&](){{
 """
     return result
 
-def deserialize(name,type,num_indirection,length,client=True):
-    result=f"""
-auto [&](){{
-    if ({name}["null"]){{
+def deserialize(name,type,num_indirection,length):
+    result=f"""auto [&](){{
+    if ({name}.contains("null")){{
         return NULL;
     }}
     else if ({(len(length)>0 and (length[-1] not in ['',"null-terminated"])) and not(type=="char" and num_indirection==1)}){{
         auto members=malloc({length[-1]}*{type+"*"*(num_indirection-1)});
         for (int i=0; i < {length[-1]}; i++){{
-            members[i]={deserialize({name+'["members"][i]'},type,num_indirection-1,length[:-1],client)}
+            members[i]={deserialize({name+'["members"][i]'},type,num_indirection-1,length[:-1])}
         }}
         return members;
     }}
     else if ({num_indirection>0}){{
-        auto pointer={deserialize(name,type,num_indirection-1,length,client)};
+        auto pointer={deserialize(name,type,num_indirection-1,length)};
         return &pointer;
     }}
     else {{
