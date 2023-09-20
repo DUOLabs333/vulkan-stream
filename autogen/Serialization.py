@@ -89,7 +89,7 @@ for funcpointer,function in parsed["funcpointers"].items():
     utils.write(f"""
     json data=json({{}});
     data["type"]="{funcpointer}_request";
-    data["index"]={funcpointer}_to_index[(int){funcpointer}_wrapper];
+    data["index"]={funcpointer}_to_index[(uintptr_t){funcpointer}_wrapper];
     data["members"]=json({{}});
     """)
     for param in function["params"]:
@@ -103,23 +103,19 @@ for funcpointer,function in parsed["funcpointers"].items():
     while (true){{
         data=readFromConn();
         if (data["type"]=="{funcpointer}_response"){{
-            auto result={
-            deserialize('data["return"]',function["type"],function["num_indirection"],function["length"])
-            if function["type"]!="void"
-            else "NULL"
-            }
-            break;
+           auto result= handle_{funcpointer}_response(data);
+           break;
         }}
     """)
 
     if type=="void*":
         utils.write("""
-            allocated_mems.push_back(result);
+            allocated_mems[(uintptr_t)result]=size;
         """)
     
     utils.write("""
         for (auto & element: allocated_mems){
-            Sync(element);
+            Sync((void*)element,allocated_mems[element]);
         }
         """
     )
@@ -131,8 +127,8 @@ for funcpointer,function in parsed["funcpointers"].items():
         //Will only be called by the client
         
         json result=json({{}});
-        result["index"]=(int)name;
-        index_to_{funcpointer}[(int)name]=name;
+        result["index"]=(uintptr_t)name;
+        index_to_{funcpointer}[(uintptr_t)name]=name;
         return result;
     }}
     """)
@@ -145,35 +141,51 @@ for funcpointer,function in parsed["funcpointers"].items():
     auto inline deserialize_{funcpointer}(json name){{
         //Will only be called by the server
         
-        {funcpointer}_to_index[(int){funcpointer}_wrapper]=name["index"];
+        {funcpointer}_to_index[(uintptr_t){funcpointer}_wrapper]=name["index"];
         return {funcpointer}_wrapper;
     }}
     """,header=True)
     
     utils.write(f"""
         void handle_{funcpointer}_request(json data){{
-        //Will only be called on the client
+        //Will only be called by the client
         
         result=json({{}});
         auto funcpointer=index_to_{funcpointer}[data["index"]];
         
         result["type"]="{funcpointer}_response";
         
-        
-        result["result"]=funcpointer(
     """)
     
-    utils.write(",".join([deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indiretion"],param["length"]) for param in function["params"]]))
+    #Just if they change when executing (non of the variables are const)
+    for param in function["params"]:
+        utils.write(f'auto {param["name"]}='+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indiretion"],param["length"])+";")
     
     utils.write(f"""
-    );
+    result["result"]=funcpointer({",".join([param["name"] for param in function["params"]])});
+    """)
     
+    for param in function["params"]:
+        utils.write(f'result["params"]["{param["name"]}"]='+serialize(param["name"],param["type"],param["num_indiretion"],param["length"])+";")
+    
+    utils.write("""
     sendtoConn(result);
+    };
     """)
     
     utils.write(f"void handle_{funcpointer}_request(json data);",header=True);
     
     utils.write(f"""
     {function["type"]} handle_{funcpointer}_response(json data){{
-        return {deserialize("data["members"
+        //Will only be called by the server
+    """)
+    
+    for param in function["params"]:
+        utils.write(f'auto {param["name"]}='+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indiretion"],param["length"])+";")
+    
+    utils.write("return "+deserialize('result["result"]',function["type"],function["num_indirection"],[])+";}")
+    
+    utils.write(f"""{function["type"]} handle_{funcpointer}_response(json data);""",header=True)
+    
+    
           

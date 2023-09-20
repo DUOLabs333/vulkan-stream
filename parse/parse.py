@@ -70,6 +70,8 @@ for item in vk.findall("./types/type"):
         result["header"]=ET.tostring(item, encoding='utf8', method='text').decode().rstrip(";").replace("typedef","",1).replace("(VKAPI_PTR *","",1).replace(")","",1) #Remove tags and typedef
         
         result["type"]=result["header"].split()[0] #Get return type
+        result["num_indirection"]=result["type"].count("*")
+        result["type"]=result["type"].remove("*")
         
         members=item.findall("type")
         cur_tail=item.find("name").tail
