@@ -63,9 +63,11 @@ for item in vk.findall("./types/type"):
             
     elif type=="funcpointer":
         name=item.find("name").text
-        
+        if name=="PFN_vkVoidFunction":
+            continue
+            
         result={}
-        result["header"]=ET.tostring(item, encoding='utf8', method='text').decode().rstrip(";").replace("typedef","",1).replace("VKAPI_PTR","",1).replace("(","",1).replace(")","",1) #Remove tags and typedef
+        result["header"]=ET.tostring(item, encoding='utf8', method='text').decode().rstrip(";").replace("typedef","",1).replace("(VKAPI_PTR *","",1).replace(")","",1) #Remove tags and typedef
         
         result["type"]=result["header"].split()[0] #Get return type
         

@@ -6,8 +6,7 @@ utils.write(f"""
 // for convenience
 using json = nlohmann::json;
 """)
-#Also put serialization here: serialize, for each member, seriaize, add it to members. Deserialize, take each key and add to member. do serialize for type as well. add headers for each function
-#Do structs, then types, which is just adding them to json with {"value"}
+
 #Do synchronization, then sending next --- a function only returns once the original command object returns (has "Command" type)
 #Add variable CLIENT when compiling to enable conditional behavior
 for struct,members in utils.parsed["structs"].items():
@@ -82,12 +81,13 @@ for type in parsed["primitive_types"]:
         json serialize_{type}({type} name);
         {type} deserialize_{type}(json name);
     """,header=True)
-            
+
+           
 for funcpointer,function in parsed["funcpointers"].items():
-    utils.write(function["header"].replace(funcpointer,f"wrapper_{funcpointer}")+"{")
+    utils.write(function["header"].replace(funcpointer,f"{funcpointer}_wrapper")+"{")
     utils.write(f"""
     json data=json({{}});
-    data["type"]="{funcpointer}";
+    data["type"]="{funcpointer}_wrapper";
     data["members"]=json({{}});
     """)
     for param in function["params"]:
@@ -96,5 +96,48 @@ for funcpointer,function in parsed["funcpointers"].items():
         """
         )
     
-    utils.write("")
-        
+    utils.write(f"""
+    sendToConn(data);
+    while (true){{
+        data=readFromConn();
+        if (data["type"]=="{funcpointer}_return"){{
+            auto result={
+            deserialize('data["return"]',function["type"],function["num_indirection"],function["length"])
+            if function["type"]!="void"
+            else "NULL"
+            }
+            break;
+        }}
+    """)
+
+    if type=="void*":
+        utils.write("""
+            alloc_memories.push_back(result);
+        """)
+    
+    utils.write("""
+        for (auto & element: alloc_memory){
+            Sync(element);
+        }"""
+    )
+    utils.write(("return result;" if function["type"]!="void" else 'return;')+"};")
+    
+    utils.write("""
+    json serialize_{funcpointer}({function["type"]} (*name) ({param["type"] for param in function["params"]}) ){{
+        json result=json({{}});
+        return resullt;
+    }}
+    """)
+    
+    utils.write(f"""
+    inline auto deserialize_{funcpointer}(json name){{
+        #ifndef CLIENT
+            return {funcpointer}_wrapper;
+        #else
+            return; 
+    }}
+    """,header=True)
+    
+    utils.write(function["header"].replace(funcpointer,f"{funcpointer}_wrapper")+";",header=True)
+    utils.write(f"""json serialize_{funcpointer}({function["type"]} (*name) ({param["type"] for param in function["params"]}) )""",header=True)
+          

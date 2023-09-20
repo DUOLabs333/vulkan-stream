@@ -131,3 +131,5 @@ Deserialize_type:
 Optimization --- on server, don't reserialise argument if const --- not meant to be changed
 
 Talk about special reserializing on server
+
+Multithreading --- on client, make map for thread to connection, so only use connection in thread
