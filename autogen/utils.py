@@ -32,11 +32,21 @@ json [&](){{
         result={serialize("*"+name,type,num_indirection-1,length)};
     }}
     else {{
-        result=serialize_{type}(name,{client});
-    }}
-    return result;
-}}();
-"""
+    """
+    result+=(f"""
+    #ifdef CLIENT
+    return serialize_{type}(name);
+    #endif
+    """ 
+    if type in parsed["funcpointers"]
+    else
+    f"return serialize_{type}(name);"
+    )
+    
+    result+="""
+    }
+    }()
+    """
     return result
 
 def deserialize(name,type,num_indirection,length):
@@ -50,7 +60,7 @@ def deserialize(name,type,num_indirection,length):
     else if ({(len(length)>0 and (length[-1]!=""))}){{
         auto members=malloc({length[-1]}*{type+"*"*(num_indirection-1)});
         for (int i=0; i < {length[-1]}; i++){{
-            members[i]={deserialize({name+'["members"][i]'},type,num_indirection-1,length[:-1])}
+            members[i]={deserialize({name+'["members"][i]'},type,num_indirection-1,length[:-1])};
         }}
         return members;
     }}
@@ -59,12 +69,24 @@ def deserialize(name,type,num_indirection,length):
         return &pointer;
     }}
     else {{
-        return deserialize_{type}(name,{client});
-    }}
-}}();
+    """
+    result+=(f"""
+    #ifndef CLIENT
+    return deserialize_{type}(name);
+    #endif
+    """ 
+    if type in parsed["funcpointers"]
+    else
+    f"return deserialize_{type}(name);"
+    )
+    
+    result+="""
+    }
+    }()
     """
     
     return result
+    
 def write(line,header=False):
     if not header:
         lines.append(line)

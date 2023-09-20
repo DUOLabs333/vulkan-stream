@@ -31,7 +31,8 @@ for struct,members in utils.parsed["structs"].items():
     """)
     
     for member in members:
-        utils.write("""
+        if not member["const"]:
+            utils.write("""
         result.{member['name']}={deserialize("name["+member['name']+"]", member['type'], member['num_indirection'], member['length'])};
         """)
     utils.write("""
@@ -87,7 +88,8 @@ for funcpointer,function in parsed["funcpointers"].items():
     utils.write(function["header"].replace(funcpointer,f"{funcpointer}_wrapper")+"{")
     utils.write(f"""
     json data=json({{}});
-    data["type"]="{funcpointer}_wrapper";
+    data["type"]="{funcpointer}_request";
+    data["index"]={funcpointer}_to_index[(int){funcpointer}_wrapper];
     data["members"]=json({{}});
     """)
     for param in function["params"]:
@@ -100,7 +102,7 @@ for funcpointer,function in parsed["funcpointers"].items():
     sendToConn(data);
     while (true){{
         data=readFromConn();
-        if (data["type"]=="{funcpointer}_return"){{
+        if (data["type"]=="{funcpointer}_response"){{
             auto result={
             deserialize('data["return"]',function["type"],function["num_indirection"],function["length"])
             if function["type"]!="void"
@@ -112,32 +114,66 @@ for funcpointer,function in parsed["funcpointers"].items():
 
     if type=="void*":
         utils.write("""
-            alloc_memories.push_back(result);
+            allocated_mems.push_back(result);
         """)
     
     utils.write("""
-        for (auto & element: alloc_memory){
+        for (auto & element: allocated_mems){
             Sync(element);
-        }"""
+        }
+        """
     )
     utils.write(("return result;" if function["type"]!="void" else 'return;')+"};")
+    utils.write(function["header"].replace(funcpointer,f"{funcpointer}_wrapper")+";",header=True)
     
     utils.write("""
     json serialize_{funcpointer}({function["type"]} (*name) ({param["type"] for param in function["params"]}) ){{
+        //Will only be called by the client
+        
         json result=json({{}});
-        return resullt;
+        result["index"]=(int)name;
+        index_to_{funcpointer}[(int)name]=name;
+        return result;
     }}
     """)
     
+    utils.write(f"""json serialize_{funcpointer}({function["type"]} (*name) ({param["type"] for param in function["params"]}) );""",header=True)
+    
+    
+    #Not going to write out the signature, but let the compiler figure it out
     utils.write(f"""
-    inline auto deserialize_{funcpointer}(json name){{
-        #ifndef CLIENT
-            return {funcpointer}_wrapper;
-        #else
-            return; 
+    auto inline deserialize_{funcpointer}(json name){{
+        //Will only be called by the server
+        
+        {funcpointer}_to_index[(int){funcpointer}_wrapper]=name["index"];
+        return {funcpointer}_wrapper;
     }}
     """,header=True)
     
-    utils.write(function["header"].replace(funcpointer,f"{funcpointer}_wrapper")+";",header=True)
-    utils.write(f"""json serialize_{funcpointer}({function["type"]} (*name) ({param["type"] for param in function["params"]}) )""",header=True)
+    utils.write(f"""
+        void handle_{funcpointer}_request(json data){{
+        //Will only be called on the client
+        
+        result=json({{}});
+        auto funcpointer=index_to_{funcpointer}[data["index"]];
+        
+        result["type"]="{funcpointer}_response";
+        
+        
+        result["result"]=funcpointer(
+    """)
+    
+    utils.write(",".join([deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indiretion"],param["length"]) for param in function["params"]]))
+    
+    utils.write(f"""
+    );
+    
+    sendtoConn(result);
+    """)
+    
+    utils.write(f"void handle_{funcpointer}_request(json data);",header=True);
+    
+    utils.write(f"""
+    {function["type"]} handle_{funcpointer}_response(json data){{
+        return {deserialize("data["members"
           
