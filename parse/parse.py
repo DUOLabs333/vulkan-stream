@@ -67,8 +67,7 @@ for item in vk.findall("./types/type"):
             continue
             
         result={}
-        result["header"]=ET.tostring(item, encoding='utf8', method='text').decode().rstrip(";").replace("typedef","",1).replace("(VKAPI_PTR *","",1).replace(")","",1) #Remove tags and typedef
-        
+    
         result["type"]=result["header"].split()[0] #Get return type
         result["num_indirection"]=result["type"].count("*")
         result["type"]=result["type"].remove("*")
@@ -79,15 +78,17 @@ for item in vk.findall("./types/type"):
             result={}
             
             qualifiers=clean(cur_tail.split(",")[-1]) #Get previous tail and split from the back
-            result["const"]=qualifiers.startswith("const")
+            memers["const"]=qualifiers.startswith("const")
             
-            result["type"]=member.text
-            result["num_indirection"]=member.tail.lstrip().count("*")
+            member["type"]=member.text
+            member["num_indirection"]=member.tail.lstrip().count("*")
             
             cur_tail=member.tail
-            result["name"]=clean(cur_tail.split(",")[0]) #Split from the head
+            member["name"]=clean(cur_tail.split(",")[0]) #Split from the head
             
-            result["length"]=member.attrib.get("len","").split(",")[::-1]
+            member["length"]=member.attrib.get("len","").split(",")[::-1]
+            
+            member["header"]=ET.tostring(member, encoding='utf8', method='text').decode()
             
             members[i]=result
         result["params"]=members

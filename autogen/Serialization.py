@@ -85,11 +85,35 @@ for type in parsed["primitive_types"]:
 
            
 for funcpointer,function in parsed["funcpointers"].items():
-    utils.write(function["header"].replace(funcpointer,f"{funcpointer}_wrapper")+"{")
+    
+    header=" ".join([param["header"] for param in function["params"]])
+    
+    utils.write(f"""
+    json serialize_{funcpointer}({function["type"]} (*name) ({header}) ){{
+        //Will only be called by the client
+        
+        json result=json({{}});
+        result["id"]=(uintptr_t)name;
+        id_to_{funcpointer}[(uintptr_t)name]=name;
+        return result;
+    }}
+    """)
+    
+    utils.write(f"""json serialize_{funcpointer}({function["type"]} (*name) ({header}) );""",header=True)
+    
+    
+    #Not going to write out the signature, but let the compiler figure it out
+    utils.write(f"""
+    {funcpointer} deserialize_{funcpointer}(json name){{
+        //Will only be called by the server
+        
+        uintptr_t id=name["id"];
+        return [id]({header}){{
+    """)
     utils.write(f"""
     json data=json({{}});
     data["type"]="{funcpointer}_request";
-    data["index"]={funcpointer}_to_index[(uintptr_t){funcpointer}_wrapper];
+    data["id"]=id;
     data["members"]=json({{}});
     """)
     for param in function["params"]:
@@ -119,45 +143,28 @@ for funcpointer,function in parsed["funcpointers"].items():
         }
         """
     )
-    utils.write(("return result;" if not(function["type"]=="void" and function["num_indirection"]==0) else 'return;')+"};")
-    utils.write(function["header"].replace(funcpointer,f"{funcpointer}_wrapper")+";",header=True)
     
-    utils.write("""
-    json serialize_{funcpointer}({function["type"]} (*name) ({param["type"] for param in function["params"]}) ){{
-        //Will only be called by the client
-        
-        json result=json({{}});
-        result["index"]=(uintptr_t)name;
-        index_to_{funcpointer}[(uintptr_t)name]=name;
-        return result;
+    utils.write(f"""
+    {"return result;" if not(function["type"]=="void" and function["num_indirection"]==0) else 'return;'}
+    }}
     }}
     """)
     
-    utils.write(f"""json serialize_{funcpointer}({function["type"]} (*name) ({param["type"] for param in function["params"]}) );""",header=True)
-    
-    
-    #Not going to write out the signature, but let the compiler figure it out
-    utils.write(f"""
-    auto inline deserialize_{funcpointer}(json name){{
-        //Will only be called by the server
-        
-        {funcpointer}_to_index[(uintptr_t){funcpointer}_wrapper]=name["index"];
-        return {funcpointer}_wrapper;
-    }}
-    """,header=True)
+    utils.write(f"{funcpointer} deserialize_{funcpointer}(json name);",header=True)
     
     utils.write(f"""
         void handle_{funcpointer}_request(json data){{
         //Will only be called by the client
+        // Recieved data from server's {funcpointer} wrapper, and will execute the actual function
         
         result=json({{}});
-        auto funcpointer=index_to_{funcpointer}[data["index"]];
+        auto funcpointer=id_to_{funcpointer}[data["id"]];
         
         result["type"]="{funcpointer}_response";
         
     """)
     
-    #Just if they change when executing (none of the variables are const)
+    #Just in case if they change when executing (none of the variables are const)
     for param in function["params"]:
         utils.write(f'auto {param["name"]}='+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
     
@@ -187,10 +194,14 @@ for funcpointer,function in parsed["funcpointers"].items():
     utils.write(f"""
     {function["type"]} handle_{funcpointer}_response(json data){{
         //Will only be called by the server
+        
+        //Recieved result from client's {funcpointer}
+        
+        //If there's any memory returned, send client the address so it can keep track of it
     """)
     
     for param in function["params"]:
-        utils.write(f'auto {param["name"]}='+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indiretion"],param["length"])+";")
+        utils.write(f'auto {param["name"]}='+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
     
     if not(function["type"]=="void" and function["num_indirection"]==0):
         utils.write("auto result="+deserialize('result["result"]',function["type"],function["num_indirection"],[]))
@@ -206,6 +217,7 @@ for funcpointer,function in parsed["funcpointers"].items():
         )
     utils.write("return result;" if not(function["type"]=="void" and function["num_indirection"]==0) else "")
     
+    utils.write("}")
     utils.write(f"""{function["type"]} handle_{funcpointer}_response(json data);""",header=True)
         
         

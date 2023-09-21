@@ -1,7 +1,7 @@
+#include <PicoSHA2/picosha2.h>
+
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
-
-#include <PicoSHA2/picosha2.h>
 
 std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
     char* src_char_array=malloc(sizeof(char)*(length+1));
@@ -32,12 +32,13 @@ void handle_sync_init(json data){
     
     result["type"]="sync_request";
     result["ranges"]={};
-    result["length"]=data["length"];
+    result["lengths"]={};
     result["mem"]=data["mem"];
     
     for (int i=0; i<data["ranges"].size(); i++){
-        if (HashMem(mem,data["ranges"][i],data["length"])!=data["hashes"][i]){
+        if (HashMem(mem,data["ranges"][i],data["lengths"][i])!=data["hashes"][i]){
             result["ranges"].push_back(data["ranges"][i]);
+            result["lengths"].push_back(data["lengths"][i]);
         }
     }
     
@@ -65,14 +66,15 @@ void handle_sync_request(json data){
     
     result["type"]="sync_response";
     result["ranges"]=data["ranges"];
-    result["length"]=data["length"];
+    result["lengths"]=data["lengths"];
     result["mem"]=data["mem"];
     
     result["buffers"]={};
-    void* buffer=malloc(sizeof(char)*data["length"]);
-    for(auto &range: ranges){
-        memcpy(buffer,mem+range,data["length"]);
-         result["buffers"].push_back(buffer);
+    
+    for(int i=0; i<data["ranges"].size(); i++){
+        void* buffer=malloc(sizeof(char)*data["lengths"][i]);
+        memcpy(buffer,mem+range,data["lengths"][i]);
+        result["buffers"].push_back(buffer);
     }
     
     sendtoConn(result);
@@ -99,26 +101,47 @@ void handle_sync_response(json data){
     void* buffer=malloc(sizeof(char)*data["length"];
     
     for(int i=0; i < data["ranges"].size(); i++){
-        memcpy(mem+data["ranges"][i],(void*)data["buffers"][i],data["length"]);
+        memcpy(mem+data["ranges"][i],(void*)data["buffers"][i],data["lengths"][i]);
     }
     
     sendtoConn(result);
 }
 
 
- 
-        
+void Sync(void* mem, uintptr_t length){
+    int parts=10;
+    auto d=length/parts;
+    auto remainder=length%parts;
     
-/*
-handle_sync_init
-handle_sync_request
-handle_sync_response
-handle_sync_end
-"""
-Sync:
-send init
-wait for handle_sync_request 
-
-handle_init, calculate hash
-"""
-*/
+    json result=json({});
+    result["type"]="sync_init";
+    result["ranges"]={};
+    result["lengths"]={};
+    result["hashes"]={};
+    
+    auto offset=0;
+    for (int i=0; i<remainder; i++){
+        result["ranges"].push_back(offset);
+        result["lengths"].push_back(d+1);
+        result["hashes"].push_back(HashMem(mem,offset,d+1));
+        offset+=(d+1);
+    }
+    
+    for (int i=0; i<(parts-remainder); i++){
+        result["ranges"].push_back(offset);
+        result["lengths"].push_back(d);
+        result["hashes"].push_back(HashMem(mem,offset,d));
+        offset+=d;
+    }
+    
+    sendtoConn(result);
+    
+    while(true){
+        data=readfromConn();
+        
+        if(data["type"]=="sync_request"){
+            handle_sync_request(data);
+            break;
+        }
+    }
+}
