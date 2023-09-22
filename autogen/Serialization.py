@@ -182,6 +182,7 @@ for funcpointer,function in parsed["funcpointers"].items():
                 if (data["type"]=="{funcpointer}_malloc"){{
                     client_to_server_mem[(uintptr_t)result["result"]]=data["mem"];
                     server_to_client_mem[data["mem"]]=(uintptr_t)result["result"];
+                    break;
                 }}
             }}
         """)
