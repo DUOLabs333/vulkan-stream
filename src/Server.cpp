@@ -18,7 +18,7 @@ void *thread_func(void *arg){
         if (type=="sync_init"){
             handle_sync_init(data);
         }
-        else (if type=="Command"){
+        else if (type.rfind("Command_",0)==0){
             handle_Command(data);
         }
     }
