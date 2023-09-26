@@ -1,14 +1,11 @@
 #include <pthread.h>
 #include <nholmann/json_fwd.hpp>
 
-auto service = std::make_shared<CppServer::Asio::Service>();
 
 //
-void *thread_func(void *arg){
+void *thread_func(void *session){
     //Will only be called by the server
-    
-    while(thread_to_conn.find(pthread_self())==0){ // Prevent race
-    }
+    currStruct()->conn=(std::shared_ptr< TCPSession >)session;
     
     while(true){
         if(!isConnConnected()){
@@ -37,9 +34,8 @@ public:
 
 protected:
     void onConnected(std::shared_ptr< TCPSession > &session){
-            pthread_t thread_id;
-            pthread_create(&thread_id,NULL,thread_func,NULL);
-            thread_to_conn[thread_id]=session;
+            pthread_create(NULL,NULL,thread_func,(void*)session);
+            threadStruct(thread_id)->conn=session;
             auto ss=stringstream()
             conn_to_stream[session]=&ss;
     }
@@ -56,13 +52,11 @@ public:
 
 bool isConnConnected(){
     //Will only be called by the server
-    return thread_to_conn[pthread_self()]->IsConnected();
+    return currStruct()->conn->IsConnected();
 }
 
 json readfromConn(){
-    pthread_t thread_id=pthread_self();
-    
-    auto conn=thread_to_conn[thread_id];
+    auto conn=currStruct()->conn;
     auto stream=conn_to_stream[conn];
             
     
@@ -79,21 +73,5 @@ json readfromConn(){
 }
 
 void writetoConn(json data){
-
-    #ifdef CLIENT
-        if(thread_to_conn.count(thread_id)==0){
-            thread_to_conn[thread_id]=std::make_shared<StreamClient>(service, address, port);
-            thread_to_conn[thread_id]->Start();
-            service->Start(); //Make sure it's on
-        }
-    #endif
-        
-    thread_to_conn[thread_id]->Send(data.dump()+"\n");
-}
-    
-
-auto startServer(){
-    server = std::make_shared<StreamServer>(service, port);
-    server->Start();
-    return server; 
-}        
+    currStruct()-conn->Send(data.dump()+"\n");
+}      

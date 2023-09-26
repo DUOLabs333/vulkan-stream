@@ -107,7 +107,7 @@ void handle_sync_response(json data){
     sendtoConn(result);
     
     #ifndef CLIENT
-        thread_to_mem_to_sync[pthread_self()].insert((uintptr_t)mem)
+        currStruct()->mem_to_sync->insert((uintptr_t)mem);
     #endif
 }
 

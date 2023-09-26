@@ -9,6 +9,24 @@ using json = nlohmann::json;
 
 
 #Map memory buffer into shared_memory (makes it easier to share later)
+#currStruct returns thread_to_struct[pthread_self()]. Struct contains mem_to_sync and conn, where conn is session on server, but client is session .If it doesn't exist (new thread), create it
+#In Global.cpp, auto service = std::make_shared<CppServer::Asio::Service>(); have thread_to_struct
+"""
+#ifdef CLIENT
+        if(thread_to_conn.count(thread_id)==0){
+            thread_to_conn[thread_id]=std::make_shared<StreamClient>(service, address, port);
+            thread_to_conn[thread_id]->Start();
+            service->Start(); //Make sure it's on
+        }
+    #endif
+auto startServer(){
+    server = std::make_shared<StreamServer>(service, port);
+    server->Start();
+    return server; 
+}
+Global will also contain json_fwd.hpp
+"""
+
 """
 Ok, so my original idea is needed: I need to keep track of what is bound to what and if something is referenced, sync the attached memory at endcommandbuffers/queuesubmit. If it has been synced to the server, at any waitforfences, sync all such synced memories. When a new command buffer is being used, clear the synced_memories and repeat the process.
 """
@@ -238,8 +256,8 @@ for handle in utils.parsed["handles"]:
         if handle=="VkDeviceMemory":
             utils.write("""
             #ifdef CLIENT
-            if (mapped_memory.count((uintptr_t)data){
-                thread_to_mem_to_sync[pthread_self()].insert((uintptr_t)data);
+            if (mapped_memory.count((uintptr_t)data)){
+                currStruct()->mem_to_sync->insert((uintptr_t)data);
             }
             #endif
             """)

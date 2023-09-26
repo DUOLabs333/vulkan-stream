@@ -56,23 +56,52 @@ for command in utils.parsed["commands"]:
 utils.write("#ifdef CLIENT") #Don't want server to get confused on which command we're talking about
 for command in utils.parsed["commands"]:
     utils.write(utils.parsed["commands"][command]["header"]+"{")
-    utils.write("result=json({});")
+    utils.write("data=json({});")
     
     for param in utils.parsed["commands"][command]:
         if not param["const"]:
-            utils.write(f"""result["members"]["{param["name"]}"]"""+"="+serialize(param["name"],param["type"],param["num_indirection"],param["length"])+";")
-            
-    for param in utils.parsed["commands"][command]:
-        utils.write(param["name"]+"="+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
+            utils.write(f"""data["members"]["{param["name"]}"]"""+"="+serialize(param["name"],param["type"],param["num_indirection"],param["length"])+";")
     
-    utils.write(f"""{command['return_type']} return_value={command['header']};""")
-    
-    utils.write(f"""json result=json({{}});
-        result["type"]="Response";
-        result["return"]={serialize('return_value',command['return_type'],command['return_num_indirection'],[])};
-    """)
-    
-    
+    if command=="vkQueueSubmit":
+        utils.write("""
+            for (auto& mem: currStruct()->mem_to_sync){
+                Sync((void*)mem,mem_to_info[mem].size);
+            }
+            currStruct()->mem_to_sync->clear();
+        """)    
     utils.write("""
         sendtoConn(result);
-    }""")
+        bool returned=false;
+        while(!returned){
+            data=readFromConn();
+            std::string type=result["type"];
+            
+            switch(type){
+                case "sync_init":
+                    handle_sync_init(result);
+                    break;
+                case "Return":
+                    returned=true;
+                    break;
+                
+    """)
+    for funcpointer in utils.parsed["funcpointers"]:
+        utils.write(f"""
+        case "{funcpointer}_request":
+            handle_{funcpointer}_request(result);
+            break;
+        """)
+        
+    utils.write("""
+        case default:
+            break;
+        }
+    """)
+    
+    for param in utils.parsed["commands"][command]:
+        if not param["const"]:
+            utils.write(param["name"]+"="+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
+    
+    utils.write(f"""{command['return_type']} return_value={data["return"]};""")
+    
+    utils.write("return return_value;}")
