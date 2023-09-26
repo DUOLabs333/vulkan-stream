@@ -1,6 +1,6 @@
 #include <PicoSHA2/picosha2.h>
 
-#include <nlohmann/json.hpp>
+#include <nlohmann/json_fwd.hpp>
 using json = nlohmann::json;
 
 std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
@@ -105,6 +105,10 @@ void handle_sync_response(json data){
     }
     
     sendtoConn(result);
+    
+    #ifndef CLIENT
+        thread_to_mem_to_sync[pthread_self()].insert((uintptr_t)mem)
+    #endif
 }
 
 

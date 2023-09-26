@@ -117,7 +117,8 @@ for item in vk.findall("./commands/command"):
         else:
             command["sync"]=False
     
-        command["return"]=item.find("proto/type").text
+        command["return_type"]=item.find("proto/type").text
+        command["return_num_indirection"]=item.find("proto/type").tail.count("*")
         
         params=item.findall("param")
         

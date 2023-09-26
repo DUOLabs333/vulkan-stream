@@ -1,14 +1,18 @@
 import utils
 
 utils.write(f"""
-#include <nlohmann/json.hpp>
+#include <nlohmann/json_fwd.hpp>
 
 // for convenience
 using json = nlohmann::json;
 """)
 
-#Do synchronization, then sending next --- a function only returns once the original command object returns (has "Command" type)
-#Add variable CLIENT when compiling to enable conditional behavior
+
+#Map memory buffer into shared_memory (makes it easier to share later)
+"""
+Ok, so my original idea is needed: I need to keep track of what is bound to what and if something is referenced, sync the attached memory at endcommandbuffers/queuesubmit. If it has been synced to the server, at any waitforfences, sync all such synced memories. When a new command buffer is being used, clear the synced_memories and repeat the process.
+"""
+
 for struct,members in utils.parsed["structs"].items():
     utils.write(f"""
     json serialize_{struct}({struct} name){{
@@ -221,5 +225,29 @@ for funcpointer,function in parsed["funcpointers"].items():
     utils.write("}")
     utils.write(f"""{function["type"]} handle_{funcpointer}_response(json data);""",header=True)
         
-        
+for handle in utils.parsed["handles"]:
+        utils.write(f"""
+        json serialize_{handle}({handle} data){{
+            json result=json({{}});
+            result["value"]=(uintptr_t)data;
+            return result;
+        }}
+       """)
+       
+        utils.write(f"""json serialize_{handle}({handle} data);""",header=True)
+        if handle=="VkDeviceMemory":
+            utils.write("""
+            #ifdef CLIENT
+            if (mapped_memory.count((uintptr_t)data){
+                thread_to_mem_to_sync[pthread_self()].insert((uintptr_t)data);
+            }
+            #endif
+            """)
+        utils.write(f"""
+       {handle} deserialize_{handle}(json data){{
+               return ({handle})data["value"];
+       }}""")
+       
+        utils.write(f"""{handle} deserialize_{handle}(json data);""",header=True)
+              
           

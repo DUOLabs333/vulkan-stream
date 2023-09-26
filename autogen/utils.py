@@ -1,5 +1,6 @@
 import inspect
 import pathlib
+import atexit
 for frame in inspect.stack()[1:]:
         if frame.filename[0] != '<':
             output_basename=pathlib.Path(frame.filename).stem
@@ -101,3 +102,6 @@ def write_to_file():
     with open(output_basename+".hpp","w+") as f:
         for line in header_lines:
             f.write(line+"\n")
+            
+if __name__!="__main__":
+    atexit.register(write_to_file)

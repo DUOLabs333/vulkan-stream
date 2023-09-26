@@ -1,7 +1,9 @@
 #include <pthread.h>
+#include <nholmann/json_fwd.hpp>
 
 auto service = std::make_shared<CppServer::Asio::Service>();
 
+//
 void *thread_func(void *arg){
     //Will only be called by the server
     
@@ -17,6 +19,7 @@ void *thread_func(void *arg){
         std::string type=data["type"];
         if (type=="sync_init"){
             handle_sync_init(data);
+            //Keep synced_memories (set) here: when sync point (eg, WaitForFences), sync all of them
         }
         else if (type.rfind("Command_",0)==0){
             handle_Command(data);
