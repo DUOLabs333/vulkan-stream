@@ -7,43 +7,6 @@ utils.write(f"""
 using json = nlohmann::json;
 """)
 
-
-#currStruct returns thread_to_struct[pthread_self()]. Struct contains mem_to_sync and conn, where conn is session on server, but client is session .If it doesn't exist (new thread), create it
-#In Global.cpp, auto service = std::make_shared<CppServer::Asio::Service>(); have thread_to_struct
-#On client, mem_to_sync is set(vkmemory), server it's set(void*)
-
-"""
-#Deal with void_function ---- inject wrapper_{command} and handle_wrapper_{command} into the autogen of command.
-Both are functions that returns lambda given funcpointer handle and name of command. Call funcpointer (after casting) and returns the results
-"""
-
-"""
-#ifdef CLIENT
-        if(thread_to_conn.count(thread_id)==0){
-            thread_to_conn[thread_id]=std::make_shared<StreamClient>(service, address, port);
-            thread_to_conn[thread_id]->Start();
-            service->Start(); //Make sure it's on
-        }
-    #endif
-Global will also contain json_fwd.hpp
-
-auto generate_random_alphanumeric_string(std::size_t len) -> std::string {
-    static constexpr auto chars =
-        "0123456789"
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        "abcdefghijklmnopqrstuvwxyz";
-    thread_local auto rng = random_generator<>();
-    auto dist = std::uniform_int_distribution{{}, std::strlen(chars) - 1};
-    auto result = std::string(len, '\0');
-    std::generate_n(begin(result), len, [&]() { return chars[dist(rng)]; });
-    return result;
-}
-"""
-
-"""
-Ok, so my original idea is needed: I need to keep track of what is bound to what and if something is referenced, sync the attached memory at endcommandbuffers/queuesubmit. If it has been synced to the server, at any waitforfences, sync all such synced memories. When a new command buffer is being used, clear the synced_memories and repeat the process.
-"""
-
 for struct,members in utils.parsed["structs"].items():
     utils.write(f"""
     json serialize_{struct}({struct} name){{

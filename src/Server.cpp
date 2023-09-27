@@ -1,8 +1,7 @@
 #include <pthread.h>
 #include <nholmann/json_fwd.hpp>
+#include <ThreadStruct.hpp>
 
-
-//
 void *thread_func(void *session){
     //Will only be called by the server
     currStruct()->conn=(std::shared_ptr< TCPSession >)session;
@@ -43,15 +42,6 @@ protected:
     }
 };
 
-class StreamClient : public CppServer::Asio::TCPClient
-{
-public:
-    ChatClient(std::shared_ptr<CppServer::Asio::Service> service, const std::string& address, int port)
-        : CppServer::Asio::TCPClient(service, address, port)
-    {
-    }
-};
-
 bool isConnConnected(){
     //Will only be called by the server
     return currStruct()->conn->IsConnected();
@@ -78,7 +68,7 @@ void writetoConn(json data){
     currStruct()-conn->Send(data.dump()+"\n");
 }
 
-auto startServer(std::string address, int port){
+auto startServer(){
     server = std::make_shared<StreamServer>(service, address,port);
     server->Start();
     return server; 

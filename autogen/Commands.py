@@ -9,7 +9,6 @@ using json = nlohmann::json;
 
 #include <vulkan/vulkan.h>
 """)
-utils.write("""#include <cxxopts.h>""")
 
 utils.write("""
 void handle_command(json data){
@@ -56,9 +55,13 @@ utils.write("""
 }
 """)
 
+def BaseName(name):
+    if name.startswith("funcpointer_"):
+        return name.replace("funcpointer_","",1)
+    else:
+        return name
+        
 for name, command in utils.parsed["commands"].items():
-    base_name=name.replace("funcpointer","",1)
-         
     utils.write(f"""
     void handle_{command}(json data){{
     //Will only be called by the server
@@ -68,7 +71,7 @@ for name, command in utils.parsed["commands"].items():
         utils.write(param["name"]+"="+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
     
     if funcpointer:
-        utils.write("""auto return_value=({base_name})id_to_PFN_vkVoidFunction(data["id"]){header.split("(",1)[1]}""")
+        utils.write("""auto return_value=({BaseName(name)})id_to_PFN_vkVoidFunction(data["id"]){header.split("(",1)[1]}""")
     else:
         utils.write(f"""auto return_value={command['header']};""")
         
@@ -80,7 +83,8 @@ for name, command in utils.parsed["commands"].items():
     for param in utils.parsed["commands"][command]:
         if not param["const"]:
             utils.write(f"""result["members"]["{param["name"]}"]"""+"="+serialize(param["name"],param["type"],param["num_indirection"],param["length"])+";")
-    if base_name=="vkWaitForFences":
+            
+    if BaseName(name)=="vkWaitForFences":
         utils.write("""
             for (auto& mem: currStruct()->mem_to_sync){
                     Sync((void*)mem,mem_to_info[mem].size);
@@ -88,7 +92,7 @@ for name, command in utils.parsed["commands"].items():
             currStruct()->mem_to_sync->clear();
         """)
         
-    if base_name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
+    if BaseName(name) in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
         utils.write("id_to_PFN_vkVoidFunction[(uintptr_t)return_value]=return_value;")
         
     utils.write("""
@@ -99,8 +103,6 @@ for name, command in utils.parsed["commands"].items():
 
 utils.write("#ifdef CLIENT") #Don't want server to get confused on which command we're talking about
 for name, command in utils.parsed["commands"].items():
-    base_name=name.replace("funcpointer","",1)
-    
     if name.startswith("funcpointer_"):
         funcpointer=True
     else:
@@ -126,7 +128,7 @@ for name, command in utils.parsed["commands"].items():
         if not param["const"]:
             utils.write(f"""data["members"]["{param["name"]}"]"""+"="+serialize(param["name"],param["type"],param["num_indirection"],param["length"])+";")
     
-    if base_name=="vkQueueSubmit":
+    if BaseName(name)=="vkQueueSubmit":
         utils.write("""
             for (auto& mem: currStruct()->mem_to_sync){
                 if (devicememory_to_mem.count(mem)){
@@ -169,7 +171,7 @@ for name, command in utils.parsed["commands"].items():
         if not param["const"]:
             utils.write(param["name"]+"="+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
     
-    if base_name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
+    if BaseName(name) in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
         #Case switch for the different commands (iterator variable fumcpointer_command)
         utils.write("switch(name){")
         for funcpointer_name, funcpointer_command in utils.parsed["commands"].items():
@@ -177,7 +179,7 @@ for name, command in utils.parsed["commands"].items():
                 continue
             
             utils.write(f"""
-            case "{funcpointer_name.replace("funcpointer_","",1)}":
+            case "{BaseName(funcpointer_name)}":
                 auto return_value= (data["return"]==NULL) ? NULL : ({command['return_type']}){funcpointer_name}(data["return"]);
                 break;
             """)
@@ -189,11 +191,13 @@ for name, command in utils.parsed["commands"].items():
     else:
         utils.write(f"""{command['return_type']} return_value={deserialize(data["return"],data["return_num_indirection"],False,[])};""")
         
-    if base_name=="vkMapMemory":
+    if BaseName(name)=="vkMapMemory":
         utils.write("""
         auto info=MemInfo();
         info.size=size;
         info.fd=shm_open_anon(); //Make sure you check to make sure you're not stepping on some other mem's toes.
+        ftruncate(info.fd,info.size);
+        
         mem_to_info[(uintptr_t)memory]=info;
         
         void* mem=mmap(NULL,size, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED,info.fd,NULL);
@@ -214,12 +218,7 @@ for name, command in utils.parsed["commands"].items():
 utils.write("""
 #ifndef CLIENT
 int main(int argc, char** argv){
-    cxxopts::Options options("vulkan-stream", "Server that forwards client requests to the host's GPU");
-    options.add_options("address","Address the server should listen on",cxxopts::value<std::string>()->default_value("127.0.0.1"));
-    options.add_options("p,port","Port the server should listen on",cxxopts::value<int>()->default_value(2000));
-    auto result=options.parse(argc,argv);
-    startServer(result["address"].as<std::string>>(), result["port"].as<int>());
-    
+    startServer();
     std::promise<void>().get_future().wait(); //Wait forever
 }
 #endif

@@ -1,6 +1,6 @@
 #Clone vulkan-headers
 
-declare -a REPOS=( "KhronosGroup/Vulkan-Headers" "nlohmann/json" "okdshin/PicoSHA2" "chronoxor/CppServer" "jarro2783/cxxopts" )
+declare -a REPOS=( "KhronosGroup/Vulkan-Headers" "nlohmann/json" "okdshin/PicoSHA2" "chronoxor/CppServer" "lassik/shm_open_anon" )
 
 for repo in ${REPOS[@]}; do
 	folder= $(echo $repo |  awk -F/ '{print $NF}' )
