@@ -1,5 +1,5 @@
 #include <pthread.h>
-#include <nholmann/json_fwd.hpp>
+#include <Server.hpp>
 #include <ThreadStruct.hpp>
 
 void *thread_func(void *session){

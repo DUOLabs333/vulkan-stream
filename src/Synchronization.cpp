@@ -1,6 +1,5 @@
 #include <PicoSHA2/picosha2.h>
 
-#include <nlohmann/json_fwd.hpp>
 using json = nlohmann::json;
 
 std::string HashMem(void* mem, uintptr_t start, uintptr_t length){

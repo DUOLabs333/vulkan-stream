@@ -3,7 +3,7 @@ from pprint import pprint
 import re
 import json
 
-vk=ET.parse("../Vulkan-Headers/registry/vk.xml").getroot()
+vk=ET.parse("../external/Vulkan-Headers/registry/vk.xml").getroot()
 
 aliases={}
 
@@ -52,7 +52,6 @@ for item in vk.findall("./types/type"):
             del aliases[name]
         
     elif type=="handle":
-        print(ET.tostring(item))
 
         if not(item.find("name") is None):
             name=item.find("name").text
@@ -67,30 +66,31 @@ for item in vk.findall("./types/type"):
             continue
             
         result={}
-    
+        
+        result["header"]=ET.tostring(item, encoding='utf8', method='text').decode()
         result["type"]=result["header"].split()[0] #Get return type
         result["num_indirection"]=result["type"].count("*")
-        result["type"]=result["type"].remove("*")
+        result["type"]=result["type"].replace("*","")
         
         members=item.findall("type")
         cur_tail=item.find("name").tail
         for i,member in enumerate(members):
-            result={}
+            member_dict={}
             
             qualifiers=clean(cur_tail.split(",")[-1]) #Get previous tail and split from the back
-            memers["const"]=qualifiers.startswith("const")
+            member_dict["const"]=qualifiers.startswith("const")
             
-            member["type"]=member.text
-            member["num_indirection"]=member.tail.lstrip().count("*")
+            member_dict["type"]=member.text
+            member_dict["num_indirection"]=member.tail.lstrip().count("*")
             
             cur_tail=member.tail
-            member["name"]=clean(cur_tail.split(",")[0]) #Split from the head
+            member_dict["name"]=clean(cur_tail.split(",")[0]) #Split from the head
             
-            member["length"]=member.attrib.get("len","").split(",")[::-1]
+            member_dict["length"]=member.attrib.get("len","").split(",")[::-1]
             
-            member["header"]=ET.tostring(member, encoding='utf8', method='text').decode()
+            member_dict["header"]=ET.tostring(member, encoding='utf8', method='text').decode()
             
-            members[i]=result
+            members[i]=member_dict
         result["params"]=members
            
         funcpointers[name]=result
@@ -146,5 +146,5 @@ for item in vk.findall("./commands/command"):
         commands[aliases[name]]=command
         del aliases[name]
 
-json.dump({key:globals()[key] for key in ["handles","primitive_types","structs","commands","funcpointers"]},open("parsed.json","w+"))
+json.dump({key:globals()[key] for key in ["handles","primitive_types","structs","commands","funcpointers"]},open("parsed.json","w+"),indent=4)
 #Save uint, int, float, etc to primitive types, along with all enums. Then, add that to an object and pickle it.

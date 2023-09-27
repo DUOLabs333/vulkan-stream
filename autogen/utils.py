@@ -10,44 +10,42 @@ lines=[]
 header_lines=[]
 
 import json
-parsed=json.load("../parse/parsed.json")
+parsed=json.load(open("../parse/parsed.json"))
 
 def serialize(name,type,num_indirection,length):
-    result=f"""
-json [&](){{
+    result=f"""json [&](){{
     json result=json({{}});
     
     if ({name}==NULL){{
         result={{"null":true}};
     }}
-    else if ({type in ["char", "void"] and num_indirection==1}){{
-        return serialize_{type}_p({name});
-    }}
-    else if ({(len(length)>0 and (length[-1]!=""))}){{
+    """
+    if (type in ["char", "void"] and num_indirection==1):
+        result+="return serialize_{type}_p({name});\n"
+    
+    elif (len(length)>0 and (length[-1]!="")):
+        result+=f"""
         result["members"]={{}};
         for(int i=0; i < {length[-1]}; i++){{
-            result["members"][std::to_string(i)].push_back({serialize(name+"[i]",num_indirection-1,length[:-1])});
+            result["members"][std::to_string(i)].push_back({serialize(name+"[i]",type,num_indirection-1,length[:-1])});
         }}
-    }}
-    else if ({num_indirection>0 }){{
-        result={serialize("*"+name,type,num_indirection-1,length)};
-    }}
-    else {{
-    """
-    result+=(f"""
-    #ifdef CLIENT
-    return serialize_{type}(name);
-    #endif
-    """ 
-    if type in parsed["funcpointers"]
-    else
-    f"return serialize_{type}(name);"
-    )
+        """
+    elif num_indirection>0:
+        result+=f"""result={serialize("*"+name,type,num_indirection-1,length)};\n"""
+    else:
+        result+=(f"""
+        #ifdef CLIENT
+        return serialize_{type}(name);
+        #endif
+        """ 
+        if type in parsed["funcpointers"]
+        else
+        f"return serialize_{type}(name);"
+        )
     
     result+="""
     }
-    }()
-    """
+    }()"""
     return result
 
 def deserialize(name,type,num_indirection,length):
@@ -55,36 +53,37 @@ def deserialize(name,type,num_indirection,length):
     if ({name}.contains("null")){{
         return NULL;
     }}
-    else if ({type in ["char", "void"] and num_indirection==1}){{
-        return deserialize_{type}_p({name});
-    }}
-    else if ({(len(length)>0 and (length[-1]!=""))}){{
+    """
+    if (type in ["char", "void"] and num_indirection==1):
+        result+="return serialize_{type}_p({name});\n"
+        
+    elif (len(length)>0 and (length[-1]!="")):
+        result+=f"""
         auto members=malloc({length[-1]}*{type+"*"*(num_indirection-1)});
         for (int i=0; i < {length[-1]}; i++){{
-            members[i]={deserialize({name+'["members"][i]'},type,num_indirection-1,length[:-1])};
+            members[i]={deserialize(name+'["members"][i]',type,num_indirection-1,length[:-1])};
         }}
         return members;
-    }}
-    else if ({num_indirection>0}){{
-        auto pointer={deserialize(name,type,num_indirection-1,length)};
+        """
+    elif num_indirection>0:
+        result+=f"""
+         auto pointer={deserialize(name,type,num_indirection-1,length)};
         return &pointer;
-    }}
-    else {{
-    """
-    result+=(f"""
-    #ifndef CLIENT
-    return deserialize_{type}(name);
-    #endif
-    """ 
-    if type in parsed["funcpointers"]
-    else
-    f"return deserialize_{type}(name);"
-    )
+        """
+    else:
+        result+=(f"""
+        #ifndef CLIENT
+        return deserialize_{type}(name);
+        #endif
+        """ 
+        if type in parsed["funcpointers"]
+        else
+        f"return deserialize_{type}(name);"
+        )
     
     result+="""
     }
-    }()
-    """
+    }()"""
     
     return result
     

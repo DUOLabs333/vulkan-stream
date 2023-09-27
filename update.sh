@@ -7,6 +7,7 @@ for repo in ${REPOS[@]}; do
 	rm -rf external/$folder
 	git clone --depth=1 https://github.com/$repo external/$folder
 	if [ "$folder" == "CppServer" ]; then
+		echo "Cloning the dependencies of CppServer"
 		cd external/$folder
 		gil clone --depth=1
 		gil link
@@ -14,3 +15,6 @@ for repo in ${REPOS[@]}; do
 		./unix.sh
 	fi
 done
+
+echo "Building CppServer"
+(cd external/CppServer; cd build; ./unix.sh)

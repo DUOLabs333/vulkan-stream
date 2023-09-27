@@ -1,82 +1,82 @@
-import utils
+from utils import *
 
-utils.write(f"""
+write(f"""
 #include <nlohmann/json_fwd.hpp>
 
 // for convenience
 using json = nlohmann::json;
 """)
 
-for struct,members in utils.parsed["structs"].items():
-    utils.write(f"""
+for struct,members in parsed["structs"].items():
+    write(f"""
     json serialize_{struct}({struct} name){{
         json result=json({{}}):
         result["members"]=json({{}});
     """)
     
     for member in members:
-        utils.write("""
+        write("""
         result["members"]["{member['name']}"]={serialize(member['name'],member['type'],member['num_indirection'],member['length'])};
         """)
-    utils.write("""
+    write("""
     return result;
     }};
     """)
     
-    utils.write(f"""
+    write(f"""
     {struct} deserialize_{struct}(json name){{
         auto result={struct}();
     """)
     
     for member in members:
         if not member["const"]:
-            utils.write("""
+            write("""
         result.{member['name']}={deserialize("name["+member['name']+"]", member['type'], member['num_indirection'], member['length'])};
         """)
-    utils.write("""
+    write("""
     return result;
     }};
     """)
     
-    utils.write(f"""
+    write(f"""
         json serialize_{struct}({struct} name);
         {struct} deserialize_{struct}(json name);
     """,header=True)
 
 for type in parsed["primitive_types"]:
     if type in ["void","char"]:
-        utils.write("""
+        write("""
             json serialize_{type}_p({type}* name){{
                 return result=json({{"value":(char *)name}}):
             }};
         """)
         
-    utils.write("""
+    write("""
         json serialize_{type}({type} name){{
             return result=json({{"value":name}}):
         }};
     """)
     
     if type in ["void","char"]:
-        utils.write("""
+        write("""
             {type}* deserialize_{type}_p(json name){{
                 return ({type}*) name["value"];
             }};
         """)
         
-    utils.write("""
+    write("""
         {type} deserialize_{type}(json name){{
             return name["value"];
         }};
     """)
     
     if type in ["void","char"]:
-        utils.write(f"""
+        write(f"""
             json serialize_{type}_p({type}* name);
             {type}* deserialize_{type}_p(json name);
         """,header=True)
 
-    utils.write(f"""
+    write(f"""
         json serialize_{type}({type} name);
         {type} deserialize_{type}(json name);
     """,header=True)
@@ -89,7 +89,7 @@ for funcpointer,function in parsed["funcpointers"].items():
         
     header=" ".join([param["header"] for param in function["params"]])
     
-    utils.write(f"""
+    write(f"""
     json serialize_{funcpointer}({funcpointer} name){{
         //Will only be called by the client
         
@@ -100,30 +100,30 @@ for funcpointer,function in parsed["funcpointers"].items():
     }}
     """)
     
-    utils.write(f"""json serialize_{funcpointer}({funcpointer} name);""",header=True)
+    write(f"""json serialize_{funcpointer}({funcpointer} name);""",header=True)
     
     
     #Not going to write out the signature, but let the compiler figure it out
-    utils.write(f"""
+    write(f"""
     {funcpointer} deserialize_{funcpointer}(json name){{
         //Will only be called by the server
         
         uintptr_t id=name["id"];
         return [id]({header}){{
     """)
-    utils.write(f"""
+    write(f"""
     json data=json({{}});
     data["type"]="{funcpointer}_request";
     data["id"]=id;
     data["members"]=json({{}});
     """)
     for param in function["params"]:
-        utils.write(f"""
+        write(f"""
             data["members"]["{param["name"]}"]={serialize(param["name"],param["type"],param["num_indirection"],param["length"])};
         """
         )
     
-    utils.write(f"""
+    write(f"""
     sendToConn(data);
     while (true){{
         data=readFromConn();
@@ -135,25 +135,25 @@ for funcpointer,function in parsed["funcpointers"].items():
     """)
 
     if function["type"]=="void" and function["num_indirection"]==1:
-        utils.write("""
+        write("""
             allocated_mems[(uintptr_t)result]=size;
         """)
     
-    utils.write("""
+    write("""
         for (auto & element: allocated_mems){
             Sync((void*)element,allocated_mems[element]);
         }
         """
     )
     
-    utils.write(f"""
+    write(f"""
     {"return result;" if not(function["type"]=="void" and function["num_indirection"]==0) else 'return;'}
     }}
     """)
     
-    utils.write(f"{funcpointer} deserialize_{funcpointer}(json name);",header=True)
+    write(f"{funcpointer} deserialize_{funcpointer}(json name);",header=True)
     
-    utils.write(f"""
+    write(f"""
         void handle_{funcpointer}_request(json data){{
         //Will only be called by the client
         // Recieved data from server's {funcpointer} wrapper, and will execute the actual function
@@ -167,17 +167,17 @@ for funcpointer,function in parsed["funcpointers"].items():
     
     #Just in case if they change when executing (none of the variables are const)
     for param in function["params"]:
-        utils.write(f'auto {param["name"]}='+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
+        write(f'auto {param["name"]}='+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
     
-    utils.write('result["result"]='+serialize(f"""funcpointer({",".join([param["name"] for param in function["params"]])})""",function["type"],function["num_indirection"],function["length"]));
+    write('result["result"]='+serialize(f"""funcpointer({",".join([param["name"] for param in function["params"]])})""",function["type"],function["num_indirection"],function["length"]));
 
     for param in function["params"]:
-        utils.write(f'result["params"]["{param["name"]}"]='+serialize(param["name"],param["type"],param["num_indirection"],param["length"])+";")
+        write(f'result["params"]["{param["name"]}"]='+serialize(param["name"],param["type"],param["num_indirection"],param["length"])+";")
     
-    utils.write("sendToConn(result);")
+    write("sendToConn(result);")
     
     if function["type"]=="void" and function["num_indirection"]==1:
-        utils.write(f"""
+        write(f"""
             while(true){{
                 data=readFromConn();
                 if (data["type"]=="{funcpointer}_malloc"){{
@@ -188,12 +188,12 @@ for funcpointer,function in parsed["funcpointers"].items():
             }}
         """)
     
-    utils.write("};")
+    write("};")
             
     
-    utils.write(f"void handle_{funcpointer}_request(json data);",header=True);
+    write(f"void handle_{funcpointer}_request(json data);",header=True);
     
-    utils.write(f"""
+    write(f"""
     {function["type"]} handle_{funcpointer}_response(json data){{
         //Will only be called by the server
         
@@ -203,13 +203,13 @@ for funcpointer,function in parsed["funcpointers"].items():
     """)
     
     for param in function["params"]:
-        utils.write(f'auto {param["name"]}='+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
+        write(f'auto {param["name"]}='+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
     
     if not(function["type"]=="void" and function["num_indirection"]==0):
-        utils.write("auto result="+deserialize('result["result"]',function["type"],function["num_indirection"],[]))
+        write("auto result="+deserialize('result["result"]',function["type"],function["num_indirection"],[]))
     
     if function["type"]=="void" and function["num_indirection"]==1:
-        utils.write(f"""
+        write(f"""
         json _malloc=json({{}});
         _malloc["type"]="{funcpointer}_malloc";
         _malloc["mem"]=(uintptr_t)result;
@@ -217,13 +217,13 @@ for funcpointer,function in parsed["funcpointers"].items():
         sendToConn(_malloc);
         """
         )
-    utils.write("return result;" if not(function["type"]=="void" and function["num_indirection"]==0) else "")
+    write("return result;" if not(function["type"]=="void" and function["num_indirection"]==0) else "")
     
-    utils.write("}")
-    utils.write(f"""{function["type"]} handle_{funcpointer}_response(json data);""",header=True)
+    write("}")
+    write(f"""{function["type"]} handle_{funcpointer}_response(json data);""",header=True)
         
-for handle in utils.parsed["handles"]:
-        utils.write(f"""
+for handle in parsed["handles"]:
+        write(f"""
         json serialize_{handle}({handle} data){{
             json result=json({{}});
             result["value"]=(uintptr_t)data;
@@ -231,18 +231,18 @@ for handle in utils.parsed["handles"]:
         }}
        """)
        
-        utils.write(f"""json serialize_{handle}({handle} data);""",header=True)
+        write(f"""json serialize_{handle}({handle} data);""",header=True)
         if handle=="VkDeviceMemory":
-            utils.write("""
+            write("""
             #ifdef CLIENT
                 currStruct()->mem_to_sync->insert((uintptr_t)data);
             #endif
             """)
-        utils.write(f"""
+        write(f"""
        {handle} deserialize_{handle}(json data){{
                return ({handle})data["value"];
        }}""")
        
-        utils.write(f"""{handle} deserialize_{handle}(json data);""",header=True)
+        write(f"""{handle} deserialize_{handle}(json data);""",header=True)
               
           
