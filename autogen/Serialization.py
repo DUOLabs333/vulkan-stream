@@ -8,7 +8,6 @@ using json = nlohmann::json;
 """)
 
 
-#Map memory buffer into shared_memory (makes it easier to share later)
 #currStruct returns thread_to_struct[pthread_self()]. Struct contains mem_to_sync and conn, where conn is session on server, but client is session .If it doesn't exist (new thread), create it
 #In Global.cpp, auto service = std::make_shared<CppServer::Asio::Service>(); have thread_to_struct
 #On client, mem_to_sync is set(vkmemory), server it's set(void*)
@@ -26,11 +25,6 @@ Both are functions that returns lambda given funcpointer handle and name of comm
             service->Start(); //Make sure it's on
         }
     #endif
-auto startServer(std::string address, int port){
-    server = std::make_shared<StreamServer>(service, address,port);
-    server->Start();
-    return server; 
-}
 Global will also contain json_fwd.hpp
 
 auto generate_random_alphanumeric_string(std::size_t len) -> std::string {

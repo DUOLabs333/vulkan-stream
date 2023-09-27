@@ -1,5 +1,8 @@
 import utils
 
+for command in utils.parsed["commands"]:
+    utils.parsed["commands"]["funcpointer_"+command]=utils.parsed["commands"][command]
+    
 utils.write("""
 #include <nlohmann/json_fwd.hpp>
 using json = nlohmann::json;
@@ -9,12 +12,37 @@ using json = nlohmann::json;
 utils.write("""#include <cxxopts.h>""")
 
 utils.write("""
-void handle_Command(json data){
+void handle_command(json data){
 //Will only be called by the server
-std::string command=data["type"].substr("Command_".length());
+std::string command=data["type"].substr("command_".length());
 
 switch(command){
 """)
+
+for command in utils.parsed["commands"]:
+    if command.startswith("funcpointer_"):
+        continue
+        
+    utils.write(f"""
+        case "{command}":
+            handle_{command}(data);
+            break;
+    """)
+
+utils.write("""
+    default:
+        break;
+}
+""")
+
+utils.write("""
+void handle_funcpointer(json data){
+//Will only be called by the server
+std::string command=data["type"].substr("funcpointer_".length());
+
+switch(command){
+""")
+
 for command in utils.parsed["commands"]:
     utils.write(f"""
         case "{command}":
@@ -28,8 +56,9 @@ utils.write("""
 }
 """)
 
-
-for command in utils.parsed["commands"]:
+for name, command in utils.parsed["commands"].items():
+    base_name=name.replace("funcpointer","",1)
+         
     utils.write(f"""
     void handle_{command}(json data){{
     //Will only be called by the server
@@ -38,8 +67,11 @@ for command in utils.parsed["commands"]:
     for param in utils.parsed["commands"][command]:
         utils.write(param["name"]+"="+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
     
-    utils.write(f"""{command['return_type']} return_value={command['header']};""")
-    
+    if funcpointer:
+        utils.write("""auto return_value=({base_name})id_to_PFN_vkVoidFunction(data["id"]){header.split("(",1)[1]}""")
+    else:
+        utils.write(f"""auto return_value={command['header']};""")
+        
     utils.write(f"""json result=json({{}});
         result["type"]="Response";
         result["return"]={serialize('return_value',command['return_type'],command['return_num_indirection'],[])};
@@ -48,13 +80,17 @@ for command in utils.parsed["commands"]:
     for param in utils.parsed["commands"][command]:
         if not param["const"]:
             utils.write(f"""result["members"]["{param["name"]}"]"""+"="+serialize(param["name"],param["type"],param["num_indirection"],param["length"])+";")
-    if command=="vkWaitForFences":
+    if base_name=="vkWaitForFences":
         utils.write("""
             for (auto& mem: currStruct()->mem_to_sync){
                     Sync((void*)mem,mem_to_info[mem].size);
             }
             currStruct()->mem_to_sync->clear();
         """)
+        
+    if base_name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
+        utils.write("id_to_PFN_vkVoidFunction[(uintptr_t)return_value]=return_value;")
+        
     utils.write("""
         sendtoConn(result);
     }""")
@@ -62,16 +98,35 @@ for command in utils.parsed["commands"]:
     utils.write(f"""void handle_{command}(json data);""",header=True)
 
 utils.write("#ifdef CLIENT") #Don't want server to get confused on which command we're talking about
-for command in utils.parsed["commands"]:
-    utils.write(utils.parsed["commands"][command]["header"]+"{")
+for name, command in utils.parsed["commands"].items():
+    base_name=name.replace("funcpointer","",1)
+    
+    if name.startswith("funcpointer_"):
+        funcpointer=True
+    else:
+        funcpointer=False
+        
+    if funcpointer:
+        utils.write(f"""
+            auto {name}(uintptr_t id){{
+                return [id]({command["header"].split("(",1)[1]}{{""")
+    else:
+        utils.write(command["header"]+"{")
+        
     utils.write("//Will only be called by the client")
     
     utils.write("data=json({});")
-    for param in utils.parsed["commands"][command]:
+    if funcpointer:
+        utils.write(f"""data["type"]="{name}";""")
+        utils.write("""data["id"]=id;""")
+    else:
+        utils.write(f"""data["type"]="command_{name}";""")
+        
+    for param in command:
         if not param["const"]:
             utils.write(f"""data["members"]["{param["name"]}"]"""+"="+serialize(param["name"],param["type"],param["num_indirection"],param["length"])+";")
     
-    if command=="vkQueueSubmit":
+    if base_name=="vkQueueSubmit":
         utils.write("""
             for (auto& mem: currStruct()->mem_to_sync){
                 if (devicememory_to_mem.count(mem)){
@@ -82,7 +137,7 @@ for command in utils.parsed["commands"]:
         """)
     
     utils.write("""
-        sendtoConn(result);
+        sendtoConn(data);
         bool returned=false;
         while(!returned){
             data=readFromConn();
@@ -110,12 +165,31 @@ for command in utils.parsed["commands"]:
         }
     """)
     
-    for param in utils.parsed["commands"][command]:
+    for param in command:
         if not param["const"]:
             utils.write(param["name"]+"="+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
     
-    utils.write(f"""{command['return_type']} return_value={data["return"]};""")
-    if command=="vkMapMemory":
+    if base_name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
+        #Case switch for the different commands (iterator variable fumcpointer_command)
+        utils.write("switch(name){")
+        for funcpointer_name, funcpointer_command in utils.parsed["commands"].items():
+            if not funcpointer_name.startswith("funcpointer_"):
+                continue
+            
+            utils.write(f"""
+            case "{funcpointer_name.replace("funcpointer_","",1)}":
+                auto return_value= (data["return"]==NULL) ? NULL : ({command['return_type']}){funcpointer_name}(data["return"]);
+                break;
+            """)
+        utils.write("""
+            default:
+                break;
+            }
+        """)
+    else:
+        utils.write(f"""{command['return_type']} return_value={deserialize(data["return"],data["return_num_indirection"],False,[])};""")
+        
+    if base_name=="vkMapMemory":
         utils.write("""
         auto info=MemInfo();
         info.size=size;
@@ -131,7 +205,11 @@ for command in utils.parsed["commands"]:
         devicememory_to_mem[(uintptr_t)memory]=(uintptr_t)mem;
         
         """)
-    utils.write("return return_value;}")
+    utils.write("return return_value;")
+    if funcpointer:
+        utils.write("};}")
+    else:
+        utils.write("}")
 
 utils.write("""
 #ifndef CLIENT

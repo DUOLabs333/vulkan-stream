@@ -18,9 +18,11 @@ void *thread_func(void *session){
             handle_sync_init(data);
             //Keep synced_memories (set) here: when sync point (eg, WaitForFences), sync all of them
         }
-        else if (type.rfind("Command_",0)==0){
-            handle_Command(data);
+        else if (type.rfind("command_",0)==0){
+            handle_command(data);
         }
+        else if (type.rfind("funcpointer_",0)==0){
+            handle_funcpointer(data);
     }
 }
 std::map<pthread_t, std::shared_ptr< TCPSession >> thread_to_conn;
@@ -74,4 +76,10 @@ json readfromConn(){
 
 void writetoConn(json data){
     currStruct()-conn->Send(data.dump()+"\n");
-}      
+}
+
+auto startServer(std::string address, int port){
+    server = std::make_shared<StreamServer>(service, address,port);
+    server->Start();
+    return server; 
+}
