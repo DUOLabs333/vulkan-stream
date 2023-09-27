@@ -19,8 +19,8 @@ using json = nlohmann::json;
             service->Start(); //Make sure it's on
         }
     #endif
-auto startServer(){
-    server = std::make_shared<StreamServer>(service, port);
+auto startServer(std::string address, int port){
+    server = std::make_shared<StreamServer>(service, address,port);
     server->Start();
     return server; 
 }
