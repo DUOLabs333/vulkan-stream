@@ -32,6 +32,7 @@ utils.write("""
 for command in utils.parsed["commands"]:
     utils.write(f"""
     void handle_{command}(json data){{
+    //Will only be called by the server
     """)
     
     for param in utils.parsed["commands"][command]:
@@ -47,7 +48,13 @@ for command in utils.parsed["commands"]:
     for param in utils.parsed["commands"][command]:
         if not param["const"]:
             utils.write(f"""result["members"]["{param["name"]}"]"""+"="+serialize(param["name"],param["type"],param["num_indirection"],param["length"])+";")
-    
+    if command=="vkWaitForFences":
+        utils.write("""
+            for (auto& mem: currStruct()->mem_to_sync){
+                    Sync((void*)mem,mem_to_info[mem].size);
+            }
+            currStruct()->mem_to_sync->clear();
+        """)
     utils.write("""
         sendtoConn(result);
     }""")
@@ -67,10 +74,13 @@ for command in utils.parsed["commands"]:
     if command=="vkQueueSubmit":
         utils.write("""
             for (auto& mem: currStruct()->mem_to_sync){
-                Sync((void*)mem,mem_to_info[mem].size);
+                if (devicememory_to_mem.count(mem)){
+                    Sync((void*)devicememory_to_mem[mem],mem_to_info[mem].size);
+                }
             }
             currStruct()->mem_to_sync->clear();
-        """)    
+        """)
+    
     utils.write("""
         sendtoConn(result);
         bool returned=false;
@@ -105,7 +115,22 @@ for command in utils.parsed["commands"]:
             utils.write(param["name"]+"="+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
     
     utils.write(f"""{command['return_type']} return_value={data["return"]};""")
-    
+    if command=="vkMapMemory":
+        utils.write("""
+        auto info=MemInfo();
+        info.size=size;
+        info.fd=shm_open_anon(); //Make sure you check to make sure you're not stepping on some other mem's toes.
+        mem_to_info[(uintptr_t)memory]=info;
+        
+        void* mem=mmap(NULL,size, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED,info.fd,NULL);
+        
+        client_to_host_mem[(uintptr_t)mem]=(uintptr_t)*ppData;
+        server_to_client_mem[(uintptr_t)*ppData]=(uintptr_t)mem;
+        
+        *ppData=mem;
+        devicememory_to_mem[(uintptr_t)memory]=(uintptr_t)mem;
+        
+        """)
     utils.write("return return_value;}")
 
 utils.write("""

@@ -11,6 +11,13 @@ using json = nlohmann::json;
 #Map memory buffer into shared_memory (makes it easier to share later)
 #currStruct returns thread_to_struct[pthread_self()]. Struct contains mem_to_sync and conn, where conn is session on server, but client is session .If it doesn't exist (new thread), create it
 #In Global.cpp, auto service = std::make_shared<CppServer::Asio::Service>(); have thread_to_struct
+#On client, mem_to_sync is set(vkmemory), server it's set(void*)
+
+"""
+#Deal with void_function ---- inject wrapper_{command} and handle_wrapper_{command} into the autogen of command.
+Both are functions that returns lambda given funcpointer handle and name of command. Call funcpointer (after casting) and returns the results
+"""
+
 """
 #ifdef CLIENT
         if(thread_to_conn.count(thread_id)==0){
@@ -25,6 +32,18 @@ auto startServer(std::string address, int port){
     return server; 
 }
 Global will also contain json_fwd.hpp
+
+auto generate_random_alphanumeric_string(std::size_t len) -> std::string {
+    static constexpr auto chars =
+        "0123456789"
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        "abcdefghijklmnopqrstuvwxyz";
+    thread_local auto rng = random_generator<>();
+    auto dist = std::uniform_int_distribution{{}, std::strlen(chars) - 1};
+    auto result = std::string(len, '\0');
+    std::generate_n(begin(result), len, [&]() { return chars[dist(rng)]; });
+    return result;
+}
 """
 
 """
@@ -108,10 +127,13 @@ for type in parsed["primitive_types"]:
            
 for funcpointer,function in parsed["funcpointers"].items():
     
+    if funcpointer=="PFN_vkVoidFunction": #Not used in any callbacks
+        continue
+        
     header=" ".join([param["header"] for param in function["params"]])
     
     utils.write(f"""
-    json serialize_{funcpointer}({function["type"]} (*name) ({header}) ){{
+    json serialize_{funcpointer}({funcpointer} name){{
         //Will only be called by the client
         
         json result=json({{}});
@@ -121,7 +143,7 @@ for funcpointer,function in parsed["funcpointers"].items():
     }}
     """)
     
-    utils.write(f"""json serialize_{funcpointer}({function["type"]} (*name) ({header}) );""",header=True)
+    utils.write(f"""json serialize_{funcpointer}({funcpointer} name);""",header=True)
     
     
     #Not going to write out the signature, but let the compiler figure it out
@@ -152,6 +174,7 @@ for funcpointer,function in parsed["funcpointers"].items():
            {'auto result= handle_{funcpointer}_response(data);' if not(function["type"]=="void" and function["num_indirection"]==0) else ''}
            break;
         }}
+    }}
     """)
 
     if function["type"]=="void" and function["num_indirection"]==1:
@@ -168,7 +191,6 @@ for funcpointer,function in parsed["funcpointers"].items():
     
     utils.write(f"""
     {"return result;" if not(function["type"]=="void" and function["num_indirection"]==0) else 'return;'}
-    }}
     }}
     """)
     
@@ -256,9 +278,7 @@ for handle in utils.parsed["handles"]:
         if handle=="VkDeviceMemory":
             utils.write("""
             #ifdef CLIENT
-            if (mapped_memory.count((uintptr_t)data)){
                 currStruct()->mem_to_sync->insert((uintptr_t)data);
-            }
             #endif
             """)
         utils.write(f"""
