@@ -5,17 +5,19 @@ write(f"""
 
 // for convenience
 using json = nlohmann::json;
+
+#include <vulkan/vulkan.h>
 """)
 
 for struct,members in parsed["structs"].items():
     write(f"""
     json serialize_{struct}({struct} name){{
-        json result=json({{}}):
+        json result=json({{}});
         result["members"]=json({{}});
     """)
     
     for member in members:
-        write("""
+        write(f"""
         result["members"]["{member['name']}"]={serialize(member['name'],member['type'],member['num_indirection'],member['length'])};
         """)
     write("""
@@ -30,7 +32,7 @@ for struct,members in parsed["structs"].items():
     
     for member in members:
         if not member["const"]:
-            write("""
+            write(f"""
         result.{member['name']}={deserialize("name["+member['name']+"]", member['type'], member['num_indirection'], member['length'])};
         """)
     write("""
@@ -169,7 +171,7 @@ for funcpointer,function in parsed["funcpointers"].items():
     for param in function["params"]:
         write(f'auto {param["name"]}='+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
     
-    write('result["result"]='+serialize(f"""funcpointer({",".join([param["name"] for param in function["params"]])})""",function["type"],function["num_indirection"],function["length"]));
+    write('result["result"]='+serialize(f"""funcpointer({",".join([param["name"] for param in function["params"]])})""",function["type"],function["num_indirection"],[]));
 
     for param in function["params"]:
         write(f'result["params"]["{param["name"]}"]='+serialize(param["name"],param["type"],param["num_indirection"],param["length"])+";")

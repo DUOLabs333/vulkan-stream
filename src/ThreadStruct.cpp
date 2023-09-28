@@ -1,16 +1,25 @@
-auto service = std::make_shared<CppServer::Asio::Service>();
+#include <ThreadStruct.hpp>
 
-std::string address=std::getenv("STREAM_ADDRESS");
-std::string port_string=std::getenv("STREAM_PORT");
+std::shared_ptr<CppServer::Asio::Service> service = std::make_shared<CppServer::Asio::Service>();
 
-if (address==NULL){
-    address="192.168.64.1";
+std::string address;
+int port;
+std::map<uintptr_t,ThreadStruct*> thread_to_struct;
+
+void setAddressandPort(){
+    const char* address_temp=std::getenv("STREAM_ADDRESS");
+    const char* port_temp=std::getenv("STREAM_PORT");
+    
+    if (address_temp==NULL){
+        address_temp="192.168.64.1";
+    }
+    
+    if (port_temp==NULL){
+        port_temp="2000";
+    }
+    address=address_temp;
+    port=std::stoi(port_temp);
 }
-
-if (port_string==NULL){
-    port_string="2000";
-}
-int port=std::stoi(port_string);
 
 ThreadStruct currStruct(){
     auto thread_id=pthread_self();
@@ -18,6 +27,7 @@ ThreadStruct currStruct(){
         auto result=new ThreadStruct();
         #ifdef CLIENT
             service->Start(); //Make sure service is up
+            setAddressandPort();
             result->conn=std::make_shared<CppServer::Asio::TCPClient>(service, address, port);
             result->conn->Start();
         #endif

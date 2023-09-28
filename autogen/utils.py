@@ -17,8 +17,8 @@ def serialize(name,type,num_indirection,length):
     json result=json({{}});
     
     if ({name}==NULL){{
-        result={{"null":true}};
-    }}
+        result["null"]=true;
+    }}else{{
     """
     if (type in ["char", "void"] and num_indirection==1):
         result+="return serialize_{type}_p({name});\n"
@@ -43,23 +43,24 @@ def serialize(name,type,num_indirection,length):
         f"return serialize_{type}(name);"
         )
     
-    result+="""
-    }
-    }()"""
+    result+="\n}}()"
     return result
 
 def deserialize(name,type,num_indirection,length):
     result=f"""auto [&](){{
     if ({name}.contains("null")){{
         return NULL;
-    }}
+    }}else{{
     """
     if (type in ["char", "void"] and num_indirection==1):
         result+="return serialize_{type}_p({name});\n"
         
     elif (len(length)>0 and (length[-1]!="")):
+        if num_indirection==0:
+            result+=f"auto members={type}[{length[-1]}];"
+        else:
+            result+=f"""auto members=malloc({length[-1]}*{type+"*"*(num_indirection-1)});"""
         result+=f"""
-        auto members=malloc({length[-1]}*{type+"*"*(num_indirection-1)});
         for (int i=0; i < {length[-1]}; i++){{
             members[i]={deserialize(name+'["members"][i]',type,num_indirection-1,length[:-1])};
         }}
@@ -81,9 +82,7 @@ def deserialize(name,type,num_indirection,length):
         f"return deserialize_{type}(name);"
         )
     
-    result+="""
-    }
-    }()"""
+    result+="\n}}()"
     
     return result
     

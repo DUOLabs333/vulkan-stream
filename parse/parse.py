@@ -17,7 +17,18 @@ funcpointers={}
 def clean(string):
     return re.sub(r'[^a-zA-Z0-9]','',string)
     
+def get_length(item):
+    if "altlen" in item.attrib:
+        length=item.attrib["altlen"]
+    elif "len" in item.attrib:
+        length=item.attrib["len"]
+    elif not(item.find("enum") is None):
+        length=item.find("enum").text
+    else:
+        length=""
 
+    return length.split(",")[::-1]
+    
 for item in vk.findall("./types/type"):
     type=item.attrib.get("category","")
     
@@ -38,7 +49,8 @@ for item in vk.findall("./types/type"):
                 
                 result["name"]=member.find("name").text
                 result["const"]=(member.tail or "").startswith("const")
-                result["length"]=member.attrib.get("len","").split(",")[::-1]
+                    
+                result["length"]=get_length(member)
                 
                 _type=member.find("type")
                 result["type"]=_type.text
@@ -86,7 +98,7 @@ for item in vk.findall("./types/type"):
             cur_tail=member.tail
             member_dict["name"]=clean(cur_tail.split(",")[0]) #Split from the head
             
-            member_dict["length"]=member.attrib.get("len","").split(",")[::-1]
+            member_dict["length"]=get_length(member)
             
             member_dict["header"]=ET.tostring(member, encoding='utf8', method='text').decode()
             
@@ -127,7 +139,7 @@ for item in vk.findall("./commands/command"):
             
             result["const"]=(param.text or "").startswith("const")
             result["num_indirection"]=param.find("type").tail.count("*")
-            result["length"]=param.attrib.get("len","").split(",")[::-1]
+            result["length"]=get_length(param)
             
             result["type"]=param.find("type").text
             result["name"]=param.find("name").text

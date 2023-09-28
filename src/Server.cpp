@@ -69,6 +69,7 @@ void writetoConn(json data){
 }
 
 auto startServer(){
+    setAddressandPort();
     server = std::make_shared<StreamServer>(service, address,port);
     server->Start();
     return server; 

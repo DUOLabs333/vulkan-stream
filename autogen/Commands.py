@@ -69,15 +69,15 @@ def is_funcpointer(name):
            
 for name, command in parsed["commands"].items():
     write(f"""
-    void handle_{command}(json data){{
+    void handle_{name}(json data){{
     //Will only be called by the server
     """)
     
     for param in command["params"]:
         write(param["name"]+"="+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
     
-    if is_funcpointer:
-        write("""auto return_value=({base_name(name)})id_to_PFN_vkVoidFunction(data["id"]){header.split("(",1)[1]}""")
+    if is_funcpointer(name):
+        write(f"""auto return_value=({base_name(name)})id_to_PFN_vkVoidFunction(data["id"]){command["header"].split("(",1)[1]}""")
     else:
         write(f"""auto return_value={command['header']};""")
         
@@ -120,6 +120,7 @@ for name, command in parsed["commands"].items():
     write("//Will only be called by the client")
     
     write("data=json({});")
+    
     if is_funcpointer(name):
         write(f"""data["type"]="{name}";""")
         write("""data["id"]=id;""")
@@ -216,7 +217,7 @@ for name, command in parsed["commands"].items():
         write("};}")
     else:
         write("}")
-
+write("#endif")
 write("""
 #ifndef CLIENT
 int main(int argc, char** argv){

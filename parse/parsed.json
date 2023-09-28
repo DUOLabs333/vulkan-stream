@@ -709,7 +709,7 @@
                 "name": "deviceName",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_PHYSICAL_DEVICE_NAME_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -718,7 +718,7 @@
                 "name": "pipelineCacheUUID",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -747,7 +747,7 @@
                 "name": "extensionName",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_EXTENSION_NAME_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -767,7 +767,7 @@
                 "name": "layerName",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_EXTENSION_NAME_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -794,7 +794,7 @@
                 "name": "description",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DESCRIPTION_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -1199,7 +1199,7 @@
                 "name": "memoryTypes",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_MEMORY_TYPES"
                 ],
                 "type": "VkMemoryType",
                 "num_indirection": 0
@@ -1217,7 +1217,7 @@
                 "name": "memoryHeaps",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_MEMORY_HEAPS"
                 ],
                 "type": "VkMemoryHeap",
                 "num_indirection": 0
@@ -3158,7 +3158,7 @@
                 "name": "pCode",
                 "const": false,
                 "length": [
-                    "latexmath:[\\textrm{codeSize} \\over 4]"
+                    "codeSize / 4"
                 ],
                 "type": "uint32_t",
                 "num_indirection": 1
@@ -4123,7 +4123,7 @@
                 "name": "pSampleMask",
                 "const": false,
                 "length": [
-                    "latexmath:[\\lceil{\\mathit{rasterizationSamples} \\over 32}\\rceil]"
+                    "(rasterizationSamples + 31) / 32"
                 ],
                 "type": "VkSampleMask",
                 "num_indirection": 1
@@ -4796,7 +4796,7 @@
                 "name": "pipelineCacheUUID",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -4827,7 +4827,7 @@
                 "name": "pipelineIdentifier",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -11790,7 +11790,7 @@
                 "name": "driverName",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DRIVER_NAME_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -11799,7 +11799,7 @@
                 "name": "driverInfo",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DRIVER_INFO_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -11846,7 +11846,7 @@
                 "name": "driverName",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DRIVER_NAME_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -11855,7 +11855,7 @@
                 "name": "driverInfo",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DRIVER_INFO_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -12458,7 +12458,7 @@
                 "name": "deviceUUID",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -12467,7 +12467,7 @@
                 "name": "driverUUID",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -12476,7 +12476,7 @@
                 "name": "deviceLUID",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_LUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -12523,7 +12523,7 @@
                 "name": "deviceUUID",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -12532,7 +12532,7 @@
                 "name": "driverUUID",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -12541,7 +12541,7 @@
                 "name": "deviceLUID",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_LUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -15310,7 +15310,7 @@
                 "name": "physicalDevices",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DEVICE_GROUP_SIZE"
                 ],
                 "type": "VkPhysicalDevice",
                 "num_indirection": 0
@@ -15357,7 +15357,7 @@
                 "name": "physicalDevices",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DEVICE_GROUP_SIZE"
                 ],
                 "type": "VkPhysicalDevice",
                 "num_indirection": 0
@@ -16223,7 +16223,7 @@
                 "name": "presentMask",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DEVICE_GROUP_SIZE"
                 ],
                 "type": "uint32_t",
                 "num_indirection": 0
@@ -22300,7 +22300,7 @@
                 "name": "priorities",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_GLOBAL_PRIORITY_SIZE_KHR"
                 ],
                 "type": "VkQueueGlobalPriorityKHR",
                 "num_indirection": 0
@@ -22338,7 +22338,7 @@
                 "name": "priorities",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_GLOBAL_PRIORITY_SIZE_KHR"
                 ],
                 "type": "VkQueueGlobalPriorityKHR",
                 "num_indirection": 0
@@ -31035,7 +31035,7 @@
                 "name": "heapBudget",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_MEMORY_HEAPS"
                 ],
                 "type": "VkDeviceSize",
                 "num_indirection": 0
@@ -31044,7 +31044,7 @@
                 "name": "heapUsage",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_MEMORY_HEAPS"
                 ],
                 "type": "VkDeviceSize",
                 "num_indirection": 0
@@ -32727,7 +32727,7 @@
                 "name": "uuid",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -32765,7 +32765,7 @@
                 "name": "name",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DESCRIPTION_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -32774,7 +32774,7 @@
                 "name": "category",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DESCRIPTION_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -32783,7 +32783,7 @@
                 "name": "description",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DESCRIPTION_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -33884,7 +33884,7 @@
                 "name": "name",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DESCRIPTION_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -33893,7 +33893,7 @@
                 "name": "description",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DESCRIPTION_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -33969,7 +33969,7 @@
                 "name": "name",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DESCRIPTION_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -33978,7 +33978,7 @@
                 "name": "description",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DESCRIPTION_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -34025,7 +34025,7 @@
                 "name": "name",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DESCRIPTION_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -34034,7 +34034,7 @@
                 "name": "description",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DESCRIPTION_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -35148,7 +35148,7 @@
                 "name": "deviceUUID",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -35157,7 +35157,7 @@
                 "name": "driverUUID",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -35166,7 +35166,7 @@
                 "name": "deviceLUID",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_LUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -35755,7 +35755,7 @@
                 "name": "driverName",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DRIVER_NAME_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -35764,7 +35764,7 @@
                 "name": "driverInfo",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DRIVER_INFO_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -36957,7 +36957,7 @@
                 "name": "name",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_EXTENSION_NAME_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -36966,7 +36966,7 @@
                 "name": "version",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_EXTENSION_NAME_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -36984,7 +36984,7 @@
                 "name": "description",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DESCRIPTION_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -36993,7 +36993,7 @@
                 "name": "layer",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_EXTENSION_NAME_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -37022,7 +37022,7 @@
                 "name": "name",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_EXTENSION_NAME_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -37031,7 +37031,7 @@
                 "name": "version",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_EXTENSION_NAME_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -37049,7 +37049,7 @@
                 "name": "description",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DESCRIPTION_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -37058,7 +37058,7 @@
                 "name": "layer",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_EXTENSION_NAME_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -37963,7 +37963,7 @@
                 "name": "pVersionData",
                 "const": false,
                 "length": [
-                    "latexmath:[2 \\times \\mathtt{VK\\_UUID\\_SIZE}]"
+                    "2*VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 1
@@ -38937,7 +38937,7 @@
                 "name": "pipelineIdentifier",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -43416,7 +43416,7 @@
                 "name": "optimalTilingLayoutUUID",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -53328,7 +53328,7 @@
                 "name": "shaderModuleIdentifierAlgorithmUUID",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -53404,7 +53404,7 @@
                 "name": "identifier",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_SHADER_MODULE_IDENTIFIER_SIZE_EXT"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -53752,7 +53752,7 @@
                 "name": "description",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DESCRIPTION_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -54042,7 +54042,7 @@
                 "name": "pVersionData",
                 "const": false,
                 "length": [
-                    "latexmath:[2 \\times \\mathtt{VK\\_UUID\\_SIZE}]"
+                    "2*VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 1
@@ -54718,7 +54718,7 @@
                 "name": "pipelineIdentifier",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -56319,7 +56319,7 @@
                 "name": "description",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DESCRIPTION_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -56413,7 +56413,7 @@
                 "name": "description",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_MAX_DESCRIPTION_SIZE"
                 ],
                 "type": "char",
                 "num_indirection": 0
@@ -56496,7 +56496,7 @@
                 "name": "pipelineCacheUUID",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -57896,7 +57896,7 @@
                 "name": "shaderBinaryUUID",
                 "const": false,
                 "length": [
-                    ""
+                    "VK_UUID_SIZE"
                 ],
                 "type": "uint8_t",
                 "num_indirection": 0
@@ -79459,7 +79459,7 @@
                     "const": true,
                     "num_indirection": 1,
                     "length": [
-                        "latexmath:[\\lceil{\\mathit{samples} \\over 32}\\rceil]"
+                        "(samples + 31) / 32"
                     ],
                     "type": "VkSampleMask",
                     "name": "pSampleMask"
