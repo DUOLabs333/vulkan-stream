@@ -4,7 +4,7 @@ std::shared_ptr<CppServer::Asio::Service> service = std::make_shared<CppServer::
 
 std::string address;
 int port;
-std::map<uintptr_t,ThreadStruct*> thread_to_struct;
+std::map<pthread_t,ThreadStruct*> thread_to_struct;
 
 void setAddressandPort(){
     const char* address_temp=std::getenv("STREAM_ADDRESS");
@@ -21,7 +21,7 @@ void setAddressandPort(){
     port=std::stoi(port_temp);
 }
 
-ThreadStruct currStruct(){
+ThreadStruct* currStruct(){
     auto thread_id=pthread_self();
     if (!thread_to_struct.contains(thread_id)){
         auto result=new ThreadStruct();
@@ -29,10 +29,10 @@ ThreadStruct currStruct(){
             service->Start(); //Make sure service is up
             setAddressandPort();
             result->conn=std::make_shared<CppServer::Asio::TCPClient>(service, address, port);
-            result->conn->Start();
+            result->conn->Connect();
         #endif
         
-        thread_to_struct[pthread_self]=result;
+        thread_to_struct[thread_id]=result;
     }
     
     return thread_to_struct[thread_id];

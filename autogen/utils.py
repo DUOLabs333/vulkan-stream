@@ -13,7 +13,7 @@ import json
 parsed=json.load(open("../parse/parsed.json"))
 
 def serialize(name,type,num_indirection,length):
-    result=f"""json [&](){{
+    result=f"""[&](){{
     json result=json({{}});
     
     if ({name}==NULL){{

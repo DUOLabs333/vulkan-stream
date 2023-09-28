@@ -1,4 +1,4 @@
-#include <nlohmann/json_fwd.hpp>
+#include <nlohmann/json.hpp>
 
 json readfromConn();
 void writetoConn(json data);

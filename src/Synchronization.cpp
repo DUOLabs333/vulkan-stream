@@ -1,4 +1,4 @@
-#include <PicoSHA2/picosha2.h>
+#include <picosha2.h>
 
 using json = nlohmann::json;
 

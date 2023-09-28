@@ -1,12 +1,13 @@
 from utils import *
 
+write("#include <vulkan/vulkan.h>",header=True)
 write(f"""
-#include <nlohmann/json_fwd.hpp>
+#include <nlohmann/json.hpp>
 
 // for convenience
 using json = nlohmann::json;
 
-#include <vulkan/vulkan.h>
+#include <Serialization.hpp>
 """)
 
 for struct,members in parsed["structs"].items():
@@ -18,7 +19,7 @@ for struct,members in parsed["structs"].items():
     
     for member in members:
         write(f"""
-        result["members"]["{member['name']}"]={serialize(member['name'],member['type'],member['num_indirection'],member['length'])};
+        result["members"]["{member['name']}"]={serialize("name."+member['name'],member['type'],member['num_indirection'],member['length'])};
         """)
     write("""
     return result;

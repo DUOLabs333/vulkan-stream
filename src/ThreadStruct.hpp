@@ -21,5 +21,5 @@ typedef struct {
     #endif
 } ThreadStruct;
     
-ThreadStruct currStruct();
+ThreadStruct* currStruct();
 void setAddressandPort();

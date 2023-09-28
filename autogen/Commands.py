@@ -7,7 +7,7 @@ for command in parsed["commands"]:
 parsed["commands"].update(funcpointer_commands)
     
 write("""
-#include <nlohmann/json_fwd.hpp>
+#include <nlohmann/json.hpp>
 using json = nlohmann::json;
 
 #include <vulkan/vulkan.h>
@@ -16,9 +16,8 @@ using json = nlohmann::json;
 write("""
 void handle_command(json data){
 //Will only be called by the server
-std::string command=data["type"].substr("command_".length());
+std::string command=data["type"].template get<std::string>().substr(std::string("command_").length());
 
-switch(command){
 """)
 
 for command in parsed["commands"]:
@@ -26,37 +25,29 @@ for command in parsed["commands"]:
         continue
         
     write(f"""
-        case "{command}":
+        if(command=="{command}"){{
             handle_{command}(data);
-            break;
+            return;
+        }}
     """)
 
-write("""
-    default:
-        break;
-}
-""")
+write("}")
 
 write("""
 void handle_funcpointer(json data){
 //Will only be called by the server
-std::string command=data["type"].substr("funcpointer_".length());
-
-switch(command){
+std::string command=data["type"].template get<std::string>().substr(std::string("command_").length());
 """)
 
 for command in parsed["commands"]:
     write(f"""
-        case "{command}":
+        if(command=="{command}"){{
             handle_{command}(data);
-            break;
+            return;
+        }}
     """)
 
-write("""
-    default:
-        break;
-}
-""")
+write("}")
 
 def base_name(name):
     if name.startswith("funcpointer_"):
