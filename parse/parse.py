@@ -158,5 +158,40 @@ for item in vk.findall("./commands/command"):
         commands[aliases[name]]=command
         del aliases[name]
 
-json.dump({key:globals()[key] for key in ["handles","primitive_types","structs","commands","funcpointers"]},open("parsed.json","w+"),indent=4)
+vulkansc=[feature for feature in vk.findall("./feature") if feature.attrib.get("api","")=="vulkansc"]
+api_to_remove=[]
+for api in vulkansc:
+    result=set()
+    result.update(api.findall(".//type"))
+    result.update(api.findall(".//command"))
+    for remove in api.findall(".//remove"):
+        result.difference_update(remove.findall(".//type"))
+        result.difference_update(remove.findall(".//command"))
+    
+    result=[_.attrib["name"] for _ in result]
+    api_to_remove.extend(result)
+
+excluded_platforms=["android","vi","wayland","win32","directfb","fuchsia","ggp","qnx","nv","mvk","ios","metal"]
+for extension in vk.findall(".//extension"):
+    if not(any("_"+name+"_" in extension.attrib["name"].lower() for name in excluded_platforms) or extension.attrib.get("supported","")=="vulkansc" or (extension.attrib.get("platform","") in excluded_platforms)):
+        continue
+        
+    result=set()
+    result.update(extension.findall(".//type"))
+    result.update(extension.findall(".//command"))
+    
+    result=[_.attrib["name"] for _ in result]
+    api_to_remove.extend(result)
+    
+parsed_dict={}
+for dict_name in ["handles","primitive_types","structs","commands","funcpointers"]:
+    global_dict=globals()[dict_name]
+    
+    for key in api_to_remove:
+        if key in global_dict:
+            del global_dict[key]
+            
+    parsed_dict[dict_name]=global_dict
+    
+json.dump(parsed_dict,open("parsed.json","w+"),indent=4)
 #Save uint, int, float, etc to primitive types, along with all enums. Then, add that to an object and pickle it.
