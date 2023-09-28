@@ -21,10 +21,7 @@ for struct,members in parsed["structs"].items():
         write(f"""
         result["members"]["{member['name']}"]={serialize("name."+member['name'],member['type'],member['num_indirection'],member['length'])};
         """)
-    write("""
-    return result;
-    }};
-    """)
+    write("return result;}")
     
     write(f"""
     {struct} deserialize_{struct}(json name){{
@@ -34,12 +31,9 @@ for struct,members in parsed["structs"].items():
     for member in members:
         if not member["const"]:
             write(f"""
-        result.{member['name']}={deserialize("name["+member['name']+"]", member['type'], member['num_indirection'], member['length'])};
+        result.{member['name']}={deserialize('name["'+member['name']+'"]', member['type'], member['num_indirection'], member['length'])};
         """)
-    write("""
-    return result;
-    }};
-    """)
+    write("return result;}")
     
     write(f"""
         json serialize_{struct}({struct} name);
@@ -48,43 +42,41 @@ for struct,members in parsed["structs"].items():
 
 for type in parsed["primitive_types"]:
     if type in ["void","char"]:
-        write("""
+        write(f"""
             json serialize_{type}_p({type}* name){{
                 return result=json({{"value":(char *)name}}):
             }};
         """)
         
-    write("""
-        json serialize_{type}({type} name){{
-            return result=json({{"value":name}}):
-        }};
-    """)
-    
-    if type in ["void","char"]:
-        write("""
+        write(f"""
             {type}* deserialize_{type}_p(json name){{
                 return ({type}*) name["value"];
             }};
         """)
         
-    write("""
-        {type} deserialize_{type}(json name){{
-            return name["value"];
-        }};
-    """)
-    
-    if type in ["void","char"]:
         write(f"""
             json serialize_{type}_p({type}* name);
             {type}* deserialize_{type}_p(json name);
         """,header=True)
-
-    write(f"""
+    
+    if type not in ["void"]:
+        write(f"""
+            json serialize_{type}({type} name){{
+                return result=json({{"value":name}}):
+            }};
+        """)
+        
+        write(f"""
+            {type} deserialize_{type}(json name){{
+                return name["value"];
+            }};
+        """)
+        
+        write(f"""
         json serialize_{type}({type} name);
         {type} deserialize_{type}(json name);
     """,header=True)
 
-           
 for funcpointer,function in parsed["funcpointers"].items():
     
     if funcpointer=="PFN_vkVoidFunction": #Not used in any callbacks

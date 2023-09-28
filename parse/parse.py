@@ -80,7 +80,7 @@ for item in vk.findall("./types/type"):
         result={}
         
         result["header"]=ET.tostring(item, encoding='utf8', method='text').decode()
-        result["type"]=result["header"].split()[0] #Get return type
+        result["type"]=result["header"].split()[1] #Get return type
         result["num_indirection"]=result["type"].count("*")
         result["type"]=result["type"].replace("*","")
         
@@ -157,41 +157,47 @@ for item in vk.findall("./commands/command"):
     if name in aliases:
         commands[aliases[name]]=command
         del aliases[name]
-
-vulkansc=[feature for feature in vk.findall("./feature") if feature.attrib.get("api","")=="vulkansc"]
-api_to_remove=[]
-for api in vulkansc:
-    result=set()
-    result.update(api.findall(".//type"))
-    result.update(api.findall(".//command"))
-    for remove in api.findall(".//remove"):
-        result.difference_update(remove.findall(".//type"))
-        result.difference_update(remove.findall(".//command"))
+"""
+Instead do this:
+Compile header (in environment variable VULKAN_H. For each dictionary, search compiled header for string for keys. Only the keys that are found are allowed to stay in the dict. https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/
+"""
+from ahocorapy.keywordtree import KeywordTree
+import os, string
+header=open("vulkan_header.h","r").read()
+word_boundary=(string.punctuation+string.whitespace).replace("_","")
+def are_features_implemented(features):
+    result={}
+    for feature in features:
+        result[feature]=False
     
-    result=[_.attrib["name"] for _ in result]
-    api_to_remove.extend(result)
-
-excluded_platforms=["android","vi","wayland","win32","directfb","fuchsia","ggp","qnx","nv","mvk","ios","metal"]
-for extension in vk.findall(".//extension"):
-    if not(any("_"+name+"_" in extension.attrib["name"].lower() for name in excluded_platforms) or extension.attrib.get("supported","")=="vulkansc" or (extension.attrib.get("platform","") in excluded_platforms)):
-        continue
+    unimplemented_count=len(features)
+    
+    kwtree = KeywordTree(case_insensitive=False)
+    for feature in result:
+        kwtree.add(feature)
+    kwtree.finalize()
+    
+    for match in kwtree.search_all(header):
+        if not((header[match[1]-1] in word_boundary) and (header[match[1]+len(match[0])+1] in word_boundary)): #Not an actual match
+            continue
+        if result[match[0]]: #Already marked as implemented
+            continue
         
-    result=set()
-    result.update(extension.findall(".//type"))
-    result.update(extension.findall(".//command"))
-    
-    result=[_.attrib["name"] for _ in result]
-    api_to_remove.extend(result)
-    
+        result[match[0]]=True
+        unimplemented_count-=1
+        
+        if unimplemented_count==0: #All are implemented, so no need to continue
+            break
+    return result
+            
 parsed_dict={}
 for dict_name in ["handles","primitive_types","structs","commands","funcpointers"]:
     global_dict=globals()[dict_name]
-    
-    for key in api_to_remove:
-        if key in global_dict:
-            del global_dict[key]
+    for feature,is_implemented in are_features_implemented(global_dict.keys()).items():
+        if not is_implemented:
+            #print(feature)
+            del global_dict[feature]
             
     parsed_dict[dict_name]=global_dict
     
 json.dump(parsed_dict,open("parsed.json","w+"),indent=4)
-#Save uint, int, float, etc to primitive types, along with all enums. Then, add that to an object and pickle it.

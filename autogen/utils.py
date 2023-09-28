@@ -13,15 +13,18 @@ import json
 parsed=json.load(open("../parse/parsed.json"))
 
 def serialize(name,type,num_indirection,length):
-    result=f"""[&](){{
-    json result=json({{}});
-    
-    if ({name}==NULL){{
-        result["null"]=true;
-    }}else{{
+    result="""[&]() {
+    json result=json({});
     """
+    if num_indirection>0:
+        result+=f"""
+        if ({name}==NULL){{
+            result["null"]=true;
+            return result;
+        }}
+        """
     if (type in ["char", "void"] and num_indirection==1):
-        result+="return serialize_{type}_p({name});\n"
+        result+=f"return serialize_{type}_p({name});\n"
     
     elif (len(length)>0 and (length[-1]!="")):
         result+=f"""
@@ -29,35 +32,39 @@ def serialize(name,type,num_indirection,length):
         for(int i=0; i < {length[-1]}; i++){{
             result["members"][std::to_string(i)].push_back({serialize(name+"[i]",type,num_indirection-1,length[:-1])});
         }}
+        return result;
         """
     elif num_indirection>0:
         result+=f"""result={serialize("*"+name,type,num_indirection-1,length)};\n"""
     else:
         result+=(f"""
         #ifdef CLIENT
-        return serialize_{type}(name);
+        return serialize_{type}({name});
         #endif
         """ 
         if type in parsed["funcpointers"]
         else
-        f"return serialize_{type}(name);"
+        f"return serialize_{type}({name});"
         )
     
-    result+="\n}}()"
+    result+="}()"
     return result
 
 def deserialize(name,type,num_indirection,length):
-    result=f"""auto [&](){{
-    if ({name}.contains("null")){{
+    result=f"[&]() -> {type}{'*'*num_indirection} {{\n"
+    
+    if num_indirection>0:
+        result+=f"""
+        if ({name}.contains("null")){{
         return NULL;
-    }}else{{
+        }}
     """
     if (type in ["char", "void"] and num_indirection==1):
         result+="return serialize_{type}_p({name});\n"
         
     elif (len(length)>0 and (length[-1]!="")):
         if num_indirection==0:
-            result+=f"auto members={type}[{length[-1]}];"
+            result+=f"{type} members[{length[-1]}];"
         else:
             result+=f"""auto members=malloc({length[-1]}*{type+"*"*(num_indirection-1)});"""
         result+=f"""
@@ -68,21 +75,22 @@ def deserialize(name,type,num_indirection,length):
         """
     elif num_indirection>0:
         result+=f"""
-         auto pointer={deserialize(name,type,num_indirection-1,length)};
-        return &pointer;
+         auto pointer=({type}{'*'*num_indirection})malloc(sizeof({type}{'*'*(num_indirection-1)}));
+         *pointer={deserialize(name,type,num_indirection-1,length)};
+         return pointer;
         """
     else:
         result+=(f"""
         #ifndef CLIENT
-        return deserialize_{type}(name);
+        return deserialize_{type}({name});
         #endif
         """ 
         if type in parsed["funcpointers"]
         else
-        f"return deserialize_{type}(name);"
+        f"return deserialize_{type}({name});"
         )
     
-    result+="\n}}()"
+    result+="\n}()"
     
     return result
     
