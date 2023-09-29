@@ -18,9 +18,11 @@ for struct,members in parsed["structs"].items():
     """)
     
     for member in members:
-        write(f"""
-        result["members"]["{member['name']}"]={serialize("name."+member['name'],member['type'],member['num_indirection'],member['length'])};
-        """)
+        member_copy=member.copy()
+       
+        member_copy["name"]="name."+member_copy["name"]
+        
+        write(serialize(f"""result["members"]["{member['name']}"]""",member_copy))
     write("return result;}")
     
     write(f"""
@@ -29,10 +31,11 @@ for struct,members in parsed["structs"].items():
     """)
     
     for member in members:
-        if not member["const"]:
-            write(f"""
-        result.{member['name']}={deserialize('name["'+member['name']+'"]', member['type'], member['num_indirection'], member['length'])};
-        """)
+        member_copy=member.copy()
+        member_copy["name"]='name["'+member['name']+'"]'
+        
+        write(deserialize("result."+member["name"],member_copy))
+        
     write("return result;}")
     
     write(f"""
@@ -43,7 +46,7 @@ for struct,members in parsed["structs"].items():
 for type in parsed["primitive_types"]:
     if type in ["void","char"]:
         write(f"""
-            json serialize_{type}_p({type}* name){{
+            json serialize_{type}_p(const {type}* name){{
                 return result=json({{"value":(char *)name}}):
             }};
         """)
@@ -55,7 +58,7 @@ for type in parsed["primitive_types"]:
         """)
         
         write(f"""
-            json serialize_{type}_p({type}* name);
+            json serialize_{type}_p(const {type}* name);
             {type}* deserialize_{type}_p(json name);
         """,header=True)
     
@@ -113,10 +116,7 @@ for funcpointer,function in parsed["funcpointers"].items():
     data["members"]=json({{}});
     """)
     for param in function["params"]:
-        write(f"""
-            data["members"]["{param["name"]}"]={serialize(param["name"],param["type"],param["num_indirection"],param["length"])};
-        """
-        )
+        write(serialize(f"""data["members"]["{param["name"]}"]""",param))
     
     write(f"""
     sendToConn(data);
@@ -162,12 +162,21 @@ for funcpointer,function in parsed["funcpointers"].items():
     
     #Just in case if they change when executing (none of the variables are const)
     for param in function["params"]:
-        write(f'auto {param["name"]}='+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
+        write(param["header"]+";") #Initialize variable
+        
+        param_copy=param.copy()
+        param_copy["name"]=f"""data["members"]["{param["name"]}"]"""
+        
+        write(deserialize(param["name"],param_copy))
     
-    write('result["result"]='+serialize(f"""funcpointer({",".join([param["name"] for param in function["params"]])})""",function["type"],function["num_indirection"],[]));
+    function_copy=function.copy()
+    function_copy["name"]=f"""funcpointer({",".join([param["name"] for param in function["params"]])})"""
+    function_copy["length"]=[];
+    
+    write(deserialize('result["result"]',function_copy))
 
     for param in function["params"]:
-        write(f'result["params"]["{param["name"]}"]='+serialize(param["name"],param["type"],param["num_indirection"],param["length"])+";")
+        write(deserialize(f"""result["params"]["{param["name"]}"]""",param))
     
     write("sendToConn(result);")
     
@@ -198,10 +207,21 @@ for funcpointer,function in parsed["funcpointers"].items():
     """)
     
     for param in function["params"]:
-        write(f'auto {param["name"]}='+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
+        write(param["header"]+";") #Initialize variable
+        
+        param_copy=param.copy()
+        param_copy["name"]=f"""data["members"]["{param["name"]}"]"""
+        
+        write(deserialize(param["name"],param_copy))
     
     if not(function["type"]=="void" and function["num_indirection"]==0):
-        write("auto result="+deserialize('result["result"]',function["type"],function["num_indirection"],[]))
+        write(function["type"]+("*"*function["num_indirection"])+" result;")
+        
+        function_copy=function.copy()
+        function_copy["name"]='result["result"]'
+        function_copy["length"]=[]
+        
+        write(deserialize("result",function_copy))
     
     if function["type"]=="void" and function["num_indirection"]==1:
         write(f"""

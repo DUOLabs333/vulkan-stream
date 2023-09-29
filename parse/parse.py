@@ -51,7 +51,7 @@ for item in vk.findall("./types/type"):
                 result["const"]=(member.tail or "").startswith("const")
                     
                 result["length"]=get_length(member)
-                
+
                 _type=member.find("type")
                 result["type"]=_type.text
                 result["num_indirection"]=_type.tail.count("*")
@@ -100,7 +100,7 @@ for item in vk.findall("./types/type"):
             
             member_dict["length"]=get_length(member)
             
-            member_dict["header"]=ET.tostring(member, encoding='utf8', method='text').decode()
+            member_dict["header"]=qualifiers+" "+ET.tostring(member, encoding='utf8', method='text').decode()
             
             members[i]=member_dict
         result["params"]=members
@@ -129,8 +129,8 @@ for item in vk.findall("./commands/command"):
         else:
             command["sync"]=False
     
-        command["return_type"]=item.find("proto/type").text
-        command["return_num_indirection"]=item.find("proto/type").tail.count("*")
+        command["type"]=item.find("proto/type").text
+        command["num_indirection"]=item.find("proto/type").tail.count("*")
         
         params=item.findall("param")
         

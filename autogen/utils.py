@@ -10,11 +10,21 @@ lines=[]
 header_lines=[]
 
 import json
+import copy
 parsed=json.load(open("../parse/parsed.json"))
 
-def serialize(name,type,num_indirection,length):
-    result="""[&]() {
-    json result=json({});
+def serialize(variable,value):
+    val=copy.deepcopy(value)
+    
+    name=val["name"]
+    num_indirection=val["num_indirection"]
+    length=val["length"].copy()
+    type=val['type']
+    if value.get("const",False):
+        return ""
+        
+    result=f"""{variable}=[&]() {{
+    json result=json({{}});
     """
     if num_indirection>0:
         result+=f"""
@@ -27,15 +37,24 @@ def serialize(name,type,num_indirection,length):
         result+=f"return serialize_{type}_p({name});\n"
     
     elif (len(length)>0 and (length[-1]!="")):
+        val["name"]+="[i]"
+        val["num_indirection"]-=1
+        val["length"].pop()
+        
         result+=f"""
         result["members"]={{}};
         for(int i=0; i < {length[-1]}; i++){{
-            result["members"][std::to_string(i)].push_back({serialize(name+"[i]",type,num_indirection-1,length[:-1])});
+            json temp;
+            {serialize('temp',val)}
+            result["members"][std::to_string(i)].push_back(temp);
         }}
         return result;
         """
     elif num_indirection>0:
-        result+=f"""result={serialize("*"+name,type,num_indirection-1,length)};\n"""
+        val["name"]="*"+name
+        val["num_indirection"]-=1
+       
+        result+=(serialize("result",val)+"\n")
     else:
         result+=(f"""
         #ifdef CLIENT
@@ -47,12 +66,24 @@ def serialize(name,type,num_indirection,length):
         f"return serialize_{type}({name});"
         )
     
-    result+="}()"
+    result+="}();"
     return result
 
-def deserialize(name,type,num_indirection,length):
-    result=f"[&]() -> {type}{'*'*num_indirection} {{\n"
+def deserialize(variable,value):
+    val=copy.deepcopy(value)
     
+    name=val["name"]
+    num_indirection=val["num_indirection"]
+    length=val["length"].copy()
+    type=val['type']
+    if value.get("const",False):
+        return ""
+
+    if num_indirection==0 and (len(length)>0 and length[-1]!=""): #Arrays can't be returned
+        result=f"[&]() {{\n"
+    else:
+        result=f"{variable}=[&]() -> {type}{'*'*num_indirection} {{\n"
+        
     if num_indirection>0:
         result+=f"""
         if ({name}.contains("null")){{
@@ -60,23 +91,30 @@ def deserialize(name,type,num_indirection,length):
         }}
     """
     if (type in ["char", "void"] and num_indirection==1):
-        result+="return serialize_{type}_p({name});\n"
+        result+=f"return deserialize_{type}_p({name});\n"
         
     elif (len(length)>0 and (length[-1]!="")):
-        if num_indirection==0:
-            result+=f"{type} members[{length[-1]}];"
+        if num_indirection==0: #Array
+            array=variable
         else:
             result+=f"""auto members=malloc({length[-1]}*{type+"*"*(num_indirection-1)});"""
+            array="members"
+        val["name"]+='["members"][i]'
+        val["num_indirection"]-=1
+        val["length"].pop()
         result+=f"""
         for (int i=0; i < {length[-1]}; i++){{
-            members[i]={deserialize(name+'["members"][i]',type,num_indirection-1,length[:-1])};
+            {deserialize(array+'[i]',val)};
         }}
-        return members;
         """
+        if num_indirection>0:
+            result+="return members;\n"
+        
     elif num_indirection>0:
+        val["num_indirection"]-=1
         result+=f"""
          auto pointer=({type}{'*'*num_indirection})malloc(sizeof({type}{'*'*(num_indirection-1)}));
-         *pointer={deserialize(name,type,num_indirection-1,length)};
+         {deserialize('*pointer',val)}
          return pointer;
         """
     else:
@@ -90,7 +128,7 @@ def deserialize(name,type,num_indirection,length):
         f"return deserialize_{type}({name});"
         )
     
-    result+="\n}()"
+    result+="}();"
     
     return result
     

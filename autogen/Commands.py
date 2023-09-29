@@ -65,21 +65,28 @@ for name, command in parsed["commands"].items():
     """)
     
     for param in command["params"]:
-        write(param["name"]+"="+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
+        
+        param_copy=param.copy()
+        param_copy["name"]=f"""data["members"]["{param["name"]}"]"""
+        
+        write(deserialize(param["name"],param_copy))
     
     if is_funcpointer(name):
         write(f"""auto return_value=({base_name(name)})id_to_PFN_vkVoidFunction(data["id"]){command["header"].split("(",1)[1]}""")
     else:
         write(f"""auto return_value={command['header']};""")
-        
-    write(f"""json result=json({{}});
+    
+    return_value=command.copy()
+    return_value["name"]="return_value"
+    return_value["length"]=[]
+    
+    write("""json result=json({});
         result["type"]="Response";
-        result["return"]={serialize('return_value',command['return_type'],command['return_num_indirection'],[])};
     """)
+    write(serialize('result["return"]',return_value))
     
     for param in command["params"]:
-        if not param["const"]:
-            write(f"""result["members"]["{param["name"]}"]"""+"="+serialize(param["name"],param["type"],param["num_indirection"],param["length"])+";")
+        write(serialize(f"""result["members"]["{param["name"]}"]""",param))
             
     if base_name(name)=="vkWaitForFences":
         write("""
@@ -119,8 +126,7 @@ for name, command in parsed["commands"].items():
         write(f"""data["type"]="command_{name}";""")
         
     for param in command["params"]:
-        if not param["const"]:
-            write(f"""data["members"]["{param["name"]}"]"""+"="+serialize(param["name"],param["type"],param["num_indirection"],param["length"])+";")
+        write(serialize(f"""data["members"]["{param["name"]}"]""",param))
     
     if base_name(name)=="vkQueueSubmit":
         write("""
@@ -162,8 +168,10 @@ for name, command in parsed["commands"].items():
     """)
     
     for param in command["params"]:
-        if not param["const"]:
-            write(param["name"]+"="+deserialize(f"""data["members"]["{param["name"]}"]""",param["type"],param["num_indirection"],param["length"])+";")
+        param_copy=param.copy()
+        param_copy["name"]=f"""data["members"]["{param["name"]}"]"""
+        
+        write(deserialize(param["name"],param_copy))
     
     if base_name(name) in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
         #Case switch for the different commands (iterator variable fumcpointer_command)
@@ -174,7 +182,7 @@ for name, command in parsed["commands"].items():
             
             write(f"""
             case "{base_name(funcpointer_name)}":
-                auto return_value= (data["return"]==NULL) ? NULL : ({command['return_type']}){funcpointer_name}(data["return"]);
+                auto return_value= (data["return"]==NULL) ? NULL : ({command['type']}){funcpointer_name}(data["return"]);
                 break;
             """)
         write("""
@@ -183,7 +191,11 @@ for name, command in parsed["commands"].items():
             }
         """)
     else:
-        write(f"""auto return_value={deserialize('data["return"]',command["return_type"], command["return_num_indirection"],[])};""")
+        return_value=command.copy()
+        return_value["name"]='data["return"]'
+        return_value["length"]=[]
+        
+        write(deserialize("return_value",return_value))
         
     if base_name(name)=="vkMapMemory":
         write("""
