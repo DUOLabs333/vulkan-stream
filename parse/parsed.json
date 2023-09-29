@@ -1,5 +1,11 @@
 {
     "handles": {
+        "Display": 1,
+        "VisualID": 1,
+        "Window": 1,
+        "xcb_connection_t": 1,
+        "xcb_visualid_t": 1,
+        "xcb_window_t": 1,
         "VkInstance": 1,
         "VkPhysicalDevice": 1,
         "VkDevice": 1,
@@ -49,11 +55,63 @@
         "VkDebugReportCallbackEXT": 1,
         "VkDebugUtilsMessengerEXT": 1,
         "VkVideoSessionKHR": 1,
-        "VkVideoSessionParametersKHR": 1
+        "VkVideoSessionParametersKHR": 1,
+        "StdVideoH264ProfileIdc": 1,
+        "StdVideoH264LevelIdc": 1,
+        "StdVideoH264ChromaFormatIdc": 1,
+        "StdVideoH264PocType": 1,
+        "StdVideoH264SpsFlags": 1,
+        "StdVideoH264ScalingLists": 1,
+        "StdVideoH264SequenceParameterSetVui": 1,
+        "StdVideoH264AspectRatioIdc": 1,
+        "StdVideoH264HrdParameters": 1,
+        "StdVideoH264SpsVuiFlags": 1,
+        "StdVideoH264WeightedBipredIdc": 1,
+        "StdVideoH264PpsFlags": 1,
+        "StdVideoH264SliceType": 1,
+        "StdVideoH264CabacInitIdc": 1,
+        "StdVideoH264DisableDeblockingFilterIdc": 1,
+        "StdVideoH264PictureType": 1,
+        "StdVideoH264ModificationOfPicNumsIdc": 1,
+        "StdVideoH264MemMgmtControlOp": 1,
+        "StdVideoDecodeH264PictureInfo": 1,
+        "StdVideoDecodeH264ReferenceInfo": 1,
+        "StdVideoDecodeH264PictureInfoFlags": 1,
+        "StdVideoDecodeH264ReferenceInfoFlags": 1,
+        "StdVideoH264SequenceParameterSet": 1,
+        "StdVideoH264PictureParameterSet": 1,
+        "StdVideoH265ProfileIdc": 1,
+        "StdVideoH265VideoParameterSet": 1,
+        "StdVideoH265SequenceParameterSet": 1,
+        "StdVideoH265PictureParameterSet": 1,
+        "StdVideoH265DecPicBufMgr": 1,
+        "StdVideoH265HrdParameters": 1,
+        "StdVideoH265VpsFlags": 1,
+        "StdVideoH265LevelIdc": 1,
+        "StdVideoH265SpsFlags": 1,
+        "StdVideoH265ScalingLists": 1,
+        "StdVideoH265SequenceParameterSetVui": 1,
+        "StdVideoH265PredictorPaletteEntries": 1,
+        "StdVideoH265PpsFlags": 1,
+        "StdVideoH265SubLayerHrdParameters": 1,
+        "StdVideoH265HrdFlags": 1,
+        "StdVideoH265SpsVuiFlags": 1,
+        "StdVideoH265SliceType": 1,
+        "StdVideoH265PictureType": 1,
+        "StdVideoDecodeH265PictureInfo": 1,
+        "StdVideoDecodeH265ReferenceInfo": 1,
+        "StdVideoDecodeH265PictureInfoFlags": 1,
+        "StdVideoDecodeH265ReferenceInfoFlags": 1
     },
     "primitive_types": {
         "int": 1,
         "void": 1,
+        "VkSampleMask": 1,
+        "VkBool32": 1,
+        "VkFlags": 1,
+        "VkFlags64": 1,
+        "VkDeviceSize": 1,
+        "VkDeviceAddress": 1,
         "char": 1,
         "float": 1,
         "double": 1,
@@ -66,6 +124,189 @@
         "int32_t": 1,
         "int64_t": 1,
         "size_t": 1,
+        "VkFramebufferCreateFlags": 1,
+        "VkQueryPoolCreateFlags": 1,
+        "VkRenderPassCreateFlags": 1,
+        "VkSamplerCreateFlags": 1,
+        "VkPipelineLayoutCreateFlags": 1,
+        "VkPipelineCacheCreateFlags": 1,
+        "VkPipelineDepthStencilStateCreateFlags": 1,
+        "VkPipelineDynamicStateCreateFlags": 1,
+        "VkPipelineColorBlendStateCreateFlags": 1,
+        "VkPipelineMultisampleStateCreateFlags": 1,
+        "VkPipelineRasterizationStateCreateFlags": 1,
+        "VkPipelineViewportStateCreateFlags": 1,
+        "VkPipelineTessellationStateCreateFlags": 1,
+        "VkPipelineInputAssemblyStateCreateFlags": 1,
+        "VkPipelineVertexInputStateCreateFlags": 1,
+        "VkPipelineShaderStageCreateFlags": 1,
+        "VkDescriptorSetLayoutCreateFlags": 1,
+        "VkBufferViewCreateFlags": 1,
+        "VkInstanceCreateFlags": 1,
+        "VkDeviceCreateFlags": 1,
+        "VkDeviceQueueCreateFlags": 1,
+        "VkQueueFlags": 1,
+        "VkMemoryPropertyFlags": 1,
+        "VkMemoryHeapFlags": 1,
+        "VkAccessFlags": 1,
+        "VkBufferUsageFlags": 1,
+        "VkBufferCreateFlags": 1,
+        "VkShaderStageFlags": 1,
+        "VkImageUsageFlags": 1,
+        "VkImageCreateFlags": 1,
+        "VkImageViewCreateFlags": 1,
+        "VkPipelineCreateFlags": 1,
+        "VkColorComponentFlags": 1,
+        "VkFenceCreateFlags": 1,
+        "VkSemaphoreCreateFlags": 1,
+        "VkFormatFeatureFlags": 1,
+        "VkQueryControlFlags": 1,
+        "VkQueryResultFlags": 1,
+        "VkShaderModuleCreateFlags": 1,
+        "VkEventCreateFlags": 1,
+        "VkCommandPoolCreateFlags": 1,
+        "VkCommandPoolResetFlags": 1,
+        "VkCommandBufferResetFlags": 1,
+        "VkCommandBufferUsageFlags": 1,
+        "VkQueryPipelineStatisticFlags": 1,
+        "VkMemoryMapFlags": 1,
+        "VkMemoryUnmapFlagsKHR": 1,
+        "VkImageAspectFlags": 1,
+        "VkSparseMemoryBindFlags": 1,
+        "VkSparseImageFormatFlags": 1,
+        "VkSubpassDescriptionFlags": 1,
+        "VkPipelineStageFlags": 1,
+        "VkSampleCountFlags": 1,
+        "VkAttachmentDescriptionFlags": 1,
+        "VkStencilFaceFlags": 1,
+        "VkCullModeFlags": 1,
+        "VkDescriptorPoolCreateFlags": 1,
+        "VkDescriptorPoolResetFlags": 1,
+        "VkDependencyFlags": 1,
+        "VkSubgroupFeatureFlags": 1,
+        "VkIndirectCommandsLayoutUsageFlagsNV": 1,
+        "VkIndirectStateFlagsNV": 1,
+        "VkGeometryFlagsKHR": 1,
+        "VkGeometryFlagsNV": 1,
+        "VkGeometryInstanceFlagsKHR": 1,
+        "VkGeometryInstanceFlagsNV": 1,
+        "VkBuildAccelerationStructureFlagsKHR": 1,
+        "VkBuildAccelerationStructureFlagsNV": 1,
+        "VkPrivateDataSlotCreateFlags": 1,
+        "VkPrivateDataSlotCreateFlagsEXT": 1,
+        "VkAccelerationStructureCreateFlagsKHR": 1,
+        "VkDescriptorUpdateTemplateCreateFlags": 1,
+        "VkDescriptorUpdateTemplateCreateFlagsKHR": 1,
+        "VkPipelineCreationFeedbackFlags": 1,
+        "VkPipelineCreationFeedbackFlagsEXT": 1,
+        "VkPerformanceCounterDescriptionFlagsKHR": 1,
+        "VkAcquireProfilingLockFlagsKHR": 1,
+        "VkSemaphoreWaitFlags": 1,
+        "VkSemaphoreWaitFlagsKHR": 1,
+        "VkPipelineCompilerControlFlagsAMD": 1,
+        "VkShaderCorePropertiesFlagsAMD": 1,
+        "VkDeviceDiagnosticsConfigFlagsNV": 1,
+        "VkAccessFlags2": 1,
+        "VkAccessFlags2KHR": 1,
+        "VkPipelineStageFlags2": 1,
+        "VkPipelineStageFlags2KHR": 1,
+        "VkAccelerationStructureMotionInfoFlagsNV": 1,
+        "VkAccelerationStructureMotionInstanceFlagsNV": 1,
+        "VkFormatFeatureFlags2": 1,
+        "VkFormatFeatureFlags2KHR": 1,
+        "VkRenderingFlags": 1,
+        "VkMemoryDecompressionMethodFlagsNV": 1,
+        "VkRenderingFlagsKHR": 1,
+        "VkBuildMicromapFlagsEXT": 1,
+        "VkMicromapCreateFlagsEXT": 1,
+        "VkDirectDriverLoadingFlagsLUNARG": 1,
+        "VkPipelineCreateFlags2KHR": 1,
+        "VkBufferUsageFlags2KHR": 1,
+        "VkCompositeAlphaFlagsKHR": 1,
+        "VkDisplayPlaneAlphaFlagsKHR": 1,
+        "VkSurfaceTransformFlagsKHR": 1,
+        "VkSwapchainCreateFlagsKHR": 1,
+        "VkDisplayModeCreateFlagsKHR": 1,
+        "VkDisplaySurfaceCreateFlagsKHR": 1,
+        "VkXlibSurfaceCreateFlagsKHR": 1,
+        "VkXcbSurfaceCreateFlagsKHR": 1,
+        "VkHeadlessSurfaceCreateFlagsEXT": 1,
+        "VkPeerMemoryFeatureFlags": 1,
+        "VkPeerMemoryFeatureFlagsKHR": 1,
+        "VkMemoryAllocateFlags": 1,
+        "VkMemoryAllocateFlagsKHR": 1,
+        "VkDeviceGroupPresentModeFlagsKHR": 1,
+        "VkDebugReportFlagsEXT": 1,
+        "VkCommandPoolTrimFlags": 1,
+        "VkCommandPoolTrimFlagsKHR": 1,
+        "VkExternalMemoryHandleTypeFlagsNV": 1,
+        "VkExternalMemoryFeatureFlagsNV": 1,
+        "VkExternalMemoryHandleTypeFlags": 1,
+        "VkExternalMemoryHandleTypeFlagsKHR": 1,
+        "VkExternalMemoryFeatureFlags": 1,
+        "VkExternalMemoryFeatureFlagsKHR": 1,
+        "VkExternalSemaphoreHandleTypeFlags": 1,
+        "VkExternalSemaphoreHandleTypeFlagsKHR": 1,
+        "VkExternalSemaphoreFeatureFlags": 1,
+        "VkExternalSemaphoreFeatureFlagsKHR": 1,
+        "VkSemaphoreImportFlags": 1,
+        "VkSemaphoreImportFlagsKHR": 1,
+        "VkExternalFenceHandleTypeFlags": 1,
+        "VkExternalFenceHandleTypeFlagsKHR": 1,
+        "VkExternalFenceFeatureFlags": 1,
+        "VkExternalFenceFeatureFlagsKHR": 1,
+        "VkFenceImportFlags": 1,
+        "VkFenceImportFlagsKHR": 1,
+        "VkSurfaceCounterFlagsEXT": 1,
+        "VkPipelineViewportSwizzleStateCreateFlagsNV": 1,
+        "VkPipelineDiscardRectangleStateCreateFlagsEXT": 1,
+        "VkPipelineCoverageToColorStateCreateFlagsNV": 1,
+        "VkPipelineCoverageModulationStateCreateFlagsNV": 1,
+        "VkPipelineCoverageReductionStateCreateFlagsNV": 1,
+        "VkValidationCacheCreateFlagsEXT": 1,
+        "VkDebugUtilsMessageSeverityFlagsEXT": 1,
+        "VkDebugUtilsMessageTypeFlagsEXT": 1,
+        "VkDebugUtilsMessengerCreateFlagsEXT": 1,
+        "VkDebugUtilsMessengerCallbackDataFlagsEXT": 1,
+        "VkDeviceMemoryReportFlagsEXT": 1,
+        "VkPipelineRasterizationConservativeStateCreateFlagsEXT": 1,
+        "VkDescriptorBindingFlags": 1,
+        "VkDescriptorBindingFlagsEXT": 1,
+        "VkConditionalRenderingFlagsEXT": 1,
+        "VkResolveModeFlags": 1,
+        "VkResolveModeFlagsKHR": 1,
+        "VkPipelineRasterizationStateStreamCreateFlagsEXT": 1,
+        "VkPipelineRasterizationDepthClipStateCreateFlagsEXT": 1,
+        "VkToolPurposeFlags": 1,
+        "VkToolPurposeFlagsEXT": 1,
+        "VkSubmitFlags": 1,
+        "VkSubmitFlagsKHR": 1,
+        "VkHostImageCopyFlagsEXT": 1,
+        "VkGraphicsPipelineLibraryFlagsEXT": 1,
+        "VkImageCompressionFlagsEXT": 1,
+        "VkImageCompressionFixedRateFlagsEXT": 1,
+        "VkDeviceAddressBindingFlagsEXT": 1,
+        "VkOpticalFlowGridSizeFlagsNV": 1,
+        "VkOpticalFlowUsageFlagsNV": 1,
+        "VkOpticalFlowSessionCreateFlagsNV": 1,
+        "VkOpticalFlowExecuteFlagsNV": 1,
+        "VkFrameBoundaryFlagsEXT": 1,
+        "VkPresentScalingFlagsEXT": 1,
+        "VkPresentGravityFlagsEXT": 1,
+        "VkShaderCreateFlagsEXT": 1,
+        "VkVideoCodecOperationFlagsKHR": 1,
+        "VkVideoCapabilityFlagsKHR": 1,
+        "VkVideoSessionCreateFlagsKHR": 1,
+        "VkVideoSessionParametersCreateFlagsKHR": 1,
+        "VkVideoBeginCodingFlagsKHR": 1,
+        "VkVideoEndCodingFlagsKHR": 1,
+        "VkVideoCodingControlFlagsKHR": 1,
+        "VkVideoDecodeUsageFlagsKHR": 1,
+        "VkVideoDecodeCapabilityFlagsKHR": 1,
+        "VkVideoDecodeFlagsKHR": 1,
+        "VkVideoDecodeH264PictureLayoutFlagsKHR": 1,
+        "VkVideoChromaSubsamplingFlagsKHR": 1,
+        "VkVideoComponentBitDepthFlagsKHR": 1,
         "VkAttachmentLoadOp": 1,
         "VkAttachmentStoreOp": 1,
         "VkBlendFactor": 1,
@@ -339,7 +580,8 @@
         "VkVideoDecodeUsageFlagBitsKHR": 1,
         "VkVideoDecodeCapabilityFlagBitsKHR": 1,
         "VkVideoDecodeH264PictureLayoutFlagBitsKHR": 1,
-        "VkAccelerationStructureMotionInstanceTypeNV": 1
+        "VkAccelerationStructureMotionInstanceTypeNV": 1,
+        "VkRemoteAddressNV": 1
     },
     "structs": {
         "VkBaseOutStructure": [
@@ -2869,7 +3111,7 @@
                 "name": "srcOffsets",
                 "const": false,
                 "length": [
-                    ""
+                    "2"
                 ],
                 "type": "VkOffset3D",
                 "num_indirection": 0
@@ -2887,7 +3129,7 @@
                 "name": "dstOffsets",
                 "const": false,
                 "length": [
-                    ""
+                    "2"
                 ],
                 "type": "VkOffset3D",
                 "num_indirection": 0
@@ -4253,7 +4495,7 @@
                 "name": "blendConstants",
                 "const": false,
                 "length": [
-                    ""
+                    "4"
                 ],
                 "type": "float",
                 "num_indirection": 0
@@ -5286,6 +5528,35 @@
                 "num_indirection": 1
             }
         ],
+        "VkClearColorValue": [
+            {
+                "name": "float32",
+                "const": false,
+                "length": [
+                    "4"
+                ],
+                "type": "float",
+                "num_indirection": 0
+            },
+            {
+                "name": "int32",
+                "const": false,
+                "length": [
+                    "4"
+                ],
+                "type": "int32_t",
+                "num_indirection": 0
+            },
+            {
+                "name": "uint32",
+                "const": false,
+                "length": [
+                    "4"
+                ],
+                "type": "uint32_t",
+                "num_indirection": 0
+            }
+        ],
         "VkClearDepthStencilValue": [
             {
                 "name": "depth",
@@ -5303,6 +5574,26 @@
                     ""
                 ],
                 "type": "uint32_t",
+                "num_indirection": 0
+            }
+        ],
+        "VkClearValue": [
+            {
+                "name": "color",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkClearColorValue",
+                "num_indirection": 0
+            },
+            {
+                "name": "depthStencil",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkClearDepthStencilValue",
                 "num_indirection": 0
             }
         ],
@@ -6753,7 +7044,7 @@
                 "name": "maxComputeWorkGroupCount",
                 "const": false,
                 "length": [
-                    ""
+                    "3"
                 ],
                 "type": "uint32_t",
                 "num_indirection": 0
@@ -6771,7 +7062,7 @@
                 "name": "maxComputeWorkGroupSize",
                 "const": false,
                 "length": [
-                    ""
+                    "3"
                 ],
                 "type": "uint32_t",
                 "num_indirection": 0
@@ -6852,7 +7143,7 @@
                 "name": "maxViewportDimensions",
                 "const": false,
                 "length": [
-                    ""
+                    "2"
                 ],
                 "type": "uint32_t",
                 "num_indirection": 0
@@ -6861,7 +7152,7 @@
                 "name": "viewportBoundsRange",
                 "const": false,
                 "length": [
-                    ""
+                    "2"
                 ],
                 "type": "float",
                 "num_indirection": 0
@@ -7158,7 +7449,7 @@
                 "name": "pointSizeRange",
                 "const": false,
                 "length": [
-                    ""
+                    "2"
                 ],
                 "type": "float",
                 "num_indirection": 0
@@ -7167,7 +7458,7 @@
                 "name": "lineWidthRange",
                 "const": false,
                 "length": [
-                    ""
+                    "2"
                 ],
                 "type": "float",
                 "num_indirection": 0
@@ -8802,7 +9093,7 @@
                 "name": "color",
                 "const": false,
                 "length": [
-                    ""
+                    "4"
                 ],
                 "type": "float",
                 "num_indirection": 0
@@ -17727,7 +18018,7 @@
                 "name": "sampleLocationCoordinateRange",
                 "const": false,
                 "length": [
-                    ""
+                    "2"
                 ],
                 "type": "float",
                 "num_indirection": 0
@@ -19674,7 +19965,7 @@
                 "name": "computeWorkGroupSize",
                 "const": false,
                 "length": [
-                    ""
+                    "3"
                 ],
                 "type": "uint32_t",
                 "num_indirection": 0
@@ -20016,7 +20307,7 @@
                 "name": "color",
                 "const": false,
                 "length": [
-                    ""
+                    "4"
                 ],
                 "type": "float",
                 "num_indirection": 0
@@ -25421,7 +25712,7 @@
                 "name": "maxTaskWorkGroupSize",
                 "const": false,
                 "length": [
-                    ""
+                    "3"
                 ],
                 "type": "uint32_t",
                 "num_indirection": 0
@@ -25457,7 +25748,7 @@
                 "name": "maxMeshWorkGroupSize",
                 "const": false,
                 "length": [
-                    ""
+                    "3"
                 ],
                 "type": "uint32_t",
                 "num_indirection": 0
@@ -25634,7 +25925,7 @@
                 "name": "maxTaskWorkGroupCount",
                 "const": false,
                 "length": [
-                    ""
+                    "3"
                 ],
                 "type": "uint32_t",
                 "num_indirection": 0
@@ -25652,7 +25943,7 @@
                 "name": "maxTaskWorkGroupSize",
                 "const": false,
                 "length": [
-                    ""
+                    "3"
                 ],
                 "type": "uint32_t",
                 "num_indirection": 0
@@ -25697,7 +25988,7 @@
                 "name": "maxMeshWorkGroupCount",
                 "const": false,
                 "length": [
-                    ""
+                    "3"
                 ],
                 "type": "uint32_t",
                 "num_indirection": 0
@@ -25715,7 +26006,7 @@
                 "name": "maxMeshWorkGroupSize",
                 "const": false,
                 "length": [
-                    ""
+                    "3"
                 ],
                 "type": "uint32_t",
                 "num_indirection": 0
@@ -30002,6 +30293,62 @@
                 "num_indirection": 1
             }
         ],
+        "VkPerformanceCounterResultKHR": [
+            {
+                "name": "int32",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "int32_t",
+                "num_indirection": 0
+            },
+            {
+                "name": "int64",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "int64_t",
+                "num_indirection": 0
+            },
+            {
+                "name": "uint32",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "uint32_t",
+                "num_indirection": 0
+            },
+            {
+                "name": "uint64",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "uint64_t",
+                "num_indirection": 0
+            },
+            {
+                "name": "float32",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "float",
+                "num_indirection": 0
+            },
+            {
+                "name": "float64",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "double",
+                "num_indirection": 0
+            }
+        ],
         "VkAcquireProfilingLockInfoKHR": [
             {
                 "name": "sType",
@@ -30248,6 +30595,53 @@
                 ],
                 "type": "VkBool32",
                 "num_indirection": 0
+            }
+        ],
+        "VkPerformanceValueDataINTEL": [
+            {
+                "name": "value32",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "uint32_t",
+                "num_indirection": 0
+            },
+            {
+                "name": "value64",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "uint64_t",
+                "num_indirection": 0
+            },
+            {
+                "name": "valueFloat",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "float",
+                "num_indirection": 0
+            },
+            {
+                "name": "valueBool",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkBool32",
+                "num_indirection": 0
+            },
+            {
+                "name": "valueString",
+                "const": false,
+                "length": [
+                    "null-terminated"
+                ],
+                "type": "char",
+                "num_indirection": 1
             }
         ],
         "VkPerformanceValueINTEL": [
@@ -31083,6 +31477,44 @@
                 "num_indirection": 0
             }
         ],
+        "VkPipelineExecutableStatisticValueKHR": [
+            {
+                "name": "b32",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkBool32",
+                "num_indirection": 0
+            },
+            {
+                "name": "i64",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "int64_t",
+                "num_indirection": 0
+            },
+            {
+                "name": "u64",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "uint64_t",
+                "num_indirection": 0
+            },
+            {
+                "name": "f64",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "double",
+                "num_indirection": 0
+            }
+        ],
         "VkPipelineExecutableStatisticKHR": [
             {
                 "name": "sType",
@@ -31768,7 +32200,7 @@
                 "name": "maxWorkGroupCount",
                 "const": false,
                 "length": [
-                    ""
+                    "3"
                 ],
                 "type": "uint32_t",
                 "num_indirection": 0
@@ -31777,7 +32209,7 @@
                 "name": "maxWorkGroupSize",
                 "const": false,
                 "length": [
-                    ""
+                    "3"
                 ],
                 "type": "uint32_t",
                 "num_indirection": 0
@@ -34297,6 +34729,46 @@
                 "num_indirection": 0
             }
         ],
+        "VkDeviceOrHostAddressKHR": [
+            {
+                "name": "deviceAddress",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkDeviceAddress",
+                "num_indirection": 0
+            },
+            {
+                "name": "hostAddress",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "void",
+                "num_indirection": 1
+            }
+        ],
+        "VkDeviceOrHostAddressConstKHR": [
+            {
+                "name": "deviceAddress",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkDeviceAddress",
+                "num_indirection": 0
+            },
+            {
+                "name": "hostAddress",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "void",
+                "num_indirection": 1
+            }
+        ],
         "VkAccelerationStructureGeometryTrianglesDataKHR": [
             {
                 "name": "sType",
@@ -34453,6 +34925,35 @@
                     ""
                 ],
                 "type": "VkDeviceOrHostAddressConstKHR",
+                "num_indirection": 0
+            }
+        ],
+        "VkAccelerationStructureGeometryDataKHR": [
+            {
+                "name": "triangles",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkAccelerationStructureGeometryTrianglesDataKHR",
+                "num_indirection": 0
+            },
+            {
+                "name": "aabbs",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkAccelerationStructureGeometryAabbsDataKHR",
+                "num_indirection": 0
+            },
+            {
+                "name": "instances",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkAccelerationStructureGeometryInstancesDataKHR",
                 "num_indirection": 0
             }
         ],
@@ -36546,7 +37047,7 @@
                 "name": "srcOffsets",
                 "const": false,
                 "length": [
-                    ""
+                    "2"
                 ],
                 "type": "VkOffset3D",
                 "num_indirection": 0
@@ -36564,7 +37065,7 @@
                 "name": "dstOffsets",
                 "const": false,
                 "length": [
-                    ""
+                    "2"
                 ],
                 "type": "VkOffset3D",
                 "num_indirection": 0
@@ -36602,7 +37103,7 @@
                 "name": "srcOffsets",
                 "const": false,
                 "length": [
-                    ""
+                    "2"
                 ],
                 "type": "VkOffset3D",
                 "num_indirection": 0
@@ -36620,7 +37121,7 @@
                 "name": "dstOffsets",
                 "const": false,
                 "length": [
-                    ""
+                    "2"
                 ],
                 "type": "VkOffset3D",
                 "num_indirection": 0
@@ -37846,7 +38347,7 @@
                 "name": "combinerOps",
                 "const": false,
                 "length": [
-                    ""
+                    "2"
                 ],
                 "type": "VkFragmentShadingRateCombinerOpKHR",
                 "num_indirection": 0
@@ -38285,7 +38786,7 @@
                 "name": "combinerOps",
                 "const": false,
                 "length": [
-                    ""
+                    "2"
                 ],
                 "type": "VkFragmentShadingRateCombinerOpKHR",
                 "num_indirection": 0
@@ -43313,6 +43814,98 @@
                 "num_indirection": 0
             }
         ],
+        "VkDescriptorDataEXT": [
+            {
+                "name": "pSampler",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkSampler",
+                "num_indirection": 1
+            },
+            {
+                "name": "pCombinedImageSampler",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkDescriptorImageInfo",
+                "num_indirection": 1
+            },
+            {
+                "name": "pInputAttachmentImage",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkDescriptorImageInfo",
+                "num_indirection": 1
+            },
+            {
+                "name": "pSampledImage",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkDescriptorImageInfo",
+                "num_indirection": 1
+            },
+            {
+                "name": "pStorageImage",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkDescriptorImageInfo",
+                "num_indirection": 1
+            },
+            {
+                "name": "pUniformTexelBuffer",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkDescriptorAddressInfoEXT",
+                "num_indirection": 1
+            },
+            {
+                "name": "pStorageTexelBuffer",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkDescriptorAddressInfoEXT",
+                "num_indirection": 1
+            },
+            {
+                "name": "pUniformBuffer",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkDescriptorAddressInfoEXT",
+                "num_indirection": 1
+            },
+            {
+                "name": "pStorageBuffer",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkDescriptorAddressInfoEXT",
+                "num_indirection": 1
+            },
+            {
+                "name": "accelerationStructure",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkDeviceAddress",
+                "num_indirection": 0
+            }
+        ],
         "VkDescriptorGetInfoEXT": [
             {
                 "name": "sType",
@@ -44711,6 +45304,35 @@
                     ""
                 ],
                 "type": "uint64_t",
+                "num_indirection": 0
+            }
+        ],
+        "VkAccelerationStructureMotionInstanceDataNV": [
+            {
+                "name": "staticInstance",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkAccelerationStructureInstanceKHR",
+                "num_indirection": 0
+            },
+            {
+                "name": "matrixMotionInstance",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkAccelerationStructureMatrixMotionInstanceNV",
+                "num_indirection": 0
+            },
+            {
+                "name": "srtMotionInstance",
+                "const": false,
+                "length": [
+                    ""
+                ],
+                "type": "VkAccelerationStructureSRTMotionInstanceNV",
                 "num_indirection": 0
             }
         ],
@@ -55023,7 +55645,7 @@
                     "const": true,
                     "num_indirection": 0,
                     "length": [
-                        ""
+                        "4"
                     ],
                     "type": "float",
                     "name": "blendConstants"
@@ -70788,7 +71410,7 @@
                     "const": true,
                     "num_indirection": 0,
                     "length": [
-                        ""
+                        "2"
                     ],
                     "type": "VkFragmentShadingRateCombinerOpKHR",
                     "name": "combinerOps"
@@ -70858,7 +71480,7 @@
                     "const": true,
                     "num_indirection": 0,
                     "length": [
-                        ""
+                        "2"
                     ],
                     "type": "VkFragmentShadingRateCombinerOpKHR",
                     "name": "combinerOps"

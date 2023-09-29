@@ -1,4 +1,5 @@
 from utils import *
+import copy, re
 
 write("#include <vulkan/vulkan.h>",header=True)
 write(f"""
@@ -17,11 +18,18 @@ for struct,members in parsed["structs"].items():
         result["members"]=json({{}});
     """)
     
+    members_names=[member["name"] for member in members]
+    
+    def add_struct_name(name,struct_name):
+        return re.sub(rf"\b({'|'.join(members_names)})\b",rf"{struct_name}.\1",name)
+        
     for member in members:
-        member_copy=member.copy()
+        member_copy=copy.deepcopy(member)
        
         member_copy["name"]="name."+member_copy["name"]
-        
+        for i,e in enumerate(member_copy["length"]):
+            member_copy["length"][i]=add_struct_name(e, "name")
+                
         write(serialize(f"""result["members"]["{member['name']}"]""",member_copy))
     write("return result;}")
     
@@ -31,9 +39,12 @@ for struct,members in parsed["structs"].items():
     """)
     
     for member in members:
-        member_copy=member.copy()
+        member_copy=copy.deepcopy(member)
         member_copy["name"]='name["'+member['name']+'"]'
         
+        for i,e in enumerate(member_copy["length"]):
+            member_copy["length"][i]=add_struct_name(e, "result")
+                
         write(deserialize("result."+member["name"],member_copy))
         
     write("return result;}")
@@ -101,7 +112,6 @@ for funcpointer,function in parsed["funcpointers"].items():
     write(f"""json serialize_{funcpointer}({funcpointer} name);""",header=True)
     
     
-    #Not going to write out the signature, but let the compiler figure it out
     write(f"""
     {funcpointer} deserialize_{funcpointer}(json name){{
         //Will only be called by the server

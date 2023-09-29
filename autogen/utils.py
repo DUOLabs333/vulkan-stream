@@ -97,7 +97,7 @@ def deserialize(variable,value):
         if num_indirection==0: #Array
             array=variable
         else:
-            result+=f"""auto members=malloc({length[-1]}*{type+"*"*(num_indirection-1)});"""
+            result+=f"""auto members=({type}{"*"*num_indirection})malloc({length[-1]}*sizeof({type+"*"*(num_indirection-1)}));"""
             array="members"
         val["name"]+='["members"][i]'
         val["num_indirection"]-=1
@@ -121,6 +121,8 @@ def deserialize(variable,value):
         result+=(f"""
         #ifndef CLIENT
         return deserialize_{type}({name});
+        #else
+        return {variable};
         #endif
         """ 
         if type in parsed["funcpointers"]

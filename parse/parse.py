@@ -18,12 +18,26 @@ def clean(string):
     return re.sub(r'[^a-zA-Z0-9]','',string)
     
 def get_length(item):
+    name_element=item.find("name")
+    if name_element is None:
+        result=None
+    else:
+        name_tail=name_element.tail
+        if name_tail is None:
+            result=None
+        else:
+            result=re.search(r"^\[(\d)\]$",name_tail)
+            if result is not None:
+                result=result.group(1)
+                
     if "altlen" in item.attrib:
         length=item.attrib["altlen"]
     elif "len" in item.attrib:
         length=item.attrib["len"]
     elif not(item.find("enum") is None):
         length=item.find("enum").text
+    elif result is not None:
+        length=str(result)
     else:
         length=""
 
@@ -32,7 +46,11 @@ def get_length(item):
 for item in vk.findall("./types/type"):
     type=item.attrib.get("category","")
     
-    if type=="struct":
+    if item.attrib.get("requires","").endswith(".h"):
+        handles[item.attrib["name"]]=1
+        continue
+        
+    if type in ["struct","union"]:
         name=item.attrib["name"]
         if "alias" in item.attrib:
             alias=item.attrib["alias"]
@@ -107,8 +125,15 @@ for item in vk.findall("./types/type"):
            
         funcpointers[name]=result
     
-    if (item.attrib.get("requires",None)=="vk_platform") or (type=="enum"):
-        primitive_types[item.attrib["name"]]=1
+    elif (item.attrib.get("requires",None)=="vk_platform") or (type in ["enum","bitmask","basetype"]):
+        if "name" in item.attrib:
+            name=item.attrib["name"]
+        else:
+            name=item.find("name").text
+        if type=="basetype" and (item.find("type") is None):
+            continue
+        primitive_types[name]=1
+    
         
 for item in vk.findall("./commands/command"):
     command={}
@@ -157,10 +182,7 @@ for item in vk.findall("./commands/command"):
     if name in aliases:
         commands[aliases[name]]=command
         del aliases[name]
-"""
-Instead do this:
-Compile header (in environment variable VULKAN_H. For each dictionary, search compiled header for string for keys. Only the keys that are found are allowed to stay in the dict. https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/
-"""
+
 from ahocorapy.keywordtree import KeywordTree
 import os, string
 header=open("vulkan_header.h","r").read()
