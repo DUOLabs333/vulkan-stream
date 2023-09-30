@@ -8,7 +8,10 @@ vk=ET.parse("../external/Vulkan-Headers/registry/vk.xml").getroot()
 aliases={}
 
 handles={}
+external_handles={}
+
 primitive_types={"int":1,"void":1}
+basic_types={}
 
 structs={}
 commands={}
@@ -26,9 +29,11 @@ def get_length(item):
         if name_tail is None:
             result=None
         else:
-            result=re.search(r"^\[(\d)\]$",name_tail)
-            if result is not None:
-                result=result.group(1)
+            name_tail=name_tail.replace(" ","")
+            if name_tail.startswith("[") and name_tail.endswith("]"):
+                result=name_tail.removeprefix("[").removesuffix("]").replace("][",",")
+            else:
+                result=None
                 
     if "altlen" in item.attrib:
         length=item.attrib["altlen"]
@@ -37,7 +42,7 @@ def get_length(item):
     elif not(item.find("enum") is None):
         length=item.find("enum").text
     elif result is not None:
-        length=str(result)
+        length=result
     else:
         length=""
 
@@ -47,7 +52,7 @@ for item in vk.findall("./types/type"):
     type=item.attrib.get("category","")
     
     if item.attrib.get("requires","").endswith(".h"):
-        handles[item.attrib["name"]]=1
+        external_handles[item.attrib["name"]]=True
         continue
         
     if type in ["struct","union"]:
@@ -74,6 +79,9 @@ for item in vk.findall("./types/type"):
                 result["type"]=_type.text
                 result["num_indirection"]=_type.tail.count("*")
                 
+                if (result["type"] in external_handles) and result["num_indirection"]==0 and (len(result["length"])==0 or result["length"][-1]==""):
+                        external_handles[result["type"]]=False #At least once case, it's not an pointer
+                
                 members[i]=result
             
         structs[name]=members
@@ -95,12 +103,18 @@ for item in vk.findall("./types/type"):
         if name=="PFN_vkVoidFunction":
             continue
             
-        result={}
+        funcpointer={}
         
-        result["header"]=ET.tostring(item, encoding='utf8', method='text').decode()
-        result["type"]=result["header"].split()[1] #Get return type
-        result["num_indirection"]=result["type"].count("*")
-        result["type"]=result["type"].replace("*","")
+        funcpointer["header"]=ET.tostring(item, encoding='utf8', method='text').decode()
+        
+        for term in ["typedef","(","VKAPI_PTR","*",")"]:
+            funcpointer["header"]=funcpointer["header"].replace(term,"",1).strip()
+            
+        funcpointer["header"]=funcpointer["header"].removesuffix(";")
+
+        funcpointer["type"]=funcpointer["header"].split()[0] #Get return type. Split and get 0 when done
+        funcpointer["num_indirection"]=funcpointer["type"].count("*")
+        funcpointer["type"]=funcpointer["type"].replace("*","")
         
         members=item.findall("type")
         cur_tail=item.find("name").tail
@@ -118,22 +132,29 @@ for item in vk.findall("./types/type"):
             
             member_dict["length"]=get_length(member)
             
-            member_dict["header"]=qualifiers+" "+ET.tostring(member, encoding='utf8', method='text').decode()
+            member_dict["header"]=qualifiers+" "+ET.tostring(member, encoding='utf8', method='text').decode().strip()
+            
+            
+            if member_dict["header"].endswith(","):
+                member_dict["header"]=member_dict["header"].removesuffix(",")
+            elif member_dict["header"].endswith(");"):
+                member_dict["header"]=member_dict["header"].removesuffix(");")
             
             members[i]=member_dict
-        result["params"]=members
+        funcpointer["params"]=members
            
-        funcpointers[name]=result
+        funcpointers[name]=funcpointer
     
-    elif (item.attrib.get("requires",None)=="vk_platform") or (type in ["enum","bitmask","basetype"]):
+    elif (item.attrib.get("requires",None)=="vk_platform") or (type in ["enum","bitmask"]):
         if "name" in item.attrib:
             name=item.attrib["name"]
         else:
             name=item.find("name").text
-        if type=="basetype" and (item.find("type") is None):
-            continue
         primitive_types[name]=1
-    
+    elif type=="basetype":
+        if item.find("type") is None:
+            continue
+        basic_types[item.find("name").text]=item.find("type").text
         
 for item in vk.findall("./commands/command"):
     command={}
@@ -168,8 +189,13 @@ for item in vk.findall("./commands/command"):
             
             result["type"]=param.find("type").text
             result["name"]=param.find("name").text
+            result["header"]=ET.tostring(param, encoding='utf8', method='text').decode()
             
             header.append("".join([(param.text or ""),param.find("type").text,(param.find("type").tail or ""),param.find("name").text,(param.find("name").tail or "")]))
+            
+            if (result["type"] in external_handles) and result["num_indirection"]==0 and (len(result["length"])==0 or result["length"][-1]==""):
+                    external_handles[result["type"]]=False #At least once case, it's not an pointer
+                    
             params[i]=result
         
         header.append(")")
@@ -213,7 +239,7 @@ def are_features_implemented(features):
     return result
             
 parsed_dict={}
-for dict_name in ["handles","primitive_types","structs","commands","funcpointers"]:
+for dict_name in ["external_handles","handles","primitive_types","basic_types","structs","commands","funcpointers"]:
     global_dict=globals()[dict_name]
     for feature,is_implemented in are_features_implemented(global_dict.keys()).items():
         if not is_implemented:

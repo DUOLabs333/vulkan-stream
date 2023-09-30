@@ -20,8 +20,6 @@ def serialize(variable,value):
     num_indirection=val["num_indirection"]
     length=val["length"].copy()
     type=val['type']
-    if value.get("const",False):
-        return ""
         
     result=f"""{variable}=[&]() {{
     json result=json({{}});
@@ -36,6 +34,12 @@ def serialize(variable,value):
     if (type in ["char", "void"] and num_indirection==1):
         result+=f"return serialize_{type}_p({name});\n"
     
+    elif (type in parsed["external_handles"] and num_indirection<2):
+            if num_indirection==0:
+                result+=f"return serialize_{type}({name});\n"
+            elif num_indirection==1:
+                result+=f"return serialize_{type}_p({name});\n"
+                
     elif (len(length)>0 and (length[-1]!="")):
         val["name"]+="[i]"
         val["num_indirection"]-=1
@@ -55,6 +59,8 @@ def serialize(variable,value):
         val["num_indirection"]-=1
        
         result+=(serialize("result",val)+"\n")
+    elif type in parsed["basic_types"]:
+        result+=f"""return serialize_{parsed["basic_types"][type]}({name});\n"""
     else:
         result+=(f"""
         #ifdef CLIENT
@@ -92,15 +98,20 @@ def deserialize(variable,value):
     """
     if (type in ["char", "void"] and num_indirection==1):
         result+=f"return deserialize_{type}_p({name});\n"
-        
+    elif (type in parsed["external_handles"] and num_indirection<2):
+            if num_indirection==0:
+                result+=f"return deserialize_{type}({name});\n"
+            elif num_indirection==1:
+                result+=f"return deserialize_{type}_p({name});\n"
     elif (len(length)>0 and (length[-1]!="")):
+
         if num_indirection==0: #Array
             array=variable
         else:
             result+=f"""auto members=({type}{"*"*num_indirection})malloc({length[-1]}*sizeof({type+"*"*(num_indirection-1)}));"""
             array="members"
+            val["num_indirection"]-=1
         val["name"]+='["members"][i]'
-        val["num_indirection"]-=1
         val["length"].pop()
         result+=f"""
         for (int i=0; i < {length[-1]}; i++){{
@@ -117,6 +128,8 @@ def deserialize(variable,value):
          {deserialize('*pointer',val)}
          return pointer;
         """
+    elif type in parsed["basic_types"]:
+        result+=f"""return deserialize_{parsed["basic_types"][type]}({name});\n"""
     else:
         result+=(f"""
         #ifndef CLIENT

@@ -16,7 +16,7 @@ using json = nlohmann::json;
 write("""
 void handle_command(json data){
 //Will only be called by the server
-std::string command=data["type"].template get<std::string>().substr(std::string("command_").length());
+std::string command=data["type"].get<std::string>().substr(std::string("command_").length());
 
 """)
 
@@ -36,7 +36,7 @@ write("}")
 write("""
 void handle_funcpointer(json data){
 //Will only be called by the server
-std::string command=data["type"].template get<std::string>().substr(std::string("command_").length());
+std::string command=data["type"].get<std::string>().substr(std::string("command_").length());
 """)
 
 for command in parsed["commands"]:
@@ -68,7 +68,9 @@ for name, command in parsed["commands"].items():
         
         param_copy=param.copy()
         param_copy["name"]=f"""data["members"]["{param["name"]}"]"""
+        param_copy["const"]=False
         
+        write(param["header"]+";")
         write(deserialize(param["name"],param_copy))
     
     if is_funcpointer(name):

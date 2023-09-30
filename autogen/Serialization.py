@@ -41,6 +41,7 @@ for struct,members in parsed["structs"].items():
     for member in members:
         member_copy=copy.deepcopy(member)
         member_copy["name"]='name["'+member['name']+'"]'
+        member_copy["const"]=False
         
         for i,e in enumerate(member_copy["length"]):
             member_copy["length"][i]=add_struct_name(e, "result")
@@ -58,13 +59,13 @@ for type in parsed["primitive_types"]:
     if type in ["void","char"]:
         write(f"""
             json serialize_{type}_p(const {type}* name){{
-                return result=json({{"value":(char *)name}}):
+                return json::object({{{{"value",(char *)name}}}});
             }};
         """)
         
         write(f"""
             {type}* deserialize_{type}_p(json name){{
-                return ({type}*) name["value"];
+                return ({type}*)name["value"].get<std::string>().c_str();
             }};
         """)
         
@@ -72,17 +73,17 @@ for type in parsed["primitive_types"]:
             json serialize_{type}_p(const {type}* name);
             {type}* deserialize_{type}_p(json name);
         """,header=True)
-    
+        
     if type not in ["void"]:
         write(f"""
             json serialize_{type}({type} name){{
-                return result=json({{"value":name}}):
+                return json::object({{{{"value",name}}}});
             }};
         """)
         
         write(f"""
             {type} deserialize_{type}(json name){{
-                return name["value"];
+                return name["value"].get<{type}>();
             }};
         """)
         
@@ -91,13 +92,51 @@ for type in parsed["primitive_types"]:
         {type} deserialize_{type}(json name);
     """,header=True)
 
+for type,is_always_pointer in parsed["external_handles"].items():
+    
+    write(f"""
+        json serialize_{type}_p(const {type}* name){{
+            return json::object({{{{"value",(uintptr_t)name}}}});
+        }};
+    """)
+    
+    write(f"""
+        {type}* deserialize_{type}_p(json name){{
+            return ({type}*) (uintptr_t)name["value"];
+        }};
+    """)
+    
+    write(f"""
+        json serialize_{type}_p(const {type}* name);
+        {type}* deserialize_{type}_p(json name);
+    """,header=True)
+    
+    if not is_always_pointer:
+        write(f"""
+            json serialize_{type}(const {type} name){{
+                return json::object({{{{"value",(uintptr_t)name}}}});
+            }};
+        """)
+        
+        write(f"""
+            {type} deserialize_{type}(json name){{
+                return ({type}) name["value"];
+            }};
+        """)
+        
+        write(f"""
+            json serialize_{type}(const {type} name);
+            {type} deserialize_{type}(json name);
+        """,header=True)
+    
 for funcpointer,function in parsed["funcpointers"].items():
     
     if funcpointer=="PFN_vkVoidFunction": #Not used in any callbacks
         continue
         
-    header=" ".join([param["header"] for param in function["params"]])
-    
+    header="("+function["header"].split("(",1)[1]
+
+    write(f"std::map<uintptr_t,{funcpointer}> id_to_{funcpointer};")
     write(f"""
     json serialize_{funcpointer}({funcpointer} name){{
         //Will only be called by the client
@@ -221,6 +260,7 @@ for funcpointer,function in parsed["funcpointers"].items():
         
         param_copy=param.copy()
         param_copy["name"]=f"""data["members"]["{param["name"]}"]"""
+        param_copy["const"]=False
         
         write(deserialize(param["name"],param_copy))
     
