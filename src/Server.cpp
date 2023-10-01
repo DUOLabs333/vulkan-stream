@@ -24,8 +24,8 @@ void *thread_func(void *session){
             handle_funcpointer(data);
     }
 }
-std::map<pthread_t, std::shared_ptr< TCPSession >> thread_to_conn;
-std::map<std::shared_ptr< TCPSession >, stringstream> conn_to_stream;
+std::map<pthread_t, std::shared_ptr< CppServer::Asio::TCPSession >> thread_to_conn;
+std::map<std::shared_ptr< CppServer::Asio::TCPSession >, stringstream> conn_to_stream;
 
 class StreamServer : public CppServer::Asio::TCPServer
 {
@@ -47,7 +47,7 @@ bool isConnConnected(){
     return currStruct()->conn->IsConnected();
 }
 
-json readfromConn(){
+json readFromConn(){
     auto conn=currStruct()->conn;
     auto stream=conn_to_stream[conn];
             
@@ -64,7 +64,7 @@ json readfromConn(){
     return json::parse(word);
 }
 
-void writetoConn(json data){
+void writeToConn(json data){
     currStruct()-conn->Send(data.dump()+"\n");
 }
 

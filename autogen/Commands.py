@@ -102,7 +102,7 @@ for name, command in parsed["commands"].items():
         write("id_to_PFN_vkVoidFunction[(uintptr_t)return_value]=return_value;")
         
     write("""
-        sendtoConn(result);
+        writeToConn(result);
     }""")
     
     write(f"""void handle_{command}(json data);""",header=True)
@@ -141,7 +141,7 @@ for name, command in parsed["commands"].items():
         """)
     
     write("""
-        sendtoConn(data);
+        writeToConn(data);
         bool returned=false;
         while(!returned){
             data=readFromConn();

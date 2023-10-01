@@ -41,7 +41,7 @@ void handle_sync_init(json data){
         }
     }
     
-    sendtoConn(result);
+    writeToConn(result);
     
     
     while(true){
@@ -76,7 +76,7 @@ void handle_sync_request(json data){
         result["buffers"].push_back(buffer);
     }
     
-    sendtoConn(result);
+    writeToConn(result);
     
     while(true){
         result=readfromConn();
@@ -103,7 +103,7 @@ void handle_sync_response(json data){
         memcpy(mem+data["ranges"][i],(void*)data["buffers"][i],data["lengths"][i]);
     }
     
-    sendtoConn(result);
+    writeToConn(result);
     
     #ifndef CLIENT
         currStruct()->mem_to_sync->insert((uintptr_t)mem);
@@ -137,7 +137,7 @@ void Sync(void* mem, uintptr_t length){
         offset+=d;
     }
     
-    sendtoConn(result);
+    writeToConn(result);
     
     while(true){
         data=readfromConn();

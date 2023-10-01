@@ -9,6 +9,8 @@ write(f"""
 using json = nlohmann::json;
 
 #include <Serialization.hpp>
+#include <Server.hpp>
+#include <Synchronization.hpp>
 """)
 
 for struct,members in parsed["structs"].items():
@@ -150,25 +152,22 @@ for funcpointer,function in parsed["funcpointers"].items():
     
     write(f"""json serialize_{funcpointer}({funcpointer} name);""",header=True)
     
+    write("std::map<uintptr_t,int> allocated_mems;")
+    write(f"""
+    template < uintptr_t id > 
+    auto {funcpointer}_wrapper(){{
+        return []{header}{{
+            json data=json({{}});
+            data["type"]="{funcpointer}_request";
+            data["id"]=id;
+            data["members"]=json({{}});
+    """)
     
-    write(f"""
-    {funcpointer} deserialize_{funcpointer}(json name){{
-        //Will only be called by the server
-        
-        uintptr_t id=name["id"];
-        return [id]({header}){{
-    """)
-    write(f"""
-    json data=json({{}});
-    data["type"]="{funcpointer}_request";
-    data["id"]=id;
-    data["members"]=json({{}});
-    """)
     for param in function["params"]:
         write(serialize(f"""data["members"]["{param["name"]}"]""",param))
     
     write(f"""
-    sendToConn(data);
+    writeToConn(data);
     while (true){{
         data=readFromConn();
         if (data["type"]=="{funcpointer}_response"){{
@@ -185,14 +184,24 @@ for funcpointer,function in parsed["funcpointers"].items():
     
     write("""
         for (auto & element: allocated_mems){
-            Sync((void*)element,allocated_mems[element]);
+            Sync((void*)element.first,element.second);
         }
         """
     )
+    if not(function["type"]=="void" and function["num_indirection"]==0):
+        write("return result;")
+    else:
+        write("return;")
+    write("};}")
     
     write(f"""
-    {"return result;" if not(function["type"]=="void" and function["num_indirection"]==0) else 'return;'}
-    }}
+    {funcpointer} deserialize_{funcpointer}(json name){{
+        //Will only be called by the server
+        
+        uintptr_t id=name["id"];
+        auto result={funcpointer}_wrapper<id>();
+        return result;
+        }};
     """)
     
     write(f"{funcpointer} deserialize_{funcpointer}(json name);",header=True)
@@ -227,7 +236,7 @@ for funcpointer,function in parsed["funcpointers"].items():
     for param in function["params"]:
         write(deserialize(f"""result["params"]["{param["name"]}"]""",param))
     
-    write("sendToConn(result);")
+    write("writeToConn(result);")
     
     if function["type"]=="void" and function["num_indirection"]==1:
         write(f"""
@@ -279,7 +288,7 @@ for funcpointer,function in parsed["funcpointers"].items():
         _malloc["type"]="{funcpointer}_malloc";
         _malloc["mem"]=(uintptr_t)result;
         
-        sendToConn(_malloc);
+        writeToConn(_malloc);
         """
         )
     write("return result;" if not(function["type"]=="void" and function["num_indirection"]==0) else "")
