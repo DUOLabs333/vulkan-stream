@@ -77293,7 +77293,7 @@
     },
     "funcpointers": {
         "PFN_vkInternalAllocationNotification": {
-            "header": "void  PFN_vkInternalAllocationNotification(\n    void*                                       pUserData,\n    size_t                                      size,\n    VkInternalAllocationType                    allocationType,\n    VkSystemAllocationScope                     allocationScope)",
+            "header": "void PFN_vkInternalAllocationNotification(\n    void*                                       pUserData,\n    size_t                                      size,\n    VkInternalAllocationType                    allocationType,\n    VkSystemAllocationScope                     allocationScope)",
             "type": "void",
             "num_indirection": 0,
             "params": [
@@ -77340,7 +77340,7 @@
             ]
         },
         "PFN_vkInternalFreeNotification": {
-            "header": "void  PFN_vkInternalFreeNotification(\n    void*                                       pUserData,\n    size_t                                      size,\n    VkInternalAllocationType                    allocationType,\n    VkSystemAllocationScope                     allocationScope)",
+            "header": "void PFN_vkInternalFreeNotification(\n    void*                                       pUserData,\n    size_t                                      size,\n    VkInternalAllocationType                    allocationType,\n    VkSystemAllocationScope                     allocationScope)",
             "type": "void",
             "num_indirection": 0,
             "params": [
@@ -77387,9 +77387,9 @@
             ]
         },
         "PFN_vkReallocationFunction": {
-            "header": "void  *PFN_vkReallocationFunction(\n    void*                                       pUserData,\n    void*                                       pOriginal,\n    size_t                                      size,\n    size_t                                      alignment,\n    VkSystemAllocationScope                     allocationScope)",
+            "header": "void* PFN_vkReallocationFunction(\n    void*                                       pUserData,\n    void*                                       pOriginal,\n    size_t                                      size,\n    size_t                                      alignment,\n    VkSystemAllocationScope                     allocationScope)",
             "type": "void",
-            "num_indirection": 0,
+            "num_indirection": 1,
             "params": [
                 {
                     "const": false,
@@ -77444,9 +77444,9 @@
             ]
         },
         "PFN_vkAllocationFunction": {
-            "header": "void  *PFN_vkAllocationFunction(\n    void*                                       pUserData,\n    size_t                                      size,\n    size_t                                      alignment,\n    VkSystemAllocationScope                     allocationScope)",
+            "header": "void* PFN_vkAllocationFunction(\n    void*                                       pUserData,\n    size_t                                      size,\n    size_t                                      alignment,\n    VkSystemAllocationScope                     allocationScope)",
             "type": "void",
-            "num_indirection": 0,
+            "num_indirection": 1,
             "params": [
                 {
                     "const": false,
@@ -77491,7 +77491,7 @@
             ]
         },
         "PFN_vkFreeFunction": {
-            "header": "void  PFN_vkFreeFunction(\n    void*                                       pUserData,\n    void*                                       pMemory)",
+            "header": "void PFN_vkFreeFunction(\n    void*                                       pUserData,\n    void*                                       pMemory)",
             "type": "void",
             "num_indirection": 0,
             "params": [
@@ -77518,7 +77518,7 @@
             ]
         },
         "PFN_vkDebugReportCallbackEXT": {
-            "header": "VkBool32  PFN_vkDebugReportCallbackEXT(\n    VkDebugReportFlagsEXT                       flags,\n    VkDebugReportObjectTypeEXT                  objectType,\n    uint64_t                                    object,\n    size_t                                      location,\n    int32_t                                     messageCode,\n    const char*                                 pLayerPrefix,\n    const char*                                 pMessage,\n    void*                                       pUserData)",
+            "header": "VkBool32 PFN_vkDebugReportCallbackEXT(\n    VkDebugReportFlagsEXT                       flags,\n    VkDebugReportObjectTypeEXT                  objectType,\n    uint64_t                                    object,\n    size_t                                      location,\n    int32_t                                     messageCode,\n    const char*                                 pLayerPrefix,\n    const char*                                 pMessage,\n    void*                                       pUserData)",
             "type": "VkBool32",
             "num_indirection": 0,
             "params": [
@@ -77570,7 +77570,7 @@
                     "length": [
                         ""
                     ],
-                    "header": " int32_t                                     messageCode,\n    const"
+                    "header": " int32_t                                     messageCode"
                 },
                 {
                     "const": true,
@@ -77580,7 +77580,7 @@
                     "length": [
                         ""
                     ],
-                    "header": "const char*                                 pLayerPrefix,\n    const"
+                    "header": "const char*                                 pLayerPrefix"
                 },
                 {
                     "const": true,
@@ -77605,7 +77605,7 @@
             ]
         },
         "PFN_vkDebugUtilsMessengerCallbackEXT": {
-            "header": "VkBool32  PFN_vkDebugUtilsMessengerCallbackEXT(\n    VkDebugUtilsMessageSeverityFlagBitsEXT           messageSeverity,\n    VkDebugUtilsMessageTypeFlagsEXT                  messageTypes,\n    const VkDebugUtilsMessengerCallbackDataEXT*      pCallbackData,\n    void*                                            pUserData)",
+            "header": "VkBool32 PFN_vkDebugUtilsMessengerCallbackEXT(\n    VkDebugUtilsMessageSeverityFlagBitsEXT           messageSeverity,\n    VkDebugUtilsMessageTypeFlagsEXT                  messageTypes,\n    const VkDebugUtilsMessengerCallbackDataEXT*      pCallbackData,\n    void*                                            pUserData)",
             "type": "VkBool32",
             "num_indirection": 0,
             "params": [
@@ -77627,7 +77627,7 @@
                     "length": [
                         ""
                     ],
-                    "header": " VkDebugUtilsMessageTypeFlagsEXT                  messageTypes,\n    const"
+                    "header": " VkDebugUtilsMessageTypeFlagsEXT                  messageTypes"
                 },
                 {
                     "const": true,
@@ -77652,7 +77652,7 @@
             ]
         },
         "PFN_vkDeviceMemoryReportCallbackEXT": {
-            "header": "void  PFN_vkDeviceMemoryReportCallbackEXT(\n    const VkDeviceMemoryReportCallbackDataEXT*  pCallbackData,\n    void*                                       pUserData)",
+            "header": "void PFN_vkDeviceMemoryReportCallbackEXT(\n    const VkDeviceMemoryReportCallbackDataEXT*  pCallbackData,\n    void*                                       pUserData)",
             "type": "void",
             "num_indirection": 0,
             "params": [
@@ -77679,7 +77679,7 @@
             ]
         },
         "PFN_vkGetInstanceProcAddrLUNARG": {
-            "header": "PFN_vkVoidFunction  PFN_vkGetInstanceProcAddrLUNARG(\n    VkInstance instance, const char* pName)",
+            "header": "PFN_vkVoidFunction PFN_vkGetInstanceProcAddrLUNARG(\n    VkInstance instance, const char* pName)",
             "type": "PFN_vkVoidFunction",
             "num_indirection": 0,
             "params": [
@@ -77691,7 +77691,7 @@
                     "length": [
                         ""
                     ],
-                    "header": " VkInstance instance, const"
+                    "header": " VkInstance instance"
                 },
                 {
                     "const": true,

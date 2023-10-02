@@ -82,7 +82,7 @@ def deserialize(variable,value):
     num_indirection=val["num_indirection"]
     length=val["length"].copy()
     type=val['type']
-    if value.get("const",False):
+    if value.get("const",False) or (type=="void" and num_indirection==0):
         return ""
 
     if num_indirection==0 and (len(length)>0 and length[-1]!=""): #Arrays can't be returned

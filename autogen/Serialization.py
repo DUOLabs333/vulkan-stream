@@ -13,6 +13,20 @@ using json = nlohmann::json;
 #include <Synchronization.hpp>
 """)
 
+def struct_is_callback(struct):
+    members=parsed["structs"][struct]
+    
+    return any(member["name"]=="pUserData" for member in members) and any(member["type"] in parsed["funcpointers"] for member in members)
+
+def funcpointer_in_callback(funcpointer):
+    for struct,members in parsed["structs"].items():
+        if not struct_is_callback(struct):
+            continue
+        
+        if any(member["type"]==funcpointer for member in members):
+            return struct
+    return None
+        
 for struct,members in parsed["structs"].items():
     write(f"""
     json serialize_{struct}({struct} name){{
@@ -32,38 +46,40 @@ for struct,members in parsed["structs"].items():
         for i,e in enumerate(member_copy["length"]):
             member_copy["length"][i]=add_struct_name(e, "name")
                 
-        write(serialize(f"""result["members"]["{member['name']}"]""",member_copy))
+        write(serialize(f"""result["members"]["{member["name"]}"]""",member_copy))
     write("return result;}")
     
-    if struct=="VkAllocationCallbacks":
+    is_callback=struct_is_callback(struct)
+    
+    if is_callback:
         write("typedef struct {")
         for member in members:
             if member["name"]=="pUserData":
-                write("void* pUserData,")
+                write("void* pUserData;")
             else:
                 write(f"uintptr_t {member['type']}_id;")
-            write(f"}} {struct}_struct;")
+        write(f"}} {struct}_struct;")
     write(f"""
     {struct} deserialize_{struct}(json name){{
         auto result={struct}();
     """)
-    if struct=="VkAllocationCallbacks":
+    if is_callback:
         write(f"""
         auto _struct = new {struct}_struct;
         """)
     for member in members:
         member_copy=copy.deepcopy(member)
-        member_copy["name"]='name["'+member['name']+'"]'
+        member_copy["name"]=f"""name["members"]["{member["name"]}"]"""
         member_copy["const"]=False
         
         for i,e in enumerate(member_copy["length"]):
             member_copy["length"][i]=add_struct_name(e, "result")
         
         write(deserialize("result."+member["name"],member_copy))
-        if struct=="VkAllocationCallbacks":
-            if member["name"] in parsed["funcpointers"]:
-                write(f"""_struct->{member["name"]}_id={member_copy["name"]}["id"];""") 
-    if struct=="VkAllocationCallbacks":
+        if is_callback:
+            if member["type"] in parsed["funcpointers"]:
+                write(f"""_struct->{member["type"]}_id={member_copy["name"]}["id"];""") 
+    if is_callback:
         write("""_struct->pUserData=result.pUserData;
         result.pUserData=(void*)_struct;
         """)
@@ -147,16 +163,21 @@ for type,is_always_pointer in parsed["external_handles"].items():
             json serialize_{type}(const {type} name);
             {type} deserialize_{type}(json name);
         """,header=True)
-    
+
+write("""
+        std::map<uintptr_t,int> allocated_mems;
+        std::map<uintptr_t,uintptr_t> client_to_server_mem;
+        std::map<uintptr_t,uintptr_t> server_to_client_mem;
+    """)
+import re
 for funcpointer,function in parsed["funcpointers"].items():
     
     if funcpointer=="PFN_vkVoidFunction": #Not used in any callbacks
         continue
     
-    if funcpointer in [_["type"] for _ in parsed["structs"]["VkAllocationCallbacks"]]: #Wouldn't know how to handle those
-        mode="VkAllocationCallbacks"
-        
-    header="("+function["header"].split("(",1)[1]
+    callback_struct=funcpointer_in_callback(funcpointer)
+
+    header=re.sub(r"^(.*?)\(", "(", function["header"])
 
     write(f"std::map<uintptr_t,{funcpointer}> id_to_{funcpointer};")
     write(f"""
@@ -172,8 +193,6 @@ for funcpointer,function in parsed["funcpointers"].items():
     
     write(f"""json serialize_{funcpointer}({funcpointer} name);""",header=True)
     
-    write("std::map<uintptr_t,int> allocated_mems;")
-    
     write(f"""
     auto {funcpointer}_wrapper{header}{{
         json data=json({{}});
@@ -181,45 +200,40 @@ for funcpointer,function in parsed["funcpointers"].items():
         data["members"]=json({{}});
     """)
     
-    if mode == "VkAllocationCallbacks":
-        write("""
-            auto _struct=(VkAllocationCallbacks_struct*)pUserData;
+    if callback_struct:
+        write(f"""
+            auto _struct=({callback_struct}_struct*)pUserData;
             data["id"]=_struct->{funcpointer}_id;
         """)
     
     for param in function["params"]:
         param_copy=copy.deepcopy(param)
-        if mode=="VkAllocationCallbacks":
+        if callback_struct:
             if param["name"]=="pUserData":
                 param_copy["name"]="_struct->pUserData"
                 
         write(serialize(f"""data["members"]["{param["name"]}"]""",param_copy))
     
-    write("""
+    write(f"""
     writeToConn(data);
-    while (true){
+    while (true){{
         data=readFromConn();
-        if (data["type"]=="{funcpointer}_response"){
+        if (data["type"]=="{funcpointer}_response"){{
     """)
-    if not(function["type"]=="void" and function["num_indirection"]==0):
-        response_header=""
-        for param in function["params"]:
-            name=param["name"]
-            if mode=="VkAllocationCallbacks":
-                if name=="pUserData":
-                    name=f"_struct->{name}"
-            response_header+=(", "+name)
-        write(f"auto result auto result= handle_{funcpointer}_response(data, {response_header});")
-    write("""break;
-        }
-    }
-    """)
-
+    
+    response_header="data"
+    for param in function["params"]:
+        name=param["name"]
+        if callback_struct:
+            if name=="pUserData":
+                name=f"_struct->{name}"
+        response_header+=(", "+name)
+        
+    write(("auto result= " if not(function["type"]=="void" and function["num_indirection"]==0) else '')+f"""handle_{funcpointer}_response({response_header});""")
     if function["type"]=="void" and function["num_indirection"]==1:
         write("""
             allocated_mems[(uintptr_t)result]=size;
         """)
-    
     write("""
         for (auto & element: allocated_mems){
             Sync((void*)element.first,element.second);
@@ -230,7 +244,11 @@ for funcpointer,function in parsed["funcpointers"].items():
         write("return result;")
     else:
         write("return;")
-    write("}")
+    write("""break;
+        }
+    }
+    }
+    """)
     
     write(f"""
     {funcpointer} deserialize_{funcpointer}(json name){{
@@ -247,7 +265,7 @@ for funcpointer,function in parsed["funcpointers"].items():
         //Will only be called by the client
         // Recieved data from server's {funcpointer} wrapper, and will execute the actual function
         
-        result=json({{}});
+        auto result=json({{}});
         auto funcpointer=id_to_{funcpointer}[data["id"]];
         
         result["type"]="{funcpointer}_response";
@@ -263,14 +281,17 @@ for funcpointer,function in parsed["funcpointers"].items():
         
         write(deserialize(param["name"],param_copy))
     
-    function_copy=function.copy()
-    function_copy["name"]=f"""funcpointer({",".join([param["name"] for param in function["params"]])})"""
-    function_copy["length"]=[];
+    if not(function["type"]=="void" and function["num_indirection"]==0):
+        write(f"""auto result_temp=funcpointer({",".join([param["name"] for param in function["params"]])});""")
     
-    write(deserialize('result["result"]',function_copy))
+        function_copy=function.copy()
+        function_copy["name"]="result_temp"
+        function_copy["length"]=[];
+    
+        write(serialize('result["result"]',function_copy))
 
     for param in function["params"]:
-        write(deserialize(f"""result["params"]["{param["name"]}"]""",param))
+        write(serialize(f"""result["params"]["{param["name"]}"]""",param))
     
     write("writeToConn(result);")
     
@@ -292,7 +313,7 @@ for funcpointer,function in parsed["funcpointers"].items():
     write(f"void handle_{funcpointer}_request(json data);",header=True);
     
     write(f"""
-    {function["type"]} handle_{funcpointer}_response(json data, {header.removeprefix("(")} {{
+    {function["type"]}{'*'*function["num_indirection"]} handle_{funcpointer}_response(json data, {header.removeprefix("(")} {{
         //Will only be called by the server
         
         //Recieved result from client's {funcpointer}
@@ -311,7 +332,7 @@ for funcpointer,function in parsed["funcpointers"].items():
         write(function["type"]+("*"*function["num_indirection"])+" result;")
         
         function_copy=function.copy()
-        function_copy["name"]='result["result"]'
+        function_copy["name"]='data["result"]'
         function_copy["length"]=[]
         
         write(deserialize("result",function_copy))
@@ -328,7 +349,7 @@ for funcpointer,function in parsed["funcpointers"].items():
     write("return result;" if not(function["type"]=="void" and function["num_indirection"]==0) else "")
     
     write("}")
-    write(f"""{function["type"]} handle_{funcpointer}_response(json data);""",header=True)
+    write(f"""{function["type"]}{'*'*function["num_indirection"]} handle_{funcpointer}_response(json data, {header.removeprefix("(")};""",header=True)
         
 for handle in parsed["handles"]:
         write(f"""

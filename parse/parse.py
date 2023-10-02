@@ -105,15 +105,13 @@ for item in vk.findall("./types/type"):
             
         funcpointer={}
         
-        funcpointer["header"]=ET.tostring(item, encoding='utf8', method='text').decode()
-        
-        for term in ["typedef","(","VKAPI_PTR","*",")"]:
-            funcpointer["header"]=funcpointer["header"].replace(term,"",1).strip()
-            
-        funcpointer["header"]=funcpointer["header"].removesuffix(";")
-
+        header=ET.tostring(item, encoding='utf8', method='text').decode()
+        header=header.split("(")
+        header[1]=name
+        funcpointer["header"]="(".join(header).replace("(","",1).strip().removeprefix("typedef").strip().removesuffix(";")
         funcpointer["type"]=funcpointer["header"].split()[0] #Get return type. Split and get 0 when done
         funcpointer["num_indirection"]=funcpointer["type"].count("*")
+
         funcpointer["type"]=funcpointer["type"].replace("*","")
         
         members=item.findall("type")
@@ -132,7 +130,7 @@ for item in vk.findall("./types/type"):
             
             member_dict["length"]=get_length(member)
             
-            member_dict["header"]=qualifiers+" "+ET.tostring(member, encoding='utf8', method='text').decode().strip()
+            member_dict["header"]=qualifiers+" "+ET.tostring(member, encoding='utf8', method='text').decode().strip().split(",")[0]
             
             
             if member_dict["header"].endswith(","):
