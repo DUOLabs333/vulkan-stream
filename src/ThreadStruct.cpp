@@ -32,6 +32,10 @@ ThreadStruct* currStruct(){
             result->conn->Connect();
         #endif
         
+        result->conn_ss=new std::stringstream();
+        
+        result->mem_to_sync=new std::set<uintptr_t>;
+        
         thread_to_struct[thread_id]=result;
     }
     

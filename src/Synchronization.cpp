@@ -1,12 +1,17 @@
+#include <cstddef>
 #include <picosha2.h>
 #include <nlohmann/json.hpp>
+#include <Server.hpp>
 
 using json = nlohmann::json;
 
+std::map<uintptr_t,int> allocated_mems;
+std::map<uintptr_t,uintptr_t> client_to_server_mem;
+std::map<uintptr_t,uintptr_t> server_to_client_mem;
 std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
     char* src_char_array=(char*)malloc(sizeof(char)*(length+1));
     
-    strncpy(src_char_array,(char*)(mem+start),length);
+    strncpy(src_char_array,(char*)mem+start,length);
     
     src_char_array[length]='\0';
     
@@ -19,7 +24,30 @@ std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
     return picosha2::bytes_to_hex_string(hash.begin(), hash.end());
     
 }
+
+void handle_sync_response(json data){
+    //Recieved the bytes. Send a notification that it finished sending the bytes.
+    #ifdef CLIENT
+        void* mem=(void*)server_to_client_mem[data["mem"]];
+    #else
+        void* mem=(void*)data["mem"];
+    #endif
     
+    auto result=json({});
+    
+    result["type"]="handle_sync_end";
+    
+    for(int i=0; i < data["starts"].size(); i++){
+        memcpy((char*)mem+data["starts"][i].get<size_t>(),data["buffers"][i].get<std::string>().c_str(),data["lengths"][i].get<size_t>());
+    }
+    
+    writeToConn(result);
+    
+    #ifndef CLIENT
+        currStruct()->mem_to_sync->insert((uintptr_t)mem);
+    #endif
+}
+
 void handle_sync_init(json data){
     //Recived an init, sent a request for bytes. Wait for bytes to be sent
     #ifdef CLIENT
@@ -31,13 +59,13 @@ void handle_sync_init(json data){
     json result=json({});
     
     result["type"]="sync_request";
-    result["ranges"]={};
+    result["starts"]={};
     result["lengths"]={};
     result["mem"]=data["mem"];
     
-    for (int i=0; i<data["ranges"].size(); i++){
-        if (HashMem(mem,data["ranges"][i],data["lengths"][i])!=data["hashes"][i]){
-            result["ranges"].push_back(data["ranges"][i]);
+    for (int i=0; i<data["starts"].size(); i++){
+        if (HashMem(mem,data["starts"][i],data["lengths"][i])!=data["hashes"][i]){
+            result["starts"].push_back(data["starts"][i]);
             result["lengths"].push_back(data["lengths"][i]);
         }
     }
@@ -46,9 +74,9 @@ void handle_sync_init(json data){
     
     
     while(true){
-        std::string type=result["type"]
+        result=readFromConn();
         if (result["type"]=="sync_response"){
-            handle_sync_response(json data);
+            handle_sync_response(result);
             break;
         }
     }
@@ -65,52 +93,27 @@ void handle_sync_request(json data){
     json result=json({});
     
     result["type"]="sync_response";
-    result["ranges"]=data["ranges"];
+    result["starts"]=data["starts"];
     result["lengths"]=data["lengths"];
     result["mem"]=data["mem"];
     
     result["buffers"]={};
     
-    for(int i=0; i<data["ranges"].size(); i++){
-        void* buffer=malloc(sizeof(char)*data["lengths"][i]);
-        memcpy(buffer,mem+range,data["lengths"][i]);
+    for(int i=0; i<data["starts"].size(); i++){
+        auto buffer=(char*)malloc(sizeof(char)*data["lengths"][i].get<size_t>());
+        memcpy(buffer,(char*)mem+result["starts"][i].get<size_t>(),data["lengths"][i].get<size_t>());
         result["buffers"].push_back(buffer);
     }
     
     writeToConn(result);
     
     while(true){
-        result=readfromConn();
+        result=readFromConn();
         if(result["type"]=="handle_sync_end"){
            break;
         }
     }
-
-void handle_sync_response(json data){
-    //Recieved the bytes. Send a notification that it finished sending the bytes.
-    #ifdef CLIENT
-        void* mem=(void*)server_to_client_mem[data["mem"]];
-    #else
-        void* mem=(void*)data["mem"];
-    #endif
-    
-    result=json({});
-    
-    result["type"]="handle_sync_end"];
-    
-    void* buffer=malloc(sizeof(char)*data["length"];
-    
-    for(int i=0; i < data["ranges"].size(); i++){
-        memcpy(mem+data["ranges"][i],(void*)data["buffers"][i],data["lengths"][i]);
-    }
-    
-    writeToConn(result);
-    
-    #ifndef CLIENT
-        currStruct()->mem_to_sync->insert((uintptr_t)mem);
-    #endif
 }
-
 
 void Sync(void* mem, uintptr_t length){
     int parts=10;
@@ -119,20 +122,20 @@ void Sync(void* mem, uintptr_t length){
     
     json result=json({});
     result["type"]="sync_init";
-    result["ranges"]={};
+    result["starts"]={};
     result["lengths"]={};
     result["hashes"]={};
     
     auto offset=0;
     for (int i=0; i<remainder; i++){
-        result["ranges"].push_back(offset);
+        result["starts"].push_back(offset);
         result["lengths"].push_back(d+1);
         result["hashes"].push_back(HashMem(mem,offset,d+1));
         offset+=(d+1);
     }
     
     for (int i=0; i<(parts-remainder); i++){
-        result["ranges"].push_back(offset);
+        result["starts"].push_back(offset);
         result["lengths"].push_back(d);
         result["hashes"].push_back(HashMem(mem,offset,d));
         offset+=d;
@@ -141,10 +144,10 @@ void Sync(void* mem, uintptr_t length){
     writeToConn(result);
     
     while(true){
-        data=readfromConn();
+        result=readFromConn();
         
-        if(data["type"]=="sync_request"){
-            handle_sync_request(data);
+        if(result["type"]=="sync_request"){
+            handle_sync_request(result);
             break;
         }
     }

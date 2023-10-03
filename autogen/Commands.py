@@ -108,6 +108,7 @@ for name, command in parsed["commands"].items():
     write(f"""void handle_{command}(json data);""",header=True)
 
 write("#ifdef CLIENT") #Don't want server to get confused on which command we're talking about
+write("""extern "C" {""")
 for name, command in parsed["commands"].items():
         
     if is_funcpointer(name):
@@ -222,6 +223,7 @@ for name, command in parsed["commands"].items():
         write("};}")
     else:
         write("}")
+write("}")
 write("#endif")
 write("""
 #ifndef CLIENT

@@ -12,7 +12,7 @@ extern std::shared_ptr<CppServer::Asio::Service> service;
 
 
 typedef struct {
-    std::set<uintptr_t> *mem_to_sync; //On client, mem_to_sync is set(vkmemory); on server, it's set(void*)
+    std::set<uintptr_t>* mem_to_sync; //On client, mem_to_sync is set(vkmemory); on server, it's set(void*)
     
     #ifdef CLIENT
     std::shared_ptr<CppServer::Asio::TCPClient> conn;
@@ -20,7 +20,7 @@ typedef struct {
     std::shared_ptr<CppServer::Asio::TCPSession> conn;
     #endif
     
-    std::string VoidFunction_cast;
+    std::stringstream* conn_ss;
 } ThreadStruct;
     
 ThreadStruct* currStruct();

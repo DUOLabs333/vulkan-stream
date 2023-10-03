@@ -166,9 +166,7 @@ for type,is_always_pointer in parsed["external_handles"].items():
         """,header=True)
 
 write("""
-        std::map<uintptr_t,int> allocated_mems;
-        std::map<uintptr_t,uintptr_t> client_to_server_mem;
-        std::map<uintptr_t,uintptr_t> server_to_client_mem;
+
     """)
 import re
 for funcpointer,function in parsed["funcpointers"].items():
