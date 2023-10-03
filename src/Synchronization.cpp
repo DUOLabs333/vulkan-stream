@@ -1,9 +1,10 @@
 #include <picosha2.h>
+#include <nlohmann/json.hpp>
 
 using json = nlohmann::json;
 
 std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
-    char* src_char_array=malloc(sizeof(char)*(length+1));
+    char* src_char_array=(char*)malloc(sizeof(char)*(length+1));
     
     strncpy(src_char_array,(char*)(mem+start),length);
     

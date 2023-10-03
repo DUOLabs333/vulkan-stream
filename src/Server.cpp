@@ -4,7 +4,7 @@
 
 void *thread_func(void *session){
     //Will only be called by the server
-    currStruct()->conn=(std::shared_ptr< TCPSession >)session;
+    currStruct()->conn=(std::shared_ptr< CppServer::Asio::TCPSession >)session;
     
     while(true){
         if(!isConnConnected()){

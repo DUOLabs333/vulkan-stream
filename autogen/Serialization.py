@@ -11,6 +11,7 @@ using json = nlohmann::json;
 #include <Serialization.hpp>
 #include <Server.hpp>
 #include <Synchronization.hpp>
+#include <ThreadStruct.hpp>
 """)
 
 def struct_is_callback(struct):
@@ -172,7 +173,7 @@ write("""
 import re
 for funcpointer,function in parsed["funcpointers"].items():
     
-    if funcpointer=="PFN_vkVoidFunction": #Not used in any callbacks
+    if funcpointer=="PFN_vkVoidFunction": #Not used anywhere (we handle PFN_vkVoidFunction specially)
         continue
     
     callback_struct=funcpointer_in_callback(funcpointer)
@@ -193,183 +194,199 @@ for funcpointer,function in parsed["funcpointers"].items():
     
     write(f"""json serialize_{funcpointer}({funcpointer} name);""",header=True)
     
-    write(f"""
-    auto {funcpointer}_wrapper{header}{{
-        json data=json({{}});
-        data["type"]="{funcpointer}_request";
-        data["members"]=json({{}});
-    """)
+    if funcpointer!="PFN_vkGetInstanceProcAddrLUNARG": #PFN_vkGetInstanceProcAddrLUNARG is a pointer to the client's vkGetInstanceProcAddr. However, since the client's vkGetInstanceProcAddr is just a thin wrapper over the server's vkGetInstanceProcAddr (as well as that the client does not support recieving objects from the server outside of a command), we just return the server's vkGetInstanceProcAddr.
     
-    if callback_struct:
         write(f"""
-            auto _struct=({callback_struct}_struct*)pUserData;
-            data["id"]=_struct->{funcpointer}_id;
+        auto {funcpointer}_wrapper{header}{{
+            json data=json({{}});
+            data["type"]="{funcpointer}_request";
+            data["members"]=json({{}});
         """)
-    
-    for param in function["params"]:
-        param_copy=copy.deepcopy(param)
-        if callback_struct:
-            if param["name"]=="pUserData":
-                param_copy["name"]="_struct->pUserData"
-                
-        write(serialize(f"""data["members"]["{param["name"]}"]""",param_copy))
-    
-    write(f"""
-    writeToConn(data);
-    while (true){{
-        data=readFromConn();
-        if (data["type"]=="{funcpointer}_response"){{
-    """)
-    
-    response_header="data"
-    for param in function["params"]:
-        name=param["name"]
-        if callback_struct:
-            if name=="pUserData":
-                name=f"_struct->{name}"
-        response_header+=(", "+name)
         
-    write(("auto result= " if not(function["type"]=="void" and function["num_indirection"]==0) else '')+f"""handle_{funcpointer}_response({response_header});""")
-    if function["type"]=="void" and function["num_indirection"]==1:
+        if callback_struct:
+            write(f"""
+                auto _struct=({callback_struct}_struct*)pUserData;
+                data["id"]=_struct->{funcpointer}_id;
+            """)
+        
+        for param in function["params"]:
+            param_copy=copy.deepcopy(param)
+            if callback_struct:
+                if param["name"]=="pUserData":
+                    param_copy["name"]="_struct->pUserData"
+                    
+            write(serialize(f"""data["members"]["{param["name"]}"]""",param_copy))
+        
+        write(f"""
+        writeToConn(data);
+        while (true){{
+            data=readFromConn();
+            if (data["type"]=="{funcpointer}_response"){{
+        """)
+        
+        response_header="data"
+        for param in function["params"]:
+            name=param["name"]
+            if callback_struct:
+                if name=="pUserData":
+                    name=f"_struct->{name}"
+            response_header+=(", "+name)
+            
+        write(("auto result= " if not(function["type"]=="void" and function["num_indirection"]==0) else '')+f"""handle_{funcpointer}_response({response_header});""")
+        if function["type"]=="void" and function["num_indirection"]==1:
+            write("""
+                allocated_mems[(uintptr_t)result]=size;
+            """)
         write("""
-            allocated_mems[(uintptr_t)result]=size;
+            for (auto & element: allocated_mems){
+                Sync((void*)element.first,element.second);
+            }
+            """
+        )
+        if not(function["type"]=="void" and function["num_indirection"]==0):
+            write("return result;")
+        else:
+            write("return;")
+        write("""break;
+            }
+        }
+        }
         """)
-    write("""
-        for (auto & element: allocated_mems){
-            Sync((void*)element.first,element.second);
-        }
-        """
-    )
-    if not(function["type"]=="void" and function["num_indirection"]==0):
-        write("return result;")
-    else:
-        write("return;")
-    write("""break;
-        }
-    }
-    }
-    """)
     
-    write(f"""
-    {funcpointer} deserialize_{funcpointer}(json name){{
-        //Will only be called by the server
+        write(f"""
+        {funcpointer} deserialize_{funcpointer}(json name){{
+            //Will only be called by the server
+            
+            return {funcpointer}_wrapper;
+            }};
+        """)
         
-        return {funcpointer}_wrapper;
-        }};
-    """)
+        write(f"""
+            void handle_{funcpointer}_request(json data){{
+            //Will only be called by the client
+            // Recieved data from server's {funcpointer} wrapper, and will execute the actual function
+            
+            auto result=json({{}});
+            auto funcpointer=id_to_{funcpointer}[data["id"]];
+            
+            result["type"]="{funcpointer}_response";
+            
+        """)
+        
+        #Just in case if they change when executing (none of the variables are const)
+        for param in function["params"]:
+            write(param["header"]+";") #Initialize variable
+            
+            param_copy=param.copy()
+            param_copy["name"]=f"""data["members"]["{param["name"]}"]"""
+            
+            write(deserialize(param["name"],param_copy))
+        
+        funcpointer_call=f"""funcpointer({",".join([param["name"] for param in function["params"]])})"""
+        if not(function["type"]=="void" and function["num_indirection"]==0):
+            write(f"""auto result_temp={funcpointer_call};""")
+        
+            function_copy=function.copy()
+            function_copy["name"]="result_temp"
+            function_copy["length"]=[];
+        
+            write(serialize('result["result"]',function_copy))
+        else:
+            write(funcpointer_call+";")
+    
+        for param in function["params"]:
+            write(serialize(f"""result["params"]["{param["name"]}"]""",param))
+        
+        write("writeToConn(result);")
+        
+        if function["type"]=="void" and function["num_indirection"]==1:
+            write(f"""
+                while(true){{
+                    data=readFromConn();
+                    if (data["type"]=="{funcpointer}_malloc"){{
+                        client_to_server_mem[(uintptr_t)result["result"]]=data["mem"];
+                        server_to_client_mem[data["mem"]]=(uintptr_t)result["result"];
+                        break;
+                    }}
+                }}
+            """)
+        
+        write("};")
+                
+        
+        write(f"void handle_{funcpointer}_request(json data);",header=True);
+        
+        write(f"""
+        {function["type"]}{'*'*function["num_indirection"]} handle_{funcpointer}_response(json data, {header.removeprefix("(")} {{
+            //Will only be called by the server
+            
+            //Recieved result from client's {funcpointer}
+            
+            //If there's any memory returned, send client the address so it can keep track of it
+        """)
+        
+        for param in function["params"]:
+            param_copy=param.copy()
+            param_copy["name"]=f"""data["members"]["{param["name"]}"]"""
+            param_copy["const"]=False
+            
+            write(deserialize(param["name"],param_copy))
+        
+        if not(function["type"]=="void" and function["num_indirection"]==0):
+            write(function["type"]+("*"*function["num_indirection"])+" result;")
+            
+            function_copy=function.copy()
+            function_copy["name"]='data["result"]'
+            function_copy["length"]=[]
+            
+            write(deserialize("result",function_copy))
+        
+        if function["type"]=="void" and function["num_indirection"]==1:
+            write(f"""
+            json _malloc=json({{}});
+            _malloc["type"]="{funcpointer}_malloc";
+            _malloc["mem"]=(uintptr_t)result;
+            
+            writeToConn(_malloc);
+            """
+            )
+        write("return result;" if not(function["type"]=="void" and function["num_indirection"]==0) else "")
+        
+        write("}")
+        write(f"""{function["type"]}{'*'*function["num_indirection"]} handle_{funcpointer}_response(json data, {header.removeprefix("(")};""",header=True)
+    else:
+        write(f"""
+        {funcpointer} deserialize_{funcpointer}(json name){{
+            //Will only be called by the server
+            
+            return vkGetInstanceProcAddr;
+            }};
+        """)
     
     write(f"{funcpointer} deserialize_{funcpointer}(json name);",header=True)
-    
-    write(f"""
-        void handle_{funcpointer}_request(json data){{
-        //Will only be called by the client
-        // Recieved data from server's {funcpointer} wrapper, and will execute the actual function
-        
-        auto result=json({{}});
-        auto funcpointer=id_to_{funcpointer}[data["id"]];
-        
-        result["type"]="{funcpointer}_response";
-        
-    """)
-    
-    #Just in case if they change when executing (none of the variables are const)
-    for param in function["params"]:
-        write(param["header"]+";") #Initialize variable
-        
-        param_copy=param.copy()
-        param_copy["name"]=f"""data["members"]["{param["name"]}"]"""
-        
-        write(deserialize(param["name"],param_copy))
-    
-    if not(function["type"]=="void" and function["num_indirection"]==0):
-        write(f"""auto result_temp=funcpointer({",".join([param["name"] for param in function["params"]])});""")
-    
-        function_copy=function.copy()
-        function_copy["name"]="result_temp"
-        function_copy["length"]=[];
-    
-        write(serialize('result["result"]',function_copy))
-
-    for param in function["params"]:
-        write(serialize(f"""result["params"]["{param["name"]}"]""",param))
-    
-    write("writeToConn(result);")
-    
-    if function["type"]=="void" and function["num_indirection"]==1:
-        write(f"""
-            while(true){{
-                data=readFromConn();
-                if (data["type"]=="{funcpointer}_malloc"){{
-                    client_to_server_mem[(uintptr_t)result["result"]]=data["mem"];
-                    server_to_client_mem[data["mem"]]=(uintptr_t)result["result"];
-                    break;
-                }}
-            }}
-        """)
-    
-    write("};")
-            
-    
-    write(f"void handle_{funcpointer}_request(json data);",header=True);
-    
-    write(f"""
-    {function["type"]}{'*'*function["num_indirection"]} handle_{funcpointer}_response(json data, {header.removeprefix("(")} {{
-        //Will only be called by the server
-        
-        //Recieved result from client's {funcpointer}
-        
-        //If there's any memory returned, send client the address so it can keep track of it
-    """)
-    
-    for param in function["params"]:
-        param_copy=param.copy()
-        param_copy["name"]=f"""data["members"]["{param["name"]}"]"""
-        param_copy["const"]=False
-        
-        write(deserialize(param["name"],param_copy))
-    
-    if not(function["type"]=="void" and function["num_indirection"]==0):
-        write(function["type"]+("*"*function["num_indirection"])+" result;")
-        
-        function_copy=function.copy()
-        function_copy["name"]='data["result"]'
-        function_copy["length"]=[]
-        
-        write(deserialize("result",function_copy))
-    
-    if function["type"]=="void" and function["num_indirection"]==1:
-        write(f"""
-        json _malloc=json({{}});
-        _malloc["type"]="{funcpointer}_malloc";
-        _malloc["mem"]=(uintptr_t)result;
-        
-        writeToConn(_malloc);
-        """
-        )
-    write("return result;" if not(function["type"]=="void" and function["num_indirection"]==0) else "")
-    
-    write("}")
-    write(f"""{function["type"]}{'*'*function["num_indirection"]} handle_{funcpointer}_response(json data, {header.removeprefix("(")};""",header=True)
         
 for handle in parsed["handles"]:
         write(f"""
         json serialize_{handle}({handle} data){{
             json result=json({{}});
             result["value"]=(uintptr_t)data;
-            return result;
-        }}
-       """)
-       
-        write(f"""json serialize_{handle}({handle} data);""",header=True)
+        """)
         if handle=="VkDeviceMemory":
             write("""
             #ifdef CLIENT
                 currStruct()->mem_to_sync->insert((uintptr_t)data);
             #endif
             """)
+        write("""
+            return result;
+        }
+       """)
+       
+        write(f"""json serialize_{handle}({handle} data);""",header=True)
+        
         write(f"""
        {handle} deserialize_{handle}(json data){{
-               return ({handle})data["value"];
+               return ({handle})data["value"].get<uintptr_t>();
        }}""")
        
         write(f"""{handle} deserialize_{handle}(json data);""",header=True)

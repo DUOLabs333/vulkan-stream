@@ -11,9 +11,14 @@ header_lines=[]
 
 import json
 import copy
+import random, string
 parsed=json.load(open("../parse/parsed.json"))
 
+random_string = lambda : ''.join(random.choices(string.ascii_uppercase +
+                             string.digits, k=7))
 def serialize(variable,value):
+    
+    result_json="return_"+random_string()
     val=copy.deepcopy(value)
     
     name=val["name"]
@@ -22,13 +27,13 @@ def serialize(variable,value):
     type=val['type']
         
     result=f"""{variable}=[&]() {{
-    json result=json({{}});
+    json {result_json}=json({{}});
     """
     if num_indirection>0:
         result+=f"""
         if ({name}==NULL){{
-            result["null"]=true;
-            return result;
+            {result_json}["null"]=true;
+            return {result_json};
         }}
         """
     if (type in ["char", "void"] and num_indirection==1):
@@ -46,19 +51,20 @@ def serialize(variable,value):
         val["length"].pop()
         
         result+=f"""
-        result["members"]={{}};
+        {result_json}["members"]={{}};
         for(int i=0; i < {length[-1]}; i++){{
             json temp;
             {serialize('temp',val)}
-            result["members"][std::to_string(i)].push_back(temp);
+            {result_json}["members"][std::to_string(i)].push_back(temp);
         }}
-        return result;
+        return {result_json};
         """
     elif num_indirection>0:
         val["name"]="*"+name
         val["num_indirection"]-=1
        
-        result+=(serialize("result",val)+"\n")
+        result+=(serialize(result_json,val)+"\n")
+        result+=("return "+result_json+";")
     elif type in parsed["basic_types"]:
         result+=f"""return serialize_{parsed["basic_types"][type]}({name});\n"""
     else:
