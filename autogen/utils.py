@@ -14,8 +14,7 @@ import copy
 import random, string
 parsed=json.load(open("../parse/parsed.json"))
 
-random_string = lambda : ''.join(random.choices(string.ascii_uppercase +
-                             string.digits, k=7))
+random_string = lambda : ''.join(random.choices(string.ascii_uppercase + string.ascii_lowercase, k=7))
 
 def is_void(name):
     return name["type"]=="void" and name["num_indirection"]==0
@@ -94,68 +93,55 @@ def deserialize(variable,value):
         return ""
         
     val=copy.deepcopy(value)
-    
+
     name=val["name"]
     num_indirection=val["num_indirection"]
     length=val["length"].copy()
     type=val['type']
 
-    if num_indirection==0 and (len(length)>0 and length[-1]!=""): #Arrays can't be returned
-        result=f"[&]() {{\n"
-    else:
-        result=f"{variable}=[&]() -> {type}{'*'*num_indirection} {{\n"
-        
+    result=f"[&]() {{\n" #Should assign by reference, not value, so nothing should be returned.
     if num_indirection>0:
         result+=f"""
         if ({name}.contains("null")){{
-        return NULL;
+        {variable}=NULL;
         }}
     """
     if (type in ["char", "void"] and num_indirection==1):
-        result+=f"return deserialize_{type}_p({name});\n"
+        result+=f"{variable}=deserialize_{type}_p({name});\n"
     elif (type in parsed["external_handles"] and num_indirection<2):
             if num_indirection==0:
-                result+=f"return deserialize_{type}({name});\n"
+                result+=f"{variable}=deserialize_{type}({name});\n"
             elif num_indirection==1:
-                result+=f"return deserialize_{type}_p({name});\n"
+                result+=f"{variable}=deserialize_{type}_p({name});\n"
     elif (len(length)>0 and (length[-1]!="")):
 
-        if num_indirection==0: #Array
-            array=variable
-        else:
-            result+=f"""auto members=({type}{"*"*num_indirection})malloc({length[-1]}*sizeof({type+"*"*(num_indirection-1)}));"""
-            array="members"
-            val["num_indirection"]-=1
-        val["name"]+='["members"][i]'
+        if num_indirection>0: #Dynamic array, so each element of char** would be char*
+            val["num_indirection"]-=1 
+        
+        random_iterator=random_string()
+        val["name"]+=f"""["members"][{random_iterator}]"""
         val["length"].pop()
         result+=f"""
-        for (int i=0; i < {length[-1]}; i++){{
-            {deserialize(array+'[i]',val)};
+        for (int {random_iterator}=0; {random_iterator} < {length[-1]}; {random_iterator}++){{
+            {deserialize(variable+f'[{random_iterator}]',val)};
         }}
         """
-        if num_indirection>0:
-            result+="return members;\n"
         
     elif num_indirection>0:
         val["num_indirection"]-=1
-        result+=f"""
-         auto pointer=({type}{'*'*num_indirection})malloc(sizeof({type}{'*'*(num_indirection-1)}));
-         {deserialize('*pointer',val)}
-         return pointer;
-        """
+        result+=(deserialize("*"+variable,val)+"\n")
+        
     elif type in parsed["basic_types"]:
-        result+=f"""return deserialize_{parsed["basic_types"][type]}({name});\n"""
+        result+=f"""{variable}=deserialize_{parsed["basic_types"][type]}({name});\n"""
     else:
         result+=(f"""
         #ifndef CLIENT
-        return deserialize_{type}({name});
-        #else
-        return {variable};
+        {variable}=deserialize_{type}({name});
         #endif
         """ 
-        if type in parsed["funcpointers"]
+        if type in parsed["funcpointers"] #Only the server is deserializing funcpointers (in order to wrap them)
         else
-        f"return deserialize_{type}({name});"
+        f"{variable}=deserialize_{type}({name});"
         )
     
     result+="}();"
