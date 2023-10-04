@@ -620,7 +620,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -1022,7 +1022,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -1031,7 +1031,7 @@
             },
             {
                 "name": "pApplicationName",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated"
                 ],
@@ -1049,7 +1049,7 @@
             },
             {
                 "name": "pEngineName",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated"
                 ],
@@ -1143,7 +1143,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -1179,7 +1179,7 @@
             },
             {
                 "name": "pQueuePriorities",
-                "const": false,
+                "const": true,
                 "length": [
                     "queueCount"
                 ],
@@ -1199,7 +1199,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -1226,7 +1226,7 @@
             },
             {
                 "name": "pQueueCreateInfos",
-                "const": false,
+                "const": true,
                 "length": [
                     "queueCreateInfoCount"
                 ],
@@ -1244,7 +1244,7 @@
             },
             {
                 "name": "ppEnabledLayerNames",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated",
                     "enabledLayerCount"
@@ -1263,7 +1263,7 @@
             },
             {
                 "name": "ppEnabledExtensionNames",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated",
                     "enabledExtensionCount"
@@ -1273,7 +1273,7 @@
             },
             {
                 "name": "pEnabledFeatures",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -1293,7 +1293,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -1311,7 +1311,7 @@
             },
             {
                 "name": "pApplicationInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -1329,7 +1329,7 @@
             },
             {
                 "name": "ppEnabledLayerNames",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated",
                     "enabledLayerCount"
@@ -1348,7 +1348,7 @@
             },
             {
                 "name": "ppEnabledExtensionNames",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated",
                     "enabledExtensionCount"
@@ -1445,7 +1445,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -1628,7 +1628,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -1809,7 +1809,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -1863,7 +1863,7 @@
             },
             {
                 "name": "pImageInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     "descriptorCount"
                 ],
@@ -1872,7 +1872,7 @@
             },
             {
                 "name": "pBufferInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     "descriptorCount"
                 ],
@@ -1881,7 +1881,7 @@
             },
             {
                 "name": "pTexelBufferView",
-                "const": false,
+                "const": true,
                 "length": [
                     "descriptorCount"
                 ],
@@ -1901,7 +1901,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -1984,7 +1984,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -2013,7 +2013,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -2067,7 +2067,7 @@
             },
             {
                 "name": "pQueueFamilyIndices",
-                "const": false,
+                "const": true,
                 "length": [
                     "queueFamilyIndexCount"
                 ],
@@ -2087,7 +2087,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -2266,7 +2266,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -2304,7 +2304,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -2387,7 +2387,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -2479,7 +2479,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -2587,7 +2587,7 @@
             },
             {
                 "name": "pQueueFamilyIndices",
-                "const": false,
+                "const": true,
                 "length": [
                     "queueFamilyIndexCount"
                 ],
@@ -2663,7 +2663,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -2878,7 +2878,7 @@
             },
             {
                 "name": "pBinds",
-                "const": false,
+                "const": true,
                 "length": [
                     "bindCount"
                 ],
@@ -2907,7 +2907,7 @@
             },
             {
                 "name": "pBinds",
-                "const": false,
+                "const": true,
                 "length": [
                     "bindCount"
                 ],
@@ -2936,7 +2936,7 @@
             },
             {
                 "name": "pBinds",
-                "const": false,
+                "const": true,
                 "length": [
                     "bindCount"
                 ],
@@ -2956,7 +2956,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -2974,7 +2974,7 @@
             },
             {
                 "name": "pWaitSemaphores",
-                "const": false,
+                "const": true,
                 "length": [
                     "waitSemaphoreCount"
                 ],
@@ -2992,7 +2992,7 @@
             },
             {
                 "name": "pBufferBinds",
-                "const": false,
+                "const": true,
                 "length": [
                     "bufferBindCount"
                 ],
@@ -3010,7 +3010,7 @@
             },
             {
                 "name": "pImageOpaqueBinds",
-                "const": false,
+                "const": true,
                 "length": [
                     "imageOpaqueBindCount"
                 ],
@@ -3028,7 +3028,7 @@
             },
             {
                 "name": "pImageBinds",
-                "const": false,
+                "const": true,
                 "length": [
                     "imageBindCount"
                 ],
@@ -3046,7 +3046,7 @@
             },
             {
                 "name": "pSignalSemaphores",
-                "const": false,
+                "const": true,
                 "length": [
                     "signalSemaphoreCount"
                 ],
@@ -3339,7 +3339,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -3366,7 +3366,7 @@
             },
             {
                 "name": "pCode",
-                "const": false,
+                "const": true,
                 "length": [
                     "codeSize / 4"
                 ],
@@ -3413,7 +3413,7 @@
             },
             {
                 "name": "pImmutableSamplers",
-                "const": false,
+                "const": true,
                 "length": [
                     "descriptorCount"
                 ],
@@ -3433,7 +3433,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -3460,7 +3460,7 @@
             },
             {
                 "name": "pBindings",
-                "const": false,
+                "const": true,
                 "length": [
                     "bindingCount"
                 ],
@@ -3500,7 +3500,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -3536,7 +3536,7 @@
             },
             {
                 "name": "pPoolSizes",
-                "const": false,
+                "const": true,
                 "length": [
                     "poolSizeCount"
                 ],
@@ -3556,7 +3556,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -3583,7 +3583,7 @@
             },
             {
                 "name": "pSetLayouts",
-                "const": false,
+                "const": true,
                 "length": [
                     "descriptorSetCount"
                 ],
@@ -3632,7 +3632,7 @@
             },
             {
                 "name": "pMapEntries",
-                "const": false,
+                "const": true,
                 "length": [
                     "mapEntryCount"
                 ],
@@ -3650,7 +3650,7 @@
             },
             {
                 "name": "pData",
-                "const": false,
+                "const": true,
                 "length": [
                     "dataSize"
                 ],
@@ -3670,7 +3670,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -3706,7 +3706,7 @@
             },
             {
                 "name": "pName",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated"
                 ],
@@ -3715,7 +3715,7 @@
             },
             {
                 "name": "pName",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated"
                 ],
@@ -3724,7 +3724,7 @@
             },
             {
                 "name": "pSpecializationInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -3744,7 +3744,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -3809,7 +3809,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -3856,7 +3856,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -3952,7 +3952,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -3979,7 +3979,7 @@
             },
             {
                 "name": "pVertexBindingDescriptions",
-                "const": false,
+                "const": true,
                 "length": [
                     "vertexBindingDescriptionCount"
                 ],
@@ -3997,7 +3997,7 @@
             },
             {
                 "name": "pVertexAttributeDescriptions",
-                "const": false,
+                "const": true,
                 "length": [
                     "vertexAttributeDescriptionCount"
                 ],
@@ -4017,7 +4017,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4064,7 +4064,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4102,7 +4102,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4129,7 +4129,7 @@
             },
             {
                 "name": "pViewports",
-                "const": false,
+                "const": true,
                 "length": [
                     "viewportCount"
                 ],
@@ -4147,7 +4147,7 @@
             },
             {
                 "name": "pScissors",
-                "const": false,
+                "const": true,
                 "length": [
                     "scissorCount"
                 ],
@@ -4167,7 +4167,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4286,7 +4286,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4331,7 +4331,7 @@
             },
             {
                 "name": "pSampleMask",
-                "const": false,
+                "const": true,
                 "length": [
                     "(rasterizationSamples + 31) / 32"
                 ],
@@ -4443,7 +4443,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4488,7 +4488,7 @@
             },
             {
                 "name": "pAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "attachmentCount"
                 ],
@@ -4517,7 +4517,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4544,7 +4544,7 @@
             },
             {
                 "name": "pDynamicStates",
-                "const": false,
+                "const": true,
                 "length": [
                     "dynamicStateCount"
                 ],
@@ -4629,7 +4629,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4739,7 +4739,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4766,7 +4766,7 @@
             },
             {
                 "name": "pStages",
-                "const": false,
+                "const": true,
                 "length": [
                     "stageCount"
                 ],
@@ -4775,7 +4775,7 @@
             },
             {
                 "name": "pStages",
-                "const": false,
+                "const": true,
                 "length": [
                     "stageCount"
                 ],
@@ -4784,7 +4784,7 @@
             },
             {
                 "name": "pVertexInputState",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4793,7 +4793,7 @@
             },
             {
                 "name": "pInputAssemblyState",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4802,7 +4802,7 @@
             },
             {
                 "name": "pTessellationState",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4811,7 +4811,7 @@
             },
             {
                 "name": "pViewportState",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4820,7 +4820,7 @@
             },
             {
                 "name": "pRasterizationState",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4829,7 +4829,7 @@
             },
             {
                 "name": "pMultisampleState",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4838,7 +4838,7 @@
             },
             {
                 "name": "pDepthStencilState",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4847,7 +4847,7 @@
             },
             {
                 "name": "pColorBlendState",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4856,7 +4856,7 @@
             },
             {
                 "name": "pDynamicState",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4921,7 +4921,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -4957,7 +4957,7 @@
             },
             {
                 "name": "pInitialData",
-                "const": false,
+                "const": true,
                 "length": [
                     "initialDataSize"
                 ],
@@ -5053,7 +5053,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -5080,7 +5080,7 @@
             },
             {
                 "name": "pSetLayouts",
-                "const": false,
+                "const": true,
                 "length": [
                     "setLayoutCount"
                 ],
@@ -5098,7 +5098,7 @@
             },
             {
                 "name": "pPushConstantRanges",
-                "const": false,
+                "const": true,
                 "length": [
                     "pushConstantRangeCount"
                 ],
@@ -5118,7 +5118,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -5282,7 +5282,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -5320,7 +5320,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -5367,7 +5367,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -5441,7 +5441,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -5459,7 +5459,7 @@
             },
             {
                 "name": "pInheritanceInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -5479,7 +5479,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -5524,7 +5524,7 @@
             },
             {
                 "name": "pClearValues",
-                "const": false,
+                "const": true,
                 "length": [
                     "clearValueCount"
                 ],
@@ -5763,7 +5763,7 @@
             },
             {
                 "name": "pInputAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "inputAttachmentCount"
                 ],
@@ -5781,7 +5781,7 @@
             },
             {
                 "name": "pColorAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "colorAttachmentCount"
                 ],
@@ -5790,7 +5790,7 @@
             },
             {
                 "name": "pResolveAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "colorAttachmentCount"
                 ],
@@ -5799,7 +5799,7 @@
             },
             {
                 "name": "pDepthStencilAttachment",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -5817,7 +5817,7 @@
             },
             {
                 "name": "pPreserveAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "preserveAttachmentCount"
                 ],
@@ -5902,7 +5902,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -5929,7 +5929,7 @@
             },
             {
                 "name": "pAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "attachmentCount"
                 ],
@@ -5947,7 +5947,7 @@
             },
             {
                 "name": "pSubpasses",
-                "const": false,
+                "const": true,
                 "length": [
                     "subpassCount"
                 ],
@@ -5965,7 +5965,7 @@
             },
             {
                 "name": "pDependencies",
-                "const": false,
+                "const": true,
                 "length": [
                     "dependencyCount"
                 ],
@@ -5985,7 +5985,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -6014,7 +6014,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -7543,7 +7543,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -7572,7 +7572,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -7628,7 +7628,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -7664,7 +7664,7 @@
             },
             {
                 "name": "pAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "attachmentCount"
                 ],
@@ -7874,7 +7874,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -7892,7 +7892,7 @@
             },
             {
                 "name": "pWaitSemaphores",
-                "const": false,
+                "const": true,
                 "length": [
                     "waitSemaphoreCount"
                 ],
@@ -7901,7 +7901,7 @@
             },
             {
                 "name": "pWaitDstStageMask",
-                "const": false,
+                "const": true,
                 "length": [
                     "waitSemaphoreCount"
                 ],
@@ -7919,7 +7919,7 @@
             },
             {
                 "name": "pCommandBuffers",
-                "const": false,
+                "const": true,
                 "length": [
                     "commandBufferCount"
                 ],
@@ -7937,7 +7937,7 @@
             },
             {
                 "name": "pSignalSemaphores",
-                "const": false,
+                "const": true,
                 "length": [
                     "signalSemaphoreCount"
                 ],
@@ -7957,7 +7957,7 @@
             },
             {
                 "name": "displayName",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated"
                 ],
@@ -8082,7 +8082,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -8203,7 +8203,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -8295,7 +8295,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -8434,7 +8434,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -8481,7 +8481,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -8548,7 +8548,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -8647,7 +8647,7 @@
             },
             {
                 "name": "pQueueFamilyIndices",
-                "const": false,
+                "const": true,
                 "length": [
                     "queueFamilyIndexCount"
                 ],
@@ -8721,7 +8721,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -8739,7 +8739,7 @@
             },
             {
                 "name": "pWaitSemaphores",
-                "const": false,
+                "const": true,
                 "length": [
                     "waitSemaphoreCount"
                 ],
@@ -8757,7 +8757,7 @@
             },
             {
                 "name": "pSwapchains",
-                "const": false,
+                "const": true,
                 "length": [
                     "swapchainCount"
                 ],
@@ -8766,7 +8766,7 @@
             },
             {
                 "name": "pImageIndices",
-                "const": false,
+                "const": true,
                 "length": [
                     "swapchainCount"
                 ],
@@ -8795,7 +8795,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -8842,7 +8842,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -8860,7 +8860,7 @@
             },
             {
                 "name": "pDisabledValidationChecks",
-                "const": false,
+                "const": true,
                 "length": [
                     "disabledValidationCheckCount"
                 ],
@@ -8880,7 +8880,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -8898,7 +8898,7 @@
             },
             {
                 "name": "pEnabledValidationFeatures",
-                "const": false,
+                "const": true,
                 "length": [
                     "enabledValidationFeatureCount"
                 ],
@@ -8916,7 +8916,7 @@
             },
             {
                 "name": "pDisabledValidationFeatures",
-                "const": false,
+                "const": true,
                 "length": [
                     "disabledValidationFeatureCount"
                 ],
@@ -8936,7 +8936,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -8965,7 +8965,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -8992,7 +8992,7 @@
             },
             {
                 "name": "pObjectName",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated"
                 ],
@@ -9012,7 +9012,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -9057,7 +9057,7 @@
             },
             {
                 "name": "pTag",
-                "const": false,
+                "const": true,
                 "length": [
                     "tagSize"
                 ],
@@ -9077,7 +9077,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -9086,7 +9086,7 @@
             },
             {
                 "name": "pMarkerName",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated"
                 ],
@@ -9115,7 +9115,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -9144,7 +9144,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -9173,7 +9173,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -9249,7 +9249,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -9278,7 +9278,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -9383,7 +9383,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -9412,7 +9412,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -9441,7 +9441,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -9470,7 +9470,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -9687,7 +9687,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -9705,7 +9705,7 @@
             },
             {
                 "name": "pStages",
-                "const": false,
+                "const": true,
                 "length": [
                     "stageCount"
                 ],
@@ -9714,7 +9714,7 @@
             },
             {
                 "name": "pVertexInputState",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -9723,7 +9723,7 @@
             },
             {
                 "name": "pTessellationState",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -9743,7 +9743,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -9761,7 +9761,7 @@
             },
             {
                 "name": "pGroups",
-                "const": false,
+                "const": true,
                 "length": [
                     "groupCount"
                 ],
@@ -9779,7 +9779,7 @@
             },
             {
                 "name": "pPipelines",
-                "const": false,
+                "const": true,
                 "length": [
                     "pipelineCount"
                 ],
@@ -9899,7 +9899,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -10007,7 +10007,7 @@
             },
             {
                 "name": "pIndexTypes",
-                "const": false,
+                "const": true,
                 "length": [
                     "indexTypeCount"
                 ],
@@ -10016,7 +10016,7 @@
             },
             {
                 "name": "pIndexTypeValues",
-                "const": false,
+                "const": true,
                 "length": [
                     "indexTypeCount"
                 ],
@@ -10036,7 +10036,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -10072,7 +10072,7 @@
             },
             {
                 "name": "pTokens",
-                "const": false,
+                "const": true,
                 "length": [
                     "tokenCount"
                 ],
@@ -10090,7 +10090,7 @@
             },
             {
                 "name": "pStreamStrides",
-                "const": false,
+                "const": true,
                 "length": [
                     "streamCount"
                 ],
@@ -10110,7 +10110,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -10155,7 +10155,7 @@
             },
             {
                 "name": "pStreams",
-                "const": false,
+                "const": true,
                 "length": [
                     "streamCount"
                 ],
@@ -10247,7 +10247,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -10303,7 +10303,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -10584,7 +10584,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -10649,7 +10649,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -10888,7 +10888,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -10953,7 +10953,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -11235,7 +11235,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -11253,7 +11253,7 @@
             },
             {
                 "name": "pRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "swapchainCount"
                 ],
@@ -11273,7 +11273,7 @@
             },
             {
                 "name": "pRectangles",
-                "const": false,
+                "const": true,
                 "length": [
                     "rectangleCount"
                 ],
@@ -11532,7 +11532,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -11561,7 +11561,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -11648,7 +11648,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -11695,7 +11695,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -11930,7 +11930,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -11959,7 +11959,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -11988,7 +11988,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12017,7 +12017,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12046,7 +12046,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12075,7 +12075,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12104,7 +12104,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12171,7 +12171,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12209,7 +12209,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12238,7 +12238,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12361,7 +12361,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12390,7 +12390,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12419,7 +12419,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12475,7 +12475,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12513,7 +12513,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12542,7 +12542,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12665,7 +12665,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12694,7 +12694,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12723,7 +12723,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12779,7 +12779,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -12987,7 +12987,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13005,7 +13005,7 @@
             },
             {
                 "name": "pViewMasks",
-                "const": false,
+                "const": true,
                 "length": [
                     "subpassCount"
                 ],
@@ -13023,7 +13023,7 @@
             },
             {
                 "name": "pViewOffsets",
-                "const": false,
+                "const": true,
                 "length": [
                     "dependencyCount"
                 ],
@@ -13041,7 +13041,7 @@
             },
             {
                 "name": "pCorrelationMasks",
-                "const": false,
+                "const": true,
                 "length": [
                     "correlationMaskCount"
                 ],
@@ -13061,7 +13061,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13079,7 +13079,7 @@
             },
             {
                 "name": "pViewMasks",
-                "const": false,
+                "const": true,
                 "length": [
                     "subpassCount"
                 ],
@@ -13097,7 +13097,7 @@
             },
             {
                 "name": "pViewOffsets",
-                "const": false,
+                "const": true,
                 "length": [
                     "dependencyCount"
                 ],
@@ -13115,7 +13115,7 @@
             },
             {
                 "name": "pCorrelationMasks",
-                "const": false,
+                "const": true,
                 "length": [
                     "correlationMaskCount"
                 ],
@@ -13254,7 +13254,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13283,7 +13283,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13312,7 +13312,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13341,7 +13341,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13464,7 +13464,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13502,7 +13502,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13540,7 +13540,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13587,7 +13587,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13634,7 +13634,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13652,7 +13652,7 @@
             },
             {
                 "name": "pDeviceIndices",
-                "const": false,
+                "const": true,
                 "length": [
                     "deviceIndexCount"
                 ],
@@ -13672,7 +13672,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13690,7 +13690,7 @@
             },
             {
                 "name": "pDeviceIndices",
-                "const": false,
+                "const": true,
                 "length": [
                     "deviceIndexCount"
                 ],
@@ -13710,7 +13710,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13757,7 +13757,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13804,7 +13804,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13822,7 +13822,7 @@
             },
             {
                 "name": "pDeviceIndices",
-                "const": false,
+                "const": true,
                 "length": [
                     "deviceIndexCount"
                 ],
@@ -13840,7 +13840,7 @@
             },
             {
                 "name": "pSplitInstanceBindRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "splitInstanceBindRegionCount"
                 ],
@@ -13860,7 +13860,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13878,7 +13878,7 @@
             },
             {
                 "name": "pDeviceIndices",
-                "const": false,
+                "const": true,
                 "length": [
                     "deviceIndexCount"
                 ],
@@ -13896,7 +13896,7 @@
             },
             {
                 "name": "pSplitInstanceBindRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "splitInstanceBindRegionCount"
                 ],
@@ -13916,7 +13916,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13943,7 +13943,7 @@
             },
             {
                 "name": "pDeviceRenderAreas",
-                "const": false,
+                "const": true,
                 "length": [
                     "deviceRenderAreaCount"
                 ],
@@ -13963,7 +13963,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -13990,7 +13990,7 @@
             },
             {
                 "name": "pDeviceRenderAreas",
-                "const": false,
+                "const": true,
                 "length": [
                     "deviceRenderAreaCount"
                 ],
@@ -14010,7 +14010,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -14039,7 +14039,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -14068,7 +14068,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -14086,7 +14086,7 @@
             },
             {
                 "name": "pWaitSemaphoreDeviceIndices",
-                "const": false,
+                "const": true,
                 "length": [
                     "waitSemaphoreCount"
                 ],
@@ -14104,7 +14104,7 @@
             },
             {
                 "name": "pCommandBufferDeviceMasks",
-                "const": false,
+                "const": true,
                 "length": [
                     "commandBufferCount"
                 ],
@@ -14122,7 +14122,7 @@
             },
             {
                 "name": "pSignalSemaphoreDeviceIndices",
-                "const": false,
+                "const": true,
                 "length": [
                     "signalSemaphoreCount"
                 ],
@@ -14142,7 +14142,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -14160,7 +14160,7 @@
             },
             {
                 "name": "pWaitSemaphoreDeviceIndices",
-                "const": false,
+                "const": true,
                 "length": [
                     "waitSemaphoreCount"
                 ],
@@ -14178,7 +14178,7 @@
             },
             {
                 "name": "pCommandBufferDeviceMasks",
-                "const": false,
+                "const": true,
                 "length": [
                     "commandBufferCount"
                 ],
@@ -14196,7 +14196,7 @@
             },
             {
                 "name": "pSignalSemaphoreDeviceIndices",
-                "const": false,
+                "const": true,
                 "length": [
                     "signalSemaphoreCount"
                 ],
@@ -14216,7 +14216,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -14254,7 +14254,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -14330,7 +14330,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -14359,7 +14359,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -14397,7 +14397,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -14462,7 +14462,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -14480,7 +14480,7 @@
             },
             {
                 "name": "pDeviceMasks",
-                "const": false,
+                "const": true,
                 "length": [
                     "swapchainCount"
                 ],
@@ -14509,7 +14509,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -14527,7 +14527,7 @@
             },
             {
                 "name": "pPhysicalDevices",
-                "const": false,
+                "const": true,
                 "length": [
                     "physicalDeviceCount"
                 ],
@@ -14547,7 +14547,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -14565,7 +14565,7 @@
             },
             {
                 "name": "pPhysicalDevices",
-                "const": false,
+                "const": true,
                 "length": [
                     "physicalDeviceCount"
                 ],
@@ -14585,7 +14585,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -14726,7 +14726,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -14753,7 +14753,7 @@
             },
             {
                 "name": "pDescriptorUpdateEntries",
-                "const": false,
+                "const": true,
                 "length": [
                     "descriptorUpdateEntryCount"
                 ],
@@ -14818,7 +14818,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -14845,7 +14845,7 @@
             },
             {
                 "name": "pDescriptorUpdateEntries",
-                "const": false,
+                "const": true,
                 "length": [
                     "descriptorUpdateEntryCount"
                 ],
@@ -14959,7 +14959,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -14977,7 +14977,7 @@
             },
             {
                 "name": "pPresentIds",
-                "const": false,
+                "const": true,
                 "length": [
                     "swapchainCount"
                 ],
@@ -15026,7 +15026,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -15147,7 +15147,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -15234,7 +15234,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -15252,7 +15252,7 @@
             },
             {
                 "name": "pTimes",
-                "const": false,
+                "const": true,
                 "length": [
                     "swapchainCount"
                 ],
@@ -15312,7 +15312,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -15339,7 +15339,7 @@
             },
             {
                 "name": "pViewportWScalings",
-                "const": false,
+                "const": true,
                 "length": [
                     "viewportCount"
                 ],
@@ -15397,7 +15397,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -15424,7 +15424,7 @@
             },
             {
                 "name": "pViewportSwizzles",
-                "const": false,
+                "const": true,
                 "length": [
                     "viewportCount"
                 ],
@@ -15473,7 +15473,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -15509,7 +15509,7 @@
             },
             {
                 "name": "pDiscardRectangles",
-                "const": false,
+                "const": true,
                 "length": [
                     "discardRectangleCount"
                 ],
@@ -15616,7 +15616,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -15634,7 +15634,7 @@
             },
             {
                 "name": "pAspectReferences",
-                "const": false,
+                "const": true,
                 "length": [
                     "aspectReferenceCount"
                 ],
@@ -15654,7 +15654,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -15672,7 +15672,7 @@
             },
             {
                 "name": "pAspectReferences",
-                "const": false,
+                "const": true,
                 "length": [
                     "aspectReferenceCount"
                 ],
@@ -15692,7 +15692,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -15866,7 +15866,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16188,7 +16188,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16217,7 +16217,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16246,7 +16246,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16255,7 +16255,7 @@
             },
             {
                 "name": "pCreateInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16275,7 +16275,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16284,7 +16284,7 @@
             },
             {
                 "name": "pCreateInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16304,7 +16304,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16333,7 +16333,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16362,7 +16362,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16391,7 +16391,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16420,7 +16420,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16429,7 +16429,7 @@
             },
             {
                 "name": "pCreateInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16458,7 +16458,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16467,7 +16467,7 @@
             },
             {
                 "name": "pCreateInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16746,7 +16746,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16784,7 +16784,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16822,7 +16822,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16851,7 +16851,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16889,7 +16889,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16918,7 +16918,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16947,7 +16947,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -16976,7 +16976,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -17005,7 +17005,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -17034,7 +17034,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -17126,7 +17126,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -17218,7 +17218,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -17247,7 +17247,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -17276,7 +17276,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -17305,7 +17305,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -17479,7 +17479,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -17526,7 +17526,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -17613,7 +17613,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -17660,7 +17660,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -17803,7 +17803,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -17839,7 +17839,7 @@
             },
             {
                 "name": "pSampleLocations",
-                "const": false,
+                "const": true,
                 "length": [
                     "sampleLocationsCount"
                 ],
@@ -17899,7 +17899,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -17917,7 +17917,7 @@
             },
             {
                 "name": "pAttachmentInitialSampleLocations",
-                "const": false,
+                "const": true,
                 "length": [
                     "attachmentInitialSampleLocationsCount"
                 ],
@@ -17935,7 +17935,7 @@
             },
             {
                 "name": "pPostSubpassSampleLocations",
-                "const": false,
+                "const": true,
                 "length": [
                     "postSubpassSampleLocationsCount"
                 ],
@@ -17955,7 +17955,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -18087,7 +18087,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -18116,7 +18116,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -18277,7 +18277,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -18530,7 +18530,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -18548,7 +18548,7 @@
             },
             {
                 "name": "pData",
-                "const": false,
+                "const": true,
                 "length": [
                     "dataSize"
                 ],
@@ -18568,7 +18568,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -18586,7 +18586,7 @@
             },
             {
                 "name": "pData",
-                "const": false,
+                "const": true,
                 "length": [
                     "dataSize"
                 ],
@@ -18606,7 +18606,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -18635,7 +18635,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -18664,7 +18664,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -18709,7 +18709,7 @@
             },
             {
                 "name": "pCoverageModulationTable",
-                "const": false,
+                "const": true,
                 "length": [
                     "coverageModulationTableCount"
                 ],
@@ -18729,7 +18729,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -18747,7 +18747,7 @@
             },
             {
                 "name": "pViewFormats",
-                "const": false,
+                "const": true,
                 "length": [
                     "viewFormatCount"
                 ],
@@ -18767,7 +18767,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -18785,7 +18785,7 @@
             },
             {
                 "name": "pViewFormats",
-                "const": false,
+                "const": true,
                 "length": [
                     "viewFormatCount"
                 ],
@@ -18805,7 +18805,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -18832,7 +18832,7 @@
             },
             {
                 "name": "pInitialData",
-                "const": false,
+                "const": true,
                 "length": [
                     "initialDataSize"
                 ],
@@ -18852,7 +18852,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -19176,7 +19176,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -19203,7 +19203,7 @@
             },
             {
                 "name": "pColorAttachmentFormats",
-                "const": false,
+                "const": true,
                 "length": [
                     "colorAttachmentCount"
                 ],
@@ -19987,7 +19987,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -20016,7 +20016,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -20179,7 +20179,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -20206,7 +20206,7 @@
             },
             {
                 "name": "pObjectName",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated"
                 ],
@@ -20226,7 +20226,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -20271,7 +20271,7 @@
             },
             {
                 "name": "pTag",
-                "const": false,
+                "const": true,
                 "length": [
                     "tagSize"
                 ],
@@ -20291,7 +20291,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -20300,7 +20300,7 @@
             },
             {
                 "name": "pLabelName",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated"
                 ],
@@ -20329,7 +20329,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -20394,7 +20394,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -20412,7 +20412,7 @@
             },
             {
                 "name": "pMessageIdName",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated"
                 ],
@@ -20430,7 +20430,7 @@
             },
             {
                 "name": "pMessage",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated"
                 ],
@@ -20448,7 +20448,7 @@
             },
             {
                 "name": "pQueueLabels",
-                "const": false,
+                "const": true,
                 "length": [
                     "queueLabelCount"
                 ],
@@ -20466,7 +20466,7 @@
             },
             {
                 "name": "pCmdBufLabels",
-                "const": false,
+                "const": true,
                 "length": [
                     "cmdBufLabelCount"
                 ],
@@ -20484,7 +20484,7 @@
             },
             {
                 "name": "pObjects",
-                "const": false,
+                "const": true,
                 "length": [
                     "objectCount"
                 ],
@@ -20533,7 +20533,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -20663,7 +20663,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -20860,7 +20860,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -21073,7 +21073,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -21974,7 +21974,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -21992,7 +21992,7 @@
             },
             {
                 "name": "pBindingFlags",
-                "const": false,
+                "const": true,
                 "length": [
                     "bindingCount"
                 ],
@@ -22012,7 +22012,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -22030,7 +22030,7 @@
             },
             {
                 "name": "pBindingFlags",
-                "const": false,
+                "const": true,
                 "length": [
                     "bindingCount"
                 ],
@@ -22050,7 +22050,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -22068,7 +22068,7 @@
             },
             {
                 "name": "pDescriptorCounts",
-                "const": false,
+                "const": true,
                 "length": [
                     "descriptorSetCount"
                 ],
@@ -22088,7 +22088,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -22106,7 +22106,7 @@
             },
             {
                 "name": "pDescriptorCounts",
-                "const": false,
+                "const": true,
                 "length": [
                     "descriptorSetCount"
                 ],
@@ -22184,7 +22184,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -22285,7 +22285,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -22386,7 +22386,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -22433,7 +22433,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -22480,7 +22480,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -22525,7 +22525,7 @@
             },
             {
                 "name": "pInputAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "inputAttachmentCount"
                 ],
@@ -22543,7 +22543,7 @@
             },
             {
                 "name": "pColorAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "colorAttachmentCount"
                 ],
@@ -22552,7 +22552,7 @@
             },
             {
                 "name": "pResolveAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "colorAttachmentCount"
                 ],
@@ -22561,7 +22561,7 @@
             },
             {
                 "name": "pDepthStencilAttachment",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -22579,7 +22579,7 @@
             },
             {
                 "name": "pPreserveAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "preserveAttachmentCount"
                 ],
@@ -22599,7 +22599,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -22644,7 +22644,7 @@
             },
             {
                 "name": "pInputAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "inputAttachmentCount"
                 ],
@@ -22662,7 +22662,7 @@
             },
             {
                 "name": "pColorAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "colorAttachmentCount"
                 ],
@@ -22671,7 +22671,7 @@
             },
             {
                 "name": "pResolveAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "colorAttachmentCount"
                 ],
@@ -22680,7 +22680,7 @@
             },
             {
                 "name": "pDepthStencilAttachment",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -22698,7 +22698,7 @@
             },
             {
                 "name": "pPreserveAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "preserveAttachmentCount"
                 ],
@@ -22718,7 +22718,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -22810,7 +22810,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -22902,7 +22902,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -22929,7 +22929,7 @@
             },
             {
                 "name": "pAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "attachmentCount"
                 ],
@@ -22947,7 +22947,7 @@
             },
             {
                 "name": "pSubpasses",
-                "const": false,
+                "const": true,
                 "length": [
                     "subpassCount"
                 ],
@@ -22965,7 +22965,7 @@
             },
             {
                 "name": "pDependencies",
-                "const": false,
+                "const": true,
                 "length": [
                     "dependencyCount"
                 ],
@@ -22983,7 +22983,7 @@
             },
             {
                 "name": "pCorrelatedViewMasks",
-                "const": false,
+                "const": true,
                 "length": [
                     "correlatedViewMaskCount"
                 ],
@@ -23003,7 +23003,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -23030,7 +23030,7 @@
             },
             {
                 "name": "pAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "attachmentCount"
                 ],
@@ -23048,7 +23048,7 @@
             },
             {
                 "name": "pSubpasses",
-                "const": false,
+                "const": true,
                 "length": [
                     "subpassCount"
                 ],
@@ -23066,7 +23066,7 @@
             },
             {
                 "name": "pDependencies",
-                "const": false,
+                "const": true,
                 "length": [
                     "dependencyCount"
                 ],
@@ -23084,7 +23084,7 @@
             },
             {
                 "name": "pCorrelatedViewMasks",
-                "const": false,
+                "const": true,
                 "length": [
                     "correlatedViewMaskCount"
                 ],
@@ -23104,7 +23104,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -23133,7 +23133,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -23162,7 +23162,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -23182,7 +23182,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -23318,7 +23318,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -23356,7 +23356,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -23394,7 +23394,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -23412,7 +23412,7 @@
             },
             {
                 "name": "pWaitSemaphoreValues",
-                "const": false,
+                "const": true,
                 "length": [
                     "waitSemaphoreValueCount"
                 ],
@@ -23430,7 +23430,7 @@
             },
             {
                 "name": "pSignalSemaphoreValues",
-                "const": false,
+                "const": true,
                 "length": [
                     "signalSemaphoreValueCount"
                 ],
@@ -23450,7 +23450,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -23468,7 +23468,7 @@
             },
             {
                 "name": "pWaitSemaphoreValues",
-                "const": false,
+                "const": true,
                 "length": [
                     "waitSemaphoreValueCount"
                 ],
@@ -23486,7 +23486,7 @@
             },
             {
                 "name": "pSignalSemaphoreValues",
-                "const": false,
+                "const": true,
                 "length": [
                     "signalSemaphoreValueCount"
                 ],
@@ -23506,7 +23506,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -23533,7 +23533,7 @@
             },
             {
                 "name": "pSemaphores",
-                "const": false,
+                "const": true,
                 "length": [
                     "semaphoreCount"
                 ],
@@ -23542,7 +23542,7 @@
             },
             {
                 "name": "pValues",
-                "const": false,
+                "const": true,
                 "length": [
                     "semaphoreCount"
                 ],
@@ -23562,7 +23562,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -23589,7 +23589,7 @@
             },
             {
                 "name": "pSemaphores",
-                "const": false,
+                "const": true,
                 "length": [
                     "semaphoreCount"
                 ],
@@ -23598,7 +23598,7 @@
             },
             {
                 "name": "pValues",
-                "const": false,
+                "const": true,
                 "length": [
                     "semaphoreCount"
                 ],
@@ -23618,7 +23618,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -23656,7 +23656,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -23714,7 +23714,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -23732,7 +23732,7 @@
             },
             {
                 "name": "pVertexBindingDivisors",
-                "const": false,
+                "const": true,
                 "length": [
                     "vertexBindingDivisorCount"
                 ],
@@ -23837,7 +23837,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -24641,7 +24641,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -24668,7 +24668,7 @@
             },
             {
                 "name": "pDepthStencilResolveAttachment",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -24688,7 +24688,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -24715,7 +24715,7 @@
             },
             {
                 "name": "pDepthStencilResolveAttachment",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -24735,7 +24735,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -24941,7 +24941,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -25008,7 +25008,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -25066,7 +25066,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -25084,7 +25084,7 @@
             },
             {
                 "name": "pExclusiveScissors",
-                "const": false,
+                "const": true,
                 "length": [
                     "exclusiveScissorCount"
                 ],
@@ -25354,7 +25354,7 @@
             },
             {
                 "name": "pShadingRatePaletteEntries",
-                "const": false,
+                "const": true,
                 "length": [
                     "shadingRatePaletteEntryCount"
                 ],
@@ -25374,7 +25374,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -25401,7 +25401,7 @@
             },
             {
                 "name": "pShadingRatePalettes",
-                "const": false,
+                "const": true,
                 "length": [
                     "viewportCount"
                 ],
@@ -25582,7 +25582,7 @@
             },
             {
                 "name": "pSampleLocations",
-                "const": false,
+                "const": true,
                 "length": [
                     "sampleLocationCount"
                 ],
@@ -25602,7 +25602,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -25629,7 +25629,7 @@
             },
             {
                 "name": "pCustomSampleOrders",
-                "const": false,
+                "const": true,
                 "length": [
                     "customSampleOrderCount"
                 ],
@@ -26210,7 +26210,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -26275,7 +26275,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -26329,7 +26329,7 @@
             },
             {
                 "name": "pShaderGroupCaptureReplayHandle",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -26349,7 +26349,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -26376,7 +26376,7 @@
             },
             {
                 "name": "pStages",
-                "const": false,
+                "const": true,
                 "length": [
                     "stageCount"
                 ],
@@ -26394,7 +26394,7 @@
             },
             {
                 "name": "pGroups",
-                "const": false,
+                "const": true,
                 "length": [
                     "groupCount"
                 ],
@@ -26450,7 +26450,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -26477,7 +26477,7 @@
             },
             {
                 "name": "pStages",
-                "const": false,
+                "const": true,
                 "length": [
                     "stageCount"
                 ],
@@ -26495,7 +26495,7 @@
             },
             {
                 "name": "pGroups",
-                "const": false,
+                "const": true,
                 "length": [
                     "groupCount"
                 ],
@@ -26513,7 +26513,7 @@
             },
             {
                 "name": "pLibraryInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -26522,7 +26522,7 @@
             },
             {
                 "name": "pLibraryInterface",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -26531,7 +26531,7 @@
             },
             {
                 "name": "pDynamicState",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -26578,7 +26578,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -26697,7 +26697,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -26773,7 +26773,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -26820,7 +26820,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -26865,7 +26865,7 @@
             },
             {
                 "name": "pGeometries",
-                "const": false,
+                "const": true,
                 "length": [
                     "geometryCount"
                 ],
@@ -26885,7 +26885,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -26923,7 +26923,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -26968,7 +26968,7 @@
             },
             {
                 "name": "pDeviceIndices",
-                "const": false,
+                "const": true,
                 "length": [
                     "deviceIndexCount"
                 ],
@@ -26988,7 +26988,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -27006,7 +27006,7 @@
             },
             {
                 "name": "pAccelerationStructures",
-                "const": false,
+                "const": true,
                 "length": [
                     "accelerationStructureCount"
                 ],
@@ -27026,7 +27026,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -27044,7 +27044,7 @@
             },
             {
                 "name": "pAccelerationStructures",
-                "const": false,
+                "const": true,
                 "length": [
                     "accelerationStructureCount"
                 ],
@@ -27064,7 +27064,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -27828,7 +27828,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -27864,7 +27864,7 @@
             },
             {
                 "name": "pQueueFamilyIndices",
-                "const": false,
+                "const": true,
                 "length": [
                     "queueFamilyIndexCount"
                 ],
@@ -27884,7 +27884,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -27902,7 +27902,7 @@
             },
             {
                 "name": "pDrmFormatModifiers",
-                "const": false,
+                "const": true,
                 "length": [
                     "drmFormatModifierCount"
                 ],
@@ -27922,7 +27922,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -27949,7 +27949,7 @@
             },
             {
                 "name": "pPlaneLayouts",
-                "const": false,
+                "const": true,
                 "length": [
                     "drmFormatModifierPlaneCount"
                 ],
@@ -27998,7 +27998,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -28027,7 +28027,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -28056,7 +28056,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -28322,7 +28322,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -28351,7 +28351,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -28369,7 +28369,7 @@
             },
             {
                 "name": "pFragmentDensityOffsets",
-                "const": false,
+                "const": true,
                 "length": [
                     "fragmentDensityOffsetCount"
                 ],
@@ -28447,7 +28447,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -28563,7 +28563,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -28668,7 +28668,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -28914,7 +28914,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -28943,7 +28943,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -28972,7 +28972,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -29001,7 +29001,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -29030,7 +29030,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -29059,7 +29059,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -29213,7 +29213,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -29231,7 +29231,7 @@
             },
             {
                 "name": "pAttachmentImageInfos",
-                "const": false,
+                "const": true,
                 "length": [
                     "attachmentImageInfoCount"
                 ],
@@ -29251,7 +29251,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -29269,7 +29269,7 @@
             },
             {
                 "name": "pAttachmentImageInfos",
-                "const": false,
+                "const": true,
                 "length": [
                     "attachmentImageInfoCount"
                 ],
@@ -29289,7 +29289,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -29352,7 +29352,7 @@
             },
             {
                 "name": "pViewFormats",
-                "const": false,
+                "const": true,
                 "length": [
                     "viewFormatCount"
                 ],
@@ -29372,7 +29372,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -29435,7 +29435,7 @@
             },
             {
                 "name": "pViewFormats",
-                "const": false,
+                "const": true,
                 "length": [
                     "viewFormatCount"
                 ],
@@ -29455,7 +29455,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -29473,7 +29473,7 @@
             },
             {
                 "name": "pAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "attachmentCount"
                 ],
@@ -29493,7 +29493,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -29511,7 +29511,7 @@
             },
             {
                 "name": "pAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "attachmentCount"
                 ],
@@ -29777,7 +29777,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -29902,7 +29902,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -29949,7 +29949,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -30262,7 +30262,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -30289,7 +30289,7 @@
             },
             {
                 "name": "pCounterIndices",
-                "const": false,
+                "const": true,
                 "length": [
                     "counterIndexCount"
                 ],
@@ -30365,7 +30365,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -30403,7 +30403,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -30432,7 +30432,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -30490,7 +30490,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -30640,7 +30640,7 @@
             },
             {
                 "name": "valueString",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated"
                 ],
@@ -30680,7 +30680,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -30709,7 +30709,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -30738,7 +30738,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -30767,7 +30767,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -30796,7 +30796,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -30825,7 +30825,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -30872,7 +30872,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -31341,7 +31341,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -31370,7 +31370,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -31455,7 +31455,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -32249,7 +32249,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -32278,7 +32278,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -32307,7 +32307,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -32336,7 +32336,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -32468,7 +32468,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -34376,7 +34376,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -34564,7 +34564,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -34669,7 +34669,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -34765,7 +34765,7 @@
             },
             {
                 "name": "hostAddress",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -34785,7 +34785,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -34868,7 +34868,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -34906,7 +34906,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -34973,7 +34973,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -35020,7 +35020,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -35083,7 +35083,7 @@
             },
             {
                 "name": "pGeometries",
-                "const": false,
+                "const": true,
                 "length": [
                     "geometryCount"
                 ],
@@ -35092,7 +35092,7 @@
             },
             {
                 "name": "ppGeometries",
-                "const": false,
+                "const": true,
                 "length": [
                     "1",
                     "geometryCount"
@@ -35160,7 +35160,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -35482,7 +35482,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -35511,7 +35511,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -35520,7 +35520,7 @@
             },
             {
                 "name": "pVersionData",
-                "const": false,
+                "const": true,
                 "length": [
                     "2*VK_UUID_SIZE"
                 ],
@@ -35540,7 +35540,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -35587,7 +35587,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -35634,7 +35634,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -35681,7 +35681,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -35719,7 +35719,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -35737,7 +35737,7 @@
             },
             {
                 "name": "pLibraries",
-                "const": false,
+                "const": true,
                 "length": [
                     "libraryCount"
                 ],
@@ -36293,7 +36293,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -36389,7 +36389,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -36809,7 +36809,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -36856,7 +36856,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -36903,7 +36903,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -36968,7 +36968,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -37033,7 +37033,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -37089,7 +37089,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -37145,7 +37145,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -37219,7 +37219,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -37293,7 +37293,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -37358,7 +37358,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -37423,7 +37423,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -37459,7 +37459,7 @@
             },
             {
                 "name": "pRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "regionCount"
                 ],
@@ -37479,7 +37479,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -37515,7 +37515,7 @@
             },
             {
                 "name": "pRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "regionCount"
                 ],
@@ -37535,7 +37535,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -37589,7 +37589,7 @@
             },
             {
                 "name": "pRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "regionCount"
                 ],
@@ -37609,7 +37609,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -37663,7 +37663,7 @@
             },
             {
                 "name": "pRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "regionCount"
                 ],
@@ -37683,7 +37683,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -37737,7 +37737,7 @@
             },
             {
                 "name": "pRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "regionCount"
                 ],
@@ -37766,7 +37766,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -37820,7 +37820,7 @@
             },
             {
                 "name": "pRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "regionCount"
                 ],
@@ -37849,7 +37849,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -37894,7 +37894,7 @@
             },
             {
                 "name": "pRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "regionCount"
                 ],
@@ -37914,7 +37914,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -37959,7 +37959,7 @@
             },
             {
                 "name": "pRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "regionCount"
                 ],
@@ -37979,7 +37979,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -38024,7 +38024,7 @@
             },
             {
                 "name": "pRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "regionCount"
                 ],
@@ -38044,7 +38044,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -38089,7 +38089,7 @@
             },
             {
                 "name": "pRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "regionCount"
                 ],
@@ -38109,7 +38109,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -38163,7 +38163,7 @@
             },
             {
                 "name": "pRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "regionCount"
                 ],
@@ -38183,7 +38183,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -38237,7 +38237,7 @@
             },
             {
                 "name": "pRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "regionCount"
                 ],
@@ -38295,7 +38295,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -38304,7 +38304,7 @@
             },
             {
                 "name": "pFragmentShadingRateAttachment",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -38333,7 +38333,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -38763,7 +38763,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -38810,7 +38810,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -39011,7 +39011,7 @@
             },
             {
                 "name": "pDescriptorTypes",
-                "const": false,
+                "const": true,
                 "length": [
                     "descriptorTypeCount"
                 ],
@@ -39031,7 +39031,7 @@
             },
             {
                 "name": "pDescriptorTypes",
-                "const": false,
+                "const": true,
                 "length": [
                     "descriptorTypeCount"
                 ],
@@ -39051,7 +39051,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -39069,7 +39069,7 @@
             },
             {
                 "name": "pMutableDescriptorTypeLists",
-                "const": false,
+                "const": true,
                 "length": [
                     "mutableDescriptorTypeListCount"
                 ],
@@ -39089,7 +39089,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -39107,7 +39107,7 @@
             },
             {
                 "name": "pMutableDescriptorTypeLists",
-                "const": false,
+                "const": true,
                 "length": [
                     "mutableDescriptorTypeListCount"
                 ],
@@ -39156,7 +39156,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -39384,7 +39384,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -39402,7 +39402,7 @@
             },
             {
                 "name": "pColorWriteEnables",
-                "const": false,
+                "const": true,
                 "length": [
                     "attachmentCount"
                 ],
@@ -39422,7 +39422,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -39478,7 +39478,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -39534,7 +39534,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -39644,7 +39644,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -39754,7 +39754,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -39855,7 +39855,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -39956,7 +39956,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -39983,7 +39983,7 @@
             },
             {
                 "name": "pMemoryBarriers",
-                "const": false,
+                "const": true,
                 "length": [
                     "memoryBarrierCount"
                 ],
@@ -40001,7 +40001,7 @@
             },
             {
                 "name": "pBufferMemoryBarriers",
-                "const": false,
+                "const": true,
                 "length": [
                     "bufferMemoryBarrierCount"
                 ],
@@ -40019,7 +40019,7 @@
             },
             {
                 "name": "pImageMemoryBarriers",
-                "const": false,
+                "const": true,
                 "length": [
                     "imageMemoryBarrierCount"
                 ],
@@ -40039,7 +40039,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -40066,7 +40066,7 @@
             },
             {
                 "name": "pMemoryBarriers",
-                "const": false,
+                "const": true,
                 "length": [
                     "memoryBarrierCount"
                 ],
@@ -40084,7 +40084,7 @@
             },
             {
                 "name": "pBufferMemoryBarriers",
-                "const": false,
+                "const": true,
                 "length": [
                     "bufferMemoryBarrierCount"
                 ],
@@ -40102,7 +40102,7 @@
             },
             {
                 "name": "pImageMemoryBarriers",
-                "const": false,
+                "const": true,
                 "length": [
                     "imageMemoryBarrierCount"
                 ],
@@ -40122,7 +40122,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -40178,7 +40178,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -40234,7 +40234,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -40272,7 +40272,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -40310,7 +40310,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -40337,7 +40337,7 @@
             },
             {
                 "name": "pWaitSemaphoreInfos",
-                "const": false,
+                "const": true,
                 "length": [
                     "waitSemaphoreInfoCount"
                 ],
@@ -40355,7 +40355,7 @@
             },
             {
                 "name": "pCommandBufferInfos",
-                "const": false,
+                "const": true,
                 "length": [
                     "commandBufferInfoCount"
                 ],
@@ -40373,7 +40373,7 @@
             },
             {
                 "name": "pSignalSemaphoreInfos",
-                "const": false,
+                "const": true,
                 "length": [
                     "signalSemaphoreInfoCount"
                 ],
@@ -40393,7 +40393,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -40420,7 +40420,7 @@
             },
             {
                 "name": "pWaitSemaphoreInfos",
-                "const": false,
+                "const": true,
                 "length": [
                     "waitSemaphoreInfoCount"
                 ],
@@ -40438,7 +40438,7 @@
             },
             {
                 "name": "pCommandBufferInfos",
-                "const": false,
+                "const": true,
                 "length": [
                     "commandBufferInfoCount"
                 ],
@@ -40456,7 +40456,7 @@
             },
             {
                 "name": "pSignalSemaphoreInfos",
-                "const": false,
+                "const": true,
                 "length": [
                     "signalSemaphoreInfoCount"
                 ],
@@ -40704,7 +40704,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -40713,7 +40713,7 @@
             },
             {
                 "name": "pHostPointer",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -40778,7 +40778,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -40852,7 +40852,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -40897,7 +40897,7 @@
             },
             {
                 "name": "pRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "regionCount"
                 ],
@@ -40917,7 +40917,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -40962,7 +40962,7 @@
             },
             {
                 "name": "pRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "regionCount"
                 ],
@@ -40982,7 +40982,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -41045,7 +41045,7 @@
             },
             {
                 "name": "pRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "regionCount"
                 ],
@@ -41065,7 +41065,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -41322,7 +41322,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -41447,7 +41447,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -41465,7 +41465,7 @@
             },
             {
                 "name": "pProfiles",
-                "const": false,
+                "const": true,
                 "length": [
                     "profileCount"
                 ],
@@ -41485,7 +41485,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -41588,7 +41588,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -41783,7 +41783,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -41839,7 +41839,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -41895,7 +41895,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -41913,7 +41913,7 @@
             },
             {
                 "name": "pPictureResource",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -41962,7 +41962,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -41991,7 +41991,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42045,7 +42045,7 @@
             },
             {
                 "name": "pSetupReferenceSlot",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42063,7 +42063,7 @@
             },
             {
                 "name": "pReferenceSlots",
-                "const": false,
+                "const": true,
                 "length": [
                     "referenceSlotCount"
                 ],
@@ -42083,7 +42083,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42159,7 +42159,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42177,7 +42177,7 @@
             },
             {
                 "name": "pStdSPSs",
-                "const": false,
+                "const": true,
                 "length": [
                     "stdSPSCount"
                 ],
@@ -42195,7 +42195,7 @@
             },
             {
                 "name": "pStdPPSs",
-                "const": false,
+                "const": true,
                 "length": [
                     "stdPPSCount"
                 ],
@@ -42215,7 +42215,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42242,7 +42242,7 @@
             },
             {
                 "name": "pParametersAddInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42262,7 +42262,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42271,7 +42271,7 @@
             },
             {
                 "name": "pStdPictureInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42289,7 +42289,7 @@
             },
             {
                 "name": "pSliceOffsets",
-                "const": false,
+                "const": true,
                 "length": [
                     "sliceCount"
                 ],
@@ -42309,7 +42309,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42318,7 +42318,7 @@
             },
             {
                 "name": "pStdReferenceInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42338,7 +42338,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42396,7 +42396,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42414,7 +42414,7 @@
             },
             {
                 "name": "pStdVPSs",
-                "const": false,
+                "const": true,
                 "length": [
                     "stdVPSCount"
                 ],
@@ -42432,7 +42432,7 @@
             },
             {
                 "name": "pStdSPSs",
-                "const": false,
+                "const": true,
                 "length": [
                     "stdSPSCount"
                 ],
@@ -42450,7 +42450,7 @@
             },
             {
                 "name": "pStdPPSs",
-                "const": false,
+                "const": true,
                 "length": [
                     "stdPPSCount"
                 ],
@@ -42470,7 +42470,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42506,7 +42506,7 @@
             },
             {
                 "name": "pParametersAddInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42526,7 +42526,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42535,7 +42535,7 @@
             },
             {
                 "name": "pStdPictureInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42553,7 +42553,7 @@
             },
             {
                 "name": "pSliceSegmentOffsets",
-                "const": false,
+                "const": true,
                 "length": [
                     "sliceSegmentCount"
                 ],
@@ -42573,7 +42573,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42582,7 +42582,7 @@
             },
             {
                 "name": "pStdReferenceInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42602,7 +42602,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42629,7 +42629,7 @@
             },
             {
                 "name": "pVideoProfile",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42683,7 +42683,7 @@
             },
             {
                 "name": "pStdHeaderVersion",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42703,7 +42703,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42750,7 +42750,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42779,7 +42779,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42824,7 +42824,7 @@
             },
             {
                 "name": "pReferenceSlots",
-                "const": false,
+                "const": true,
                 "length": [
                     "referenceSlotCount"
                 ],
@@ -42844,7 +42844,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42873,7 +42873,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42931,7 +42931,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -42958,7 +42958,7 @@
             },
             {
                 "name": "pViewportDepths",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -43083,7 +43083,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -43112,7 +43112,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -43130,7 +43130,7 @@
             },
             {
                 "name": "pData",
-                "const": false,
+                "const": true,
                 "length": [
                     "dataSize"
                 ],
@@ -43150,7 +43150,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -43168,7 +43168,7 @@
             },
             {
                 "name": "pName",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated"
                 ],
@@ -43188,7 +43188,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -43278,7 +43278,7 @@
             },
             {
                 "name": "pParams",
-                "const": false,
+                "const": true,
                 "length": [
                     "paramCount"
                 ],
@@ -43296,7 +43296,7 @@
             },
             {
                 "name": "pExtras",
-                "const": false,
+                "const": true,
                 "length": [
                     "extraCount"
                 ],
@@ -43823,7 +43823,7 @@
         "VkDescriptorDataEXT": [
             {
                 "name": "pSampler",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -43832,7 +43832,7 @@
             },
             {
                 "name": "pCombinedImageSampler",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -43841,7 +43841,7 @@
             },
             {
                 "name": "pInputAttachmentImage",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -43850,7 +43850,7 @@
             },
             {
                 "name": "pSampledImage",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -43859,7 +43859,7 @@
             },
             {
                 "name": "pStorageImage",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -43868,7 +43868,7 @@
             },
             {
                 "name": "pUniformTexelBuffer",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -43877,7 +43877,7 @@
             },
             {
                 "name": "pStorageTexelBuffer",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -43886,7 +43886,7 @@
             },
             {
                 "name": "pUniformBuffer",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -43895,7 +43895,7 @@
             },
             {
                 "name": "pStorageBuffer",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -43924,7 +43924,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -43962,7 +43962,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -43991,7 +43991,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -44020,7 +44020,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -44049,7 +44049,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -44078,7 +44078,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -44116,7 +44116,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -44125,7 +44125,7 @@
             },
             {
                 "name": "opaqueCaptureDescriptorData",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -44982,7 +44982,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -45011,7 +45011,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -45383,7 +45383,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -45611,7 +45611,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -45638,7 +45638,7 @@
             },
             {
                 "name": "pColorAttachmentFormats",
-                "const": false,
+                "const": true,
                 "length": [
                     "colorAttachmentCount"
                 ],
@@ -45676,7 +45676,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -45703,7 +45703,7 @@
             },
             {
                 "name": "pColorAttachmentFormats",
-                "const": false,
+                "const": true,
                 "length": [
                     "colorAttachmentCount"
                 ],
@@ -45741,7 +45741,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -45795,7 +45795,7 @@
             },
             {
                 "name": "pColorAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "colorAttachmentCount"
                 ],
@@ -45804,7 +45804,7 @@
             },
             {
                 "name": "pDepthAttachment",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -45813,7 +45813,7 @@
             },
             {
                 "name": "pStencilAttachment",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -45833,7 +45833,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -45887,7 +45887,7 @@
             },
             {
                 "name": "pColorAttachments",
-                "const": false,
+                "const": true,
                 "length": [
                     "colorAttachmentCount"
                 ],
@@ -45896,7 +45896,7 @@
             },
             {
                 "name": "pDepthAttachment",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -45905,7 +45905,7 @@
             },
             {
                 "name": "pStencilAttachment",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -45925,7 +45925,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -46017,7 +46017,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -46109,7 +46109,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -46156,7 +46156,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -46252,7 +46252,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -46297,7 +46297,7 @@
             },
             {
                 "name": "pColorAttachmentFormats",
-                "const": false,
+                "const": true,
                 "length": [
                     "colorAttachmentCount"
                 ],
@@ -46344,7 +46344,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -46389,7 +46389,7 @@
             },
             {
                 "name": "pColorAttachmentFormats",
-                "const": false,
+                "const": true,
                 "length": [
                     "colorAttachmentCount"
                 ],
@@ -46436,7 +46436,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -46454,7 +46454,7 @@
             },
             {
                 "name": "pColorAttachmentSamples",
-                "const": false,
+                "const": true,
                 "length": [
                     "colorAttachmentCount"
                 ],
@@ -46483,7 +46483,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -46501,7 +46501,7 @@
             },
             {
                 "name": "pColorAttachmentSamples",
-                "const": false,
+                "const": true,
                 "length": [
                     "colorAttachmentCount"
                 ],
@@ -46530,7 +46530,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -46597,7 +46597,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -46816,7 +46816,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -46874,7 +46874,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -47008,7 +47008,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -47026,7 +47026,7 @@
             },
             {
                 "name": "pIdentifier",
-                "const": false,
+                "const": true,
                 "length": [
                     "identifierSize"
                 ],
@@ -47084,7 +47084,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -47343,7 +47343,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -47383,7 +47383,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -47441,7 +47441,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -47499,7 +47499,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -47553,7 +47553,7 @@
             },
             {
                 "name": "pUsageCounts",
-                "const": false,
+                "const": true,
                 "length": [
                     "usageCountsCount"
                 ],
@@ -47562,7 +47562,7 @@
             },
             {
                 "name": "ppUsageCounts",
-                "const": false,
+                "const": true,
                 "length": [
                     "1",
                     "usageCountsCount"
@@ -47619,7 +47619,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -47693,7 +47693,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -47702,7 +47702,7 @@
             },
             {
                 "name": "pVersionData",
-                "const": false,
+                "const": true,
                 "length": [
                     "2*VK_UUID_SIZE"
                 ],
@@ -47722,7 +47722,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -47769,7 +47769,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -47816,7 +47816,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -47863,7 +47863,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -48107,7 +48107,7 @@
             },
             {
                 "name": "pUsageCounts",
-                "const": false,
+                "const": true,
                 "length": [
                     "usageCountsCount"
                 ],
@@ -48116,7 +48116,7 @@
             },
             {
                 "name": "ppUsageCounts",
-                "const": false,
+                "const": true,
                 "length": [
                     "1",
                     "usageCountsCount"
@@ -48233,7 +48233,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -48320,7 +48320,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -48432,7 +48432,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -48687,7 +48687,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -49016,7 +49016,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -49045,7 +49045,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -49202,7 +49202,7 @@
             },
             {
                 "name": "pPrivateData",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -49249,7 +49249,7 @@
             },
             {
                 "name": "pRegions",
-                "const": false,
+                "const": true,
                 "length": [
                     "regionCount"
                 ],
@@ -49598,7 +49598,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -49645,7 +49645,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -49806,7 +49806,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -49842,7 +49842,7 @@
             },
             {
                 "name": "pImages",
-                "const": false,
+                "const": true,
                 "length": [
                     "imageCount"
                 ],
@@ -49860,7 +49860,7 @@
             },
             {
                 "name": "pBuffers",
-                "const": false,
+                "const": true,
                 "length": [
                     "bufferCount"
                 ],
@@ -49887,7 +49887,7 @@
             },
             {
                 "name": "pTag",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -50126,7 +50126,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -50144,7 +50144,7 @@
             },
             {
                 "name": "pFences",
-                "const": false,
+                "const": true,
                 "length": [
                     "swapchainCount"
                 ],
@@ -50164,7 +50164,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -50182,7 +50182,7 @@
             },
             {
                 "name": "pPresentModes",
-                "const": false,
+                "const": true,
                 "length": [
                     "presentModeCount"
                 ],
@@ -50202,7 +50202,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -50220,7 +50220,7 @@
             },
             {
                 "name": "pPresentModes",
-                "const": false,
+                "const": true,
                 "length": [
                     "swapchainCount"
                 ],
@@ -50240,7 +50240,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -50287,7 +50287,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -50314,7 +50314,7 @@
             },
             {
                 "name": "pImageIndices",
-                "const": false,
+                "const": true,
                 "length": [
                     "imageIndexCount"
                 ],
@@ -50513,7 +50513,7 @@
             },
             {
                 "name": "pDrivers",
-                "const": false,
+                "const": true,
                 "length": [
                     "driverCount"
                 ],
@@ -50591,7 +50591,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -50600,7 +50600,7 @@
             },
             {
                 "name": "pCreateInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -50609,7 +50609,7 @@
             },
             {
                 "name": "pSubresource",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -50705,7 +50705,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -50723,7 +50723,7 @@
             },
             {
                 "name": "pPerViewRenderAreas",
-                "const": false,
+                "const": true,
                 "length": [
                     "perViewRenderAreaCount"
                 ],
@@ -50743,7 +50743,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -50772,7 +50772,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -50828,7 +50828,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -50933,7 +50933,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -50987,7 +50987,7 @@
             },
             {
                 "name": "pCode",
-                "const": false,
+                "const": true,
                 "length": [
                     "codeSize"
                 ],
@@ -50996,7 +50996,7 @@
             },
             {
                 "name": "pName",
-                "const": false,
+                "const": true,
                 "length": [
                     "null-terminated"
                 ],
@@ -51014,7 +51014,7 @@
             },
             {
                 "name": "pSetLayouts",
-                "const": false,
+                "const": true,
                 "length": [
                     "setLayoutCount"
                 ],
@@ -51032,7 +51032,7 @@
             },
             {
                 "name": "pPushConstantRanges",
-                "const": false,
+                "const": true,
                 "length": [
                     "pushConstantRangeCount"
                 ],
@@ -51041,7 +51041,7 @@
             },
             {
                 "name": "pSpecializationInfo",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -51448,7 +51448,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -51477,7 +51477,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],
@@ -51564,7 +51564,7 @@
             },
             {
                 "name": "pNext",
-                "const": false,
+                "const": true,
                 "length": [
                     ""
                 ],

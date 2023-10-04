@@ -87,10 +87,27 @@ def serialize(variable,value):
     result+="}();"
     return result
 
-def deserialize(variable,value):
-    
-    if value.get("const",False) or is_void(value):
+def deserialize(variable,value,initialize=False):
+    #If const pointer is null, make a new variable that is the same without the const, copy the value of the non-const into it, then deserialize it. At the end, set const equal to the non-const
+    #If array pointer is null, malloc it, then continue
+    if is_void(value):
         return ""
+    
+    result="[&]() {\n" #Should assign by reference, not value, so nothing should be returned.
+    
+    if value.get("const",False):
+        if initialize:
+            temp_variable="temp_"+random_string()
+            result+=(value["type"]+"*"*value["num_indirection"]+" "+temp_variable+";")
+            
+            non_const=copy.deepcopy(value)
+            non_const["const"]=False
+            result+=deserialize(temp_variable,non_const,initialize)
+            result+=(variable+"="+temp_variable+";}();")
+            return result
+        else:
+            return ""
+        
         
     val=copy.deepcopy(value)
 
@@ -99,7 +116,6 @@ def deserialize(variable,value):
     length=val["length"].copy()
     type=val['type']
 
-    result=f"[&]() {{\n" #Should assign by reference, not value, so nothing should be returned.
     if num_indirection>0:
         result+=f"""
         if ({name}.contains("null")){{
@@ -116,20 +132,22 @@ def deserialize(variable,value):
     elif (len(length)>0 and (length[-1]!="")):
 
         if num_indirection>0: #Dynamic array, so each element of char** would be char*
+            if initialize:
+                result+=f"""{variable}=({type+("*"*num_indirection)})malloc({length[-1]}*sizeof({type+("*"*(num_indirection-1))}));"""
             val["num_indirection"]-=1 
         
-        random_iterator=random_string()
-        val["name"]+=f"""["members"][{random_iterator}]"""
+        temp_iterator=random_string()
+        val["name"]+=f"""["members"][{temp_iterator}]"""
         val["length"].pop()
         result+=f"""
-        for (int {random_iterator}=0; {random_iterator} < {length[-1]}; {random_iterator}++){{
-            {deserialize(variable+f'[{random_iterator}]',val)};
+        for (int {temp_iterator}=0; {temp_iterator} < {length[-1]}; {temp_iterator}++){{
+            {deserialize(variable+f'[{temp_iterator}]',val,initialize)};
         }}
         """
         
     elif num_indirection>0:
         val["num_indirection"]-=1
-        result+=(deserialize("*"+variable,val)+"\n")
+        result+=(deserialize(f"*({variable})",val,initialize)+"\n")
         
     elif type in parsed["basic_types"]:
         result+=f"""{variable}=deserialize_{parsed["basic_types"][type]}({name});\n"""

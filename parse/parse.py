@@ -71,8 +71,8 @@ for item in vk.findall("./types/type"):
                 result={}
                 
                 result["name"]=member.find("name").text
-                result["const"]=(member.tail or "").startswith("const")
-                    
+                result["const"]=(member.text or "").startswith("const")
+                
                 result["length"]=get_length(member)
 
                 _type=member.find("type")

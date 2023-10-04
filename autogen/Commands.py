@@ -27,9 +27,59 @@ using json = nlohmann::json;
 #include <stdexcept>
 """)
 
+write("""
+typedef 
+""")
+write("std::map<uintptr_t,std::vector<MemInfo>> devicememory_to_mem_infos;")
 def is_funcpointer(name):
     return name!=base_name(name)
 
+def sync_all_DeviceMemory():
+    return """
+               for (auto& device_memory: *(currStruct()->mem_to_sync)){
+                   if (devicememory_to_mem_info.count(device_memory)){
+                       for (auto& mem_info : devicememory_to_mem_info[device_memory])){
+                          Sync(mem_info->mem,mem_info->size);
+                       }
+                   }
+               }
+               currStruct()->mem_to_sync->clear();
+           """
+
+def register_DeviceMemory(name):
+    if base_name(name)=="vkMapMemory": #Make this its own section (for both client and server --- server does not need to keep track of fd or need to sync on first map)
+        return """
+        auto info=new MemInfo();
+        if (size==VK_WHOLESIZE){
+            VkDeviceSize whole_size;
+            vkGetDeviceMemoryCommitment(device,memory,&whole_size);
+            info->size=whole_size-offset;
+        else{
+            info->size=size;
+        }
+        
+        #ifdef CLIENT
+            info->fd=shm_open_anon(); //Make sure you check to make sure you're not stepping on some other mem's toes.
+            ftruncate(info->fd,info->size);
+            
+            void* mem=mmap(NULL,info->size, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED,info->fd,NULL);
+            
+            client_to_host_mem[(uintptr_t)mem]=(uintptr_t)*ppData;
+            server_to_client_mem[(uintptr_t)*ppData]=(uintptr_t)mem;
+        
+            *ppData=mem;
+        #endif
+        
+        info->mem=*ppData;
+        
+        devicememory_to_mem_info[(uintptr_t)memory].push_back(info);
+        
+        Sync(info->mem,info->size);
+        
+        """
+    else:
+        return ""
+    
 write("#ifndef CLIENT")
 write("std::map<uintptr_t,PFN_vkVoidFunction> id_to_PFN_vkVoidFunction;")
 for name, command in parsed["commands"].items():
@@ -42,10 +92,9 @@ for name, command in parsed["commands"].items():
         
         param_copy=param.copy()
         param_copy["name"]=f"""data["members"]["{param["name"]}"]"""
-        param_copy["const"]=False
-        
+        #Maybe remove const in header before working on 
         write(param["header"]+";")
-        write(deserialize(param["name"],param_copy))
+        write(deserialize(param["name"],param_copy,initialize=True))
     
     #call_arguments
     call_function =f"""({base_name(name)})id_to_PFN_vkVoidFunction[data["id"]]""" if is_funcpointer(name) else name
@@ -70,13 +119,9 @@ for name, command in parsed["commands"].items():
         write(serialize(f"""result["members"]["{param["name"]}"]""",param))
             
     if base_name(name)=="vkWaitForFences":
-        write("""
-            for (auto& mem: *(currStruct()->mem_to_sync)){
-                    auto mem_info=devicememory_to_mem_info[mem];
-                    Sync(mem_info->mem,mem_info->size);
-            }
-            currStruct()->mem_to_sync->clear();
-        """)
+        write(sync_all_DeviceMemory())
+    
+    write(register_DeviceMemory(name))
         
     write("""
         writeToConn(result);
@@ -110,15 +155,7 @@ for name, command in parsed["commands"].items():
         write(serialize(f"""data["members"]["{param["name"]}"]""",param))
     
     if base_name(name)=="vkQueueSubmit":
-        write("""
-            for (auto& mem: *(currStruct()->mem_to_sync)){
-                if (devicememory_to_mem_info.count(mem)){
-                    auto mem_info=devicememory_to_mem_info[mem];
-                    Sync(mem_info->mem,mem_info->size);
-                }
-            }
-            currStruct()->mem_to_sync->clear();
-        """)
+        write(sync_all_DeviceMemory())
     
     write("""
         writeToConn(data);
@@ -183,32 +220,8 @@ for name, command in parsed["commands"].items():
             write(command["type"]+"*"*command["num_indirection"]+" return_value;")
             write(deserialize("return_value",return_value))
         
-    if base_name(name)=="vkMapMemory": #Make this its own section (for both client and server --- server does not need to keep track of fd or need to sync on first map)
-        write("""
-        auto info=new MemInfo();
-        if (size==VK_WHOLESIZE){
-            VkDeviceSize whole_size;
-            vkGetDeviceMemoryCommitment(device,memory,&whole_size);
-            info->size=whole_size-offset;
-        else{
-            info->size=size;
-        }
-        info->fd=shm_open_anon(); //Make sure you check to make sure you're not stepping on some other mem's toes.
-        ftruncate(info->fd,info->size);
-        
-        void* mem=mmap(NULL,info->size, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED,info->fd,NULL);
-        
-        client_to_host_mem[(uintptr_t)mem]=(uintptr_t)*ppData;
-        server_to_client_mem[(uintptr_t)*ppData]=(uintptr_t)mem;
-        
-        *ppData=mem;
-        info->mem=mem;
-        
-        devicememory_to_mem_info[(uintptr_t)memory]=info;
-        
-        Sync(info->mem,info->size);
-        
-        """)
+    write(register_DeviceMemory(name))
+    
     if not is_void(command):
         write("return return_value;")
     write("}")

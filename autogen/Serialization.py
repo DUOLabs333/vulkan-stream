@@ -65,18 +65,15 @@ for struct,members in parsed["structs"].items():
         auto result={struct}();
     """)
     if is_callback:
-        write(f"""
-        auto _struct = new {struct}_struct;
-        """)
+        write(f"auto _struct = new {struct}_struct;")
     for member in members:
         member_copy=copy.deepcopy(member)
         member_copy["name"]=f"""name["members"]["{member["name"]}"]"""
-        member_copy["const"]=False
         
         for i,e in enumerate(member_copy["length"]):
             member_copy["length"][i]=add_struct_name(e, "result")
         
-        write(deserialize("result."+member["name"],member_copy))
+        write(deserialize("result."+member["name"],member_copy,initialize=True))
         if is_callback:
             if member["type"] in parsed["funcpointers"]:
                 write(f"""_struct->{member["type"]}_id={member_copy["name"]}["id"];""") 
@@ -275,7 +272,7 @@ for funcpointer,function in parsed["funcpointers"].items():
             param_copy=param.copy()
             param_copy["name"]=f"""data["members"]["{param["name"]}"]"""
             
-            write(deserialize(param["name"],param_copy))
+            write(deserialize(param["name"],param_copy,initialize=True))
         
         funcpointer_call=f"""funcpointer({",".join([param["name"] for param in function["params"]])})"""
         if not is_void(function):
@@ -323,7 +320,6 @@ for funcpointer,function in parsed["funcpointers"].items():
         for param in function["params"]:
             param_copy=param.copy()
             param_copy["name"]=f"""data["members"]["{param["name"]}"]"""
-            param_copy["const"]=False
             
             write(deserialize(param["name"],param_copy))
         
