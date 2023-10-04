@@ -165,9 +165,6 @@ for type,is_always_pointer in parsed["external_handles"].items():
             {type} deserialize_{type}(json name);
         """,header=True)
 
-write("""
-
-    """)
 import re
 for funcpointer,function in parsed["funcpointers"].items():
     
@@ -230,7 +227,7 @@ for funcpointer,function in parsed["funcpointers"].items():
                     name=f"_struct->{name}"
             response_header+=(", "+name)
             
-        write(("auto result= " if not(function["type"]=="void" and function["num_indirection"]==0) else '')+f"""handle_{funcpointer}_response({response_header});""")
+        write(("auto result= " if not is_void(function) else '')+f"""handle_{funcpointer}_response({response_header});""")
         if function["type"]=="void" and function["num_indirection"]==1:
             write("""
                 allocated_mems[(uintptr_t)result]=size;
@@ -241,7 +238,7 @@ for funcpointer,function in parsed["funcpointers"].items():
             }
             """
         )
-        if not(function["type"]=="void" and function["num_indirection"]==0):
+        if not is_void(function):
             write("return result;")
         else:
             write("return;")
@@ -281,7 +278,7 @@ for funcpointer,function in parsed["funcpointers"].items():
             write(deserialize(param["name"],param_copy))
         
         funcpointer_call=f"""funcpointer({",".join([param["name"] for param in function["params"]])})"""
-        if not(function["type"]=="void" and function["num_indirection"]==0):
+        if not is_void(function):
             write(f"""auto result_temp={funcpointer_call};""")
         
             function_copy=function.copy()
@@ -330,7 +327,7 @@ for funcpointer,function in parsed["funcpointers"].items():
             
             write(deserialize(param["name"],param_copy))
         
-        if not(function["type"]=="void" and function["num_indirection"]==0):
+        if not is_void(function):
             write(function["type"]+("*"*function["num_indirection"])+" result;")
             
             function_copy=function.copy()
@@ -348,7 +345,7 @@ for funcpointer,function in parsed["funcpointers"].items():
             writeToConn(_malloc);
             """
             )
-        write("return result;" if not(function["type"]=="void" and function["num_indirection"]==0) else "")
+        write("return result;" if not is_void(function) else "")
         
         write("}")
         write(f"""{function["type"]}{'*'*function["num_indirection"]} handle_{funcpointer}_response(json data, {header.removeprefix("(")};""",header=True)

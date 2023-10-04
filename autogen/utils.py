@@ -16,8 +16,15 @@ parsed=json.load(open("../parse/parsed.json"))
 
 random_string = lambda : ''.join(random.choices(string.ascii_uppercase +
                              string.digits, k=7))
+
+def is_void(name):
+    return name["type"]=="void" and name["num_indirection"]==0
+    
 def serialize(variable,value):
     
+    if is_void(value):
+        return ""
+        
     result_json="return_"+random_string()
     val=copy.deepcopy(value)
     
@@ -82,14 +89,16 @@ def serialize(variable,value):
     return result
 
 def deserialize(variable,value):
+    
+    if value.get("const",False) or is_void(value):
+        return ""
+        
     val=copy.deepcopy(value)
     
     name=val["name"]
     num_indirection=val["num_indirection"]
     length=val["length"].copy()
     type=val['type']
-    if value.get("const",False) or (type=="void" and num_indirection==0):
-        return ""
 
     if num_indirection==0 and (len(length)>0 and length[-1]!=""): #Arrays can't be returned
         result=f"[&]() {{\n"

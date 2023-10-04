@@ -163,7 +163,8 @@ for item in vk.findall("./commands/command"):
             aliases[alias]=name #For aliases that are defined before their parrent is defined
             continue
         else:
-            command=commands[alias]
+            command=commands[alias].copy()
+            command["header"]=command["header"].replace(alias,name,1)
     else:
         header=[]
         header.append(f"""{item.find("proto/type").text} {item.find("proto/name").text}(\n""")
@@ -178,6 +179,7 @@ for item in vk.findall("./commands/command"):
         
         params=item.findall("param")
         
+        params_set=set()
         for i, param in enumerate(params):
             result={}
             
@@ -186,23 +188,40 @@ for item in vk.findall("./commands/command"):
             result["length"]=get_length(param)
             
             result["type"]=param.find("type").text
-            result["name"]=param.find("name").text
             result["header"]=ET.tostring(param, encoding='utf8', method='text').decode()
             
+            result["name"]=param.find("name").text
+            
+            if result["name"] in params_set: #Two instances of duplicates
+                params[i]=None
+                continue
+            else:
+                params_set.add(result["name"])
+                
             header.append("".join([(param.text or ""),param.find("type").text,(param.find("type").tail or ""),param.find("name").text,(param.find("name").tail or "")]))
             
             if (result["type"] in external_handles) and result["num_indirection"]==0 and (len(result["length"])==0 or result["length"][-1]==""):
                     external_handles[result["type"]]=False #At least once case, it's not an pointer
                     
+                    
             params[i]=result
+            
+        params = [param for param in params if param is not None]
         
+        for param in params:
+            for i,length in enumerate(param["length"]):
+                for param_1 in params:
+                    if length==param_1["name"]:
+                        param["length"][i]=("*"*param_1["num_indirection"])+length
+                        break
+                        
         header.append(")")
         
         command["header"]=header[0]+",\n ".join(header[1:-1])+"\n"+header[-1]
         
         command["params"]=params
     commands[name]=command
-    
+
     if name in aliases:
         commands[aliases[name]]=command
         del aliases[name]
