@@ -92,7 +92,7 @@ for type in parsed["primitive_types"]:
     if type in ["void","char"]:
         write(f"""
             json serialize_{type}_p(const {type}* name){{
-                return json::object({{{{"value",(char *)name}}}});
+                return json::object({{ {{"value",(char *)name}}, {{"ptr",(uintptr_t)name}} }});
             }};
         """)
         

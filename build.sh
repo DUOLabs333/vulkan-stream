@@ -5,7 +5,7 @@ VK_HEADER_FLAGS="-DVK_USE_PLATFORM_XCB_KHR -DVK_USE_PLATFORM_XLIB_KHR"
 
 COMPILE_FLAGS="$VK_HEADER_FLAGS -std=c++23 -Wfatal-errors" 
 
-BUILD_FILES="autogen/*.cpp src/*.cpp -I autogen -I src -I external/json/single_include -I external/PicoSHA2 -I external/CppServer/include -I external/Vulkan-Headers/include -I external/CppServer/modules/asio/asio/include -Iexternal/CppServer/modules/CppCommon/include -I external/CppServer/modules/CppCommon/modules/fmt/include -L external/CppServer/bin -lcppserver"
+BUILD_FILES="autogen/*.cpp src/*.cpp -I autogen -I src -I external/json/single_include -I external/PicoSHA2 -I external/shm_open_anon -I external/CppServer/include -I external/Vulkan-Headers/include -I external/CppServer/modules/asio/asio/include -Iexternal/CppServer/modules/CppCommon/include -I external/CppServer/modules/CppCommon/modules/fmt/include -L external/CppServer/bin -lcppserver"
 
 g++ -DCLIENT=1 -shared -o vulkan_stream.so $COMPILE_FLAGS $BUILD_FILES
 

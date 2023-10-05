@@ -16,66 +16,68 @@ for command in parsed["commands"]:
 parsed["commands"] = funcpointer_commands | parsed["commands"]
     
 write("""
+#include <stdexcept>
+
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
+
+#include <vulkan/vulkan.h>
+#include <shm_open_anon.h>
 
 #include <Serialization.hpp>
 #include <Server.hpp>
 #include <Synchronization.hpp>
 #include <ThreadStruct.hpp>
-#include <vulkan/vulkan.h>
-#include <stdexcept>
 """)
 
 write("""
-typedef 
+typedef struct {
+int fd;
+VkDeviceSize size;
+void* mem;
+std::vector<void*> mapped_ranges;
+} MemInfo;
 """)
-write("std::map<uintptr_t,std::vector<MemInfo>> devicememory_to_mem_infos;")
+write("std::map<uintptr_t,*MemInfo> devicememory_to_mem_info;")
 def is_funcpointer(name):
     return name!=base_name(name)
 
-def sync_all_DeviceMemory():
+def sync_DeviceMemory():
     return """
-               for (auto& device_memory: *(currStruct()->mem_to_sync)){
-                   if (devicememory_to_mem_info.count(device_memory)){
-                       for (auto& mem_info : devicememory_to_mem_info[device_memory])){
-                          Sync(mem_info->mem,mem_info->size);
-                       }
-                   }
-               }
-               currStruct()->mem_to_sync->clear();
-           """
+   for (auto& device_memory: *(currStruct()->mem_to_sync)){
+       if (devicememory_to_mem_info.count(device_memory)){
+           auto& mem_info=devicememory_to_mem_info[device_memory];
+              Sync(mem_info->mem,mem_info->size);
+           }
+   }
+   currStruct()->mem_to_sync->clear();
+   """
 
 def register_DeviceMemory(name):
-    if base_name(name)=="vkMapMemory": #Make this its own section (for both client and server --- server does not need to keep track of fd or need to sync on first map)
-        return """
+    if base_name(name).startswith("vkMapMemory"): #Make this its own section (for both client and server --- server does not need to keep track of fd or need to sync on first map)
+        
+        memory="memory"
+        offset="offset"
+        size="size"
+        if base_name(name)=="vkMapMemory2KHR":
+            memory="pMemoryMapInfo->memory"
+            offset="pMemoryMapInfo->offset"
+            size="pMemoryMapInfo->size"
+            
+        return f"""
         auto info=new MemInfo();
-        if (size==VK_WHOLESIZE){
-            VkDeviceSize whole_size;
-            vkGetDeviceMemoryCommitment(device,memory,&whole_size);
-            info->size=whole_size-offset;
-        else{
-            info->size=size;
-        }
         
-        #ifdef CLIENT
-            info->fd=shm_open_anon(); //Make sure you check to make sure you're not stepping on some other mem's toes.
-            ftruncate(info->fd,info->size);
-            
-            void* mem=mmap(NULL,info->size, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED,info->fd,NULL);
-            
-            client_to_host_mem[(uintptr_t)mem]=(uintptr_t)*ppData;
-            server_to_client_mem[(uintptr_t)*ppData]=(uintptr_t)mem;
+        VkDeviceSize whole_size;
+        vkGetDeviceMemoryCommitment(device,{memory},&whole_size);
+        info->size=whole_size;
         
-            *ppData=mem;
-        #endif
+        auto old_offset={offset};
+        auto old_size= ({size}==VK_WHOLE_SIZE) ? whole_size : {size};
         
-        info->mem=*ppData;
+        {size}=whole_size;
+        {offset}=0;
         
-        devicememory_to_mem_info[(uintptr_t)memory].push_back(info);
-        
-        Sync(info->mem,info->size);
-        
+        devicememory_to_mem_info[(uintptr_t){memory}]=info;
         """
     else:
         return ""
@@ -87,6 +89,7 @@ for name, command in parsed["commands"].items():
     void handle_{name}(json data){{
     //Will only be called by the server
     """)
+    register_DeviceMemory(name)
     
     for param in command["params"]:
         
@@ -119,10 +122,12 @@ for name, command in parsed["commands"].items():
         write(serialize(f"""result["members"]["{param["name"]}"]""",param))
             
     if base_name(name)=="vkWaitForFences":
-        write(sync_all_DeviceMemory())
-    
-    write(register_DeviceMemory(name))
-        
+        write(sync_DeviceMemory())
+
+    if base_name(name)=="vkMapMemory":
+        write("""
+        info->mem=*ppData;
+        """)
     write("""
         writeToConn(result);
     }""")
@@ -150,12 +155,14 @@ for name, command in parsed["commands"].items():
         write(f"""data["id"]=vk_object_and_name_to_id[(uintptr_t){command["params"][0]["name"]}]["{base_name(name)}"];""")
     else:
         write(f"""data["type"]="command_{name}";""")
-        
+    
+    write(register_DeviceMemory(name))
+    
     for param in command["params"]:
         write(serialize(f"""data["members"]["{param["name"]}"]""",param))
     
     if base_name(name)=="vkQueueSubmit":
-        write(sync_all_DeviceMemory())
+        write(sync_DeviceMemory())
     
     write("""
         writeToConn(data);
@@ -219,7 +226,36 @@ for name, command in parsed["commands"].items():
             return_value["length"]=[]
             write(command["type"]+"*"*command["num_indirection"]+" return_value;")
             write(deserialize("return_value",return_value))
+    if base_name(name).startswith("vkMapMemory"):
         
+        offset="offset"
+        size="size"
+        if base_name(name)=="vkMapMemory2KHR":
+            offset="pMemoryMapInfo->offset"
+            size="pMemoryMapInfo->size"
+            
+        write(f"""
+        info->fd=shm_open_anon(); //Make new place for memory
+        ftruncate(info->fd,info->size);
+        
+        info->mem=mmap(NULL,info->size, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED, info->fd,NULL);
+        
+        auto client_mem=(uintptr_t)info->mem;
+        uintptr_t server_mem=result["members"]["ppData"]["ptr"];
+        
+        client_to_server_mem[client_mem]=server_mem;
+        server_to_client_mem[server_mem]=client_mem;
+        
+        memcpy(info->mem,*ppData,info->size);
+
+        {offset}=old_offset;
+        {size}=old_size;
+        
+        *ppData=mmap(NULL,size,PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED,info->fd,{offset});
+        
+        info->mapped_ranges.push_back(*ppData);
+        
+        """)
     write(register_DeviceMemory(name))
     
     if not is_void(command):
