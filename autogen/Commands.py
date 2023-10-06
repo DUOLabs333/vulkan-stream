@@ -1,5 +1,6 @@
 from utils import *
 import re
+import copy
 funcpointer_commands={}
 
 def base_name(name):
@@ -10,7 +11,7 @@ def base_name(name):
         
 for command in parsed["commands"]:
     funcpointer_command="funcpointer_"+command
-    funcpointer_commands[funcpointer_command]=parsed["commands"][command]
+    funcpointer_commands[funcpointer_command]=copy.deepcopy(parsed["commands"][command])
     funcpointer_commands[funcpointer_command]["header"]=funcpointer_commands[funcpointer_command]["header"].replace(command,funcpointer_command,1) #Replace "{type} {former_name} {rest_of_header}" with "{type} {name} {rest_of_header}"
 
 parsed["commands"] = funcpointer_commands | parsed["commands"]
@@ -125,6 +126,42 @@ for name, command in parsed["commands"].items():
     
     write(f"""void handle_{command}(json data);""",header=True)
 
+write("""
+void handle_command(json data){
+//Will only be called by the server
+std::string command=data["type"].get<std::string>().substr(std::string("command_").length());
+
+""")
+
+for command in parsed["commands"]:
+    if is_funcpointer(command):
+        continue
+        
+    write(f"""
+        if(command=="{command}"){{
+            handle_{command}(data);
+            return;
+        }}
+    """)
+
+write("}")
+
+write("""
+void handle_funcpointer(json data){
+//Will only be called by the server
+std::string command=data["type"].get<std::string>().substr(std::string("command_").length());
+""")
+
+for command in parsed["commands"]:
+    write(f"""
+        if(command=="{command}"){{
+            handle_{command}(data);
+            return;
+        }}
+    """)
+
+write("}")
+
 write("#else") #Don't want server to get confused on which command we're talking about
 write("std::map<uintptr_t,std::map<std::string,uintptr_t>> vk_object_and_name_to_id;""")
 write("""extern "C" {""")
@@ -134,8 +171,6 @@ for name, command in parsed["commands"].items():
         write(command["header"]+";")
         
 for name, command in parsed["commands"].items():
-    if name=="funcpointer_vkCreateInstance":
-        print(name)
 
     write(command["header"]+"{")
         
@@ -265,44 +300,9 @@ for name, command in parsed["commands"].items():
 write("}")
 write("#endif")
 
-write("""
-void handle_command(json data){
-//Will only be called by the server
-std::string command=data["type"].get<std::string>().substr(std::string("command_").length());
-
-""")
-
-for command in parsed["commands"]:
-    if command.startswith("funcpointer_"):
-        continue
-        
-    write(f"""
-        if(command=="{command}"){{
-            handle_{command}(data);
-            return;
-        }}
-    """)
-
-write("}")
 
 write("""
-void handle_funcpointer(json data){
-//Will only be called by the server
-std::string command=data["type"].get<std::string>().substr(std::string("command_").length());
-""")
-
-for command in parsed["commands"]:
-    write(f"""
-        if(command=="{command}"){{
-            handle_{command}(data);
-            return;
-        }}
-    """)
-
-write("}")
-
-write("""
-#ifndef CLIENT
+#ifdef CLIENT
 int main(int argc, char** argv){
     startServer();
     std::promise<void>().get_future().wait(); //Wait forever
