@@ -72,7 +72,9 @@ def serialize(variable,value):
         result+=(serialize(result_json,val)+"\n")
         result+=("return "+result_json+";")
     elif type in parsed["basic_types"]:
-        result+=f"""return serialize_{parsed["basic_types"][type]}({name});\n"""
+        val.update(parsed["basic_types"][type])
+        result+=serialize(result_json,val)
+        result+=("return "+result_json+";")
     else:
         result+=(f"""
         #ifdef CLIENT
@@ -150,7 +152,8 @@ def deserialize(variable,value,initialize=False):
         result+=(deserialize(f"*({variable})",val,initialize)+"\n")
         
     elif type in parsed["basic_types"]:
-        result+=f"""{variable}=deserialize_{parsed["basic_types"][type]}({name});\n"""
+        val.update(parsed["basic_types"][type])
+        result+=deserialize(variable,val,initialize)
     else:
         result+=(f"""
         #ifndef CLIENT

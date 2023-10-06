@@ -579,13 +579,34 @@
         "VkAccelerationStructureMotionInstanceTypeNV": 1
     },
     "basic_types": {
-        "VkSampleMask": "uint32_t",
-        "VkBool32": "uint32_t",
-        "VkFlags": "uint32_t",
-        "VkFlags64": "uint64_t",
-        "VkDeviceSize": "uint64_t",
-        "VkDeviceAddress": "uint64_t",
-        "VkRemoteAddressNV": "void"
+        "VkSampleMask": {
+            "type": "uint32_t",
+            "num_indirection": 0
+        },
+        "VkBool32": {
+            "type": "uint32_t",
+            "num_indirection": 0
+        },
+        "VkFlags": {
+            "type": "uint32_t",
+            "num_indirection": 0
+        },
+        "VkFlags64": {
+            "type": "uint64_t",
+            "num_indirection": 0
+        },
+        "VkDeviceSize": {
+            "type": "uint64_t",
+            "num_indirection": 0
+        },
+        "VkDeviceAddress": {
+            "type": "uint64_t",
+            "num_indirection": 0
+        },
+        "VkRemoteAddressNV": {
+            "type": "void",
+            "num_indirection": 1
+        }
     },
     "structs": {
         "VkBaseOutStructure": [

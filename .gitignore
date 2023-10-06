@@ -1,2 +1,3 @@
 external/*/.git
 external/CppServer/modules/*/
+external/json/single_include/nlohmann/json.hpp.gch

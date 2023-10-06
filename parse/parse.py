@@ -152,7 +152,7 @@ for item in vk.findall("./types/type"):
     elif type=="basetype":
         if item.find("type") is None:
             continue
-        basic_types[item.find("name").text]=item.find("type").text
+        basic_types[item.find("name").text]={"type":item.find("type").text,"num_indirection":item.find("type").tail.count("*")}
         
 for item in vk.findall("./commands/command"):
     command={}
