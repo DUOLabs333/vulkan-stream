@@ -1,8 +1,7 @@
-#include <pthread.h>
 #include <Server.hpp>
 #include <ThreadStruct.hpp>
 //Maybe use QT for JSON later
-std::this_thread::get_id();
+
 //Use QT Network and QThread (copy sockdescriptor to thread)
 //Subclass incomingConnection
 //QByteArray QIODevice::readLine
@@ -13,7 +12,7 @@ std::this_thread::get_id();
     void handleConnection(qintptr socketDescriptor){
         //Will only be called by the server
         
-        auto socket=QTcpSocket();
+        auto socket=new QTcpSocket();
         socket->setSocketDescriptor(socketDescriptor);
         
         currStruct()->conn=socket;
@@ -39,7 +38,6 @@ std::this_thread::get_id();
     
     class StreamServer : public QTcpServer
     {
-    
     protected:
         std::vector<QThread*> threads;
         void incomingConnection(qintptr socketDescriptor){
@@ -51,34 +49,30 @@ std::this_thread::get_id();
     
     auto startServer(){
         setAddressandPort();
-        auto server = std::make_shared<StreamServer>(service, address,port);
-        server->Start();
+        auto server = QTcpServer();
+        server.listen(address,port);
         return server;
     }
     
 #else
     bool isConnConnected(){
         //Will only be called by the server
-        return currStruct()->conn->IsConnected();
+        return currStruct()->conn->state==QAbstractSocket::ConnectedState;
     }
 #endif
 
 json readFromConn(){
+    //Check if line is empty
     auto conn=currStruct()->conn;
-    auto stream=currStruct()->conn_ss;
             
-    
     while(true){
-        std::string word;
-        getline(*stream,word);
-        if (!stream->eof()){ //Must have gotten a \n
-           return json::parse(word);
-        }else{
-            *stream << conn->Receive(64);
+        auto line=conn->readLine().toStdString();
+        if (line.size()>0){
+           return json::parse(line);
         }
     }
 }
 
 void writeToConn(json data){
-    currStruct()->conn->Send(data.dump()+"\n");
+    currStruct()->conn->write(data.dump()+"\n");
 }

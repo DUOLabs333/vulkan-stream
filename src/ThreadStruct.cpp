@@ -1,10 +1,8 @@
 #include <ThreadStruct.hpp>
 
-std::shared_ptr<CppServer::Asio::Service> service = std::make_shared<CppServer::Asio::Service>();
-
 std::string address;
 int port;
-std::map<pthread_t,ThreadStruct*> thread_to_struct;
+std::map<std::thread::id,ThreadStruct*> thread_to_struct;
 
 void setAddressandPort(){
     const char* address_temp=std::getenv("STREAM_ADDRESS");
@@ -22,17 +20,16 @@ void setAddressandPort(){
 }
 
 ThreadStruct* currStruct(){
-    auto thread_id=pthread_self();
+    auto thread_id=std::this_thread::get_id();
     if (!thread_to_struct.contains(thread_id)){
         auto result=new ThreadStruct();
         #ifdef CLIENT
-            service->Start(); //Make sure service is up
             setAddressandPort();
-            result->conn=std::make_shared<CppServer::Asio::TCPClient>(service, address, port);
-            result->conn->Connect();
+            result->conn=new QTcpSocket();
+            result->conn->connectToHost(address,port);
+            if(result->conn->waitForConnected(-1)){
+            }    
         #endif
-        
-        result->conn_ss=new std::stringstream();
         
         result->mem_to_sync=new std::set<uintptr_t>;
         

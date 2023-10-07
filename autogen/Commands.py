@@ -17,6 +17,7 @@ for command in parsed["commands"]:
 parsed["commands"] = funcpointer_commands | parsed["commands"]
     
 write("""
+#include <ThreadStruct.hpp>
 #include <stdexcept>
 
 #include <nlohmann/json.hpp>
@@ -28,7 +29,6 @@ using json = nlohmann::json;
 #include <Serialization.hpp>
 #include <Server.hpp>
 #include <Synchronization.hpp>
-#include <ThreadStruct.hpp>
 #include <sys/mman.h>
 """)
 
