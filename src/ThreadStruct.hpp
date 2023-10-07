@@ -1,7 +1,8 @@
 #include <QtNetwork/QTcpServer>
-#include <memory>
+#include <QtNetwork/QTcpSocket>
 #include <string>
 #include <set>
+
 extern std::string address;
 
 extern int port;

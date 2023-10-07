@@ -3,6 +3,7 @@ import copy, re
 
 write("#include <vulkan/vulkan.h>",header=True)
 write(f"""
+#include <ThreadStruct.hpp>
 #include <nlohmann/json.hpp>
 
 // for convenience
@@ -11,7 +12,6 @@ using json = nlohmann::json;
 #include <Serialization.hpp>
 #include <Server.hpp>
 #include <Synchronization.hpp>
-#include <ThreadStruct.hpp>
 """)
 
 def struct_is_callback(struct):

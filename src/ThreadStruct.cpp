@@ -1,4 +1,5 @@
 #include <ThreadStruct.hpp>
+#include <thread>
 
 std::string address;
 int port;
@@ -26,7 +27,7 @@ ThreadStruct* currStruct(){
         #ifdef CLIENT
             setAddressandPort();
             result->conn=new QTcpSocket();
-            result->conn->connectToHost(address,port);
+            result->conn->connectToHost(QString::fromStdString(address),port);
             if(result->conn->waitForConnected(-1)){
             }    
         #endif

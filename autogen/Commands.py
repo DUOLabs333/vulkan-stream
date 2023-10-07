@@ -19,6 +19,7 @@ parsed["commands"] = funcpointer_commands | parsed["commands"]
 write("""
 #include <ThreadStruct.hpp>
 #include <stdexcept>
+#include <future>
 
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
@@ -302,7 +303,7 @@ write("#endif")
 
 
 write("""
-#ifdef CLIENT
+#ifndef CLIENT
 int main(int argc, char** argv){
     startServer();
     std::promise<void>().get_future().wait(); //Wait forever

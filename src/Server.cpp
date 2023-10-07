@@ -49,7 +49,7 @@
     
     auto startServer(){
         setAddressandPort();
-        auto server = QTcpServer();
+        auto server = StreamServer();
         server.listen(address,port);
         return server;
     }
@@ -57,7 +57,7 @@
 #else
     bool isConnConnected(){
         //Will only be called by the server
-        return currStruct()->conn->state==QAbstractSocket::ConnectedState;
+        return currStruct()->conn->state()==QAbstractSocket::ConnectedState;
     }
 #endif
 
@@ -74,5 +74,5 @@ json readFromConn(){
 }
 
 void writeToConn(json data){
-    currStruct()->conn->write(data.dump()+"\n");
+    currStruct()->conn->write(QByteArray::fromStdString(data.dump()+"\n"));
 }
