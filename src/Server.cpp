@@ -1,13 +1,22 @@
 #include <pthread.h>
 #include <Server.hpp>
 #include <ThreadStruct.hpp>
-
-using namespace CppServer::Asio;
+//Maybe use QT for JSON later
+std::this_thread::get_id();
+//Use QT Network and QThread (copy sockdescriptor to thread)
+//Subclass incomingConnection
+//QByteArray QIODevice::readLine
+//Use QThread::create
+//qint64 QIODevice::write(const char *data)
 
 #ifndef CLIENT
-    void *thread_func(void *session){
+    void handleConnection(qintptr socketDescriptor){
         //Will only be called by the server
-        currStruct()->conn=std::make_shared<TCPSession>((TCPSession*)session);
+        
+        auto socket=QTcpSocket();
+        socket->setSocketDescriptor(socketDescriptor);
+        
+        currStruct()->conn=socket;
         
         while(true){
             if(!isConnConnected()){
@@ -28,15 +37,15 @@ using namespace CppServer::Asio;
         }
     }
     
-    class StreamServer : public TCPServer
+    class StreamServer : public QTcpServer
     {
     
-    public:
-        using TCPServer::TCPServer;
-    
     protected:
-        void onConnected(std::shared_ptr< TCPSession > &session){
-                pthread_create(NULL,NULL,thread_func,(void*)session.get());
+        std::vector<QThread*> threads;
+        void incomingConnection(qintptr socketDescriptor){
+                auto thread=QThread::create(handleConnections,socketDescriptor);
+                thread->start();
+                threads.push_back(thread);
         }
     };
     
