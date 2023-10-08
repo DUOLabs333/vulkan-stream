@@ -1,6 +1,6 @@
 from utils import *
 import copy, re
-
+#Maybe don't cast, but use .as<>()
 write("#include <vulkan/vulkan.h>",header=True)
 write(f"""
 #include <ThreadStruct.hpp>

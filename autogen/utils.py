@@ -14,7 +14,7 @@ import copy
 import random, string
 parsed=json.load(open("../parse/parsed.json"))
 
-random_string = lambda : ''.join(random.choices(string.ascii_uppercase + string.ascii_lowercase, k=7))
+random_string = lambda seed: ''.join(random.Random(json.dumps(seed)).choices(string.ascii_uppercase + string.ascii_lowercase, k=7))
 
 def is_void(name):
     return name["type"]=="void" and name["num_indirection"]==0
@@ -24,7 +24,7 @@ def serialize(variable,value):
     if is_void(value):
         return ""
         
-    result_json="return_"+random_string()
+    result_json="return_"+random_string(value)
     val=copy.deepcopy(value)
     
     name=val["name"]
@@ -52,16 +52,18 @@ def serialize(variable,value):
                 result+=f"return serialize_{type}_p({name});\n"
                 
     elif (len(length)>0 and (length[-1]!="")):
-        val["name"]+="[i]"
+        
+        temp_iterator=random_string(val)
+        val["name"]+=f"[{temp_iterator}]"
         val["num_indirection"]-=1
         val["length"].pop()
         
         result+=f"""
         {result_json}["members"]={{}};
-        for(int i=0; i < {length[-1]}; i++){{
+        for(int {temp_iterator}=0; {temp_iterator} < {length[-1]}; {temp_iterator}++){{
             json temp;
             {serialize('temp',val)}
-            {result_json}["members"][std::to_string(i)].push_back(temp);
+            {result_json}["members"][std::to_string({temp_iterator})].push_back(temp);
         }}
         return {result_json};
         """
@@ -99,7 +101,7 @@ def deserialize(variable,value,initialize=False):
     
     if value.get("const",False):
         if initialize:
-            temp_variable="temp_"+random_string()
+            temp_variable="temp_"+random_string(value)
             result+=(value["type"]+"*"*value["num_indirection"]+" "+temp_variable+";")
             
             non_const=copy.deepcopy(value)
@@ -138,7 +140,7 @@ def deserialize(variable,value,initialize=False):
                 result+=f"""{variable}=({type+("*"*num_indirection)})malloc({length[-1]}*sizeof({type+("*"*(num_indirection-1))}));"""
             val["num_indirection"]-=1 
         
-        temp_iterator=random_string()
+        temp_iterator=random_string(val)
         val["name"]+=f"""["members"][{temp_iterator}]"""
         val["length"].pop()
         result+=f"""

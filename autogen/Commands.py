@@ -82,18 +82,16 @@ for name, command in parsed["commands"].items():
     //Will only be called by the server
     """)
     
-    register_DeviceMemory(name)
-    
     for param in command["params"]:
         
         param_copy=param.copy()
         param_copy["name"]=f"""data["members"]["{param["name"]}"]"""
-        #Maybe remove const in header before working on 
-        write(param["header"]+";")
-        write(deserialize(param["name"],param_copy,initialize=True))
     
+        write(param["header"].replace("const ","",1)+";")
+        write(deserialize(param["name"],param_copy,initialize=True))
+    write(register_DeviceMemory(name))
     #call_arguments
-    call_function =f"""({base_name(name)})id_to_PFN_vkVoidFunction[data["id"]]""" if is_funcpointer(name) else name
+    call_function =f"""((PFN_{base_name(name)})(id_to_PFN_vkVoidFunction[data["id"]]))""" if is_funcpointer(name) else name
     call_arguments=", ".join([param["name"] for param in command["params"]])
     return_prefix="auto return_value=" if not is_void(command) else ""
     write(return_prefix+call_function+"("+call_arguments+")"+";")
