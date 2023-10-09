@@ -1,4 +1,4 @@
-#include <nlohmann/json.hpp>
+#include <nlohmann/json_fwd.hpp>
 
 // for convenience
 using json = nlohmann::json;

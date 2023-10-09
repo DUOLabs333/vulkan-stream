@@ -3,14 +3,9 @@
 #include <Synchronization.hpp>
 #include <Commands.hpp>
 #include <thread>
+#include <nlohmann/json.hpp>
 
 //Maybe use QT for JSON later
-
-//Use QT Network and QThread (copy sockdescriptor to thread)
-//Subclass incomingConnection
-//QByteArray QIODevice::readLine
-//Use QThread::create
-//qint64 QIODevice::write(const char *data)
 
 bool isConnConnected(){
     //Will only be called by the server
