@@ -10,7 +10,7 @@ CLIENT=os.environ.get("CLIENT","0")
 #Rewrite to use glob, and substitue into CPP_FILES, which will then be flattened
 CPP_FILES=["autogen/*","src/*"]
 INCLUDE_PATHS=["autogen","src", "external/json/single_include", "external/PicoSHA2", "external/shm_open_anon", "external/qtbase/build/include", "external/Vulkan-Headers/include"]
-FLAGS=[f"-DCLIENT={CLIENT}",os.environ["VK_HEADER_FLAGS"],"-std=c++20", "-Wfatal-errors"]
+FLAGS=[f"-DCLIENT={CLIENT}","-std=c++20", "-Wfatal-errors","-fPIC"]+os.environ["VK_HEADER_FLAGS"].split(" ")
 STATIC_LIBS=["external/qtbase/build/lib/*"]
 
 def rreplace(s,old,new,maxreplace):
@@ -20,24 +20,25 @@ INCLUDE_PATHS=list(itertools.chain.from_iterable([['-I', x] for x in INCLUDE_PAT
 
 for i, e in enumerate(CPP_FILES):
    CPP_FILES[i]=[_ for _ in glob.glob(e) if _.endswith(".cpp")]
-CPP_FILES=itertools.chain.from_iterable(CPP_FILES)
+CPP_FILES=list(itertools.chain.from_iterable(CPP_FILES))
 
 for i, e in enumerate(STATIC_LIBS):
    STATIC_LIBS[i]=[_ for _ in glob.glob(e) if _.endswith(".a")]
-STATIC_LIBS=itertools.chain.from_iterable(STATIC_LIBS)
+STATIC_LIBS=list(itertools.chain.from_iterable(STATIC_LIBS))
 
 for file in CPP_FILES:
     object_file=rreplace(file,".cpp",".o",1)
-    if os.path.exists(object_file) and os.environ.get("FORCE","0")=="0":
+    if os.path.exists(object_file):
+        if os.environ.get("CLEAN","0")=="1":
+            os.remove(object_file)
+            continue
         if int(os.path.getmtime(object_file))==int(os.path.getmtime(file)):
             continue
             
     modified_time=int(os.path.getmtime(file))
-    subprocess.run(["g++"]+FLAGS+["-C",file]+INCLUDE_PATHS)
+    subprocess.run(["g++"]+FLAGS+["-o",object_file,"-c",file]+INCLUDE_PATHS)
     os.utime(object_file, (modified_time, modified_time))
 
-
-
-
-#subprocess.run(["g++"]+(["-shared","-o","vulkan_stream.so"] if CLIENT=="1" else ["-o","vulkan_stream"])+[rreplace(_,".cpp",".o",1) for _ in CPP_FILES]+STATIC_LIBS)
+if os.environ.get("CLEAN","0")=="0":
+    subprocess.run(["g++"]+(["-shared","-o","vulkan_stream.so"] if CLIENT=="1" else ["-o","vulkan_stream"])+[rreplace(_,".cpp",".o",1) for _ in CPP_FILES]+STATIC_LIBS)
 
