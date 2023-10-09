@@ -78,20 +78,20 @@ write("#ifndef CLIENT")
 write("std::map<uintptr_t,PFN_vkVoidFunction> id_to_PFN_vkVoidFunction;")
 for name, command in parsed["commands"].items():
     write(f"""
-    void handle_{name}(json data){{
+    void handle_{name}(json data_json){{
     //Will only be called by the server
     """)
     
     for param in command["params"]:
         
         param_copy=param.copy()
-        param_copy["name"]=f"""data["members"]["{param["name"]}"]"""
+        param_copy["name"]=f"""data_json["members"]["{param["name"]}"]"""
     
         write(param["header"].replace("const ","",1)+";")
         write(deserialize(param["name"],param_copy,initialize=True))
     write(register_DeviceMemory(name))
     #call_arguments
-    call_function =f"""((PFN_{base_name(name)})(id_to_PFN_vkVoidFunction[data["id"]]))""" if is_funcpointer(name) else name
+    call_function =f"""((PFN_{base_name(name)})(id_to_PFN_vkVoidFunction[data_json["id"]]))""" if is_funcpointer(name) else name
     call_arguments=", ".join([param["name"] for param in command["params"]])
     return_prefix="auto return_value=" if not is_void(command) else ""
     write(return_prefix+call_function+"("+call_arguments+")"+";")
@@ -123,7 +123,7 @@ for name, command in parsed["commands"].items():
         writeToConn(result);
     }""")
     
-    write(f"""void handle_{command}(json data);""",header=True)
+    write(f"""void handle_{name}(json data);""",header=True)
 
 write("""
 void handle_command(json data){
@@ -150,6 +150,9 @@ void handle_funcpointer(json data){
 //Will only be called by the server
 std::string command=data["type"].get<std::string>().substr(std::string("command_").length());
 """)
+
+write("void handle_command(json data);",header=True)
+write("void handle_funcpointer(json data);",header=True)
 
 for command in parsed["commands"]:
     write(f"""

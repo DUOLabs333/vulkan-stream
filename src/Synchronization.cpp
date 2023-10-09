@@ -3,6 +3,10 @@
 #include <nlohmann/json.hpp>
 #include <Server.hpp>
 
+#ifndef CLIENT
+    #include <ThreadStruct.hpp>
+#endif
+
 using json = nlohmann::json;
 
 std::map<uintptr_t,int> allocated_mems;
@@ -25,12 +29,13 @@ std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
     
 }
 
+
 void handle_sync_response(json data){
     //Recieved the bytes. Send a notification that it finished sending the bytes.
     #ifdef CLIENT
-        void* mem=(void*)server_to_client_mem[data["mem"]];
+        void* mem=(char*)server_to_client_mem[data["mem"]];
     #else
-        void* mem=(void*)data["mem"];
+        void* mem=(void*)data["mem"].get<uintptr_t>();
     #endif
     
     auto result=json({});
@@ -51,9 +56,9 @@ void handle_sync_response(json data){
 void handle_sync_init(json data){
     //Recived an init, sent a request for bytes. Wait for bytes to be sent
     #ifdef CLIENT
-        void* mem=(void*)server_to_client_mem[data["mem"]];
+        void* mem=(char*)server_to_client_mem[data["mem"]];
     #else
-        void* mem=(void*)data["mem"];
+        void* mem=(void*)data["mem"].get<uintptr_t>();
     #endif
     
     json result=json({});
@@ -85,9 +90,9 @@ void handle_sync_init(json data){
 void handle_sync_request(json data){
     //Recieved a request for bytes, sent the bytes. Wait for the recipient to set the bytes
     #ifdef CLIENT
-        void* mem=(void*)server_to_client_mem[data["mem"]];
+        void* mem=(char*)server_to_client_mem[data["mem"]];
     #else
-        void* mem=(void*)data["mem"];
+        void* mem=(void*)data["mem"].get<uintptr_t>();
     #endif
     
     json result=json({});
@@ -125,6 +130,12 @@ void Sync(void* mem, uintptr_t length){
     result["starts"]={};
     result["lengths"]={};
     result["hashes"]={};
+    
+    #ifdef CLIENT
+        result["mem"]=server_to_client_mem[(uintptr_t)mem];
+    #else
+        result["mem"]=(uintptr_t)mem;
+    #endif
     
     auto offset=0;
     for (int i=0; i<remainder; i++){

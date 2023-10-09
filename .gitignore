@@ -2,3 +2,4 @@ external/*/.git
 external/CppServer/modules/*/
 external/json/single_include/nlohmann/json.hpp.gch
 external/qtbase
+vulkan_stream.so

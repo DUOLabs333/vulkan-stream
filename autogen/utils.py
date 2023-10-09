@@ -78,15 +78,7 @@ def serialize(variable,value):
         result+=serialize(result_json,val)
         result+=("return "+result_json+";")
     else:
-        result+=(f"""
-        #ifdef CLIENT
-        return serialize_{type}({name});
-        #endif
-        """ 
-        if type in parsed["funcpointers"]
-        else
-        f"return serialize_{type}({name});"
-        )
+        result+=f"return serialize_{type}({name});"
     
     result+="}();"
     return result
@@ -97,9 +89,16 @@ def deserialize(variable,value,initialize=False):
     if is_void(value):
         return ""
     
+    val=copy.deepcopy(value)
+
+    name=val["name"]
+    num_indirection=val["num_indirection"]
+    length=val["length"].copy()
+    type=val['type']
+    
     result="[&]() {\n" #Should assign by reference, not value, so nothing should be returned.
     
-    if value.get("const",False):
+    if value.get("const",False) and not(len(length)>0 and (length[-1]!="") and num_indirection==0):
         if initialize:
             temp_variable="temp_"+random_string(value)
             result+=(value["type"]+"*"*value["num_indirection"]+" "+temp_variable+";")
@@ -111,14 +110,7 @@ def deserialize(variable,value,initialize=False):
             return result
         else:
             return ""
-        
-        
-    val=copy.deepcopy(value)
 
-    name=val["name"]
-    num_indirection=val["num_indirection"]
-    length=val["length"].copy()
-    type=val['type']
 
     if num_indirection>0:
         result+=f"""

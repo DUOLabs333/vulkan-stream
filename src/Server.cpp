@@ -1,5 +1,9 @@
 #include <Server.hpp>
 #include <ThreadStruct.hpp>
+#include <Synchronization.hpp>
+#include <Commands.hpp>
+#include <thread>
+
 //Maybe use QT for JSON later
 
 //Use QT Network and QThread (copy sockdescriptor to thread)
@@ -7,6 +11,11 @@
 //QByteArray QIODevice::readLine
 //Use QThread::create
 //qint64 QIODevice::write(const char *data)
+
+bool isConnConnected(){
+    //Will only be called by the server
+    return currStruct()->conn->state()==QAbstractSocket::ConnectedState;
+}
 
 #ifndef CLIENT
     void handleConnection(qintptr socketDescriptor){
@@ -21,7 +30,7 @@
             if(!isConnConnected()){
                 break;
             }
-            json data=readfromConn();
+            json data=readFromConn();
             
             std::string type=data["type"];
             if (type=="sync_init"){
@@ -33,33 +42,28 @@
             }
             else if (type.rfind("funcpointer_",0)==0){
                 handle_funcpointer(data);
+            }
         }
     }
     
     class StreamServer : public QTcpServer
     {
     protected:
-        std::vector<QThread*> threads;
         void incomingConnection(qintptr socketDescriptor){
-                auto thread=QThread::create(handleConnections,socketDescriptor);
-                thread->start();
-                threads.push_back(thread);
+                std::thread thread(handleConnection,socketDescriptor);
+                thread.detach();
         }
     };
     
-    auto startServer(){
+    StreamServer* startServer(){
         setAddressandPort();
-        auto server = StreamServer();
-        server.listen(address,port);
+        auto server = new StreamServer();
+        server->listen(QHostAddress(QString::fromStdString(address)),port);
         return server;
     }
     
-#else
-    bool isConnConnected(){
-        //Will only be called by the server
-        return currStruct()->conn->state()==QAbstractSocket::ConnectedState;
-    }
 #endif
+
 
 json readFromConn(){
     //Check if line is empty
