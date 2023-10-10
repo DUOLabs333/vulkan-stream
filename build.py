@@ -60,5 +60,5 @@ for file in SRC_FILES:
     os.utime(object_file, (modified_time, modified_time))
 
 if os.environ.get("CLEAN","0")=="0":
-    subprocess.run(["g++"]+(["-shared","-o","vulkan_stream.so"] if CLIENT=="1" else ["-o","vulkan_stream"])+[get_object_file(_) for _ in SRC_FILES]+(FRAMEWORKS if sys.platform=="darwin" else [])+["-rpath",(VK_LIB_PATH if sys.platform=="darwin" else "")]+STATIC_LIBS+SHARED_LIBS_PATHS+SHARED_LIBS)
+    subprocess.run(["g++"]+(["-shared","-o","vulkan_stream.so"] if CLIENT=="1" else ["-o","vulkan_stream"])+[get_object_file(_) for _ in SRC_FILES]+(FRAMEWORKS if sys.platform=="darwin" else [])+["-Wl,-rpath",(VK_LIB_PATH if sys.platform=="darwin" else "")]+STATIC_LIBS+SHARED_LIBS_PATHS+SHARED_LIBS)
 
