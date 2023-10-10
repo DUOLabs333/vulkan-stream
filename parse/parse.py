@@ -1,8 +1,9 @@
 import xml.etree.ElementTree as ET
+
 from pprint import pprint
 import re
 import json
-
+import textwrap
 vk=ET.parse("../external/Vulkan-Headers/registry/vk.xml").getroot()
 
 aliases={}
@@ -12,6 +13,7 @@ external_handles={}
 
 primitive_types={"int":1,"void":1}
 basic_types={}
+pointer_types={}
 
 structs={}
 commands={}
@@ -154,7 +156,27 @@ for item in vk.findall("./types/type"):
         primitive_types[name]=1
     elif type=="basetype":
         if item.find("type") is None:
-            continue
+            #For MacOS types
+            regex=r"""
+            ^(?:\s*)#ifdef(?:\s+)__OBJC__(?:\s*)
+            (?:.*)
+            (?:.*)#else(?:\s*)
+            (?:\s*)typedef(?:\s+)(.*?)(?:\s*)$
+            """
+            regex=regex.split("\n",1)[1].rsplit("\n",1)[0]
+            regex=textwrap.dedent(regex)
+            match=re.match(regex,item.text,flags=re.S)
+            if match is None:
+                match=re.match(r"^(\s*)typedef(.*)\*(\s*)$",item.text)
+                if match is None:
+                    continue
+                pointer_types[item.find("name").text]=True
+                continue
+            match_type=match.groups(1)[0]
+            child=ET.SubElement(item, 'type')
+            child.text=match_type.replace("*","")
+            child.tail=("*"*match_type.count("*"))
+
         basic_types[item.find("name").text]={"type":item.find("type").text,"num_indirection":item.find("type").tail.count("*")}
         
 for item in vk.findall("./commands/command"):
@@ -246,7 +268,7 @@ def are_features_implemented(features):
     kwtree.finalize()
     
     for match in kwtree.search_all(header):
-        if not((header[match[1]-1] in word_boundary) and (header[match[1]+len(match[0])+1] in word_boundary)): #Not an actual match
+        if not((header[match[1]-1] in word_boundary) and (header[match[1]+len(match[0])] in word_boundary)): #Not an actual match
             continue
         if result[match[0]]: #Already marked as implemented
             continue
@@ -259,7 +281,8 @@ def are_features_implemented(features):
     return result
             
 parsed_dict={}
-for dict_name in ["external_handles","handles","primitive_types","basic_types","structs","commands","funcpointers"]:
+
+for dict_name in ["external_handles","handles","primitive_types","basic_types","pointer_types","structs","commands","funcpointers"]:
     global_dict=globals()[dict_name]
     for feature,is_implemented in are_features_implemented(global_dict.keys()).items():
         if not is_implemented:
@@ -267,5 +290,5 @@ for dict_name in ["external_handles","handles","primitive_types","basic_types","
             del global_dict[feature]
             
     parsed_dict[dict_name]=global_dict
-    
+
 json.dump(parsed_dict,open("parsed.json","w+"),indent=4)

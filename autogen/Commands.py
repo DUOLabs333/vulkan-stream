@@ -75,7 +75,15 @@ def register_DeviceMemory(name):
         return ""
     
 write("#ifndef CLIENT")
+write("""
+#ifdef __APPLE__
+    std::string vulkan_library_name="vulkan.dylib";
+#endif
+#include <dlfcn.h>
+auto vulkan_library=dlopen(vulkan_library_name.c_str(), RTLD_LAZY | RTLD_GLOBAL);
+""")
 write("std::map<uintptr_t,PFN_vkVoidFunction> id_to_PFN_vkVoidFunction;")
+
 for name, command in parsed["commands"].items():
     write(f"""
     void handle_{name}(json data_json){{
@@ -90,8 +98,12 @@ for name, command in parsed["commands"].items():
         write(param["header"].replace("const ","",1)+";")
         write(deserialize(param["name"],param_copy,initialize=True))
     write(register_DeviceMemory(name))
-    #call_arguments
-    call_function =f"""((PFN_{base_name(name)})(id_to_PFN_vkVoidFunction[data_json["id"]]))""" if is_funcpointer(name) else name
+
+    if is_funcpointer(name):
+        call_function =f"""((PFN_{base_name(name)})(id_to_PFN_vkVoidFunction[data_json["id"]]))"""
+    else:
+        call_function=f"""((PFN_{base_name(name)})(dlsym(vulkan_library,"{base_name(name)}")))"""
+
     call_arguments=", ".join([param["name"] for param in command["params"]])
     return_prefix="auto return_value=" if not is_void(command) else ""
     write(return_prefix+call_function+"("+call_arguments+")"+";")

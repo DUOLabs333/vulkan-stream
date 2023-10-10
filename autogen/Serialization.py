@@ -98,7 +98,7 @@ for type in parsed["primitive_types"]:
         
         write(f"""
             {type}* deserialize_{type}_p(json name){{
-                return ({type}*)name["value"].get<std::string>().c_str();
+                return ({type}*)strdup(name["value"].get<std::string>().c_str());
             }};
         """)
         
@@ -161,6 +161,24 @@ for type,is_always_pointer in parsed["external_handles"].items():
             json serialize_{type}(const {type} name);
             {type} deserialize_{type}(json name);
         """,header=True)
+
+for type in parsed["pointer_types"]:
+    write(f"""
+        json serialize_{type}(const {type} name){{
+            return json::object({{{{"value",(uintptr_t)name}}}});
+        }};
+    """)
+    
+    write(f"""
+        {type} deserialize_{type}(json name){{
+            return ({type}) (uintptr_t)name["value"];
+        }};
+    """)
+    
+    write(f"""
+        json serialize_{type}(const {type} name);
+        {type} deserialize_{type}(json name);
+    """,header=True)
 
 import re
 for funcpointer,function in parsed["funcpointers"].items():
