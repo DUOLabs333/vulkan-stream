@@ -8,6 +8,7 @@ fi
 (cd parse && g++ -E -P $VK_HEADER_FLAGS -I ../external/Vulkan-Headers/include ../external/Vulkan-Headers/include/vulkan/vulkan.h > vulkan_header.h && python parse.py)
 (cd autogen && ls *.py | xargs -L 1 python)
 
-CLIENT=1 python build.py
 CLEAN=1 python build.py
-python build.py
+CLIENT=1 python build.py
+#CLEAN=1 python build.py
+#python build.py
