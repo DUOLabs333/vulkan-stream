@@ -20,7 +20,6 @@ bool isConnConnected(){
         socket->setSocketDescriptor(socketDescriptor);
         
         currStruct()->conn=socket;
-        
         while(true){
             if(!isConnConnected()){
                 break;

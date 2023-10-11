@@ -24,12 +24,14 @@ ThreadStruct* currStruct(){
     auto thread_id=std::this_thread::get_id();
     if (!thread_to_struct.contains(thread_id)){
         auto result=new ThreadStruct();
+
         #ifdef CLIENT
             setAddressandPort();
             result->conn=new QTcpSocket();
-            result->conn->connectToHost(QString::fromStdString(address),port);
-            if(result->conn->waitForConnected(-1)){
-            }    
+            while(!result->conn->waitForConnected(-1)){
+                result->conn->connectToHost(QString::fromStdString(address),port);
+            }
+            printf("Finished creating!\n");
         #endif
         
         result->mem_to_sync=new std::set<uintptr_t>;
