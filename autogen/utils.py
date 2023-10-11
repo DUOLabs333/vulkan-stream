@@ -116,9 +116,15 @@ def deserialize(variable,value,initialize=False):
         result+=f"""
         if ({name}.contains("null")){{
         {variable}=NULL;
+        return;
         }}
     """
-    if (type in ["char", "void"] and num_indirection==1):
+    if type in parsed["basic_types"]:
+        basic_type=parsed["basic_types"][type]
+        val["type"]=basic_type["type"]
+        val["num_indirection"]+=basic_type["num_indirection"]
+        result+=deserialize(variable,val,initialize)
+    elif (type in ["char", "void"] and num_indirection==1):
         result+=f"{variable}=deserialize_{type}_p({name});\n"
     elif (type in parsed["external_handles"] and num_indirection<2):
             if num_indirection==0:
@@ -143,11 +149,10 @@ def deserialize(variable,value,initialize=False):
         
     elif num_indirection>0:
         val["num_indirection"]-=1
+        if initialize:
+            result+=f"""{variable}=({type}{"*"*num_indirection})malloc(sizeof({type}{"*"*(num_indirection-1)}));\n"""
         result+=(deserialize(f"*({variable})",val,initialize)+"\n")
-        
-    elif type in parsed["basic_types"]:
-        val.update(parsed["basic_types"][type])
-        result+=deserialize(variable,val,initialize)
+
     else:
         result+=(f"""
         #ifndef CLIENT

@@ -31,7 +31,6 @@ ThreadStruct* currStruct(){
             while(!result->conn->waitForConnected(-1)){
                 result->conn->connectToHost(QString::fromStdString(address),port);
             }
-            printf("Finished creating!\n");
         #endif
         
         result->mem_to_sync=new std::set<uintptr_t>;

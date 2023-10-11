@@ -20,6 +20,7 @@ bool isConnConnected(){
         socket->setSocketDescriptor(socketDescriptor);
         
         currStruct()->conn=socket;
+        
         while(true){
             if(!isConnConnected()){
                 break;
@@ -53,6 +54,8 @@ bool isConnConnected(){
         setAddressandPort();
         auto server = new StreamServer();
         server->listen(QHostAddress(QString::fromStdString(address)),port);
+        while(server->waitForNewConnection(-1)){
+        }
         return server;
     }
     
@@ -64,6 +67,7 @@ json readFromConn(){
     auto conn=currStruct()->conn;
             
     while(true){
+        conn->waitForReadyRead(-1);
         auto line=conn->readLine().toStdString();
         if (line.size()>0){
            return json::parse(line);
@@ -73,4 +77,5 @@ json readFromConn(){
 
 void writeToConn(json data){
     currStruct()->conn->write(QByteArray::fromStdString(data.dump()+"\n"));
+    currStruct()->conn->waitForBytesWritten(-1);
 }

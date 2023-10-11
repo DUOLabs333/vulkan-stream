@@ -56,9 +56,9 @@ for file in SRC_FILES:
             
     modified_time=int(os.path.getmtime(file))
     CPP=file.endswith(".cpp")
-    subprocess.run([("g++" if CPP else "gcc")]+[("-std=c++20" if CPP else "-std=gnu99")]+ FLAGS+ ["-o",object_file,"-c",file]+ INCLUDE_PATHS)
+    subprocess.run([("g++" if CPP else "gcc")]+[("-std=c++20" if CPP else "-std=gnu99"),"-fsanitize=address,undefined","-g"]+ FLAGS+ ["-o",object_file,"-c",file]+ INCLUDE_PATHS)
     os.utime(object_file, (modified_time, modified_time))
 
 if os.environ.get("CLEAN","0")=="0":
-    subprocess.run(["g++"]+(["-shared","-o","vulkan_stream.so"] if CLIENT=="1" else ["-o","vulkan_stream"])+[get_object_file(_) for _ in SRC_FILES]+(FRAMEWORKS if sys.platform=="darwin" else [])+["-Wl,-rpath",(VK_LIB_PATH if sys.platform=="darwin" else "")]+STATIC_LIBS+SHARED_LIBS_PATHS+SHARED_LIBS)
+    subprocess.run(["g++","-fsanitize=address,undefined"]+(["-shared","-o","vulkan_stream.so"] if CLIENT=="1" else ["-o","vulkan_stream"])+[get_object_file(_) for _ in SRC_FILES]+(FRAMEWORKS if sys.platform=="darwin" else [])+["-Wl,-rpath",(VK_LIB_PATH if sys.platform=="darwin" else "")]+STATIC_LIBS+SHARED_LIBS_PATHS+SHARED_LIBS)
 

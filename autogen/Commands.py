@@ -77,7 +77,7 @@ def register_DeviceMemory(name):
 write("#ifndef CLIENT")
 write("""
 #ifdef __APPLE__
-    std::string vulkan_library_name="vulkan.dylib";
+    std::string vulkan_library_name="libvulkan.dylib";
 #endif
 #include <dlfcn.h>
 auto vulkan_library=dlopen(vulkan_library_name.c_str(), RTLD_LAZY | RTLD_GLOBAL);
@@ -157,16 +157,18 @@ for command in parsed["commands"]:
 
 write("}")
 
-write("""
-void handle_funcpointer(json data){
-//Will only be called by the server
-std::string command=data["type"].get<std::string>().substr(std::string("command_").length());
-""")
-
 write("void handle_command(json data);",header=True)
 write("void handle_funcpointer(json data);",header=True)
 
+write("""
+void handle_funcpointer(json data){
+//Will only be called by the server
+std::string command=data["type"].get<std::string>().substr(std::string("funcpointer_").length());
+""")
+
 for command in parsed["commands"]:
+    if not is_funcpointer(command):
+        continue
     write(f"""
         if(command=="{command}"){{
             handle_{command}(data);
@@ -226,11 +228,10 @@ for name, command in parsed["commands"].items():
         while(true){
             result=readFromConn();
             std::string result_type=result["type"];
-            
             if (result_type=="sync_init"){
                 handle_sync_init(result);
             }
-            else if (result_type=="Return"){
+            else if (result_type=="Response"){
                 break;
             }  
     """)

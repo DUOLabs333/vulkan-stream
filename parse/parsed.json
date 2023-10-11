@@ -608,6 +608,7 @@
             "num_indirection": 1
         }
     },
+    "pointer_types": {},
     "structs": {
         "VkBaseOutStructure": [
             {
