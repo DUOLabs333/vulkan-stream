@@ -326,7 +326,7 @@ result["members"]["deviceName"]=[&]() {
             temp=[&]() {
     json return_kdyUfNs=json({});
     return serialize_char(name.deviceName[SudJAuV]);}();
-            return_SudJAuV["members"][std::to_string(SudJAuV)].push_back(temp);
+            return_SudJAuV["members"].push_back(temp);
         }
         return return_SudJAuV;
         }();
@@ -339,7 +339,7 @@ result["members"]["pipelineCacheUUID"]=[&]() {
             temp=[&]() {
     json return_OsqgMSp=json({});
     return serialize_uint8_t(name.pipelineCacheUUID[vDxedkq]);}();
-            return_vDxedkq["members"][std::to_string(vDxedkq)].push_back(temp);
+            return_vDxedkq["members"].push_back(temp);
         }
         return return_vDxedkq;
         }();
@@ -397,7 +397,7 @@ result["members"]["extensionName"]=[&]() {
             temp=[&]() {
     json return_UZRrDtp=json({});
     return serialize_char(name.extensionName[nzLpbtZ]);}();
-            return_nzLpbtZ["members"][std::to_string(nzLpbtZ)].push_back(temp);
+            return_nzLpbtZ["members"].push_back(temp);
         }
         return return_nzLpbtZ;
         }();
@@ -433,7 +433,7 @@ result["members"]["layerName"]=[&]() {
             temp=[&]() {
     json return_aJZRYxa=json({});
     return serialize_char(name.layerName[aRjlpsu]);}();
-            return_aRjlpsu["members"][std::to_string(aRjlpsu)].push_back(temp);
+            return_aRjlpsu["members"].push_back(temp);
         }
         return return_aRjlpsu;
         }();
@@ -452,7 +452,7 @@ result["members"]["description"]=[&]() {
             temp=[&]() {
     json return_GtlYMsa=json({});
     return serialize_char(name.description[elNJOHw]);}();
-            return_elNJOHw["members"][std::to_string(elNJOHw)].push_back(temp);
+            return_elNJOHw["members"].push_back(temp);
         }
         return return_elNJOHw;
         }();
@@ -695,7 +695,7 @@ result["members"]["pQueuePriorities"]=[&]() {
             temp=[&]() {
     json return_rhaQDLy=json({});
     return serialize_float(name.pQueuePriorities[BpJJAEA]);}();
-            return_BpJJAEA["members"][std::to_string(BpJJAEA)].push_back(temp);
+            return_BpJJAEA["members"].push_back(temp);
         }
         return return_BpJJAEA;
         }();
@@ -772,7 +772,7 @@ result["members"]["pQueueCreateInfos"]=[&]() {
             temp=[&]() {
     json return_NjsAEka=json({});
     return serialize_VkDeviceQueueCreateInfo(name.pQueueCreateInfos[kvBKdhK]);}();
-            return_kvBKdhK["members"][std::to_string(kvBKdhK)].push_back(temp);
+            return_kvBKdhK["members"].push_back(temp);
         }
         return return_kvBKdhK;
         }();
@@ -799,7 +799,7 @@ result["members"]["ppEnabledLayerNames"]=[&]() {
         }
         return serialize_char_p(name.ppEnabledLayerNames[DbSwPwH]);
 }();
-            return_DbSwPwH["members"][std::to_string(DbSwPwH)].push_back(temp);
+            return_DbSwPwH["members"].push_back(temp);
         }
         return return_DbSwPwH;
         }();
@@ -826,7 +826,7 @@ result["members"]["ppEnabledExtensionNames"]=[&]() {
         }
         return serialize_char_p(name.ppEnabledExtensionNames[cbpcoAX]);
 }();
-            return_cbpcoAX["members"][std::to_string(cbpcoAX)].push_back(temp);
+            return_cbpcoAX["members"].push_back(temp);
         }
         return return_cbpcoAX;
         }();
@@ -982,7 +982,7 @@ result["members"]["ppEnabledLayerNames"]=[&]() {
         }
         return serialize_char_p(name.ppEnabledLayerNames[DbSwPwH]);
 }();
-            return_DbSwPwH["members"][std::to_string(DbSwPwH)].push_back(temp);
+            return_DbSwPwH["members"].push_back(temp);
         }
         return return_DbSwPwH;
         }();
@@ -1009,7 +1009,7 @@ result["members"]["ppEnabledExtensionNames"]=[&]() {
         }
         return serialize_char_p(name.ppEnabledExtensionNames[lAWYZpe]);
 }();
-            return_lAWYZpe["members"][std::to_string(lAWYZpe)].push_back(temp);
+            return_lAWYZpe["members"].push_back(temp);
         }
         return return_lAWYZpe;
         }();
@@ -1133,7 +1133,7 @@ result["members"]["memoryTypes"]=[&]() {
             temp=[&]() {
     json return_KULMSLK=json({});
     return serialize_VkMemoryType(name.memoryTypes[QvuLctd]);}();
-            return_QvuLctd["members"][std::to_string(QvuLctd)].push_back(temp);
+            return_QvuLctd["members"].push_back(temp);
         }
         return return_QvuLctd;
         }();
@@ -1149,7 +1149,7 @@ result["members"]["memoryHeaps"]=[&]() {
             temp=[&]() {
     json return_DmomHYb=json({});
     return serialize_VkMemoryHeap(name.memoryHeaps[rgGjQLP]);}();
-            return_rgGjQLP["members"][std::to_string(rgGjQLP)].push_back(temp);
+            return_rgGjQLP["members"].push_back(temp);
         }
         return return_rgGjQLP;
         }();
@@ -1596,7 +1596,7 @@ result["members"]["pImageInfo"]=[&]() {
             temp=[&]() {
     json return_oZYEWCW=json({});
     return serialize_VkDescriptorImageInfo(name.pImageInfo[tsYiHXd]);}();
-            return_tsYiHXd["members"][std::to_string(tsYiHXd)].push_back(temp);
+            return_tsYiHXd["members"].push_back(temp);
         }
         return return_tsYiHXd;
         }();
@@ -1614,7 +1614,7 @@ result["members"]["pBufferInfo"]=[&]() {
             temp=[&]() {
     json return_OjYfyHJ=json({});
     return serialize_VkDescriptorBufferInfo(name.pBufferInfo[xAaVNJu]);}();
-            return_xAaVNJu["members"][std::to_string(xAaVNJu)].push_back(temp);
+            return_xAaVNJu["members"].push_back(temp);
         }
         return return_xAaVNJu;
         }();
@@ -1632,7 +1632,7 @@ result["members"]["pTexelBufferView"]=[&]() {
             temp=[&]() {
     json return_xXZLmRv=json({});
     return serialize_VkBufferView(name.pTexelBufferView[gnpFTOj]);}();
-            return_gnpFTOj["members"][std::to_string(gnpFTOj)].push_back(temp);
+            return_gnpFTOj["members"].push_back(temp);
         }
         return return_gnpFTOj;
         }();
@@ -1858,7 +1858,7 @@ result["members"]["pQueueFamilyIndices"]=[&]() {
             temp=[&]() {
     json return_ChTUjGM=json({});
     return serialize_uint32_t(name.pQueueFamilyIndices[vJXlkxZ]);}();
-            return_vJXlkxZ["members"][std::to_string(vJXlkxZ)].push_back(temp);
+            return_vJXlkxZ["members"].push_back(temp);
         }
         return return_vJXlkxZ;
         }();
@@ -2318,7 +2318,7 @@ result["members"]["pQueueFamilyIndices"]=[&]() {
             temp=[&]() {
     json return_gUBMqNs=json({});
     return serialize_uint32_t(name.pQueueFamilyIndices[SidzSeJ]);}();
-            return_SidzSeJ["members"][std::to_string(SidzSeJ)].push_back(temp);
+            return_SidzSeJ["members"].push_back(temp);
         }
         return return_SidzSeJ;
         }();
@@ -2643,7 +2643,7 @@ result["members"]["pBinds"]=[&]() {
             temp=[&]() {
     json return_kdWoZjs=json({});
     return serialize_VkSparseMemoryBind(name.pBinds[HEVmDGG]);}();
-            return_HEVmDGG["members"][std::to_string(HEVmDGG)].push_back(temp);
+            return_HEVmDGG["members"].push_back(temp);
         }
         return return_HEVmDGG;
         }();
@@ -2695,7 +2695,7 @@ result["members"]["pBinds"]=[&]() {
             temp=[&]() {
     json return_kdWoZjs=json({});
     return serialize_VkSparseMemoryBind(name.pBinds[HEVmDGG]);}();
-            return_HEVmDGG["members"][std::to_string(HEVmDGG)].push_back(temp);
+            return_HEVmDGG["members"].push_back(temp);
         }
         return return_HEVmDGG;
         }();
@@ -2747,7 +2747,7 @@ result["members"]["pBinds"]=[&]() {
             temp=[&]() {
     json return_MUsSVBL=json({});
     return serialize_VkSparseImageMemoryBind(name.pBinds[IRZvUhG]);}();
-            return_IRZvUhG["members"][std::to_string(IRZvUhG)].push_back(temp);
+            return_IRZvUhG["members"].push_back(temp);
         }
         return return_IRZvUhG;
         }();
@@ -2808,7 +2808,7 @@ result["members"]["pWaitSemaphores"]=[&]() {
             temp=[&]() {
     json return_FBBxbZH=json({});
     return serialize_VkSemaphore(name.pWaitSemaphores[RvYJrfP]);}();
-            return_RvYJrfP["members"][std::to_string(RvYJrfP)].push_back(temp);
+            return_RvYJrfP["members"].push_back(temp);
         }
         return return_RvYJrfP;
         }();
@@ -2829,7 +2829,7 @@ result["members"]["pBufferBinds"]=[&]() {
             temp=[&]() {
     json return_wsduLMN=json({});
     return serialize_VkSparseBufferMemoryBindInfo(name.pBufferBinds[EwFErVZ]);}();
-            return_EwFErVZ["members"][std::to_string(EwFErVZ)].push_back(temp);
+            return_EwFErVZ["members"].push_back(temp);
         }
         return return_EwFErVZ;
         }();
@@ -2850,7 +2850,7 @@ result["members"]["pImageOpaqueBinds"]=[&]() {
             temp=[&]() {
     json return_bBtdBqh=json({});
     return serialize_VkSparseImageOpaqueMemoryBindInfo(name.pImageOpaqueBinds[zlJCyTE]);}();
-            return_zlJCyTE["members"][std::to_string(zlJCyTE)].push_back(temp);
+            return_zlJCyTE["members"].push_back(temp);
         }
         return return_zlJCyTE;
         }();
@@ -2871,7 +2871,7 @@ result["members"]["pImageBinds"]=[&]() {
             temp=[&]() {
     json return_rDdDxxo=json({});
     return serialize_VkSparseImageMemoryBindInfo(name.pImageBinds[FegCGgt]);}();
-            return_FegCGgt["members"][std::to_string(FegCGgt)].push_back(temp);
+            return_FegCGgt["members"].push_back(temp);
         }
         return return_FegCGgt;
         }();
@@ -2892,7 +2892,7 @@ result["members"]["pSignalSemaphores"]=[&]() {
             temp=[&]() {
     json return_LUwhmBS=json({});
     return serialize_VkSemaphore(name.pSignalSemaphores[ZMUEuEH]);}();
-            return_ZMUEuEH["members"][std::to_string(ZMUEuEH)].push_back(temp);
+            return_ZMUEuEH["members"].push_back(temp);
         }
         return return_ZMUEuEH;
         }();
@@ -3041,7 +3041,7 @@ result["members"]["srcOffsets"]=[&]() {
             temp=[&]() {
     json return_oZsphNY=json({});
     return serialize_VkOffset3D(name.srcOffsets[TLaIHWB]);}();
-            return_TLaIHWB["members"][std::to_string(TLaIHWB)].push_back(temp);
+            return_TLaIHWB["members"].push_back(temp);
         }
         return return_TLaIHWB;
         }();
@@ -3057,7 +3057,7 @@ result["members"]["dstOffsets"]=[&]() {
             temp=[&]() {
     json return_awRNiVe=json({});
     return serialize_VkOffset3D(name.dstOffsets[smbSIWf]);}();
-            return_smbSIWf["members"][std::to_string(smbSIWf)].push_back(temp);
+            return_smbSIWf["members"].push_back(temp);
         }
         return return_smbSIWf;
         }();
@@ -3281,7 +3281,7 @@ result["members"]["pCode"]=[&]() {
             temp=[&]() {
     json return_lOKzLfr=json({});
     return serialize_uint32_t(name.pCode[TSoKkuV]);}();
-            return_TSoKkuV["members"][std::to_string(TSoKkuV)].push_back(temp);
+            return_TSoKkuV["members"].push_back(temp);
         }
         return return_TSoKkuV;
         }();
@@ -3350,7 +3350,7 @@ result["members"]["pImmutableSamplers"]=[&]() {
             temp=[&]() {
     json return_hYBRpEH=json({});
     return serialize_VkSampler(name.pImmutableSamplers[hWZwQGn]);}();
-            return_hWZwQGn["members"][std::to_string(hWZwQGn)].push_back(temp);
+            return_hWZwQGn["members"].push_back(temp);
         }
         return return_hWZwQGn;
         }();
@@ -3418,7 +3418,7 @@ result["members"]["pBindings"]=[&]() {
             temp=[&]() {
     json return_GDQifWg=json({});
     return serialize_VkDescriptorSetLayoutBinding(name.pBindings[MwthkyU]);}();
-            return_MwthkyU["members"][std::to_string(MwthkyU)].push_back(temp);
+            return_MwthkyU["members"].push_back(temp);
         }
         return return_MwthkyU;
         }();
@@ -3517,7 +3517,7 @@ result["members"]["pPoolSizes"]=[&]() {
             temp=[&]() {
     json return_HGRgfHU=json({});
     return serialize_VkDescriptorPoolSize(name.pPoolSizes[eeWIcMW]);}();
-            return_eeWIcMW["members"][std::to_string(eeWIcMW)].push_back(temp);
+            return_eeWIcMW["members"].push_back(temp);
         }
         return return_eeWIcMW;
         }();
@@ -3594,7 +3594,7 @@ result["members"]["pSetLayouts"]=[&]() {
             temp=[&]() {
     json return_gjebYss=json({});
     return serialize_VkDescriptorSetLayout(name.pSetLayouts[smJruWL]);}();
-            return_smJruWL["members"][std::to_string(smJruWL)].push_back(temp);
+            return_smJruWL["members"].push_back(temp);
         }
         return return_smJruWL;
         }();
@@ -3680,7 +3680,7 @@ result["members"]["pMapEntries"]=[&]() {
             temp=[&]() {
     json return_WYovikH=json({});
     return serialize_VkSpecializationMapEntry(name.pMapEntries[uZFpFCT]);}();
-            return_uZFpFCT["members"][std::to_string(uZFpFCT)].push_back(temp);
+            return_uZFpFCT["members"].push_back(temp);
         }
         return return_uZFpFCT;
         }();
@@ -4085,7 +4085,7 @@ result["members"]["pVertexBindingDescriptions"]=[&]() {
             temp=[&]() {
     json return_IBqsybB=json({});
     return serialize_VkVertexInputBindingDescription(name.pVertexBindingDescriptions[NEdcUYk]);}();
-            return_NEdcUYk["members"][std::to_string(NEdcUYk)].push_back(temp);
+            return_NEdcUYk["members"].push_back(temp);
         }
         return return_NEdcUYk;
         }();
@@ -4106,7 +4106,7 @@ result["members"]["pVertexAttributeDescriptions"]=[&]() {
             temp=[&]() {
     json return_QqbKvds=json({});
     return serialize_VkVertexInputAttributeDescription(name.pVertexAttributeDescriptions[jWyeUvX]);}();
-            return_jWyeUvX["members"][std::to_string(jWyeUvX)].push_back(temp);
+            return_jWyeUvX["members"].push_back(temp);
         }
         return return_jWyeUvX;
         }();
@@ -4292,7 +4292,7 @@ result["members"]["pViewports"]=[&]() {
             temp=[&]() {
     json return_daMWxGb=json({});
     return serialize_VkViewport(name.pViewports[AOCfgTP]);}();
-            return_AOCfgTP["members"][std::to_string(AOCfgTP)].push_back(temp);
+            return_AOCfgTP["members"].push_back(temp);
         }
         return return_AOCfgTP;
         }();
@@ -4313,7 +4313,7 @@ result["members"]["pScissors"]=[&]() {
             temp=[&]() {
     json return_CnGOjgV=json({});
     return serialize_VkRect2D(name.pScissors[BzcfiuH]);}();
-            return_BzcfiuH["members"][std::to_string(BzcfiuH)].push_back(temp);
+            return_BzcfiuH["members"].push_back(temp);
         }
         return return_BzcfiuH;
         }();
@@ -4511,7 +4511,7 @@ result["members"]["pSampleMask"]=[&]() {
     return_xHqTIbi=[&]() {
     json return_fWgisUC=json({});
     return serialize_uint32_t(name.pSampleMask[iVjchCH]);}();return return_xHqTIbi;}();
-            return_iVjchCH["members"][std::to_string(iVjchCH)].push_back(temp);
+            return_iVjchCH["members"].push_back(temp);
         }
         return return_iVjchCH;
         }();
@@ -4675,7 +4675,7 @@ result["members"]["pAttachments"]=[&]() {
             temp=[&]() {
     json return_ZRTWvei=json({});
     return serialize_VkPipelineColorBlendAttachmentState(name.pAttachments[CIYzeVE]);}();
-            return_CIYzeVE["members"][std::to_string(CIYzeVE)].push_back(temp);
+            return_CIYzeVE["members"].push_back(temp);
         }
         return return_CIYzeVE;
         }();
@@ -4688,7 +4688,7 @@ result["members"]["blendConstants"]=[&]() {
             temp=[&]() {
     json return_uGXqgbm=json({});
     return serialize_float(name.blendConstants[kPFVbpp]);}();
-            return_kPFVbpp["members"][std::to_string(kPFVbpp)].push_back(temp);
+            return_kPFVbpp["members"].push_back(temp);
         }
         return return_kPFVbpp;
         }();
@@ -4775,7 +4775,7 @@ result["members"]["pDynamicStates"]=[&]() {
             temp=[&]() {
     json return_udVJbyw=json({});
     return serialize_VkDynamicState(name.pDynamicStates[DCqXnJM]);}();
-            return_DCqXnJM["members"][std::to_string(DCqXnJM)].push_back(temp);
+            return_DCqXnJM["members"].push_back(temp);
         }
         return return_DCqXnJM;
         }();
@@ -4992,7 +4992,7 @@ result["members"]["pStages"]=[&]() {
             temp=[&]() {
     json return_xYJxTed=json({});
     return serialize_VkPipelineShaderStageCreateInfo(name.pStages[GyMJLYM]);}();
-            return_GyMJLYM["members"][std::to_string(GyMJLYM)].push_back(temp);
+            return_GyMJLYM["members"].push_back(temp);
         }
         return return_GyMJLYM;
         }();
@@ -5010,7 +5010,7 @@ result["members"]["pStages"]=[&]() {
             temp=[&]() {
     json return_xYJxTed=json({});
     return serialize_VkPipelineShaderStageCreateInfo(name.pStages[GyMJLYM]);}();
-            return_GyMJLYM["members"][std::to_string(GyMJLYM)].push_back(temp);
+            return_GyMJLYM["members"].push_back(temp);
         }
         return return_GyMJLYM;
         }();
@@ -5377,7 +5377,7 @@ result["members"]["pipelineCacheUUID"]=[&]() {
             temp=[&]() {
     json return_ZrdzZYV=json({});
     return serialize_uint8_t(name.pipelineCacheUUID[NpffqHL]);}();
-            return_NpffqHL["members"][std::to_string(NpffqHL)].push_back(temp);
+            return_NpffqHL["members"].push_back(temp);
         }
         return return_NpffqHL;
         }();
@@ -5465,7 +5465,7 @@ result["members"]["pSetLayouts"]=[&]() {
             temp=[&]() {
     json return_UcBlezs=json({});
     return serialize_VkDescriptorSetLayout(name.pSetLayouts[cSfhGJA]);}();
-            return_cSfhGJA["members"][std::to_string(cSfhGJA)].push_back(temp);
+            return_cSfhGJA["members"].push_back(temp);
         }
         return return_cSfhGJA;
         }();
@@ -5486,7 +5486,7 @@ result["members"]["pPushConstantRanges"]=[&]() {
             temp=[&]() {
     json return_JSMuQjp=json({});
     return serialize_VkPushConstantRange(name.pPushConstantRanges[TcHPEhS]);}();
-            return_TcHPEhS["members"][std::to_string(TcHPEhS)].push_back(temp);
+            return_TcHPEhS["members"].push_back(temp);
         }
         return return_TcHPEhS;
         }();
@@ -5926,7 +5926,7 @@ result["members"]["pClearValues"]=[&]() {
             temp=[&]() {
     json return_iyLJsYP=json({});
     return serialize_VkClearValue(name.pClearValues[vyooLYX]);}();
-            return_vyooLYX["members"][std::to_string(vyooLYX)].push_back(temp);
+            return_vyooLYX["members"].push_back(temp);
         }
         return return_vyooLYX;
         }();
@@ -5982,7 +5982,7 @@ result["members"]["float32"]=[&]() {
             temp=[&]() {
     json return_eQPepRX=json({});
     return serialize_float(name.float32[byAqhpM]);}();
-            return_byAqhpM["members"][std::to_string(byAqhpM)].push_back(temp);
+            return_byAqhpM["members"].push_back(temp);
         }
         return return_byAqhpM;
         }();
@@ -5995,7 +5995,7 @@ result["members"]["int32"]=[&]() {
             temp=[&]() {
     json return_XSoxZJF=json({});
     return serialize_int32_t(name.int32[wdIzCAc]);}();
-            return_wdIzCAc["members"][std::to_string(wdIzCAc)].push_back(temp);
+            return_wdIzCAc["members"].push_back(temp);
         }
         return return_wdIzCAc;
         }();
@@ -6008,7 +6008,7 @@ result["members"]["uint32"]=[&]() {
             temp=[&]() {
     json return_tAFkrLh=json({});
     return serialize_uint32_t(name.uint32[eLnTvEZ]);}();
-            return_eLnTvEZ["members"][std::to_string(eLnTvEZ)].push_back(temp);
+            return_eLnTvEZ["members"].push_back(temp);
         }
         return return_eLnTvEZ;
         }();
@@ -6212,7 +6212,7 @@ result["members"]["pInputAttachments"]=[&]() {
             temp=[&]() {
     json return_FcPKapH=json({});
     return serialize_VkAttachmentReference(name.pInputAttachments[hRgpVrJ]);}();
-            return_hRgpVrJ["members"][std::to_string(hRgpVrJ)].push_back(temp);
+            return_hRgpVrJ["members"].push_back(temp);
         }
         return return_hRgpVrJ;
         }();
@@ -6233,7 +6233,7 @@ result["members"]["pColorAttachments"]=[&]() {
             temp=[&]() {
     json return_qKYnBbN=json({});
     return serialize_VkAttachmentReference(name.pColorAttachments[raNmxrT]);}();
-            return_raNmxrT["members"][std::to_string(raNmxrT)].push_back(temp);
+            return_raNmxrT["members"].push_back(temp);
         }
         return return_raNmxrT;
         }();
@@ -6251,7 +6251,7 @@ result["members"]["pResolveAttachments"]=[&]() {
             temp=[&]() {
     json return_hYSVPuX=json({});
     return serialize_VkAttachmentReference(name.pResolveAttachments[ELCLMRh]);}();
-            return_ELCLMRh["members"][std::to_string(ELCLMRh)].push_back(temp);
+            return_ELCLMRh["members"].push_back(temp);
         }
         return return_ELCLMRh;
         }();
@@ -6283,7 +6283,7 @@ result["members"]["pPreserveAttachments"]=[&]() {
             temp=[&]() {
     json return_eqRBaEh=json({});
     return serialize_uint32_t(name.pPreserveAttachments[IjSGbln]);}();
-            return_IjSGbln["members"][std::to_string(IjSGbln)].push_back(temp);
+            return_IjSGbln["members"].push_back(temp);
         }
         return return_IjSGbln;
         }();
@@ -6449,7 +6449,7 @@ result["members"]["pAttachments"]=[&]() {
             temp=[&]() {
     json return_leFYiVr=json({});
     return serialize_VkAttachmentDescription(name.pAttachments[MUePtxB]);}();
-            return_MUePtxB["members"][std::to_string(MUePtxB)].push_back(temp);
+            return_MUePtxB["members"].push_back(temp);
         }
         return return_MUePtxB;
         }();
@@ -6470,7 +6470,7 @@ result["members"]["pSubpasses"]=[&]() {
             temp=[&]() {
     json return_RkQZQRi=json({});
     return serialize_VkSubpassDescription(name.pSubpasses[DcOiwVi]);}();
-            return_DcOiwVi["members"][std::to_string(DcOiwVi)].push_back(temp);
+            return_DcOiwVi["members"].push_back(temp);
         }
         return return_DcOiwVi;
         }();
@@ -6491,7 +6491,7 @@ result["members"]["pDependencies"]=[&]() {
             temp=[&]() {
     json return_SwIEtVt=json({});
     return serialize_VkSubpassDependency(name.pDependencies[zacmoAo]);}();
-            return_zacmoAo["members"][std::to_string(zacmoAo)].push_back(temp);
+            return_zacmoAo["members"].push_back(temp);
         }
         return return_zacmoAo;
         }();
@@ -7313,7 +7313,7 @@ result["members"]["maxComputeWorkGroupCount"]=[&]() {
             temp=[&]() {
     json return_xlmEKET=json({});
     return serialize_uint32_t(name.maxComputeWorkGroupCount[wawhkpd]);}();
-            return_wawhkpd["members"][std::to_string(wawhkpd)].push_back(temp);
+            return_wawhkpd["members"].push_back(temp);
         }
         return return_wawhkpd;
         }();
@@ -7329,7 +7329,7 @@ result["members"]["maxComputeWorkGroupSize"]=[&]() {
             temp=[&]() {
     json return_TFADSnM=json({});
     return serialize_uint32_t(name.maxComputeWorkGroupSize[jqvrgCt]);}();
-            return_jqvrgCt["members"][std::to_string(jqvrgCt)].push_back(temp);
+            return_jqvrgCt["members"].push_back(temp);
         }
         return return_jqvrgCt;
         }();
@@ -7366,7 +7366,7 @@ result["members"]["maxViewportDimensions"]=[&]() {
             temp=[&]() {
     json return_zeFkUGg=json({});
     return serialize_uint32_t(name.maxViewportDimensions[ZWkwOIu]);}();
-            return_ZWkwOIu["members"][std::to_string(ZWkwOIu)].push_back(temp);
+            return_ZWkwOIu["members"].push_back(temp);
         }
         return return_ZWkwOIu;
         }();
@@ -7379,7 +7379,7 @@ result["members"]["viewportBoundsRange"]=[&]() {
             temp=[&]() {
     json return_tRliKYd=json({});
     return serialize_float(name.viewportBoundsRange[qLYuzsU]);}();
-            return_qLYuzsU["members"][std::to_string(qLYuzsU)].push_back(temp);
+            return_qLYuzsU["members"].push_back(temp);
         }
         return return_qLYuzsU;
         }();
@@ -7496,7 +7496,7 @@ result["members"]["pointSizeRange"]=[&]() {
             temp=[&]() {
     json return_gIOesAh=json({});
     return serialize_float(name.pointSizeRange[lVVQcLu]);}();
-            return_lVVQcLu["members"][std::to_string(lVVQcLu)].push_back(temp);
+            return_lVVQcLu["members"].push_back(temp);
         }
         return return_lVVQcLu;
         }();
@@ -7509,7 +7509,7 @@ result["members"]["lineWidthRange"]=[&]() {
             temp=[&]() {
     json return_hbMqpbe=json({});
     return serialize_float(name.lineWidthRange[MAXxWjv]);}();
-            return_MAXxWjv["members"][std::to_string(MAXxWjv)].push_back(temp);
+            return_MAXxWjv["members"].push_back(temp);
         }
         return return_MAXxWjv;
         }();
@@ -7936,7 +7936,7 @@ result["members"]["pAttachments"]=[&]() {
             temp=[&]() {
     json return_KRyIBiG=json({});
     return serialize_VkImageView(name.pAttachments[AtUmmPC]);}();
-            return_AtUmmPC["members"][std::to_string(AtUmmPC)].push_back(temp);
+            return_AtUmmPC["members"].push_back(temp);
         }
         return return_AtUmmPC;
         }();
@@ -8165,7 +8165,7 @@ result["members"]["pWaitSemaphores"]=[&]() {
             temp=[&]() {
     json return_FBBxbZH=json({});
     return serialize_VkSemaphore(name.pWaitSemaphores[RvYJrfP]);}();
-            return_RvYJrfP["members"][std::to_string(RvYJrfP)].push_back(temp);
+            return_RvYJrfP["members"].push_back(temp);
         }
         return return_RvYJrfP;
         }();
@@ -8183,7 +8183,7 @@ result["members"]["pWaitDstStageMask"]=[&]() {
             temp=[&]() {
     json return_jwnybPi=json({});
     return serialize_VkPipelineStageFlags(name.pWaitDstStageMask[ODPTEhj]);}();
-            return_ODPTEhj["members"][std::to_string(ODPTEhj)].push_back(temp);
+            return_ODPTEhj["members"].push_back(temp);
         }
         return return_ODPTEhj;
         }();
@@ -8204,7 +8204,7 @@ result["members"]["pCommandBuffers"]=[&]() {
             temp=[&]() {
     json return_LwYkzfq=json({});
     return serialize_VkCommandBuffer(name.pCommandBuffers[RiaQqOq]);}();
-            return_RiaQqOq["members"][std::to_string(RiaQqOq)].push_back(temp);
+            return_RiaQqOq["members"].push_back(temp);
         }
         return return_RiaQqOq;
         }();
@@ -8225,7 +8225,7 @@ result["members"]["pSignalSemaphores"]=[&]() {
             temp=[&]() {
     json return_LUwhmBS=json({});
     return serialize_VkSemaphore(name.pSignalSemaphores[ZMUEuEH]);}();
-            return_ZMUEuEH["members"][std::to_string(ZMUEuEH)].push_back(temp);
+            return_ZMUEuEH["members"].push_back(temp);
         }
         return return_ZMUEuEH;
         }();
@@ -8927,7 +8927,7 @@ result["members"]["pQueueFamilyIndices"]=[&]() {
             temp=[&]() {
     json return_kGXuika=json({});
     return serialize_uint32_t(name.pQueueFamilyIndices[AjWrxvE]);}();
-            return_AjWrxvE["members"][std::to_string(AjWrxvE)].push_back(temp);
+            return_AjWrxvE["members"].push_back(temp);
         }
         return return_AjWrxvE;
         }();
@@ -9048,7 +9048,7 @@ result["members"]["pWaitSemaphores"]=[&]() {
             temp=[&]() {
     json return_xlCxbAl=json({});
     return serialize_VkSemaphore(name.pWaitSemaphores[lldCPll]);}();
-            return_lldCPll["members"][std::to_string(lldCPll)].push_back(temp);
+            return_lldCPll["members"].push_back(temp);
         }
         return return_lldCPll;
         }();
@@ -9069,7 +9069,7 @@ result["members"]["pSwapchains"]=[&]() {
             temp=[&]() {
     json return_uCSkbDt=json({});
     return serialize_VkSwapchainKHR(name.pSwapchains[zThJpVv]);}();
-            return_zThJpVv["members"][std::to_string(zThJpVv)].push_back(temp);
+            return_zThJpVv["members"].push_back(temp);
         }
         return return_zThJpVv;
         }();
@@ -9087,7 +9087,7 @@ result["members"]["pImageIndices"]=[&]() {
             temp=[&]() {
     json return_BbyMEnG=json({});
     return serialize_uint32_t(name.pImageIndices[dhkcVKu]);}();
-            return_dhkcVKu["members"][std::to_string(dhkcVKu)].push_back(temp);
+            return_dhkcVKu["members"].push_back(temp);
         }
         return return_dhkcVKu;
         }();
@@ -9105,7 +9105,7 @@ result["members"]["pResults"]=[&]() {
             temp=[&]() {
     json return_eUmZOXg=json({});
     return serialize_VkResult(name.pResults[NnNnLJL]);}();
-            return_NnNnLJL["members"][std::to_string(NnNnLJL)].push_back(temp);
+            return_NnNnLJL["members"].push_back(temp);
         }
         return return_NnNnLJL;
         }();
@@ -9292,7 +9292,7 @@ result["members"]["pDisabledValidationChecks"]=[&]() {
             temp=[&]() {
     json return_jztMYFg=json({});
     return serialize_VkValidationCheckEXT(name.pDisabledValidationChecks[rkcmcIS]);}();
-            return_rkcmcIS["members"][std::to_string(rkcmcIS)].push_back(temp);
+            return_rkcmcIS["members"].push_back(temp);
         }
         return return_rkcmcIS;
         }();
@@ -9362,7 +9362,7 @@ result["members"]["pEnabledValidationFeatures"]=[&]() {
             temp=[&]() {
     json return_nEJtkzk=json({});
     return serialize_VkValidationFeatureEnableEXT(name.pEnabledValidationFeatures[mQMrUyx]);}();
-            return_mQMrUyx["members"][std::to_string(mQMrUyx)].push_back(temp);
+            return_mQMrUyx["members"].push_back(temp);
         }
         return return_mQMrUyx;
         }();
@@ -9383,7 +9383,7 @@ result["members"]["pDisabledValidationFeatures"]=[&]() {
             temp=[&]() {
     json return_pXZPGzB=json({});
     return serialize_VkValidationFeatureDisableEXT(name.pDisabledValidationFeatures[fsoKuZp]);}();
-            return_fsoKuZp["members"][std::to_string(fsoKuZp)].push_back(temp);
+            return_fsoKuZp["members"].push_back(temp);
         }
         return return_fsoKuZp;
         }();
@@ -9642,7 +9642,7 @@ result["members"]["color"]=[&]() {
             temp=[&]() {
     json return_AjuIfrs=json({});
     return serialize_float(name.color[gVlpCRz]);}();
-            return_gVlpCRz["members"][std::to_string(gVlpCRz)].push_back(temp);
+            return_gVlpCRz["members"].push_back(temp);
         }
         return return_gVlpCRz;
         }();
@@ -10402,7 +10402,7 @@ result["members"]["pStages"]=[&]() {
             temp=[&]() {
     json return_KogSAFD=json({});
     return serialize_VkPipelineShaderStageCreateInfo(name.pStages[zoVcGnh]);}();
-            return_zoVcGnh["members"][std::to_string(zoVcGnh)].push_back(temp);
+            return_zoVcGnh["members"].push_back(temp);
         }
         return return_zoVcGnh;
         }();
@@ -10516,7 +10516,7 @@ result["members"]["pGroups"]=[&]() {
             temp=[&]() {
     json return_AiazVsN=json({});
     return serialize_VkGraphicsShaderGroupCreateInfoNV(name.pGroups[leEkXPZ]);}();
-            return_leEkXPZ["members"][std::to_string(leEkXPZ)].push_back(temp);
+            return_leEkXPZ["members"].push_back(temp);
         }
         return return_leEkXPZ;
         }();
@@ -10537,7 +10537,7 @@ result["members"]["pPipelines"]=[&]() {
             temp=[&]() {
     json return_kPddaNf=json({});
     return serialize_VkPipeline(name.pPipelines[XvXqKiS]);}();
-            return_XvXqKiS["members"][std::to_string(XvXqKiS)].push_back(temp);
+            return_XvXqKiS["members"].push_back(temp);
         }
         return return_XvXqKiS;
         }();
@@ -10768,7 +10768,7 @@ result["members"]["pIndexTypes"]=[&]() {
             temp=[&]() {
     json return_rxoEDdY=json({});
     return serialize_VkIndexType(name.pIndexTypes[oVjmvHi]);}();
-            return_oVjmvHi["members"][std::to_string(oVjmvHi)].push_back(temp);
+            return_oVjmvHi["members"].push_back(temp);
         }
         return return_oVjmvHi;
         }();
@@ -10786,7 +10786,7 @@ result["members"]["pIndexTypeValues"]=[&]() {
             temp=[&]() {
     json return_FMzSXKh=json({});
     return serialize_uint32_t(name.pIndexTypeValues[OhcsBoh]);}();
-            return_OhcsBoh["members"][std::to_string(OhcsBoh)].push_back(temp);
+            return_OhcsBoh["members"].push_back(temp);
         }
         return return_OhcsBoh;
         }();
@@ -10896,7 +10896,7 @@ result["members"]["pTokens"]=[&]() {
             temp=[&]() {
     json return_vPbbWPu=json({});
     return serialize_VkIndirectCommandsLayoutTokenNV(name.pTokens[BzCuuLd]);}();
-            return_BzCuuLd["members"][std::to_string(BzCuuLd)].push_back(temp);
+            return_BzCuuLd["members"].push_back(temp);
         }
         return return_BzCuuLd;
         }();
@@ -10917,7 +10917,7 @@ result["members"]["pStreamStrides"]=[&]() {
             temp=[&]() {
     json return_sSuobsC=json({});
     return serialize_uint32_t(name.pStreamStrides[riZvnUz]);}();
-            return_riZvnUz["members"][std::to_string(riZvnUz)].push_back(temp);
+            return_riZvnUz["members"].push_back(temp);
         }
         return return_riZvnUz;
         }();
@@ -11015,7 +11015,7 @@ result["members"]["pStreams"]=[&]() {
             temp=[&]() {
     json return_xrRztcp=json({});
     return serialize_VkIndirectCommandsStreamNV(name.pStreams[ujsjZYR]);}();
-            return_ujsjZYR["members"][std::to_string(ujsjZYR)].push_back(temp);
+            return_ujsjZYR["members"].push_back(temp);
         }
         return return_ujsjZYR;
         }();
@@ -12123,7 +12123,7 @@ result["members"]["driverName"]=[&]() {
             temp=[&]() {
     json return_aUytuVN=json({});
     return serialize_char(name.driverName[GBAoxaj]);}();
-            return_GBAoxaj["members"][std::to_string(GBAoxaj)].push_back(temp);
+            return_GBAoxaj["members"].push_back(temp);
         }
         return return_GBAoxaj;
         }();
@@ -12136,7 +12136,7 @@ result["members"]["driverInfo"]=[&]() {
             temp=[&]() {
     json return_WdNCfot=json({});
     return serialize_char(name.driverInfo[MCMGtMS]);}();
-            return_MCMGtMS["members"][std::to_string(MCMGtMS)].push_back(temp);
+            return_MCMGtMS["members"].push_back(temp);
         }
         return return_MCMGtMS;
         }();
@@ -12206,7 +12206,7 @@ result["members"]["driverName"]=[&]() {
             temp=[&]() {
     json return_aUytuVN=json({});
     return serialize_char(name.driverName[GBAoxaj]);}();
-            return_GBAoxaj["members"][std::to_string(GBAoxaj)].push_back(temp);
+            return_GBAoxaj["members"].push_back(temp);
         }
         return return_GBAoxaj;
         }();
@@ -12219,7 +12219,7 @@ result["members"]["driverInfo"]=[&]() {
             temp=[&]() {
     json return_WdNCfot=json({});
     return serialize_char(name.driverInfo[MCMGtMS]);}();
-            return_MCMGtMS["members"][std::to_string(MCMGtMS)].push_back(temp);
+            return_MCMGtMS["members"].push_back(temp);
         }
         return return_MCMGtMS;
         }();
@@ -12294,7 +12294,7 @@ result["members"]["pRegions"]=[&]() {
             temp=[&]() {
     json return_dYlHxuB=json({});
     return serialize_VkPresentRegionKHR(name.pRegions[AXkuGst]);}();
-            return_AXkuGst["members"][std::to_string(AXkuGst)].push_back(temp);
+            return_AXkuGst["members"].push_back(temp);
         }
         return return_AXkuGst;
         }();
@@ -12352,7 +12352,7 @@ result["members"]["pRectangles"]=[&]() {
             temp=[&]() {
     json return_kNqOKoo=json({});
     return serialize_VkRectLayerKHR(name.pRectangles[MnoUbLy]);}();
-            return_MnoUbLy["members"][std::to_string(MnoUbLy)].push_back(temp);
+            return_MnoUbLy["members"].push_back(temp);
         }
         return return_MnoUbLy;
         }();
@@ -13005,7 +13005,7 @@ result["members"]["deviceUUID"]=[&]() {
             temp=[&]() {
     json return_tJAcRWs=json({});
     return serialize_uint8_t(name.deviceUUID[mQUlrST]);}();
-            return_mQUlrST["members"][std::to_string(mQUlrST)].push_back(temp);
+            return_mQUlrST["members"].push_back(temp);
         }
         return return_mQUlrST;
         }();
@@ -13018,7 +13018,7 @@ result["members"]["driverUUID"]=[&]() {
             temp=[&]() {
     json return_OxhcIrK=json({});
     return serialize_uint8_t(name.driverUUID[kaPtqwF]);}();
-            return_kaPtqwF["members"][std::to_string(kaPtqwF)].push_back(temp);
+            return_kaPtqwF["members"].push_back(temp);
         }
         return return_kaPtqwF;
         }();
@@ -13031,7 +13031,7 @@ result["members"]["deviceLUID"]=[&]() {
             temp=[&]() {
     json return_hrCWovl=json({});
     return serialize_uint8_t(name.deviceLUID[hCPEaTs]);}();
-            return_hCPEaTs["members"][std::to_string(hCPEaTs)].push_back(temp);
+            return_hCPEaTs["members"].push_back(temp);
         }
         return return_hCPEaTs;
         }();
@@ -13111,7 +13111,7 @@ result["members"]["deviceUUID"]=[&]() {
             temp=[&]() {
     json return_tJAcRWs=json({});
     return serialize_uint8_t(name.deviceUUID[mQUlrST]);}();
-            return_mQUlrST["members"][std::to_string(mQUlrST)].push_back(temp);
+            return_mQUlrST["members"].push_back(temp);
         }
         return return_mQUlrST;
         }();
@@ -13124,7 +13124,7 @@ result["members"]["driverUUID"]=[&]() {
             temp=[&]() {
     json return_OxhcIrK=json({});
     return serialize_uint8_t(name.driverUUID[kaPtqwF]);}();
-            return_kaPtqwF["members"][std::to_string(kaPtqwF)].push_back(temp);
+            return_kaPtqwF["members"].push_back(temp);
         }
         return return_kaPtqwF;
         }();
@@ -13137,7 +13137,7 @@ result["members"]["deviceLUID"]=[&]() {
             temp=[&]() {
     json return_hrCWovl=json({});
     return serialize_uint8_t(name.deviceLUID[hCPEaTs]);}();
-            return_hCPEaTs["members"][std::to_string(hCPEaTs)].push_back(temp);
+            return_hCPEaTs["members"].push_back(temp);
         }
         return return_hCPEaTs;
         }();
@@ -14485,7 +14485,7 @@ result["members"]["pViewMasks"]=[&]() {
             temp=[&]() {
     json return_UYNiRcf=json({});
     return serialize_uint32_t(name.pViewMasks[eacBgBH]);}();
-            return_eacBgBH["members"][std::to_string(eacBgBH)].push_back(temp);
+            return_eacBgBH["members"].push_back(temp);
         }
         return return_eacBgBH;
         }();
@@ -14506,7 +14506,7 @@ result["members"]["pViewOffsets"]=[&]() {
             temp=[&]() {
     json return_xrXiQSw=json({});
     return serialize_int32_t(name.pViewOffsets[MnPfGpg]);}();
-            return_MnPfGpg["members"][std::to_string(MnPfGpg)].push_back(temp);
+            return_MnPfGpg["members"].push_back(temp);
         }
         return return_MnPfGpg;
         }();
@@ -14527,7 +14527,7 @@ result["members"]["pCorrelationMasks"]=[&]() {
             temp=[&]() {
     json return_kJrFdAu=json({});
     return serialize_uint32_t(name.pCorrelationMasks[pUiGmlF]);}();
-            return_pUiGmlF["members"][std::to_string(pUiGmlF)].push_back(temp);
+            return_pUiGmlF["members"].push_back(temp);
         }
         return return_pUiGmlF;
         }();
@@ -14627,7 +14627,7 @@ result["members"]["pViewMasks"]=[&]() {
             temp=[&]() {
     json return_UYNiRcf=json({});
     return serialize_uint32_t(name.pViewMasks[eacBgBH]);}();
-            return_eacBgBH["members"][std::to_string(eacBgBH)].push_back(temp);
+            return_eacBgBH["members"].push_back(temp);
         }
         return return_eacBgBH;
         }();
@@ -14648,7 +14648,7 @@ result["members"]["pViewOffsets"]=[&]() {
             temp=[&]() {
     json return_xrXiQSw=json({});
     return serialize_int32_t(name.pViewOffsets[MnPfGpg]);}();
-            return_MnPfGpg["members"][std::to_string(MnPfGpg)].push_back(temp);
+            return_MnPfGpg["members"].push_back(temp);
         }
         return return_MnPfGpg;
         }();
@@ -14669,7 +14669,7 @@ result["members"]["pCorrelationMasks"]=[&]() {
             temp=[&]() {
     json return_kJrFdAu=json({});
     return serialize_uint32_t(name.pCorrelationMasks[pUiGmlF]);}();
-            return_pUiGmlF["members"][std::to_string(pUiGmlF)].push_back(temp);
+            return_pUiGmlF["members"].push_back(temp);
         }
         return return_pUiGmlF;
         }();
@@ -15008,7 +15008,7 @@ result["members"]["physicalDevices"]=[&]() {
             temp=[&]() {
     json return_TeVnAvb=json({});
     return serialize_VkPhysicalDevice(name.physicalDevices[XkszcER]);}();
-            return_XkszcER["members"][std::to_string(XkszcER)].push_back(temp);
+            return_XkszcER["members"].push_back(temp);
         }
         return return_XkszcER;
         }();
@@ -15074,7 +15074,7 @@ result["members"]["physicalDevices"]=[&]() {
             temp=[&]() {
     json return_TeVnAvb=json({});
     return serialize_VkPhysicalDevice(name.physicalDevices[XkszcER]);}();
-            return_XkszcER["members"][std::to_string(XkszcER)].push_back(temp);
+            return_XkszcER["members"].push_back(temp);
         }
         return return_XkszcER;
         }();
@@ -15337,7 +15337,7 @@ result["members"]["pDeviceIndices"]=[&]() {
             temp=[&]() {
     json return_cSNsecN=json({});
     return serialize_uint32_t(name.pDeviceIndices[TCEYfPe]);}();
-            return_TCEYfPe["members"][std::to_string(TCEYfPe)].push_back(temp);
+            return_TCEYfPe["members"].push_back(temp);
         }
         return return_TCEYfPe;
         }();
@@ -15407,7 +15407,7 @@ result["members"]["pDeviceIndices"]=[&]() {
             temp=[&]() {
     json return_cSNsecN=json({});
     return serialize_uint32_t(name.pDeviceIndices[TCEYfPe]);}();
-            return_TCEYfPe["members"][std::to_string(TCEYfPe)].push_back(temp);
+            return_TCEYfPe["members"].push_back(temp);
         }
         return return_TCEYfPe;
         }();
@@ -15581,7 +15581,7 @@ result["members"]["pDeviceIndices"]=[&]() {
             temp=[&]() {
     json return_OQBqjpc=json({});
     return serialize_uint32_t(name.pDeviceIndices[iksaAZa]);}();
-            return_iksaAZa["members"][std::to_string(iksaAZa)].push_back(temp);
+            return_iksaAZa["members"].push_back(temp);
         }
         return return_iksaAZa;
         }();
@@ -15602,7 +15602,7 @@ result["members"]["pSplitInstanceBindRegions"]=[&]() {
             temp=[&]() {
     json return_hSniFXe=json({});
     return serialize_VkRect2D(name.pSplitInstanceBindRegions[HBcxQeZ]);}();
-            return_HBcxQeZ["members"][std::to_string(HBcxQeZ)].push_back(temp);
+            return_HBcxQeZ["members"].push_back(temp);
         }
         return return_HBcxQeZ;
         }();
@@ -15687,7 +15687,7 @@ result["members"]["pDeviceIndices"]=[&]() {
             temp=[&]() {
     json return_OQBqjpc=json({});
     return serialize_uint32_t(name.pDeviceIndices[iksaAZa]);}();
-            return_iksaAZa["members"][std::to_string(iksaAZa)].push_back(temp);
+            return_iksaAZa["members"].push_back(temp);
         }
         return return_iksaAZa;
         }();
@@ -15708,7 +15708,7 @@ result["members"]["pSplitInstanceBindRegions"]=[&]() {
             temp=[&]() {
     json return_hSniFXe=json({});
     return serialize_VkRect2D(name.pSplitInstanceBindRegions[HBcxQeZ]);}();
-            return_HBcxQeZ["members"][std::to_string(HBcxQeZ)].push_back(temp);
+            return_HBcxQeZ["members"].push_back(temp);
         }
         return return_HBcxQeZ;
         }();
@@ -15796,7 +15796,7 @@ result["members"]["pDeviceRenderAreas"]=[&]() {
             temp=[&]() {
     json return_RIZazYl=json({});
     return serialize_VkRect2D(name.pDeviceRenderAreas[LKwTUVb]);}();
-            return_LKwTUVb["members"][std::to_string(LKwTUVb)].push_back(temp);
+            return_LKwTUVb["members"].push_back(temp);
         }
         return return_LKwTUVb;
         }();
@@ -15871,7 +15871,7 @@ result["members"]["pDeviceRenderAreas"]=[&]() {
             temp=[&]() {
     json return_RIZazYl=json({});
     return serialize_VkRect2D(name.pDeviceRenderAreas[LKwTUVb]);}();
-            return_LKwTUVb["members"][std::to_string(LKwTUVb)].push_back(temp);
+            return_LKwTUVb["members"].push_back(temp);
         }
         return return_LKwTUVb;
         }();
@@ -16021,7 +16021,7 @@ result["members"]["pWaitSemaphoreDeviceIndices"]=[&]() {
             temp=[&]() {
     json return_PYPlfkj=json({});
     return serialize_uint32_t(name.pWaitSemaphoreDeviceIndices[uTBArqZ]);}();
-            return_uTBArqZ["members"][std::to_string(uTBArqZ)].push_back(temp);
+            return_uTBArqZ["members"].push_back(temp);
         }
         return return_uTBArqZ;
         }();
@@ -16042,7 +16042,7 @@ result["members"]["pCommandBufferDeviceMasks"]=[&]() {
             temp=[&]() {
     json return_jfmfOnR=json({});
     return serialize_uint32_t(name.pCommandBufferDeviceMasks[dtCtjmb]);}();
-            return_dtCtjmb["members"][std::to_string(dtCtjmb)].push_back(temp);
+            return_dtCtjmb["members"].push_back(temp);
         }
         return return_dtCtjmb;
         }();
@@ -16063,7 +16063,7 @@ result["members"]["pSignalSemaphoreDeviceIndices"]=[&]() {
             temp=[&]() {
     json return_BXmkIJi=json({});
     return serialize_uint32_t(name.pSignalSemaphoreDeviceIndices[KoJlvkQ]);}();
-            return_KoJlvkQ["members"][std::to_string(KoJlvkQ)].push_back(temp);
+            return_KoJlvkQ["members"].push_back(temp);
         }
         return return_KoJlvkQ;
         }();
@@ -16163,7 +16163,7 @@ result["members"]["pWaitSemaphoreDeviceIndices"]=[&]() {
             temp=[&]() {
     json return_PYPlfkj=json({});
     return serialize_uint32_t(name.pWaitSemaphoreDeviceIndices[uTBArqZ]);}();
-            return_uTBArqZ["members"][std::to_string(uTBArqZ)].push_back(temp);
+            return_uTBArqZ["members"].push_back(temp);
         }
         return return_uTBArqZ;
         }();
@@ -16184,7 +16184,7 @@ result["members"]["pCommandBufferDeviceMasks"]=[&]() {
             temp=[&]() {
     json return_jfmfOnR=json({});
     return serialize_uint32_t(name.pCommandBufferDeviceMasks[dtCtjmb]);}();
-            return_dtCtjmb["members"][std::to_string(dtCtjmb)].push_back(temp);
+            return_dtCtjmb["members"].push_back(temp);
         }
         return return_dtCtjmb;
         }();
@@ -16205,7 +16205,7 @@ result["members"]["pSignalSemaphoreDeviceIndices"]=[&]() {
             temp=[&]() {
     json return_BXmkIJi=json({});
     return serialize_uint32_t(name.pSignalSemaphoreDeviceIndices[KoJlvkQ]);}();
-            return_KoJlvkQ["members"][std::to_string(KoJlvkQ)].push_back(temp);
+            return_KoJlvkQ["members"].push_back(temp);
         }
         return return_KoJlvkQ;
         }();
@@ -16385,7 +16385,7 @@ result["members"]["presentMask"]=[&]() {
             temp=[&]() {
     json return_SWmfKTf=json({});
     return serialize_uint32_t(name.presentMask[KhnaLFw]);}();
-            return_KhnaLFw["members"][std::to_string(KhnaLFw)].push_back(temp);
+            return_KhnaLFw["members"].push_back(temp);
         }
         return return_KhnaLFw;
         }();
@@ -16593,7 +16593,7 @@ result["members"]["pDeviceMasks"]=[&]() {
             temp=[&]() {
     json return_OVUvxLh=json({});
     return serialize_uint32_t(name.pDeviceMasks[IVnvxqc]);}();
-            return_IVnvxqc["members"][std::to_string(IVnvxqc)].push_back(temp);
+            return_IVnvxqc["members"].push_back(temp);
         }
         return return_IVnvxqc;
         }();
@@ -16668,7 +16668,7 @@ result["members"]["pPhysicalDevices"]=[&]() {
             temp=[&]() {
     json return_gMKGulx=json({});
     return serialize_VkPhysicalDevice(name.pPhysicalDevices[wPXJvzt]);}();
-            return_wPXJvzt["members"][std::to_string(wPXJvzt)].push_back(temp);
+            return_wPXJvzt["members"].push_back(temp);
         }
         return return_wPXJvzt;
         }();
@@ -16738,7 +16738,7 @@ result["members"]["pPhysicalDevices"]=[&]() {
             temp=[&]() {
     json return_gMKGulx=json({});
     return serialize_VkPhysicalDevice(name.pPhysicalDevices[wPXJvzt]);}();
-            return_wPXJvzt["members"][std::to_string(wPXJvzt)].push_back(temp);
+            return_wPXJvzt["members"].push_back(temp);
         }
         return return_wPXJvzt;
         }();
@@ -16932,7 +16932,7 @@ result["members"]["pDescriptorUpdateEntries"]=[&]() {
             temp=[&]() {
     json return_TmVfYaS=json({});
     return serialize_VkDescriptorUpdateTemplateEntry(name.pDescriptorUpdateEntries[yyoFFWW]);}();
-            return_yyoFFWW["members"][std::to_string(yyoFFWW)].push_back(temp);
+            return_yyoFFWW["members"].push_back(temp);
         }
         return return_yyoFFWW;
         }();
@@ -17032,7 +17032,7 @@ result["members"]["pDescriptorUpdateEntries"]=[&]() {
             temp=[&]() {
     json return_TmVfYaS=json({});
     return serialize_VkDescriptorUpdateTemplateEntry(name.pDescriptorUpdateEntries[yyoFFWW]);}();
-            return_yyoFFWW["members"][std::to_string(yyoFFWW)].push_back(temp);
+            return_yyoFFWW["members"].push_back(temp);
         }
         return return_yyoFFWW;
         }();
@@ -17191,7 +17191,7 @@ result["members"]["pPresentIds"]=[&]() {
             temp=[&]() {
     json return_ELYeaMq=json({});
     return serialize_uint64_t(name.pPresentIds[xzpOZwt]);}();
-            return_xzpOZwt["members"][std::to_string(xzpOZwt)].push_back(temp);
+            return_xzpOZwt["members"].push_back(temp);
         }
         return return_xzpOZwt;
         }();
@@ -17511,7 +17511,7 @@ result["members"]["pTimes"]=[&]() {
             temp=[&]() {
     json return_swfMsWg=json({});
     return serialize_VkPresentTimeGOOGLE(name.pTimes[kEgrWAa]);}();
-            return_kEgrWAa["members"][std::to_string(kEgrWAa)].push_back(temp);
+            return_kEgrWAa["members"].push_back(temp);
         }
         return return_kEgrWAa;
         }();
@@ -17628,7 +17628,7 @@ result["members"]["pViewportWScalings"]=[&]() {
             temp=[&]() {
     json return_AhWzosz=json({});
     return serialize_VkViewportWScalingNV(name.pViewportWScalings[QNmRHsR]);}();
-            return_QNmRHsR["members"][std::to_string(QNmRHsR)].push_back(temp);
+            return_QNmRHsR["members"].push_back(temp);
         }
         return return_QNmRHsR;
         }();
@@ -17735,7 +17735,7 @@ result["members"]["pViewportSwizzles"]=[&]() {
             temp=[&]() {
     json return_cfFXFUh=json({});
     return serialize_VkViewportSwizzleNV(name.pViewportSwizzles[ygqwDSQ]);}();
-            return_ygqwDSQ["members"][std::to_string(ygqwDSQ)].push_back(temp);
+            return_ygqwDSQ["members"].push_back(temp);
         }
         return return_ygqwDSQ;
         }();
@@ -17851,7 +17851,7 @@ result["members"]["pDiscardRectangles"]=[&]() {
             temp=[&]() {
     json return_txHCYdr=json({});
     return serialize_VkRect2D(name.pDiscardRectangles[VIoJCcE]);}();
-            return_VIoJCcE["members"][std::to_string(VIoJCcE)].push_back(temp);
+            return_VIoJCcE["members"].push_back(temp);
         }
         return return_VIoJCcE;
         }();
@@ -18018,7 +18018,7 @@ result["members"]["pAspectReferences"]=[&]() {
             temp=[&]() {
     json return_ClIzoqe=json({});
     return serialize_VkInputAttachmentAspectReference(name.pAspectReferences[phTXkTk]);}();
-            return_phTXkTk["members"][std::to_string(phTXkTk)].push_back(temp);
+            return_phTXkTk["members"].push_back(temp);
         }
         return return_phTXkTk;
         }();
@@ -18088,7 +18088,7 @@ result["members"]["pAspectReferences"]=[&]() {
             temp=[&]() {
     json return_ClIzoqe=json({});
     return serialize_VkInputAttachmentAspectReference(name.pAspectReferences[phTXkTk]);}();
-            return_phTXkTk["members"][std::to_string(phTXkTk)].push_back(temp);
+            return_phTXkTk["members"].push_back(temp);
         }
         return return_phTXkTk;
         }();
@@ -20846,7 +20846,7 @@ result["members"]["pSampleLocations"]=[&]() {
             temp=[&]() {
     json return_ujnZhXy=json({});
     return serialize_VkSampleLocationEXT(name.pSampleLocations[OKSSxIb]);}();
-            return_OKSSxIb["members"][std::to_string(OKSSxIb)].push_back(temp);
+            return_OKSSxIb["members"].push_back(temp);
         }
         return return_OKSSxIb;
         }();
@@ -20962,7 +20962,7 @@ result["members"]["pAttachmentInitialSampleLocations"]=[&]() {
             temp=[&]() {
     json return_mlUbUqc=json({});
     return serialize_VkAttachmentSampleLocationsEXT(name.pAttachmentInitialSampleLocations[NYNruOU]);}();
-            return_NYNruOU["members"][std::to_string(NYNruOU)].push_back(temp);
+            return_NYNruOU["members"].push_back(temp);
         }
         return return_NYNruOU;
         }();
@@ -20983,7 +20983,7 @@ result["members"]["pPostSubpassSampleLocations"]=[&]() {
             temp=[&]() {
     json return_UmEonaz=json({});
     return serialize_VkSubpassSampleLocationsEXT(name.pPostSubpassSampleLocations[ZFIBaAY]);}();
-            return_ZFIBaAY["members"][std::to_string(ZFIBaAY)].push_back(temp);
+            return_ZFIBaAY["members"].push_back(temp);
         }
         return return_ZFIBaAY;
         }();
@@ -21113,7 +21113,7 @@ result["members"]["sampleLocationCoordinateRange"]=[&]() {
             temp=[&]() {
     json return_TJWsBAG=json({});
     return serialize_float(name.sampleLocationCoordinateRange[HMyJVDb]);}();
-            return_HMyJVDb["members"][std::to_string(HMyJVDb)].push_back(temp);
+            return_HMyJVDb["members"].push_back(temp);
         }
         return return_HMyJVDb;
         }();
@@ -21939,7 +21939,7 @@ result["members"]["pCoverageModulationTable"]=[&]() {
             temp=[&]() {
     json return_xVAVNIY=json({});
     return serialize_float(name.pCoverageModulationTable[JYzweMF]);}();
-            return_JYzweMF["members"][std::to_string(JYzweMF)].push_back(temp);
+            return_JYzweMF["members"].push_back(temp);
         }
         return return_JYzweMF;
         }();
@@ -22016,7 +22016,7 @@ result["members"]["pViewFormats"]=[&]() {
             temp=[&]() {
     json return_PiLROIq=json({});
     return serialize_VkFormat(name.pViewFormats[CYNXjDu]);}();
-            return_CYNXjDu["members"][std::to_string(CYNXjDu)].push_back(temp);
+            return_CYNXjDu["members"].push_back(temp);
         }
         return return_CYNXjDu;
         }();
@@ -22086,7 +22086,7 @@ result["members"]["pViewFormats"]=[&]() {
             temp=[&]() {
     json return_PiLROIq=json({});
     return serialize_VkFormat(name.pViewFormats[CYNXjDu]);}();
-            return_CYNXjDu["members"][std::to_string(CYNXjDu)].push_back(temp);
+            return_CYNXjDu["members"].push_back(temp);
         }
         return return_CYNXjDu;
         }();
@@ -22638,7 +22638,7 @@ result["members"]["pColorAttachmentFormats"]=[&]() {
             temp=[&]() {
     json return_yWFNaBd=json({});
     return serialize_VkFormat(name.pColorAttachmentFormats[bLPODBy]);}();
-            return_bLPODBy["members"][std::to_string(bLPODBy)].push_back(temp);
+            return_bLPODBy["members"].push_back(temp);
         }
         return return_bLPODBy;
         }();
@@ -23473,7 +23473,7 @@ result["members"]["computeWorkGroupSize"]=[&]() {
             temp=[&]() {
     json return_DqJBxVd=json({});
     return serialize_uint32_t(name.computeWorkGroupSize[JnRMTnm]);}();
-            return_JnRMTnm["members"][std::to_string(JnRMTnm)].push_back(temp);
+            return_JnRMTnm["members"].push_back(temp);
         }
         return return_JnRMTnm;
         }();
@@ -23691,7 +23691,7 @@ result["members"]["priorities"]=[&]() {
             temp=[&]() {
     json return_NknhKfJ=json({});
     return serialize_VkQueueGlobalPriorityKHR(name.priorities[XPoHDSy]);}();
-            return_XPoHDSy["members"][std::to_string(XPoHDSy)].push_back(temp);
+            return_XPoHDSy["members"].push_back(temp);
         }
         return return_XPoHDSy;
         }();
@@ -23749,7 +23749,7 @@ result["members"]["priorities"]=[&]() {
             temp=[&]() {
     json return_NknhKfJ=json({});
     return serialize_VkQueueGlobalPriorityKHR(name.priorities[XPoHDSy]);}();
-            return_XPoHDSy["members"][std::to_string(XPoHDSy)].push_back(temp);
+            return_XPoHDSy["members"].push_back(temp);
         }
         return return_XPoHDSy;
         }();
@@ -23947,7 +23947,7 @@ result["members"]["color"]=[&]() {
             temp=[&]() {
     json return_jKyPguT=json({});
     return serialize_float(name.color[lPOrHHS]);}();
-            return_lPOrHHS["members"][std::to_string(lPOrHHS)].push_back(temp);
+            return_lPOrHHS["members"].push_back(temp);
         }
         return return_lPOrHHS;
         }();
@@ -24131,7 +24131,7 @@ result["members"]["pQueueLabels"]=[&]() {
             temp=[&]() {
     json return_pICtmSi=json({});
     return serialize_VkDebugUtilsLabelEXT(name.pQueueLabels[UhPfgow]);}();
-            return_UhPfgow["members"][std::to_string(UhPfgow)].push_back(temp);
+            return_UhPfgow["members"].push_back(temp);
         }
         return return_UhPfgow;
         }();
@@ -24152,7 +24152,7 @@ result["members"]["pCmdBufLabels"]=[&]() {
             temp=[&]() {
     json return_PagHeBG=json({});
     return serialize_VkDebugUtilsLabelEXT(name.pCmdBufLabels[OXIKurA]);}();
-            return_OXIKurA["members"][std::to_string(OXIKurA)].push_back(temp);
+            return_OXIKurA["members"].push_back(temp);
         }
         return return_OXIKurA;
         }();
@@ -24173,7 +24173,7 @@ result["members"]["pObjects"]=[&]() {
             temp=[&]() {
     json return_oLuglhj=json({});
     return serialize_VkDebugUtilsObjectNameInfoEXT(name.pObjects[nIrzolX]);}();
-            return_nIrzolX["members"][std::to_string(nIrzolX)].push_back(temp);
+            return_nIrzolX["members"].push_back(temp);
         }
         return return_nIrzolX;
         }();
@@ -25673,7 +25673,7 @@ result["members"]["pBindingFlags"]=[&]() {
             temp=[&]() {
     json return_XJpJQXe=json({});
     return serialize_VkDescriptorBindingFlags(name.pBindingFlags[qRuylCu]);}();
-            return_qRuylCu["members"][std::to_string(qRuylCu)].push_back(temp);
+            return_qRuylCu["members"].push_back(temp);
         }
         return return_qRuylCu;
         }();
@@ -25743,7 +25743,7 @@ result["members"]["pBindingFlags"]=[&]() {
             temp=[&]() {
     json return_XJpJQXe=json({});
     return serialize_VkDescriptorBindingFlags(name.pBindingFlags[qRuylCu]);}();
-            return_qRuylCu["members"][std::to_string(qRuylCu)].push_back(temp);
+            return_qRuylCu["members"].push_back(temp);
         }
         return return_qRuylCu;
         }();
@@ -25813,7 +25813,7 @@ result["members"]["pDescriptorCounts"]=[&]() {
             temp=[&]() {
     json return_MEHPphQ=json({});
     return serialize_uint32_t(name.pDescriptorCounts[eovMlWh]);}();
-            return_eovMlWh["members"][std::to_string(eovMlWh)].push_back(temp);
+            return_eovMlWh["members"].push_back(temp);
         }
         return return_eovMlWh;
         }();
@@ -25883,7 +25883,7 @@ result["members"]["pDescriptorCounts"]=[&]() {
             temp=[&]() {
     json return_MEHPphQ=json({});
     return serialize_uint32_t(name.pDescriptorCounts[eovMlWh]);}();
-            return_eovMlWh["members"][std::to_string(eovMlWh)].push_back(temp);
+            return_eovMlWh["members"].push_back(temp);
         }
         return return_eovMlWh;
         }();
@@ -26294,7 +26294,7 @@ result["members"]["pInputAttachments"]=[&]() {
             temp=[&]() {
     json return_SNBiBUF=json({});
     return serialize_VkAttachmentReference2(name.pInputAttachments[zlKFeoD]);}();
-            return_zlKFeoD["members"][std::to_string(zlKFeoD)].push_back(temp);
+            return_zlKFeoD["members"].push_back(temp);
         }
         return return_zlKFeoD;
         }();
@@ -26315,7 +26315,7 @@ result["members"]["pColorAttachments"]=[&]() {
             temp=[&]() {
     json return_ujVGfZH=json({});
     return serialize_VkAttachmentReference2(name.pColorAttachments[zfZMUhm]);}();
-            return_zfZMUhm["members"][std::to_string(zfZMUhm)].push_back(temp);
+            return_zfZMUhm["members"].push_back(temp);
         }
         return return_zfZMUhm;
         }();
@@ -26333,7 +26333,7 @@ result["members"]["pResolveAttachments"]=[&]() {
             temp=[&]() {
     json return_tTAhkAw=json({});
     return serialize_VkAttachmentReference2(name.pResolveAttachments[CrXGEhb]);}();
-            return_CrXGEhb["members"][std::to_string(CrXGEhb)].push_back(temp);
+            return_CrXGEhb["members"].push_back(temp);
         }
         return return_CrXGEhb;
         }();
@@ -26365,7 +26365,7 @@ result["members"]["pPreserveAttachments"]=[&]() {
             temp=[&]() {
     json return_UOMZEPB=json({});
     return serialize_uint32_t(name.pPreserveAttachments[ZdpuWfy]);}();
-            return_ZdpuWfy["members"][std::to_string(ZdpuWfy)].push_back(temp);
+            return_ZdpuWfy["members"].push_back(temp);
         }
         return return_ZdpuWfy;
         }();
@@ -26504,7 +26504,7 @@ result["members"]["pInputAttachments"]=[&]() {
             temp=[&]() {
     json return_SNBiBUF=json({});
     return serialize_VkAttachmentReference2(name.pInputAttachments[zlKFeoD]);}();
-            return_zlKFeoD["members"][std::to_string(zlKFeoD)].push_back(temp);
+            return_zlKFeoD["members"].push_back(temp);
         }
         return return_zlKFeoD;
         }();
@@ -26525,7 +26525,7 @@ result["members"]["pColorAttachments"]=[&]() {
             temp=[&]() {
     json return_ujVGfZH=json({});
     return serialize_VkAttachmentReference2(name.pColorAttachments[zfZMUhm]);}();
-            return_zfZMUhm["members"][std::to_string(zfZMUhm)].push_back(temp);
+            return_zfZMUhm["members"].push_back(temp);
         }
         return return_zfZMUhm;
         }();
@@ -26543,7 +26543,7 @@ result["members"]["pResolveAttachments"]=[&]() {
             temp=[&]() {
     json return_tTAhkAw=json({});
     return serialize_VkAttachmentReference2(name.pResolveAttachments[CrXGEhb]);}();
-            return_CrXGEhb["members"][std::to_string(CrXGEhb)].push_back(temp);
+            return_CrXGEhb["members"].push_back(temp);
         }
         return return_CrXGEhb;
         }();
@@ -26575,7 +26575,7 @@ result["members"]["pPreserveAttachments"]=[&]() {
             temp=[&]() {
     json return_UOMZEPB=json({});
     return serialize_uint32_t(name.pPreserveAttachments[ZdpuWfy]);}();
-            return_ZdpuWfy["members"][std::to_string(ZdpuWfy)].push_back(temp);
+            return_ZdpuWfy["members"].push_back(temp);
         }
         return return_ZdpuWfy;
         }();
@@ -26856,7 +26856,7 @@ result["members"]["pAttachments"]=[&]() {
             temp=[&]() {
     json return_OlRpFQQ=json({});
     return serialize_VkAttachmentDescription2(name.pAttachments[cdolUWY]);}();
-            return_cdolUWY["members"][std::to_string(cdolUWY)].push_back(temp);
+            return_cdolUWY["members"].push_back(temp);
         }
         return return_cdolUWY;
         }();
@@ -26877,7 +26877,7 @@ result["members"]["pSubpasses"]=[&]() {
             temp=[&]() {
     json return_BtgrMoQ=json({});
     return serialize_VkSubpassDescription2(name.pSubpasses[FIBklHF]);}();
-            return_FIBklHF["members"][std::to_string(FIBklHF)].push_back(temp);
+            return_FIBklHF["members"].push_back(temp);
         }
         return return_FIBklHF;
         }();
@@ -26898,7 +26898,7 @@ result["members"]["pDependencies"]=[&]() {
             temp=[&]() {
     json return_TvEqDfN=json({});
     return serialize_VkSubpassDependency2(name.pDependencies[jKioBwF]);}();
-            return_jKioBwF["members"][std::to_string(jKioBwF)].push_back(temp);
+            return_jKioBwF["members"].push_back(temp);
         }
         return return_jKioBwF;
         }();
@@ -26919,7 +26919,7 @@ result["members"]["pCorrelatedViewMasks"]=[&]() {
             temp=[&]() {
     json return_jLmllBQ=json({});
     return serialize_uint32_t(name.pCorrelatedViewMasks[MXzmcBG]);}();
-            return_MXzmcBG["members"][std::to_string(MXzmcBG)].push_back(temp);
+            return_MXzmcBG["members"].push_back(temp);
         }
         return return_MXzmcBG;
         }();
@@ -27039,7 +27039,7 @@ result["members"]["pAttachments"]=[&]() {
             temp=[&]() {
     json return_OlRpFQQ=json({});
     return serialize_VkAttachmentDescription2(name.pAttachments[cdolUWY]);}();
-            return_cdolUWY["members"][std::to_string(cdolUWY)].push_back(temp);
+            return_cdolUWY["members"].push_back(temp);
         }
         return return_cdolUWY;
         }();
@@ -27060,7 +27060,7 @@ result["members"]["pSubpasses"]=[&]() {
             temp=[&]() {
     json return_BtgrMoQ=json({});
     return serialize_VkSubpassDescription2(name.pSubpasses[FIBklHF]);}();
-            return_FIBklHF["members"][std::to_string(FIBklHF)].push_back(temp);
+            return_FIBklHF["members"].push_back(temp);
         }
         return return_FIBklHF;
         }();
@@ -27081,7 +27081,7 @@ result["members"]["pDependencies"]=[&]() {
             temp=[&]() {
     json return_TvEqDfN=json({});
     return serialize_VkSubpassDependency2(name.pDependencies[jKioBwF]);}();
-            return_jKioBwF["members"][std::to_string(jKioBwF)].push_back(temp);
+            return_jKioBwF["members"].push_back(temp);
         }
         return return_jKioBwF;
         }();
@@ -27102,7 +27102,7 @@ result["members"]["pCorrelatedViewMasks"]=[&]() {
             temp=[&]() {
     json return_jLmllBQ=json({});
     return serialize_uint32_t(name.pCorrelatedViewMasks[MXzmcBG]);}();
-            return_MXzmcBG["members"][std::to_string(MXzmcBG)].push_back(temp);
+            return_MXzmcBG["members"].push_back(temp);
         }
         return return_MXzmcBG;
         }();
@@ -27611,7 +27611,7 @@ result["members"]["pWaitSemaphoreValues"]=[&]() {
             temp=[&]() {
     json return_RpemAQT=json({});
     return serialize_uint64_t(name.pWaitSemaphoreValues[ZNMnXDY]);}();
-            return_ZNMnXDY["members"][std::to_string(ZNMnXDY)].push_back(temp);
+            return_ZNMnXDY["members"].push_back(temp);
         }
         return return_ZNMnXDY;
         }();
@@ -27632,7 +27632,7 @@ result["members"]["pSignalSemaphoreValues"]=[&]() {
             temp=[&]() {
     json return_zFQBjPo=json({});
     return serialize_uint64_t(name.pSignalSemaphoreValues[wdZtSCc]);}();
-            return_wdZtSCc["members"][std::to_string(wdZtSCc)].push_back(temp);
+            return_wdZtSCc["members"].push_back(temp);
         }
         return return_wdZtSCc;
         }();
@@ -27717,7 +27717,7 @@ result["members"]["pWaitSemaphoreValues"]=[&]() {
             temp=[&]() {
     json return_RpemAQT=json({});
     return serialize_uint64_t(name.pWaitSemaphoreValues[ZNMnXDY]);}();
-            return_ZNMnXDY["members"][std::to_string(ZNMnXDY)].push_back(temp);
+            return_ZNMnXDY["members"].push_back(temp);
         }
         return return_ZNMnXDY;
         }();
@@ -27738,7 +27738,7 @@ result["members"]["pSignalSemaphoreValues"]=[&]() {
             temp=[&]() {
     json return_zFQBjPo=json({});
     return serialize_uint64_t(name.pSignalSemaphoreValues[wdZtSCc]);}();
-            return_wdZtSCc["members"][std::to_string(wdZtSCc)].push_back(temp);
+            return_wdZtSCc["members"].push_back(temp);
         }
         return return_wdZtSCc;
         }();
@@ -27826,7 +27826,7 @@ result["members"]["pSemaphores"]=[&]() {
             temp=[&]() {
     json return_nxCEvrs=json({});
     return serialize_VkSemaphore(name.pSemaphores[vGLByET]);}();
-            return_vGLByET["members"][std::to_string(vGLByET)].push_back(temp);
+            return_vGLByET["members"].push_back(temp);
         }
         return return_vGLByET;
         }();
@@ -27844,7 +27844,7 @@ result["members"]["pValues"]=[&]() {
             temp=[&]() {
     json return_wCKzgdu=json({});
     return serialize_uint64_t(name.pValues[gJaqVfc]);}();
-            return_gJaqVfc["members"][std::to_string(gJaqVfc)].push_back(temp);
+            return_gJaqVfc["members"].push_back(temp);
         }
         return return_gJaqVfc;
         }();
@@ -27932,7 +27932,7 @@ result["members"]["pSemaphores"]=[&]() {
             temp=[&]() {
     json return_nxCEvrs=json({});
     return serialize_VkSemaphore(name.pSemaphores[vGLByET]);}();
-            return_vGLByET["members"][std::to_string(vGLByET)].push_back(temp);
+            return_vGLByET["members"].push_back(temp);
         }
         return return_vGLByET;
         }();
@@ -27950,7 +27950,7 @@ result["members"]["pValues"]=[&]() {
             temp=[&]() {
     json return_wCKzgdu=json({});
     return serialize_uint64_t(name.pValues[gJaqVfc]);}();
-            return_gJaqVfc["members"][std::to_string(gJaqVfc)].push_back(temp);
+            return_gJaqVfc["members"].push_back(temp);
         }
         return return_gJaqVfc;
         }();
@@ -28144,7 +28144,7 @@ result["members"]["pVertexBindingDivisors"]=[&]() {
             temp=[&]() {
     json return_dciHHbZ=json({});
     return serialize_VkVertexInputBindingDivisorDescriptionEXT(name.pVertexBindingDivisors[KSPhWrc]);}();
-            return_KSPhWrc["members"][std::to_string(KSPhWrc)].push_back(temp);
+            return_KSPhWrc["members"].push_back(temp);
         }
         return return_KSPhWrc;
         }();
@@ -29767,7 +29767,7 @@ result["members"]["pExclusiveScissors"]=[&]() {
             temp=[&]() {
     json return_TmuWBrW=json({});
     return serialize_VkRect2D(name.pExclusiveScissors[NYrizQf]);}();
-            return_NYrizQf["members"][std::to_string(NYrizQf)].push_back(temp);
+            return_NYrizQf["members"].push_back(temp);
         }
         return return_NYrizQf;
         }();
@@ -30160,7 +30160,7 @@ result["members"]["pShadingRatePaletteEntries"]=[&]() {
             temp=[&]() {
     json return_JNAaFcy=json({});
     return serialize_VkShadingRatePaletteEntryNV(name.pShadingRatePaletteEntries[gVyuEuH]);}();
-            return_gVyuEuH["members"][std::to_string(gVyuEuH)].push_back(temp);
+            return_gVyuEuH["members"].push_back(temp);
         }
         return return_gVyuEuH;
         }();
@@ -30224,7 +30224,7 @@ result["members"]["pShadingRatePalettes"]=[&]() {
             temp=[&]() {
     json return_XiwZyKY=json({});
     return serialize_VkShadingRatePaletteNV(name.pShadingRatePalettes[uDMTKDG]);}();
-            return_uDMTKDG["members"][std::to_string(uDMTKDG)].push_back(temp);
+            return_uDMTKDG["members"].push_back(temp);
         }
         return return_uDMTKDG;
         }();
@@ -30455,7 +30455,7 @@ result["members"]["pSampleLocations"]=[&]() {
             temp=[&]() {
     json return_SyhILgG=json({});
     return serialize_VkCoarseSampleLocationNV(name.pSampleLocations[WqxbYZF]);}();
-            return_WqxbYZF["members"][std::to_string(WqxbYZF)].push_back(temp);
+            return_WqxbYZF["members"].push_back(temp);
         }
         return return_WqxbYZF;
         }();
@@ -30521,7 +30521,7 @@ result["members"]["pCustomSampleOrders"]=[&]() {
             temp=[&]() {
     json return_atEZURa=json({});
     return serialize_VkCoarseSampleOrderCustomNV(name.pCustomSampleOrders[RsEPPXm]);}();
-            return_RsEPPXm["members"][std::to_string(RsEPPXm)].push_back(temp);
+            return_RsEPPXm["members"].push_back(temp);
         }
         return return_RsEPPXm;
         }();
@@ -30640,7 +30640,7 @@ result["members"]["maxTaskWorkGroupSize"]=[&]() {
             temp=[&]() {
     json return_KAtZjcq=json({});
     return serialize_uint32_t(name.maxTaskWorkGroupSize[mCfLOJJ]);}();
-            return_mCfLOJJ["members"][std::to_string(mCfLOJJ)].push_back(temp);
+            return_mCfLOJJ["members"].push_back(temp);
         }
         return return_mCfLOJJ;
         }();
@@ -30662,7 +30662,7 @@ result["members"]["maxMeshWorkGroupSize"]=[&]() {
             temp=[&]() {
     json return_ifanUHk=json({});
     return serialize_uint32_t(name.maxMeshWorkGroupSize[ovHNVXL]);}();
-            return_ovHNVXL["members"][std::to_string(ovHNVXL)].push_back(temp);
+            return_ovHNVXL["members"].push_back(temp);
         }
         return return_ovHNVXL;
         }();
@@ -30859,7 +30859,7 @@ result["members"]["maxTaskWorkGroupCount"]=[&]() {
             temp=[&]() {
     json return_ZhJtKBS=json({});
     return serialize_uint32_t(name.maxTaskWorkGroupCount[dJeUwHs]);}();
-            return_dJeUwHs["members"][std::to_string(dJeUwHs)].push_back(temp);
+            return_dJeUwHs["members"].push_back(temp);
         }
         return return_dJeUwHs;
         }();
@@ -30875,7 +30875,7 @@ result["members"]["maxTaskWorkGroupSize"]=[&]() {
             temp=[&]() {
     json return_KAtZjcq=json({});
     return serialize_uint32_t(name.maxTaskWorkGroupSize[mCfLOJJ]);}();
-            return_mCfLOJJ["members"][std::to_string(mCfLOJJ)].push_back(temp);
+            return_mCfLOJJ["members"].push_back(temp);
         }
         return return_mCfLOJJ;
         }();
@@ -30900,7 +30900,7 @@ result["members"]["maxMeshWorkGroupCount"]=[&]() {
             temp=[&]() {
     json return_uZowcsM=json({});
     return serialize_uint32_t(name.maxMeshWorkGroupCount[lYJriiD]);}();
-            return_lYJriiD["members"][std::to_string(lYJriiD)].push_back(temp);
+            return_lYJriiD["members"].push_back(temp);
         }
         return return_lYJriiD;
         }();
@@ -30916,7 +30916,7 @@ result["members"]["maxMeshWorkGroupSize"]=[&]() {
             temp=[&]() {
     json return_ifanUHk=json({});
     return serialize_uint32_t(name.maxMeshWorkGroupSize[ovHNVXL]);}();
-            return_ovHNVXL["members"][std::to_string(ovHNVXL)].push_back(temp);
+            return_ovHNVXL["members"].push_back(temp);
         }
         return return_ovHNVXL;
         }();
@@ -31274,7 +31274,7 @@ result["members"]["pStages"]=[&]() {
             temp=[&]() {
     json return_xYJxTed=json({});
     return serialize_VkPipelineShaderStageCreateInfo(name.pStages[GyMJLYM]);}();
-            return_GyMJLYM["members"][std::to_string(GyMJLYM)].push_back(temp);
+            return_GyMJLYM["members"].push_back(temp);
         }
         return return_GyMJLYM;
         }();
@@ -31295,7 +31295,7 @@ result["members"]["pGroups"]=[&]() {
             temp=[&]() {
     json return_OYxsnFB=json({});
     return serialize_VkRayTracingShaderGroupCreateInfoNV(name.pGroups[ffHJMuS]);}();
-            return_ffHJMuS["members"][std::to_string(ffHJMuS)].push_back(temp);
+            return_ffHJMuS["members"].push_back(temp);
         }
         return return_ffHJMuS;
         }();
@@ -31405,7 +31405,7 @@ result["members"]["pStages"]=[&]() {
             temp=[&]() {
     json return_xYJxTed=json({});
     return serialize_VkPipelineShaderStageCreateInfo(name.pStages[GyMJLYM]);}();
-            return_GyMJLYM["members"][std::to_string(GyMJLYM)].push_back(temp);
+            return_GyMJLYM["members"].push_back(temp);
         }
         return return_GyMJLYM;
         }();
@@ -31426,7 +31426,7 @@ result["members"]["pGroups"]=[&]() {
             temp=[&]() {
     json return_NnInaCF=json({});
     return serialize_VkRayTracingShaderGroupCreateInfoKHR(name.pGroups[KjgWNeo]);}();
-            return_KjgWNeo["members"][std::to_string(KjgWNeo)].push_back(temp);
+            return_KjgWNeo["members"].push_back(temp);
         }
         return return_KjgWNeo;
         }();
@@ -31836,7 +31836,7 @@ result["members"]["pGeometries"]=[&]() {
             temp=[&]() {
     json return_vbIRNZS=json({});
     return serialize_VkGeometryNV(name.pGeometries[DRUmTOX]);}();
-            return_DRUmTOX["members"][std::to_string(DRUmTOX)].push_back(temp);
+            return_DRUmTOX["members"].push_back(temp);
         }
         return return_DRUmTOX;
         }();
@@ -31970,7 +31970,7 @@ result["members"]["pDeviceIndices"]=[&]() {
             temp=[&]() {
     json return_cSNsecN=json({});
     return serialize_uint32_t(name.pDeviceIndices[TCEYfPe]);}();
-            return_TCEYfPe["members"][std::to_string(TCEYfPe)].push_back(temp);
+            return_TCEYfPe["members"].push_back(temp);
         }
         return return_TCEYfPe;
         }();
@@ -32047,7 +32047,7 @@ result["members"]["pAccelerationStructures"]=[&]() {
             temp=[&]() {
     json return_hkBirKA=json({});
     return serialize_VkAccelerationStructureKHR(name.pAccelerationStructures[DOhZTzQ]);}();
-            return_DOhZTzQ["members"][std::to_string(DOhZTzQ)].push_back(temp);
+            return_DOhZTzQ["members"].push_back(temp);
         }
         return return_DOhZTzQ;
         }();
@@ -32117,7 +32117,7 @@ result["members"]["pAccelerationStructures"]=[&]() {
             temp=[&]() {
     json return_vURSOTe=json({});
     return serialize_VkAccelerationStructureNV(name.pAccelerationStructures[WWhrLtG]);}();
-            return_WWhrLtG["members"][std::to_string(WWhrLtG)].push_back(temp);
+            return_WWhrLtG["members"].push_back(temp);
         }
         return return_WWhrLtG;
         }();
@@ -32861,7 +32861,7 @@ result["members"]["pDrmFormatModifierProperties"]=[&]() {
             temp=[&]() {
     json return_qDPLegW=json({});
     return serialize_VkDrmFormatModifierPropertiesEXT(name.pDrmFormatModifierProperties[ILykUKq]);}();
-            return_ILykUKq["members"][std::to_string(ILykUKq)].push_back(temp);
+            return_ILykUKq["members"].push_back(temp);
         }
         return return_ILykUKq;
         }();
@@ -32961,7 +32961,7 @@ result["members"]["pQueueFamilyIndices"]=[&]() {
             temp=[&]() {
     json return_QwwhZqJ=json({});
     return serialize_uint32_t(name.pQueueFamilyIndices[KjAaiDf]);}();
-            return_KjAaiDf["members"][std::to_string(KjAaiDf)].push_back(temp);
+            return_KjAaiDf["members"].push_back(temp);
         }
         return return_KjAaiDf;
         }();
@@ -33035,7 +33035,7 @@ result["members"]["pDrmFormatModifiers"]=[&]() {
             temp=[&]() {
     json return_yHAkdTX=json({});
     return serialize_uint64_t(name.pDrmFormatModifiers[VqwGuqh]);}();
-            return_VqwGuqh["members"][std::to_string(VqwGuqh)].push_back(temp);
+            return_VqwGuqh["members"].push_back(temp);
         }
         return return_VqwGuqh;
         }();
@@ -33108,7 +33108,7 @@ result["members"]["pPlaneLayouts"]=[&]() {
             temp=[&]() {
     json return_IANSsCC=json({});
     return serialize_VkSubresourceLayout(name.pPlaneLayouts[nGwiZDs]);}();
-            return_nGwiZDs["members"][std::to_string(nGwiZDs)].push_back(temp);
+            return_nGwiZDs["members"].push_back(temp);
         }
         return return_nGwiZDs;
         }();
@@ -33661,7 +33661,7 @@ result["members"]["pFragmentDensityOffsets"]=[&]() {
             temp=[&]() {
     json return_JiWzeXw=json({});
     return serialize_VkOffset2D(name.pFragmentDensityOffsets[NNFTaEb]);}();
-            return_NNFTaEb["members"][std::to_string(NNFTaEb)].push_back(temp);
+            return_NNFTaEb["members"].push_back(temp);
         }
         return return_NNFTaEb;
         }();
@@ -34019,7 +34019,7 @@ result["members"]["heapBudget"]=[&]() {
     return_ssLTDjq=[&]() {
     json return_tqQPPJG=json({});
     return serialize_uint64_t(name.heapBudget[ZWYEPiI]);}();return return_ssLTDjq;}();
-            return_ZWYEPiI["members"][std::to_string(ZWYEPiI)].push_back(temp);
+            return_ZWYEPiI["members"].push_back(temp);
         }
         return return_ZWYEPiI;
         }();
@@ -34034,7 +34034,7 @@ result["members"]["heapUsage"]=[&]() {
     return_BdKcdsE=[&]() {
     json return_cwNtVST=json({});
     return serialize_uint64_t(name.heapUsage[dHqIwbf]);}();return return_BdKcdsE;}();
-            return_dHqIwbf["members"][std::to_string(dHqIwbf)].push_back(temp);
+            return_dHqIwbf["members"].push_back(temp);
         }
         return return_dHqIwbf;
         }();
@@ -34859,7 +34859,7 @@ result["members"]["pAttachmentImageInfos"]=[&]() {
             temp=[&]() {
     json return_ppzMTxP=json({});
     return serialize_VkFramebufferAttachmentImageInfo(name.pAttachmentImageInfos[pLUtvkJ]);}();
-            return_pLUtvkJ["members"][std::to_string(pLUtvkJ)].push_back(temp);
+            return_pLUtvkJ["members"].push_back(temp);
         }
         return return_pLUtvkJ;
         }();
@@ -34929,7 +34929,7 @@ result["members"]["pAttachmentImageInfos"]=[&]() {
             temp=[&]() {
     json return_ppzMTxP=json({});
     return serialize_VkFramebufferAttachmentImageInfo(name.pAttachmentImageInfos[pLUtvkJ]);}();
-            return_pLUtvkJ["members"][std::to_string(pLUtvkJ)].push_back(temp);
+            return_pLUtvkJ["members"].push_back(temp);
         }
         return return_pLUtvkJ;
         }();
@@ -35014,7 +35014,7 @@ result["members"]["pViewFormats"]=[&]() {
             temp=[&]() {
     json return_unudvLQ=json({});
     return serialize_VkFormat(name.pViewFormats[YpmHarF]);}();
-            return_YpmHarF["members"][std::to_string(YpmHarF)].push_back(temp);
+            return_YpmHarF["members"].push_back(temp);
         }
         return return_YpmHarF;
         }();
@@ -35109,7 +35109,7 @@ result["members"]["pViewFormats"]=[&]() {
             temp=[&]() {
     json return_unudvLQ=json({});
     return serialize_VkFormat(name.pViewFormats[YpmHarF]);}();
-            return_YpmHarF["members"][std::to_string(YpmHarF)].push_back(temp);
+            return_YpmHarF["members"].push_back(temp);
         }
         return return_YpmHarF;
         }();
@@ -35189,7 +35189,7 @@ result["members"]["pAttachments"]=[&]() {
             temp=[&]() {
     json return_pIpoGkp=json({});
     return serialize_VkImageView(name.pAttachments[CjRVPAb]);}();
-            return_CjRVPAb["members"][std::to_string(CjRVPAb)].push_back(temp);
+            return_CjRVPAb["members"].push_back(temp);
         }
         return return_CjRVPAb;
         }();
@@ -35259,7 +35259,7 @@ result["members"]["pAttachments"]=[&]() {
             temp=[&]() {
     json return_pIpoGkp=json({});
     return serialize_VkImageView(name.pAttachments[CjRVPAb]);}();
-            return_CjRVPAb["members"][std::to_string(CjRVPAb)].push_back(temp);
+            return_CjRVPAb["members"].push_back(temp);
         }
         return return_CjRVPAb;
         }();
@@ -35763,7 +35763,7 @@ result["members"]["pPipelineStageCreationFeedbacks"]=[&]() {
             temp=[&]() {
     json return_eEdLGOx=json({});
     return serialize_VkPipelineCreationFeedback(name.pPipelineStageCreationFeedbacks[RfcuqHl]);}();
-            return_RfcuqHl["members"][std::to_string(RfcuqHl)].push_back(temp);
+            return_RfcuqHl["members"].push_back(temp);
         }
         return return_RfcuqHl;
         }();
@@ -35853,7 +35853,7 @@ result["members"]["pPipelineStageCreationFeedbacks"]=[&]() {
             temp=[&]() {
     json return_eEdLGOx=json({});
     return serialize_VkPipelineCreationFeedback(name.pPipelineStageCreationFeedbacks[RfcuqHl]);}();
-            return_RfcuqHl["members"][std::to_string(RfcuqHl)].push_back(temp);
+            return_RfcuqHl["members"].push_back(temp);
         }
         return return_RfcuqHl;
         }();
@@ -36146,7 +36146,7 @@ result["members"]["uuid"]=[&]() {
             temp=[&]() {
     json return_SoCGxFj=json({});
     return serialize_uint8_t(name.uuid[hbdifhj]);}();
-            return_hbdifhj["members"][std::to_string(hbdifhj)].push_back(temp);
+            return_hbdifhj["members"].push_back(temp);
         }
         return return_hbdifhj;
         }();
@@ -36208,7 +36208,7 @@ result["members"]["name"]=[&]() {
             temp=[&]() {
     json return_bKPvsGR=json({});
     return serialize_char(name.name[ocrlgjj]);}();
-            return_ocrlgjj["members"][std::to_string(ocrlgjj)].push_back(temp);
+            return_ocrlgjj["members"].push_back(temp);
         }
         return return_ocrlgjj;
         }();
@@ -36221,7 +36221,7 @@ result["members"]["category"]=[&]() {
             temp=[&]() {
     json return_ASkPlIg=json({});
     return serialize_char(name.category[OPTbtFF]);}();
-            return_OPTbtFF["members"][std::to_string(OPTbtFF)].push_back(temp);
+            return_OPTbtFF["members"].push_back(temp);
         }
         return return_OPTbtFF;
         }();
@@ -36234,7 +36234,7 @@ result["members"]["description"]=[&]() {
             temp=[&]() {
     json return_DCuTtbV=json({});
     return serialize_char(name.description[PlkHdbx]);}();
-            return_PlkHdbx["members"][std::to_string(PlkHdbx)].push_back(temp);
+            return_PlkHdbx["members"].push_back(temp);
         }
         return return_PlkHdbx;
         }();
@@ -36314,7 +36314,7 @@ result["members"]["pCounterIndices"]=[&]() {
             temp=[&]() {
     json return_eMtFreN=json({});
     return serialize_uint32_t(name.pCounterIndices[XUsQdmA]);}();
-            return_XUsQdmA["members"][std::to_string(XUsQdmA)].push_back(temp);
+            return_XUsQdmA["members"].push_back(temp);
         }
         return return_XUsQdmA;
         }();
@@ -37737,7 +37737,7 @@ result["members"]["name"]=[&]() {
             temp=[&]() {
     json return_iIzoJnf=json({});
     return serialize_char(name.name[tmFucRh]);}();
-            return_tmFucRh["members"][std::to_string(tmFucRh)].push_back(temp);
+            return_tmFucRh["members"].push_back(temp);
         }
         return return_tmFucRh;
         }();
@@ -37750,7 +37750,7 @@ result["members"]["description"]=[&]() {
             temp=[&]() {
     json return_zrcROSN=json({});
     return serialize_char(name.description[esyizKQ]);}();
-            return_esyizKQ["members"][std::to_string(esyizKQ)].push_back(temp);
+            return_esyizKQ["members"].push_back(temp);
         }
         return return_esyizKQ;
         }();
@@ -37895,7 +37895,7 @@ result["members"]["name"]=[&]() {
             temp=[&]() {
     json return_iIzoJnf=json({});
     return serialize_char(name.name[tmFucRh]);}();
-            return_tmFucRh["members"][std::to_string(tmFucRh)].push_back(temp);
+            return_tmFucRh["members"].push_back(temp);
         }
         return return_tmFucRh;
         }();
@@ -37908,7 +37908,7 @@ result["members"]["description"]=[&]() {
             temp=[&]() {
     json return_zrcROSN=json({});
     return serialize_char(name.description[esyizKQ]);}();
-            return_esyizKQ["members"][std::to_string(esyizKQ)].push_back(temp);
+            return_esyizKQ["members"].push_back(temp);
         }
         return return_esyizKQ;
         }();
@@ -37978,7 +37978,7 @@ result["members"]["name"]=[&]() {
             temp=[&]() {
     json return_iIzoJnf=json({});
     return serialize_char(name.name[tmFucRh]);}();
-            return_tmFucRh["members"][std::to_string(tmFucRh)].push_back(temp);
+            return_tmFucRh["members"].push_back(temp);
         }
         return return_tmFucRh;
         }();
@@ -37991,7 +37991,7 @@ result["members"]["description"]=[&]() {
             temp=[&]() {
     json return_zrcROSN=json({});
     return serialize_char(name.description[esyizKQ]);}();
-            return_esyizKQ["members"][std::to_string(esyizKQ)].push_back(temp);
+            return_esyizKQ["members"].push_back(temp);
         }
         return return_esyizKQ;
         }();
@@ -38733,7 +38733,7 @@ result["members"]["maxWorkGroupCount"]=[&]() {
             temp=[&]() {
     json return_rJetcpB=json({});
     return serialize_uint32_t(name.maxWorkGroupCount[aBamZEG]);}();
-            return_aBamZEG["members"][std::to_string(aBamZEG)].push_back(temp);
+            return_aBamZEG["members"].push_back(temp);
         }
         return return_aBamZEG;
         }();
@@ -38746,7 +38746,7 @@ result["members"]["maxWorkGroupSize"]=[&]() {
             temp=[&]() {
     json return_iTefalM=json({});
     return serialize_uint32_t(name.maxWorkGroupSize[yGlsbPm]);}();
-            return_yGlsbPm["members"][std::to_string(yGlsbPm)].push_back(temp);
+            return_yGlsbPm["members"].push_back(temp);
         }
         return return_yGlsbPm;
         }();
@@ -39362,7 +39362,7 @@ result["members"]["deviceUUID"]=[&]() {
             temp=[&]() {
     json return_lHDabHs=json({});
     return serialize_uint8_t(name.deviceUUID[igcTxab]);}();
-            return_igcTxab["members"][std::to_string(igcTxab)].push_back(temp);
+            return_igcTxab["members"].push_back(temp);
         }
         return return_igcTxab;
         }();
@@ -39375,7 +39375,7 @@ result["members"]["driverUUID"]=[&]() {
             temp=[&]() {
     json return_maMMUWu=json({});
     return serialize_uint8_t(name.driverUUID[GscAido]);}();
-            return_GscAido["members"][std::to_string(GscAido)].push_back(temp);
+            return_GscAido["members"].push_back(temp);
         }
         return return_GscAido;
         }();
@@ -39388,7 +39388,7 @@ result["members"]["deviceLUID"]=[&]() {
             temp=[&]() {
     json return_FTdFCku=json({});
     return serialize_uint8_t(name.deviceLUID[AWzuMUp]);}();
-            return_AWzuMUp["members"][std::to_string(AWzuMUp)].push_back(temp);
+            return_AWzuMUp["members"].push_back(temp);
         }
         return return_AWzuMUp;
         }();
@@ -39939,7 +39939,7 @@ result["members"]["driverName"]=[&]() {
             temp=[&]() {
     json return_dRfzFdz=json({});
     return serialize_char(name.driverName[HCoSsdd]);}();
-            return_HCoSsdd["members"][std::to_string(HCoSsdd)].push_back(temp);
+            return_HCoSsdd["members"].push_back(temp);
         }
         return return_HCoSsdd;
         }();
@@ -39952,7 +39952,7 @@ result["members"]["driverInfo"]=[&]() {
             temp=[&]() {
     json return_bPeQBAv=json({});
     return serialize_char(name.driverInfo[Lngxfns]);}();
-            return_Lngxfns["members"][std::to_string(Lngxfns)].push_back(temp);
+            return_Lngxfns["members"].push_back(temp);
         }
         return return_Lngxfns;
         }();
@@ -40933,7 +40933,7 @@ result["members"]["name"]=[&]() {
             temp=[&]() {
     json return_tcYDKXD=json({});
     return serialize_char(name.name[ZFxUgrv]);}();
-            return_ZFxUgrv["members"][std::to_string(ZFxUgrv)].push_back(temp);
+            return_ZFxUgrv["members"].push_back(temp);
         }
         return return_ZFxUgrv;
         }();
@@ -40946,7 +40946,7 @@ result["members"]["version"]=[&]() {
             temp=[&]() {
     json return_eJTFJAU=json({});
     return serialize_char(name.version[GxqHIht]);}();
-            return_GxqHIht["members"][std::to_string(GxqHIht)].push_back(temp);
+            return_GxqHIht["members"].push_back(temp);
         }
         return return_GxqHIht;
         }();
@@ -40962,7 +40962,7 @@ result["members"]["description"]=[&]() {
             temp=[&]() {
     json return_iIcHguO=json({});
     return serialize_char(name.description[NVAHRLy]);}();
-            return_NVAHRLy["members"][std::to_string(NVAHRLy)].push_back(temp);
+            return_NVAHRLy["members"].push_back(temp);
         }
         return return_NVAHRLy;
         }();
@@ -40975,7 +40975,7 @@ result["members"]["layer"]=[&]() {
             temp=[&]() {
     json return_KesQnaC=json({});
     return serialize_char(name.layer[CULdUSd]);}();
-            return_CULdUSd["members"][std::to_string(CULdUSd)].push_back(temp);
+            return_CULdUSd["members"].push_back(temp);
         }
         return return_CULdUSd;
         }();
@@ -41051,7 +41051,7 @@ result["members"]["name"]=[&]() {
             temp=[&]() {
     json return_tcYDKXD=json({});
     return serialize_char(name.name[ZFxUgrv]);}();
-            return_ZFxUgrv["members"][std::to_string(ZFxUgrv)].push_back(temp);
+            return_ZFxUgrv["members"].push_back(temp);
         }
         return return_ZFxUgrv;
         }();
@@ -41064,7 +41064,7 @@ result["members"]["version"]=[&]() {
             temp=[&]() {
     json return_eJTFJAU=json({});
     return serialize_char(name.version[GxqHIht]);}();
-            return_GxqHIht["members"][std::to_string(GxqHIht)].push_back(temp);
+            return_GxqHIht["members"].push_back(temp);
         }
         return return_GxqHIht;
         }();
@@ -41080,7 +41080,7 @@ result["members"]["description"]=[&]() {
             temp=[&]() {
     json return_iIcHguO=json({});
     return serialize_char(name.description[NVAHRLy]);}();
-            return_NVAHRLy["members"][std::to_string(NVAHRLy)].push_back(temp);
+            return_NVAHRLy["members"].push_back(temp);
         }
         return return_NVAHRLy;
         }();
@@ -41093,7 +41093,7 @@ result["members"]["layer"]=[&]() {
             temp=[&]() {
     json return_KesQnaC=json({});
     return serialize_char(name.layer[CULdUSd]);}();
-            return_CULdUSd["members"][std::to_string(CULdUSd)].push_back(temp);
+            return_CULdUSd["members"].push_back(temp);
         }
         return return_CULdUSd;
         }();
@@ -41733,7 +41733,7 @@ result["members"]["pGeometries"]=[&]() {
             temp=[&]() {
     json return_NsOQKGc=json({});
     return serialize_VkAccelerationStructureGeometryKHR(name.pGeometries[vAeMmcQ]);}();
-            return_vAeMmcQ["members"][std::to_string(vAeMmcQ)].push_back(temp);
+            return_vAeMmcQ["members"].push_back(temp);
         }
         return return_vAeMmcQ;
         }();
@@ -41762,11 +41762,11 @@ result["members"]["ppGeometries"]=[&]() {
             temp=[&]() {
     json return_UBsBCJN=json({});
     return serialize_VkAccelerationStructureGeometryKHR(name.ppGeometries[uIhUDjS][tXRyfVA]);}();
-            return_tXRyfVA["members"][std::to_string(tXRyfVA)].push_back(temp);
+            return_tXRyfVA["members"].push_back(temp);
         }
         return return_tXRyfVA;
         }();
-            return_uIhUDjS["members"][std::to_string(uIhUDjS)].push_back(temp);
+            return_uIhUDjS["members"].push_back(temp);
         }
         return return_uIhUDjS;
         }();
@@ -42046,11 +42046,11 @@ result["members"]["matrix"]=[&]() {
             temp=[&]() {
     json return_Fdqluro=json({});
     return serialize_float(name.matrix[mqMPDMf][gGKWmyw]);}();
-            return_gGKWmyw["members"][std::to_string(gGKWmyw)].push_back(temp);
+            return_gGKWmyw["members"].push_back(temp);
         }
         return return_gGKWmyw;
         }();
-            return_mqMPDMf["members"][std::to_string(mqMPDMf)].push_back(temp);
+            return_mqMPDMf["members"].push_back(temp);
         }
         return return_mqMPDMf;
         }();
@@ -42092,11 +42092,11 @@ result["members"]["matrix"]=[&]() {
             temp=[&]() {
     json return_Fdqluro=json({});
     return serialize_float(name.matrix[mqMPDMf][gGKWmyw]);}();
-            return_gGKWmyw["members"][std::to_string(gGKWmyw)].push_back(temp);
+            return_gGKWmyw["members"].push_back(temp);
         }
         return return_gGKWmyw;
         }();
-            return_mqMPDMf["members"][std::to_string(mqMPDMf)].push_back(temp);
+            return_mqMPDMf["members"].push_back(temp);
         }
         return return_mqMPDMf;
         }();
@@ -42270,7 +42270,7 @@ result["members"]["pVersionData"]=[&]() {
             temp=[&]() {
     json return_tRaBNAz=json({});
     return serialize_uint8_t(name.pVersionData[ljCAUJd]);}();
-            return_ljCAUJd["members"][std::to_string(ljCAUJd)].push_back(temp);
+            return_ljCAUJd["members"].push_back(temp);
         }
         return return_ljCAUJd;
         }();
@@ -42529,7 +42529,7 @@ result["members"]["pLibraries"]=[&]() {
             temp=[&]() {
     json return_CWEmupZ=json({});
     return serialize_VkPipeline(name.pLibraries[ZyxnbiG]);}();
-            return_ZyxnbiG["members"][std::to_string(ZyxnbiG)].push_back(temp);
+            return_ZyxnbiG["members"].push_back(temp);
         }
         return return_ZyxnbiG;
         }();
@@ -44049,7 +44049,7 @@ result["members"]["srcOffsets"]=[&]() {
             temp=[&]() {
     json return_qeWgVFZ=json({});
     return serialize_VkOffset3D(name.srcOffsets[BpOOuWm]);}();
-            return_BpOOuWm["members"][std::to_string(BpOOuWm)].push_back(temp);
+            return_BpOOuWm["members"].push_back(temp);
         }
         return return_BpOOuWm;
         }();
@@ -44065,7 +44065,7 @@ result["members"]["dstOffsets"]=[&]() {
             temp=[&]() {
     json return_dWCXZlC=json({});
     return serialize_VkOffset3D(name.dstOffsets[jqAPnQY]);}();
-            return_jqAPnQY["members"][std::to_string(jqAPnQY)].push_back(temp);
+            return_jqAPnQY["members"].push_back(temp);
         }
         return return_jqAPnQY;
         }();
@@ -44133,7 +44133,7 @@ result["members"]["srcOffsets"]=[&]() {
             temp=[&]() {
     json return_qeWgVFZ=json({});
     return serialize_VkOffset3D(name.srcOffsets[BpOOuWm]);}();
-            return_BpOOuWm["members"][std::to_string(BpOOuWm)].push_back(temp);
+            return_BpOOuWm["members"].push_back(temp);
         }
         return return_BpOOuWm;
         }();
@@ -44149,7 +44149,7 @@ result["members"]["dstOffsets"]=[&]() {
             temp=[&]() {
     json return_dWCXZlC=json({});
     return serialize_VkOffset3D(name.dstOffsets[jqAPnQY]);}();
-            return_jqAPnQY["members"][std::to_string(jqAPnQY)].push_back(temp);
+            return_jqAPnQY["members"].push_back(temp);
         }
         return return_jqAPnQY;
         }();
@@ -44480,7 +44480,7 @@ result["members"]["pRegions"]=[&]() {
             temp=[&]() {
     json return_tAoGxFc=json({});
     return serialize_VkBufferCopy2(name.pRegions[BGEeDsj]);}();
-            return_BGEeDsj["members"][std::to_string(BGEeDsj)].push_back(temp);
+            return_BGEeDsj["members"].push_back(temp);
         }
         return return_BGEeDsj;
         }();
@@ -44560,7 +44560,7 @@ result["members"]["pRegions"]=[&]() {
             temp=[&]() {
     json return_tAoGxFc=json({});
     return serialize_VkBufferCopy2(name.pRegions[BGEeDsj]);}();
-            return_BGEeDsj["members"][std::to_string(BGEeDsj)].push_back(temp);
+            return_BGEeDsj["members"].push_back(temp);
         }
         return return_BGEeDsj;
         }();
@@ -44646,7 +44646,7 @@ result["members"]["pRegions"]=[&]() {
             temp=[&]() {
     json return_DFpAWHE=json({});
     return serialize_VkImageCopy2(name.pRegions[PDioiJZ]);}();
-            return_PDioiJZ["members"][std::to_string(PDioiJZ)].push_back(temp);
+            return_PDioiJZ["members"].push_back(temp);
         }
         return return_PDioiJZ;
         }();
@@ -44736,7 +44736,7 @@ result["members"]["pRegions"]=[&]() {
             temp=[&]() {
     json return_DFpAWHE=json({});
     return serialize_VkImageCopy2(name.pRegions[PDioiJZ]);}();
-            return_PDioiJZ["members"][std::to_string(PDioiJZ)].push_back(temp);
+            return_PDioiJZ["members"].push_back(temp);
         }
         return return_PDioiJZ;
         }();
@@ -44826,7 +44826,7 @@ result["members"]["pRegions"]=[&]() {
             temp=[&]() {
     json return_HvlSMYZ=json({});
     return serialize_VkImageBlit2(name.pRegions[eFYqdWj]);}();
-            return_eFYqdWj["members"][std::to_string(eFYqdWj)].push_back(temp);
+            return_eFYqdWj["members"].push_back(temp);
         }
         return return_eFYqdWj;
         }();
@@ -44921,7 +44921,7 @@ result["members"]["pRegions"]=[&]() {
             temp=[&]() {
     json return_HvlSMYZ=json({});
     return serialize_VkImageBlit2(name.pRegions[eFYqdWj]);}();
-            return_eFYqdWj["members"][std::to_string(eFYqdWj)].push_back(temp);
+            return_eFYqdWj["members"].push_back(temp);
         }
         return return_eFYqdWj;
         }();
@@ -45013,7 +45013,7 @@ result["members"]["pRegions"]=[&]() {
             temp=[&]() {
     json return_xHxGicf=json({});
     return serialize_VkBufferImageCopy2(name.pRegions[APnovTZ]);}();
-            return_APnovTZ["members"][std::to_string(APnovTZ)].push_back(temp);
+            return_APnovTZ["members"].push_back(temp);
         }
         return return_APnovTZ;
         }();
@@ -45098,7 +45098,7 @@ result["members"]["pRegions"]=[&]() {
             temp=[&]() {
     json return_xHxGicf=json({});
     return serialize_VkBufferImageCopy2(name.pRegions[APnovTZ]);}();
-            return_APnovTZ["members"][std::to_string(APnovTZ)].push_back(temp);
+            return_APnovTZ["members"].push_back(temp);
         }
         return return_APnovTZ;
         }();
@@ -45183,7 +45183,7 @@ result["members"]["pRegions"]=[&]() {
             temp=[&]() {
     json return_PvjBZGv=json({});
     return serialize_VkBufferImageCopy2(name.pRegions[VZbwdGC]);}();
-            return_VZbwdGC["members"][std::to_string(VZbwdGC)].push_back(temp);
+            return_VZbwdGC["members"].push_back(temp);
         }
         return return_VZbwdGC;
         }();
@@ -45268,7 +45268,7 @@ result["members"]["pRegions"]=[&]() {
             temp=[&]() {
     json return_PvjBZGv=json({});
     return serialize_VkBufferImageCopy2(name.pRegions[VZbwdGC]);}();
-            return_VZbwdGC["members"][std::to_string(VZbwdGC)].push_back(temp);
+            return_VZbwdGC["members"].push_back(temp);
         }
         return return_VZbwdGC;
         }();
@@ -45356,7 +45356,7 @@ result["members"]["pRegions"]=[&]() {
             temp=[&]() {
     json return_JjatvqU=json({});
     return serialize_VkImageResolve2(name.pRegions[KTfrSqX]);}();
-            return_KTfrSqX["members"][std::to_string(KTfrSqX)].push_back(temp);
+            return_KTfrSqX["members"].push_back(temp);
         }
         return return_KTfrSqX;
         }();
@@ -45446,7 +45446,7 @@ result["members"]["pRegions"]=[&]() {
             temp=[&]() {
     json return_JjatvqU=json({});
     return serialize_VkImageResolve2(name.pRegions[KTfrSqX]);}();
-            return_KTfrSqX["members"][std::to_string(KTfrSqX)].push_back(temp);
+            return_KTfrSqX["members"].push_back(temp);
         }
         return return_KTfrSqX;
         }();
@@ -45629,7 +45629,7 @@ result["members"]["combinerOps"]=[&]() {
             temp=[&]() {
     json return_cRRxcpn=json({});
     return serialize_VkFragmentShadingRateCombinerOpKHR(name.combinerOps[TkuzJoH]);}();
-            return_TkuzJoH["members"][std::to_string(TkuzJoH)].push_back(temp);
+            return_TkuzJoH["members"].push_back(temp);
         }
         return return_TkuzJoH;
         }();
@@ -46116,7 +46116,7 @@ result["members"]["combinerOps"]=[&]() {
             temp=[&]() {
     json return_FOIDYWL=json({});
     return serialize_VkFragmentShadingRateCombinerOpKHR(name.combinerOps[WgyleSe]);}();
-            return_WgyleSe["members"][std::to_string(WgyleSe)].push_back(temp);
+            return_WgyleSe["members"].push_back(temp);
         }
         return return_WgyleSe;
         }();
@@ -46441,7 +46441,7 @@ result["members"]["pDescriptorTypes"]=[&]() {
             temp=[&]() {
     json return_hsvxnDr=json({});
     return serialize_VkDescriptorType(name.pDescriptorTypes[zAmWHcP]);}();
-            return_zAmWHcP["members"][std::to_string(zAmWHcP)].push_back(temp);
+            return_zAmWHcP["members"].push_back(temp);
         }
         return return_zAmWHcP;
         }();
@@ -46488,7 +46488,7 @@ result["members"]["pDescriptorTypes"]=[&]() {
             temp=[&]() {
     json return_hsvxnDr=json({});
     return serialize_VkDescriptorType(name.pDescriptorTypes[zAmWHcP]);}();
-            return_zAmWHcP["members"][std::to_string(zAmWHcP)].push_back(temp);
+            return_zAmWHcP["members"].push_back(temp);
         }
         return return_zAmWHcP;
         }();
@@ -46547,7 +46547,7 @@ result["members"]["pMutableDescriptorTypeLists"]=[&]() {
             temp=[&]() {
     json return_OgCsvgg=json({});
     return serialize_VkMutableDescriptorTypeListEXT(name.pMutableDescriptorTypeLists[KhtMFpr]);}();
-            return_KhtMFpr["members"][std::to_string(KhtMFpr)].push_back(temp);
+            return_KhtMFpr["members"].push_back(temp);
         }
         return return_KhtMFpr;
         }();
@@ -46617,7 +46617,7 @@ result["members"]["pMutableDescriptorTypeLists"]=[&]() {
             temp=[&]() {
     json return_OgCsvgg=json({});
     return serialize_VkMutableDescriptorTypeListEXT(name.pMutableDescriptorTypeLists[KhtMFpr]);}();
-            return_KhtMFpr["members"][std::to_string(KhtMFpr)].push_back(temp);
+            return_KhtMFpr["members"].push_back(temp);
         }
         return return_KhtMFpr;
         }();
@@ -47001,7 +47001,7 @@ result["members"]["pColorWriteEnables"]=[&]() {
     return_bhzBBvv=[&]() {
     json return_sdXcnph=json({});
     return serialize_uint32_t(name.pColorWriteEnables[uPjlVJU]);}();return return_bhzBBvv;}();
-            return_uPjlVJU["members"][std::to_string(uPjlVJU)].push_back(temp);
+            return_uPjlVJU["members"].push_back(temp);
         }
         return return_uPjlVJU;
         }();
@@ -47526,7 +47526,7 @@ result["members"]["pMemoryBarriers"]=[&]() {
             temp=[&]() {
     json return_qztelyx=json({});
     return serialize_VkMemoryBarrier2(name.pMemoryBarriers[zSuQsOE]);}();
-            return_zSuQsOE["members"][std::to_string(zSuQsOE)].push_back(temp);
+            return_zSuQsOE["members"].push_back(temp);
         }
         return return_zSuQsOE;
         }();
@@ -47547,7 +47547,7 @@ result["members"]["pBufferMemoryBarriers"]=[&]() {
             temp=[&]() {
     json return_HHjDfcR=json({});
     return serialize_VkBufferMemoryBarrier2(name.pBufferMemoryBarriers[ysfxqUP]);}();
-            return_ysfxqUP["members"][std::to_string(ysfxqUP)].push_back(temp);
+            return_ysfxqUP["members"].push_back(temp);
         }
         return return_ysfxqUP;
         }();
@@ -47568,7 +47568,7 @@ result["members"]["pImageMemoryBarriers"]=[&]() {
             temp=[&]() {
     json return_szUiNiP=json({});
     return serialize_VkImageMemoryBarrier2(name.pImageMemoryBarriers[clwvBTO]);}();
-            return_clwvBTO["members"][std::to_string(clwvBTO)].push_back(temp);
+            return_clwvBTO["members"].push_back(temp);
         }
         return return_clwvBTO;
         }();
@@ -47673,7 +47673,7 @@ result["members"]["pMemoryBarriers"]=[&]() {
             temp=[&]() {
     json return_qztelyx=json({});
     return serialize_VkMemoryBarrier2(name.pMemoryBarriers[zSuQsOE]);}();
-            return_zSuQsOE["members"][std::to_string(zSuQsOE)].push_back(temp);
+            return_zSuQsOE["members"].push_back(temp);
         }
         return return_zSuQsOE;
         }();
@@ -47694,7 +47694,7 @@ result["members"]["pBufferMemoryBarriers"]=[&]() {
             temp=[&]() {
     json return_HHjDfcR=json({});
     return serialize_VkBufferMemoryBarrier2(name.pBufferMemoryBarriers[ysfxqUP]);}();
-            return_ysfxqUP["members"][std::to_string(ysfxqUP)].push_back(temp);
+            return_ysfxqUP["members"].push_back(temp);
         }
         return return_ysfxqUP;
         }();
@@ -47715,7 +47715,7 @@ result["members"]["pImageMemoryBarriers"]=[&]() {
             temp=[&]() {
     json return_szUiNiP=json({});
     return serialize_VkImageMemoryBarrier2(name.pImageMemoryBarriers[clwvBTO]);}();
-            return_clwvBTO["members"][std::to_string(clwvBTO)].push_back(temp);
+            return_clwvBTO["members"].push_back(temp);
         }
         return return_clwvBTO;
         }();
@@ -48016,7 +48016,7 @@ result["members"]["pWaitSemaphoreInfos"]=[&]() {
             temp=[&]() {
     json return_nqRMXNN=json({});
     return serialize_VkSemaphoreSubmitInfo(name.pWaitSemaphoreInfos[zAVGQxD]);}();
-            return_zAVGQxD["members"][std::to_string(zAVGQxD)].push_back(temp);
+            return_zAVGQxD["members"].push_back(temp);
         }
         return return_zAVGQxD;
         }();
@@ -48037,7 +48037,7 @@ result["members"]["pCommandBufferInfos"]=[&]() {
             temp=[&]() {
     json return_iPDDaQq=json({});
     return serialize_VkCommandBufferSubmitInfo(name.pCommandBufferInfos[nplTyWf]);}();
-            return_nplTyWf["members"][std::to_string(nplTyWf)].push_back(temp);
+            return_nplTyWf["members"].push_back(temp);
         }
         return return_nplTyWf;
         }();
@@ -48058,7 +48058,7 @@ result["members"]["pSignalSemaphoreInfos"]=[&]() {
             temp=[&]() {
     json return_gdObGCH=json({});
     return serialize_VkSemaphoreSubmitInfo(name.pSignalSemaphoreInfos[XnRMJvn]);}();
-            return_XnRMJvn["members"][std::to_string(XnRMJvn)].push_back(temp);
+            return_XnRMJvn["members"].push_back(temp);
         }
         return return_XnRMJvn;
         }();
@@ -48163,7 +48163,7 @@ result["members"]["pWaitSemaphoreInfos"]=[&]() {
             temp=[&]() {
     json return_nqRMXNN=json({});
     return serialize_VkSemaphoreSubmitInfo(name.pWaitSemaphoreInfos[zAVGQxD]);}();
-            return_zAVGQxD["members"][std::to_string(zAVGQxD)].push_back(temp);
+            return_zAVGQxD["members"].push_back(temp);
         }
         return return_zAVGQxD;
         }();
@@ -48184,7 +48184,7 @@ result["members"]["pCommandBufferInfos"]=[&]() {
             temp=[&]() {
     json return_iPDDaQq=json({});
     return serialize_VkCommandBufferSubmitInfo(name.pCommandBufferInfos[nplTyWf]);}();
-            return_nplTyWf["members"][std::to_string(nplTyWf)].push_back(temp);
+            return_nplTyWf["members"].push_back(temp);
         }
         return return_nplTyWf;
         }();
@@ -48205,7 +48205,7 @@ result["members"]["pSignalSemaphoreInfos"]=[&]() {
             temp=[&]() {
     json return_gdObGCH=json({});
     return serialize_VkSemaphoreSubmitInfo(name.pSignalSemaphoreInfos[XnRMJvn]);}();
-            return_XnRMJvn["members"][std::to_string(XnRMJvn)].push_back(temp);
+            return_XnRMJvn["members"].push_back(temp);
         }
         return return_XnRMJvn;
         }();
@@ -48523,7 +48523,7 @@ result["members"]["pCopySrcLayouts"]=[&]() {
             temp=[&]() {
     json return_seToqjs=json({});
     return serialize_VkImageLayout(name.pCopySrcLayouts[fSKAUNx]);}();
-            return_fSKAUNx["members"][std::to_string(fSKAUNx)].push_back(temp);
+            return_fSKAUNx["members"].push_back(temp);
         }
         return return_fSKAUNx;
         }();
@@ -48544,7 +48544,7 @@ result["members"]["pCopyDstLayouts"]=[&]() {
             temp=[&]() {
     json return_pxywSHb=json({});
     return serialize_VkImageLayout(name.pCopyDstLayouts[vAwjKvs]);}();
-            return_vAwjKvs["members"][std::to_string(vAwjKvs)].push_back(temp);
+            return_vAwjKvs["members"].push_back(temp);
         }
         return return_vAwjKvs;
         }();
@@ -48557,7 +48557,7 @@ result["members"]["optimalTilingLayoutUUID"]=[&]() {
             temp=[&]() {
     json return_ZBrpOrS=json({});
     return serialize_uint8_t(name.optimalTilingLayoutUUID[miypGau]);}();
-            return_miypGau["members"][std::to_string(miypGau)].push_back(temp);
+            return_miypGau["members"].push_back(temp);
         }
         return return_miypGau;
         }();
@@ -48816,7 +48816,7 @@ result["members"]["pRegions"]=[&]() {
             temp=[&]() {
     json return_SEZerUi=json({});
     return serialize_VkMemoryToImageCopyEXT(name.pRegions[dbFADek]);}();
-            return_dbFADek["members"][std::to_string(dbFADek)].push_back(temp);
+            return_dbFADek["members"].push_back(temp);
         }
         return return_dbFADek;
         }();
@@ -48901,7 +48901,7 @@ result["members"]["pRegions"]=[&]() {
             temp=[&]() {
     json return_TBkXJRW=json({});
     return serialize_VkImageToMemoryCopyEXT(name.pRegions[YQweNaZ]);}();
-            return_YQweNaZ["members"][std::to_string(YQweNaZ)].push_back(temp);
+            return_YQweNaZ["members"].push_back(temp);
         }
         return return_YQweNaZ;
         }();
@@ -48992,7 +48992,7 @@ result["members"]["pRegions"]=[&]() {
             temp=[&]() {
     json return_pZJUPdP=json({});
     return serialize_VkImageCopy2(name.pRegions[nMDShxE]);}();
-            return_nMDShxE["members"][std::to_string(nMDShxE)].push_back(temp);
+            return_nMDShxE["members"].push_back(temp);
         }
         return return_nMDShxE;
         }();
@@ -49563,7 +49563,7 @@ result["members"]["pProfiles"]=[&]() {
             temp=[&]() {
     json return_DtvURQP=json({});
     return serialize_VkVideoProfileInfoKHR(name.pProfiles[Rpkfiyv]);}();
-            return_Rpkfiyv["members"][std::to_string(Rpkfiyv)].push_back(temp);
+            return_Rpkfiyv["members"].push_back(temp);
         }
         return return_Rpkfiyv;
         }();
@@ -50198,7 +50198,7 @@ result["members"]["pReferenceSlots"]=[&]() {
             temp=[&]() {
     json return_odvvYKW=json({});
     return serialize_VkVideoReferenceSlotInfoKHR(name.pReferenceSlots[OPtMzuh]);}();
-            return_OPtMzuh["members"][std::to_string(OPtMzuh)].push_back(temp);
+            return_OPtMzuh["members"].push_back(temp);
         }
         return return_OPtMzuh;
         }();
@@ -50537,7 +50537,7 @@ result["members"]["pSliceOffsets"]=[&]() {
             temp=[&]() {
     json return_yMOraDi=json({});
     return serialize_uint32_t(name.pSliceOffsets[iXdVPfp]);}();
-            return_iXdVPfp["members"][std::to_string(iXdVPfp)].push_back(temp);
+            return_iXdVPfp["members"].push_back(temp);
         }
         return return_iXdVPfp;
         }();
@@ -50932,7 +50932,7 @@ result["members"]["pSliceSegmentOffsets"]=[&]() {
             temp=[&]() {
     json return_tDyxFrS=json({});
     return serialize_uint32_t(name.pSliceSegmentOffsets[EePrtYz]);}();
-            return_EePrtYz["members"][std::to_string(EePrtYz)].push_back(temp);
+            return_EePrtYz["members"].push_back(temp);
         }
         return return_EePrtYz;
         }();
@@ -51273,7 +51273,7 @@ result["members"]["pReferenceSlots"]=[&]() {
             temp=[&]() {
     json return_odvvYKW=json({});
     return serialize_VkVideoReferenceSlotInfoKHR(name.pReferenceSlots[OPtMzuh]);}();
-            return_OPtMzuh["members"][std::to_string(OPtMzuh)].push_back(temp);
+            return_OPtMzuh["members"].push_back(temp);
         }
         return return_OPtMzuh;
         }();
@@ -51859,7 +51859,7 @@ result["members"]["pParams"]=[&]() {
         }
         return serialize_void_p(name.pParams[niNzIgH]);
 }();
-            return_niNzIgH["members"][std::to_string(niNzIgH)].push_back(temp);
+            return_niNzIgH["members"].push_back(temp);
         }
         return return_niNzIgH;
         }();
@@ -51886,7 +51886,7 @@ result["members"]["pExtras"]=[&]() {
         }
         return serialize_void_p(name.pExtras[YTrEFMA]);
 }();
-            return_YTrEFMA["members"][std::to_string(YTrEFMA)].push_back(temp);
+            return_YTrEFMA["members"].push_back(temp);
         }
         return return_YTrEFMA;
         }();
@@ -54346,7 +54346,7 @@ result["members"]["pDrmFormatModifierProperties"]=[&]() {
             temp=[&]() {
     json return_lqBaaCJ=json({});
     return serialize_VkDrmFormatModifierProperties2EXT(name.pDrmFormatModifierProperties[FhaHAPD]);}();
-            return_FhaHAPD["members"][std::to_string(FhaHAPD)].push_back(temp);
+            return_FhaHAPD["members"].push_back(temp);
         }
         return return_FhaHAPD;
         }();
@@ -54443,7 +54443,7 @@ result["members"]["pColorAttachmentFormats"]=[&]() {
             temp=[&]() {
     json return_yWFNaBd=json({});
     return serialize_VkFormat(name.pColorAttachmentFormats[bLPODBy]);}();
-            return_bLPODBy["members"][std::to_string(bLPODBy)].push_back(temp);
+            return_bLPODBy["members"].push_back(temp);
         }
         return return_bLPODBy;
         }();
@@ -54528,7 +54528,7 @@ result["members"]["pColorAttachmentFormats"]=[&]() {
             temp=[&]() {
     json return_yWFNaBd=json({});
     return serialize_VkFormat(name.pColorAttachmentFormats[bLPODBy]);}();
-            return_bLPODBy["members"][std::to_string(bLPODBy)].push_back(temp);
+            return_bLPODBy["members"].push_back(temp);
         }
         return return_bLPODBy;
         }();
@@ -54622,7 +54622,7 @@ result["members"]["pColorAttachments"]=[&]() {
             temp=[&]() {
     json return_UPUEMrR=json({});
     return serialize_VkRenderingAttachmentInfo(name.pColorAttachments[KyYRZGZ]);}();
-            return_KyYRZGZ["members"][std::to_string(KyYRZGZ)].push_back(temp);
+            return_KyYRZGZ["members"].push_back(temp);
         }
         return return_KyYRZGZ;
         }();
@@ -54756,7 +54756,7 @@ result["members"]["pColorAttachments"]=[&]() {
             temp=[&]() {
     json return_UPUEMrR=json({});
     return serialize_VkRenderingAttachmentInfo(name.pColorAttachments[KyYRZGZ]);}();
-            return_KyYRZGZ["members"][std::to_string(KyYRZGZ)].push_back(temp);
+            return_KyYRZGZ["members"].push_back(temp);
         }
         return return_KyYRZGZ;
         }();
@@ -55210,7 +55210,7 @@ result["members"]["pColorAttachmentFormats"]=[&]() {
             temp=[&]() {
     json return_MZpsLlx=json({});
     return serialize_VkFormat(name.pColorAttachmentFormats[rnjqnhZ]);}();
-            return_rnjqnhZ["members"][std::to_string(rnjqnhZ)].push_back(temp);
+            return_rnjqnhZ["members"].push_back(temp);
         }
         return return_rnjqnhZ;
         }();
@@ -55310,7 +55310,7 @@ result["members"]["pColorAttachmentFormats"]=[&]() {
             temp=[&]() {
     json return_MZpsLlx=json({});
     return serialize_VkFormat(name.pColorAttachmentFormats[rnjqnhZ]);}();
-            return_rnjqnhZ["members"][std::to_string(rnjqnhZ)].push_back(temp);
+            return_rnjqnhZ["members"].push_back(temp);
         }
         return return_rnjqnhZ;
         }();
@@ -55401,7 +55401,7 @@ result["members"]["pColorAttachmentSamples"]=[&]() {
             temp=[&]() {
     json return_EuCutNR=json({});
     return serialize_VkSampleCountFlagBits(name.pColorAttachmentSamples[ZiGqqsq]);}();
-            return_ZiGqqsq["members"][std::to_string(ZiGqqsq)].push_back(temp);
+            return_ZiGqqsq["members"].push_back(temp);
         }
         return return_ZiGqqsq;
         }();
@@ -55476,7 +55476,7 @@ result["members"]["pColorAttachmentSamples"]=[&]() {
             temp=[&]() {
     json return_EuCutNR=json({});
     return serialize_VkSampleCountFlagBits(name.pColorAttachmentSamples[ZiGqqsq]);}();
-            return_ZiGqqsq["members"][std::to_string(ZiGqqsq)].push_back(temp);
+            return_ZiGqqsq["members"].push_back(temp);
         }
         return return_ZiGqqsq;
         }();
@@ -56126,7 +56126,7 @@ result["members"]["shaderModuleIdentifierAlgorithmUUID"]=[&]() {
             temp=[&]() {
     json return_SjaEqqs=json({});
     return serialize_uint8_t(name.shaderModuleIdentifierAlgorithmUUID[yXCbftv]);}();
-            return_yXCbftv["members"][std::to_string(yXCbftv)].push_back(temp);
+            return_yXCbftv["members"].push_back(temp);
         }
         return return_yXCbftv;
         }();
@@ -56187,7 +56187,7 @@ result["members"]["pIdentifier"]=[&]() {
             temp=[&]() {
     json return_zAWaUIb=json({});
     return serialize_uint8_t(name.pIdentifier[gqvxrdW]);}();
-            return_gqvxrdW["members"][std::to_string(gqvxrdW)].push_back(temp);
+            return_gqvxrdW["members"].push_back(temp);
         }
         return return_gqvxrdW;
         }();
@@ -56252,7 +56252,7 @@ result["members"]["identifier"]=[&]() {
             temp=[&]() {
     json return_qOKlxzt=json({});
     return serialize_uint8_t(name.identifier[KGNsBfd]);}();
-            return_KGNsBfd["members"][std::to_string(KGNsBfd)].push_back(temp);
+            return_KGNsBfd["members"].push_back(temp);
         }
         return return_KGNsBfd;
         }();
@@ -56318,7 +56318,7 @@ result["members"]["pFixedRateFlags"]=[&]() {
             temp=[&]() {
     json return_zXJGeUw=json({});
     return serialize_VkImageCompressionFixedRateFlagsEXT(name.pFixedRateFlags[uMsCIkK]);}();
-            return_uMsCIkK["members"][std::to_string(uMsCIkK)].push_back(temp);
+            return_uMsCIkK["members"].push_back(temp);
         }
         return return_uMsCIkK;
         }();
@@ -56762,7 +56762,7 @@ result["members"]["description"]=[&]() {
             temp=[&]() {
     json return_KQnnFxa=json({});
     return serialize_char(name.description[xvqRVGC]);}();
-            return_xvqRVGC["members"][std::to_string(xvqRVGC)].push_back(temp);
+            return_xvqRVGC["members"].push_back(temp);
         }
         return return_xvqRVGC;
         }();
@@ -56928,7 +56928,7 @@ result["members"]["pUsageCounts"]=[&]() {
             temp=[&]() {
     json return_KzNwqYK=json({});
     return serialize_VkMicromapUsageEXT(name.pUsageCounts[XAxIRYU]);}();
-            return_XAxIRYU["members"][std::to_string(XAxIRYU)].push_back(temp);
+            return_XAxIRYU["members"].push_back(temp);
         }
         return return_XAxIRYU;
         }();
@@ -56957,11 +56957,11 @@ result["members"]["ppUsageCounts"]=[&]() {
             temp=[&]() {
     json return_nSfmuKx=json({});
     return serialize_VkMicromapUsageEXT(name.ppUsageCounts[bTwQGzC][mUfwakj]);}();
-            return_mUfwakj["members"][std::to_string(mUfwakj)].push_back(temp);
+            return_mUfwakj["members"].push_back(temp);
         }
         return return_mUfwakj;
         }();
-            return_bTwQGzC["members"][std::to_string(bTwQGzC)].push_back(temp);
+            return_bTwQGzC["members"].push_back(temp);
         }
         return return_bTwQGzC;
         }();
@@ -57155,7 +57155,7 @@ result["members"]["pVersionData"]=[&]() {
             temp=[&]() {
     json return_tRaBNAz=json({});
     return serialize_uint8_t(name.pVersionData[ljCAUJd]);}();
-            return_ljCAUJd["members"][std::to_string(ljCAUJd)].push_back(temp);
+            return_ljCAUJd["members"].push_back(temp);
         }
         return return_ljCAUJd;
         }();
@@ -57594,7 +57594,7 @@ result["members"]["pUsageCounts"]=[&]() {
             temp=[&]() {
     json return_QMJKyBD=json({});
     return serialize_VkMicromapUsageEXT(name.pUsageCounts[mIKqaKj]);}();
-            return_mIKqaKj["members"][std::to_string(mIKqaKj)].push_back(temp);
+            return_mIKqaKj["members"].push_back(temp);
         }
         return return_mIKqaKj;
         }();
@@ -57623,11 +57623,11 @@ result["members"]["ppUsageCounts"]=[&]() {
             temp=[&]() {
     json return_NDqobgh=json({});
     return serialize_VkMicromapUsageEXT(name.ppUsageCounts[bNaMuya][ryZfGmb]);}();
-            return_ryZfGmb["members"][std::to_string(ryZfGmb)].push_back(temp);
+            return_ryZfGmb["members"].push_back(temp);
         }
         return return_ryZfGmb;
         }();
-            return_bNaMuya["members"][std::to_string(bNaMuya)].push_back(temp);
+            return_bNaMuya["members"].push_back(temp);
         }
         return return_bNaMuya;
         }();
@@ -57725,7 +57725,7 @@ result["members"]["pipelineIdentifier"]=[&]() {
             temp=[&]() {
     json return_tIFJODZ=json({});
     return serialize_uint8_t(name.pipelineIdentifier[CPVquEm]);}();
-            return_CPVquEm["members"][std::to_string(CPVquEm)].push_back(temp);
+            return_CPVquEm["members"].push_back(temp);
         }
         return return_CPVquEm;
         }();
@@ -58975,7 +58975,7 @@ result["members"]["pRegions"]=[&]() {
             temp=[&]() {
     json return_xuYqhxw=json({});
     return serialize_VkRect2D(name.pRegions[BTaYxAm]);}();
-            return_BTaYxAm["members"][std::to_string(BTaYxAm)].push_back(temp);
+            return_BTaYxAm["members"].push_back(temp);
         }
         return return_BTaYxAm;
         }();
@@ -59107,7 +59107,7 @@ result["members"]["description"]=[&]() {
             temp=[&]() {
     json return_gLtEPWU=json({});
     return serialize_char(name.description[ytPZELP]);}();
-            return_ytPZELP["members"][std::to_string(ytPZELP)].push_back(temp);
+            return_ytPZELP["members"].push_back(temp);
         }
         return return_ytPZELP;
         }();
@@ -59211,7 +59211,7 @@ result["members"]["description"]=[&]() {
             temp=[&]() {
     json return_gLtEPWU=json({});
     return serialize_char(name.description[ytPZELP]);}();
-            return_ytPZELP["members"][std::to_string(ytPZELP)].push_back(temp);
+            return_ytPZELP["members"].push_back(temp);
         }
         return return_ytPZELP;
         }();
@@ -59326,7 +59326,7 @@ result["members"]["pipelineCacheUUID"]=[&]() {
             temp=[&]() {
     json return_oQqntDj=json({});
     return serialize_uint8_t(name.pipelineCacheUUID[vxPupzB]);}();
-            return_vxPupzB["members"][std::to_string(vxPupzB)].push_back(temp);
+            return_vxPupzB["members"].push_back(temp);
         }
         return return_vxPupzB;
         }();
@@ -59692,7 +59692,7 @@ result["members"]["pImages"]=[&]() {
             temp=[&]() {
     json return_SmenMGS=json({});
     return serialize_VkImage(name.pImages[YmBbAyS]);}();
-            return_YmBbAyS["members"][std::to_string(YmBbAyS)].push_back(temp);
+            return_YmBbAyS["members"].push_back(temp);
         }
         return return_YmBbAyS;
         }();
@@ -59713,7 +59713,7 @@ result["members"]["pBuffers"]=[&]() {
             temp=[&]() {
     json return_fxEvBbB=json({});
     return serialize_VkBuffer(name.pBuffers[UntyzaX]);}();
-            return_UntyzaX["members"][std::to_string(UntyzaX)].push_back(temp);
+            return_UntyzaX["members"].push_back(temp);
         }
         return return_UntyzaX;
         }();
@@ -60008,7 +60008,7 @@ result["members"]["pPresentModes"]=[&]() {
             temp=[&]() {
     json return_MWmekzg=json({});
     return serialize_VkPresentModeKHR(name.pPresentModes[uvxhrwA]);}();
-            return_uvxhrwA["members"][std::to_string(uvxhrwA)].push_back(temp);
+            return_uvxhrwA["members"].push_back(temp);
         }
         return return_uvxhrwA;
         }();
@@ -60117,7 +60117,7 @@ result["members"]["pFences"]=[&]() {
             temp=[&]() {
     json return_EAvfSPi=json({});
     return serialize_VkFence(name.pFences[ExmOllB]);}();
-            return_ExmOllB["members"][std::to_string(ExmOllB)].push_back(temp);
+            return_ExmOllB["members"].push_back(temp);
         }
         return return_ExmOllB;
         }();
@@ -60187,7 +60187,7 @@ result["members"]["pPresentModes"]=[&]() {
             temp=[&]() {
     json return_xldNXZf=json({});
     return serialize_VkPresentModeKHR(name.pPresentModes[MNcYtTl]);}();
-            return_MNcYtTl["members"][std::to_string(MNcYtTl)].push_back(temp);
+            return_MNcYtTl["members"].push_back(temp);
         }
         return return_MNcYtTl;
         }();
@@ -60257,7 +60257,7 @@ result["members"]["pPresentModes"]=[&]() {
             temp=[&]() {
     json return_RENGrZP=json({});
     return serialize_VkPresentModeKHR(name.pPresentModes[EQZfvgC]);}();
-            return_EQZfvgC["members"][std::to_string(EQZfvgC)].push_back(temp);
+            return_EQZfvgC["members"].push_back(temp);
         }
         return return_EQZfvgC;
         }();
@@ -60379,7 +60379,7 @@ result["members"]["pImageIndices"]=[&]() {
             temp=[&]() {
     json return_meNfHbO=json({});
     return serialize_uint32_t(name.pImageIndices[kIINvTN]);}();
-            return_kIINvTN["members"][std::to_string(kIINvTN)].push_back(temp);
+            return_kIINvTN["members"].push_back(temp);
         }
         return return_kIINvTN;
         }();
@@ -60645,7 +60645,7 @@ result["members"]["pDrivers"]=[&]() {
             temp=[&]() {
     json return_CFPTfEB=json({});
     return serialize_VkDirectDriverLoadingInfoLUNARG(name.pDrivers[biYAPDP]);}();
-            return_biYAPDP["members"][std::to_string(biYAPDP)].push_back(temp);
+            return_biYAPDP["members"].push_back(temp);
         }
         return return_biYAPDP;
         }();
@@ -60965,7 +60965,7 @@ result["members"]["pPerViewRenderAreas"]=[&]() {
             temp=[&]() {
     json return_lwgKBew=json({});
     return serialize_VkRect2D(name.pPerViewRenderAreas[eMMGVUx]);}();
-            return_eMMGVUx["members"][std::to_string(eMMGVUx)].push_back(temp);
+            return_eMMGVUx["members"].push_back(temp);
         }
         return return_eMMGVUx;
         }();
@@ -61223,7 +61223,7 @@ result["members"]["shaderBinaryUUID"]=[&]() {
             temp=[&]() {
     json return_KSMnuKX=json({});
     return serialize_uint8_t(name.shaderBinaryUUID[phrwzWJ]);}();
-            return_phrwzWJ["members"][std::to_string(phrwzWJ)].push_back(temp);
+            return_phrwzWJ["members"].push_back(temp);
         }
         return return_phrwzWJ;
         }();
@@ -61322,7 +61322,7 @@ result["members"]["pSetLayouts"]=[&]() {
             temp=[&]() {
     json return_ipgQVRy=json({});
     return serialize_VkDescriptorSetLayout(name.pSetLayouts[FRrOUGv]);}();
-            return_FRrOUGv["members"][std::to_string(FRrOUGv)].push_back(temp);
+            return_FRrOUGv["members"].push_back(temp);
         }
         return return_FRrOUGv;
         }();
@@ -61343,7 +61343,7 @@ result["members"]["pPushConstantRanges"]=[&]() {
             temp=[&]() {
     json return_qYMnilL=json({});
     return serialize_VkPushConstantRange(name.pPushConstantRanges[budvQJQ]);}();
-            return_budvQJQ["members"][std::to_string(budvQJQ)].push_back(temp);
+            return_budvQJQ["members"].push_back(temp);
         }
         return return_budvQJQ;
         }();

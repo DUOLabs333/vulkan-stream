@@ -4,6 +4,7 @@
 #include <Commands.hpp>
 #include <thread>
 #include <nlohmann/json.hpp>
+#include <sstream>
 
 //Maybe use QT for JSON later
 
@@ -63,15 +64,18 @@ bool isConnConnected(){
 
 
 json readFromConn(){
-    //Check if line is empty
     auto conn=currStruct()->conn;
-            
+    
+    //Hold an empty buffer, as it's possible a single read does not contain the entire response
+    std::stringstream line;
     while(true){
         conn->waitForReadyRead(-1);
-        auto line=conn->readLine().toStdString();
-        if (line.size()>0){
-           return json::parse(line);
+        line << conn->readLine().toStdString();
+        if ( json::accept(line.str()) ){
+           printf("%s\n",line.str().c_str());
+           return json::parse(line.str());
         }
+
     }
 }
 

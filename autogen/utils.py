@@ -63,7 +63,7 @@ def serialize(variable,value):
         for(int {temp_iterator}=0; {temp_iterator} < {length[-1]}; {temp_iterator}++){{
             json temp;
             {serialize('temp',val)}
-            {result_json}["members"][std::to_string({temp_iterator})].push_back(temp);
+            {result_json}["members"].push_back(temp);
         }}
         return {result_json};
         """
