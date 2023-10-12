@@ -163,7 +163,7 @@ write("void handle_funcpointer(json data);",header=True)
 write("""
 void handle_funcpointer(json data){
 //Will only be called by the server
-std::string command=data["type"].get<std::string>().substr(std::string("funcpointer_").length());
+std::string command=data["type"];
 """)
 
 for command in parsed["commands"]:
@@ -253,7 +253,7 @@ for name, command in parsed["commands"].items():
         write(deserialize(param["name"],param_copy))
     
     if base_name(name) in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
-        #Case switch for the different commands (iterator variable fumcpointer_command)
+        #Case switch for the different commands (iterator variable funcpointer_command)
         write(f"{command['type']} return_value;")
         write("""
         if (false){
@@ -264,7 +264,7 @@ for name, command in parsed["commands"].items():
                 continue
             
             write(f"""
-            else if (pName=="{base_name(funcpointer_name)}"){{
+            else if (strcmp(pName,"{base_name(funcpointer_name)}")==0){{
                 
                 vk_object_and_name_to_id[(uintptr_t){command["params"][0]["name"]}][pName]=result["return"];
                 return_value= (result["return"]==NULL) ? NULL : ({command['type']}){funcpointer_name};
