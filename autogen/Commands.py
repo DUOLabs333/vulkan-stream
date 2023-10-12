@@ -1,21 +1,7 @@
 from utils import *
 import re
 import copy
-funcpointer_commands={}
 
-def base_name(name):
-    if name.startswith("funcpointer_"):
-        return name.replace("funcpointer_","",1)
-    else:
-        return name
-        
-for command in parsed["commands"]:
-    funcpointer_command="funcpointer_"+command
-    funcpointer_commands[funcpointer_command]=copy.deepcopy(parsed["commands"][command])
-    funcpointer_commands[funcpointer_command]["header"]=funcpointer_commands[funcpointer_command]["header"].replace(command,funcpointer_command,1) #Replace "{type} {former_name} {rest_of_header}" with "{type} {name} {rest_of_header}"
-
-parsed["commands"] = funcpointer_commands | parsed["commands"]
-    
 write("""
 #include <ThreadStruct.hpp>
 #include <stdexcept>
@@ -42,8 +28,6 @@ std::vector<void*> mapped_ranges;
 } MemInfo;
 """)
 write("std::map<uintptr_t,MemInfo*> devicememory_to_mem_info;")
-def is_funcpointer(name):
-    return name!=base_name(name)
 
 def sync_DeviceMemory():
     return """
@@ -57,9 +41,9 @@ def sync_DeviceMemory():
    """
 
 def register_DeviceMemory(name):
-    if base_name(name).startswith("vkMapMemory"): #Make this its own section (for both client and server --- server does not need to keep track of fd or need to sync on first map)
+    if name.startswith("vkMapMemory"): #Make this its own section (for both client and server --- server does not need to keep track of fd or need to sync on first map)
         memory="memory"
-        if base_name(name)=="vkMapMemory2KHR":
+        if name=="vkMapMemory2KHR":
             memory="pMemoryMapInfo->memory"
             
         return f"""
@@ -82,7 +66,6 @@ write("""
 #include <dlfcn.h>
 auto vulkan_library=dlopen(vulkan_library_name.c_str(), RTLD_LAZY | RTLD_GLOBAL);
 """)
-write("std::map<uintptr_t,PFN_vkVoidFunction> id_to_PFN_vkVoidFunction;")
 
 for name, command in parsed["commands"].items():
     write(f"""
@@ -99,10 +82,7 @@ for name, command in parsed["commands"].items():
         write(deserialize(param["name"],param_copy,initialize=True))
     write(register_DeviceMemory(name))
 
-    if is_funcpointer(name):
-        call_function =f"""((PFN_{base_name(name)})(id_to_PFN_vkVoidFunction[data_json["id"]]))"""
-    else:
-        call_function=f"""((PFN_{base_name(name)})(dlsym(vulkan_library,"{base_name(name)}")))"""
+    call_function=f"""((PFN_{name})(dlsym(vulkan_library,"{name}")))"""
 
     call_arguments=", ".join([param["name"] for param in command["params"]])
     return_prefix="auto return_value=" if not is_void(command) else ""
@@ -115,8 +95,7 @@ for name, command in parsed["commands"].items():
     write("""json result=json({});
         result["type"]="Response";
     """)
-    if base_name(name) in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
-        write("id_to_PFN_vkVoidFunction[(uintptr_t)return_value]=return_value;")
+    if name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
         write('result["return"]=(uintptr_t)return_value;')
     else:
         write(serialize('result["return"]',return_value))
@@ -124,10 +103,10 @@ for name, command in parsed["commands"].items():
     for param in command["params"]:
         write(serialize(f"""result["members"]["{param["name"]}"]""",param))
             
-    if base_name(name)=="vkWaitForFences":
+    if name=="vkWaitForFences":
         write(sync_DeviceMemory())
 
-    if base_name(name)=="vkMapMemory":
+    if name=="vkMapMemory":
         write("""
         info->mem=*ppData;
         """)
@@ -145,9 +124,6 @@ std::string command=data["type"].get<std::string>().substr(std::string("command_
 """)
 
 for command in parsed["commands"]:
-    if is_funcpointer(command):
-        continue
-        
     write(f"""
         if(command=="{command}"){{
             handle_{command}(data);
@@ -158,34 +134,10 @@ for command in parsed["commands"]:
 write("}")
 
 write("void handle_command(json data);",header=True)
-write("void handle_funcpointer(json data);",header=True)
-
-write("""
-void handle_funcpointer(json data){
-//Will only be called by the server
-std::string command=data["type"];
-""")
-
-for command in parsed["commands"]:
-    if not is_funcpointer(command):
-        continue
-    write(f"""
-        if(command=="{command}"){{
-            handle_{command}(data);
-            return;
-        }}
-    """)
-
-write("}")
 
 write("#else") #Don't want server to get confused on which command we're talking about
-write("std::map<uintptr_t,std::map<std::string,uintptr_t>> vk_object_and_name_to_id;""")
 write("""extern "C" {""")
 
-for name, command in parsed["commands"].items():
-    if is_funcpointer(name):
-        write(command["header"]+";")
-        
 for name, command in parsed["commands"].items():
 
     write(command["header"]+"{")
@@ -194,19 +146,15 @@ for name, command in parsed["commands"].items():
     
     write("auto data_json=json({});")
     
-    if is_funcpointer(name):
-        write(f"""data_json["type"]="{name}";""")
-        write(f"""data_json["id"]=vk_object_and_name_to_id[(uintptr_t){command["params"][0]["name"]}]["{base_name(name)}"];""")
-    else:
-        write(f"""data_json["type"]="command_{name}";""")
+    write(f"""data_json["type"]="command_{name}";""")
     
     write(register_DeviceMemory(name))
     write("{") #Use scoping to allow us to overwrite const parameters as needed
     
-    if base_name(name).startswith("vkMapMemory"): #Get entire memory, then map the parts that we need
+    if name.startswith("vkMapMemory"): #Get entire memory, then map the parts that we need
         offset="offset"
         size="size"
-        if base_name(name)=="vkMapMemory2KHR":
+        if name=="vkMapMemory2KHR":
             offset="pMemoryMapInfo->offset"
             size="pMemoryMapInfo->size"
             write("VkMemoryMapInfoKHR* pMemoryMapInfo=pMemoryMapInfo;")
@@ -219,7 +167,7 @@ for name, command in parsed["commands"].items():
         write(serialize(f"""data_json["members"]["{param["name"]}"]""",param))
     write("}")
     
-    if base_name(name)=="vkQueueSubmit":
+    if name=="vkQueueSubmit":
         write(sync_DeviceMemory())
     
     write("""
@@ -252,22 +200,17 @@ for name, command in parsed["commands"].items():
         
         write(deserialize(param["name"],param_copy))
     
-    if base_name(name) in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
+    if name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
         #Case switch for the different commands (iterator variable funcpointer_command)
         write(f"{command['type']} return_value;")
         write("""
         if (false){
         }
         """)
-        for funcpointer_name, funcpointer_command in parsed["commands"].items():
-            if not is_funcpointer(funcpointer_name):
-                continue
-            
+        for command_name in parsed["commands"]:
             write(f"""
-            else if (strcmp(pName,"{base_name(funcpointer_name)}")==0){{
-                
-                vk_object_and_name_to_id[(uintptr_t){command["params"][0]["name"]}][pName]=result["return"];
-                return_value= (result["return"]==NULL) ? NULL : ({command['type']}){funcpointer_name};
+            else if (strcmp(pName,"{command_name}")==0){{
+                return_value= (result["return"]==NULL) ? NULL : ({command['type']}){command_name};
             }}
             """)
         write("""
@@ -282,10 +225,10 @@ for name, command in parsed["commands"].items():
             return_value["length"]=[]
             write(command["type"]+"*"*command["num_indirection"]+" return_value;")
             write(deserialize("return_value",return_value))
-    if base_name(name).startswith("vkMapMemory"):
+    if name.startswith("vkMapMemory"):
         offset="offset"
         size="size"
-        if base_name(name)=="vkMapMemory2KHR":
+        if name=="vkMapMemory2KHR":
             offset="pMemoryMapInfo->offset"
             size="pMemoryMapInfo->size"
             

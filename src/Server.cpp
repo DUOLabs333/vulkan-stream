@@ -36,9 +36,6 @@ bool isConnConnected(){
             else if (type.rfind("command_",0)==0){
                 handle_command(data);
             }
-            else if (type.rfind("funcpointer_",0)==0){
-                handle_funcpointer(data);
-            }
         }
     }
     
