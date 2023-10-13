@@ -4132,14 +4132,6 @@
         int deserialize_int(json name);
     
 
-            json serialize_void_p(const void* name);
-            void* deserialize_void_p(json name);
-        
-
-            json serialize_char_p(const char* name);
-            char* deserialize_char_p(json name);
-        
-
         json serialize_char(char name);
         char deserialize_char(json name);
     

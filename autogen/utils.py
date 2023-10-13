@@ -42,8 +42,13 @@ def serialize(variable,value):
             return {result_json};
         }}
         """
-    if (type in ["char", "void"] and num_indirection==1):
-        result+=f"return serialize_{type}_p({name});\n"
+    if (type=="void" and num_indirection==1):
+        val["name"]=f"((char*)({val['name']}))"
+        val["type"]="char"
+        if not(len(length)>0 and length[-1]!=""): #Doesn't have predefined length
+            val["length"].append("null-terminated")
+        result+=serialize(result_json,val)
+        result+=f"return {result_json};"
     
     elif (type in parsed["external_handles"] and num_indirection<2):
             if num_indirection==0:
@@ -58,6 +63,9 @@ def serialize(variable,value):
         val["num_indirection"]-=1
         val["length"].pop()
         
+        if length[-1]=="null-terminated":
+            length[-1]=f"strlen({name})"
+            
         result+=f"""
         {result_json}["members"]={{}};
         for(int {temp_iterator}=0; {temp_iterator} < {length[-1]}; {temp_iterator}++){{
@@ -124,15 +132,24 @@ def deserialize(variable,value,initialize=False):
         val["type"]=basic_type["type"]
         val["num_indirection"]+=basic_type["num_indirection"]
         result+=deserialize(variable,val,initialize)
-    elif (type in ["char", "void"] and num_indirection==1):
-        result+=f"{variable}=deserialize_{type}_p({name});\n"
+    elif (type=="void" and num_indirection==1):
+        val["type"]="char"
+        
+        if not(len(length)>0 and length[-1]!=""): #Doesn't have predefined length
+            val["length"].append("null-terminated")
+            
+        result+="char* temp;"
+        result+=deserialize("temp",val,initialize=True)
+        result+=f"{variable}=(void*)temp;\n"
     elif (type in parsed["external_handles"] and num_indirection<2):
             if num_indirection==0:
                 result+=f"{variable}=deserialize_{type}({name});\n"
             elif num_indirection==1:
                 result+=f"{variable}=deserialize_{type}_p({name});\n"
     elif (len(length)>0 and (length[-1]!="")):
-
+        if length[-1]=="null-terminated":
+            length[-1]=f"{name}.size()"
+            
         if num_indirection>0: #Dynamic array, so each element of char** would be char*
             if initialize:
                 result+=f"""{variable}=({type+("*"*num_indirection)})malloc({length[-1]}*sizeof({type+("*"*(num_indirection-1))}));"""
@@ -141,6 +158,7 @@ def deserialize(variable,value,initialize=False):
         temp_iterator=random_string(val)
         val["name"]+=f"""["members"][{temp_iterator}]"""
         val["length"].pop()
+        
         result+=f"""
         for (int {temp_iterator}=0; {temp_iterator} < {length[-1]}; {temp_iterator}++){{
             {deserialize(variable+f'[{temp_iterator}]',val,initialize)};

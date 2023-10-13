@@ -30,8 +30,8 @@ std::map<uintptr_t,MemInfo*> devicememory_to_mem_info;
 #endif
 #include <dlfcn.h>
 auto vulkan_library=dlopen(vulkan_library_name.c_str(), RTLD_LAZY | RTLD_GLOBAL);
-auto get_instance_proc_addr=(PFN_vkGetInstanceProcAddr)(dlsym(vulkan_library,"vkGetInstanceProcAddr")));
-auto get_device_proc_addr=(PFN_vkGetDeviceProcAddr)(dlsym(vulkan_library,"vkGetDeviceProcAddr")));
+auto get_instance_proc_addr=(PFN_vkGetInstanceProcAddr)dlsym(vulkan_library,"vkGetInstanceProcAddr");
+auto get_device_proc_addr=(PFN_vkGetDeviceProcAddr)dlsym(vulkan_library,"vkGetDeviceProcAddr");
 
 
     void handle_vkCreateInstance(json data_json){
@@ -77,10 +77,11 @@ VkInstance* pInstance
 }();
 
 
+    PFN_vkCreateInstance call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateInstance)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateInstance");
+        call_function=(PFN_vkCreateInstance)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateInstance");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateInstance)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateInstance");
+        call_function=(PFN_vkCreateInstance)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateInstance");
     }  
     
 auto return_value=call_function(pCreateInfo, pAllocator, pInstance);
@@ -149,10 +150,11 @@ VkAllocationCallbacks* temp_fOQoUxe;[&]() {
 }();pAllocator=temp_fOQoUxe;}();
 
 
+    PFN_vkDestroyInstance call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyInstance)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyInstance");
+        call_function=(PFN_vkDestroyInstance)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyInstance");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyInstance)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyInstance");
+        call_function=(PFN_vkDestroyInstance)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyInstance");
     }  
     
 call_function(instance, pAllocator);
@@ -213,10 +215,11 @@ pPhysicalDevices[TLfKNSG]=deserialize_VkPhysicalDevice(data_json["members"]["pPh
         }();
 
 
+    PFN_vkEnumeratePhysicalDevices call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkEnumeratePhysicalDevices)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumeratePhysicalDevices");
+        call_function=(PFN_vkEnumeratePhysicalDevices)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumeratePhysicalDevices");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkEnumeratePhysicalDevices)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumeratePhysicalDevices");
+        call_function=(PFN_vkEnumeratePhysicalDevices)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumeratePhysicalDevices");
     }  
     
 auto return_value=call_function(instance, pPhysicalDeviceCount, pPhysicalDevices);
@@ -278,21 +281,26 @@ char* temp_yiAxPXc;[&]() {
         temp_yiAxPXc=NULL;
         return;
         }
-    temp_yiAxPXc=deserialize_char_p(data_json["members"]["pName"]);
-}();pName=temp_yiAxPXc;}();
+    temp_yiAxPXc=(char*)malloc(data_json["members"]["pName"].size()*sizeof(char));
+        for (int GlauFko=0; GlauFko < data_json["members"]["pName"].size(); GlauFko++){
+            [&]() {
+temp_yiAxPXc[GlauFko]=deserialize_char(data_json["members"]["pName"]["members"][GlauFko]);}();;
+        }
+        }();pName=temp_yiAxPXc;}();
 
 
+    PFN_vkGetDeviceProcAddr call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceProcAddr)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceProcAddr");
+        call_function=(PFN_vkGetDeviceProcAddr)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceProcAddr");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceProcAddr)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceProcAddr");
+        call_function=(PFN_vkGetDeviceProcAddr)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceProcAddr");
     }  
     
 auto return_value=call_function(device, pName);
 json result=json({});
         result["type"]="Response";
     
-result["return"]=(return_value!=NULL ? true: false;
+result["return"]=(return_value!=NULL ? true: false);
 result["members"]["device"]=[&]() {
     json return_PcIXWsz=json({});
     return serialize_VkDevice(device);}();
@@ -303,8 +311,17 @@ result["members"]["pName"]=[&]() {
             return_UtWldLN["null"]=true;
             return return_UtWldLN;
         }
-        return serialize_char_p(pName);
-}();
+        
+        return_UtWldLN["members"]={};
+        for(int UtWldLN=0; UtWldLN < strlen(pName); UtWldLN++){
+            json temp;
+            temp=[&]() {
+    json return_cAmRZvH=json({});
+    return serialize_char(pName[UtWldLN]);}();
+            return_UtWldLN["members"].push_back(temp);
+        }
+        return return_UtWldLN;
+        }();
 
         writeToConn(result);
     }
@@ -325,21 +342,26 @@ char* temp_yiAxPXc;[&]() {
         temp_yiAxPXc=NULL;
         return;
         }
-    temp_yiAxPXc=deserialize_char_p(data_json["members"]["pName"]);
-}();pName=temp_yiAxPXc;}();
+    temp_yiAxPXc=(char*)malloc(data_json["members"]["pName"].size()*sizeof(char));
+        for (int GlauFko=0; GlauFko < data_json["members"]["pName"].size(); GlauFko++){
+            [&]() {
+temp_yiAxPXc[GlauFko]=deserialize_char(data_json["members"]["pName"]["members"][GlauFko]);}();;
+        }
+        }();pName=temp_yiAxPXc;}();
 
 
+    PFN_vkGetInstanceProcAddr call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetInstanceProcAddr)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetInstanceProcAddr");
+        call_function=(PFN_vkGetInstanceProcAddr)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetInstanceProcAddr");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetInstanceProcAddr)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetInstanceProcAddr");
+        call_function=(PFN_vkGetInstanceProcAddr)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetInstanceProcAddr");
     }  
     
 auto return_value=call_function(instance, pName);
 json result=json({});
         result["type"]="Response";
     
-result["return"]=(return_value!=NULL ? true: false;
+result["return"]=(return_value!=NULL ? true: false);
 result["members"]["instance"]=[&]() {
     json return_uDnIwUL=json({});
     return serialize_VkInstance(instance);}();
@@ -350,8 +372,17 @@ result["members"]["pName"]=[&]() {
             return_UtWldLN["null"]=true;
             return return_UtWldLN;
         }
-        return serialize_char_p(pName);
-}();
+        
+        return_UtWldLN["members"]={};
+        for(int UtWldLN=0; UtWldLN < strlen(pName); UtWldLN++){
+            json temp;
+            temp=[&]() {
+    json return_cAmRZvH=json({});
+    return serialize_char(pName[UtWldLN]);}();
+            return_UtWldLN["members"].push_back(temp);
+        }
+        return return_UtWldLN;
+        }();
 
         writeToConn(result);
     }
@@ -377,10 +408,11 @@ VkPhysicalDeviceProperties* pProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceProperties call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceProperties");
+        call_function=(PFN_vkGetPhysicalDeviceProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceProperties");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceProperties");
+        call_function=(PFN_vkGetPhysicalDeviceProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceProperties");
     }  
     
 call_function(physicalDevice, pProperties);
@@ -441,10 +473,11 @@ pQueueFamilyProperties[zdBuCre]=deserialize_VkQueueFamilyProperties(data_json["m
         }();
 
 
+    PFN_vkGetPhysicalDeviceQueueFamilyProperties call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceQueueFamilyProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceQueueFamilyProperties");
+        call_function=(PFN_vkGetPhysicalDeviceQueueFamilyProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceQueueFamilyProperties");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceQueueFamilyProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceQueueFamilyProperties");
+        call_function=(PFN_vkGetPhysicalDeviceQueueFamilyProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceQueueFamilyProperties");
     }  
     
 call_function(physicalDevice, pQueueFamilyPropertyCount, pQueueFamilyProperties);
@@ -509,10 +542,11 @@ VkPhysicalDeviceMemoryProperties* pMemoryProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceMemoryProperties call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceMemoryProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceMemoryProperties");
+        call_function=(PFN_vkGetPhysicalDeviceMemoryProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceMemoryProperties");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceMemoryProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceMemoryProperties");
+        call_function=(PFN_vkGetPhysicalDeviceMemoryProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceMemoryProperties");
     }  
     
 call_function(physicalDevice, pMemoryProperties);
@@ -559,10 +593,11 @@ VkPhysicalDeviceFeatures* pFeatures
 }();
 
 
+    PFN_vkGetPhysicalDeviceFeatures call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceFeatures)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFeatures");
+        call_function=(PFN_vkGetPhysicalDeviceFeatures)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFeatures");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceFeatures)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFeatures");
+        call_function=(PFN_vkGetPhysicalDeviceFeatures)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFeatures");
     }  
     
 call_function(physicalDevice, pFeatures);
@@ -613,10 +648,11 @@ VkFormatProperties* pFormatProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceFormatProperties call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceFormatProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFormatProperties");
+        call_function=(PFN_vkGetPhysicalDeviceFormatProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFormatProperties");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceFormatProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFormatProperties");
+        call_function=(PFN_vkGetPhysicalDeviceFormatProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFormatProperties");
     }  
     
 call_function(physicalDevice, format, pFormatProperties);
@@ -686,10 +722,11 @@ VkImageFormatProperties* pImageFormatProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceImageFormatProperties call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceImageFormatProperties");
+        call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceImageFormatProperties");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceImageFormatProperties");
+        call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceImageFormatProperties");
     }  
     
 auto return_value=call_function(physicalDevice, format, type, tiling, usage, flags, pImageFormatProperties);
@@ -779,10 +816,11 @@ VkDevice* pDevice
 }();
 
 
+    PFN_vkCreateDevice call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateDevice)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDevice");
+        call_function=(PFN_vkCreateDevice)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDevice");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateDevice)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDevice");
+        call_function=(PFN_vkCreateDevice)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDevice");
     }  
     
 auto return_value=call_function(physicalDevice, pCreateInfo, pAllocator, pDevice);
@@ -854,10 +892,11 @@ VkAllocationCallbacks* temp_fOQoUxe;[&]() {
 }();pAllocator=temp_fOQoUxe;}();
 
 
+    PFN_vkDestroyDevice call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyDevice)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDevice");
+        call_function=(PFN_vkDestroyDevice)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDevice");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyDevice)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDevice");
+        call_function=(PFN_vkDestroyDevice)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDevice");
     }  
     
 call_function(device, pAllocator);
@@ -900,10 +939,11 @@ uint32_t* pApiVersion
 }();
 
 
+    PFN_vkEnumerateInstanceVersion call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkEnumerateInstanceVersion)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateInstanceVersion");
+        call_function=(PFN_vkEnumerateInstanceVersion)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateInstanceVersion");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkEnumerateInstanceVersion)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateInstanceVersion");
+        call_function=(PFN_vkEnumerateInstanceVersion)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateInstanceVersion");
     }  
     
 auto return_value=call_function(pApiVersion);
@@ -959,10 +999,11 @@ pProperties[VdejBXK]=deserialize_VkLayerProperties(data_json["members"]["pProper
         }();
 
 
+    PFN_vkEnumerateInstanceLayerProperties call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkEnumerateInstanceLayerProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateInstanceLayerProperties");
+        call_function=(PFN_vkEnumerateInstanceLayerProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateInstanceLayerProperties");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkEnumerateInstanceLayerProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateInstanceLayerProperties");
+        call_function=(PFN_vkEnumerateInstanceLayerProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateInstanceLayerProperties");
     }  
     
 auto return_value=call_function(pPropertyCount, pProperties);
@@ -1017,8 +1058,12 @@ char* temp_rAtvgFK;[&]() {
         temp_rAtvgFK=NULL;
         return;
         }
-    temp_rAtvgFK=deserialize_char_p(data_json["members"]["pLayerName"]);
-}();pLayerName=temp_rAtvgFK;}();
+    temp_rAtvgFK=(char*)malloc(data_json["members"]["pLayerName"].size()*sizeof(char));
+        for (int ouzAVlt=0; ouzAVlt < data_json["members"]["pLayerName"].size(); ouzAVlt++){
+            [&]() {
+temp_rAtvgFK[ouzAVlt]=deserialize_char(data_json["members"]["pLayerName"]["members"][ouzAVlt]);}();;
+        }
+        }();pLayerName=temp_rAtvgFK;}();
 uint32_t* pPropertyCount
             ;
 [&]() {
@@ -1047,10 +1092,11 @@ pProperties[jQZGUEJ]=deserialize_VkExtensionProperties(data_json["members"]["pPr
         }();
 
 
+    PFN_vkEnumerateInstanceExtensionProperties call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkEnumerateInstanceExtensionProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateInstanceExtensionProperties");
+        call_function=(PFN_vkEnumerateInstanceExtensionProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateInstanceExtensionProperties");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkEnumerateInstanceExtensionProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateInstanceExtensionProperties");
+        call_function=(PFN_vkEnumerateInstanceExtensionProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateInstanceExtensionProperties");
     }  
     
 auto return_value=call_function(pLayerName, pPropertyCount, pProperties);
@@ -1067,8 +1113,17 @@ result["members"]["pLayerName"]=[&]() {
             return_GVAKxQC["null"]=true;
             return return_GVAKxQC;
         }
-        return serialize_char_p(pLayerName);
-}();
+        
+        return_GVAKxQC["members"]={};
+        for(int GVAKxQC=0; GVAKxQC < strlen(pLayerName); GVAKxQC++){
+            json temp;
+            temp=[&]() {
+    json return_Yxvqrpv=json({});
+    return serialize_char(pLayerName[GVAKxQC]);}();
+            return_GVAKxQC["members"].push_back(temp);
+        }
+        return return_GVAKxQC;
+        }();
 result["members"]["pPropertyCount"]=[&]() {
     json return_MnYOHdG=json({});
     
@@ -1137,10 +1192,11 @@ pProperties[VdejBXK]=deserialize_VkLayerProperties(data_json["members"]["pProper
         }();
 
 
+    PFN_vkEnumerateDeviceLayerProperties call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkEnumerateDeviceLayerProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateDeviceLayerProperties");
+        call_function=(PFN_vkEnumerateDeviceLayerProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateDeviceLayerProperties");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkEnumerateDeviceLayerProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateDeviceLayerProperties");
+        call_function=(PFN_vkEnumerateDeviceLayerProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateDeviceLayerProperties");
     }  
     
 auto return_value=call_function(physicalDevice, pPropertyCount, pProperties);
@@ -1202,8 +1258,12 @@ char* temp_rAtvgFK;[&]() {
         temp_rAtvgFK=NULL;
         return;
         }
-    temp_rAtvgFK=deserialize_char_p(data_json["members"]["pLayerName"]);
-}();pLayerName=temp_rAtvgFK;}();
+    temp_rAtvgFK=(char*)malloc(data_json["members"]["pLayerName"].size()*sizeof(char));
+        for (int ouzAVlt=0; ouzAVlt < data_json["members"]["pLayerName"].size(); ouzAVlt++){
+            [&]() {
+temp_rAtvgFK[ouzAVlt]=deserialize_char(data_json["members"]["pLayerName"]["members"][ouzAVlt]);}();;
+        }
+        }();pLayerName=temp_rAtvgFK;}();
 uint32_t* pPropertyCount
             ;
 [&]() {
@@ -1232,10 +1292,11 @@ pProperties[jQZGUEJ]=deserialize_VkExtensionProperties(data_json["members"]["pPr
         }();
 
 
+    PFN_vkEnumerateDeviceExtensionProperties call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkEnumerateDeviceExtensionProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateDeviceExtensionProperties");
+        call_function=(PFN_vkEnumerateDeviceExtensionProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateDeviceExtensionProperties");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkEnumerateDeviceExtensionProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateDeviceExtensionProperties");
+        call_function=(PFN_vkEnumerateDeviceExtensionProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumerateDeviceExtensionProperties");
     }  
     
 auto return_value=call_function(physicalDevice, pLayerName, pPropertyCount, pProperties);
@@ -1255,8 +1316,17 @@ result["members"]["pLayerName"]=[&]() {
             return_GVAKxQC["null"]=true;
             return return_GVAKxQC;
         }
-        return serialize_char_p(pLayerName);
-}();
+        
+        return_GVAKxQC["members"]={};
+        for(int GVAKxQC=0; GVAKxQC < strlen(pLayerName); GVAKxQC++){
+            json temp;
+            temp=[&]() {
+    json return_Yxvqrpv=json({});
+    return serialize_char(pLayerName[GVAKxQC]);}();
+            return_GVAKxQC["members"].push_back(temp);
+        }
+        return return_GVAKxQC;
+        }();
 result["members"]["pPropertyCount"]=[&]() {
     json return_MnYOHdG=json({});
     
@@ -1319,10 +1389,11 @@ VkQueue* pQueue
 }();
 
 
+    PFN_vkGetDeviceQueue call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceQueue)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceQueue");
+        call_function=(PFN_vkGetDeviceQueue)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceQueue");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceQueue)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceQueue");
+        call_function=(PFN_vkGetDeviceQueue)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceQueue");
     }  
     
 call_function(device, queueFamilyIndex, queueIndex, pQueue);
@@ -1386,10 +1457,11 @@ VkFence fence
 fence=deserialize_VkFence(data_json["members"]["fence"]);}();
 
 
+    PFN_vkQueueSubmit call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkQueueSubmit)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueSubmit");
+        call_function=(PFN_vkQueueSubmit)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueSubmit");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkQueueSubmit)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueSubmit");
+        call_function=(PFN_vkQueueSubmit)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueSubmit");
     }  
     
 auto return_value=call_function(queue, submitCount, pSubmits, fence);
@@ -1439,10 +1511,11 @@ VkQueue queue
 queue=deserialize_VkQueue(data_json["members"]["queue"]);}();
 
 
+    PFN_vkQueueWaitIdle call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkQueueWaitIdle)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueWaitIdle");
+        call_function=(PFN_vkQueueWaitIdle)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueWaitIdle");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkQueueWaitIdle)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueWaitIdle");
+        call_function=(PFN_vkQueueWaitIdle)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueWaitIdle");
     }  
     
 auto return_value=call_function(queue);
@@ -1468,10 +1541,11 @@ VkDevice device
 device=deserialize_VkDevice(data_json["members"]["device"]);}();
 
 
+    PFN_vkDeviceWaitIdle call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDeviceWaitIdle)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDeviceWaitIdle");
+        call_function=(PFN_vkDeviceWaitIdle)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDeviceWaitIdle");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDeviceWaitIdle)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDeviceWaitIdle");
+        call_function=(PFN_vkDeviceWaitIdle)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDeviceWaitIdle");
     }  
     
 auto return_value=call_function(device);
@@ -1535,10 +1609,11 @@ VkDeviceMemory* pMemory
 }();
 
 
+    PFN_vkAllocateMemory call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkAllocateMemory)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAllocateMemory");
+        call_function=(PFN_vkAllocateMemory)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAllocateMemory");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkAllocateMemory)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAllocateMemory");
+        call_function=(PFN_vkAllocateMemory)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAllocateMemory");
     }  
     
 auto return_value=call_function(device, pAllocateInfo, pAllocator, pMemory);
@@ -1614,10 +1689,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkFreeMemory call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkFreeMemory)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkFreeMemory");
+        call_function=(PFN_vkFreeMemory)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkFreeMemory");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkFreeMemory)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkFreeMemory");
+        call_function=(PFN_vkFreeMemory)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkFreeMemory");
     }  
     
 call_function(device, memory, pAllocator);
@@ -1686,7 +1762,18 @@ void** ppData
         *(ppData)=NULL;
         return;
         }
-    *(ppData)=deserialize_void_p(data_json["members"]["ppData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["ppData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(data_json["members"]["ppData"].size()*sizeof(char));
+        for (int vkSRbVA=0; vkSRbVA < data_json["members"]["ppData"].size(); vkSRbVA++){
+            [&]() {
+temp[vkSRbVA]=deserialize_char(data_json["members"]["ppData"]["members"][vkSRbVA]);}();;
+        }
+        }();*(ppData)=(void*)temp;
 }();
 }();
 
@@ -1699,10 +1786,11 @@ void** ppData
         devicememory_to_mem_info[(uintptr_t)memory]=info;
         
 
+    PFN_vkMapMemory call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkMapMemory)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkMapMemory");
+        call_function=(PFN_vkMapMemory)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkMapMemory");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkMapMemory)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkMapMemory");
+        call_function=(PFN_vkMapMemory)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkMapMemory");
     }  
     
 auto return_value=call_function(device, memory, offset, size, flags, ppData);
@@ -1745,8 +1833,24 @@ result["members"]["ppData"]=[&]() {
             return_KWNLtTl["null"]=true;
             return return_KWNLtTl;
         }
-        return serialize_void_p(*ppData);
-}();
+        return_KWNLtTl=[&]() {
+    json return_gTtZOBV=json({});
+    
+        if (((char*)(*ppData))==NULL){
+            return_gTtZOBV["null"]=true;
+            return return_gTtZOBV;
+        }
+        
+        return_gTtZOBV["members"]={};
+        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData))); gTtZOBV++){
+            json temp;
+            temp=[&]() {
+    json return_LrfUJiU=json({});
+    return serialize_char(((char*)(*ppData))[gTtZOBV]);}();
+            return_gTtZOBV["members"].push_back(temp);
+        }
+        return return_gTtZOBV;
+        }();return return_KWNLtTl;}();
 return return_PsFVEjO;}();
 
         info->mem=*ppData;
@@ -1768,10 +1872,11 @@ VkDeviceMemory memory
 memory=deserialize_VkDeviceMemory(data_json["members"]["memory"]);}();
 
 
+    PFN_vkUnmapMemory call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkUnmapMemory)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUnmapMemory");
+        call_function=(PFN_vkUnmapMemory)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUnmapMemory");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkUnmapMemory)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUnmapMemory");
+        call_function=(PFN_vkUnmapMemory)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUnmapMemory");
     }  
     
 call_function(device, memory);
@@ -1817,10 +1922,11 @@ temp_WMecqPI[aBQucmO]=deserialize_VkMappedMemoryRange(data_json["members"]["pMem
         }();pMemoryRanges=temp_WMecqPI;}();
 
 
+    PFN_vkFlushMappedMemoryRanges call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkFlushMappedMemoryRanges)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkFlushMappedMemoryRanges");
+        call_function=(PFN_vkFlushMappedMemoryRanges)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkFlushMappedMemoryRanges");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkFlushMappedMemoryRanges)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkFlushMappedMemoryRanges");
+        call_function=(PFN_vkFlushMappedMemoryRanges)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkFlushMappedMemoryRanges");
     }  
     
 auto return_value=call_function(device, memoryRangeCount, pMemoryRanges);
@@ -1886,10 +1992,11 @@ temp_WMecqPI[aBQucmO]=deserialize_VkMappedMemoryRange(data_json["members"]["pMem
         }();pMemoryRanges=temp_WMecqPI;}();
 
 
+    PFN_vkInvalidateMappedMemoryRanges call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkInvalidateMappedMemoryRanges)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkInvalidateMappedMemoryRanges");
+        call_function=(PFN_vkInvalidateMappedMemoryRanges)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkInvalidateMappedMemoryRanges");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkInvalidateMappedMemoryRanges)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkInvalidateMappedMemoryRanges");
+        call_function=(PFN_vkInvalidateMappedMemoryRanges)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkInvalidateMappedMemoryRanges");
     }  
     
 auto return_value=call_function(device, memoryRangeCount, pMemoryRanges);
@@ -1958,10 +2065,11 @@ VkDeviceSize* pCommittedMemoryInBytes
 }();}();
 
 
+    PFN_vkGetDeviceMemoryCommitment call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceMemoryCommitment)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceMemoryCommitment");
+        call_function=(PFN_vkGetDeviceMemoryCommitment)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceMemoryCommitment");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceMemoryCommitment)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceMemoryCommitment");
+        call_function=(PFN_vkGetDeviceMemoryCommitment)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceMemoryCommitment");
     }  
     
 call_function(device, memory, pCommittedMemoryInBytes);
@@ -2017,10 +2125,11 @@ VkMemoryRequirements* pMemoryRequirements
 }();
 
 
+    PFN_vkGetBufferMemoryRequirements call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetBufferMemoryRequirements)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferMemoryRequirements");
+        call_function=(PFN_vkGetBufferMemoryRequirements)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferMemoryRequirements");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetBufferMemoryRequirements)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferMemoryRequirements");
+        call_function=(PFN_vkGetBufferMemoryRequirements)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferMemoryRequirements");
     }  
     
 call_function(device, buffer, pMemoryRequirements);
@@ -2071,10 +2180,11 @@ VkDeviceSize memoryOffset
 memoryOffset=deserialize_uint64_t(data_json["members"]["memoryOffset"]);}();}();
 
 
+    PFN_vkBindBufferMemory call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkBindBufferMemory)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindBufferMemory");
+        call_function=(PFN_vkBindBufferMemory)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindBufferMemory");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkBindBufferMemory)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindBufferMemory");
+        call_function=(PFN_vkBindBufferMemory)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindBufferMemory");
     }  
     
 auto return_value=call_function(device, buffer, memory, memoryOffset);
@@ -2127,10 +2237,11 @@ VkMemoryRequirements* pMemoryRequirements
 }();
 
 
+    PFN_vkGetImageMemoryRequirements call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetImageMemoryRequirements)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageMemoryRequirements");
+        call_function=(PFN_vkGetImageMemoryRequirements)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageMemoryRequirements");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetImageMemoryRequirements)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageMemoryRequirements");
+        call_function=(PFN_vkGetImageMemoryRequirements)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageMemoryRequirements");
     }  
     
 call_function(device, image, pMemoryRequirements);
@@ -2181,10 +2292,11 @@ VkDeviceSize memoryOffset
 memoryOffset=deserialize_uint64_t(data_json["members"]["memoryOffset"]);}();}();
 
 
+    PFN_vkBindImageMemory call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkBindImageMemory)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindImageMemory");
+        call_function=(PFN_vkBindImageMemory)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindImageMemory");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkBindImageMemory)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindImageMemory");
+        call_function=(PFN_vkBindImageMemory)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindImageMemory");
     }  
     
 auto return_value=call_function(device, image, memory, memoryOffset);
@@ -2251,10 +2363,11 @@ pSparseMemoryRequirements[vUihJmc]=deserialize_VkSparseImageMemoryRequirements(d
         }();
 
 
+    PFN_vkGetImageSparseMemoryRequirements call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetImageSparseMemoryRequirements)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSparseMemoryRequirements");
+        call_function=(PFN_vkGetImageSparseMemoryRequirements)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSparseMemoryRequirements");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetImageSparseMemoryRequirements)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSparseMemoryRequirements");
+        call_function=(PFN_vkGetImageSparseMemoryRequirements)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSparseMemoryRequirements");
     }  
     
 call_function(device, image, pSparseMemoryRequirementCount, pSparseMemoryRequirements);
@@ -2356,10 +2469,11 @@ pProperties[XtzjSDX]=deserialize_VkSparseImageFormatProperties(data_json["member
         }();
 
 
+    PFN_vkGetPhysicalDeviceSparseImageFormatProperties call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSparseImageFormatProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSparseImageFormatProperties");
+        call_function=(PFN_vkGetPhysicalDeviceSparseImageFormatProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSparseImageFormatProperties");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSparseImageFormatProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSparseImageFormatProperties");
+        call_function=(PFN_vkGetPhysicalDeviceSparseImageFormatProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSparseImageFormatProperties");
     }  
     
 call_function(physicalDevice, format, type, samples, usage, tiling, pPropertyCount, pProperties);
@@ -2450,10 +2564,11 @@ VkFence fence
 fence=deserialize_VkFence(data_json["members"]["fence"]);}();
 
 
+    PFN_vkQueueBindSparse call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkQueueBindSparse)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueBindSparse");
+        call_function=(PFN_vkQueueBindSparse)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueBindSparse");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkQueueBindSparse)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueBindSparse");
+        call_function=(PFN_vkQueueBindSparse)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueBindSparse");
     }  
     
 auto return_value=call_function(queue, bindInfoCount, pBindInfo, fence);
@@ -2541,10 +2656,11 @@ VkFence* pFence
 }();
 
 
+    PFN_vkCreateFence call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateFence)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateFence");
+        call_function=(PFN_vkCreateFence)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateFence");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateFence)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateFence");
+        call_function=(PFN_vkCreateFence)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateFence");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pFence);
@@ -2620,10 +2736,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyFence call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyFence)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyFence");
+        call_function=(PFN_vkDestroyFence)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyFence");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyFence)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyFence");
+        call_function=(PFN_vkDestroyFence)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyFence");
     }  
     
 call_function(device, fence, pAllocator);
@@ -2680,10 +2797,11 @@ temp_DNHQkje[kyySwzS]=deserialize_VkFence(data_json["members"]["pFences"]["membe
         }();pFences=temp_DNHQkje;}();
 
 
+    PFN_vkResetFences call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkResetFences)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetFences");
+        call_function=(PFN_vkResetFences)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetFences");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkResetFences)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetFences");
+        call_function=(PFN_vkResetFences)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetFences");
     }  
     
 auto return_value=call_function(device, fenceCount, pFences);
@@ -2734,10 +2852,11 @@ VkFence fence
 fence=deserialize_VkFence(data_json["members"]["fence"]);}();
 
 
+    PFN_vkGetFenceStatus call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetFenceStatus)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetFenceStatus");
+        call_function=(PFN_vkGetFenceStatus)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetFenceStatus");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetFenceStatus)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetFenceStatus");
+        call_function=(PFN_vkGetFenceStatus)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetFenceStatus");
     }  
     
 auto return_value=call_function(device, fence);
@@ -2794,10 +2913,11 @@ uint64_t timeout
 timeout=deserialize_uint64_t(data_json["members"]["timeout"]);}();
 
 
+    PFN_vkWaitForFences call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkWaitForFences)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWaitForFences");
+        call_function=(PFN_vkWaitForFences)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWaitForFences");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkWaitForFences)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWaitForFences");
+        call_function=(PFN_vkWaitForFences)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWaitForFences");
     }  
     
 auto return_value=call_function(device, fenceCount, pFences, waitAll, timeout);
@@ -2899,10 +3019,11 @@ VkSemaphore* pSemaphore
 }();
 
 
+    PFN_vkCreateSemaphore call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateSemaphore)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSemaphore");
+        call_function=(PFN_vkCreateSemaphore)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSemaphore");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateSemaphore)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSemaphore");
+        call_function=(PFN_vkCreateSemaphore)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSemaphore");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pSemaphore);
@@ -2978,10 +3099,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroySemaphore call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroySemaphore)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySemaphore");
+        call_function=(PFN_vkDestroySemaphore)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySemaphore");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroySemaphore)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySemaphore");
+        call_function=(PFN_vkDestroySemaphore)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySemaphore");
     }  
     
 call_function(device, semaphore, pAllocator);
@@ -3057,10 +3179,11 @@ VkEvent* pEvent
 }();
 
 
+    PFN_vkCreateEvent call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateEvent)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateEvent");
+        call_function=(PFN_vkCreateEvent)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateEvent");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateEvent)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateEvent");
+        call_function=(PFN_vkCreateEvent)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateEvent");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pEvent);
@@ -3136,10 +3259,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyEvent call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyEvent)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyEvent");
+        call_function=(PFN_vkDestroyEvent)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyEvent");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyEvent)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyEvent");
+        call_function=(PFN_vkDestroyEvent)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyEvent");
     }  
     
 call_function(device, event, pAllocator);
@@ -3181,10 +3305,11 @@ VkEvent event
 event=deserialize_VkEvent(data_json["members"]["event"]);}();
 
 
+    PFN_vkGetEventStatus call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetEventStatus)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetEventStatus");
+        call_function=(PFN_vkGetEventStatus)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetEventStatus");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetEventStatus)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetEventStatus");
+        call_function=(PFN_vkGetEventStatus)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetEventStatus");
     }  
     
 auto return_value=call_function(device, event);
@@ -3217,10 +3342,11 @@ VkEvent event
 event=deserialize_VkEvent(data_json["members"]["event"]);}();
 
 
+    PFN_vkSetEvent call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkSetEvent)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetEvent");
+        call_function=(PFN_vkSetEvent)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetEvent");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkSetEvent)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetEvent");
+        call_function=(PFN_vkSetEvent)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetEvent");
     }  
     
 auto return_value=call_function(device, event);
@@ -3253,10 +3379,11 @@ VkEvent event
 event=deserialize_VkEvent(data_json["members"]["event"]);}();
 
 
+    PFN_vkResetEvent call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkResetEvent)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetEvent");
+        call_function=(PFN_vkResetEvent)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetEvent");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkResetEvent)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetEvent");
+        call_function=(PFN_vkResetEvent)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetEvent");
     }  
     
 auto return_value=call_function(device, event);
@@ -3323,10 +3450,11 @@ VkQueryPool* pQueryPool
 }();
 
 
+    PFN_vkCreateQueryPool call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateQueryPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateQueryPool");
+        call_function=(PFN_vkCreateQueryPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateQueryPool");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateQueryPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateQueryPool");
+        call_function=(PFN_vkCreateQueryPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateQueryPool");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pQueryPool);
@@ -3402,10 +3530,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyQueryPool call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyQueryPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyQueryPool");
+        call_function=(PFN_vkDestroyQueryPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyQueryPool");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyQueryPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyQueryPool");
+        call_function=(PFN_vkDestroyQueryPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyQueryPool");
     }  
     
 call_function(device, queryPool, pAllocator);
@@ -3465,7 +3594,18 @@ void* pData
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(dataSize*sizeof(char));
+        for (int ThmltOQ=0; ThmltOQ < dataSize; ThmltOQ++){
+            [&]() {
+temp[ThmltOQ]=deserialize_char(data_json["members"]["pData"]["members"][ThmltOQ]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 VkDeviceSize stride
             ;
@@ -3478,10 +3618,11 @@ VkQueryResultFlags flags
 flags=deserialize_VkQueryResultFlags(data_json["members"]["flags"]);}();
 
 
+    PFN_vkGetQueryPoolResults call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetQueryPoolResults)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetQueryPoolResults");
+        call_function=(PFN_vkGetQueryPoolResults)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetQueryPoolResults");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetQueryPoolResults)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetQueryPoolResults");
+        call_function=(PFN_vkGetQueryPoolResults)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetQueryPoolResults");
     }  
     
 auto return_value=call_function(device, queryPool, firstQuery, queryCount, dataSize, pData, stride, flags);
@@ -3513,8 +3654,24 @@ result["members"]["pData"]=[&]() {
             return_uMNHZoi["null"]=true;
             return return_uMNHZoi;
         }
-        return serialize_void_p(pData);
-}();
+        return_uMNHZoi=[&]() {
+    json return_neDQhGk=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_neDQhGk["null"]=true;
+            return return_neDQhGk;
+        }
+        
+        return_neDQhGk["members"]={};
+        for(int neDQhGk=0; neDQhGk < dataSize; neDQhGk++){
+            json temp;
+            temp=[&]() {
+    json return_amcrAAE=json({});
+    return serialize_char(((char*)(pData))[neDQhGk]);}();
+            return_neDQhGk["members"].push_back(temp);
+        }
+        return return_neDQhGk;
+        }();return return_uMNHZoi;}();
 result["members"]["stride"]=[&]() {
     json return_MQAmiOM=json({});
     return_MQAmiOM=[&]() {
@@ -3548,10 +3705,11 @@ uint32_t queryCount
 queryCount=deserialize_uint32_t(data_json["members"]["queryCount"]);}();
 
 
+    PFN_vkResetQueryPool call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkResetQueryPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetQueryPool");
+        call_function=(PFN_vkResetQueryPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetQueryPool");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkResetQueryPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetQueryPool");
+        call_function=(PFN_vkResetQueryPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetQueryPool");
     }  
     
 call_function(device, queryPool, firstQuery, queryCount);
@@ -3596,10 +3754,11 @@ uint32_t queryCount
 queryCount=deserialize_uint32_t(data_json["members"]["queryCount"]);}();
 
 
+    PFN_vkResetQueryPoolEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkResetQueryPoolEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetQueryPoolEXT");
+        call_function=(PFN_vkResetQueryPoolEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetQueryPoolEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkResetQueryPoolEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetQueryPoolEXT");
+        call_function=(PFN_vkResetQueryPoolEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetQueryPoolEXT");
     }  
     
 call_function(device, queryPool, firstQuery, queryCount);
@@ -3670,10 +3829,11 @@ VkBuffer* pBuffer
 }();
 
 
+    PFN_vkCreateBuffer call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateBuffer");
+        call_function=(PFN_vkCreateBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateBuffer");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateBuffer");
+        call_function=(PFN_vkCreateBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateBuffer");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pBuffer);
@@ -3749,10 +3909,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyBuffer call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyBuffer");
+        call_function=(PFN_vkDestroyBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyBuffer");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyBuffer");
+        call_function=(PFN_vkDestroyBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyBuffer");
     }  
     
 call_function(device, buffer, pAllocator);
@@ -3828,10 +3989,11 @@ VkBufferView* pView
 }();
 
 
+    PFN_vkCreateBufferView call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateBufferView)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateBufferView");
+        call_function=(PFN_vkCreateBufferView)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateBufferView");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateBufferView)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateBufferView");
+        call_function=(PFN_vkCreateBufferView)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateBufferView");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pView);
@@ -3907,10 +4069,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyBufferView call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyBufferView)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyBufferView");
+        call_function=(PFN_vkDestroyBufferView)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyBufferView");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyBufferView)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyBufferView");
+        call_function=(PFN_vkDestroyBufferView)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyBufferView");
     }  
     
 call_function(device, bufferView, pAllocator);
@@ -3986,10 +4149,11 @@ VkImage* pImage
 }();
 
 
+    PFN_vkCreateImage call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateImage)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateImage");
+        call_function=(PFN_vkCreateImage)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateImage");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateImage)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateImage");
+        call_function=(PFN_vkCreateImage)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateImage");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pImage);
@@ -4065,10 +4229,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyImage call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyImage)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyImage");
+        call_function=(PFN_vkDestroyImage)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyImage");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyImage)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyImage");
+        call_function=(PFN_vkDestroyImage)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyImage");
     }  
     
 call_function(device, image, pAllocator);
@@ -4135,10 +4300,11 @@ VkSubresourceLayout* pLayout
 }();
 
 
+    PFN_vkGetImageSubresourceLayout call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetImageSubresourceLayout)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSubresourceLayout");
+        call_function=(PFN_vkGetImageSubresourceLayout)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSubresourceLayout");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetImageSubresourceLayout)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSubresourceLayout");
+        call_function=(PFN_vkGetImageSubresourceLayout)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSubresourceLayout");
     }  
     
 call_function(device, image, pSubresource, pLayout);
@@ -4225,10 +4391,11 @@ VkImageView* pView
 }();
 
 
+    PFN_vkCreateImageView call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateImageView)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateImageView");
+        call_function=(PFN_vkCreateImageView)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateImageView");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateImageView)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateImageView");
+        call_function=(PFN_vkCreateImageView)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateImageView");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pView);
@@ -4304,10 +4471,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyImageView call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyImageView)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyImageView");
+        call_function=(PFN_vkDestroyImageView)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyImageView");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyImageView)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyImageView");
+        call_function=(PFN_vkDestroyImageView)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyImageView");
     }  
     
 call_function(device, imageView, pAllocator);
@@ -4383,10 +4551,11 @@ VkShaderModule* pShaderModule
 }();
 
 
+    PFN_vkCreateShaderModule call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateShaderModule)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateShaderModule");
+        call_function=(PFN_vkCreateShaderModule)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateShaderModule");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateShaderModule)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateShaderModule");
+        call_function=(PFN_vkCreateShaderModule)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateShaderModule");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pShaderModule);
@@ -4462,10 +4631,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyShaderModule call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyShaderModule)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyShaderModule");
+        call_function=(PFN_vkDestroyShaderModule)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyShaderModule");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyShaderModule)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyShaderModule");
+        call_function=(PFN_vkDestroyShaderModule)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyShaderModule");
     }  
     
 call_function(device, shaderModule, pAllocator);
@@ -4541,10 +4711,11 @@ VkPipelineCache* pPipelineCache
 }();
 
 
+    PFN_vkCreatePipelineCache call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreatePipelineCache)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreatePipelineCache");
+        call_function=(PFN_vkCreatePipelineCache)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreatePipelineCache");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreatePipelineCache)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreatePipelineCache");
+        call_function=(PFN_vkCreatePipelineCache)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreatePipelineCache");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pPipelineCache);
@@ -4620,10 +4791,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyPipelineCache call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyPipelineCache)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPipelineCache");
+        call_function=(PFN_vkDestroyPipelineCache)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPipelineCache");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyPipelineCache)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPipelineCache");
+        call_function=(PFN_vkDestroyPipelineCache)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPipelineCache");
     }  
     
 call_function(device, pipelineCache, pAllocator);
@@ -4683,14 +4855,26 @@ void* pData
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(*pDataSize*sizeof(char));
+        for (int cmmtDwc=0; cmmtDwc < *pDataSize; cmmtDwc++){
+            [&]() {
+temp[cmmtDwc]=deserialize_char(data_json["members"]["pData"]["members"][cmmtDwc]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 
 
+    PFN_vkGetPipelineCacheData call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPipelineCacheData)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineCacheData");
+        call_function=(PFN_vkGetPipelineCacheData)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineCacheData");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPipelineCacheData)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineCacheData");
+        call_function=(PFN_vkGetPipelineCacheData)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineCacheData");
     }  
     
 auto return_value=call_function(device, pipelineCache, pDataSize, pData);
@@ -4724,8 +4908,24 @@ result["members"]["pData"]=[&]() {
             return_MOqETBu["null"]=true;
             return return_MOqETBu;
         }
-        return serialize_void_p(pData);
-}();
+        return_MOqETBu=[&]() {
+    json return_MHUeMAs=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_MHUeMAs["null"]=true;
+            return return_MHUeMAs;
+        }
+        
+        return_MHUeMAs["members"]={};
+        for(int MHUeMAs=0; MHUeMAs < *pDataSize; MHUeMAs++){
+            json temp;
+            temp=[&]() {
+    json return_fEXHPKD=json({});
+    return serialize_char(((char*)(pData))[MHUeMAs]);}();
+            return_MHUeMAs["members"].push_back(temp);
+        }
+        return return_MHUeMAs;
+        }();return return_MOqETBu;}();
 
         writeToConn(result);
     }
@@ -4762,10 +4962,11 @@ temp_gpZHctO[ppBxkPo]=deserialize_VkPipelineCache(data_json["members"]["pSrcCach
         }();pSrcCaches=temp_gpZHctO;}();
 
 
+    PFN_vkMergePipelineCaches call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkMergePipelineCaches)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkMergePipelineCaches");
+        call_function=(PFN_vkMergePipelineCaches)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkMergePipelineCaches");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkMergePipelineCaches)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkMergePipelineCaches");
+        call_function=(PFN_vkMergePipelineCaches)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkMergePipelineCaches");
     }  
     
 auto return_value=call_function(device, dstCache, srcCacheCount, pSrcCaches);
@@ -4865,10 +5066,11 @@ pPipelines[TBqpkOr]=deserialize_VkPipeline(data_json["members"]["pPipelines"]["m
         }();
 
 
+    PFN_vkCreateGraphicsPipelines call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateGraphicsPipelines)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateGraphicsPipelines");
+        call_function=(PFN_vkCreateGraphicsPipelines)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateGraphicsPipelines");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateGraphicsPipelines)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateGraphicsPipelines");
+        call_function=(PFN_vkCreateGraphicsPipelines)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateGraphicsPipelines");
     }  
     
 auto return_value=call_function(device, pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
@@ -4997,10 +5199,11 @@ pPipelines[TBqpkOr]=deserialize_VkPipeline(data_json["members"]["pPipelines"]["m
         }();
 
 
+    PFN_vkCreateComputePipelines call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateComputePipelines)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateComputePipelines");
+        call_function=(PFN_vkCreateComputePipelines)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateComputePipelines");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateComputePipelines)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateComputePipelines");
+        call_function=(PFN_vkCreateComputePipelines)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateComputePipelines");
     }  
     
 auto return_value=call_function(device, pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
@@ -5095,10 +5298,11 @@ VkExtent2D* pMaxWorkgroupSize
 }();
 
 
+    PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI");
+        call_function=(PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI");
+        call_function=(PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI");
     }  
     
 auto return_value=call_function(device, renderpass, pMaxWorkgroupSize);
@@ -5155,10 +5359,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyPipeline call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyPipeline)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPipeline");
+        call_function=(PFN_vkDestroyPipeline)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPipeline");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyPipeline)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPipeline");
+        call_function=(PFN_vkDestroyPipeline)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPipeline");
     }  
     
 call_function(device, pipeline, pAllocator);
@@ -5234,10 +5439,11 @@ VkPipelineLayout* pPipelineLayout
 }();
 
 
+    PFN_vkCreatePipelineLayout call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreatePipelineLayout)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreatePipelineLayout");
+        call_function=(PFN_vkCreatePipelineLayout)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreatePipelineLayout");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreatePipelineLayout)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreatePipelineLayout");
+        call_function=(PFN_vkCreatePipelineLayout)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreatePipelineLayout");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pPipelineLayout);
@@ -5313,10 +5519,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyPipelineLayout call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyPipelineLayout)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPipelineLayout");
+        call_function=(PFN_vkDestroyPipelineLayout)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPipelineLayout");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyPipelineLayout)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPipelineLayout");
+        call_function=(PFN_vkDestroyPipelineLayout)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPipelineLayout");
     }  
     
 call_function(device, pipelineLayout, pAllocator);
@@ -5392,10 +5599,11 @@ VkSampler* pSampler
 }();
 
 
+    PFN_vkCreateSampler call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateSampler)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSampler");
+        call_function=(PFN_vkCreateSampler)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSampler");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateSampler)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSampler");
+        call_function=(PFN_vkCreateSampler)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSampler");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pSampler);
@@ -5471,10 +5679,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroySampler call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroySampler)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySampler");
+        call_function=(PFN_vkDestroySampler)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySampler");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroySampler)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySampler");
+        call_function=(PFN_vkDestroySampler)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySampler");
     }  
     
 call_function(device, sampler, pAllocator);
@@ -5550,10 +5759,11 @@ VkDescriptorSetLayout* pSetLayout
 }();
 
 
+    PFN_vkCreateDescriptorSetLayout call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateDescriptorSetLayout)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDescriptorSetLayout");
+        call_function=(PFN_vkCreateDescriptorSetLayout)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDescriptorSetLayout");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateDescriptorSetLayout)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDescriptorSetLayout");
+        call_function=(PFN_vkCreateDescriptorSetLayout)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDescriptorSetLayout");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pSetLayout);
@@ -5629,10 +5839,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyDescriptorSetLayout call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyDescriptorSetLayout)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDescriptorSetLayout");
+        call_function=(PFN_vkDestroyDescriptorSetLayout)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDescriptorSetLayout");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyDescriptorSetLayout)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDescriptorSetLayout");
+        call_function=(PFN_vkDestroyDescriptorSetLayout)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDescriptorSetLayout");
     }  
     
 call_function(device, descriptorSetLayout, pAllocator);
@@ -5708,10 +5919,11 @@ VkDescriptorPool* pDescriptorPool
 }();
 
 
+    PFN_vkCreateDescriptorPool call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateDescriptorPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDescriptorPool");
+        call_function=(PFN_vkCreateDescriptorPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDescriptorPool");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateDescriptorPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDescriptorPool");
+        call_function=(PFN_vkCreateDescriptorPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDescriptorPool");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pDescriptorPool);
@@ -5787,10 +5999,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyDescriptorPool call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyDescriptorPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDescriptorPool");
+        call_function=(PFN_vkDestroyDescriptorPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDescriptorPool");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyDescriptorPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDescriptorPool");
+        call_function=(PFN_vkDestroyDescriptorPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDescriptorPool");
     }  
     
 call_function(device, descriptorPool, pAllocator);
@@ -5836,10 +6049,11 @@ VkDescriptorPoolResetFlags flags
 flags=deserialize_VkDescriptorPoolResetFlags(data_json["members"]["flags"]);}();
 
 
+    PFN_vkResetDescriptorPool call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkResetDescriptorPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetDescriptorPool");
+        call_function=(PFN_vkResetDescriptorPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetDescriptorPool");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkResetDescriptorPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetDescriptorPool");
+        call_function=(PFN_vkResetDescriptorPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetDescriptorPool");
     }  
     
 auto return_value=call_function(device, descriptorPool, flags);
@@ -5898,10 +6112,11 @@ pDescriptorSets[celRFks]=deserialize_VkDescriptorSet(data_json["members"]["pDesc
         }();
 
 
+    PFN_vkAllocateDescriptorSets call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkAllocateDescriptorSets)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAllocateDescriptorSets");
+        call_function=(PFN_vkAllocateDescriptorSets)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAllocateDescriptorSets");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkAllocateDescriptorSets)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAllocateDescriptorSets");
+        call_function=(PFN_vkAllocateDescriptorSets)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAllocateDescriptorSets");
     }  
     
 auto return_value=call_function(device, pAllocateInfo, pDescriptorSets);
@@ -5979,10 +6194,11 @@ temp_AFSekdi[moIaUHd]=deserialize_VkDescriptorSet(data_json["members"]["pDescrip
         }();pDescriptorSets=temp_AFSekdi;}();
 
 
+    PFN_vkFreeDescriptorSets call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkFreeDescriptorSets)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkFreeDescriptorSets");
+        call_function=(PFN_vkFreeDescriptorSets)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkFreeDescriptorSets");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkFreeDescriptorSets)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkFreeDescriptorSets");
+        call_function=(PFN_vkFreeDescriptorSets)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkFreeDescriptorSets");
     }  
     
 auto return_value=call_function(device, descriptorPool, descriptorSetCount, pDescriptorSets);
@@ -6070,10 +6286,11 @@ temp_XoRkwVc[ebCMcIl]=deserialize_VkCopyDescriptorSet(data_json["members"]["pDes
         }();pDescriptorCopies=temp_XoRkwVc;}();
 
 
+    PFN_vkUpdateDescriptorSets call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkUpdateDescriptorSets)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUpdateDescriptorSets");
+        call_function=(PFN_vkUpdateDescriptorSets)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUpdateDescriptorSets");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkUpdateDescriptorSets)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUpdateDescriptorSets");
+        call_function=(PFN_vkUpdateDescriptorSets)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUpdateDescriptorSets");
     }  
     
 call_function(device, descriptorWriteCount, pDescriptorWrites, descriptorCopyCount, pDescriptorCopies);
@@ -6177,10 +6394,11 @@ VkFramebuffer* pFramebuffer
 }();
 
 
+    PFN_vkCreateFramebuffer call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateFramebuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateFramebuffer");
+        call_function=(PFN_vkCreateFramebuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateFramebuffer");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateFramebuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateFramebuffer");
+        call_function=(PFN_vkCreateFramebuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateFramebuffer");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pFramebuffer);
@@ -6256,10 +6474,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyFramebuffer call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyFramebuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyFramebuffer");
+        call_function=(PFN_vkDestroyFramebuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyFramebuffer");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyFramebuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyFramebuffer");
+        call_function=(PFN_vkDestroyFramebuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyFramebuffer");
     }  
     
 call_function(device, framebuffer, pAllocator);
@@ -6335,10 +6554,11 @@ VkRenderPass* pRenderPass
 }();
 
 
+    PFN_vkCreateRenderPass call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateRenderPass)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRenderPass");
+        call_function=(PFN_vkCreateRenderPass)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRenderPass");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateRenderPass)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRenderPass");
+        call_function=(PFN_vkCreateRenderPass)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRenderPass");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pRenderPass);
@@ -6414,10 +6634,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyRenderPass call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyRenderPass)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyRenderPass");
+        call_function=(PFN_vkDestroyRenderPass)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyRenderPass");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyRenderPass)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyRenderPass");
+        call_function=(PFN_vkDestroyRenderPass)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyRenderPass");
     }  
     
 call_function(device, renderPass, pAllocator);
@@ -6471,10 +6692,11 @@ VkExtent2D* pGranularity
 }();
 
 
+    PFN_vkGetRenderAreaGranularity call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetRenderAreaGranularity)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRenderAreaGranularity");
+        call_function=(PFN_vkGetRenderAreaGranularity)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRenderAreaGranularity");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetRenderAreaGranularity)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRenderAreaGranularity");
+        call_function=(PFN_vkGetRenderAreaGranularity)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRenderAreaGranularity");
     }  
     
 call_function(device, renderPass, pGranularity);
@@ -6537,10 +6759,11 @@ VkExtent2D* pGranularity
 }();
 
 
+    PFN_vkGetRenderingAreaGranularityKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetRenderingAreaGranularityKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRenderingAreaGranularityKHR");
+        call_function=(PFN_vkGetRenderingAreaGranularityKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRenderingAreaGranularityKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetRenderingAreaGranularityKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRenderingAreaGranularityKHR");
+        call_function=(PFN_vkGetRenderingAreaGranularityKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRenderingAreaGranularityKHR");
     }  
     
 call_function(device, pRenderingAreaInfo, pGranularity);
@@ -6624,10 +6847,11 @@ VkCommandPool* pCommandPool
 }();
 
 
+    PFN_vkCreateCommandPool call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateCommandPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateCommandPool");
+        call_function=(PFN_vkCreateCommandPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateCommandPool");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateCommandPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateCommandPool");
+        call_function=(PFN_vkCreateCommandPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateCommandPool");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pCommandPool);
@@ -6703,10 +6927,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyCommandPool call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyCommandPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyCommandPool");
+        call_function=(PFN_vkDestroyCommandPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyCommandPool");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyCommandPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyCommandPool");
+        call_function=(PFN_vkDestroyCommandPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyCommandPool");
     }  
     
 call_function(device, commandPool, pAllocator);
@@ -6752,10 +6977,11 @@ VkCommandPoolResetFlags flags
 flags=deserialize_VkCommandPoolResetFlags(data_json["members"]["flags"]);}();
 
 
+    PFN_vkResetCommandPool call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkResetCommandPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetCommandPool");
+        call_function=(PFN_vkResetCommandPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetCommandPool");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkResetCommandPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetCommandPool");
+        call_function=(PFN_vkResetCommandPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetCommandPool");
     }  
     
 auto return_value=call_function(device, commandPool, flags);
@@ -6814,10 +7040,11 @@ pCommandBuffers[RjvhSml]=deserialize_VkCommandBuffer(data_json["members"]["pComm
         }();
 
 
+    PFN_vkAllocateCommandBuffers call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkAllocateCommandBuffers)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAllocateCommandBuffers");
+        call_function=(PFN_vkAllocateCommandBuffers)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAllocateCommandBuffers");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkAllocateCommandBuffers)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAllocateCommandBuffers");
+        call_function=(PFN_vkAllocateCommandBuffers)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAllocateCommandBuffers");
     }  
     
 auto return_value=call_function(device, pAllocateInfo, pCommandBuffers);
@@ -6895,10 +7122,11 @@ temp_CLYJejR[uuFiKTX]=deserialize_VkCommandBuffer(data_json["members"]["pCommand
         }();pCommandBuffers=temp_CLYJejR;}();
 
 
+    PFN_vkFreeCommandBuffers call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkFreeCommandBuffers)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkFreeCommandBuffers");
+        call_function=(PFN_vkFreeCommandBuffers)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkFreeCommandBuffers");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkFreeCommandBuffers)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkFreeCommandBuffers");
+        call_function=(PFN_vkFreeCommandBuffers)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkFreeCommandBuffers");
     }  
     
 call_function(device, commandPool, commandBufferCount, pCommandBuffers);
@@ -6959,10 +7187,11 @@ VkCommandBufferBeginInfo* temp_uEfgtSH;[&]() {
 }();pBeginInfo=temp_uEfgtSH;}();
 
 
+    PFN_vkBeginCommandBuffer call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkBeginCommandBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBeginCommandBuffer");
+        call_function=(PFN_vkBeginCommandBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBeginCommandBuffer");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkBeginCommandBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBeginCommandBuffer");
+        call_function=(PFN_vkBeginCommandBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBeginCommandBuffer");
     }  
     
 auto return_value=call_function(commandBuffer, pBeginInfo);
@@ -6999,10 +7228,11 @@ VkCommandBuffer commandBuffer
 commandBuffer=deserialize_VkCommandBuffer(data_json["members"]["commandBuffer"]);}();
 
 
+    PFN_vkEndCommandBuffer call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkEndCommandBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEndCommandBuffer");
+        call_function=(PFN_vkEndCommandBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEndCommandBuffer");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkEndCommandBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEndCommandBuffer");
+        call_function=(PFN_vkEndCommandBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEndCommandBuffer");
     }  
     
 auto return_value=call_function(commandBuffer);
@@ -7032,10 +7262,11 @@ VkCommandBufferResetFlags flags
 flags=deserialize_VkCommandBufferResetFlags(data_json["members"]["flags"]);}();
 
 
+    PFN_vkResetCommandBuffer call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkResetCommandBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetCommandBuffer");
+        call_function=(PFN_vkResetCommandBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetCommandBuffer");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkResetCommandBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetCommandBuffer");
+        call_function=(PFN_vkResetCommandBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkResetCommandBuffer");
     }  
     
 auto return_value=call_function(commandBuffer, flags);
@@ -7072,10 +7303,11 @@ VkPipeline pipeline
 pipeline=deserialize_VkPipeline(data_json["members"]["pipeline"]);}();
 
 
+    PFN_vkCmdBindPipeline call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBindPipeline)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindPipeline");
+        call_function=(PFN_vkCmdBindPipeline)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindPipeline");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBindPipeline)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindPipeline");
+        call_function=(PFN_vkCmdBindPipeline)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindPipeline");
     }  
     
 call_function(commandBuffer, pipelineBindPoint, pipeline);
@@ -7109,10 +7341,11 @@ VkImageAspectFlags aspectMask
 aspectMask=deserialize_VkImageAspectFlags(data_json["members"]["aspectMask"]);}();
 
 
+    PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetAttachmentFeedbackLoopEnableEXT");
+        call_function=(PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetAttachmentFeedbackLoopEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetAttachmentFeedbackLoopEnableEXT");
+        call_function=(PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetAttachmentFeedbackLoopEnableEXT");
     }  
     
 call_function(commandBuffer, aspectMask);
@@ -7162,10 +7395,11 @@ temp_IJKezsu[GYeKiNp]=deserialize_VkViewport(data_json["members"]["pViewports"][
         }();pViewports=temp_IJKezsu;}();
 
 
+    PFN_vkCmdSetViewport call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetViewport)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewport");
+        call_function=(PFN_vkCmdSetViewport)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewport");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetViewport)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewport");
+        call_function=(PFN_vkCmdSetViewport)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewport");
     }  
     
 call_function(commandBuffer, firstViewport, viewportCount, pViewports);
@@ -7236,10 +7470,11 @@ temp_AUGsNjr[ShmRGyZ]=deserialize_VkRect2D(data_json["members"]["pScissors"]["me
         }();pScissors=temp_AUGsNjr;}();
 
 
+    PFN_vkCmdSetScissor call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetScissor)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetScissor");
+        call_function=(PFN_vkCmdSetScissor)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetScissor");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetScissor)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetScissor");
+        call_function=(PFN_vkCmdSetScissor)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetScissor");
     }  
     
 call_function(commandBuffer, firstScissor, scissorCount, pScissors);
@@ -7291,10 +7526,11 @@ float lineWidth
 lineWidth=deserialize_float(data_json["members"]["lineWidth"]);}();
 
 
+    PFN_vkCmdSetLineWidth call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetLineWidth)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLineWidth");
+        call_function=(PFN_vkCmdSetLineWidth)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLineWidth");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetLineWidth)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLineWidth");
+        call_function=(PFN_vkCmdSetLineWidth)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLineWidth");
     }  
     
 call_function(commandBuffer, lineWidth);
@@ -7333,10 +7569,11 @@ float depthBiasSlopeFactor
 depthBiasSlopeFactor=deserialize_float(data_json["members"]["depthBiasSlopeFactor"]);}();
 
 
+    PFN_vkCmdSetDepthBias call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDepthBias)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBias");
+        call_function=(PFN_vkCmdSetDepthBias)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBias");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDepthBias)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBias");
+        call_function=(PFN_vkCmdSetDepthBias)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBias");
     }  
     
 call_function(commandBuffer, depthBiasConstantFactor, depthBiasClamp, depthBiasSlopeFactor);
@@ -7379,10 +7616,11 @@ temp_xOjjxVh=deserialize_float(data_json["members"]["blendConstants"]["members"]
         }();
 
 
+    PFN_vkCmdSetBlendConstants call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetBlendConstants)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetBlendConstants");
+        call_function=(PFN_vkCmdSetBlendConstants)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetBlendConstants");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetBlendConstants)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetBlendConstants");
+        call_function=(PFN_vkCmdSetBlendConstants)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetBlendConstants");
     }  
     
 call_function(commandBuffer, blendConstants);
@@ -7427,10 +7665,11 @@ float maxDepthBounds
 maxDepthBounds=deserialize_float(data_json["members"]["maxDepthBounds"]);}();
 
 
+    PFN_vkCmdSetDepthBounds call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDepthBounds)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBounds");
+        call_function=(PFN_vkCmdSetDepthBounds)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBounds");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDepthBounds)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBounds");
+        call_function=(PFN_vkCmdSetDepthBounds)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBounds");
     }  
     
 call_function(commandBuffer, minDepthBounds, maxDepthBounds);
@@ -7468,10 +7707,11 @@ uint32_t compareMask
 compareMask=deserialize_uint32_t(data_json["members"]["compareMask"]);}();
 
 
+    PFN_vkCmdSetStencilCompareMask call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetStencilCompareMask)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilCompareMask");
+        call_function=(PFN_vkCmdSetStencilCompareMask)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilCompareMask");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetStencilCompareMask)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilCompareMask");
+        call_function=(PFN_vkCmdSetStencilCompareMask)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilCompareMask");
     }  
     
 call_function(commandBuffer, faceMask, compareMask);
@@ -7509,10 +7749,11 @@ uint32_t writeMask
 writeMask=deserialize_uint32_t(data_json["members"]["writeMask"]);}();
 
 
+    PFN_vkCmdSetStencilWriteMask call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetStencilWriteMask)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilWriteMask");
+        call_function=(PFN_vkCmdSetStencilWriteMask)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilWriteMask");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetStencilWriteMask)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilWriteMask");
+        call_function=(PFN_vkCmdSetStencilWriteMask)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilWriteMask");
     }  
     
 call_function(commandBuffer, faceMask, writeMask);
@@ -7550,10 +7791,11 @@ uint32_t reference
 reference=deserialize_uint32_t(data_json["members"]["reference"]);}();
 
 
+    PFN_vkCmdSetStencilReference call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetStencilReference)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilReference");
+        call_function=(PFN_vkCmdSetStencilReference)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilReference");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetStencilReference)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilReference");
+        call_function=(PFN_vkCmdSetStencilReference)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilReference");
     }  
     
 call_function(commandBuffer, faceMask, reference);
@@ -7633,10 +7875,11 @@ temp_iFLYWVY[hoxdCOd]=deserialize_uint32_t(data_json["members"]["pDynamicOffsets
         }();pDynamicOffsets=temp_iFLYWVY;}();
 
 
+    PFN_vkCmdBindDescriptorSets call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBindDescriptorSets)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindDescriptorSets");
+        call_function=(PFN_vkCmdBindDescriptorSets)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindDescriptorSets");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBindDescriptorSets)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindDescriptorSets");
+        call_function=(PFN_vkCmdBindDescriptorSets)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindDescriptorSets");
     }  
     
 call_function(commandBuffer, pipelineBindPoint, layout, firstSet, descriptorSetCount, pDescriptorSets, dynamicOffsetCount, pDynamicOffsets);
@@ -7724,10 +7967,11 @@ VkIndexType indexType
 indexType=deserialize_VkIndexType(data_json["members"]["indexType"]);}();
 
 
+    PFN_vkCmdBindIndexBuffer call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBindIndexBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindIndexBuffer");
+        call_function=(PFN_vkCmdBindIndexBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindIndexBuffer");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBindIndexBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindIndexBuffer");
+        call_function=(PFN_vkCmdBindIndexBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindIndexBuffer");
     }  
     
 call_function(commandBuffer, buffer, offset, indexType);
@@ -7806,10 +8050,11 @@ temp_fXuGhdz[YBrawfj]=deserialize_uint64_t(data_json["members"]["pOffsets"]["mem
         }();}();pOffsets=temp_fXuGhdz;}();
 
 
+    PFN_vkCmdBindVertexBuffers call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBindVertexBuffers)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindVertexBuffers");
+        call_function=(PFN_vkCmdBindVertexBuffers)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindVertexBuffers");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBindVertexBuffers)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindVertexBuffers");
+        call_function=(PFN_vkCmdBindVertexBuffers)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindVertexBuffers");
     }  
     
 call_function(commandBuffer, firstBinding, bindingCount, pBuffers, pOffsets);
@@ -7893,10 +8138,11 @@ uint32_t firstInstance
 firstInstance=deserialize_uint32_t(data_json["members"]["firstInstance"]);}();
 
 
+    PFN_vkCmdDraw call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDraw)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDraw");
+        call_function=(PFN_vkCmdDraw)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDraw");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDraw)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDraw");
+        call_function=(PFN_vkCmdDraw)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDraw");
     }  
     
 call_function(commandBuffer, vertexCount, instanceCount, firstVertex, firstInstance);
@@ -7952,10 +8198,11 @@ uint32_t firstInstance
 firstInstance=deserialize_uint32_t(data_json["members"]["firstInstance"]);}();
 
 
+    PFN_vkCmdDrawIndexed call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawIndexed)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexed");
+        call_function=(PFN_vkCmdDrawIndexed)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexed");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawIndexed)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexed");
+        call_function=(PFN_vkCmdDrawIndexed)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexed");
     }  
     
 call_function(commandBuffer, indexCount, instanceCount, firstIndex, vertexOffset, firstInstance);
@@ -8025,10 +8272,11 @@ uint32_t stride
 stride=deserialize_uint32_t(data_json["members"]["stride"]);}();
 
 
+    PFN_vkCmdDrawMultiEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawMultiEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMultiEXT");
+        call_function=(PFN_vkCmdDrawMultiEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMultiEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawMultiEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMultiEXT");
+        call_function=(PFN_vkCmdDrawMultiEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMultiEXT");
     }  
     
 call_function(commandBuffer, drawCount, pVertexInfo, instanceCount, firstInstance, stride);
@@ -8126,10 +8374,11 @@ int32_t* temp_gkJtxXz;[&]() {
 }();pVertexOffset=temp_gkJtxXz;}();
 
 
+    PFN_vkCmdDrawMultiIndexedEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawMultiIndexedEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMultiIndexedEXT");
+        call_function=(PFN_vkCmdDrawMultiIndexedEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMultiIndexedEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawMultiIndexedEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMultiIndexedEXT");
+        call_function=(PFN_vkCmdDrawMultiIndexedEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMultiIndexedEXT");
     }  
     
 call_function(commandBuffer, drawCount, pIndexInfo, instanceCount, firstInstance, stride, pVertexOffset);
@@ -8211,10 +8460,11 @@ uint32_t stride
 stride=deserialize_uint32_t(data_json["members"]["stride"]);}();
 
 
+    PFN_vkCmdDrawIndirect call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawIndirect)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirect");
+        call_function=(PFN_vkCmdDrawIndirect)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirect");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawIndirect)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirect");
+        call_function=(PFN_vkCmdDrawIndirect)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirect");
     }  
     
 call_function(commandBuffer, buffer, offset, drawCount, stride);
@@ -8269,10 +8519,11 @@ uint32_t stride
 stride=deserialize_uint32_t(data_json["members"]["stride"]);}();
 
 
+    PFN_vkCmdDrawIndexedIndirect call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawIndexedIndirect)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexedIndirect");
+        call_function=(PFN_vkCmdDrawIndexedIndirect)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexedIndirect");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawIndexedIndirect)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexedIndirect");
+        call_function=(PFN_vkCmdDrawIndexedIndirect)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexedIndirect");
     }  
     
 call_function(commandBuffer, buffer, offset, drawCount, stride);
@@ -8322,10 +8573,11 @@ uint32_t groupCountZ
 groupCountZ=deserialize_uint32_t(data_json["members"]["groupCountZ"]);}();
 
 
+    PFN_vkCmdDispatch call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDispatch)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDispatch");
+        call_function=(PFN_vkCmdDispatch)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDispatch");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDispatch)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDispatch");
+        call_function=(PFN_vkCmdDispatch)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDispatch");
     }  
     
 call_function(commandBuffer, groupCountX, groupCountY, groupCountZ);
@@ -8367,10 +8619,11 @@ VkDeviceSize offset
 offset=deserialize_uint64_t(data_json["members"]["offset"]);}();}();
 
 
+    PFN_vkCmdDispatchIndirect call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDispatchIndirect)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDispatchIndirect");
+        call_function=(PFN_vkCmdDispatchIndirect)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDispatchIndirect");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDispatchIndirect)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDispatchIndirect");
+        call_function=(PFN_vkCmdDispatchIndirect)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDispatchIndirect");
     }  
     
 call_function(commandBuffer, buffer, offset);
@@ -8402,10 +8655,11 @@ VkCommandBuffer commandBuffer
 commandBuffer=deserialize_VkCommandBuffer(data_json["members"]["commandBuffer"]);}();
 
 
+    PFN_vkCmdSubpassShadingHUAWEI call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSubpassShadingHUAWEI)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSubpassShadingHUAWEI");
+        call_function=(PFN_vkCmdSubpassShadingHUAWEI)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSubpassShadingHUAWEI");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSubpassShadingHUAWEI)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSubpassShadingHUAWEI");
+        call_function=(PFN_vkCmdSubpassShadingHUAWEI)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSubpassShadingHUAWEI");
     }  
     
 call_function(commandBuffer);
@@ -8441,10 +8695,11 @@ uint32_t groupCountZ
 groupCountZ=deserialize_uint32_t(data_json["members"]["groupCountZ"]);}();
 
 
+    PFN_vkCmdDrawClusterHUAWEI call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawClusterHUAWEI)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawClusterHUAWEI");
+        call_function=(PFN_vkCmdDrawClusterHUAWEI)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawClusterHUAWEI");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawClusterHUAWEI)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawClusterHUAWEI");
+        call_function=(PFN_vkCmdDrawClusterHUAWEI)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawClusterHUAWEI");
     }  
     
 call_function(commandBuffer, groupCountX, groupCountY, groupCountZ);
@@ -8486,10 +8741,11 @@ VkDeviceSize offset
 offset=deserialize_uint64_t(data_json["members"]["offset"]);}();}();
 
 
+    PFN_vkCmdDrawClusterIndirectHUAWEI call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawClusterIndirectHUAWEI)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawClusterIndirectHUAWEI");
+        call_function=(PFN_vkCmdDrawClusterIndirectHUAWEI)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawClusterIndirectHUAWEI");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawClusterIndirectHUAWEI)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawClusterIndirectHUAWEI");
+        call_function=(PFN_vkCmdDrawClusterIndirectHUAWEI)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawClusterIndirectHUAWEI");
     }  
     
 call_function(commandBuffer, buffer, offset);
@@ -8529,10 +8785,11 @@ VkPipeline                    pipeline
 pipeline=deserialize_VkPipeline(data_json["members"]["pipeline"]);}();
 
 
+    PFN_vkCmdUpdatePipelineIndirectBufferNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdUpdatePipelineIndirectBufferNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdUpdatePipelineIndirectBufferNV");
+        call_function=(PFN_vkCmdUpdatePipelineIndirectBufferNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdUpdatePipelineIndirectBufferNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdUpdatePipelineIndirectBufferNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdUpdatePipelineIndirectBufferNV");
+        call_function=(PFN_vkCmdUpdatePipelineIndirectBufferNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdUpdatePipelineIndirectBufferNV");
     }  
     
 call_function(commandBuffer, pipelineBindPoint, pipeline);
@@ -8589,10 +8846,11 @@ temp_zpdOGaU[SqgDlEJ]=deserialize_VkBufferCopy(data_json["members"]["pRegions"][
         }();pRegions=temp_zpdOGaU;}();
 
 
+    PFN_vkCmdCopyBuffer call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBuffer");
+        call_function=(PFN_vkCmdCopyBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBuffer");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBuffer");
+        call_function=(PFN_vkCmdCopyBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBuffer");
     }  
     
 call_function(commandBuffer, srcBuffer, dstBuffer, regionCount, pRegions);
@@ -8678,10 +8936,11 @@ temp_dstBcAV[cmDxNsq]=deserialize_VkImageCopy(data_json["members"]["pRegions"]["
         }();pRegions=temp_dstBcAV;}();
 
 
+    PFN_vkCmdCopyImage call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyImage)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImage");
+        call_function=(PFN_vkCmdCopyImage)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImage");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyImage)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImage");
+        call_function=(PFN_vkCmdCopyImage)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImage");
     }  
     
 call_function(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
@@ -8777,10 +9036,11 @@ VkFilter filter
 filter=deserialize_VkFilter(data_json["members"]["filter"]);}();
 
 
+    PFN_vkCmdBlitImage call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBlitImage)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBlitImage");
+        call_function=(PFN_vkCmdBlitImage)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBlitImage");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBlitImage)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBlitImage");
+        call_function=(PFN_vkCmdBlitImage)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBlitImage");
     }  
     
 call_function(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions, filter);
@@ -8871,10 +9131,11 @@ temp_Uqaitrj[EhFzbhg]=deserialize_VkBufferImageCopy(data_json["members"]["pRegio
         }();pRegions=temp_Uqaitrj;}();
 
 
+    PFN_vkCmdCopyBufferToImage call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyBufferToImage)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBufferToImage");
+        call_function=(PFN_vkCmdCopyBufferToImage)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBufferToImage");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyBufferToImage)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBufferToImage");
+        call_function=(PFN_vkCmdCopyBufferToImage)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBufferToImage");
     }  
     
 call_function(commandBuffer, srcBuffer, dstImage, dstImageLayout, regionCount, pRegions);
@@ -8959,10 +9220,11 @@ temp_Uqaitrj[EhFzbhg]=deserialize_VkBufferImageCopy(data_json["members"]["pRegio
         }();pRegions=temp_Uqaitrj;}();
 
 
+    PFN_vkCmdCopyImageToBuffer call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyImageToBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImageToBuffer");
+        call_function=(PFN_vkCmdCopyImageToBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImageToBuffer");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyImageToBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImageToBuffer");
+        call_function=(PFN_vkCmdCopyImageToBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImageToBuffer");
     }  
     
 call_function(commandBuffer, srcImage, srcImageLayout, dstBuffer, regionCount, pRegions);
@@ -9029,10 +9291,11 @@ uint32_t stride
 stride=deserialize_uint32_t(data_json["members"]["stride"]);}();
 
 
+    PFN_vkCmdCopyMemoryIndirectNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyMemoryIndirectNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMemoryIndirectNV");
+        call_function=(PFN_vkCmdCopyMemoryIndirectNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMemoryIndirectNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyMemoryIndirectNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMemoryIndirectNV");
+        call_function=(PFN_vkCmdCopyMemoryIndirectNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMemoryIndirectNV");
     }  
     
 call_function(commandBuffer, copyBufferAddress, copyCount, stride);
@@ -9103,10 +9366,11 @@ temp_VNmYtle[yXwcxCb]=deserialize_VkImageSubresourceLayers(data_json["members"][
         }();pImageSubresources=temp_VNmYtle;}();
 
 
+    PFN_vkCmdCopyMemoryToImageIndirectNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyMemoryToImageIndirectNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMemoryToImageIndirectNV");
+        call_function=(PFN_vkCmdCopyMemoryToImageIndirectNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMemoryToImageIndirectNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyMemoryToImageIndirectNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMemoryToImageIndirectNV");
+        call_function=(PFN_vkCmdCopyMemoryToImageIndirectNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMemoryToImageIndirectNV");
     }  
     
 call_function(commandBuffer, copyBufferAddress, copyCount, stride, dstImage, dstImageLayout, pImageSubresources);
@@ -9186,14 +9450,26 @@ void* temp_UfbnUEl;[&]() {
         temp_UfbnUEl=NULL;
         return;
         }
-    temp_UfbnUEl=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(dataSize*sizeof(char));
+        for (int cHEVDjz=0; cHEVDjz < dataSize; cHEVDjz++){
+            [&]() {
+temp[cHEVDjz]=deserialize_char(data_json["members"]["pData"]["members"][cHEVDjz]);}();;
+        }
+        }();temp_UfbnUEl=(void*)temp;
 }();pData=temp_UfbnUEl;}();
 
 
+    PFN_vkCmdUpdateBuffer call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdUpdateBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdUpdateBuffer");
+        call_function=(PFN_vkCmdUpdateBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdUpdateBuffer");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdUpdateBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdUpdateBuffer");
+        call_function=(PFN_vkCmdUpdateBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdUpdateBuffer");
     }  
     
 call_function(commandBuffer, dstBuffer, dstOffset, dataSize, pData);
@@ -9224,8 +9500,24 @@ result["members"]["pData"]=[&]() {
             return_wzShuSQ["null"]=true;
             return return_wzShuSQ;
         }
-        return serialize_void_p(pData);
-}();
+        return_wzShuSQ=[&]() {
+    json return_HDgIRlh=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_HDgIRlh["null"]=true;
+            return return_HDgIRlh;
+        }
+        
+        return_HDgIRlh["members"]={};
+        for(int HDgIRlh=0; HDgIRlh < dataSize; HDgIRlh++){
+            json temp;
+            temp=[&]() {
+    json return_yxBkhlT=json({});
+    return serialize_char(((char*)(pData))[HDgIRlh]);}();
+            return_HDgIRlh["members"].push_back(temp);
+        }
+        return return_HDgIRlh;
+        }();return return_wzShuSQ;}();
 
         writeToConn(result);
     }
@@ -9257,10 +9549,11 @@ uint32_t data
 data=deserialize_uint32_t(data_json["members"]["data"]);}();
 
 
+    PFN_vkCmdFillBuffer call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdFillBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdFillBuffer");
+        call_function=(PFN_vkCmdFillBuffer)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdFillBuffer");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdFillBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdFillBuffer");
+        call_function=(PFN_vkCmdFillBuffer)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdFillBuffer");
     }  
     
 call_function(commandBuffer, dstBuffer, dstOffset, size, data);
@@ -9340,10 +9633,11 @@ temp_RqOHUqm[gRFDgvN]=deserialize_VkImageSubresourceRange(data_json["members"]["
         }();pRanges=temp_RqOHUqm;}();
 
 
+    PFN_vkCmdClearColorImage call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdClearColorImage)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdClearColorImage");
+        call_function=(PFN_vkCmdClearColorImage)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdClearColorImage");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdClearColorImage)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdClearColorImage");
+        call_function=(PFN_vkCmdClearColorImage)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdClearColorImage");
     }  
     
 call_function(commandBuffer, image, imageLayout, pColor, rangeCount, pRanges);
@@ -9445,10 +9739,11 @@ temp_RqOHUqm[gRFDgvN]=deserialize_VkImageSubresourceRange(data_json["members"]["
         }();pRanges=temp_RqOHUqm;}();
 
 
+    PFN_vkCmdClearDepthStencilImage call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdClearDepthStencilImage)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdClearDepthStencilImage");
+        call_function=(PFN_vkCmdClearDepthStencilImage)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdClearDepthStencilImage");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdClearDepthStencilImage)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdClearDepthStencilImage");
+        call_function=(PFN_vkCmdClearDepthStencilImage)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdClearDepthStencilImage");
     }  
     
 call_function(commandBuffer, image, imageLayout, pDepthStencil, rangeCount, pRanges);
@@ -9548,10 +9843,11 @@ temp_tpwIIiC[WWGujOr]=deserialize_VkClearRect(data_json["members"]["pRects"]["me
         }();pRects=temp_tpwIIiC;}();
 
 
+    PFN_vkCmdClearAttachments call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdClearAttachments)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdClearAttachments");
+        call_function=(PFN_vkCmdClearAttachments)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdClearAttachments");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdClearAttachments)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdClearAttachments");
+        call_function=(PFN_vkCmdClearAttachments)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdClearAttachments");
     }  
     
 call_function(commandBuffer, attachmentCount, pAttachments, rectCount, pRects);
@@ -9652,10 +9948,11 @@ temp_ZAktmIh[LZaFUHG]=deserialize_VkImageResolve(data_json["members"]["pRegions"
         }();pRegions=temp_ZAktmIh;}();
 
 
+    PFN_vkCmdResolveImage call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdResolveImage)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResolveImage");
+        call_function=(PFN_vkCmdResolveImage)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResolveImage");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdResolveImage)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResolveImage");
+        call_function=(PFN_vkCmdResolveImage)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResolveImage");
     }  
     
 call_function(commandBuffer, srcImage, srcImageLayout, dstImage, dstImageLayout, regionCount, pRegions);
@@ -9720,10 +10017,11 @@ VkPipelineStageFlags stageMask
 stageMask=deserialize_VkPipelineStageFlags(data_json["members"]["stageMask"]);}();
 
 
+    PFN_vkCmdSetEvent call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetEvent)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetEvent");
+        call_function=(PFN_vkCmdSetEvent)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetEvent");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetEvent)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetEvent");
+        call_function=(PFN_vkCmdSetEvent)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetEvent");
     }  
     
 call_function(commandBuffer, event, stageMask);
@@ -9761,10 +10059,11 @@ VkPipelineStageFlags stageMask
 stageMask=deserialize_VkPipelineStageFlags(data_json["members"]["stageMask"]);}();
 
 
+    PFN_vkCmdResetEvent call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdResetEvent)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResetEvent");
+        call_function=(PFN_vkCmdResetEvent)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResetEvent");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdResetEvent)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResetEvent");
+        call_function=(PFN_vkCmdResetEvent)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResetEvent");
     }  
     
 call_function(commandBuffer, event, stageMask);
@@ -9878,10 +10177,11 @@ temp_nCSzFhY[pqmvZMk]=deserialize_VkImageMemoryBarrier(data_json["members"]["pIm
         }();pImageMemoryBarriers=temp_nCSzFhY;}();
 
 
+    PFN_vkCmdWaitEvents call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdWaitEvents)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWaitEvents");
+        call_function=(PFN_vkCmdWaitEvents)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWaitEvents");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdWaitEvents)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWaitEvents");
+        call_function=(PFN_vkCmdWaitEvents)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWaitEvents");
     }  
     
 call_function(commandBuffer, eventCount, pEvents, srcStageMask, dstStageMask, memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers, imageMemoryBarrierCount, pImageMemoryBarriers);
@@ -10064,10 +10364,11 @@ temp_nCSzFhY[pqmvZMk]=deserialize_VkImageMemoryBarrier(data_json["members"]["pIm
         }();pImageMemoryBarriers=temp_nCSzFhY;}();
 
 
+    PFN_vkCmdPipelineBarrier call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdPipelineBarrier)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPipelineBarrier");
+        call_function=(PFN_vkCmdPipelineBarrier)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPipelineBarrier");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdPipelineBarrier)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPipelineBarrier");
+        call_function=(PFN_vkCmdPipelineBarrier)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPipelineBarrier");
     }  
     
 call_function(commandBuffer, srcStageMask, dstStageMask, dependencyFlags, memoryBarrierCount, pMemoryBarriers, bufferMemoryBarrierCount, pBufferMemoryBarriers, imageMemoryBarrierCount, pImageMemoryBarriers);
@@ -10175,10 +10476,11 @@ VkQueryControlFlags flags
 flags=deserialize_VkQueryControlFlags(data_json["members"]["flags"]);}();
 
 
+    PFN_vkCmdBeginQuery call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBeginQuery)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginQuery");
+        call_function=(PFN_vkCmdBeginQuery)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginQuery");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBeginQuery)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginQuery");
+        call_function=(PFN_vkCmdBeginQuery)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginQuery");
     }  
     
 call_function(commandBuffer, queryPool, query, flags);
@@ -10219,10 +10521,11 @@ uint32_t query
 query=deserialize_uint32_t(data_json["members"]["query"]);}();
 
 
+    PFN_vkCmdEndQuery call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdEndQuery)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndQuery");
+        call_function=(PFN_vkCmdEndQuery)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndQuery");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdEndQuery)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndQuery");
+        call_function=(PFN_vkCmdEndQuery)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndQuery");
     }  
     
 call_function(commandBuffer, queryPool, query);
@@ -10265,10 +10568,11 @@ VkConditionalRenderingBeginInfoEXT* temp_DrkoCMd;[&]() {
 }();pConditionalRenderingBegin=temp_DrkoCMd;}();
 
 
+    PFN_vkCmdBeginConditionalRenderingEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBeginConditionalRenderingEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginConditionalRenderingEXT");
+        call_function=(PFN_vkCmdBeginConditionalRenderingEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginConditionalRenderingEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBeginConditionalRenderingEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginConditionalRenderingEXT");
+        call_function=(PFN_vkCmdBeginConditionalRenderingEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginConditionalRenderingEXT");
     }  
     
 call_function(commandBuffer, pConditionalRenderingBegin);
@@ -10303,10 +10607,11 @@ VkCommandBuffer commandBuffer
 commandBuffer=deserialize_VkCommandBuffer(data_json["members"]["commandBuffer"]);}();
 
 
+    PFN_vkCmdEndConditionalRenderingEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdEndConditionalRenderingEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndConditionalRenderingEXT");
+        call_function=(PFN_vkCmdEndConditionalRenderingEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndConditionalRenderingEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdEndConditionalRenderingEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndConditionalRenderingEXT");
+        call_function=(PFN_vkCmdEndConditionalRenderingEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndConditionalRenderingEXT");
     }  
     
 call_function(commandBuffer);
@@ -10342,10 +10647,11 @@ uint32_t queryCount
 queryCount=deserialize_uint32_t(data_json["members"]["queryCount"]);}();
 
 
+    PFN_vkCmdResetQueryPool call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdResetQueryPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResetQueryPool");
+        call_function=(PFN_vkCmdResetQueryPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResetQueryPool");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdResetQueryPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResetQueryPool");
+        call_function=(PFN_vkCmdResetQueryPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResetQueryPool");
     }  
     
 call_function(commandBuffer, queryPool, firstQuery, queryCount);
@@ -10390,10 +10696,11 @@ uint32_t query
 query=deserialize_uint32_t(data_json["members"]["query"]);}();
 
 
+    PFN_vkCmdWriteTimestamp call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdWriteTimestamp)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteTimestamp");
+        call_function=(PFN_vkCmdWriteTimestamp)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteTimestamp");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdWriteTimestamp)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteTimestamp");
+        call_function=(PFN_vkCmdWriteTimestamp)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteTimestamp");
     }  
     
 call_function(commandBuffer, pipelineStage, queryPool, query);
@@ -10456,10 +10763,11 @@ VkQueryResultFlags flags
 flags=deserialize_VkQueryResultFlags(data_json["members"]["flags"]);}();
 
 
+    PFN_vkCmdCopyQueryPoolResults call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyQueryPoolResults)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyQueryPoolResults");
+        call_function=(PFN_vkCmdCopyQueryPoolResults)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyQueryPoolResults");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyQueryPoolResults)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyQueryPoolResults");
+        call_function=(PFN_vkCmdCopyQueryPoolResults)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyQueryPoolResults");
     }  
     
 call_function(commandBuffer, queryPool, firstQuery, queryCount, dstBuffer, dstOffset, stride, flags);
@@ -10531,14 +10839,26 @@ void* temp_jdgMsUN;[&]() {
         temp_jdgMsUN=NULL;
         return;
         }
-    temp_jdgMsUN=deserialize_void_p(data_json["members"]["pValues"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pValues"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(size*sizeof(char));
+        for (int ENOouqW=0; ENOouqW < size; ENOouqW++){
+            [&]() {
+temp[ENOouqW]=deserialize_char(data_json["members"]["pValues"]["members"][ENOouqW]);}();;
+        }
+        }();temp_jdgMsUN=(void*)temp;
 }();pValues=temp_jdgMsUN;}();
 
 
+    PFN_vkCmdPushConstants call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdPushConstants)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPushConstants");
+        call_function=(PFN_vkCmdPushConstants)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPushConstants");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdPushConstants)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPushConstants");
+        call_function=(PFN_vkCmdPushConstants)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPushConstants");
     }  
     
 call_function(commandBuffer, layout, stageFlags, offset, size, pValues);
@@ -10568,8 +10888,24 @@ result["members"]["pValues"]=[&]() {
             return_sRPPxyU["null"]=true;
             return return_sRPPxyU;
         }
-        return serialize_void_p(pValues);
-}();
+        return_sRPPxyU=[&]() {
+    json return_SmycgMi=json({});
+    
+        if (((char*)(pValues))==NULL){
+            return_SmycgMi["null"]=true;
+            return return_SmycgMi;
+        }
+        
+        return_SmycgMi["members"]={};
+        for(int SmycgMi=0; SmycgMi < size; SmycgMi++){
+            json temp;
+            temp=[&]() {
+    json return_qrYfIem=json({});
+    return serialize_char(((char*)(pValues))[SmycgMi]);}();
+            return_SmycgMi["members"].push_back(temp);
+        }
+        return return_SmycgMi;
+        }();return return_sRPPxyU;}();
 
         writeToConn(result);
     }
@@ -10600,10 +10936,11 @@ VkSubpassContents contents
 contents=deserialize_VkSubpassContents(data_json["members"]["contents"]);}();
 
 
+    PFN_vkCmdBeginRenderPass call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBeginRenderPass)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRenderPass");
+        call_function=(PFN_vkCmdBeginRenderPass)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRenderPass");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBeginRenderPass)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRenderPass");
+        call_function=(PFN_vkCmdBeginRenderPass)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRenderPass");
     }  
     
 call_function(commandBuffer, pRenderPassBegin, contents);
@@ -10645,10 +10982,11 @@ VkSubpassContents contents
 contents=deserialize_VkSubpassContents(data_json["members"]["contents"]);}();
 
 
+    PFN_vkCmdNextSubpass call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdNextSubpass)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdNextSubpass");
+        call_function=(PFN_vkCmdNextSubpass)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdNextSubpass");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdNextSubpass)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdNextSubpass");
+        call_function=(PFN_vkCmdNextSubpass)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdNextSubpass");
     }  
     
 call_function(commandBuffer, contents);
@@ -10675,10 +11013,11 @@ VkCommandBuffer commandBuffer
 commandBuffer=deserialize_VkCommandBuffer(data_json["members"]["commandBuffer"]);}();
 
 
+    PFN_vkCmdEndRenderPass call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdEndRenderPass)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRenderPass");
+        call_function=(PFN_vkCmdEndRenderPass)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRenderPass");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdEndRenderPass)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRenderPass");
+        call_function=(PFN_vkCmdEndRenderPass)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRenderPass");
     }  
     
 call_function(commandBuffer);
@@ -10721,10 +11060,11 @@ temp_CLYJejR[uuFiKTX]=deserialize_VkCommandBuffer(data_json["members"]["pCommand
         }();pCommandBuffers=temp_CLYJejR;}();
 
 
+    PFN_vkCmdExecuteCommands call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdExecuteCommands)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdExecuteCommands");
+        call_function=(PFN_vkCmdExecuteCommands)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdExecuteCommands");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdExecuteCommands)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdExecuteCommands");
+        call_function=(PFN_vkCmdExecuteCommands)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdExecuteCommands");
     }  
     
 call_function(commandBuffer, commandBufferCount, pCommandBuffers);
@@ -10795,10 +11135,11 @@ pProperties[UBGIEdq]=deserialize_VkDisplayPropertiesKHR(data_json["members"]["pP
         }();
 
 
+    PFN_vkGetPhysicalDeviceDisplayPropertiesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceDisplayPropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceDisplayPropertiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceDisplayPropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceDisplayPropertiesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceDisplayPropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceDisplayPropertiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceDisplayPropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceDisplayPropertiesKHR");
     }  
     
 auto return_value=call_function(physicalDevice, pPropertyCount, pProperties);
@@ -10879,10 +11220,11 @@ pProperties[rwzloiI]=deserialize_VkDisplayPlanePropertiesKHR(data_json["members"
         }();
 
 
+    PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceDisplayPlanePropertiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceDisplayPlanePropertiesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceDisplayPlanePropertiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceDisplayPlanePropertiesKHR");
     }  
     
 auto return_value=call_function(physicalDevice, pPropertyCount, pProperties);
@@ -10967,10 +11309,11 @@ pDisplays[MLGOxnI]=deserialize_VkDisplayKHR(data_json["members"]["pDisplays"]["m
         }();
 
 
+    PFN_vkGetDisplayPlaneSupportedDisplaysKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDisplayPlaneSupportedDisplaysKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayPlaneSupportedDisplaysKHR");
+        call_function=(PFN_vkGetDisplayPlaneSupportedDisplaysKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayPlaneSupportedDisplaysKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDisplayPlaneSupportedDisplaysKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayPlaneSupportedDisplaysKHR");
+        call_function=(PFN_vkGetDisplayPlaneSupportedDisplaysKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayPlaneSupportedDisplaysKHR");
     }  
     
 auto return_value=call_function(physicalDevice, planeIndex, pDisplayCount, pDisplays);
@@ -11058,10 +11401,11 @@ pProperties[QDvRyaa]=deserialize_VkDisplayModePropertiesKHR(data_json["members"]
         }();
 
 
+    PFN_vkGetDisplayModePropertiesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDisplayModePropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayModePropertiesKHR");
+        call_function=(PFN_vkGetDisplayModePropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayModePropertiesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDisplayModePropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayModePropertiesKHR");
+        call_function=(PFN_vkGetDisplayModePropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayModePropertiesKHR");
     }  
     
 auto return_value=call_function(physicalDevice, display, pPropertyCount, pProperties);
@@ -11161,10 +11505,11 @@ VkDisplayModeKHR* pMode
 }();
 
 
+    PFN_vkCreateDisplayModeKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateDisplayModeKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDisplayModeKHR");
+        call_function=(PFN_vkCreateDisplayModeKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDisplayModeKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateDisplayModeKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDisplayModeKHR");
+        call_function=(PFN_vkCreateDisplayModeKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDisplayModeKHR");
     }  
     
 auto return_value=call_function(physicalDevice, display, pCreateInfo, pAllocator, pMode);
@@ -11246,10 +11591,11 @@ VkDisplayPlaneCapabilitiesKHR* pCapabilities
 }();
 
 
+    PFN_vkGetDisplayPlaneCapabilitiesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDisplayPlaneCapabilitiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayPlaneCapabilitiesKHR");
+        call_function=(PFN_vkGetDisplayPlaneCapabilitiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayPlaneCapabilitiesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDisplayPlaneCapabilitiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayPlaneCapabilitiesKHR");
+        call_function=(PFN_vkGetDisplayPlaneCapabilitiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayPlaneCapabilitiesKHR");
     }  
     
 auto return_value=call_function(physicalDevice, mode, planeIndex, pCapabilities);
@@ -11330,10 +11676,11 @@ VkSurfaceKHR* pSurface
 }();
 
 
+    PFN_vkCreateDisplayPlaneSurfaceKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateDisplayPlaneSurfaceKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDisplayPlaneSurfaceKHR");
+        call_function=(PFN_vkCreateDisplayPlaneSurfaceKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDisplayPlaneSurfaceKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateDisplayPlaneSurfaceKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDisplayPlaneSurfaceKHR");
+        call_function=(PFN_vkCreateDisplayPlaneSurfaceKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDisplayPlaneSurfaceKHR");
     }  
     
 auto return_value=call_function(instance, pCreateInfo, pAllocator, pSurface);
@@ -11438,10 +11785,11 @@ pSwapchains[jPhrDDx]=deserialize_VkSwapchainKHR(data_json["members"]["pSwapchain
         }();
 
 
+    PFN_vkCreateSharedSwapchainsKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateSharedSwapchainsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSharedSwapchainsKHR");
+        call_function=(PFN_vkCreateSharedSwapchainsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSharedSwapchainsKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateSharedSwapchainsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSharedSwapchainsKHR");
+        call_function=(PFN_vkCreateSharedSwapchainsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSharedSwapchainsKHR");
     }  
     
 auto return_value=call_function(device, swapchainCount, pCreateInfos, pAllocator, pSwapchains);
@@ -11534,10 +11882,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroySurfaceKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroySurfaceKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySurfaceKHR");
+        call_function=(PFN_vkDestroySurfaceKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySurfaceKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroySurfaceKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySurfaceKHR");
+        call_function=(PFN_vkDestroySurfaceKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySurfaceKHR");
     }  
     
 call_function(instance, surface, pAllocator);
@@ -11601,10 +11950,11 @@ VkBool32* pSupported
 }();}();
 
 
+    PFN_vkGetPhysicalDeviceSurfaceSupportKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSurfaceSupportKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceSupportKHR");
+        call_function=(PFN_vkGetPhysicalDeviceSurfaceSupportKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceSupportKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSurfaceSupportKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceSupportKHR");
+        call_function=(PFN_vkGetPhysicalDeviceSurfaceSupportKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceSupportKHR");
     }  
     
 auto return_value=call_function(physicalDevice, queueFamilyIndex, surface, pSupported);
@@ -11665,10 +12015,11 @@ VkSurfaceCapabilitiesKHR* pSurfaceCapabilities
 }();
 
 
+    PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceCapabilitiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceCapabilitiesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceCapabilitiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceCapabilitiesKHR");
     }  
     
 auto return_value=call_function(physicalDevice, surface, pSurfaceCapabilities);
@@ -11738,10 +12089,11 @@ pSurfaceFormats[KiUeXCt]=deserialize_VkSurfaceFormatKHR(data_json["members"]["pS
         }();
 
 
+    PFN_vkGetPhysicalDeviceSurfaceFormatsKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSurfaceFormatsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceFormatsKHR");
+        call_function=(PFN_vkGetPhysicalDeviceSurfaceFormatsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceFormatsKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSurfaceFormatsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceFormatsKHR");
+        call_function=(PFN_vkGetPhysicalDeviceSurfaceFormatsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceFormatsKHR");
     }  
     
 auto return_value=call_function(physicalDevice, surface, pSurfaceFormatCount, pSurfaceFormats);
@@ -11829,10 +12181,11 @@ pPresentModes[CEqIrxM]=deserialize_VkPresentModeKHR(data_json["members"]["pPrese
         }();
 
 
+    PFN_vkGetPhysicalDeviceSurfacePresentModesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSurfacePresentModesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfacePresentModesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceSurfacePresentModesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfacePresentModesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSurfacePresentModesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfacePresentModesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceSurfacePresentModesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfacePresentModesKHR");
     }  
     
 auto return_value=call_function(physicalDevice, surface, pPresentModeCount, pPresentModes);
@@ -11928,10 +12281,11 @@ VkSwapchainKHR* pSwapchain
 }();
 
 
+    PFN_vkCreateSwapchainKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateSwapchainKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSwapchainKHR");
+        call_function=(PFN_vkCreateSwapchainKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSwapchainKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateSwapchainKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSwapchainKHR");
+        call_function=(PFN_vkCreateSwapchainKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSwapchainKHR");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pSwapchain);
@@ -12007,10 +12361,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroySwapchainKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroySwapchainKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySwapchainKHR");
+        call_function=(PFN_vkDestroySwapchainKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySwapchainKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroySwapchainKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySwapchainKHR");
+        call_function=(PFN_vkDestroySwapchainKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySwapchainKHR");
     }  
     
 call_function(device, swapchain, pAllocator);
@@ -12078,10 +12433,11 @@ pSwapchainImages[ZSksaOD]=deserialize_VkImage(data_json["members"]["pSwapchainIm
         }();
 
 
+    PFN_vkGetSwapchainImagesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetSwapchainImagesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSwapchainImagesKHR");
+        call_function=(PFN_vkGetSwapchainImagesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSwapchainImagesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetSwapchainImagesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSwapchainImagesKHR");
+        call_function=(PFN_vkGetSwapchainImagesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSwapchainImagesKHR");
     }  
     
 auto return_value=call_function(device, swapchain, pSwapchainImageCount, pSwapchainImages);
@@ -12167,10 +12523,11 @@ uint32_t* pImageIndex
 }();
 
 
+    PFN_vkAcquireNextImageKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkAcquireNextImageKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquireNextImageKHR");
+        call_function=(PFN_vkAcquireNextImageKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquireNextImageKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkAcquireNextImageKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquireNextImageKHR");
+        call_function=(PFN_vkAcquireNextImageKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquireNextImageKHR");
     }  
     
 auto return_value=call_function(device, swapchain, timeout, semaphore, fence, pImageIndex);
@@ -12232,10 +12589,11 @@ VkPresentInfoKHR* temp_eMwVcVr;[&]() {
 }();pPresentInfo=temp_eMwVcVr;}();
 
 
+    PFN_vkQueuePresentKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkQueuePresentKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueuePresentKHR");
+        call_function=(PFN_vkQueuePresentKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueuePresentKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkQueuePresentKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueuePresentKHR");
+        call_function=(PFN_vkQueuePresentKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueuePresentKHR");
     }  
     
 auto return_value=call_function(queue, pPresentInfo);
@@ -12310,10 +12668,11 @@ VkSurfaceKHR* pSurface
 }();
 
 
+    PFN_vkCreateXlibSurfaceKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateXlibSurfaceKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateXlibSurfaceKHR");
+        call_function=(PFN_vkCreateXlibSurfaceKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateXlibSurfaceKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateXlibSurfaceKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateXlibSurfaceKHR");
+        call_function=(PFN_vkCreateXlibSurfaceKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateXlibSurfaceKHR");
     }  
     
 auto return_value=call_function(instance, pCreateInfo, pAllocator, pSurface);
@@ -12391,10 +12750,11 @@ visualID=deserialize_VisualID(data_json["members"]["visualID"]);
 }();
 
 
+    PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceXlibPresentationSupportKHR");
+        call_function=(PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceXlibPresentationSupportKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceXlibPresentationSupportKHR");
+        call_function=(PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceXlibPresentationSupportKHR");
     }  
     
 auto return_value=call_function(physicalDevice, queueFamilyIndex, dpy, visualID);
@@ -12476,10 +12836,11 @@ VkSurfaceKHR* pSurface
 }();
 
 
+    PFN_vkCreateXcbSurfaceKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateXcbSurfaceKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateXcbSurfaceKHR");
+        call_function=(PFN_vkCreateXcbSurfaceKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateXcbSurfaceKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateXcbSurfaceKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateXcbSurfaceKHR");
+        call_function=(PFN_vkCreateXcbSurfaceKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateXcbSurfaceKHR");
     }  
     
 auto return_value=call_function(instance, pCreateInfo, pAllocator, pSurface);
@@ -12557,10 +12918,11 @@ visual_id=deserialize_xcb_visualid_t(data_json["members"]["visual_id"]);
 }();
 
 
+    PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceXcbPresentationSupportKHR");
+        call_function=(PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceXcbPresentationSupportKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceXcbPresentationSupportKHR");
+        call_function=(PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceXcbPresentationSupportKHR");
     }  
     
 auto return_value=call_function(physicalDevice, queueFamilyIndex, connection, visual_id);
@@ -12642,10 +13004,11 @@ VkDebugReportCallbackEXT* pCallback
 }();
 
 
+    PFN_vkCreateDebugReportCallbackEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateDebugReportCallbackEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDebugReportCallbackEXT");
+        call_function=(PFN_vkCreateDebugReportCallbackEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDebugReportCallbackEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateDebugReportCallbackEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDebugReportCallbackEXT");
+        call_function=(PFN_vkCreateDebugReportCallbackEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDebugReportCallbackEXT");
     }  
     
 auto return_value=call_function(instance, pCreateInfo, pAllocator, pCallback);
@@ -12721,10 +13084,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyDebugReportCallbackEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyDebugReportCallbackEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDebugReportCallbackEXT");
+        call_function=(PFN_vkDestroyDebugReportCallbackEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDebugReportCallbackEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyDebugReportCallbackEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDebugReportCallbackEXT");
+        call_function=(PFN_vkDestroyDebugReportCallbackEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDebugReportCallbackEXT");
     }  
     
 call_function(instance, callback, pAllocator);
@@ -12789,8 +13153,12 @@ char* temp_UPbMKRN;[&]() {
         temp_UPbMKRN=NULL;
         return;
         }
-    temp_UPbMKRN=deserialize_char_p(data_json["members"]["pLayerPrefix"]);
-}();pLayerPrefix=temp_UPbMKRN;}();
+    temp_UPbMKRN=(char*)malloc(data_json["members"]["pLayerPrefix"].size()*sizeof(char));
+        for (int pmCKyTW=0; pmCKyTW < data_json["members"]["pLayerPrefix"].size(); pmCKyTW++){
+            [&]() {
+temp_UPbMKRN[pmCKyTW]=deserialize_char(data_json["members"]["pLayerPrefix"]["members"][pmCKyTW]);}();;
+        }
+        }();pLayerPrefix=temp_UPbMKRN;}();
 char* pMessage
         ;
 [&]() {
@@ -12800,14 +13168,19 @@ char* temp_axNqXUF;[&]() {
         temp_axNqXUF=NULL;
         return;
         }
-    temp_axNqXUF=deserialize_char_p(data_json["members"]["pMessage"]);
-}();pMessage=temp_axNqXUF;}();
+    temp_axNqXUF=(char*)malloc(data_json["members"]["pMessage"].size()*sizeof(char));
+        for (int SOOXiEc=0; SOOXiEc < data_json["members"]["pMessage"].size(); SOOXiEc++){
+            [&]() {
+temp_axNqXUF[SOOXiEc]=deserialize_char(data_json["members"]["pMessage"]["members"][SOOXiEc]);}();;
+        }
+        }();pMessage=temp_axNqXUF;}();
 
 
+    PFN_vkDebugReportMessageEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDebugReportMessageEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDebugReportMessageEXT");
+        call_function=(PFN_vkDebugReportMessageEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDebugReportMessageEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDebugReportMessageEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDebugReportMessageEXT");
+        call_function=(PFN_vkDebugReportMessageEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDebugReportMessageEXT");
     }  
     
 call_function(instance, flags, objectType, object, location, messageCode, pLayerPrefix, pMessage);
@@ -12840,8 +13213,17 @@ result["members"]["pLayerPrefix"]=[&]() {
             return_HiVuHWN["null"]=true;
             return return_HiVuHWN;
         }
-        return serialize_char_p(pLayerPrefix);
-}();
+        
+        return_HiVuHWN["members"]={};
+        for(int HiVuHWN=0; HiVuHWN < strlen(pLayerPrefix); HiVuHWN++){
+            json temp;
+            temp=[&]() {
+    json return_NzhPjeM=json({});
+    return serialize_char(pLayerPrefix[HiVuHWN]);}();
+            return_HiVuHWN["members"].push_back(temp);
+        }
+        return return_HiVuHWN;
+        }();
 result["members"]["pMessage"]=[&]() {
     json return_cTmvEKt=json({});
     
@@ -12849,8 +13231,17 @@ result["members"]["pMessage"]=[&]() {
             return_cTmvEKt["null"]=true;
             return return_cTmvEKt;
         }
-        return serialize_char_p(pMessage);
-}();
+        
+        return_cTmvEKt["members"]={};
+        for(int cTmvEKt=0; cTmvEKt < strlen(pMessage); cTmvEKt++){
+            json temp;
+            temp=[&]() {
+    json return_eeAZmTG=json({});
+    return serialize_char(pMessage[cTmvEKt]);}();
+            return_cTmvEKt["members"].push_back(temp);
+        }
+        return return_cTmvEKt;
+        }();
 
         writeToConn(result);
     }
@@ -12877,10 +13268,11 @@ VkDebugMarkerObjectNameInfoEXT* temp_yctxuvV;[&]() {
 }();pNameInfo=temp_yctxuvV;}();
 
 
+    PFN_vkDebugMarkerSetObjectNameEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDebugMarkerSetObjectNameEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDebugMarkerSetObjectNameEXT");
+        call_function=(PFN_vkDebugMarkerSetObjectNameEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDebugMarkerSetObjectNameEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDebugMarkerSetObjectNameEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDebugMarkerSetObjectNameEXT");
+        call_function=(PFN_vkDebugMarkerSetObjectNameEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDebugMarkerSetObjectNameEXT");
     }  
     
 auto return_value=call_function(device, pNameInfo);
@@ -12930,10 +13322,11 @@ VkDebugMarkerObjectTagInfoEXT* temp_rOTjxEE;[&]() {
 }();pTagInfo=temp_rOTjxEE;}();
 
 
+    PFN_vkDebugMarkerSetObjectTagEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDebugMarkerSetObjectTagEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDebugMarkerSetObjectTagEXT");
+        call_function=(PFN_vkDebugMarkerSetObjectTagEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDebugMarkerSetObjectTagEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDebugMarkerSetObjectTagEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDebugMarkerSetObjectTagEXT");
+        call_function=(PFN_vkDebugMarkerSetObjectTagEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDebugMarkerSetObjectTagEXT");
     }  
     
 auto return_value=call_function(device, pTagInfo);
@@ -12983,10 +13376,11 @@ VkDebugMarkerMarkerInfoEXT* temp_PwiFIPO;[&]() {
 }();pMarkerInfo=temp_PwiFIPO;}();
 
 
+    PFN_vkCmdDebugMarkerBeginEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDebugMarkerBeginEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDebugMarkerBeginEXT");
+        call_function=(PFN_vkCmdDebugMarkerBeginEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDebugMarkerBeginEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDebugMarkerBeginEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDebugMarkerBeginEXT");
+        call_function=(PFN_vkCmdDebugMarkerBeginEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDebugMarkerBeginEXT");
     }  
     
 call_function(commandBuffer, pMarkerInfo);
@@ -13021,10 +13415,11 @@ VkCommandBuffer commandBuffer
 commandBuffer=deserialize_VkCommandBuffer(data_json["members"]["commandBuffer"]);}();
 
 
+    PFN_vkCmdDebugMarkerEndEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDebugMarkerEndEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDebugMarkerEndEXT");
+        call_function=(PFN_vkCmdDebugMarkerEndEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDebugMarkerEndEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDebugMarkerEndEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDebugMarkerEndEXT");
+        call_function=(PFN_vkCmdDebugMarkerEndEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDebugMarkerEndEXT");
     }  
     
 call_function(commandBuffer);
@@ -13061,10 +13456,11 @@ VkDebugMarkerMarkerInfoEXT* temp_PwiFIPO;[&]() {
 }();pMarkerInfo=temp_PwiFIPO;}();
 
 
+    PFN_vkCmdDebugMarkerInsertEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDebugMarkerInsertEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDebugMarkerInsertEXT");
+        call_function=(PFN_vkCmdDebugMarkerInsertEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDebugMarkerInsertEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDebugMarkerInsertEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDebugMarkerInsertEXT");
+        call_function=(PFN_vkCmdDebugMarkerInsertEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDebugMarkerInsertEXT");
     }  
     
 call_function(commandBuffer, pMarkerInfo);
@@ -13135,10 +13531,11 @@ VkExternalImageFormatPropertiesNV* pExternalImageFormatProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalImageFormatPropertiesNV");
+        call_function=(PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalImageFormatPropertiesNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalImageFormatPropertiesNV");
+        call_function=(PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalImageFormatPropertiesNV");
     }  
     
 auto return_value=call_function(physicalDevice, format, type, tiling, usage, flags, externalHandleType, pExternalImageFormatProperties);
@@ -13211,10 +13608,11 @@ VkGeneratedCommandsInfoNV* temp_VldPwUs;[&]() {
 }();pGeneratedCommandsInfo=temp_VldPwUs;}();
 
 
+    PFN_vkCmdExecuteGeneratedCommandsNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdExecuteGeneratedCommandsNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdExecuteGeneratedCommandsNV");
+        call_function=(PFN_vkCmdExecuteGeneratedCommandsNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdExecuteGeneratedCommandsNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdExecuteGeneratedCommandsNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdExecuteGeneratedCommandsNV");
+        call_function=(PFN_vkCmdExecuteGeneratedCommandsNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdExecuteGeneratedCommandsNV");
     }  
     
 call_function(commandBuffer, isPreprocessed, pGeneratedCommandsInfo);
@@ -13267,10 +13665,11 @@ VkGeneratedCommandsInfoNV* temp_VldPwUs;[&]() {
 }();pGeneratedCommandsInfo=temp_VldPwUs;}();
 
 
+    PFN_vkCmdPreprocessGeneratedCommandsNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdPreprocessGeneratedCommandsNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPreprocessGeneratedCommandsNV");
+        call_function=(PFN_vkCmdPreprocessGeneratedCommandsNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPreprocessGeneratedCommandsNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdPreprocessGeneratedCommandsNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPreprocessGeneratedCommandsNV");
+        call_function=(PFN_vkCmdPreprocessGeneratedCommandsNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPreprocessGeneratedCommandsNV");
     }  
     
 call_function(commandBuffer, pGeneratedCommandsInfo);
@@ -13317,10 +13716,11 @@ uint32_t groupIndex
 groupIndex=deserialize_uint32_t(data_json["members"]["groupIndex"]);}();
 
 
+    PFN_vkCmdBindPipelineShaderGroupNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBindPipelineShaderGroupNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindPipelineShaderGroupNV");
+        call_function=(PFN_vkCmdBindPipelineShaderGroupNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindPipelineShaderGroupNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBindPipelineShaderGroupNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindPipelineShaderGroupNV");
+        call_function=(PFN_vkCmdBindPipelineShaderGroupNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindPipelineShaderGroupNV");
     }  
     
 call_function(commandBuffer, pipelineBindPoint, pipeline, groupIndex);
@@ -13378,10 +13778,11 @@ VkMemoryRequirements2* pMemoryRequirements
 }();
 
 
+    PFN_vkGetGeneratedCommandsMemoryRequirementsNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetGeneratedCommandsMemoryRequirementsNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetGeneratedCommandsMemoryRequirementsNV");
+        call_function=(PFN_vkGetGeneratedCommandsMemoryRequirementsNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetGeneratedCommandsMemoryRequirementsNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetGeneratedCommandsMemoryRequirementsNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetGeneratedCommandsMemoryRequirementsNV");
+        call_function=(PFN_vkGetGeneratedCommandsMemoryRequirementsNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetGeneratedCommandsMemoryRequirementsNV");
     }  
     
 call_function(device, pInfo, pMemoryRequirements);
@@ -13465,10 +13866,11 @@ VkIndirectCommandsLayoutNV* pIndirectCommandsLayout
 }();
 
 
+    PFN_vkCreateIndirectCommandsLayoutNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateIndirectCommandsLayoutNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateIndirectCommandsLayoutNV");
+        call_function=(PFN_vkCreateIndirectCommandsLayoutNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateIndirectCommandsLayoutNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateIndirectCommandsLayoutNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateIndirectCommandsLayoutNV");
+        call_function=(PFN_vkCreateIndirectCommandsLayoutNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateIndirectCommandsLayoutNV");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pIndirectCommandsLayout);
@@ -13544,10 +13946,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyIndirectCommandsLayoutNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyIndirectCommandsLayoutNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyIndirectCommandsLayoutNV");
+        call_function=(PFN_vkDestroyIndirectCommandsLayoutNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyIndirectCommandsLayoutNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyIndirectCommandsLayoutNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyIndirectCommandsLayoutNV");
+        call_function=(PFN_vkDestroyIndirectCommandsLayoutNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyIndirectCommandsLayoutNV");
     }  
     
 call_function(device, indirectCommandsLayout, pAllocator);
@@ -13597,10 +14000,11 @@ VkPhysicalDeviceFeatures2* pFeatures
 }();
 
 
+    PFN_vkGetPhysicalDeviceFeatures2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceFeatures2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFeatures2");
+        call_function=(PFN_vkGetPhysicalDeviceFeatures2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFeatures2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceFeatures2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFeatures2");
+        call_function=(PFN_vkGetPhysicalDeviceFeatures2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFeatures2");
     }  
     
 call_function(physicalDevice, pFeatures);
@@ -13647,10 +14051,11 @@ VkPhysicalDeviceFeatures2* pFeatures
 }();
 
 
+    PFN_vkGetPhysicalDeviceFeatures2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceFeatures2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFeatures2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceFeatures2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFeatures2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceFeatures2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFeatures2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceFeatures2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFeatures2KHR");
     }  
     
 call_function(physicalDevice, pFeatures);
@@ -13697,10 +14102,11 @@ VkPhysicalDeviceProperties2* pProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceProperties2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceProperties2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceProperties2");
+        call_function=(PFN_vkGetPhysicalDeviceProperties2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceProperties2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceProperties2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceProperties2");
+        call_function=(PFN_vkGetPhysicalDeviceProperties2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceProperties2");
     }  
     
 call_function(physicalDevice, pProperties);
@@ -13747,10 +14153,11 @@ VkPhysicalDeviceProperties2* pProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceProperties2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceProperties2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceProperties2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceProperties2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceProperties2KHR");
     }  
     
 call_function(physicalDevice, pProperties);
@@ -13801,10 +14208,11 @@ VkFormatProperties2* pFormatProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceFormatProperties2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceFormatProperties2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFormatProperties2");
+        call_function=(PFN_vkGetPhysicalDeviceFormatProperties2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFormatProperties2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceFormatProperties2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFormatProperties2");
+        call_function=(PFN_vkGetPhysicalDeviceFormatProperties2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFormatProperties2");
     }  
     
 call_function(physicalDevice, format, pFormatProperties);
@@ -13858,10 +14266,11 @@ VkFormatProperties2* pFormatProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceFormatProperties2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceFormatProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFormatProperties2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceFormatProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFormatProperties2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceFormatProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFormatProperties2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceFormatProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFormatProperties2KHR");
     }  
     
 call_function(physicalDevice, format, pFormatProperties);
@@ -13924,10 +14333,11 @@ VkImageFormatProperties2* pImageFormatProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceImageFormatProperties2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceImageFormatProperties2");
+        call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceImageFormatProperties2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceImageFormatProperties2");
+        call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceImageFormatProperties2");
     }  
     
 auto return_value=call_function(physicalDevice, pImageFormatInfo, pImageFormatProperties);
@@ -14000,10 +14410,11 @@ VkImageFormatProperties2* pImageFormatProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceImageFormatProperties2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceImageFormatProperties2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceImageFormatProperties2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceImageFormatProperties2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceImageFormatProperties2KHR");
     }  
     
 auto return_value=call_function(physicalDevice, pImageFormatInfo, pImageFormatProperties);
@@ -14077,10 +14488,11 @@ pQueueFamilyProperties[iRalRZs]=deserialize_VkQueueFamilyProperties2(data_json["
         }();
 
 
+    PFN_vkGetPhysicalDeviceQueueFamilyProperties2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceQueueFamilyProperties2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceQueueFamilyProperties2");
+        call_function=(PFN_vkGetPhysicalDeviceQueueFamilyProperties2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceQueueFamilyProperties2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceQueueFamilyProperties2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceQueueFamilyProperties2");
+        call_function=(PFN_vkGetPhysicalDeviceQueueFamilyProperties2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceQueueFamilyProperties2");
     }  
     
 call_function(physicalDevice, pQueueFamilyPropertyCount, pQueueFamilyProperties);
@@ -14159,10 +14571,11 @@ pQueueFamilyProperties[iRalRZs]=deserialize_VkQueueFamilyProperties2(data_json["
         }();
 
 
+    PFN_vkGetPhysicalDeviceQueueFamilyProperties2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceQueueFamilyProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceQueueFamilyProperties2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceQueueFamilyProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceQueueFamilyProperties2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceQueueFamilyProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceQueueFamilyProperties2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceQueueFamilyProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceQueueFamilyProperties2KHR");
     }  
     
 call_function(physicalDevice, pQueueFamilyPropertyCount, pQueueFamilyProperties);
@@ -14227,10 +14640,11 @@ VkPhysicalDeviceMemoryProperties2* pMemoryProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceMemoryProperties2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceMemoryProperties2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceMemoryProperties2");
+        call_function=(PFN_vkGetPhysicalDeviceMemoryProperties2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceMemoryProperties2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceMemoryProperties2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceMemoryProperties2");
+        call_function=(PFN_vkGetPhysicalDeviceMemoryProperties2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceMemoryProperties2");
     }  
     
 call_function(physicalDevice, pMemoryProperties);
@@ -14277,10 +14691,11 @@ VkPhysicalDeviceMemoryProperties2* pMemoryProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceMemoryProperties2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceMemoryProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceMemoryProperties2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceMemoryProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceMemoryProperties2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceMemoryProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceMemoryProperties2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceMemoryProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceMemoryProperties2KHR");
     }  
     
 call_function(physicalDevice, pMemoryProperties);
@@ -14354,10 +14769,11 @@ pProperties[qluzKbT]=deserialize_VkSparseImageFormatProperties2(data_json["membe
         }();
 
 
+    PFN_vkGetPhysicalDeviceSparseImageFormatProperties2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSparseImageFormatProperties2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSparseImageFormatProperties2");
+        call_function=(PFN_vkGetPhysicalDeviceSparseImageFormatProperties2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSparseImageFormatProperties2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSparseImageFormatProperties2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSparseImageFormatProperties2");
+        call_function=(PFN_vkGetPhysicalDeviceSparseImageFormatProperties2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSparseImageFormatProperties2");
     }  
     
 call_function(physicalDevice, pFormatInfo, pPropertyCount, pProperties);
@@ -14460,10 +14876,11 @@ pProperties[qluzKbT]=deserialize_VkSparseImageFormatProperties2(data_json["membe
         }();
 
 
+    PFN_vkGetPhysicalDeviceSparseImageFormatProperties2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSparseImageFormatProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSparseImageFormatProperties2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceSparseImageFormatProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSparseImageFormatProperties2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSparseImageFormatProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSparseImageFormatProperties2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceSparseImageFormatProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSparseImageFormatProperties2KHR");
     }  
     
 call_function(physicalDevice, pFormatInfo, pPropertyCount, pProperties);
@@ -14558,10 +14975,11 @@ temp_lCbPOPR[NCSUctF]=deserialize_VkWriteDescriptorSet(data_json["members"]["pDe
         }();pDescriptorWrites=temp_lCbPOPR;}();
 
 
+    PFN_vkCmdPushDescriptorSetKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdPushDescriptorSetKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPushDescriptorSetKHR");
+        call_function=(PFN_vkCmdPushDescriptorSetKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPushDescriptorSetKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdPushDescriptorSetKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPushDescriptorSetKHR");
+        call_function=(PFN_vkCmdPushDescriptorSetKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPushDescriptorSetKHR");
     }  
     
 call_function(commandBuffer, pipelineBindPoint, layout, set, descriptorWriteCount, pDescriptorWrites);
@@ -14623,10 +15041,11 @@ VkCommandPoolTrimFlags flags
 flags=deserialize_VkCommandPoolTrimFlags(data_json["members"]["flags"]);}();
 
 
+    PFN_vkTrimCommandPool call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkTrimCommandPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkTrimCommandPool");
+        call_function=(PFN_vkTrimCommandPool)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkTrimCommandPool");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkTrimCommandPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkTrimCommandPool");
+        call_function=(PFN_vkTrimCommandPool)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkTrimCommandPool");
     }  
     
 call_function(device, commandPool, flags);
@@ -14664,10 +15083,11 @@ VkCommandPoolTrimFlags flags
 flags=deserialize_VkCommandPoolTrimFlags(data_json["members"]["flags"]);}();
 
 
+    PFN_vkTrimCommandPoolKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkTrimCommandPoolKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkTrimCommandPoolKHR");
+        call_function=(PFN_vkTrimCommandPoolKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkTrimCommandPoolKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkTrimCommandPoolKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkTrimCommandPoolKHR");
+        call_function=(PFN_vkTrimCommandPoolKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkTrimCommandPoolKHR");
     }  
     
 call_function(device, commandPool, flags);
@@ -14722,10 +15142,11 @@ VkExternalBufferProperties* pExternalBufferProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceExternalBufferProperties call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceExternalBufferProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalBufferProperties");
+        call_function=(PFN_vkGetPhysicalDeviceExternalBufferProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalBufferProperties");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceExternalBufferProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalBufferProperties");
+        call_function=(PFN_vkGetPhysicalDeviceExternalBufferProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalBufferProperties");
     }  
     
 call_function(physicalDevice, pExternalBufferInfo, pExternalBufferProperties);
@@ -14796,10 +15217,11 @@ VkExternalBufferProperties* pExternalBufferProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalBufferPropertiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalBufferPropertiesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalBufferPropertiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceExternalBufferPropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalBufferPropertiesKHR");
     }  
     
 call_function(physicalDevice, pExternalBufferInfo, pExternalBufferProperties);
@@ -14870,10 +15292,11 @@ int* pFd
 }();
 
 
+    PFN_vkGetMemoryFdKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetMemoryFdKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMemoryFdKHR");
+        call_function=(PFN_vkGetMemoryFdKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMemoryFdKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetMemoryFdKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMemoryFdKHR");
+        call_function=(PFN_vkGetMemoryFdKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMemoryFdKHR");
     }  
     
 auto return_value=call_function(device, pGetFdInfo, pFd);
@@ -14941,10 +15364,11 @@ VkMemoryFdPropertiesKHR* pMemoryFdProperties
 }();
 
 
+    PFN_vkGetMemoryFdPropertiesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetMemoryFdPropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMemoryFdPropertiesKHR");
+        call_function=(PFN_vkGetMemoryFdPropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMemoryFdPropertiesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetMemoryFdPropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMemoryFdPropertiesKHR");
+        call_function=(PFN_vkGetMemoryFdPropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMemoryFdPropertiesKHR");
     }  
     
 auto return_value=call_function(device, handleType, fd, pMemoryFdProperties);
@@ -15019,15 +15443,27 @@ VkRemoteAddressNV* pAddress
         *(pAddress)=NULL;
         return;
         }
-    *(pAddress)=deserialize_void_p(data_json["members"]["pAddress"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pAddress"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(data_json["members"]["pAddress"].size()*sizeof(char));
+        for (int CHpZpnX=0; CHpZpnX < data_json["members"]["pAddress"].size(); CHpZpnX++){
+            [&]() {
+temp[CHpZpnX]=deserialize_char(data_json["members"]["pAddress"]["members"][CHpZpnX]);}();;
+        }
+        }();*(pAddress)=(void*)temp;
 }();
 }();}();
 
 
+    PFN_vkGetMemoryRemoteAddressNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetMemoryRemoteAddressNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMemoryRemoteAddressNV");
+        call_function=(PFN_vkGetMemoryRemoteAddressNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMemoryRemoteAddressNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetMemoryRemoteAddressNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMemoryRemoteAddressNV");
+        call_function=(PFN_vkGetMemoryRemoteAddressNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMemoryRemoteAddressNV");
     }  
     
 auto return_value=call_function(device, pMemoryGetRemoteAddressInfo, pAddress);
@@ -15067,8 +15503,24 @@ result["members"]["pAddress"]=[&]() {
             return_sHFWjQs["null"]=true;
             return return_sHFWjQs;
         }
-        return serialize_void_p(*pAddress);
-}();return return_eHgaHDY;}();
+        return_sHFWjQs=[&]() {
+    json return_FrKnLHF=json({});
+    
+        if (((char*)(*pAddress))==NULL){
+            return_FrKnLHF["null"]=true;
+            return return_FrKnLHF;
+        }
+        
+        return_FrKnLHF["members"]={};
+        for(int FrKnLHF=0; FrKnLHF < strlen(((char*)(*pAddress))); FrKnLHF++){
+            json temp;
+            temp=[&]() {
+    json return_wXaXjOG=json({});
+    return serialize_char(((char*)(*pAddress))[FrKnLHF]);}();
+            return_FrKnLHF["members"].push_back(temp);
+        }
+        return return_FrKnLHF;
+        }();return return_sHFWjQs;}();return return_eHgaHDY;}();
 return return_OJpMSoy;}();
 
         writeToConn(result);
@@ -15108,10 +15560,11 @@ VkExternalSemaphoreProperties* pExternalSemaphoreProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceExternalSemaphoreProperties call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceExternalSemaphoreProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalSemaphoreProperties");
+        call_function=(PFN_vkGetPhysicalDeviceExternalSemaphoreProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalSemaphoreProperties");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceExternalSemaphoreProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalSemaphoreProperties");
+        call_function=(PFN_vkGetPhysicalDeviceExternalSemaphoreProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalSemaphoreProperties");
     }  
     
 call_function(physicalDevice, pExternalSemaphoreInfo, pExternalSemaphoreProperties);
@@ -15182,10 +15635,11 @@ VkExternalSemaphoreProperties* pExternalSemaphoreProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceExternalSemaphorePropertiesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceExternalSemaphorePropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalSemaphorePropertiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceExternalSemaphorePropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalSemaphorePropertiesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceExternalSemaphorePropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalSemaphorePropertiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceExternalSemaphorePropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalSemaphorePropertiesKHR");
     }  
     
 call_function(physicalDevice, pExternalSemaphoreInfo, pExternalSemaphoreProperties);
@@ -15256,10 +15710,11 @@ int* pFd
 }();
 
 
+    PFN_vkGetSemaphoreFdKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetSemaphoreFdKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSemaphoreFdKHR");
+        call_function=(PFN_vkGetSemaphoreFdKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSemaphoreFdKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetSemaphoreFdKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSemaphoreFdKHR");
+        call_function=(PFN_vkGetSemaphoreFdKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSemaphoreFdKHR");
     }  
     
 auto return_value=call_function(device, pGetFdInfo, pFd);
@@ -15320,10 +15775,11 @@ VkImportSemaphoreFdInfoKHR* temp_iCKqDvq;[&]() {
 }();pImportSemaphoreFdInfo=temp_iCKqDvq;}();
 
 
+    PFN_vkImportSemaphoreFdKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkImportSemaphoreFdKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkImportSemaphoreFdKHR");
+        call_function=(PFN_vkImportSemaphoreFdKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkImportSemaphoreFdKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkImportSemaphoreFdKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkImportSemaphoreFdKHR");
+        call_function=(PFN_vkImportSemaphoreFdKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkImportSemaphoreFdKHR");
     }  
     
 auto return_value=call_function(device, pImportSemaphoreFdInfo);
@@ -15385,10 +15841,11 @@ VkExternalFenceProperties* pExternalFenceProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceExternalFenceProperties call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceExternalFenceProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalFenceProperties");
+        call_function=(PFN_vkGetPhysicalDeviceExternalFenceProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalFenceProperties");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceExternalFenceProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalFenceProperties");
+        call_function=(PFN_vkGetPhysicalDeviceExternalFenceProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalFenceProperties");
     }  
     
 call_function(physicalDevice, pExternalFenceInfo, pExternalFenceProperties);
@@ -15459,10 +15916,11 @@ VkExternalFenceProperties* pExternalFenceProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceExternalFencePropertiesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceExternalFencePropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalFencePropertiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceExternalFencePropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalFencePropertiesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceExternalFencePropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalFencePropertiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceExternalFencePropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceExternalFencePropertiesKHR");
     }  
     
 call_function(physicalDevice, pExternalFenceInfo, pExternalFenceProperties);
@@ -15533,10 +15991,11 @@ int* pFd
 }();
 
 
+    PFN_vkGetFenceFdKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetFenceFdKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetFenceFdKHR");
+        call_function=(PFN_vkGetFenceFdKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetFenceFdKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetFenceFdKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetFenceFdKHR");
+        call_function=(PFN_vkGetFenceFdKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetFenceFdKHR");
     }  
     
 auto return_value=call_function(device, pGetFdInfo, pFd);
@@ -15597,10 +16056,11 @@ VkImportFenceFdInfoKHR* temp_fyLEItG;[&]() {
 }();pImportFenceFdInfo=temp_fyLEItG;}();
 
 
+    PFN_vkImportFenceFdKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkImportFenceFdKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkImportFenceFdKHR");
+        call_function=(PFN_vkImportFenceFdKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkImportFenceFdKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkImportFenceFdKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkImportFenceFdKHR");
+        call_function=(PFN_vkImportFenceFdKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkImportFenceFdKHR");
     }  
     
 auto return_value=call_function(device, pImportFenceFdInfo);
@@ -15641,10 +16101,11 @@ VkDisplayKHR display
 display=deserialize_VkDisplayKHR(data_json["members"]["display"]);}();
 
 
+    PFN_vkReleaseDisplayEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkReleaseDisplayEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkReleaseDisplayEXT");
+        call_function=(PFN_vkReleaseDisplayEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkReleaseDisplayEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkReleaseDisplayEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkReleaseDisplayEXT");
+        call_function=(PFN_vkReleaseDisplayEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkReleaseDisplayEXT");
     }  
     
 auto return_value=call_function(physicalDevice, display);
@@ -15690,10 +16151,11 @@ VkDisplayPowerInfoEXT* temp_FYgegfp;[&]() {
 }();pDisplayPowerInfo=temp_FYgegfp;}();
 
 
+    PFN_vkDisplayPowerControlEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDisplayPowerControlEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDisplayPowerControlEXT");
+        call_function=(PFN_vkDisplayPowerControlEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDisplayPowerControlEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDisplayPowerControlEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDisplayPowerControlEXT");
+        call_function=(PFN_vkDisplayPowerControlEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDisplayPowerControlEXT");
     }  
     
 auto return_value=call_function(device, display, pDisplayPowerInfo);
@@ -15771,10 +16233,11 @@ VkFence* pFence
 }();
 
 
+    PFN_vkRegisterDeviceEventEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkRegisterDeviceEventEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkRegisterDeviceEventEXT");
+        call_function=(PFN_vkRegisterDeviceEventEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkRegisterDeviceEventEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkRegisterDeviceEventEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkRegisterDeviceEventEXT");
+        call_function=(PFN_vkRegisterDeviceEventEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkRegisterDeviceEventEXT");
     }  
     
 auto return_value=call_function(device, pDeviceEventInfo, pAllocator, pFence);
@@ -15875,10 +16338,11 @@ VkFence* pFence
 }();
 
 
+    PFN_vkRegisterDisplayEventEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkRegisterDisplayEventEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkRegisterDisplayEventEXT");
+        call_function=(PFN_vkRegisterDisplayEventEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkRegisterDisplayEventEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkRegisterDisplayEventEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkRegisterDisplayEventEXT");
+        call_function=(PFN_vkRegisterDisplayEventEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkRegisterDisplayEventEXT");
     }  
     
 auto return_value=call_function(device, display, pDisplayEventInfo, pAllocator, pFence);
@@ -15960,10 +16424,11 @@ uint64_t* pCounterValue
 }();
 
 
+    PFN_vkGetSwapchainCounterEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetSwapchainCounterEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSwapchainCounterEXT");
+        call_function=(PFN_vkGetSwapchainCounterEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSwapchainCounterEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetSwapchainCounterEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSwapchainCounterEXT");
+        call_function=(PFN_vkGetSwapchainCounterEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSwapchainCounterEXT");
     }  
     
 auto return_value=call_function(device, swapchain, counter, pCounterValue);
@@ -16022,10 +16487,11 @@ VkSurfaceCapabilities2EXT* pSurfaceCapabilities
 }();
 
 
+    PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceCapabilities2EXT");
+        call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceCapabilities2EXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceCapabilities2EXT");
+        call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceCapabilities2EXT");
     }  
     
 auto return_value=call_function(physicalDevice, surface, pSurfaceCapabilities);
@@ -16091,10 +16557,11 @@ pPhysicalDeviceGroupProperties[CDZYMPR]=deserialize_VkPhysicalDeviceGroupPropert
         }();
 
 
+    PFN_vkEnumeratePhysicalDeviceGroups call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkEnumeratePhysicalDeviceGroups)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumeratePhysicalDeviceGroups");
+        call_function=(PFN_vkEnumeratePhysicalDeviceGroups)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumeratePhysicalDeviceGroups");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkEnumeratePhysicalDeviceGroups)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumeratePhysicalDeviceGroups");
+        call_function=(PFN_vkEnumeratePhysicalDeviceGroups)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumeratePhysicalDeviceGroups");
     }  
     
 auto return_value=call_function(instance, pPhysicalDeviceGroupCount, pPhysicalDeviceGroupProperties);
@@ -16175,10 +16642,11 @@ pPhysicalDeviceGroupProperties[CDZYMPR]=deserialize_VkPhysicalDeviceGroupPropert
         }();
 
 
+    PFN_vkEnumeratePhysicalDeviceGroupsKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkEnumeratePhysicalDeviceGroupsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumeratePhysicalDeviceGroupsKHR");
+        call_function=(PFN_vkEnumeratePhysicalDeviceGroupsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumeratePhysicalDeviceGroupsKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkEnumeratePhysicalDeviceGroupsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumeratePhysicalDeviceGroupsKHR");
+        call_function=(PFN_vkEnumeratePhysicalDeviceGroupsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumeratePhysicalDeviceGroupsKHR");
     }  
     
 auto return_value=call_function(instance, pPhysicalDeviceGroupCount, pPhysicalDeviceGroupProperties);
@@ -16257,10 +16725,11 @@ VkPeerMemoryFeatureFlags* pPeerMemoryFeatures
 }();
 
 
+    PFN_vkGetDeviceGroupPeerMemoryFeatures call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceGroupPeerMemoryFeatures)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceGroupPeerMemoryFeatures");
+        call_function=(PFN_vkGetDeviceGroupPeerMemoryFeatures)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceGroupPeerMemoryFeatures");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceGroupPeerMemoryFeatures)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceGroupPeerMemoryFeatures");
+        call_function=(PFN_vkGetDeviceGroupPeerMemoryFeatures)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceGroupPeerMemoryFeatures");
     }  
     
 call_function(device, heapIndex, localDeviceIndex, remoteDeviceIndex, pPeerMemoryFeatures);
@@ -16328,10 +16797,11 @@ VkPeerMemoryFeatureFlags* pPeerMemoryFeatures
 }();
 
 
+    PFN_vkGetDeviceGroupPeerMemoryFeaturesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceGroupPeerMemoryFeaturesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceGroupPeerMemoryFeaturesKHR");
+        call_function=(PFN_vkGetDeviceGroupPeerMemoryFeaturesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceGroupPeerMemoryFeaturesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceGroupPeerMemoryFeaturesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceGroupPeerMemoryFeaturesKHR");
+        call_function=(PFN_vkGetDeviceGroupPeerMemoryFeaturesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceGroupPeerMemoryFeaturesKHR");
     }  
     
 call_function(device, heapIndex, localDeviceIndex, remoteDeviceIndex, pPeerMemoryFeatures);
@@ -16394,10 +16864,11 @@ temp_iAygGbe[YaXtRFN]=deserialize_VkBindBufferMemoryInfo(data_json["members"]["p
         }();pBindInfos=temp_iAygGbe;}();
 
 
+    PFN_vkBindBufferMemory2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkBindBufferMemory2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindBufferMemory2");
+        call_function=(PFN_vkBindBufferMemory2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindBufferMemory2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkBindBufferMemory2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindBufferMemory2");
+        call_function=(PFN_vkBindBufferMemory2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindBufferMemory2");
     }  
     
 auto return_value=call_function(device, bindInfoCount, pBindInfos);
@@ -16463,10 +16934,11 @@ temp_iAygGbe[YaXtRFN]=deserialize_VkBindBufferMemoryInfo(data_json["members"]["p
         }();pBindInfos=temp_iAygGbe;}();
 
 
+    PFN_vkBindBufferMemory2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkBindBufferMemory2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindBufferMemory2KHR");
+        call_function=(PFN_vkBindBufferMemory2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindBufferMemory2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkBindBufferMemory2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindBufferMemory2KHR");
+        call_function=(PFN_vkBindBufferMemory2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindBufferMemory2KHR");
     }  
     
 auto return_value=call_function(device, bindInfoCount, pBindInfos);
@@ -16532,10 +17004,11 @@ temp_KigsdDE[ZtXlOnn]=deserialize_VkBindImageMemoryInfo(data_json["members"]["pB
         }();pBindInfos=temp_KigsdDE;}();
 
 
+    PFN_vkBindImageMemory2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkBindImageMemory2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindImageMemory2");
+        call_function=(PFN_vkBindImageMemory2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindImageMemory2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkBindImageMemory2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindImageMemory2");
+        call_function=(PFN_vkBindImageMemory2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindImageMemory2");
     }  
     
 auto return_value=call_function(device, bindInfoCount, pBindInfos);
@@ -16601,10 +17074,11 @@ temp_KigsdDE[ZtXlOnn]=deserialize_VkBindImageMemoryInfo(data_json["members"]["pB
         }();pBindInfos=temp_KigsdDE;}();
 
 
+    PFN_vkBindImageMemory2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkBindImageMemory2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindImageMemory2KHR");
+        call_function=(PFN_vkBindImageMemory2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindImageMemory2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkBindImageMemory2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindImageMemory2KHR");
+        call_function=(PFN_vkBindImageMemory2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindImageMemory2KHR");
     }  
     
 auto return_value=call_function(device, bindInfoCount, pBindInfos);
@@ -16655,10 +17129,11 @@ uint32_t deviceMask
 deviceMask=deserialize_uint32_t(data_json["members"]["deviceMask"]);}();
 
 
+    PFN_vkCmdSetDeviceMask call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDeviceMask)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDeviceMask");
+        call_function=(PFN_vkCmdSetDeviceMask)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDeviceMask");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDeviceMask)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDeviceMask");
+        call_function=(PFN_vkCmdSetDeviceMask)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDeviceMask");
     }  
     
 call_function(commandBuffer, deviceMask);
@@ -16689,10 +17164,11 @@ uint32_t deviceMask
 deviceMask=deserialize_uint32_t(data_json["members"]["deviceMask"]);}();
 
 
+    PFN_vkCmdSetDeviceMaskKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDeviceMaskKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDeviceMaskKHR");
+        call_function=(PFN_vkCmdSetDeviceMaskKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDeviceMaskKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDeviceMaskKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDeviceMaskKHR");
+        call_function=(PFN_vkCmdSetDeviceMaskKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDeviceMaskKHR");
     }  
     
 call_function(commandBuffer, deviceMask);
@@ -16731,10 +17207,11 @@ VkDeviceGroupPresentCapabilitiesKHR* pDeviceGroupPresentCapabilities
 }();
 
 
+    PFN_vkGetDeviceGroupPresentCapabilitiesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceGroupPresentCapabilitiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceGroupPresentCapabilitiesKHR");
+        call_function=(PFN_vkGetDeviceGroupPresentCapabilitiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceGroupPresentCapabilitiesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceGroupPresentCapabilitiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceGroupPresentCapabilitiesKHR");
+        call_function=(PFN_vkGetDeviceGroupPresentCapabilitiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceGroupPresentCapabilitiesKHR");
     }  
     
 auto return_value=call_function(device, pDeviceGroupPresentCapabilities);
@@ -16787,10 +17264,11 @@ VkDeviceGroupPresentModeFlagsKHR* pModes
 }();
 
 
+    PFN_vkGetDeviceGroupSurfacePresentModesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceGroupSurfacePresentModesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceGroupSurfacePresentModesKHR");
+        call_function=(PFN_vkGetDeviceGroupSurfacePresentModesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceGroupSurfacePresentModesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceGroupSurfacePresentModesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceGroupSurfacePresentModesKHR");
+        call_function=(PFN_vkGetDeviceGroupSurfacePresentModesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceGroupSurfacePresentModesKHR");
     }  
     
 auto return_value=call_function(device, surface, pModes);
@@ -16855,10 +17333,11 @@ uint32_t* pImageIndex
 }();
 
 
+    PFN_vkAcquireNextImage2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkAcquireNextImage2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquireNextImage2KHR");
+        call_function=(PFN_vkAcquireNextImage2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquireNextImage2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkAcquireNextImage2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquireNextImage2KHR");
+        call_function=(PFN_vkAcquireNextImage2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquireNextImage2KHR");
     }  
     
 auto return_value=call_function(device, pAcquireInfo, pImageIndex);
@@ -16930,10 +17409,11 @@ uint32_t groupCountZ
 groupCountZ=deserialize_uint32_t(data_json["members"]["groupCountZ"]);}();
 
 
+    PFN_vkCmdDispatchBase call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDispatchBase)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDispatchBase");
+        call_function=(PFN_vkCmdDispatchBase)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDispatchBase");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDispatchBase)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDispatchBase");
+        call_function=(PFN_vkCmdDispatchBase)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDispatchBase");
     }  
     
 call_function(commandBuffer, baseGroupX, baseGroupY, baseGroupZ, groupCountX, groupCountY, groupCountZ);
@@ -16999,10 +17479,11 @@ uint32_t groupCountZ
 groupCountZ=deserialize_uint32_t(data_json["members"]["groupCountZ"]);}();
 
 
+    PFN_vkCmdDispatchBaseKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDispatchBaseKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDispatchBaseKHR");
+        call_function=(PFN_vkCmdDispatchBaseKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDispatchBaseKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDispatchBaseKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDispatchBaseKHR");
+        call_function=(PFN_vkCmdDispatchBaseKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDispatchBaseKHR");
     }  
     
 call_function(commandBuffer, baseGroupX, baseGroupY, baseGroupZ, groupCountX, groupCountY, groupCountZ);
@@ -17074,10 +17555,11 @@ pRects[CdGhzqR]=deserialize_VkRect2D(data_json["members"]["pRects"]["members"][C
         }();
 
 
+    PFN_vkGetPhysicalDevicePresentRectanglesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDevicePresentRectanglesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDevicePresentRectanglesKHR");
+        call_function=(PFN_vkGetPhysicalDevicePresentRectanglesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDevicePresentRectanglesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDevicePresentRectanglesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDevicePresentRectanglesKHR");
+        call_function=(PFN_vkGetPhysicalDevicePresentRectanglesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDevicePresentRectanglesKHR");
     }  
     
 auto return_value=call_function(physicalDevice, surface, pRectCount, pRects);
@@ -17173,10 +17655,11 @@ VkDescriptorUpdateTemplate* pDescriptorUpdateTemplate
 }();
 
 
+    PFN_vkCreateDescriptorUpdateTemplate call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateDescriptorUpdateTemplate)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDescriptorUpdateTemplate");
+        call_function=(PFN_vkCreateDescriptorUpdateTemplate)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDescriptorUpdateTemplate");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateDescriptorUpdateTemplate)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDescriptorUpdateTemplate");
+        call_function=(PFN_vkCreateDescriptorUpdateTemplate)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDescriptorUpdateTemplate");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pDescriptorUpdateTemplate);
@@ -17273,10 +17756,11 @@ VkDescriptorUpdateTemplate* pDescriptorUpdateTemplate
 }();
 
 
+    PFN_vkCreateDescriptorUpdateTemplateKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateDescriptorUpdateTemplateKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDescriptorUpdateTemplateKHR");
+        call_function=(PFN_vkCreateDescriptorUpdateTemplateKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDescriptorUpdateTemplateKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateDescriptorUpdateTemplateKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDescriptorUpdateTemplateKHR");
+        call_function=(PFN_vkCreateDescriptorUpdateTemplateKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDescriptorUpdateTemplateKHR");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pDescriptorUpdateTemplate);
@@ -17352,10 +17836,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyDescriptorUpdateTemplate call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyDescriptorUpdateTemplate)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDescriptorUpdateTemplate");
+        call_function=(PFN_vkDestroyDescriptorUpdateTemplate)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDescriptorUpdateTemplate");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyDescriptorUpdateTemplate)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDescriptorUpdateTemplate");
+        call_function=(PFN_vkDestroyDescriptorUpdateTemplate)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDescriptorUpdateTemplate");
     }  
     
 call_function(device, descriptorUpdateTemplate, pAllocator);
@@ -17410,10 +17895,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyDescriptorUpdateTemplateKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyDescriptorUpdateTemplateKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDescriptorUpdateTemplateKHR");
+        call_function=(PFN_vkDestroyDescriptorUpdateTemplateKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDescriptorUpdateTemplateKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyDescriptorUpdateTemplateKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDescriptorUpdateTemplateKHR");
+        call_function=(PFN_vkDestroyDescriptorUpdateTemplateKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDescriptorUpdateTemplateKHR");
     }  
     
 call_function(device, descriptorUpdateTemplate, pAllocator);
@@ -17466,14 +17952,26 @@ void* temp_ZfOKPBK;[&]() {
         temp_ZfOKPBK=NULL;
         return;
         }
-    temp_ZfOKPBK=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(data_json["members"]["pData"].size()*sizeof(char));
+        for (int SgJerzK=0; SgJerzK < data_json["members"]["pData"].size(); SgJerzK++){
+            [&]() {
+temp[SgJerzK]=deserialize_char(data_json["members"]["pData"]["members"][SgJerzK]);}();;
+        }
+        }();temp_ZfOKPBK=(void*)temp;
 }();pData=temp_ZfOKPBK;}();
 
 
+    PFN_vkUpdateDescriptorSetWithTemplate call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkUpdateDescriptorSetWithTemplate)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUpdateDescriptorSetWithTemplate");
+        call_function=(PFN_vkUpdateDescriptorSetWithTemplate)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUpdateDescriptorSetWithTemplate");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkUpdateDescriptorSetWithTemplate)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUpdateDescriptorSetWithTemplate");
+        call_function=(PFN_vkUpdateDescriptorSetWithTemplate)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUpdateDescriptorSetWithTemplate");
     }  
     
 call_function(device, descriptorSet, descriptorUpdateTemplate, pData);
@@ -17497,8 +17995,24 @@ result["members"]["pData"]=[&]() {
             return_WJrszUi["null"]=true;
             return return_WJrszUi;
         }
-        return serialize_void_p(pData);
-}();
+        return_WJrszUi=[&]() {
+    json return_GGILgQD=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_GGILgQD["null"]=true;
+            return return_GGILgQD;
+        }
+        
+        return_GGILgQD["members"]={};
+        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData))); GGILgQD++){
+            json temp;
+            temp=[&]() {
+    json return_nFeMGqw=json({});
+    return serialize_char(((char*)(pData))[GGILgQD]);}();
+            return_GGILgQD["members"].push_back(temp);
+        }
+        return return_GGILgQD;
+        }();return return_WJrszUi;}();
 
         writeToConn(result);
     }
@@ -17527,14 +18041,26 @@ void* temp_ZfOKPBK;[&]() {
         temp_ZfOKPBK=NULL;
         return;
         }
-    temp_ZfOKPBK=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(data_json["members"]["pData"].size()*sizeof(char));
+        for (int SgJerzK=0; SgJerzK < data_json["members"]["pData"].size(); SgJerzK++){
+            [&]() {
+temp[SgJerzK]=deserialize_char(data_json["members"]["pData"]["members"][SgJerzK]);}();;
+        }
+        }();temp_ZfOKPBK=(void*)temp;
 }();pData=temp_ZfOKPBK;}();
 
 
+    PFN_vkUpdateDescriptorSetWithTemplateKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkUpdateDescriptorSetWithTemplateKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUpdateDescriptorSetWithTemplateKHR");
+        call_function=(PFN_vkUpdateDescriptorSetWithTemplateKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUpdateDescriptorSetWithTemplateKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkUpdateDescriptorSetWithTemplateKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUpdateDescriptorSetWithTemplateKHR");
+        call_function=(PFN_vkUpdateDescriptorSetWithTemplateKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUpdateDescriptorSetWithTemplateKHR");
     }  
     
 call_function(device, descriptorSet, descriptorUpdateTemplate, pData);
@@ -17558,8 +18084,24 @@ result["members"]["pData"]=[&]() {
             return_WJrszUi["null"]=true;
             return return_WJrszUi;
         }
-        return serialize_void_p(pData);
-}();
+        return_WJrszUi=[&]() {
+    json return_GGILgQD=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_GGILgQD["null"]=true;
+            return return_GGILgQD;
+        }
+        
+        return_GGILgQD["members"]={};
+        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData))); GGILgQD++){
+            json temp;
+            temp=[&]() {
+    json return_nFeMGqw=json({});
+    return serialize_char(((char*)(pData))[GGILgQD]);}();
+            return_GGILgQD["members"].push_back(temp);
+        }
+        return return_GGILgQD;
+        }();return return_WJrszUi;}();
 
         writeToConn(result);
     }
@@ -17592,14 +18134,26 @@ void* temp_ZfOKPBK;[&]() {
         temp_ZfOKPBK=NULL;
         return;
         }
-    temp_ZfOKPBK=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(data_json["members"]["pData"].size()*sizeof(char));
+        for (int SgJerzK=0; SgJerzK < data_json["members"]["pData"].size(); SgJerzK++){
+            [&]() {
+temp[SgJerzK]=deserialize_char(data_json["members"]["pData"]["members"][SgJerzK]);}();;
+        }
+        }();temp_ZfOKPBK=(void*)temp;
 }();pData=temp_ZfOKPBK;}();
 
 
+    PFN_vkCmdPushDescriptorSetWithTemplateKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdPushDescriptorSetWithTemplateKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPushDescriptorSetWithTemplateKHR");
+        call_function=(PFN_vkCmdPushDescriptorSetWithTemplateKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPushDescriptorSetWithTemplateKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdPushDescriptorSetWithTemplateKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPushDescriptorSetWithTemplateKHR");
+        call_function=(PFN_vkCmdPushDescriptorSetWithTemplateKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPushDescriptorSetWithTemplateKHR");
     }  
     
 call_function(commandBuffer, descriptorUpdateTemplate, layout, set, pData);
@@ -17626,8 +18180,24 @@ result["members"]["pData"]=[&]() {
             return_WJrszUi["null"]=true;
             return return_WJrszUi;
         }
-        return serialize_void_p(pData);
-}();
+        return_WJrszUi=[&]() {
+    json return_GGILgQD=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_GGILgQD["null"]=true;
+            return return_GGILgQD;
+        }
+        
+        return_GGILgQD["members"]={};
+        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData))); GGILgQD++){
+            json temp;
+            temp=[&]() {
+    json return_nFeMGqw=json({});
+    return serialize_char(((char*)(pData))[GGILgQD]);}();
+            return_GGILgQD["members"].push_back(temp);
+        }
+        return return_GGILgQD;
+        }();return return_WJrszUi;}();
 
         writeToConn(result);
     }
@@ -17675,10 +18245,11 @@ temp_FVBGSkQ[jBPBrew]=deserialize_VkHdrMetadataEXT(data_json["members"]["pMetada
         }();pMetadata=temp_FVBGSkQ;}();
 
 
+    PFN_vkSetHdrMetadataEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkSetHdrMetadataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetHdrMetadataEXT");
+        call_function=(PFN_vkSetHdrMetadataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetHdrMetadataEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkSetHdrMetadataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetHdrMetadataEXT");
+        call_function=(PFN_vkSetHdrMetadataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetHdrMetadataEXT");
     }  
     
 call_function(device, swapchainCount, pSwapchains, pMetadata);
@@ -17745,10 +18316,11 @@ VkSwapchainKHR swapchain
 swapchain=deserialize_VkSwapchainKHR(data_json["members"]["swapchain"]);}();
 
 
+    PFN_vkGetSwapchainStatusKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetSwapchainStatusKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSwapchainStatusKHR");
+        call_function=(PFN_vkGetSwapchainStatusKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSwapchainStatusKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetSwapchainStatusKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSwapchainStatusKHR");
+        call_function=(PFN_vkGetSwapchainStatusKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSwapchainStatusKHR");
     }  
     
 auto return_value=call_function(device, swapchain);
@@ -17793,10 +18365,11 @@ VkRefreshCycleDurationGOOGLE* pDisplayTimingProperties
 }();
 
 
+    PFN_vkGetRefreshCycleDurationGOOGLE call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetRefreshCycleDurationGOOGLE)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRefreshCycleDurationGOOGLE");
+        call_function=(PFN_vkGetRefreshCycleDurationGOOGLE)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRefreshCycleDurationGOOGLE");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetRefreshCycleDurationGOOGLE)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRefreshCycleDurationGOOGLE");
+        call_function=(PFN_vkGetRefreshCycleDurationGOOGLE)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRefreshCycleDurationGOOGLE");
     }  
     
 auto return_value=call_function(device, swapchain, pDisplayTimingProperties);
@@ -17866,10 +18439,11 @@ pPresentationTimings[pkcplTt]=deserialize_VkPastPresentationTimingGOOGLE(data_js
         }();
 
 
+    PFN_vkGetPastPresentationTimingGOOGLE call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPastPresentationTimingGOOGLE)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPastPresentationTimingGOOGLE");
+        call_function=(PFN_vkGetPastPresentationTimingGOOGLE)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPastPresentationTimingGOOGLE");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPastPresentationTimingGOOGLE)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPastPresentationTimingGOOGLE");
+        call_function=(PFN_vkGetPastPresentationTimingGOOGLE)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPastPresentationTimingGOOGLE");
     }  
     
 auto return_value=call_function(device, swapchain, pPresentationTimingCount, pPresentationTimings);
@@ -17950,10 +18524,11 @@ temp_PLPhyyP[eSpWfre]=deserialize_VkViewportWScalingNV(data_json["members"]["pVi
         }();pViewportWScalings=temp_PLPhyyP;}();
 
 
+    PFN_vkCmdSetViewportWScalingNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetViewportWScalingNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportWScalingNV");
+        call_function=(PFN_vkCmdSetViewportWScalingNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportWScalingNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetViewportWScalingNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportWScalingNV");
+        call_function=(PFN_vkCmdSetViewportWScalingNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportWScalingNV");
     }  
     
 call_function(commandBuffer, firstViewport, viewportCount, pViewportWScalings);
@@ -18024,10 +18599,11 @@ temp_ZGpMoov[pTlGmeB]=deserialize_VkRect2D(data_json["members"]["pDiscardRectang
         }();pDiscardRectangles=temp_ZGpMoov;}();
 
 
+    PFN_vkCmdSetDiscardRectangleEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDiscardRectangleEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDiscardRectangleEXT");
+        call_function=(PFN_vkCmdSetDiscardRectangleEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDiscardRectangleEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDiscardRectangleEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDiscardRectangleEXT");
+        call_function=(PFN_vkCmdSetDiscardRectangleEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDiscardRectangleEXT");
     }  
     
 call_function(commandBuffer, firstDiscardRectangle, discardRectangleCount, pDiscardRectangles);
@@ -18080,10 +18656,11 @@ VkBool32 discardRectangleEnable
 discardRectangleEnable=deserialize_uint32_t(data_json["members"]["discardRectangleEnable"]);}();}();
 
 
+    PFN_vkCmdSetDiscardRectangleEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDiscardRectangleEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDiscardRectangleEnableEXT");
+        call_function=(PFN_vkCmdSetDiscardRectangleEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDiscardRectangleEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDiscardRectangleEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDiscardRectangleEnableEXT");
+        call_function=(PFN_vkCmdSetDiscardRectangleEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDiscardRectangleEnableEXT");
     }  
     
 call_function(commandBuffer, discardRectangleEnable);
@@ -18116,10 +18693,11 @@ VkDiscardRectangleModeEXT discardRectangleMode
 discardRectangleMode=deserialize_VkDiscardRectangleModeEXT(data_json["members"]["discardRectangleMode"]);}();
 
 
+    PFN_vkCmdSetDiscardRectangleModeEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDiscardRectangleModeEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDiscardRectangleModeEXT");
+        call_function=(PFN_vkCmdSetDiscardRectangleModeEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDiscardRectangleModeEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDiscardRectangleModeEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDiscardRectangleModeEXT");
+        call_function=(PFN_vkCmdSetDiscardRectangleModeEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDiscardRectangleModeEXT");
     }  
     
 call_function(commandBuffer, discardRectangleMode);
@@ -18159,10 +18737,11 @@ VkSampleLocationsInfoEXT* temp_pmdZVxG;[&]() {
 }();pSampleLocationsInfo=temp_pmdZVxG;}();
 
 
+    PFN_vkCmdSetSampleLocationsEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetSampleLocationsEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetSampleLocationsEXT");
+        call_function=(PFN_vkCmdSetSampleLocationsEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetSampleLocationsEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetSampleLocationsEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetSampleLocationsEXT");
+        call_function=(PFN_vkCmdSetSampleLocationsEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetSampleLocationsEXT");
     }  
     
 call_function(commandBuffer, pSampleLocationsInfo);
@@ -18213,10 +18792,11 @@ VkMultisamplePropertiesEXT* pMultisampleProperties
 }();
 
 
+    PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceMultisamplePropertiesEXT");
+        call_function=(PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceMultisamplePropertiesEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceMultisamplePropertiesEXT");
+        call_function=(PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceMultisamplePropertiesEXT");
     }  
     
 call_function(physicalDevice, samples, pMultisampleProperties);
@@ -18279,10 +18859,11 @@ VkSurfaceCapabilities2KHR* pSurfaceCapabilities
 }();
 
 
+    PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceCapabilities2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceCapabilities2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceCapabilities2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceCapabilities2KHR");
     }  
     
 auto return_value=call_function(physicalDevice, pSurfaceInfo, pSurfaceCapabilities);
@@ -18369,10 +18950,11 @@ pSurfaceFormats[gMdnmiq]=deserialize_VkSurfaceFormat2KHR(data_json["members"]["p
         }();
 
 
+    PFN_vkGetPhysicalDeviceSurfaceFormats2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSurfaceFormats2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceFormats2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceSurfaceFormats2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceFormats2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSurfaceFormats2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceFormats2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceSurfaceFormats2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSurfaceFormats2KHR");
     }  
     
 auto return_value=call_function(physicalDevice, pSurfaceInfo, pSurfaceFormatCount, pSurfaceFormats);
@@ -18464,10 +19046,11 @@ pProperties[WknXjpT]=deserialize_VkDisplayProperties2KHR(data_json["members"]["p
         }();
 
 
+    PFN_vkGetPhysicalDeviceDisplayProperties2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceDisplayProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceDisplayProperties2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceDisplayProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceDisplayProperties2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceDisplayProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceDisplayProperties2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceDisplayProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceDisplayProperties2KHR");
     }  
     
 auto return_value=call_function(physicalDevice, pPropertyCount, pProperties);
@@ -18548,10 +19131,11 @@ pProperties[OVSjNyk]=deserialize_VkDisplayPlaneProperties2KHR(data_json["members
         }();
 
 
+    PFN_vkGetPhysicalDeviceDisplayPlaneProperties2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceDisplayPlaneProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceDisplayPlaneProperties2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceDisplayPlaneProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceDisplayPlaneProperties2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceDisplayPlaneProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceDisplayPlaneProperties2KHR");
+        call_function=(PFN_vkGetPhysicalDeviceDisplayPlaneProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceDisplayPlaneProperties2KHR");
     }  
     
 auto return_value=call_function(physicalDevice, pPropertyCount, pProperties);
@@ -18636,10 +19220,11 @@ pProperties[TqWqslp]=deserialize_VkDisplayModeProperties2KHR(data_json["members"
         }();
 
 
+    PFN_vkGetDisplayModeProperties2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDisplayModeProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayModeProperties2KHR");
+        call_function=(PFN_vkGetDisplayModeProperties2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayModeProperties2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDisplayModeProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayModeProperties2KHR");
+        call_function=(PFN_vkGetDisplayModeProperties2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayModeProperties2KHR");
     }  
     
 auto return_value=call_function(physicalDevice, display, pPropertyCount, pProperties);
@@ -18722,10 +19307,11 @@ VkDisplayPlaneCapabilities2KHR* pCapabilities
 }();
 
 
+    PFN_vkGetDisplayPlaneCapabilities2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDisplayPlaneCapabilities2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayPlaneCapabilities2KHR");
+        call_function=(PFN_vkGetDisplayPlaneCapabilities2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayPlaneCapabilities2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDisplayPlaneCapabilities2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayPlaneCapabilities2KHR");
+        call_function=(PFN_vkGetDisplayPlaneCapabilities2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDisplayPlaneCapabilities2KHR");
     }  
     
 auto return_value=call_function(physicalDevice, pDisplayPlaneInfo, pCapabilities);
@@ -18798,10 +19384,11 @@ VkMemoryRequirements2* pMemoryRequirements
 }();
 
 
+    PFN_vkGetBufferMemoryRequirements2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetBufferMemoryRequirements2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferMemoryRequirements2");
+        call_function=(PFN_vkGetBufferMemoryRequirements2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferMemoryRequirements2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetBufferMemoryRequirements2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferMemoryRequirements2");
+        call_function=(PFN_vkGetBufferMemoryRequirements2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferMemoryRequirements2");
     }  
     
 call_function(device, pInfo, pMemoryRequirements);
@@ -18872,10 +19459,11 @@ VkMemoryRequirements2* pMemoryRequirements
 }();
 
 
+    PFN_vkGetBufferMemoryRequirements2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetBufferMemoryRequirements2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferMemoryRequirements2KHR");
+        call_function=(PFN_vkGetBufferMemoryRequirements2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferMemoryRequirements2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetBufferMemoryRequirements2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferMemoryRequirements2KHR");
+        call_function=(PFN_vkGetBufferMemoryRequirements2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferMemoryRequirements2KHR");
     }  
     
 call_function(device, pInfo, pMemoryRequirements);
@@ -18946,10 +19534,11 @@ VkMemoryRequirements2* pMemoryRequirements
 }();
 
 
+    PFN_vkGetImageMemoryRequirements2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetImageMemoryRequirements2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageMemoryRequirements2");
+        call_function=(PFN_vkGetImageMemoryRequirements2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageMemoryRequirements2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetImageMemoryRequirements2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageMemoryRequirements2");
+        call_function=(PFN_vkGetImageMemoryRequirements2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageMemoryRequirements2");
     }  
     
 call_function(device, pInfo, pMemoryRequirements);
@@ -19020,10 +19609,11 @@ VkMemoryRequirements2* pMemoryRequirements
 }();
 
 
+    PFN_vkGetImageMemoryRequirements2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetImageMemoryRequirements2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageMemoryRequirements2KHR");
+        call_function=(PFN_vkGetImageMemoryRequirements2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageMemoryRequirements2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetImageMemoryRequirements2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageMemoryRequirements2KHR");
+        call_function=(PFN_vkGetImageMemoryRequirements2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageMemoryRequirements2KHR");
     }  
     
 call_function(device, pInfo, pMemoryRequirements);
@@ -19108,10 +19698,11 @@ pSparseMemoryRequirements[xriUdCT]=deserialize_VkSparseImageMemoryRequirements2(
         }();
 
 
+    PFN_vkGetImageSparseMemoryRequirements2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetImageSparseMemoryRequirements2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSparseMemoryRequirements2");
+        call_function=(PFN_vkGetImageSparseMemoryRequirements2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSparseMemoryRequirements2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetImageSparseMemoryRequirements2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSparseMemoryRequirements2");
+        call_function=(PFN_vkGetImageSparseMemoryRequirements2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSparseMemoryRequirements2");
     }  
     
 call_function(device, pInfo, pSparseMemoryRequirementCount, pSparseMemoryRequirements);
@@ -19214,10 +19805,11 @@ pSparseMemoryRequirements[xriUdCT]=deserialize_VkSparseImageMemoryRequirements2(
         }();
 
 
+    PFN_vkGetImageSparseMemoryRequirements2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetImageSparseMemoryRequirements2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSparseMemoryRequirements2KHR");
+        call_function=(PFN_vkGetImageSparseMemoryRequirements2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSparseMemoryRequirements2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetImageSparseMemoryRequirements2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSparseMemoryRequirements2KHR");
+        call_function=(PFN_vkGetImageSparseMemoryRequirements2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSparseMemoryRequirements2KHR");
     }  
     
 call_function(device, pInfo, pSparseMemoryRequirementCount, pSparseMemoryRequirements);
@@ -19306,10 +19898,11 @@ VkMemoryRequirements2* pMemoryRequirements
 }();
 
 
+    PFN_vkGetDeviceBufferMemoryRequirements call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceBufferMemoryRequirements)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceBufferMemoryRequirements");
+        call_function=(PFN_vkGetDeviceBufferMemoryRequirements)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceBufferMemoryRequirements");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceBufferMemoryRequirements)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceBufferMemoryRequirements");
+        call_function=(PFN_vkGetDeviceBufferMemoryRequirements)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceBufferMemoryRequirements");
     }  
     
 call_function(device, pInfo, pMemoryRequirements);
@@ -19380,10 +19973,11 @@ VkMemoryRequirements2* pMemoryRequirements
 }();
 
 
+    PFN_vkGetDeviceBufferMemoryRequirementsKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceBufferMemoryRequirementsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceBufferMemoryRequirementsKHR");
+        call_function=(PFN_vkGetDeviceBufferMemoryRequirementsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceBufferMemoryRequirementsKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceBufferMemoryRequirementsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceBufferMemoryRequirementsKHR");
+        call_function=(PFN_vkGetDeviceBufferMemoryRequirementsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceBufferMemoryRequirementsKHR");
     }  
     
 call_function(device, pInfo, pMemoryRequirements);
@@ -19454,10 +20048,11 @@ VkMemoryRequirements2* pMemoryRequirements
 }();
 
 
+    PFN_vkGetDeviceImageMemoryRequirements call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceImageMemoryRequirements)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageMemoryRequirements");
+        call_function=(PFN_vkGetDeviceImageMemoryRequirements)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageMemoryRequirements");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceImageMemoryRequirements)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageMemoryRequirements");
+        call_function=(PFN_vkGetDeviceImageMemoryRequirements)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageMemoryRequirements");
     }  
     
 call_function(device, pInfo, pMemoryRequirements);
@@ -19528,10 +20123,11 @@ VkMemoryRequirements2* pMemoryRequirements
 }();
 
 
+    PFN_vkGetDeviceImageMemoryRequirementsKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceImageMemoryRequirementsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageMemoryRequirementsKHR");
+        call_function=(PFN_vkGetDeviceImageMemoryRequirementsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageMemoryRequirementsKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceImageMemoryRequirementsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageMemoryRequirementsKHR");
+        call_function=(PFN_vkGetDeviceImageMemoryRequirementsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageMemoryRequirementsKHR");
     }  
     
 call_function(device, pInfo, pMemoryRequirements);
@@ -19616,10 +20212,11 @@ pSparseMemoryRequirements[xriUdCT]=deserialize_VkSparseImageMemoryRequirements2(
         }();
 
 
+    PFN_vkGetDeviceImageSparseMemoryRequirements call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceImageSparseMemoryRequirements)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageSparseMemoryRequirements");
+        call_function=(PFN_vkGetDeviceImageSparseMemoryRequirements)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageSparseMemoryRequirements");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceImageSparseMemoryRequirements)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageSparseMemoryRequirements");
+        call_function=(PFN_vkGetDeviceImageSparseMemoryRequirements)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageSparseMemoryRequirements");
     }  
     
 call_function(device, pInfo, pSparseMemoryRequirementCount, pSparseMemoryRequirements);
@@ -19722,10 +20319,11 @@ pSparseMemoryRequirements[xriUdCT]=deserialize_VkSparseImageMemoryRequirements2(
         }();
 
 
+    PFN_vkGetDeviceImageSparseMemoryRequirementsKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceImageSparseMemoryRequirementsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageSparseMemoryRequirementsKHR");
+        call_function=(PFN_vkGetDeviceImageSparseMemoryRequirementsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageSparseMemoryRequirementsKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceImageSparseMemoryRequirementsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageSparseMemoryRequirementsKHR");
+        call_function=(PFN_vkGetDeviceImageSparseMemoryRequirementsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageSparseMemoryRequirementsKHR");
     }  
     
 call_function(device, pInfo, pSparseMemoryRequirementCount, pSparseMemoryRequirements);
@@ -19827,10 +20425,11 @@ VkSamplerYcbcrConversion* pYcbcrConversion
 }();
 
 
+    PFN_vkCreateSamplerYcbcrConversion call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateSamplerYcbcrConversion)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSamplerYcbcrConversion");
+        call_function=(PFN_vkCreateSamplerYcbcrConversion)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSamplerYcbcrConversion");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateSamplerYcbcrConversion)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSamplerYcbcrConversion");
+        call_function=(PFN_vkCreateSamplerYcbcrConversion)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSamplerYcbcrConversion");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pYcbcrConversion);
@@ -19927,10 +20526,11 @@ VkSamplerYcbcrConversion* pYcbcrConversion
 }();
 
 
+    PFN_vkCreateSamplerYcbcrConversionKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateSamplerYcbcrConversionKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSamplerYcbcrConversionKHR");
+        call_function=(PFN_vkCreateSamplerYcbcrConversionKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSamplerYcbcrConversionKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateSamplerYcbcrConversionKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSamplerYcbcrConversionKHR");
+        call_function=(PFN_vkCreateSamplerYcbcrConversionKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateSamplerYcbcrConversionKHR");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pYcbcrConversion);
@@ -20006,10 +20606,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroySamplerYcbcrConversion call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroySamplerYcbcrConversion)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySamplerYcbcrConversion");
+        call_function=(PFN_vkDestroySamplerYcbcrConversion)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySamplerYcbcrConversion");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroySamplerYcbcrConversion)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySamplerYcbcrConversion");
+        call_function=(PFN_vkDestroySamplerYcbcrConversion)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySamplerYcbcrConversion");
     }  
     
 call_function(device, ycbcrConversion, pAllocator);
@@ -20064,10 +20665,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroySamplerYcbcrConversionKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroySamplerYcbcrConversionKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySamplerYcbcrConversionKHR");
+        call_function=(PFN_vkDestroySamplerYcbcrConversionKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySamplerYcbcrConversionKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroySamplerYcbcrConversionKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySamplerYcbcrConversionKHR");
+        call_function=(PFN_vkDestroySamplerYcbcrConversionKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroySamplerYcbcrConversionKHR");
     }  
     
 call_function(device, ycbcrConversion, pAllocator);
@@ -20130,10 +20732,11 @@ VkQueue* pQueue
 }();
 
 
+    PFN_vkGetDeviceQueue2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceQueue2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceQueue2");
+        call_function=(PFN_vkGetDeviceQueue2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceQueue2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceQueue2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceQueue2");
+        call_function=(PFN_vkGetDeviceQueue2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceQueue2");
     }  
     
 call_function(device, pQueueInfo, pQueue);
@@ -20217,10 +20820,11 @@ VkValidationCacheEXT* pValidationCache
 }();
 
 
+    PFN_vkCreateValidationCacheEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateValidationCacheEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateValidationCacheEXT");
+        call_function=(PFN_vkCreateValidationCacheEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateValidationCacheEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateValidationCacheEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateValidationCacheEXT");
+        call_function=(PFN_vkCreateValidationCacheEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateValidationCacheEXT");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pValidationCache);
@@ -20296,10 +20900,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyValidationCacheEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyValidationCacheEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyValidationCacheEXT");
+        call_function=(PFN_vkDestroyValidationCacheEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyValidationCacheEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyValidationCacheEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyValidationCacheEXT");
+        call_function=(PFN_vkDestroyValidationCacheEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyValidationCacheEXT");
     }  
     
 call_function(device, validationCache, pAllocator);
@@ -20359,14 +20964,26 @@ void* pData
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(*pDataSize*sizeof(char));
+        for (int cmmtDwc=0; cmmtDwc < *pDataSize; cmmtDwc++){
+            [&]() {
+temp[cmmtDwc]=deserialize_char(data_json["members"]["pData"]["members"][cmmtDwc]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 
 
+    PFN_vkGetValidationCacheDataEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetValidationCacheDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetValidationCacheDataEXT");
+        call_function=(PFN_vkGetValidationCacheDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetValidationCacheDataEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetValidationCacheDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetValidationCacheDataEXT");
+        call_function=(PFN_vkGetValidationCacheDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetValidationCacheDataEXT");
     }  
     
 auto return_value=call_function(device, validationCache, pDataSize, pData);
@@ -20400,8 +21017,24 @@ result["members"]["pData"]=[&]() {
             return_MOqETBu["null"]=true;
             return return_MOqETBu;
         }
-        return serialize_void_p(pData);
-}();
+        return_MOqETBu=[&]() {
+    json return_MHUeMAs=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_MHUeMAs["null"]=true;
+            return return_MHUeMAs;
+        }
+        
+        return_MHUeMAs["members"]={};
+        for(int MHUeMAs=0; MHUeMAs < *pDataSize; MHUeMAs++){
+            json temp;
+            temp=[&]() {
+    json return_fEXHPKD=json({});
+    return serialize_char(((char*)(pData))[MHUeMAs]);}();
+            return_MHUeMAs["members"].push_back(temp);
+        }
+        return return_MHUeMAs;
+        }();return return_MOqETBu;}();
 
         writeToConn(result);
     }
@@ -20438,10 +21071,11 @@ temp_lnvZKMH[UosrcFa]=deserialize_VkValidationCacheEXT(data_json["members"]["pSr
         }();pSrcCaches=temp_lnvZKMH;}();
 
 
+    PFN_vkMergeValidationCachesEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkMergeValidationCachesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkMergeValidationCachesEXT");
+        call_function=(PFN_vkMergeValidationCachesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkMergeValidationCachesEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkMergeValidationCachesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkMergeValidationCachesEXT");
+        call_function=(PFN_vkMergeValidationCachesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkMergeValidationCachesEXT");
     }  
     
 auto return_value=call_function(device, dstCache, srcCacheCount, pSrcCaches);
@@ -20516,10 +21150,11 @@ VkDescriptorSetLayoutSupport* pSupport
 }();
 
 
+    PFN_vkGetDescriptorSetLayoutSupport call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDescriptorSetLayoutSupport)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutSupport");
+        call_function=(PFN_vkGetDescriptorSetLayoutSupport)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutSupport");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDescriptorSetLayoutSupport)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutSupport");
+        call_function=(PFN_vkGetDescriptorSetLayoutSupport)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutSupport");
     }  
     
 call_function(device, pCreateInfo, pSupport);
@@ -20590,10 +21225,11 @@ VkDescriptorSetLayoutSupport* pSupport
 }();
 
 
+    PFN_vkGetDescriptorSetLayoutSupportKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDescriptorSetLayoutSupportKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutSupportKHR");
+        call_function=(PFN_vkGetDescriptorSetLayoutSupportKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutSupportKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDescriptorSetLayoutSupportKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutSupportKHR");
+        call_function=(PFN_vkGetDescriptorSetLayoutSupportKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutSupportKHR");
     }  
     
 call_function(device, pCreateInfo, pSupport);
@@ -20669,14 +21305,26 @@ void* pInfo
         pInfo=NULL;
         return;
         }
-    pInfo=deserialize_void_p(data_json["members"]["pInfo"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pInfo"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(*pInfoSize*sizeof(char));
+        for (int BIqTZhR=0; BIqTZhR < *pInfoSize; BIqTZhR++){
+            [&]() {
+temp[BIqTZhR]=deserialize_char(data_json["members"]["pInfo"]["members"][BIqTZhR]);}();;
+        }
+        }();pInfo=(void*)temp;
 }();
 
 
+    PFN_vkGetShaderInfoAMD call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetShaderInfoAMD)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetShaderInfoAMD");
+        call_function=(PFN_vkGetShaderInfoAMD)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetShaderInfoAMD");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetShaderInfoAMD)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetShaderInfoAMD");
+        call_function=(PFN_vkGetShaderInfoAMD)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetShaderInfoAMD");
     }  
     
 auto return_value=call_function(device, pipeline, shaderStage, infoType, pInfoSize, pInfo);
@@ -20716,8 +21364,24 @@ result["members"]["pInfo"]=[&]() {
             return_qcUUUDM["null"]=true;
             return return_qcUUUDM;
         }
-        return serialize_void_p(pInfo);
-}();
+        return_qcUUUDM=[&]() {
+    json return_fSVsAzr=json({});
+    
+        if (((char*)(pInfo))==NULL){
+            return_fSVsAzr["null"]=true;
+            return return_fSVsAzr;
+        }
+        
+        return_fSVsAzr["members"]={};
+        for(int fSVsAzr=0; fSVsAzr < *pInfoSize; fSVsAzr++){
+            json temp;
+            temp=[&]() {
+    json return_KqVuOPz=json({});
+    return serialize_char(((char*)(pInfo))[fSVsAzr]);}();
+            return_fSVsAzr["members"].push_back(temp);
+        }
+        return return_fSVsAzr;
+        }();return return_qcUUUDM;}();
 
         writeToConn(result);
     }
@@ -20740,10 +21404,11 @@ VkBool32 localDimmingEnable
 localDimmingEnable=deserialize_uint32_t(data_json["members"]["localDimmingEnable"]);}();}();
 
 
+    PFN_vkSetLocalDimmingAMD call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkSetLocalDimmingAMD)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetLocalDimmingAMD");
+        call_function=(PFN_vkSetLocalDimmingAMD)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetLocalDimmingAMD");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkSetLocalDimmingAMD)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetLocalDimmingAMD");
+        call_function=(PFN_vkSetLocalDimmingAMD)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetLocalDimmingAMD");
     }  
     
 call_function(device, swapChain, localDimmingEnable);
@@ -20801,10 +21466,11 @@ pTimeDomains[tAsaVZV]=deserialize_VkTimeDomainEXT(data_json["members"]["pTimeDom
         }();
 
 
+    PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceCalibrateableTimeDomainsEXT");
+        call_function=(PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceCalibrateableTimeDomainsEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceCalibrateableTimeDomainsEXT");
+        call_function=(PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceCalibrateableTimeDomainsEXT");
     }  
     
 auto return_value=call_function(physicalDevice, pTimeDomainCount, pTimeDomains);
@@ -20904,10 +21570,11 @@ uint64_t* pMaxDeviation
 }();
 
 
+    PFN_vkGetCalibratedTimestampsEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetCalibratedTimestampsEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetCalibratedTimestampsEXT");
+        call_function=(PFN_vkGetCalibratedTimestampsEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetCalibratedTimestampsEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetCalibratedTimestampsEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetCalibratedTimestampsEXT");
+        call_function=(PFN_vkGetCalibratedTimestampsEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetCalibratedTimestampsEXT");
     }  
     
 auto return_value=call_function(device, timestampCount, pTimestampInfos, pTimestamps, pMaxDeviation);
@@ -20996,10 +21663,11 @@ VkDebugUtilsObjectNameInfoEXT* temp_yFzObLB;[&]() {
 }();pNameInfo=temp_yFzObLB;}();
 
 
+    PFN_vkSetDebugUtilsObjectNameEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkSetDebugUtilsObjectNameEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetDebugUtilsObjectNameEXT");
+        call_function=(PFN_vkSetDebugUtilsObjectNameEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetDebugUtilsObjectNameEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkSetDebugUtilsObjectNameEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetDebugUtilsObjectNameEXT");
+        call_function=(PFN_vkSetDebugUtilsObjectNameEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetDebugUtilsObjectNameEXT");
     }  
     
 auto return_value=call_function(device, pNameInfo);
@@ -21049,10 +21717,11 @@ VkDebugUtilsObjectTagInfoEXT* temp_JNeLoQn;[&]() {
 }();pTagInfo=temp_JNeLoQn;}();
 
 
+    PFN_vkSetDebugUtilsObjectTagEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkSetDebugUtilsObjectTagEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetDebugUtilsObjectTagEXT");
+        call_function=(PFN_vkSetDebugUtilsObjectTagEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetDebugUtilsObjectTagEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkSetDebugUtilsObjectTagEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetDebugUtilsObjectTagEXT");
+        call_function=(PFN_vkSetDebugUtilsObjectTagEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetDebugUtilsObjectTagEXT");
     }  
     
 auto return_value=call_function(device, pTagInfo);
@@ -21102,10 +21771,11 @@ VkDebugUtilsLabelEXT* temp_KxrRhZs;[&]() {
 }();pLabelInfo=temp_KxrRhZs;}();
 
 
+    PFN_vkQueueBeginDebugUtilsLabelEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkQueueBeginDebugUtilsLabelEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueBeginDebugUtilsLabelEXT");
+        call_function=(PFN_vkQueueBeginDebugUtilsLabelEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueBeginDebugUtilsLabelEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkQueueBeginDebugUtilsLabelEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueBeginDebugUtilsLabelEXT");
+        call_function=(PFN_vkQueueBeginDebugUtilsLabelEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueBeginDebugUtilsLabelEXT");
     }  
     
 call_function(queue, pLabelInfo);
@@ -21140,10 +21810,11 @@ VkQueue queue
 queue=deserialize_VkQueue(data_json["members"]["queue"]);}();
 
 
+    PFN_vkQueueEndDebugUtilsLabelEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkQueueEndDebugUtilsLabelEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueEndDebugUtilsLabelEXT");
+        call_function=(PFN_vkQueueEndDebugUtilsLabelEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueEndDebugUtilsLabelEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkQueueEndDebugUtilsLabelEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueEndDebugUtilsLabelEXT");
+        call_function=(PFN_vkQueueEndDebugUtilsLabelEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueEndDebugUtilsLabelEXT");
     }  
     
 call_function(queue);
@@ -21180,10 +21851,11 @@ VkDebugUtilsLabelEXT* temp_KxrRhZs;[&]() {
 }();pLabelInfo=temp_KxrRhZs;}();
 
 
+    PFN_vkQueueInsertDebugUtilsLabelEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkQueueInsertDebugUtilsLabelEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueInsertDebugUtilsLabelEXT");
+        call_function=(PFN_vkQueueInsertDebugUtilsLabelEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueInsertDebugUtilsLabelEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkQueueInsertDebugUtilsLabelEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueInsertDebugUtilsLabelEXT");
+        call_function=(PFN_vkQueueInsertDebugUtilsLabelEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueInsertDebugUtilsLabelEXT");
     }  
     
 call_function(queue, pLabelInfo);
@@ -21231,10 +21903,11 @@ VkDebugUtilsLabelEXT* temp_KxrRhZs;[&]() {
 }();pLabelInfo=temp_KxrRhZs;}();
 
 
+    PFN_vkCmdBeginDebugUtilsLabelEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBeginDebugUtilsLabelEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginDebugUtilsLabelEXT");
+        call_function=(PFN_vkCmdBeginDebugUtilsLabelEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginDebugUtilsLabelEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBeginDebugUtilsLabelEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginDebugUtilsLabelEXT");
+        call_function=(PFN_vkCmdBeginDebugUtilsLabelEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginDebugUtilsLabelEXT");
     }  
     
 call_function(commandBuffer, pLabelInfo);
@@ -21269,10 +21942,11 @@ VkCommandBuffer commandBuffer
 commandBuffer=deserialize_VkCommandBuffer(data_json["members"]["commandBuffer"]);}();
 
 
+    PFN_vkCmdEndDebugUtilsLabelEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdEndDebugUtilsLabelEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndDebugUtilsLabelEXT");
+        call_function=(PFN_vkCmdEndDebugUtilsLabelEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndDebugUtilsLabelEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdEndDebugUtilsLabelEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndDebugUtilsLabelEXT");
+        call_function=(PFN_vkCmdEndDebugUtilsLabelEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndDebugUtilsLabelEXT");
     }  
     
 call_function(commandBuffer);
@@ -21309,10 +21983,11 @@ VkDebugUtilsLabelEXT* temp_KxrRhZs;[&]() {
 }();pLabelInfo=temp_KxrRhZs;}();
 
 
+    PFN_vkCmdInsertDebugUtilsLabelEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdInsertDebugUtilsLabelEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdInsertDebugUtilsLabelEXT");
+        call_function=(PFN_vkCmdInsertDebugUtilsLabelEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdInsertDebugUtilsLabelEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdInsertDebugUtilsLabelEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdInsertDebugUtilsLabelEXT");
+        call_function=(PFN_vkCmdInsertDebugUtilsLabelEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdInsertDebugUtilsLabelEXT");
     }  
     
 call_function(commandBuffer, pLabelInfo);
@@ -21385,10 +22060,11 @@ VkDebugUtilsMessengerEXT* pMessenger
 }();
 
 
+    PFN_vkCreateDebugUtilsMessengerEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateDebugUtilsMessengerEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDebugUtilsMessengerEXT");
+        call_function=(PFN_vkCreateDebugUtilsMessengerEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDebugUtilsMessengerEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateDebugUtilsMessengerEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDebugUtilsMessengerEXT");
+        call_function=(PFN_vkCreateDebugUtilsMessengerEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDebugUtilsMessengerEXT");
     }  
     
 auto return_value=call_function(instance, pCreateInfo, pAllocator, pMessenger);
@@ -21464,10 +22140,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyDebugUtilsMessengerEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyDebugUtilsMessengerEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDebugUtilsMessengerEXT");
+        call_function=(PFN_vkDestroyDebugUtilsMessengerEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDebugUtilsMessengerEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyDebugUtilsMessengerEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDebugUtilsMessengerEXT");
+        call_function=(PFN_vkDestroyDebugUtilsMessengerEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDebugUtilsMessengerEXT");
     }  
     
 call_function(instance, messenger, pAllocator);
@@ -21526,10 +22203,11 @@ VkDebugUtilsMessengerCallbackDataEXT* temp_qrOZJYX;[&]() {
 }();pCallbackData=temp_qrOZJYX;}();
 
 
+    PFN_vkSubmitDebugUtilsMessageEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkSubmitDebugUtilsMessageEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSubmitDebugUtilsMessageEXT");
+        call_function=(PFN_vkSubmitDebugUtilsMessageEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSubmitDebugUtilsMessageEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkSubmitDebugUtilsMessageEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSubmitDebugUtilsMessageEXT");
+        call_function=(PFN_vkSubmitDebugUtilsMessageEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSubmitDebugUtilsMessageEXT");
     }  
     
 call_function(instance, messageSeverity, messageTypes, pCallbackData);
@@ -21581,7 +22259,18 @@ void* temp_LPRHtvk;[&]() {
         temp_LPRHtvk=NULL;
         return;
         }
-    temp_LPRHtvk=deserialize_void_p(data_json["members"]["pHostPointer"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pHostPointer"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(data_json["members"]["pHostPointer"].size()*sizeof(char));
+        for (int VVgRQcl=0; VVgRQcl < data_json["members"]["pHostPointer"].size(); VVgRQcl++){
+            [&]() {
+temp[VVgRQcl]=deserialize_char(data_json["members"]["pHostPointer"]["members"][VVgRQcl]);}();;
+        }
+        }();temp_LPRHtvk=(void*)temp;
 }();pHostPointer=temp_LPRHtvk;}();
 VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties
         ;
@@ -21597,10 +22286,11 @@ VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties
 }();
 
 
+    PFN_vkGetMemoryHostPointerPropertiesEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetMemoryHostPointerPropertiesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMemoryHostPointerPropertiesEXT");
+        call_function=(PFN_vkGetMemoryHostPointerPropertiesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMemoryHostPointerPropertiesEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetMemoryHostPointerPropertiesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMemoryHostPointerPropertiesEXT");
+        call_function=(PFN_vkGetMemoryHostPointerPropertiesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMemoryHostPointerPropertiesEXT");
     }  
     
 auto return_value=call_function(device, handleType, pHostPointer, pMemoryHostPointerProperties);
@@ -21623,8 +22313,24 @@ result["members"]["pHostPointer"]=[&]() {
             return_WXbmMtZ["null"]=true;
             return return_WXbmMtZ;
         }
-        return serialize_void_p(pHostPointer);
-}();
+        return_WXbmMtZ=[&]() {
+    json return_PDtsYsQ=json({});
+    
+        if (((char*)(pHostPointer))==NULL){
+            return_PDtsYsQ["null"]=true;
+            return return_PDtsYsQ;
+        }
+        
+        return_PDtsYsQ["members"]={};
+        for(int PDtsYsQ=0; PDtsYsQ < strlen(((char*)(pHostPointer))); PDtsYsQ++){
+            json temp;
+            temp=[&]() {
+    json return_GffuMIE=json({});
+    return serialize_char(((char*)(pHostPointer))[PDtsYsQ]);}();
+            return_PDtsYsQ["members"].push_back(temp);
+        }
+        return return_PDtsYsQ;
+        }();return return_WXbmMtZ;}();
 result["members"]["pMemoryHostPointerProperties"]=[&]() {
     json return_NWIiYEs=json({});
     
@@ -21666,10 +22372,11 @@ uint32_t marker
 marker=deserialize_uint32_t(data_json["members"]["marker"]);}();
 
 
+    PFN_vkCmdWriteBufferMarkerAMD call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdWriteBufferMarkerAMD)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteBufferMarkerAMD");
+        call_function=(PFN_vkCmdWriteBufferMarkerAMD)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteBufferMarkerAMD");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdWriteBufferMarkerAMD)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteBufferMarkerAMD");
+        call_function=(PFN_vkCmdWriteBufferMarkerAMD)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteBufferMarkerAMD");
     }  
     
 call_function(commandBuffer, pipelineStage, dstBuffer, dstOffset, marker);
@@ -21745,10 +22452,11 @@ VkRenderPass* pRenderPass
 }();
 
 
+    PFN_vkCreateRenderPass2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateRenderPass2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRenderPass2");
+        call_function=(PFN_vkCreateRenderPass2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRenderPass2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateRenderPass2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRenderPass2");
+        call_function=(PFN_vkCreateRenderPass2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRenderPass2");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pRenderPass);
@@ -21845,10 +22553,11 @@ VkRenderPass* pRenderPass
 }();
 
 
+    PFN_vkCreateRenderPass2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateRenderPass2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRenderPass2KHR");
+        call_function=(PFN_vkCreateRenderPass2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRenderPass2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateRenderPass2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRenderPass2KHR");
+        call_function=(PFN_vkCreateRenderPass2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRenderPass2KHR");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pRenderPass);
@@ -21933,10 +22642,11 @@ VkSubpassBeginInfo* temp_NWXnZYw;[&]() {
 }();pSubpassBeginInfo=temp_NWXnZYw;}();
 
 
+    PFN_vkCmdBeginRenderPass2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBeginRenderPass2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRenderPass2");
+        call_function=(PFN_vkCmdBeginRenderPass2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRenderPass2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBeginRenderPass2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRenderPass2");
+        call_function=(PFN_vkCmdBeginRenderPass2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRenderPass2");
     }  
     
 call_function(commandBuffer, pRenderPassBegin, pSubpassBeginInfo);
@@ -22008,10 +22718,11 @@ VkSubpassBeginInfo* temp_NWXnZYw;[&]() {
 }();pSubpassBeginInfo=temp_NWXnZYw;}();
 
 
+    PFN_vkCmdBeginRenderPass2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBeginRenderPass2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRenderPass2KHR");
+        call_function=(PFN_vkCmdBeginRenderPass2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRenderPass2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBeginRenderPass2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRenderPass2KHR");
+        call_function=(PFN_vkCmdBeginRenderPass2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRenderPass2KHR");
     }  
     
 call_function(commandBuffer, pRenderPassBegin, pSubpassBeginInfo);
@@ -22083,10 +22794,11 @@ VkSubpassEndInfo* temp_YigCSXn;[&]() {
 }();pSubpassEndInfo=temp_YigCSXn;}();
 
 
+    PFN_vkCmdNextSubpass2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdNextSubpass2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdNextSubpass2");
+        call_function=(PFN_vkCmdNextSubpass2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdNextSubpass2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdNextSubpass2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdNextSubpass2");
+        call_function=(PFN_vkCmdNextSubpass2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdNextSubpass2");
     }  
     
 call_function(commandBuffer, pSubpassBeginInfo, pSubpassEndInfo);
@@ -22158,10 +22870,11 @@ VkSubpassEndInfo* temp_YigCSXn;[&]() {
 }();pSubpassEndInfo=temp_YigCSXn;}();
 
 
+    PFN_vkCmdNextSubpass2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdNextSubpass2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdNextSubpass2KHR");
+        call_function=(PFN_vkCmdNextSubpass2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdNextSubpass2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdNextSubpass2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdNextSubpass2KHR");
+        call_function=(PFN_vkCmdNextSubpass2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdNextSubpass2KHR");
     }  
     
 call_function(commandBuffer, pSubpassBeginInfo, pSubpassEndInfo);
@@ -22220,10 +22933,11 @@ VkSubpassEndInfo* temp_YigCSXn;[&]() {
 }();pSubpassEndInfo=temp_YigCSXn;}();
 
 
+    PFN_vkCmdEndRenderPass2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdEndRenderPass2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRenderPass2");
+        call_function=(PFN_vkCmdEndRenderPass2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRenderPass2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdEndRenderPass2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRenderPass2");
+        call_function=(PFN_vkCmdEndRenderPass2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRenderPass2");
     }  
     
 call_function(commandBuffer, pSubpassEndInfo);
@@ -22271,10 +22985,11 @@ VkSubpassEndInfo* temp_YigCSXn;[&]() {
 }();pSubpassEndInfo=temp_YigCSXn;}();
 
 
+    PFN_vkCmdEndRenderPass2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdEndRenderPass2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRenderPass2KHR");
+        call_function=(PFN_vkCmdEndRenderPass2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRenderPass2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdEndRenderPass2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRenderPass2KHR");
+        call_function=(PFN_vkCmdEndRenderPass2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRenderPass2KHR");
     }  
     
 call_function(commandBuffer, pSubpassEndInfo);
@@ -22325,10 +23040,11 @@ uint64_t* pValue
 }();
 
 
+    PFN_vkGetSemaphoreCounterValue call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetSemaphoreCounterValue)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSemaphoreCounterValue");
+        call_function=(PFN_vkGetSemaphoreCounterValue)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSemaphoreCounterValue");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetSemaphoreCounterValue)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSemaphoreCounterValue");
+        call_function=(PFN_vkGetSemaphoreCounterValue)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSemaphoreCounterValue");
     }  
     
 auto return_value=call_function(device, semaphore, pValue);
@@ -22384,10 +23100,11 @@ uint64_t* pValue
 }();
 
 
+    PFN_vkGetSemaphoreCounterValueKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetSemaphoreCounterValueKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSemaphoreCounterValueKHR");
+        call_function=(PFN_vkGetSemaphoreCounterValueKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSemaphoreCounterValueKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetSemaphoreCounterValueKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSemaphoreCounterValueKHR");
+        call_function=(PFN_vkGetSemaphoreCounterValueKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSemaphoreCounterValueKHR");
     }  
     
 auto return_value=call_function(device, semaphore, pValue);
@@ -22444,10 +23161,11 @@ uint64_t timeout
 timeout=deserialize_uint64_t(data_json["members"]["timeout"]);}();
 
 
+    PFN_vkWaitSemaphores call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkWaitSemaphores)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWaitSemaphores");
+        call_function=(PFN_vkWaitSemaphores)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWaitSemaphores");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkWaitSemaphores)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWaitSemaphores");
+        call_function=(PFN_vkWaitSemaphores)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWaitSemaphores");
     }  
     
 auto return_value=call_function(device, pWaitInfo, timeout);
@@ -22504,10 +23222,11 @@ uint64_t timeout
 timeout=deserialize_uint64_t(data_json["members"]["timeout"]);}();
 
 
+    PFN_vkWaitSemaphoresKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkWaitSemaphoresKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWaitSemaphoresKHR");
+        call_function=(PFN_vkWaitSemaphoresKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWaitSemaphoresKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkWaitSemaphoresKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWaitSemaphoresKHR");
+        call_function=(PFN_vkWaitSemaphoresKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWaitSemaphoresKHR");
     }  
     
 auto return_value=call_function(device, pWaitInfo, timeout);
@@ -22560,10 +23279,11 @@ VkSemaphoreSignalInfo* temp_Vnifgsv;[&]() {
 }();pSignalInfo=temp_Vnifgsv;}();
 
 
+    PFN_vkSignalSemaphore call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkSignalSemaphore)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSignalSemaphore");
+        call_function=(PFN_vkSignalSemaphore)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSignalSemaphore");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkSignalSemaphore)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSignalSemaphore");
+        call_function=(PFN_vkSignalSemaphore)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSignalSemaphore");
     }  
     
 auto return_value=call_function(device, pSignalInfo);
@@ -22613,10 +23333,11 @@ VkSemaphoreSignalInfo* temp_Vnifgsv;[&]() {
 }();pSignalInfo=temp_Vnifgsv;}();
 
 
+    PFN_vkSignalSemaphoreKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkSignalSemaphoreKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSignalSemaphoreKHR");
+        call_function=(PFN_vkSignalSemaphoreKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSignalSemaphoreKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkSignalSemaphoreKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSignalSemaphoreKHR");
+        call_function=(PFN_vkSignalSemaphoreKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSignalSemaphoreKHR");
     }  
     
 auto return_value=call_function(device, pSignalInfo);
@@ -22679,10 +23400,11 @@ uint32_t stride
 stride=deserialize_uint32_t(data_json["members"]["stride"]);}();
 
 
+    PFN_vkCmdDrawIndirectCount call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawIndirectCount)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirectCount");
+        call_function=(PFN_vkCmdDrawIndirectCount)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirectCount");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawIndirectCount)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirectCount");
+        call_function=(PFN_vkCmdDrawIndirectCount)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirectCount");
     }  
     
 call_function(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
@@ -22754,10 +23476,11 @@ uint32_t stride
 stride=deserialize_uint32_t(data_json["members"]["stride"]);}();
 
 
+    PFN_vkCmdDrawIndirectCountKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawIndirectCountKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirectCountKHR");
+        call_function=(PFN_vkCmdDrawIndirectCountKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirectCountKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawIndirectCountKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirectCountKHR");
+        call_function=(PFN_vkCmdDrawIndirectCountKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirectCountKHR");
     }  
     
 call_function(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
@@ -22829,10 +23552,11 @@ uint32_t stride
 stride=deserialize_uint32_t(data_json["members"]["stride"]);}();
 
 
+    PFN_vkCmdDrawIndirectCountAMD call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawIndirectCountAMD)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirectCountAMD");
+        call_function=(PFN_vkCmdDrawIndirectCountAMD)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirectCountAMD");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawIndirectCountAMD)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirectCountAMD");
+        call_function=(PFN_vkCmdDrawIndirectCountAMD)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirectCountAMD");
     }  
     
 call_function(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
@@ -22904,10 +23628,11 @@ uint32_t stride
 stride=deserialize_uint32_t(data_json["members"]["stride"]);}();
 
 
+    PFN_vkCmdDrawIndexedIndirectCount call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawIndexedIndirectCount)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexedIndirectCount");
+        call_function=(PFN_vkCmdDrawIndexedIndirectCount)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexedIndirectCount");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawIndexedIndirectCount)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexedIndirectCount");
+        call_function=(PFN_vkCmdDrawIndexedIndirectCount)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexedIndirectCount");
     }  
     
 call_function(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
@@ -22979,10 +23704,11 @@ uint32_t stride
 stride=deserialize_uint32_t(data_json["members"]["stride"]);}();
 
 
+    PFN_vkCmdDrawIndexedIndirectCountKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawIndexedIndirectCountKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexedIndirectCountKHR");
+        call_function=(PFN_vkCmdDrawIndexedIndirectCountKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexedIndirectCountKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawIndexedIndirectCountKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexedIndirectCountKHR");
+        call_function=(PFN_vkCmdDrawIndexedIndirectCountKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexedIndirectCountKHR");
     }  
     
 call_function(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
@@ -23054,10 +23780,11 @@ uint32_t stride
 stride=deserialize_uint32_t(data_json["members"]["stride"]);}();
 
 
+    PFN_vkCmdDrawIndexedIndirectCountAMD call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawIndexedIndirectCountAMD)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexedIndirectCountAMD");
+        call_function=(PFN_vkCmdDrawIndexedIndirectCountAMD)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexedIndirectCountAMD");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawIndexedIndirectCountAMD)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexedIndirectCountAMD");
+        call_function=(PFN_vkCmdDrawIndexedIndirectCountAMD)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndexedIndirectCountAMD");
     }  
     
 call_function(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
@@ -23110,14 +23837,26 @@ void* temp_VaNobWO;[&]() {
         temp_VaNobWO=NULL;
         return;
         }
-    temp_VaNobWO=deserialize_void_p(data_json["members"]["pCheckpointMarker"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pCheckpointMarker"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(data_json["members"]["pCheckpointMarker"].size()*sizeof(char));
+        for (int dtXJUqj=0; dtXJUqj < data_json["members"]["pCheckpointMarker"].size(); dtXJUqj++){
+            [&]() {
+temp[dtXJUqj]=deserialize_char(data_json["members"]["pCheckpointMarker"]["members"][dtXJUqj]);}();;
+        }
+        }();temp_VaNobWO=(void*)temp;
 }();pCheckpointMarker=temp_VaNobWO;}();
 
 
+    PFN_vkCmdSetCheckpointNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetCheckpointNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCheckpointNV");
+        call_function=(PFN_vkCmdSetCheckpointNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCheckpointNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetCheckpointNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCheckpointNV");
+        call_function=(PFN_vkCmdSetCheckpointNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCheckpointNV");
     }  
     
 call_function(commandBuffer, pCheckpointMarker);
@@ -23135,8 +23874,24 @@ result["members"]["pCheckpointMarker"]=[&]() {
             return_qCRgzCw["null"]=true;
             return return_qCRgzCw;
         }
-        return serialize_void_p(pCheckpointMarker);
-}();
+        return_qCRgzCw=[&]() {
+    json return_GycxCRb=json({});
+    
+        if (((char*)(pCheckpointMarker))==NULL){
+            return_GycxCRb["null"]=true;
+            return return_GycxCRb;
+        }
+        
+        return_GycxCRb["members"]={};
+        for(int GycxCRb=0; GycxCRb < strlen(((char*)(pCheckpointMarker))); GycxCRb++){
+            json temp;
+            temp=[&]() {
+    json return_lJDOHfq=json({});
+    return serialize_char(((char*)(pCheckpointMarker))[GycxCRb]);}();
+            return_GycxCRb["members"].push_back(temp);
+        }
+        return return_GycxCRb;
+        }();return return_qCRgzCw;}();
 
         writeToConn(result);
     }
@@ -23176,10 +23931,11 @@ pCheckpointData[LNhNgVq]=deserialize_VkCheckpointDataNV(data_json["members"]["pC
         }();
 
 
+    PFN_vkGetQueueCheckpointDataNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetQueueCheckpointDataNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetQueueCheckpointDataNV");
+        call_function=(PFN_vkGetQueueCheckpointDataNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetQueueCheckpointDataNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetQueueCheckpointDataNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetQueueCheckpointDataNV");
+        call_function=(PFN_vkGetQueueCheckpointDataNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetQueueCheckpointDataNV");
     }  
     
 call_function(queue, pCheckpointDataCount, pCheckpointData);
@@ -23297,10 +24053,11 @@ temp_dwJlipO[aPTJall]=deserialize_uint64_t(data_json["members"]["pSizes"]["membe
         }();}();pSizes=temp_dwJlipO;}();
 
 
+    PFN_vkCmdBindTransformFeedbackBuffersEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBindTransformFeedbackBuffersEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindTransformFeedbackBuffersEXT");
+        call_function=(PFN_vkCmdBindTransformFeedbackBuffersEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindTransformFeedbackBuffersEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBindTransformFeedbackBuffersEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindTransformFeedbackBuffersEXT");
+        call_function=(PFN_vkCmdBindTransformFeedbackBuffersEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindTransformFeedbackBuffersEXT");
     }  
     
 call_function(commandBuffer, firstBinding, bindingCount, pBuffers, pOffsets, pSizes);
@@ -23432,10 +24189,11 @@ temp_nDsstbh[YdHrYhD]=deserialize_uint64_t(data_json["members"]["pCounterBufferO
         }();}();pCounterBufferOffsets=temp_nDsstbh;}();
 
 
+    PFN_vkCmdBeginTransformFeedbackEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBeginTransformFeedbackEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginTransformFeedbackEXT");
+        call_function=(PFN_vkCmdBeginTransformFeedbackEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginTransformFeedbackEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBeginTransformFeedbackEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginTransformFeedbackEXT");
+        call_function=(PFN_vkCmdBeginTransformFeedbackEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginTransformFeedbackEXT");
     }  
     
 call_function(commandBuffer, firstCounterBuffer, counterBufferCount, pCounterBuffers, pCounterBufferOffsets);
@@ -23547,10 +24305,11 @@ temp_nDsstbh[YdHrYhD]=deserialize_uint64_t(data_json["members"]["pCounterBufferO
         }();}();pCounterBufferOffsets=temp_nDsstbh;}();
 
 
+    PFN_vkCmdEndTransformFeedbackEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdEndTransformFeedbackEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndTransformFeedbackEXT");
+        call_function=(PFN_vkCmdEndTransformFeedbackEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndTransformFeedbackEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdEndTransformFeedbackEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndTransformFeedbackEXT");
+        call_function=(PFN_vkCmdEndTransformFeedbackEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndTransformFeedbackEXT");
     }  
     
 call_function(commandBuffer, firstCounterBuffer, counterBufferCount, pCounterBuffers, pCounterBufferOffsets);
@@ -23634,10 +24393,11 @@ uint32_t index
 index=deserialize_uint32_t(data_json["members"]["index"]);}();
 
 
+    PFN_vkCmdBeginQueryIndexedEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBeginQueryIndexedEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginQueryIndexedEXT");
+        call_function=(PFN_vkCmdBeginQueryIndexedEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginQueryIndexedEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBeginQueryIndexedEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginQueryIndexedEXT");
+        call_function=(PFN_vkCmdBeginQueryIndexedEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginQueryIndexedEXT");
     }  
     
 call_function(commandBuffer, queryPool, query, flags, index);
@@ -23685,10 +24445,11 @@ uint32_t index
 index=deserialize_uint32_t(data_json["members"]["index"]);}();
 
 
+    PFN_vkCmdEndQueryIndexedEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdEndQueryIndexedEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndQueryIndexedEXT");
+        call_function=(PFN_vkCmdEndQueryIndexedEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndQueryIndexedEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdEndQueryIndexedEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndQueryIndexedEXT");
+        call_function=(PFN_vkCmdEndQueryIndexedEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndQueryIndexedEXT");
     }  
     
 call_function(commandBuffer, queryPool, query, index);
@@ -23746,10 +24507,11 @@ uint32_t vertexStride
 vertexStride=deserialize_uint32_t(data_json["members"]["vertexStride"]);}();
 
 
+    PFN_vkCmdDrawIndirectByteCountEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawIndirectByteCountEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirectByteCountEXT");
+        call_function=(PFN_vkCmdDrawIndirectByteCountEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirectByteCountEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawIndirectByteCountEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirectByteCountEXT");
+        call_function=(PFN_vkCmdDrawIndirectByteCountEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawIndirectByteCountEXT");
     }  
     
 call_function(commandBuffer, instanceCount, firstInstance, counterBuffer, counterBufferOffset, counterOffset, vertexStride);
@@ -23816,10 +24578,11 @@ temp_ycTZPYf[rzZjHcO]=deserialize_VkRect2D(data_json["members"]["pExclusiveSciss
         }();pExclusiveScissors=temp_ycTZPYf;}();
 
 
+    PFN_vkCmdSetExclusiveScissorNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetExclusiveScissorNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetExclusiveScissorNV");
+        call_function=(PFN_vkCmdSetExclusiveScissorNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetExclusiveScissorNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetExclusiveScissorNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetExclusiveScissorNV");
+        call_function=(PFN_vkCmdSetExclusiveScissorNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetExclusiveScissorNV");
     }  
     
 call_function(commandBuffer, firstExclusiveScissor, exclusiveScissorCount, pExclusiveScissors);
@@ -23896,10 +24659,11 @@ temp_XfHoIMG[wcAONDz]=deserialize_uint32_t(data_json["members"]["pExclusiveSciss
         }();}();pExclusiveScissorEnables=temp_XfHoIMG;}();
 
 
+    PFN_vkCmdSetExclusiveScissorEnableNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetExclusiveScissorEnableNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetExclusiveScissorEnableNV");
+        call_function=(PFN_vkCmdSetExclusiveScissorEnableNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetExclusiveScissorEnableNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetExclusiveScissorEnableNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetExclusiveScissorEnableNV");
+        call_function=(PFN_vkCmdSetExclusiveScissorEnableNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetExclusiveScissorEnableNV");
     }  
     
 call_function(commandBuffer, firstExclusiveScissor, exclusiveScissorCount, pExclusiveScissorEnables);
@@ -23957,10 +24721,11 @@ VkImageLayout imageLayout
 imageLayout=deserialize_VkImageLayout(data_json["members"]["imageLayout"]);}();
 
 
+    PFN_vkCmdBindShadingRateImageNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBindShadingRateImageNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindShadingRateImageNV");
+        call_function=(PFN_vkCmdBindShadingRateImageNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindShadingRateImageNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBindShadingRateImageNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindShadingRateImageNV");
+        call_function=(PFN_vkCmdBindShadingRateImageNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindShadingRateImageNV");
     }  
     
 call_function(commandBuffer, imageView, imageLayout);
@@ -24013,10 +24778,11 @@ temp_ylIthak[WDjHaQc]=deserialize_VkShadingRatePaletteNV(data_json["members"]["p
         }();pShadingRatePalettes=temp_ylIthak;}();
 
 
+    PFN_vkCmdSetViewportShadingRatePaletteNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetViewportShadingRatePaletteNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportShadingRatePaletteNV");
+        call_function=(PFN_vkCmdSetViewportShadingRatePaletteNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportShadingRatePaletteNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetViewportShadingRatePaletteNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportShadingRatePaletteNV");
+        call_function=(PFN_vkCmdSetViewportShadingRatePaletteNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportShadingRatePaletteNV");
     }  
     
 call_function(commandBuffer, firstViewport, viewportCount, pShadingRatePalettes);
@@ -24087,10 +24853,11 @@ temp_QpGgdSD[CyESAIu]=deserialize_VkCoarseSampleOrderCustomNV(data_json["members
         }();pCustomSampleOrders=temp_QpGgdSD;}();
 
 
+    PFN_vkCmdSetCoarseSampleOrderNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetCoarseSampleOrderNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoarseSampleOrderNV");
+        call_function=(PFN_vkCmdSetCoarseSampleOrderNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoarseSampleOrderNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetCoarseSampleOrderNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoarseSampleOrderNV");
+        call_function=(PFN_vkCmdSetCoarseSampleOrderNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoarseSampleOrderNV");
     }  
     
 call_function(commandBuffer, sampleOrderType, customSampleOrderCount, pCustomSampleOrders);
@@ -24146,10 +24913,11 @@ uint32_t firstTask
 firstTask=deserialize_uint32_t(data_json["members"]["firstTask"]);}();
 
 
+    PFN_vkCmdDrawMeshTasksNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawMeshTasksNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksNV");
+        call_function=(PFN_vkCmdDrawMeshTasksNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawMeshTasksNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksNV");
+        call_function=(PFN_vkCmdDrawMeshTasksNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksNV");
     }  
     
 call_function(commandBuffer, taskCount, firstTask);
@@ -24196,10 +24964,11 @@ uint32_t stride
 stride=deserialize_uint32_t(data_json["members"]["stride"]);}();
 
 
+    PFN_vkCmdDrawMeshTasksIndirectNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawMeshTasksIndirectNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksIndirectNV");
+        call_function=(PFN_vkCmdDrawMeshTasksIndirectNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksIndirectNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawMeshTasksIndirectNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksIndirectNV");
+        call_function=(PFN_vkCmdDrawMeshTasksIndirectNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksIndirectNV");
     }  
     
 call_function(commandBuffer, buffer, offset, drawCount, stride);
@@ -24263,10 +25032,11 @@ uint32_t stride
 stride=deserialize_uint32_t(data_json["members"]["stride"]);}();
 
 
+    PFN_vkCmdDrawMeshTasksIndirectCountNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawMeshTasksIndirectCountNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksIndirectCountNV");
+        call_function=(PFN_vkCmdDrawMeshTasksIndirectCountNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksIndirectCountNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawMeshTasksIndirectCountNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksIndirectCountNV");
+        call_function=(PFN_vkCmdDrawMeshTasksIndirectCountNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksIndirectCountNV");
     }  
     
 call_function(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
@@ -24324,10 +25094,11 @@ uint32_t groupCountZ
 groupCountZ=deserialize_uint32_t(data_json["members"]["groupCountZ"]);}();
 
 
+    PFN_vkCmdDrawMeshTasksEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawMeshTasksEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksEXT");
+        call_function=(PFN_vkCmdDrawMeshTasksEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawMeshTasksEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksEXT");
+        call_function=(PFN_vkCmdDrawMeshTasksEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksEXT");
     }  
     
 call_function(commandBuffer, groupCountX, groupCountY, groupCountZ);
@@ -24377,10 +25148,11 @@ uint32_t stride
 stride=deserialize_uint32_t(data_json["members"]["stride"]);}();
 
 
+    PFN_vkCmdDrawMeshTasksIndirectEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawMeshTasksIndirectEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksIndirectEXT");
+        call_function=(PFN_vkCmdDrawMeshTasksIndirectEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksIndirectEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawMeshTasksIndirectEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksIndirectEXT");
+        call_function=(PFN_vkCmdDrawMeshTasksIndirectEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksIndirectEXT");
     }  
     
 call_function(commandBuffer, buffer, offset, drawCount, stride);
@@ -24444,10 +25216,11 @@ uint32_t stride
 stride=deserialize_uint32_t(data_json["members"]["stride"]);}();
 
 
+    PFN_vkCmdDrawMeshTasksIndirectCountEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDrawMeshTasksIndirectCountEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksIndirectCountEXT");
+        call_function=(PFN_vkCmdDrawMeshTasksIndirectCountEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksIndirectCountEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDrawMeshTasksIndirectCountEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksIndirectCountEXT");
+        call_function=(PFN_vkCmdDrawMeshTasksIndirectCountEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDrawMeshTasksIndirectCountEXT");
     }  
     
 call_function(commandBuffer, buffer, offset, countBuffer, countBufferOffset, maxDrawCount, stride);
@@ -24501,10 +25274,11 @@ uint32_t shader
 shader=deserialize_uint32_t(data_json["members"]["shader"]);}();
 
 
+    PFN_vkCompileDeferredNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCompileDeferredNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCompileDeferredNV");
+        call_function=(PFN_vkCompileDeferredNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCompileDeferredNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCompileDeferredNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCompileDeferredNV");
+        call_function=(PFN_vkCompileDeferredNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCompileDeferredNV");
     }  
     
 auto return_value=call_function(device, pipeline, shader);
@@ -24574,10 +25348,11 @@ VkAccelerationStructureNV* pAccelerationStructure
 }();
 
 
+    PFN_vkCreateAccelerationStructureNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateAccelerationStructureNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateAccelerationStructureNV");
+        call_function=(PFN_vkCreateAccelerationStructureNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateAccelerationStructureNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateAccelerationStructureNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateAccelerationStructureNV");
+        call_function=(PFN_vkCreateAccelerationStructureNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateAccelerationStructureNV");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pAccelerationStructure);
@@ -24644,10 +25419,11 @@ VkImageLayout imageLayout
 imageLayout=deserialize_VkImageLayout(data_json["members"]["imageLayout"]);}();
 
 
+    PFN_vkCmdBindInvocationMaskHUAWEI call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBindInvocationMaskHUAWEI)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindInvocationMaskHUAWEI");
+        call_function=(PFN_vkCmdBindInvocationMaskHUAWEI)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindInvocationMaskHUAWEI");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBindInvocationMaskHUAWEI)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindInvocationMaskHUAWEI");
+        call_function=(PFN_vkCmdBindInvocationMaskHUAWEI)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindInvocationMaskHUAWEI");
     }  
     
 call_function(commandBuffer, imageView, imageLayout);
@@ -24694,10 +25470,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyAccelerationStructureKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyAccelerationStructureKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyAccelerationStructureKHR");
+        call_function=(PFN_vkDestroyAccelerationStructureKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyAccelerationStructureKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyAccelerationStructureKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyAccelerationStructureKHR");
+        call_function=(PFN_vkDestroyAccelerationStructureKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyAccelerationStructureKHR");
     }  
     
 call_function(device, accelerationStructure, pAllocator);
@@ -24752,10 +25529,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyAccelerationStructureNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyAccelerationStructureNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyAccelerationStructureNV");
+        call_function=(PFN_vkDestroyAccelerationStructureNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyAccelerationStructureNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyAccelerationStructureNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyAccelerationStructureNV");
+        call_function=(PFN_vkDestroyAccelerationStructureNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyAccelerationStructureNV");
     }  
     
 call_function(device, accelerationStructure, pAllocator);
@@ -24818,10 +25596,11 @@ VkMemoryRequirements2KHR* pMemoryRequirements
 }();
 
 
+    PFN_vkGetAccelerationStructureMemoryRequirementsNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetAccelerationStructureMemoryRequirementsNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureMemoryRequirementsNV");
+        call_function=(PFN_vkGetAccelerationStructureMemoryRequirementsNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureMemoryRequirementsNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetAccelerationStructureMemoryRequirementsNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureMemoryRequirementsNV");
+        call_function=(PFN_vkGetAccelerationStructureMemoryRequirementsNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureMemoryRequirementsNV");
     }  
     
 call_function(device, pInfo, pMemoryRequirements);
@@ -24886,10 +25665,11 @@ temp_TFoNHdD[TIcAbLu]=deserialize_VkBindAccelerationStructureMemoryInfoNV(data_j
         }();pBindInfos=temp_TFoNHdD;}();
 
 
+    PFN_vkBindAccelerationStructureMemoryNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkBindAccelerationStructureMemoryNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindAccelerationStructureMemoryNV");
+        call_function=(PFN_vkBindAccelerationStructureMemoryNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindAccelerationStructureMemoryNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkBindAccelerationStructureMemoryNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindAccelerationStructureMemoryNV");
+        call_function=(PFN_vkBindAccelerationStructureMemoryNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindAccelerationStructureMemoryNV");
     }  
     
 auto return_value=call_function(device, bindInfoCount, pBindInfos);
@@ -24948,10 +25728,11 @@ VkCopyAccelerationStructureModeKHR mode
 mode=deserialize_VkCopyAccelerationStructureModeKHR(data_json["members"]["mode"]);}();
 
 
+    PFN_vkCmdCopyAccelerationStructureNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyAccelerationStructureNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyAccelerationStructureNV");
+        call_function=(PFN_vkCmdCopyAccelerationStructureNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyAccelerationStructureNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyAccelerationStructureNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyAccelerationStructureNV");
+        call_function=(PFN_vkCmdCopyAccelerationStructureNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyAccelerationStructureNV");
     }  
     
 call_function(commandBuffer, dst, src, mode);
@@ -24997,10 +25778,11 @@ VkCopyAccelerationStructureInfoKHR* temp_oBXPFST;[&]() {
 }();pInfo=temp_oBXPFST;}();
 
 
+    PFN_vkCmdCopyAccelerationStructureKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyAccelerationStructureKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyAccelerationStructureKHR");
+        call_function=(PFN_vkCmdCopyAccelerationStructureKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyAccelerationStructureKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyAccelerationStructureKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyAccelerationStructureKHR");
+        call_function=(PFN_vkCmdCopyAccelerationStructureKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyAccelerationStructureKHR");
     }  
     
 call_function(commandBuffer, pInfo);
@@ -25052,10 +25834,11 @@ VkCopyAccelerationStructureInfoKHR* temp_oBXPFST;[&]() {
 }();pInfo=temp_oBXPFST;}();
 
 
+    PFN_vkCopyAccelerationStructureKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCopyAccelerationStructureKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyAccelerationStructureKHR");
+        call_function=(PFN_vkCopyAccelerationStructureKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyAccelerationStructureKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCopyAccelerationStructureKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyAccelerationStructureKHR");
+        call_function=(PFN_vkCopyAccelerationStructureKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyAccelerationStructureKHR");
     }  
     
 auto return_value=call_function(device, deferredOperation, pInfo);
@@ -25108,10 +25891,11 @@ VkCopyAccelerationStructureToMemoryInfoKHR* temp_zgeATyc;[&]() {
 }();pInfo=temp_zgeATyc;}();
 
 
+    PFN_vkCmdCopyAccelerationStructureToMemoryKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyAccelerationStructureToMemoryKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyAccelerationStructureToMemoryKHR");
+        call_function=(PFN_vkCmdCopyAccelerationStructureToMemoryKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyAccelerationStructureToMemoryKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyAccelerationStructureToMemoryKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyAccelerationStructureToMemoryKHR");
+        call_function=(PFN_vkCmdCopyAccelerationStructureToMemoryKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyAccelerationStructureToMemoryKHR");
     }  
     
 call_function(commandBuffer, pInfo);
@@ -25163,10 +25947,11 @@ VkCopyAccelerationStructureToMemoryInfoKHR* temp_zgeATyc;[&]() {
 }();pInfo=temp_zgeATyc;}();
 
 
+    PFN_vkCopyAccelerationStructureToMemoryKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCopyAccelerationStructureToMemoryKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyAccelerationStructureToMemoryKHR");
+        call_function=(PFN_vkCopyAccelerationStructureToMemoryKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyAccelerationStructureToMemoryKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCopyAccelerationStructureToMemoryKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyAccelerationStructureToMemoryKHR");
+        call_function=(PFN_vkCopyAccelerationStructureToMemoryKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyAccelerationStructureToMemoryKHR");
     }  
     
 auto return_value=call_function(device, deferredOperation, pInfo);
@@ -25219,10 +26004,11 @@ VkCopyMemoryToAccelerationStructureInfoKHR* temp_EnEWDgy;[&]() {
 }();pInfo=temp_EnEWDgy;}();
 
 
+    PFN_vkCmdCopyMemoryToAccelerationStructureKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyMemoryToAccelerationStructureKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMemoryToAccelerationStructureKHR");
+        call_function=(PFN_vkCmdCopyMemoryToAccelerationStructureKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMemoryToAccelerationStructureKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyMemoryToAccelerationStructureKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMemoryToAccelerationStructureKHR");
+        call_function=(PFN_vkCmdCopyMemoryToAccelerationStructureKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMemoryToAccelerationStructureKHR");
     }  
     
 call_function(commandBuffer, pInfo);
@@ -25274,10 +26060,11 @@ VkCopyMemoryToAccelerationStructureInfoKHR* temp_EnEWDgy;[&]() {
 }();pInfo=temp_EnEWDgy;}();
 
 
+    PFN_vkCopyMemoryToAccelerationStructureKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCopyMemoryToAccelerationStructureKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMemoryToAccelerationStructureKHR");
+        call_function=(PFN_vkCopyMemoryToAccelerationStructureKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMemoryToAccelerationStructureKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCopyMemoryToAccelerationStructureKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMemoryToAccelerationStructureKHR");
+        call_function=(PFN_vkCopyMemoryToAccelerationStructureKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMemoryToAccelerationStructureKHR");
     }  
     
 auto return_value=call_function(device, deferredOperation, pInfo);
@@ -25348,10 +26135,11 @@ uint32_t firstQuery
 firstQuery=deserialize_uint32_t(data_json["members"]["firstQuery"]);}();
 
 
+    PFN_vkCmdWriteAccelerationStructuresPropertiesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdWriteAccelerationStructuresPropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteAccelerationStructuresPropertiesKHR");
+        call_function=(PFN_vkCmdWriteAccelerationStructuresPropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteAccelerationStructuresPropertiesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdWriteAccelerationStructuresPropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteAccelerationStructuresPropertiesKHR");
+        call_function=(PFN_vkCmdWriteAccelerationStructuresPropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteAccelerationStructuresPropertiesKHR");
     }  
     
 call_function(commandBuffer, accelerationStructureCount, pAccelerationStructures, queryType, queryPool, firstQuery);
@@ -25436,10 +26224,11 @@ uint32_t firstQuery
 firstQuery=deserialize_uint32_t(data_json["members"]["firstQuery"]);}();
 
 
+    PFN_vkCmdWriteAccelerationStructuresPropertiesNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdWriteAccelerationStructuresPropertiesNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteAccelerationStructuresPropertiesNV");
+        call_function=(PFN_vkCmdWriteAccelerationStructuresPropertiesNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteAccelerationStructuresPropertiesNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdWriteAccelerationStructuresPropertiesNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteAccelerationStructuresPropertiesNV");
+        call_function=(PFN_vkCmdWriteAccelerationStructuresPropertiesNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteAccelerationStructuresPropertiesNV");
     }  
     
 call_function(commandBuffer, accelerationStructureCount, pAccelerationStructures, queryType, queryPool, firstQuery);
@@ -25537,10 +26326,11 @@ VkDeviceSize scratchOffset
 scratchOffset=deserialize_uint64_t(data_json["members"]["scratchOffset"]);}();}();
 
 
+    PFN_vkCmdBuildAccelerationStructureNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBuildAccelerationStructureNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBuildAccelerationStructureNV");
+        call_function=(PFN_vkCmdBuildAccelerationStructureNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBuildAccelerationStructureNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBuildAccelerationStructureNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBuildAccelerationStructureNV");
+        call_function=(PFN_vkCmdBuildAccelerationStructureNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBuildAccelerationStructureNV");
     }  
     
 call_function(commandBuffer, pInfo, instanceData, instanceOffset, update, dst, src, scratch, scratchOffset);
@@ -25635,7 +26425,18 @@ void* pData
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(dataSize*sizeof(char));
+        for (int ThmltOQ=0; ThmltOQ < dataSize; ThmltOQ++){
+            [&]() {
+temp[ThmltOQ]=deserialize_char(data_json["members"]["pData"]["members"][ThmltOQ]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 size_t stride
         ;
@@ -25643,10 +26444,11 @@ size_t stride
 stride=deserialize_size_t(data_json["members"]["stride"]);}();
 
 
+    PFN_vkWriteAccelerationStructuresPropertiesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkWriteAccelerationStructuresPropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWriteAccelerationStructuresPropertiesKHR");
+        call_function=(PFN_vkWriteAccelerationStructuresPropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWriteAccelerationStructuresPropertiesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkWriteAccelerationStructuresPropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWriteAccelerationStructuresPropertiesKHR");
+        call_function=(PFN_vkWriteAccelerationStructuresPropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWriteAccelerationStructuresPropertiesKHR");
     }  
     
 auto return_value=call_function(device, accelerationStructureCount, pAccelerationStructures, queryType, dataSize, pData, stride);
@@ -25693,8 +26495,24 @@ result["members"]["pData"]=[&]() {
             return_uMNHZoi["null"]=true;
             return return_uMNHZoi;
         }
-        return serialize_void_p(pData);
-}();
+        return_uMNHZoi=[&]() {
+    json return_neDQhGk=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_neDQhGk["null"]=true;
+            return return_neDQhGk;
+        }
+        
+        return_neDQhGk["members"]={};
+        for(int neDQhGk=0; neDQhGk < dataSize; neDQhGk++){
+            json temp;
+            temp=[&]() {
+    json return_amcrAAE=json({});
+    return serialize_char(((char*)(pData))[neDQhGk]);}();
+            return_neDQhGk["members"].push_back(temp);
+        }
+        return return_neDQhGk;
+        }();return return_uMNHZoi;}();
 result["members"]["stride"]=[&]() {
     json return_LQXemmN=json({});
     return serialize_size_t(stride);}();
@@ -25775,10 +26593,11 @@ uint32_t depth
 depth=deserialize_uint32_t(data_json["members"]["depth"]);}();
 
 
+    PFN_vkCmdTraceRaysKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdTraceRaysKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdTraceRaysKHR");
+        call_function=(PFN_vkCmdTraceRaysKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdTraceRaysKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdTraceRaysKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdTraceRaysKHR");
+        call_function=(PFN_vkCmdTraceRaysKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdTraceRaysKHR");
     }  
     
 call_function(commandBuffer, pRaygenShaderBindingTable, pMissShaderBindingTable, pHitShaderBindingTable, pCallableShaderBindingTable, width, height, depth);
@@ -25918,10 +26737,11 @@ uint32_t depth
 depth=deserialize_uint32_t(data_json["members"]["depth"]);}();
 
 
+    PFN_vkCmdTraceRaysNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdTraceRaysNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdTraceRaysNV");
+        call_function=(PFN_vkCmdTraceRaysNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdTraceRaysNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdTraceRaysNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdTraceRaysNV");
+        call_function=(PFN_vkCmdTraceRaysNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdTraceRaysNV");
     }  
     
 call_function(commandBuffer, raygenShaderBindingTableBuffer, raygenShaderBindingOffset, missShaderBindingTableBuffer, missShaderBindingOffset, missShaderBindingStride, hitShaderBindingTableBuffer, hitShaderBindingOffset, hitShaderBindingStride, callableShaderBindingTableBuffer, callableShaderBindingOffset, callableShaderBindingStride, width, height, depth);
@@ -26023,14 +26843,26 @@ void* pData
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(dataSize*sizeof(char));
+        for (int Huohrnv=0; Huohrnv < dataSize; Huohrnv++){
+            [&]() {
+temp[Huohrnv]=deserialize_char(data_json["members"]["pData"]["members"][Huohrnv]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 
 
+    PFN_vkGetRayTracingShaderGroupHandlesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetRayTracingShaderGroupHandlesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRayTracingShaderGroupHandlesKHR");
+        call_function=(PFN_vkGetRayTracingShaderGroupHandlesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRayTracingShaderGroupHandlesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetRayTracingShaderGroupHandlesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRayTracingShaderGroupHandlesKHR");
+        call_function=(PFN_vkGetRayTracingShaderGroupHandlesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRayTracingShaderGroupHandlesKHR");
     }  
     
 auto return_value=call_function(device, pipeline, firstGroup, groupCount, dataSize, pData);
@@ -26062,8 +26894,24 @@ result["members"]["pData"]=[&]() {
             return_SWOVaNE["null"]=true;
             return return_SWOVaNE;
         }
-        return serialize_void_p(pData);
-}();
+        return_SWOVaNE=[&]() {
+    json return_DbOsRMX=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_DbOsRMX["null"]=true;
+            return return_DbOsRMX;
+        }
+        
+        return_DbOsRMX["members"]={};
+        for(int DbOsRMX=0; DbOsRMX < dataSize; DbOsRMX++){
+            json temp;
+            temp=[&]() {
+    json return_hjqtGpj=json({});
+    return serialize_char(((char*)(pData))[DbOsRMX]);}();
+            return_DbOsRMX["members"].push_back(temp);
+        }
+        return return_DbOsRMX;
+        }();return return_SWOVaNE;}();
 
         writeToConn(result);
     }
@@ -26099,14 +26947,26 @@ void* pData
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(dataSize*sizeof(char));
+        for (int Huohrnv=0; Huohrnv < dataSize; Huohrnv++){
+            [&]() {
+temp[Huohrnv]=deserialize_char(data_json["members"]["pData"]["members"][Huohrnv]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 
 
+    PFN_vkGetRayTracingShaderGroupHandlesNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetRayTracingShaderGroupHandlesNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRayTracingShaderGroupHandlesNV");
+        call_function=(PFN_vkGetRayTracingShaderGroupHandlesNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRayTracingShaderGroupHandlesNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetRayTracingShaderGroupHandlesNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRayTracingShaderGroupHandlesNV");
+        call_function=(PFN_vkGetRayTracingShaderGroupHandlesNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRayTracingShaderGroupHandlesNV");
     }  
     
 auto return_value=call_function(device, pipeline, firstGroup, groupCount, dataSize, pData);
@@ -26138,8 +26998,24 @@ result["members"]["pData"]=[&]() {
             return_SWOVaNE["null"]=true;
             return return_SWOVaNE;
         }
-        return serialize_void_p(pData);
-}();
+        return_SWOVaNE=[&]() {
+    json return_DbOsRMX=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_DbOsRMX["null"]=true;
+            return return_DbOsRMX;
+        }
+        
+        return_DbOsRMX["members"]={};
+        for(int DbOsRMX=0; DbOsRMX < dataSize; DbOsRMX++){
+            json temp;
+            temp=[&]() {
+    json return_hjqtGpj=json({});
+    return serialize_char(((char*)(pData))[DbOsRMX]);}();
+            return_DbOsRMX["members"].push_back(temp);
+        }
+        return return_DbOsRMX;
+        }();return return_SWOVaNE;}();
 
         writeToConn(result);
     }
@@ -26175,14 +27051,26 @@ void* pData
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(dataSize*sizeof(char));
+        for (int Huohrnv=0; Huohrnv < dataSize; Huohrnv++){
+            [&]() {
+temp[Huohrnv]=deserialize_char(data_json["members"]["pData"]["members"][Huohrnv]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 
 
+    PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRayTracingCaptureReplayShaderGroupHandlesKHR");
+        call_function=(PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRayTracingCaptureReplayShaderGroupHandlesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRayTracingCaptureReplayShaderGroupHandlesKHR");
+        call_function=(PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRayTracingCaptureReplayShaderGroupHandlesKHR");
     }  
     
 auto return_value=call_function(device, pipeline, firstGroup, groupCount, dataSize, pData);
@@ -26214,8 +27102,24 @@ result["members"]["pData"]=[&]() {
             return_SWOVaNE["null"]=true;
             return return_SWOVaNE;
         }
-        return serialize_void_p(pData);
-}();
+        return_SWOVaNE=[&]() {
+    json return_DbOsRMX=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_DbOsRMX["null"]=true;
+            return return_DbOsRMX;
+        }
+        
+        return_DbOsRMX["members"]={};
+        for(int DbOsRMX=0; DbOsRMX < dataSize; DbOsRMX++){
+            json temp;
+            temp=[&]() {
+    json return_hjqtGpj=json({});
+    return serialize_char(((char*)(pData))[DbOsRMX]);}();
+            return_DbOsRMX["members"].push_back(temp);
+        }
+        return return_DbOsRMX;
+        }();return return_SWOVaNE;}();
 
         writeToConn(result);
     }
@@ -26243,14 +27147,26 @@ void* pData
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(dataSize*sizeof(char));
+        for (int Huohrnv=0; Huohrnv < dataSize; Huohrnv++){
+            [&]() {
+temp[Huohrnv]=deserialize_char(data_json["members"]["pData"]["members"][Huohrnv]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 
 
+    PFN_vkGetAccelerationStructureHandleNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetAccelerationStructureHandleNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureHandleNV");
+        call_function=(PFN_vkGetAccelerationStructureHandleNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureHandleNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetAccelerationStructureHandleNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureHandleNV");
+        call_function=(PFN_vkGetAccelerationStructureHandleNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureHandleNV");
     }  
     
 auto return_value=call_function(device, accelerationStructure, dataSize, pData);
@@ -26276,8 +27192,24 @@ result["members"]["pData"]=[&]() {
             return_SWOVaNE["null"]=true;
             return return_SWOVaNE;
         }
-        return serialize_void_p(pData);
-}();
+        return_SWOVaNE=[&]() {
+    json return_DbOsRMX=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_DbOsRMX["null"]=true;
+            return return_DbOsRMX;
+        }
+        
+        return_DbOsRMX["members"]={};
+        for(int DbOsRMX=0; DbOsRMX < dataSize; DbOsRMX++){
+            json temp;
+            temp=[&]() {
+    json return_hjqtGpj=json({});
+    return serialize_char(((char*)(pData))[DbOsRMX]);}();
+            return_DbOsRMX["members"].push_back(temp);
+        }
+        return return_DbOsRMX;
+        }();return return_SWOVaNE;}();
 
         writeToConn(result);
     }
@@ -26341,10 +27273,11 @@ pPipelines[TBqpkOr]=deserialize_VkPipeline(data_json["members"]["pPipelines"]["m
         }();
 
 
+    PFN_vkCreateRayTracingPipelinesNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateRayTracingPipelinesNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRayTracingPipelinesNV");
+        call_function=(PFN_vkCreateRayTracingPipelinesNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRayTracingPipelinesNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateRayTracingPipelinesNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRayTracingPipelinesNV");
+        call_function=(PFN_vkCreateRayTracingPipelinesNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRayTracingPipelinesNV");
     }  
     
 auto return_value=call_function(device, pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
@@ -26477,10 +27410,11 @@ pPipelines[TBqpkOr]=deserialize_VkPipeline(data_json["members"]["pPipelines"]["m
         }();
 
 
+    PFN_vkCreateRayTracingPipelinesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateRayTracingPipelinesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRayTracingPipelinesKHR");
+        call_function=(PFN_vkCreateRayTracingPipelinesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRayTracingPipelinesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateRayTracingPipelinesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRayTracingPipelinesKHR");
+        call_function=(PFN_vkCreateRayTracingPipelinesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateRayTracingPipelinesKHR");
     }  
     
 auto return_value=call_function(device, deferredOperation, pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
@@ -26588,10 +27522,11 @@ pProperties[jwnPQmH]=deserialize_VkCooperativeMatrixPropertiesNV(data_json["memb
         }();
 
 
+    PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceCooperativeMatrixPropertiesNV");
+        call_function=(PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceCooperativeMatrixPropertiesNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceCooperativeMatrixPropertiesNV");
+        call_function=(PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceCooperativeMatrixPropertiesNV");
     }  
     
 auto return_value=call_function(physicalDevice, pPropertyCount, pProperties);
@@ -26703,10 +27638,11 @@ VkDeviceAddress indirectDeviceAddress
 indirectDeviceAddress=deserialize_uint64_t(data_json["members"]["indirectDeviceAddress"]);}();}();
 
 
+    PFN_vkCmdTraceRaysIndirectKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdTraceRaysIndirectKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdTraceRaysIndirectKHR");
+        call_function=(PFN_vkCmdTraceRaysIndirectKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdTraceRaysIndirectKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdTraceRaysIndirectKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdTraceRaysIndirectKHR");
+        call_function=(PFN_vkCmdTraceRaysIndirectKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdTraceRaysIndirectKHR");
     }  
     
 call_function(commandBuffer, pRaygenShaderBindingTable, pMissShaderBindingTable, pHitShaderBindingTable, pCallableShaderBindingTable, indirectDeviceAddress);
@@ -26784,10 +27720,11 @@ VkDeviceAddress indirectDeviceAddress
 indirectDeviceAddress=deserialize_uint64_t(data_json["members"]["indirectDeviceAddress"]);}();}();
 
 
+    PFN_vkCmdTraceRaysIndirect2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdTraceRaysIndirect2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdTraceRaysIndirect2KHR");
+        call_function=(PFN_vkCmdTraceRaysIndirect2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdTraceRaysIndirect2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdTraceRaysIndirect2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdTraceRaysIndirect2KHR");
+        call_function=(PFN_vkCmdTraceRaysIndirect2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdTraceRaysIndirect2KHR");
     }  
     
 call_function(commandBuffer, indirectDeviceAddress);
@@ -26841,10 +27778,11 @@ VkAccelerationStructureCompatibilityKHR* pCompatibility
 }();
 
 
+    PFN_vkGetDeviceAccelerationStructureCompatibilityKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceAccelerationStructureCompatibilityKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceAccelerationStructureCompatibilityKHR");
+        call_function=(PFN_vkGetDeviceAccelerationStructureCompatibilityKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceAccelerationStructureCompatibilityKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceAccelerationStructureCompatibilityKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceAccelerationStructureCompatibilityKHR");
+        call_function=(PFN_vkGetDeviceAccelerationStructureCompatibilityKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceAccelerationStructureCompatibilityKHR");
     }  
     
 call_function(device, pVersionInfo, pCompatibility);
@@ -26902,10 +27840,11 @@ VkShaderGroupShaderKHR groupShader
 groupShader=deserialize_VkShaderGroupShaderKHR(data_json["members"]["groupShader"]);}();
 
 
+    PFN_vkGetRayTracingShaderGroupStackSizeKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetRayTracingShaderGroupStackSizeKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRayTracingShaderGroupStackSizeKHR");
+        call_function=(PFN_vkGetRayTracingShaderGroupStackSizeKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRayTracingShaderGroupStackSizeKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetRayTracingShaderGroupStackSizeKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRayTracingShaderGroupStackSizeKHR");
+        call_function=(PFN_vkGetRayTracingShaderGroupStackSizeKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetRayTracingShaderGroupStackSizeKHR");
     }  
     
 auto return_value=call_function(device, pipeline, group, groupShader);
@@ -26946,10 +27885,11 @@ uint32_t pipelineStackSize
 pipelineStackSize=deserialize_uint32_t(data_json["members"]["pipelineStackSize"]);}();
 
 
+    PFN_vkCmdSetRayTracingPipelineStackSizeKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetRayTracingPipelineStackSizeKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRayTracingPipelineStackSizeKHR");
+        call_function=(PFN_vkCmdSetRayTracingPipelineStackSizeKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRayTracingPipelineStackSizeKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetRayTracingPipelineStackSizeKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRayTracingPipelineStackSizeKHR");
+        call_function=(PFN_vkCmdSetRayTracingPipelineStackSizeKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRayTracingPipelineStackSizeKHR");
     }  
     
 call_function(commandBuffer, pipelineStackSize);
@@ -26989,10 +27929,11 @@ VkImageViewHandleInfoNVX* temp_RiHBMkk;[&]() {
 }();pInfo=temp_RiHBMkk;}();
 
 
+    PFN_vkGetImageViewHandleNVX call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetImageViewHandleNVX)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageViewHandleNVX");
+        call_function=(PFN_vkGetImageViewHandleNVX)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageViewHandleNVX");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetImageViewHandleNVX)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageViewHandleNVX");
+        call_function=(PFN_vkGetImageViewHandleNVX)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageViewHandleNVX");
     }  
     
 auto return_value=call_function(device, pInfo);
@@ -27045,10 +27986,11 @@ VkImageViewAddressPropertiesNVX* pProperties
 }();
 
 
+    PFN_vkGetImageViewAddressNVX call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetImageViewAddressNVX)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageViewAddressNVX");
+        call_function=(PFN_vkGetImageViewAddressNVX)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageViewAddressNVX");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetImageViewAddressNVX)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageViewAddressNVX");
+        call_function=(PFN_vkGetImageViewAddressNVX)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageViewAddressNVX");
     }  
     
 auto return_value=call_function(device, imageView, pProperties);
@@ -27132,10 +28074,11 @@ pCounterDescriptions[ZJAqfBK]=deserialize_VkPerformanceCounterDescriptionKHR(dat
         }();
 
 
+    PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR");
+        call_function=(PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR");
+        call_function=(PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR");
     }  
     
 auto return_value=call_function(physicalDevice, queueFamilyIndex, pCounterCount, pCounters, pCounterDescriptions);
@@ -27236,10 +28179,11 @@ uint32_t* pNumPasses
 }();
 
 
+    PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR");
     }  
     
 call_function(physicalDevice, pPerformanceQueryCreateInfo, pNumPasses);
@@ -27298,10 +28242,11 @@ VkAcquireProfilingLockInfoKHR* temp_jtFXpRs;[&]() {
 }();pInfo=temp_jtFXpRs;}();
 
 
+    PFN_vkAcquireProfilingLockKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkAcquireProfilingLockKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquireProfilingLockKHR");
+        call_function=(PFN_vkAcquireProfilingLockKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquireProfilingLockKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkAcquireProfilingLockKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquireProfilingLockKHR");
+        call_function=(PFN_vkAcquireProfilingLockKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquireProfilingLockKHR");
     }  
     
 auto return_value=call_function(device, pInfo);
@@ -27338,10 +28283,11 @@ VkDevice device
 device=deserialize_VkDevice(data_json["members"]["device"]);}();
 
 
+    PFN_vkReleaseProfilingLockKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkReleaseProfilingLockKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkReleaseProfilingLockKHR");
+        call_function=(PFN_vkReleaseProfilingLockKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkReleaseProfilingLockKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkReleaseProfilingLockKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkReleaseProfilingLockKHR");
+        call_function=(PFN_vkReleaseProfilingLockKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkReleaseProfilingLockKHR");
     }  
     
 call_function(device);
@@ -27381,10 +28327,11 @@ VkImageDrmFormatModifierPropertiesEXT* pProperties
 }();
 
 
+    PFN_vkGetImageDrmFormatModifierPropertiesEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetImageDrmFormatModifierPropertiesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageDrmFormatModifierPropertiesEXT");
+        call_function=(PFN_vkGetImageDrmFormatModifierPropertiesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageDrmFormatModifierPropertiesEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetImageDrmFormatModifierPropertiesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageDrmFormatModifierPropertiesEXT");
+        call_function=(PFN_vkGetImageDrmFormatModifierPropertiesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageDrmFormatModifierPropertiesEXT");
     }  
     
 auto return_value=call_function(device, image, pProperties);
@@ -27437,10 +28384,11 @@ VkBufferDeviceAddressInfo* temp_HNHOaLm;[&]() {
 }();pInfo=temp_HNHOaLm;}();
 
 
+    PFN_vkGetBufferOpaqueCaptureAddress call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetBufferOpaqueCaptureAddress)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferOpaqueCaptureAddress");
+        call_function=(PFN_vkGetBufferOpaqueCaptureAddress)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferOpaqueCaptureAddress");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetBufferOpaqueCaptureAddress)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferOpaqueCaptureAddress");
+        call_function=(PFN_vkGetBufferOpaqueCaptureAddress)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferOpaqueCaptureAddress");
     }  
     
 auto return_value=call_function(device, pInfo);
@@ -27490,10 +28438,11 @@ VkBufferDeviceAddressInfo* temp_HNHOaLm;[&]() {
 }();pInfo=temp_HNHOaLm;}();
 
 
+    PFN_vkGetBufferOpaqueCaptureAddressKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetBufferOpaqueCaptureAddressKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferOpaqueCaptureAddressKHR");
+        call_function=(PFN_vkGetBufferOpaqueCaptureAddressKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferOpaqueCaptureAddressKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetBufferOpaqueCaptureAddressKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferOpaqueCaptureAddressKHR");
+        call_function=(PFN_vkGetBufferOpaqueCaptureAddressKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferOpaqueCaptureAddressKHR");
     }  
     
 auto return_value=call_function(device, pInfo);
@@ -27543,10 +28492,11 @@ VkBufferDeviceAddressInfo* temp_HNHOaLm;[&]() {
 }();pInfo=temp_HNHOaLm;}();
 
 
+    PFN_vkGetBufferDeviceAddress call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetBufferDeviceAddress)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferDeviceAddress");
+        call_function=(PFN_vkGetBufferDeviceAddress)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferDeviceAddress");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetBufferDeviceAddress)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferDeviceAddress");
+        call_function=(PFN_vkGetBufferDeviceAddress)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferDeviceAddress");
     }  
     
 auto return_value=call_function(device, pInfo);
@@ -27598,10 +28548,11 @@ VkBufferDeviceAddressInfo* temp_HNHOaLm;[&]() {
 }();pInfo=temp_HNHOaLm;}();
 
 
+    PFN_vkGetBufferDeviceAddressKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetBufferDeviceAddressKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferDeviceAddressKHR");
+        call_function=(PFN_vkGetBufferDeviceAddressKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferDeviceAddressKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetBufferDeviceAddressKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferDeviceAddressKHR");
+        call_function=(PFN_vkGetBufferDeviceAddressKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferDeviceAddressKHR");
     }  
     
 auto return_value=call_function(device, pInfo);
@@ -27653,10 +28604,11 @@ VkBufferDeviceAddressInfo* temp_HNHOaLm;[&]() {
 }();pInfo=temp_HNHOaLm;}();
 
 
+    PFN_vkGetBufferDeviceAddressEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetBufferDeviceAddressEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferDeviceAddressEXT");
+        call_function=(PFN_vkGetBufferDeviceAddressEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferDeviceAddressEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetBufferDeviceAddressEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferDeviceAddressEXT");
+        call_function=(PFN_vkGetBufferDeviceAddressEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferDeviceAddressEXT");
     }  
     
 auto return_value=call_function(device, pInfo);
@@ -27733,10 +28685,11 @@ VkSurfaceKHR* pSurface
 }();
 
 
+    PFN_vkCreateHeadlessSurfaceEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateHeadlessSurfaceEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateHeadlessSurfaceEXT");
+        call_function=(PFN_vkCreateHeadlessSurfaceEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateHeadlessSurfaceEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateHeadlessSurfaceEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateHeadlessSurfaceEXT");
+        call_function=(PFN_vkCreateHeadlessSurfaceEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateHeadlessSurfaceEXT");
     }  
     
 auto return_value=call_function(instance, pCreateInfo, pAllocator, pSurface);
@@ -27821,10 +28774,11 @@ pCombinations[cxuNuHa]=deserialize_VkFramebufferMixedSamplesCombinationNV(data_j
         }();
 
 
+    PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV");
+        call_function=(PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV");
+        call_function=(PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV");
     }  
     
 auto return_value=call_function(physicalDevice, pCombinationCount, pCombinations);
@@ -27892,10 +28846,11 @@ VkInitializePerformanceApiInfoINTEL* temp_AFpAiXs;[&]() {
 }();pInitializeInfo=temp_AFpAiXs;}();
 
 
+    PFN_vkInitializePerformanceApiINTEL call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkInitializePerformanceApiINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkInitializePerformanceApiINTEL");
+        call_function=(PFN_vkInitializePerformanceApiINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkInitializePerformanceApiINTEL");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkInitializePerformanceApiINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkInitializePerformanceApiINTEL");
+        call_function=(PFN_vkInitializePerformanceApiINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkInitializePerformanceApiINTEL");
     }  
     
 auto return_value=call_function(device, pInitializeInfo);
@@ -27932,10 +28887,11 @@ VkDevice device
 device=deserialize_VkDevice(data_json["members"]["device"]);}();
 
 
+    PFN_vkUninitializePerformanceApiINTEL call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkUninitializePerformanceApiINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUninitializePerformanceApiINTEL");
+        call_function=(PFN_vkUninitializePerformanceApiINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUninitializePerformanceApiINTEL");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkUninitializePerformanceApiINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUninitializePerformanceApiINTEL");
+        call_function=(PFN_vkUninitializePerformanceApiINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUninitializePerformanceApiINTEL");
     }  
     
 call_function(device);
@@ -27972,10 +28928,11 @@ VkPerformanceMarkerInfoINTEL* temp_bOJRhrV;[&]() {
 }();pMarkerInfo=temp_bOJRhrV;}();
 
 
+    PFN_vkCmdSetPerformanceMarkerINTEL call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetPerformanceMarkerINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPerformanceMarkerINTEL");
+        call_function=(PFN_vkCmdSetPerformanceMarkerINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPerformanceMarkerINTEL");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetPerformanceMarkerINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPerformanceMarkerINTEL");
+        call_function=(PFN_vkCmdSetPerformanceMarkerINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPerformanceMarkerINTEL");
     }  
     
 auto return_value=call_function(commandBuffer, pMarkerInfo);
@@ -28025,10 +28982,11 @@ VkPerformanceStreamMarkerInfoINTEL* temp_XuxCBMZ;[&]() {
 }();pMarkerInfo=temp_XuxCBMZ;}();
 
 
+    PFN_vkCmdSetPerformanceStreamMarkerINTEL call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetPerformanceStreamMarkerINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPerformanceStreamMarkerINTEL");
+        call_function=(PFN_vkCmdSetPerformanceStreamMarkerINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPerformanceStreamMarkerINTEL");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetPerformanceStreamMarkerINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPerformanceStreamMarkerINTEL");
+        call_function=(PFN_vkCmdSetPerformanceStreamMarkerINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPerformanceStreamMarkerINTEL");
     }  
     
 auto return_value=call_function(commandBuffer, pMarkerInfo);
@@ -28078,10 +29036,11 @@ VkPerformanceOverrideInfoINTEL* temp_ECYmcJv;[&]() {
 }();pOverrideInfo=temp_ECYmcJv;}();
 
 
+    PFN_vkCmdSetPerformanceOverrideINTEL call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetPerformanceOverrideINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPerformanceOverrideINTEL");
+        call_function=(PFN_vkCmdSetPerformanceOverrideINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPerformanceOverrideINTEL");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetPerformanceOverrideINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPerformanceOverrideINTEL");
+        call_function=(PFN_vkCmdSetPerformanceOverrideINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPerformanceOverrideINTEL");
     }  
     
 auto return_value=call_function(commandBuffer, pOverrideInfo);
@@ -28143,10 +29102,11 @@ VkPerformanceConfigurationINTEL* pConfiguration
 }();
 
 
+    PFN_vkAcquirePerformanceConfigurationINTEL call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkAcquirePerformanceConfigurationINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquirePerformanceConfigurationINTEL");
+        call_function=(PFN_vkAcquirePerformanceConfigurationINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquirePerformanceConfigurationINTEL");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkAcquirePerformanceConfigurationINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquirePerformanceConfigurationINTEL");
+        call_function=(PFN_vkAcquirePerformanceConfigurationINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquirePerformanceConfigurationINTEL");
     }  
     
 auto return_value=call_function(device, pAcquireInfo, pConfiguration);
@@ -28198,10 +29158,11 @@ VkPerformanceConfigurationINTEL configuration
 configuration=deserialize_VkPerformanceConfigurationINTEL(data_json["members"]["configuration"]);}();
 
 
+    PFN_vkReleasePerformanceConfigurationINTEL call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkReleasePerformanceConfigurationINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkReleasePerformanceConfigurationINTEL");
+        call_function=(PFN_vkReleasePerformanceConfigurationINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkReleasePerformanceConfigurationINTEL");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkReleasePerformanceConfigurationINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkReleasePerformanceConfigurationINTEL");
+        call_function=(PFN_vkReleasePerformanceConfigurationINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkReleasePerformanceConfigurationINTEL");
     }  
     
 auto return_value=call_function(device, configuration);
@@ -28234,10 +29195,11 @@ VkPerformanceConfigurationINTEL configuration
 configuration=deserialize_VkPerformanceConfigurationINTEL(data_json["members"]["configuration"]);}();
 
 
+    PFN_vkQueueSetPerformanceConfigurationINTEL call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkQueueSetPerformanceConfigurationINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueSetPerformanceConfigurationINTEL");
+        call_function=(PFN_vkQueueSetPerformanceConfigurationINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueSetPerformanceConfigurationINTEL");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkQueueSetPerformanceConfigurationINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueSetPerformanceConfigurationINTEL");
+        call_function=(PFN_vkQueueSetPerformanceConfigurationINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueSetPerformanceConfigurationINTEL");
     }  
     
 auto return_value=call_function(queue, configuration);
@@ -28282,10 +29244,11 @@ VkPerformanceValueINTEL* pValue
 }();
 
 
+    PFN_vkGetPerformanceParameterINTEL call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPerformanceParameterINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPerformanceParameterINTEL");
+        call_function=(PFN_vkGetPerformanceParameterINTEL)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPerformanceParameterINTEL");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPerformanceParameterINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPerformanceParameterINTEL");
+        call_function=(PFN_vkGetPerformanceParameterINTEL)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPerformanceParameterINTEL");
     }  
     
 auto return_value=call_function(device, parameter, pValue);
@@ -28338,10 +29301,11 @@ VkDeviceMemoryOpaqueCaptureAddressInfo* temp_MxeEOZJ;[&]() {
 }();pInfo=temp_MxeEOZJ;}();
 
 
+    PFN_vkGetDeviceMemoryOpaqueCaptureAddress call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceMemoryOpaqueCaptureAddress)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceMemoryOpaqueCaptureAddress");
+        call_function=(PFN_vkGetDeviceMemoryOpaqueCaptureAddress)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceMemoryOpaqueCaptureAddress");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceMemoryOpaqueCaptureAddress)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceMemoryOpaqueCaptureAddress");
+        call_function=(PFN_vkGetDeviceMemoryOpaqueCaptureAddress)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceMemoryOpaqueCaptureAddress");
     }  
     
 auto return_value=call_function(device, pInfo);
@@ -28391,10 +29355,11 @@ VkDeviceMemoryOpaqueCaptureAddressInfo* temp_MxeEOZJ;[&]() {
 }();pInfo=temp_MxeEOZJ;}();
 
 
+    PFN_vkGetDeviceMemoryOpaqueCaptureAddressKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceMemoryOpaqueCaptureAddressKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceMemoryOpaqueCaptureAddressKHR");
+        call_function=(PFN_vkGetDeviceMemoryOpaqueCaptureAddressKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceMemoryOpaqueCaptureAddressKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceMemoryOpaqueCaptureAddressKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceMemoryOpaqueCaptureAddressKHR");
+        call_function=(PFN_vkGetDeviceMemoryOpaqueCaptureAddressKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceMemoryOpaqueCaptureAddressKHR");
     }  
     
 auto return_value=call_function(device, pInfo);
@@ -28470,10 +29435,11 @@ pProperties[SQlJMLs]=deserialize_VkPipelineExecutablePropertiesKHR(data_json["me
         }();
 
 
+    PFN_vkGetPipelineExecutablePropertiesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPipelineExecutablePropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineExecutablePropertiesKHR");
+        call_function=(PFN_vkGetPipelineExecutablePropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineExecutablePropertiesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPipelineExecutablePropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineExecutablePropertiesKHR");
+        call_function=(PFN_vkGetPipelineExecutablePropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineExecutablePropertiesKHR");
     }  
     
 auto return_value=call_function(device, pPipelineInfo, pExecutableCount, pProperties);
@@ -28578,10 +29544,11 @@ pStatistics[cVcJlLP]=deserialize_VkPipelineExecutableStatisticKHR(data_json["mem
         }();
 
 
+    PFN_vkGetPipelineExecutableStatisticsKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPipelineExecutableStatisticsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineExecutableStatisticsKHR");
+        call_function=(PFN_vkGetPipelineExecutableStatisticsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineExecutableStatisticsKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPipelineExecutableStatisticsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineExecutableStatisticsKHR");
+        call_function=(PFN_vkGetPipelineExecutableStatisticsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineExecutableStatisticsKHR");
     }  
     
 auto return_value=call_function(device, pExecutableInfo, pStatisticCount, pStatistics);
@@ -28686,10 +29653,11 @@ pInternalRepresentations[SUWOXxY]=deserialize_VkPipelineExecutableInternalRepres
         }();
 
 
+    PFN_vkGetPipelineExecutableInternalRepresentationsKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPipelineExecutableInternalRepresentationsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineExecutableInternalRepresentationsKHR");
+        call_function=(PFN_vkGetPipelineExecutableInternalRepresentationsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineExecutableInternalRepresentationsKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPipelineExecutableInternalRepresentationsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineExecutableInternalRepresentationsKHR");
+        call_function=(PFN_vkGetPipelineExecutableInternalRepresentationsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineExecutableInternalRepresentationsKHR");
     }  
     
 auto return_value=call_function(device, pExecutableInfo, pInternalRepresentationCount, pInternalRepresentations);
@@ -28763,10 +29731,11 @@ uint16_t lineStipplePattern
 lineStipplePattern=deserialize_uint16_t(data_json["members"]["lineStipplePattern"]);}();
 
 
+    PFN_vkCmdSetLineStippleEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetLineStippleEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLineStippleEXT");
+        call_function=(PFN_vkCmdSetLineStippleEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLineStippleEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetLineStippleEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLineStippleEXT");
+        call_function=(PFN_vkCmdSetLineStippleEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLineStippleEXT");
     }  
     
 call_function(commandBuffer, lineStippleFactor, lineStipplePattern);
@@ -28822,10 +29791,11 @@ pToolProperties[xsoSeNS]=deserialize_VkPhysicalDeviceToolProperties(data_json["m
         }();
 
 
+    PFN_vkGetPhysicalDeviceToolProperties call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceToolProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceToolProperties");
+        call_function=(PFN_vkGetPhysicalDeviceToolProperties)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceToolProperties");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceToolProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceToolProperties");
+        call_function=(PFN_vkGetPhysicalDeviceToolProperties)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceToolProperties");
     }  
     
 auto return_value=call_function(physicalDevice, pToolCount, pToolProperties);
@@ -28906,10 +29876,11 @@ pToolProperties[xsoSeNS]=deserialize_VkPhysicalDeviceToolProperties(data_json["m
         }();
 
 
+    PFN_vkGetPhysicalDeviceToolPropertiesEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceToolPropertiesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceToolPropertiesEXT");
+        call_function=(PFN_vkGetPhysicalDeviceToolPropertiesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceToolPropertiesEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceToolPropertiesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceToolPropertiesEXT");
+        call_function=(PFN_vkGetPhysicalDeviceToolPropertiesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceToolPropertiesEXT");
     }  
     
 auto return_value=call_function(physicalDevice, pToolCount, pToolProperties);
@@ -29002,10 +29973,11 @@ VkAccelerationStructureKHR*                        pAccelerationStructure
 }();
 
 
+    PFN_vkCreateAccelerationStructureKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateAccelerationStructureKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateAccelerationStructureKHR");
+        call_function=(PFN_vkCreateAccelerationStructureKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateAccelerationStructureKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateAccelerationStructureKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateAccelerationStructureKHR");
+        call_function=(PFN_vkCreateAccelerationStructureKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateAccelerationStructureKHR");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pAccelerationStructure);
@@ -29106,10 +30078,11 @@ VkAccelerationStructureBuildRangeInfoKHR** temp_yYbPZmS;[&]() {
         }();ppBuildRangeInfos=temp_yYbPZmS;}();
 
 
+    PFN_vkCmdBuildAccelerationStructuresKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBuildAccelerationStructuresKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBuildAccelerationStructuresKHR");
+        call_function=(PFN_vkCmdBuildAccelerationStructuresKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBuildAccelerationStructuresKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBuildAccelerationStructuresKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBuildAccelerationStructuresKHR");
+        call_function=(PFN_vkCmdBuildAccelerationStructuresKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBuildAccelerationStructuresKHR");
     }  
     
 call_function(commandBuffer, infoCount, pInfos, ppBuildRangeInfos);
@@ -29258,10 +30231,11 @@ uint32_t** temp_topQuBu;[&]() {
         }();ppMaxPrimitiveCounts=temp_topQuBu;}();
 
 
+    PFN_vkCmdBuildAccelerationStructuresIndirectKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBuildAccelerationStructuresIndirectKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBuildAccelerationStructuresIndirectKHR");
+        call_function=(PFN_vkCmdBuildAccelerationStructuresIndirectKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBuildAccelerationStructuresIndirectKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBuildAccelerationStructuresIndirectKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBuildAccelerationStructuresIndirectKHR");
+        call_function=(PFN_vkCmdBuildAccelerationStructuresIndirectKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBuildAccelerationStructuresIndirectKHR");
     }  
     
 call_function(commandBuffer, infoCount, pInfos, pIndirectDeviceAddresses, pIndirectStrides, ppMaxPrimitiveCounts);
@@ -29416,10 +30390,11 @@ VkAccelerationStructureBuildRangeInfoKHR** temp_yYbPZmS;[&]() {
         }();ppBuildRangeInfos=temp_yYbPZmS;}();
 
 
+    PFN_vkBuildAccelerationStructuresKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkBuildAccelerationStructuresKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBuildAccelerationStructuresKHR");
+        call_function=(PFN_vkBuildAccelerationStructuresKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBuildAccelerationStructuresKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkBuildAccelerationStructuresKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBuildAccelerationStructuresKHR");
+        call_function=(PFN_vkBuildAccelerationStructuresKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBuildAccelerationStructuresKHR");
     }  
     
 auto return_value=call_function(device, deferredOperation, infoCount, pInfos, ppBuildRangeInfos);
@@ -29508,10 +30483,11 @@ VkAccelerationStructureDeviceAddressInfoKHR* temp_vwLCYCI;[&]() {
 }();pInfo=temp_vwLCYCI;}();
 
 
+    PFN_vkGetAccelerationStructureDeviceAddressKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetAccelerationStructureDeviceAddressKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureDeviceAddressKHR");
+        call_function=(PFN_vkGetAccelerationStructureDeviceAddressKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureDeviceAddressKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetAccelerationStructureDeviceAddressKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureDeviceAddressKHR");
+        call_function=(PFN_vkGetAccelerationStructureDeviceAddressKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureDeviceAddressKHR");
     }  
     
 auto return_value=call_function(device, pInfo);
@@ -29575,10 +30551,11 @@ VkDeferredOperationKHR* pDeferredOperation
 }();
 
 
+    PFN_vkCreateDeferredOperationKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateDeferredOperationKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDeferredOperationKHR");
+        call_function=(PFN_vkCreateDeferredOperationKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDeferredOperationKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateDeferredOperationKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDeferredOperationKHR");
+        call_function=(PFN_vkCreateDeferredOperationKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateDeferredOperationKHR");
     }  
     
 auto return_value=call_function(device, pAllocator, pDeferredOperation);
@@ -29643,10 +30620,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyDeferredOperationKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyDeferredOperationKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDeferredOperationKHR");
+        call_function=(PFN_vkDestroyDeferredOperationKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDeferredOperationKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyDeferredOperationKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDeferredOperationKHR");
+        call_function=(PFN_vkDestroyDeferredOperationKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyDeferredOperationKHR");
     }  
     
 call_function(device, operation, pAllocator);
@@ -29688,10 +30666,11 @@ VkDeferredOperationKHR operation
 operation=deserialize_VkDeferredOperationKHR(data_json["members"]["operation"]);}();
 
 
+    PFN_vkGetDeferredOperationMaxConcurrencyKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeferredOperationMaxConcurrencyKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeferredOperationMaxConcurrencyKHR");
+        call_function=(PFN_vkGetDeferredOperationMaxConcurrencyKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeferredOperationMaxConcurrencyKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeferredOperationMaxConcurrencyKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeferredOperationMaxConcurrencyKHR");
+        call_function=(PFN_vkGetDeferredOperationMaxConcurrencyKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeferredOperationMaxConcurrencyKHR");
     }  
     
 auto return_value=call_function(device, operation);
@@ -29724,10 +30703,11 @@ VkDeferredOperationKHR operation
 operation=deserialize_VkDeferredOperationKHR(data_json["members"]["operation"]);}();
 
 
+    PFN_vkGetDeferredOperationResultKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeferredOperationResultKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeferredOperationResultKHR");
+        call_function=(PFN_vkGetDeferredOperationResultKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeferredOperationResultKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeferredOperationResultKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeferredOperationResultKHR");
+        call_function=(PFN_vkGetDeferredOperationResultKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeferredOperationResultKHR");
     }  
     
 auto return_value=call_function(device, operation);
@@ -29760,10 +30740,11 @@ VkDeferredOperationKHR operation
 operation=deserialize_VkDeferredOperationKHR(data_json["members"]["operation"]);}();
 
 
+    PFN_vkDeferredOperationJoinKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDeferredOperationJoinKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDeferredOperationJoinKHR");
+        call_function=(PFN_vkDeferredOperationJoinKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDeferredOperationJoinKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDeferredOperationJoinKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDeferredOperationJoinKHR");
+        call_function=(PFN_vkDeferredOperationJoinKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDeferredOperationJoinKHR");
     }  
     
 auto return_value=call_function(device, operation);
@@ -29817,10 +30798,11 @@ VkMemoryRequirements2* pMemoryRequirements
 }();
 
 
+    PFN_vkGetPipelineIndirectMemoryRequirementsNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPipelineIndirectMemoryRequirementsNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineIndirectMemoryRequirementsNV");
+        call_function=(PFN_vkGetPipelineIndirectMemoryRequirementsNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineIndirectMemoryRequirementsNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPipelineIndirectMemoryRequirementsNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineIndirectMemoryRequirementsNV");
+        call_function=(PFN_vkGetPipelineIndirectMemoryRequirementsNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineIndirectMemoryRequirementsNV");
     }  
     
 call_function(device, pCreateInfo, pMemoryRequirements);
@@ -29879,10 +30861,11 @@ VkPipelineIndirectDeviceAddressInfoNV* temp_PVvDOlB;[&]() {
 }();pInfo=temp_PVvDOlB;}();
 
 
+    PFN_vkGetPipelineIndirectDeviceAddressNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPipelineIndirectDeviceAddressNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineIndirectDeviceAddressNV");
+        call_function=(PFN_vkGetPipelineIndirectDeviceAddressNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineIndirectDeviceAddressNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPipelineIndirectDeviceAddressNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineIndirectDeviceAddressNV");
+        call_function=(PFN_vkGetPipelineIndirectDeviceAddressNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelineIndirectDeviceAddressNV");
     }  
     
 auto return_value=call_function(device, pInfo);
@@ -29925,10 +30908,11 @@ VkCullModeFlags cullMode
 cullMode=deserialize_VkCullModeFlags(data_json["members"]["cullMode"]);}();
 
 
+    PFN_vkCmdSetCullMode call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetCullMode)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCullMode");
+        call_function=(PFN_vkCmdSetCullMode)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCullMode");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetCullMode)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCullMode");
+        call_function=(PFN_vkCmdSetCullMode)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCullMode");
     }  
     
 call_function(commandBuffer, cullMode);
@@ -29959,10 +30943,11 @@ VkCullModeFlags cullMode
 cullMode=deserialize_VkCullModeFlags(data_json["members"]["cullMode"]);}();
 
 
+    PFN_vkCmdSetCullModeEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetCullModeEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCullModeEXT");
+        call_function=(PFN_vkCmdSetCullModeEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCullModeEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetCullModeEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCullModeEXT");
+        call_function=(PFN_vkCmdSetCullModeEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCullModeEXT");
     }  
     
 call_function(commandBuffer, cullMode);
@@ -29993,10 +30978,11 @@ VkFrontFace frontFace
 frontFace=deserialize_VkFrontFace(data_json["members"]["frontFace"]);}();
 
 
+    PFN_vkCmdSetFrontFace call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetFrontFace)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetFrontFace");
+        call_function=(PFN_vkCmdSetFrontFace)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetFrontFace");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetFrontFace)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetFrontFace");
+        call_function=(PFN_vkCmdSetFrontFace)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetFrontFace");
     }  
     
 call_function(commandBuffer, frontFace);
@@ -30027,10 +31013,11 @@ VkFrontFace frontFace
 frontFace=deserialize_VkFrontFace(data_json["members"]["frontFace"]);}();
 
 
+    PFN_vkCmdSetFrontFaceEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetFrontFaceEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetFrontFaceEXT");
+        call_function=(PFN_vkCmdSetFrontFaceEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetFrontFaceEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetFrontFaceEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetFrontFaceEXT");
+        call_function=(PFN_vkCmdSetFrontFaceEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetFrontFaceEXT");
     }  
     
 call_function(commandBuffer, frontFace);
@@ -30061,10 +31048,11 @@ VkPrimitiveTopology primitiveTopology
 primitiveTopology=deserialize_VkPrimitiveTopology(data_json["members"]["primitiveTopology"]);}();
 
 
+    PFN_vkCmdSetPrimitiveTopology call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetPrimitiveTopology)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPrimitiveTopology");
+        call_function=(PFN_vkCmdSetPrimitiveTopology)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPrimitiveTopology");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetPrimitiveTopology)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPrimitiveTopology");
+        call_function=(PFN_vkCmdSetPrimitiveTopology)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPrimitiveTopology");
     }  
     
 call_function(commandBuffer, primitiveTopology);
@@ -30095,10 +31083,11 @@ VkPrimitiveTopology primitiveTopology
 primitiveTopology=deserialize_VkPrimitiveTopology(data_json["members"]["primitiveTopology"]);}();
 
 
+    PFN_vkCmdSetPrimitiveTopologyEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetPrimitiveTopologyEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPrimitiveTopologyEXT");
+        call_function=(PFN_vkCmdSetPrimitiveTopologyEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPrimitiveTopologyEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetPrimitiveTopologyEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPrimitiveTopologyEXT");
+        call_function=(PFN_vkCmdSetPrimitiveTopologyEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPrimitiveTopologyEXT");
     }  
     
 call_function(commandBuffer, primitiveTopology);
@@ -30144,10 +31133,11 @@ temp_IJKezsu[GYeKiNp]=deserialize_VkViewport(data_json["members"]["pViewports"][
         }();pViewports=temp_IJKezsu;}();
 
 
+    PFN_vkCmdSetViewportWithCount call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetViewportWithCount)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportWithCount");
+        call_function=(PFN_vkCmdSetViewportWithCount)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportWithCount");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetViewportWithCount)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportWithCount");
+        call_function=(PFN_vkCmdSetViewportWithCount)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportWithCount");
     }  
     
 call_function(commandBuffer, viewportCount, pViewports);
@@ -30211,10 +31201,11 @@ temp_IJKezsu[GYeKiNp]=deserialize_VkViewport(data_json["members"]["pViewports"][
         }();pViewports=temp_IJKezsu;}();
 
 
+    PFN_vkCmdSetViewportWithCountEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetViewportWithCountEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportWithCountEXT");
+        call_function=(PFN_vkCmdSetViewportWithCountEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportWithCountEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetViewportWithCountEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportWithCountEXT");
+        call_function=(PFN_vkCmdSetViewportWithCountEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportWithCountEXT");
     }  
     
 call_function(commandBuffer, viewportCount, pViewports);
@@ -30278,10 +31269,11 @@ temp_AUGsNjr[ShmRGyZ]=deserialize_VkRect2D(data_json["members"]["pScissors"]["me
         }();pScissors=temp_AUGsNjr;}();
 
 
+    PFN_vkCmdSetScissorWithCount call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetScissorWithCount)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetScissorWithCount");
+        call_function=(PFN_vkCmdSetScissorWithCount)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetScissorWithCount");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetScissorWithCount)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetScissorWithCount");
+        call_function=(PFN_vkCmdSetScissorWithCount)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetScissorWithCount");
     }  
     
 call_function(commandBuffer, scissorCount, pScissors);
@@ -30345,10 +31337,11 @@ temp_AUGsNjr[ShmRGyZ]=deserialize_VkRect2D(data_json["members"]["pScissors"]["me
         }();pScissors=temp_AUGsNjr;}();
 
 
+    PFN_vkCmdSetScissorWithCountEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetScissorWithCountEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetScissorWithCountEXT");
+        call_function=(PFN_vkCmdSetScissorWithCountEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetScissorWithCountEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetScissorWithCountEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetScissorWithCountEXT");
+        call_function=(PFN_vkCmdSetScissorWithCountEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetScissorWithCountEXT");
     }  
     
 call_function(commandBuffer, scissorCount, pScissors);
@@ -30411,10 +31404,11 @@ VkIndexType indexType
 indexType=deserialize_VkIndexType(data_json["members"]["indexType"]);}();
 
 
+    PFN_vkCmdBindIndexBuffer2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBindIndexBuffer2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindIndexBuffer2KHR");
+        call_function=(PFN_vkCmdBindIndexBuffer2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindIndexBuffer2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBindIndexBuffer2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindIndexBuffer2KHR");
+        call_function=(PFN_vkCmdBindIndexBuffer2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindIndexBuffer2KHR");
     }  
     
 call_function(commandBuffer, buffer, offset, size, indexType);
@@ -30540,10 +31534,11 @@ temp_wcMluMk[EOqGjlQ]=deserialize_uint64_t(data_json["members"]["pStrides"]["mem
         }();}();pStrides=temp_wcMluMk;}();
 
 
+    PFN_vkCmdBindVertexBuffers2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBindVertexBuffers2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindVertexBuffers2");
+        call_function=(PFN_vkCmdBindVertexBuffers2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindVertexBuffers2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBindVertexBuffers2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindVertexBuffers2");
+        call_function=(PFN_vkCmdBindVertexBuffers2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindVertexBuffers2");
     }  
     
 call_function(commandBuffer, firstBinding, bindingCount, pBuffers, pOffsets, pSizes, pStrides);
@@ -30737,10 +31732,11 @@ temp_wcMluMk[EOqGjlQ]=deserialize_uint64_t(data_json["members"]["pStrides"]["mem
         }();}();pStrides=temp_wcMluMk;}();
 
 
+    PFN_vkCmdBindVertexBuffers2EXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBindVertexBuffers2EXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindVertexBuffers2EXT");
+        call_function=(PFN_vkCmdBindVertexBuffers2EXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindVertexBuffers2EXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBindVertexBuffers2EXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindVertexBuffers2EXT");
+        call_function=(PFN_vkCmdBindVertexBuffers2EXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindVertexBuffers2EXT");
     }  
     
 call_function(commandBuffer, firstBinding, bindingCount, pBuffers, pOffsets, pSizes, pStrides);
@@ -30853,10 +31849,11 @@ VkBool32 depthTestEnable
 depthTestEnable=deserialize_uint32_t(data_json["members"]["depthTestEnable"]);}();}();
 
 
+    PFN_vkCmdSetDepthTestEnable call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDepthTestEnable)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthTestEnable");
+        call_function=(PFN_vkCmdSetDepthTestEnable)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthTestEnable");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDepthTestEnable)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthTestEnable");
+        call_function=(PFN_vkCmdSetDepthTestEnable)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthTestEnable");
     }  
     
 call_function(commandBuffer, depthTestEnable);
@@ -30890,10 +31887,11 @@ VkBool32 depthTestEnable
 depthTestEnable=deserialize_uint32_t(data_json["members"]["depthTestEnable"]);}();}();
 
 
+    PFN_vkCmdSetDepthTestEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDepthTestEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthTestEnableEXT");
+        call_function=(PFN_vkCmdSetDepthTestEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthTestEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDepthTestEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthTestEnableEXT");
+        call_function=(PFN_vkCmdSetDepthTestEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthTestEnableEXT");
     }  
     
 call_function(commandBuffer, depthTestEnable);
@@ -30927,10 +31925,11 @@ VkBool32 depthWriteEnable
 depthWriteEnable=deserialize_uint32_t(data_json["members"]["depthWriteEnable"]);}();}();
 
 
+    PFN_vkCmdSetDepthWriteEnable call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDepthWriteEnable)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthWriteEnable");
+        call_function=(PFN_vkCmdSetDepthWriteEnable)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthWriteEnable");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDepthWriteEnable)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthWriteEnable");
+        call_function=(PFN_vkCmdSetDepthWriteEnable)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthWriteEnable");
     }  
     
 call_function(commandBuffer, depthWriteEnable);
@@ -30964,10 +31963,11 @@ VkBool32 depthWriteEnable
 depthWriteEnable=deserialize_uint32_t(data_json["members"]["depthWriteEnable"]);}();}();
 
 
+    PFN_vkCmdSetDepthWriteEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDepthWriteEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthWriteEnableEXT");
+        call_function=(PFN_vkCmdSetDepthWriteEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthWriteEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDepthWriteEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthWriteEnableEXT");
+        call_function=(PFN_vkCmdSetDepthWriteEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthWriteEnableEXT");
     }  
     
 call_function(commandBuffer, depthWriteEnable);
@@ -31000,10 +32000,11 @@ VkCompareOp depthCompareOp
 depthCompareOp=deserialize_VkCompareOp(data_json["members"]["depthCompareOp"]);}();
 
 
+    PFN_vkCmdSetDepthCompareOp call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDepthCompareOp)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthCompareOp");
+        call_function=(PFN_vkCmdSetDepthCompareOp)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthCompareOp");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDepthCompareOp)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthCompareOp");
+        call_function=(PFN_vkCmdSetDepthCompareOp)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthCompareOp");
     }  
     
 call_function(commandBuffer, depthCompareOp);
@@ -31034,10 +32035,11 @@ VkCompareOp depthCompareOp
 depthCompareOp=deserialize_VkCompareOp(data_json["members"]["depthCompareOp"]);}();
 
 
+    PFN_vkCmdSetDepthCompareOpEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDepthCompareOpEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthCompareOpEXT");
+        call_function=(PFN_vkCmdSetDepthCompareOpEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthCompareOpEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDepthCompareOpEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthCompareOpEXT");
+        call_function=(PFN_vkCmdSetDepthCompareOpEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthCompareOpEXT");
     }  
     
 call_function(commandBuffer, depthCompareOp);
@@ -31069,10 +32071,11 @@ VkBool32 depthBoundsTestEnable
 depthBoundsTestEnable=deserialize_uint32_t(data_json["members"]["depthBoundsTestEnable"]);}();}();
 
 
+    PFN_vkCmdSetDepthBoundsTestEnable call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDepthBoundsTestEnable)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBoundsTestEnable");
+        call_function=(PFN_vkCmdSetDepthBoundsTestEnable)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBoundsTestEnable");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDepthBoundsTestEnable)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBoundsTestEnable");
+        call_function=(PFN_vkCmdSetDepthBoundsTestEnable)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBoundsTestEnable");
     }  
     
 call_function(commandBuffer, depthBoundsTestEnable);
@@ -31106,10 +32109,11 @@ VkBool32 depthBoundsTestEnable
 depthBoundsTestEnable=deserialize_uint32_t(data_json["members"]["depthBoundsTestEnable"]);}();}();
 
 
+    PFN_vkCmdSetDepthBoundsTestEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDepthBoundsTestEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBoundsTestEnableEXT");
+        call_function=(PFN_vkCmdSetDepthBoundsTestEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBoundsTestEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDepthBoundsTestEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBoundsTestEnableEXT");
+        call_function=(PFN_vkCmdSetDepthBoundsTestEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBoundsTestEnableEXT");
     }  
     
 call_function(commandBuffer, depthBoundsTestEnable);
@@ -31143,10 +32147,11 @@ VkBool32 stencilTestEnable
 stencilTestEnable=deserialize_uint32_t(data_json["members"]["stencilTestEnable"]);}();}();
 
 
+    PFN_vkCmdSetStencilTestEnable call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetStencilTestEnable)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilTestEnable");
+        call_function=(PFN_vkCmdSetStencilTestEnable)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilTestEnable");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetStencilTestEnable)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilTestEnable");
+        call_function=(PFN_vkCmdSetStencilTestEnable)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilTestEnable");
     }  
     
 call_function(commandBuffer, stencilTestEnable);
@@ -31180,10 +32185,11 @@ VkBool32 stencilTestEnable
 stencilTestEnable=deserialize_uint32_t(data_json["members"]["stencilTestEnable"]);}();}();
 
 
+    PFN_vkCmdSetStencilTestEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetStencilTestEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilTestEnableEXT");
+        call_function=(PFN_vkCmdSetStencilTestEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilTestEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetStencilTestEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilTestEnableEXT");
+        call_function=(PFN_vkCmdSetStencilTestEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilTestEnableEXT");
     }  
     
 call_function(commandBuffer, stencilTestEnable);
@@ -31232,10 +32238,11 @@ VkCompareOp compareOp
 compareOp=deserialize_VkCompareOp(data_json["members"]["compareOp"]);}();
 
 
+    PFN_vkCmdSetStencilOp call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetStencilOp)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilOp");
+        call_function=(PFN_vkCmdSetStencilOp)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilOp");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetStencilOp)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilOp");
+        call_function=(PFN_vkCmdSetStencilOp)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilOp");
     }  
     
 call_function(commandBuffer, faceMask, failOp, passOp, depthFailOp, compareOp);
@@ -31294,10 +32301,11 @@ VkCompareOp compareOp
 compareOp=deserialize_VkCompareOp(data_json["members"]["compareOp"]);}();
 
 
+    PFN_vkCmdSetStencilOpEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetStencilOpEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilOpEXT");
+        call_function=(PFN_vkCmdSetStencilOpEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilOpEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetStencilOpEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilOpEXT");
+        call_function=(PFN_vkCmdSetStencilOpEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetStencilOpEXT");
     }  
     
 call_function(commandBuffer, faceMask, failOp, passOp, depthFailOp, compareOp);
@@ -31340,10 +32348,11 @@ uint32_t patchControlPoints
 patchControlPoints=deserialize_uint32_t(data_json["members"]["patchControlPoints"]);}();
 
 
+    PFN_vkCmdSetPatchControlPointsEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetPatchControlPointsEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPatchControlPointsEXT");
+        call_function=(PFN_vkCmdSetPatchControlPointsEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPatchControlPointsEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetPatchControlPointsEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPatchControlPointsEXT");
+        call_function=(PFN_vkCmdSetPatchControlPointsEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPatchControlPointsEXT");
     }  
     
 call_function(commandBuffer, patchControlPoints);
@@ -31375,10 +32384,11 @@ VkBool32 rasterizerDiscardEnable
 rasterizerDiscardEnable=deserialize_uint32_t(data_json["members"]["rasterizerDiscardEnable"]);}();}();
 
 
+    PFN_vkCmdSetRasterizerDiscardEnable call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetRasterizerDiscardEnable)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRasterizerDiscardEnable");
+        call_function=(PFN_vkCmdSetRasterizerDiscardEnable)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRasterizerDiscardEnable");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetRasterizerDiscardEnable)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRasterizerDiscardEnable");
+        call_function=(PFN_vkCmdSetRasterizerDiscardEnable)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRasterizerDiscardEnable");
     }  
     
 call_function(commandBuffer, rasterizerDiscardEnable);
@@ -31412,10 +32422,11 @@ VkBool32 rasterizerDiscardEnable
 rasterizerDiscardEnable=deserialize_uint32_t(data_json["members"]["rasterizerDiscardEnable"]);}();}();
 
 
+    PFN_vkCmdSetRasterizerDiscardEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetRasterizerDiscardEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRasterizerDiscardEnableEXT");
+        call_function=(PFN_vkCmdSetRasterizerDiscardEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRasterizerDiscardEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetRasterizerDiscardEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRasterizerDiscardEnableEXT");
+        call_function=(PFN_vkCmdSetRasterizerDiscardEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRasterizerDiscardEnableEXT");
     }  
     
 call_function(commandBuffer, rasterizerDiscardEnable);
@@ -31449,10 +32460,11 @@ VkBool32 depthBiasEnable
 depthBiasEnable=deserialize_uint32_t(data_json["members"]["depthBiasEnable"]);}();}();
 
 
+    PFN_vkCmdSetDepthBiasEnable call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDepthBiasEnable)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBiasEnable");
+        call_function=(PFN_vkCmdSetDepthBiasEnable)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBiasEnable");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDepthBiasEnable)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBiasEnable");
+        call_function=(PFN_vkCmdSetDepthBiasEnable)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBiasEnable");
     }  
     
 call_function(commandBuffer, depthBiasEnable);
@@ -31486,10 +32498,11 @@ VkBool32 depthBiasEnable
 depthBiasEnable=deserialize_uint32_t(data_json["members"]["depthBiasEnable"]);}();}();
 
 
+    PFN_vkCmdSetDepthBiasEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDepthBiasEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBiasEnableEXT");
+        call_function=(PFN_vkCmdSetDepthBiasEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBiasEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDepthBiasEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBiasEnableEXT");
+        call_function=(PFN_vkCmdSetDepthBiasEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBiasEnableEXT");
     }  
     
 call_function(commandBuffer, depthBiasEnable);
@@ -31522,10 +32535,11 @@ VkLogicOp logicOp
 logicOp=deserialize_VkLogicOp(data_json["members"]["logicOp"]);}();
 
 
+    PFN_vkCmdSetLogicOpEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetLogicOpEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLogicOpEXT");
+        call_function=(PFN_vkCmdSetLogicOpEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLogicOpEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetLogicOpEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLogicOpEXT");
+        call_function=(PFN_vkCmdSetLogicOpEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLogicOpEXT");
     }  
     
 call_function(commandBuffer, logicOp);
@@ -31557,10 +32571,11 @@ VkBool32 primitiveRestartEnable
 primitiveRestartEnable=deserialize_uint32_t(data_json["members"]["primitiveRestartEnable"]);}();}();
 
 
+    PFN_vkCmdSetPrimitiveRestartEnable call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetPrimitiveRestartEnable)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPrimitiveRestartEnable");
+        call_function=(PFN_vkCmdSetPrimitiveRestartEnable)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPrimitiveRestartEnable");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetPrimitiveRestartEnable)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPrimitiveRestartEnable");
+        call_function=(PFN_vkCmdSetPrimitiveRestartEnable)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPrimitiveRestartEnable");
     }  
     
 call_function(commandBuffer, primitiveRestartEnable);
@@ -31594,10 +32609,11 @@ VkBool32 primitiveRestartEnable
 primitiveRestartEnable=deserialize_uint32_t(data_json["members"]["primitiveRestartEnable"]);}();}();
 
 
+    PFN_vkCmdSetPrimitiveRestartEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetPrimitiveRestartEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPrimitiveRestartEnableEXT");
+        call_function=(PFN_vkCmdSetPrimitiveRestartEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPrimitiveRestartEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetPrimitiveRestartEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPrimitiveRestartEnableEXT");
+        call_function=(PFN_vkCmdSetPrimitiveRestartEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPrimitiveRestartEnableEXT");
     }  
     
 call_function(commandBuffer, primitiveRestartEnable);
@@ -31630,10 +32646,11 @@ VkTessellationDomainOrigin domainOrigin
 domainOrigin=deserialize_VkTessellationDomainOrigin(data_json["members"]["domainOrigin"]);}();
 
 
+    PFN_vkCmdSetTessellationDomainOriginEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetTessellationDomainOriginEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetTessellationDomainOriginEXT");
+        call_function=(PFN_vkCmdSetTessellationDomainOriginEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetTessellationDomainOriginEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetTessellationDomainOriginEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetTessellationDomainOriginEXT");
+        call_function=(PFN_vkCmdSetTessellationDomainOriginEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetTessellationDomainOriginEXT");
     }  
     
 call_function(commandBuffer, domainOrigin);
@@ -31665,10 +32682,11 @@ VkBool32 depthClampEnable
 depthClampEnable=deserialize_uint32_t(data_json["members"]["depthClampEnable"]);}();}();
 
 
+    PFN_vkCmdSetDepthClampEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDepthClampEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthClampEnableEXT");
+        call_function=(PFN_vkCmdSetDepthClampEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthClampEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDepthClampEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthClampEnableEXT");
+        call_function=(PFN_vkCmdSetDepthClampEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthClampEnableEXT");
     }  
     
 call_function(commandBuffer, depthClampEnable);
@@ -31701,10 +32719,11 @@ VkPolygonMode polygonMode
 polygonMode=deserialize_VkPolygonMode(data_json["members"]["polygonMode"]);}();
 
 
+    PFN_vkCmdSetPolygonModeEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetPolygonModeEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPolygonModeEXT");
+        call_function=(PFN_vkCmdSetPolygonModeEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPolygonModeEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetPolygonModeEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPolygonModeEXT");
+        call_function=(PFN_vkCmdSetPolygonModeEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetPolygonModeEXT");
     }  
     
 call_function(commandBuffer, polygonMode);
@@ -31735,10 +32754,11 @@ VkSampleCountFlagBits  rasterizationSamples
 rasterizationSamples=deserialize_VkSampleCountFlagBits(data_json["members"]["rasterizationSamples"]);}();
 
 
+    PFN_vkCmdSetRasterizationSamplesEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetRasterizationSamplesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRasterizationSamplesEXT");
+        call_function=(PFN_vkCmdSetRasterizationSamplesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRasterizationSamplesEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetRasterizationSamplesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRasterizationSamplesEXT");
+        call_function=(PFN_vkCmdSetRasterizationSamplesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRasterizationSamplesEXT");
     }  
     
 call_function(commandBuffer, rasterizationSamples);
@@ -31790,10 +32810,11 @@ temp_SJxJQan[mihOaJj]=deserialize_uint32_t(data_json["members"]["pSampleMask"]["
         }();}();pSampleMask=temp_SJxJQan;}();
 
 
+    PFN_vkCmdSetSampleMaskEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetSampleMaskEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetSampleMaskEXT");
+        call_function=(PFN_vkCmdSetSampleMaskEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetSampleMaskEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetSampleMaskEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetSampleMaskEXT");
+        call_function=(PFN_vkCmdSetSampleMaskEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetSampleMaskEXT");
     }  
     
 call_function(commandBuffer, samples, pSampleMask);
@@ -31845,10 +32866,11 @@ VkBool32 alphaToCoverageEnable
 alphaToCoverageEnable=deserialize_uint32_t(data_json["members"]["alphaToCoverageEnable"]);}();}();
 
 
+    PFN_vkCmdSetAlphaToCoverageEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetAlphaToCoverageEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetAlphaToCoverageEnableEXT");
+        call_function=(PFN_vkCmdSetAlphaToCoverageEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetAlphaToCoverageEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetAlphaToCoverageEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetAlphaToCoverageEnableEXT");
+        call_function=(PFN_vkCmdSetAlphaToCoverageEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetAlphaToCoverageEnableEXT");
     }  
     
 call_function(commandBuffer, alphaToCoverageEnable);
@@ -31882,10 +32904,11 @@ VkBool32 alphaToOneEnable
 alphaToOneEnable=deserialize_uint32_t(data_json["members"]["alphaToOneEnable"]);}();}();
 
 
+    PFN_vkCmdSetAlphaToOneEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetAlphaToOneEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetAlphaToOneEnableEXT");
+        call_function=(PFN_vkCmdSetAlphaToOneEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetAlphaToOneEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetAlphaToOneEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetAlphaToOneEnableEXT");
+        call_function=(PFN_vkCmdSetAlphaToOneEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetAlphaToOneEnableEXT");
     }  
     
 call_function(commandBuffer, alphaToOneEnable);
@@ -31919,10 +32942,11 @@ VkBool32 logicOpEnable
 logicOpEnable=deserialize_uint32_t(data_json["members"]["logicOpEnable"]);}();}();
 
 
+    PFN_vkCmdSetLogicOpEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetLogicOpEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLogicOpEnableEXT");
+        call_function=(PFN_vkCmdSetLogicOpEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLogicOpEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetLogicOpEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLogicOpEnableEXT");
+        call_function=(PFN_vkCmdSetLogicOpEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLogicOpEnableEXT");
     }  
     
 call_function(commandBuffer, logicOpEnable);
@@ -31980,10 +33004,11 @@ temp_GgXcwSL[kfiRJfG]=deserialize_uint32_t(data_json["members"]["pColorBlendEnab
         }();}();pColorBlendEnables=temp_GgXcwSL;}();
 
 
+    PFN_vkCmdSetColorBlendEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetColorBlendEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorBlendEnableEXT");
+        call_function=(PFN_vkCmdSetColorBlendEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorBlendEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetColorBlendEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorBlendEnableEXT");
+        call_function=(PFN_vkCmdSetColorBlendEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorBlendEnableEXT");
     }  
     
 call_function(commandBuffer, firstAttachment, attachmentCount, pColorBlendEnables);
@@ -32056,10 +33081,11 @@ temp_AoBKxsB[hxQLPUt]=deserialize_VkColorBlendEquationEXT(data_json["members"]["
         }();pColorBlendEquations=temp_AoBKxsB;}();
 
 
+    PFN_vkCmdSetColorBlendEquationEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetColorBlendEquationEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorBlendEquationEXT");
+        call_function=(PFN_vkCmdSetColorBlendEquationEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorBlendEquationEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetColorBlendEquationEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorBlendEquationEXT");
+        call_function=(PFN_vkCmdSetColorBlendEquationEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorBlendEquationEXT");
     }  
     
 call_function(commandBuffer, firstAttachment, attachmentCount, pColorBlendEquations);
@@ -32130,10 +33156,11 @@ temp_fqsNcOh[RmVIeny]=deserialize_VkColorComponentFlags(data_json["members"]["pC
         }();pColorWriteMasks=temp_fqsNcOh;}();
 
 
+    PFN_vkCmdSetColorWriteMaskEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetColorWriteMaskEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorWriteMaskEXT");
+        call_function=(PFN_vkCmdSetColorWriteMaskEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorWriteMaskEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetColorWriteMaskEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorWriteMaskEXT");
+        call_function=(PFN_vkCmdSetColorWriteMaskEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorWriteMaskEXT");
     }  
     
 call_function(commandBuffer, firstAttachment, attachmentCount, pColorWriteMasks);
@@ -32185,10 +33212,11 @@ uint32_t rasterizationStream
 rasterizationStream=deserialize_uint32_t(data_json["members"]["rasterizationStream"]);}();
 
 
+    PFN_vkCmdSetRasterizationStreamEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetRasterizationStreamEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRasterizationStreamEXT");
+        call_function=(PFN_vkCmdSetRasterizationStreamEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRasterizationStreamEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetRasterizationStreamEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRasterizationStreamEXT");
+        call_function=(PFN_vkCmdSetRasterizationStreamEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRasterizationStreamEXT");
     }  
     
 call_function(commandBuffer, rasterizationStream);
@@ -32219,10 +33247,11 @@ VkConservativeRasterizationModeEXT conservativeRasterizationMode
 conservativeRasterizationMode=deserialize_VkConservativeRasterizationModeEXT(data_json["members"]["conservativeRasterizationMode"]);}();
 
 
+    PFN_vkCmdSetConservativeRasterizationModeEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetConservativeRasterizationModeEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetConservativeRasterizationModeEXT");
+        call_function=(PFN_vkCmdSetConservativeRasterizationModeEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetConservativeRasterizationModeEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetConservativeRasterizationModeEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetConservativeRasterizationModeEXT");
+        call_function=(PFN_vkCmdSetConservativeRasterizationModeEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetConservativeRasterizationModeEXT");
     }  
     
 call_function(commandBuffer, conservativeRasterizationMode);
@@ -32253,10 +33282,11 @@ float extraPrimitiveOverestimationSize
 extraPrimitiveOverestimationSize=deserialize_float(data_json["members"]["extraPrimitiveOverestimationSize"]);}();
 
 
+    PFN_vkCmdSetExtraPrimitiveOverestimationSizeEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetExtraPrimitiveOverestimationSizeEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetExtraPrimitiveOverestimationSizeEXT");
+        call_function=(PFN_vkCmdSetExtraPrimitiveOverestimationSizeEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetExtraPrimitiveOverestimationSizeEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetExtraPrimitiveOverestimationSizeEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetExtraPrimitiveOverestimationSizeEXT");
+        call_function=(PFN_vkCmdSetExtraPrimitiveOverestimationSizeEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetExtraPrimitiveOverestimationSizeEXT");
     }  
     
 call_function(commandBuffer, extraPrimitiveOverestimationSize);
@@ -32288,10 +33318,11 @@ VkBool32 depthClipEnable
 depthClipEnable=deserialize_uint32_t(data_json["members"]["depthClipEnable"]);}();}();
 
 
+    PFN_vkCmdSetDepthClipEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDepthClipEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthClipEnableEXT");
+        call_function=(PFN_vkCmdSetDepthClipEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthClipEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDepthClipEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthClipEnableEXT");
+        call_function=(PFN_vkCmdSetDepthClipEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthClipEnableEXT");
     }  
     
 call_function(commandBuffer, depthClipEnable);
@@ -32325,10 +33356,11 @@ VkBool32 sampleLocationsEnable
 sampleLocationsEnable=deserialize_uint32_t(data_json["members"]["sampleLocationsEnable"]);}();}();
 
 
+    PFN_vkCmdSetSampleLocationsEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetSampleLocationsEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetSampleLocationsEnableEXT");
+        call_function=(PFN_vkCmdSetSampleLocationsEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetSampleLocationsEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetSampleLocationsEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetSampleLocationsEnableEXT");
+        call_function=(PFN_vkCmdSetSampleLocationsEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetSampleLocationsEnableEXT");
     }  
     
 call_function(commandBuffer, sampleLocationsEnable);
@@ -32380,10 +33412,11 @@ temp_VakdAUL[TpdEJNF]=deserialize_VkColorBlendAdvancedEXT(data_json["members"]["
         }();pColorBlendAdvanced=temp_VakdAUL;}();
 
 
+    PFN_vkCmdSetColorBlendAdvancedEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetColorBlendAdvancedEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorBlendAdvancedEXT");
+        call_function=(PFN_vkCmdSetColorBlendAdvancedEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorBlendAdvancedEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetColorBlendAdvancedEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorBlendAdvancedEXT");
+        call_function=(PFN_vkCmdSetColorBlendAdvancedEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorBlendAdvancedEXT");
     }  
     
 call_function(commandBuffer, firstAttachment, attachmentCount, pColorBlendAdvanced);
@@ -32435,10 +33468,11 @@ VkProvokingVertexModeEXT provokingVertexMode
 provokingVertexMode=deserialize_VkProvokingVertexModeEXT(data_json["members"]["provokingVertexMode"]);}();
 
 
+    PFN_vkCmdSetProvokingVertexModeEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetProvokingVertexModeEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetProvokingVertexModeEXT");
+        call_function=(PFN_vkCmdSetProvokingVertexModeEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetProvokingVertexModeEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetProvokingVertexModeEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetProvokingVertexModeEXT");
+        call_function=(PFN_vkCmdSetProvokingVertexModeEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetProvokingVertexModeEXT");
     }  
     
 call_function(commandBuffer, provokingVertexMode);
@@ -32469,10 +33503,11 @@ VkLineRasterizationModeEXT lineRasterizationMode
 lineRasterizationMode=deserialize_VkLineRasterizationModeEXT(data_json["members"]["lineRasterizationMode"]);}();
 
 
+    PFN_vkCmdSetLineRasterizationModeEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetLineRasterizationModeEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLineRasterizationModeEXT");
+        call_function=(PFN_vkCmdSetLineRasterizationModeEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLineRasterizationModeEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetLineRasterizationModeEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLineRasterizationModeEXT");
+        call_function=(PFN_vkCmdSetLineRasterizationModeEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLineRasterizationModeEXT");
     }  
     
 call_function(commandBuffer, lineRasterizationMode);
@@ -32504,10 +33539,11 @@ VkBool32 stippledLineEnable
 stippledLineEnable=deserialize_uint32_t(data_json["members"]["stippledLineEnable"]);}();}();
 
 
+    PFN_vkCmdSetLineStippleEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetLineStippleEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLineStippleEnableEXT");
+        call_function=(PFN_vkCmdSetLineStippleEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLineStippleEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetLineStippleEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLineStippleEnableEXT");
+        call_function=(PFN_vkCmdSetLineStippleEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetLineStippleEnableEXT");
     }  
     
 call_function(commandBuffer, stippledLineEnable);
@@ -32541,10 +33577,11 @@ VkBool32 negativeOneToOne
 negativeOneToOne=deserialize_uint32_t(data_json["members"]["negativeOneToOne"]);}();}();
 
 
+    PFN_vkCmdSetDepthClipNegativeOneToOneEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDepthClipNegativeOneToOneEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthClipNegativeOneToOneEXT");
+        call_function=(PFN_vkCmdSetDepthClipNegativeOneToOneEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthClipNegativeOneToOneEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDepthClipNegativeOneToOneEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthClipNegativeOneToOneEXT");
+        call_function=(PFN_vkCmdSetDepthClipNegativeOneToOneEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthClipNegativeOneToOneEXT");
     }  
     
 call_function(commandBuffer, negativeOneToOne);
@@ -32578,10 +33615,11 @@ VkBool32 viewportWScalingEnable
 viewportWScalingEnable=deserialize_uint32_t(data_json["members"]["viewportWScalingEnable"]);}();}();
 
 
+    PFN_vkCmdSetViewportWScalingEnableNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetViewportWScalingEnableNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportWScalingEnableNV");
+        call_function=(PFN_vkCmdSetViewportWScalingEnableNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportWScalingEnableNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetViewportWScalingEnableNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportWScalingEnableNV");
+        call_function=(PFN_vkCmdSetViewportWScalingEnableNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportWScalingEnableNV");
     }  
     
 call_function(commandBuffer, viewportWScalingEnable);
@@ -32633,10 +33671,11 @@ temp_dhYoTKO[KhMZWMz]=deserialize_VkViewportSwizzleNV(data_json["members"]["pVie
         }();pViewportSwizzles=temp_dhYoTKO;}();
 
 
+    PFN_vkCmdSetViewportSwizzleNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetViewportSwizzleNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportSwizzleNV");
+        call_function=(PFN_vkCmdSetViewportSwizzleNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportSwizzleNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetViewportSwizzleNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportSwizzleNV");
+        call_function=(PFN_vkCmdSetViewportSwizzleNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetViewportSwizzleNV");
     }  
     
 call_function(commandBuffer, firstViewport, viewportCount, pViewportSwizzles);
@@ -32689,10 +33728,11 @@ VkBool32 coverageToColorEnable
 coverageToColorEnable=deserialize_uint32_t(data_json["members"]["coverageToColorEnable"]);}();}();
 
 
+    PFN_vkCmdSetCoverageToColorEnableNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetCoverageToColorEnableNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageToColorEnableNV");
+        call_function=(PFN_vkCmdSetCoverageToColorEnableNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageToColorEnableNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetCoverageToColorEnableNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageToColorEnableNV");
+        call_function=(PFN_vkCmdSetCoverageToColorEnableNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageToColorEnableNV");
     }  
     
 call_function(commandBuffer, coverageToColorEnable);
@@ -32725,10 +33765,11 @@ uint32_t coverageToColorLocation
 coverageToColorLocation=deserialize_uint32_t(data_json["members"]["coverageToColorLocation"]);}();
 
 
+    PFN_vkCmdSetCoverageToColorLocationNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetCoverageToColorLocationNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageToColorLocationNV");
+        call_function=(PFN_vkCmdSetCoverageToColorLocationNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageToColorLocationNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetCoverageToColorLocationNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageToColorLocationNV");
+        call_function=(PFN_vkCmdSetCoverageToColorLocationNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageToColorLocationNV");
     }  
     
 call_function(commandBuffer, coverageToColorLocation);
@@ -32759,10 +33800,11 @@ VkCoverageModulationModeNV coverageModulationMode
 coverageModulationMode=deserialize_VkCoverageModulationModeNV(data_json["members"]["coverageModulationMode"]);}();
 
 
+    PFN_vkCmdSetCoverageModulationModeNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetCoverageModulationModeNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageModulationModeNV");
+        call_function=(PFN_vkCmdSetCoverageModulationModeNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageModulationModeNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetCoverageModulationModeNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageModulationModeNV");
+        call_function=(PFN_vkCmdSetCoverageModulationModeNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageModulationModeNV");
     }  
     
 call_function(commandBuffer, coverageModulationMode);
@@ -32794,10 +33836,11 @@ VkBool32 coverageModulationTableEnable
 coverageModulationTableEnable=deserialize_uint32_t(data_json["members"]["coverageModulationTableEnable"]);}();}();
 
 
+    PFN_vkCmdSetCoverageModulationTableEnableNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetCoverageModulationTableEnableNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageModulationTableEnableNV");
+        call_function=(PFN_vkCmdSetCoverageModulationTableEnableNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageModulationTableEnableNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetCoverageModulationTableEnableNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageModulationTableEnableNV");
+        call_function=(PFN_vkCmdSetCoverageModulationTableEnableNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageModulationTableEnableNV");
     }  
     
 call_function(commandBuffer, coverageModulationTableEnable);
@@ -32845,10 +33888,11 @@ temp_cPtrEDk[FFSweOZ]=deserialize_float(data_json["members"]["pCoverageModulatio
         }();pCoverageModulationTable=temp_cPtrEDk;}();
 
 
+    PFN_vkCmdSetCoverageModulationTableNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetCoverageModulationTableNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageModulationTableNV");
+        call_function=(PFN_vkCmdSetCoverageModulationTableNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageModulationTableNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetCoverageModulationTableNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageModulationTableNV");
+        call_function=(PFN_vkCmdSetCoverageModulationTableNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageModulationTableNV");
     }  
     
 call_function(commandBuffer, coverageModulationTableCount, pCoverageModulationTable);
@@ -32898,10 +33942,11 @@ VkBool32 shadingRateImageEnable
 shadingRateImageEnable=deserialize_uint32_t(data_json["members"]["shadingRateImageEnable"]);}();}();
 
 
+    PFN_vkCmdSetShadingRateImageEnableNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetShadingRateImageEnableNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetShadingRateImageEnableNV");
+        call_function=(PFN_vkCmdSetShadingRateImageEnableNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetShadingRateImageEnableNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetShadingRateImageEnableNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetShadingRateImageEnableNV");
+        call_function=(PFN_vkCmdSetShadingRateImageEnableNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetShadingRateImageEnableNV");
     }  
     
 call_function(commandBuffer, shadingRateImageEnable);
@@ -32934,10 +33979,11 @@ VkCoverageReductionModeNV coverageReductionMode
 coverageReductionMode=deserialize_VkCoverageReductionModeNV(data_json["members"]["coverageReductionMode"]);}();
 
 
+    PFN_vkCmdSetCoverageReductionModeNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetCoverageReductionModeNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageReductionModeNV");
+        call_function=(PFN_vkCmdSetCoverageReductionModeNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageReductionModeNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetCoverageReductionModeNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageReductionModeNV");
+        call_function=(PFN_vkCmdSetCoverageReductionModeNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetCoverageReductionModeNV");
     }  
     
 call_function(commandBuffer, coverageReductionMode);
@@ -32969,10 +34015,11 @@ VkBool32 representativeFragmentTestEnable
 representativeFragmentTestEnable=deserialize_uint32_t(data_json["members"]["representativeFragmentTestEnable"]);}();}();
 
 
+    PFN_vkCmdSetRepresentativeFragmentTestEnableNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetRepresentativeFragmentTestEnableNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRepresentativeFragmentTestEnableNV");
+        call_function=(PFN_vkCmdSetRepresentativeFragmentTestEnableNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRepresentativeFragmentTestEnableNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetRepresentativeFragmentTestEnableNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRepresentativeFragmentTestEnableNV");
+        call_function=(PFN_vkCmdSetRepresentativeFragmentTestEnableNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetRepresentativeFragmentTestEnableNV");
     }  
     
 call_function(commandBuffer, representativeFragmentTestEnable);
@@ -33039,10 +34086,11 @@ VkPrivateDataSlot* pPrivateDataSlot
 }();
 
 
+    PFN_vkCreatePrivateDataSlot call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreatePrivateDataSlot)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreatePrivateDataSlot");
+        call_function=(PFN_vkCreatePrivateDataSlot)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreatePrivateDataSlot");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreatePrivateDataSlot)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreatePrivateDataSlot");
+        call_function=(PFN_vkCreatePrivateDataSlot)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreatePrivateDataSlot");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pPrivateDataSlot);
@@ -33139,10 +34187,11 @@ VkPrivateDataSlot* pPrivateDataSlot
 }();
 
 
+    PFN_vkCreatePrivateDataSlotEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreatePrivateDataSlotEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreatePrivateDataSlotEXT");
+        call_function=(PFN_vkCreatePrivateDataSlotEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreatePrivateDataSlotEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreatePrivateDataSlotEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreatePrivateDataSlotEXT");
+        call_function=(PFN_vkCreatePrivateDataSlotEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreatePrivateDataSlotEXT");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pPrivateDataSlot);
@@ -33218,10 +34267,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyPrivateDataSlot call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyPrivateDataSlot)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPrivateDataSlot");
+        call_function=(PFN_vkDestroyPrivateDataSlot)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPrivateDataSlot");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyPrivateDataSlot)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPrivateDataSlot");
+        call_function=(PFN_vkDestroyPrivateDataSlot)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPrivateDataSlot");
     }  
     
 call_function(device, privateDataSlot, pAllocator);
@@ -33276,10 +34326,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyPrivateDataSlotEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyPrivateDataSlotEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPrivateDataSlotEXT");
+        call_function=(PFN_vkDestroyPrivateDataSlotEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPrivateDataSlotEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyPrivateDataSlotEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPrivateDataSlotEXT");
+        call_function=(PFN_vkDestroyPrivateDataSlotEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyPrivateDataSlotEXT");
     }  
     
 call_function(device, privateDataSlot, pAllocator);
@@ -33333,10 +34384,11 @@ uint64_t data
 data=deserialize_uint64_t(data_json["members"]["data"]);}();
 
 
+    PFN_vkSetPrivateData call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkSetPrivateData)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetPrivateData");
+        call_function=(PFN_vkSetPrivateData)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetPrivateData");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkSetPrivateData)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetPrivateData");
+        call_function=(PFN_vkSetPrivateData)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetPrivateData");
     }  
     
 auto return_value=call_function(device, objectType, objectHandle, privateDataSlot, data);
@@ -33390,10 +34442,11 @@ uint64_t data
 data=deserialize_uint64_t(data_json["members"]["data"]);}();
 
 
+    PFN_vkSetPrivateDataEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkSetPrivateDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetPrivateDataEXT");
+        call_function=(PFN_vkSetPrivateDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetPrivateDataEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkSetPrivateDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetPrivateDataEXT");
+        call_function=(PFN_vkSetPrivateDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetPrivateDataEXT");
     }  
     
 auto return_value=call_function(device, objectType, objectHandle, privateDataSlot, data);
@@ -33455,10 +34508,11 @@ uint64_t* pData
 }();
 
 
+    PFN_vkGetPrivateData call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPrivateData)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPrivateData");
+        call_function=(PFN_vkGetPrivateData)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPrivateData");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPrivateData)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPrivateData");
+        call_function=(PFN_vkGetPrivateData)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPrivateData");
     }  
     
 call_function(device, objectType, objectHandle, privateDataSlot, pData);
@@ -33526,10 +34580,11 @@ uint64_t* pData
 }();
 
 
+    PFN_vkGetPrivateDataEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPrivateDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPrivateDataEXT");
+        call_function=(PFN_vkGetPrivateDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPrivateDataEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPrivateDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPrivateDataEXT");
+        call_function=(PFN_vkGetPrivateDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPrivateDataEXT");
     }  
     
 call_function(device, objectType, objectHandle, privateDataSlot, pData);
@@ -33586,10 +34641,11 @@ VkCopyBufferInfo2* temp_ZDylqDI;[&]() {
 }();pCopyBufferInfo=temp_ZDylqDI;}();
 
 
+    PFN_vkCmdCopyBuffer2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyBuffer2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBuffer2");
+        call_function=(PFN_vkCmdCopyBuffer2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBuffer2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyBuffer2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBuffer2");
+        call_function=(PFN_vkCmdCopyBuffer2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBuffer2");
     }  
     
 call_function(commandBuffer, pCopyBufferInfo);
@@ -33637,10 +34693,11 @@ VkCopyBufferInfo2* temp_ZDylqDI;[&]() {
 }();pCopyBufferInfo=temp_ZDylqDI;}();
 
 
+    PFN_vkCmdCopyBuffer2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyBuffer2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBuffer2KHR");
+        call_function=(PFN_vkCmdCopyBuffer2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBuffer2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyBuffer2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBuffer2KHR");
+        call_function=(PFN_vkCmdCopyBuffer2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBuffer2KHR");
     }  
     
 call_function(commandBuffer, pCopyBufferInfo);
@@ -33688,10 +34745,11 @@ VkCopyImageInfo2* temp_JUKQdDn;[&]() {
 }();pCopyImageInfo=temp_JUKQdDn;}();
 
 
+    PFN_vkCmdCopyImage2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyImage2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImage2");
+        call_function=(PFN_vkCmdCopyImage2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImage2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyImage2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImage2");
+        call_function=(PFN_vkCmdCopyImage2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImage2");
     }  
     
 call_function(commandBuffer, pCopyImageInfo);
@@ -33739,10 +34797,11 @@ VkCopyImageInfo2* temp_JUKQdDn;[&]() {
 }();pCopyImageInfo=temp_JUKQdDn;}();
 
 
+    PFN_vkCmdCopyImage2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyImage2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImage2KHR");
+        call_function=(PFN_vkCmdCopyImage2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImage2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyImage2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImage2KHR");
+        call_function=(PFN_vkCmdCopyImage2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImage2KHR");
     }  
     
 call_function(commandBuffer, pCopyImageInfo);
@@ -33790,10 +34849,11 @@ VkBlitImageInfo2* temp_oswYnrn;[&]() {
 }();pBlitImageInfo=temp_oswYnrn;}();
 
 
+    PFN_vkCmdBlitImage2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBlitImage2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBlitImage2");
+        call_function=(PFN_vkCmdBlitImage2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBlitImage2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBlitImage2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBlitImage2");
+        call_function=(PFN_vkCmdBlitImage2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBlitImage2");
     }  
     
 call_function(commandBuffer, pBlitImageInfo);
@@ -33841,10 +34901,11 @@ VkBlitImageInfo2* temp_oswYnrn;[&]() {
 }();pBlitImageInfo=temp_oswYnrn;}();
 
 
+    PFN_vkCmdBlitImage2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBlitImage2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBlitImage2KHR");
+        call_function=(PFN_vkCmdBlitImage2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBlitImage2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBlitImage2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBlitImage2KHR");
+        call_function=(PFN_vkCmdBlitImage2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBlitImage2KHR");
     }  
     
 call_function(commandBuffer, pBlitImageInfo);
@@ -33892,10 +34953,11 @@ VkCopyBufferToImageInfo2* temp_rYtQVkr;[&]() {
 }();pCopyBufferToImageInfo=temp_rYtQVkr;}();
 
 
+    PFN_vkCmdCopyBufferToImage2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyBufferToImage2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBufferToImage2");
+        call_function=(PFN_vkCmdCopyBufferToImage2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBufferToImage2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyBufferToImage2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBufferToImage2");
+        call_function=(PFN_vkCmdCopyBufferToImage2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBufferToImage2");
     }  
     
 call_function(commandBuffer, pCopyBufferToImageInfo);
@@ -33943,10 +35005,11 @@ VkCopyBufferToImageInfo2* temp_rYtQVkr;[&]() {
 }();pCopyBufferToImageInfo=temp_rYtQVkr;}();
 
 
+    PFN_vkCmdCopyBufferToImage2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyBufferToImage2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBufferToImage2KHR");
+        call_function=(PFN_vkCmdCopyBufferToImage2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBufferToImage2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyBufferToImage2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBufferToImage2KHR");
+        call_function=(PFN_vkCmdCopyBufferToImage2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyBufferToImage2KHR");
     }  
     
 call_function(commandBuffer, pCopyBufferToImageInfo);
@@ -33994,10 +35057,11 @@ VkCopyImageToBufferInfo2* temp_SqALVFh;[&]() {
 }();pCopyImageToBufferInfo=temp_SqALVFh;}();
 
 
+    PFN_vkCmdCopyImageToBuffer2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyImageToBuffer2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImageToBuffer2");
+        call_function=(PFN_vkCmdCopyImageToBuffer2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImageToBuffer2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyImageToBuffer2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImageToBuffer2");
+        call_function=(PFN_vkCmdCopyImageToBuffer2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImageToBuffer2");
     }  
     
 call_function(commandBuffer, pCopyImageToBufferInfo);
@@ -34045,10 +35109,11 @@ VkCopyImageToBufferInfo2* temp_SqALVFh;[&]() {
 }();pCopyImageToBufferInfo=temp_SqALVFh;}();
 
 
+    PFN_vkCmdCopyImageToBuffer2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyImageToBuffer2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImageToBuffer2KHR");
+        call_function=(PFN_vkCmdCopyImageToBuffer2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImageToBuffer2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyImageToBuffer2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImageToBuffer2KHR");
+        call_function=(PFN_vkCmdCopyImageToBuffer2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyImageToBuffer2KHR");
     }  
     
 call_function(commandBuffer, pCopyImageToBufferInfo);
@@ -34096,10 +35161,11 @@ VkResolveImageInfo2* temp_GbPdFOZ;[&]() {
 }();pResolveImageInfo=temp_GbPdFOZ;}();
 
 
+    PFN_vkCmdResolveImage2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdResolveImage2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResolveImage2");
+        call_function=(PFN_vkCmdResolveImage2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResolveImage2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdResolveImage2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResolveImage2");
+        call_function=(PFN_vkCmdResolveImage2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResolveImage2");
     }  
     
 call_function(commandBuffer, pResolveImageInfo);
@@ -34147,10 +35213,11 @@ VkResolveImageInfo2* temp_GbPdFOZ;[&]() {
 }();pResolveImageInfo=temp_GbPdFOZ;}();
 
 
+    PFN_vkCmdResolveImage2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdResolveImage2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResolveImage2KHR");
+        call_function=(PFN_vkCmdResolveImage2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResolveImage2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdResolveImage2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResolveImage2KHR");
+        call_function=(PFN_vkCmdResolveImage2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResolveImage2KHR");
     }  
     
 call_function(commandBuffer, pResolveImageInfo);
@@ -34208,10 +35275,11 @@ temp_ILiuENk=deserialize_VkFragmentShadingRateCombinerOpKHR(data_json["members"]
         }();
 
 
+    PFN_vkCmdSetFragmentShadingRateKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetFragmentShadingRateKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetFragmentShadingRateKHR");
+        call_function=(PFN_vkCmdSetFragmentShadingRateKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetFragmentShadingRateKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetFragmentShadingRateKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetFragmentShadingRateKHR");
+        call_function=(PFN_vkCmdSetFragmentShadingRateKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetFragmentShadingRateKHR");
     }  
     
 call_function(commandBuffer, pFragmentSize, combinerOps);
@@ -34285,10 +35353,11 @@ pFragmentShadingRates[NNjEFkV]=deserialize_VkPhysicalDeviceFragmentShadingRateKH
         }();
 
 
+    PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFragmentShadingRatesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFragmentShadingRatesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFragmentShadingRatesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceFragmentShadingRatesKHR");
     }  
     
 auto return_value=call_function(physicalDevice, pFragmentShadingRateCount, pFragmentShadingRates);
@@ -34357,10 +35426,11 @@ temp_ILiuENk=deserialize_VkFragmentShadingRateCombinerOpKHR(data_json["members"]
         }();
 
 
+    PFN_vkCmdSetFragmentShadingRateEnumNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetFragmentShadingRateEnumNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetFragmentShadingRateEnumNV");
+        call_function=(PFN_vkCmdSetFragmentShadingRateEnumNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetFragmentShadingRateEnumNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetFragmentShadingRateEnumNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetFragmentShadingRateEnumNV");
+        call_function=(PFN_vkCmdSetFragmentShadingRateEnumNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetFragmentShadingRateEnumNV");
     }  
     
 call_function(commandBuffer, shadingRate, combinerOps);
@@ -34444,10 +35514,11 @@ VkAccelerationStructureBuildSizesInfoKHR*           pSizeInfo
 }();
 
 
+    PFN_vkGetAccelerationStructureBuildSizesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetAccelerationStructureBuildSizesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureBuildSizesKHR");
+        call_function=(PFN_vkGetAccelerationStructureBuildSizesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureBuildSizesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetAccelerationStructureBuildSizesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureBuildSizesKHR");
+        call_function=(PFN_vkGetAccelerationStructureBuildSizesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureBuildSizesKHR");
     }  
     
 call_function(device, buildType, pBuildInfo, pMaxPrimitiveCounts, pSizeInfo);
@@ -34552,10 +35623,11 @@ temp_ieqEfob[rEocSYt]=deserialize_VkVertexInputAttributeDescription2EXT(data_jso
         }();pVertexAttributeDescriptions=temp_ieqEfob;}();
 
 
+    PFN_vkCmdSetVertexInputEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetVertexInputEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetVertexInputEXT");
+        call_function=(PFN_vkCmdSetVertexInputEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetVertexInputEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetVertexInputEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetVertexInputEXT");
+        call_function=(PFN_vkCmdSetVertexInputEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetVertexInputEXT");
     }  
     
 call_function(commandBuffer, vertexBindingDescriptionCount, pVertexBindingDescriptions, vertexAttributeDescriptionCount, pVertexAttributeDescriptions);
@@ -34646,10 +35718,11 @@ temp_ACyIqGx[VDSfnVX]=deserialize_uint32_t(data_json["members"]["pColorWriteEnab
         }();}();pColorWriteEnables=temp_ACyIqGx;}();
 
 
+    PFN_vkCmdSetColorWriteEnableEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetColorWriteEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorWriteEnableEXT");
+        call_function=(PFN_vkCmdSetColorWriteEnableEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorWriteEnableEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetColorWriteEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorWriteEnableEXT");
+        call_function=(PFN_vkCmdSetColorWriteEnableEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetColorWriteEnableEXT");
     }  
     
 call_function(commandBuffer, attachmentCount, pColorWriteEnables);
@@ -34713,10 +35786,11 @@ VkDependencyInfo* temp_tiECcRx;[&]() {
 }();pDependencyInfo=temp_tiECcRx;}();
 
 
+    PFN_vkCmdSetEvent2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetEvent2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetEvent2");
+        call_function=(PFN_vkCmdSetEvent2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetEvent2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetEvent2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetEvent2");
+        call_function=(PFN_vkCmdSetEvent2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetEvent2");
     }  
     
 call_function(commandBuffer, event, pDependencyInfo);
@@ -34771,10 +35845,11 @@ VkDependencyInfo* temp_tiECcRx;[&]() {
 }();pDependencyInfo=temp_tiECcRx;}();
 
 
+    PFN_vkCmdSetEvent2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetEvent2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetEvent2KHR");
+        call_function=(PFN_vkCmdSetEvent2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetEvent2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetEvent2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetEvent2KHR");
+        call_function=(PFN_vkCmdSetEvent2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetEvent2KHR");
     }  
     
 call_function(commandBuffer, event, pDependencyInfo);
@@ -34820,10 +35895,11 @@ VkPipelineStageFlags2               stageMask
 stageMask=deserialize_VkPipelineStageFlags2(data_json["members"]["stageMask"]);}();
 
 
+    PFN_vkCmdResetEvent2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdResetEvent2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResetEvent2");
+        call_function=(PFN_vkCmdResetEvent2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResetEvent2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdResetEvent2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResetEvent2");
+        call_function=(PFN_vkCmdResetEvent2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResetEvent2");
     }  
     
 call_function(commandBuffer, event, stageMask);
@@ -34861,10 +35937,11 @@ VkPipelineStageFlags2               stageMask
 stageMask=deserialize_VkPipelineStageFlags2(data_json["members"]["stageMask"]);}();
 
 
+    PFN_vkCmdResetEvent2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdResetEvent2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResetEvent2KHR");
+        call_function=(PFN_vkCmdResetEvent2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResetEvent2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdResetEvent2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResetEvent2KHR");
+        call_function=(PFN_vkCmdResetEvent2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdResetEvent2KHR");
     }  
     
 call_function(commandBuffer, event, stageMask);
@@ -34928,10 +36005,11 @@ temp_GDaNrzU[plYhwwC]=deserialize_VkDependencyInfo(data_json["members"]["pDepend
         }();pDependencyInfos=temp_GDaNrzU;}();
 
 
+    PFN_vkCmdWaitEvents2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdWaitEvents2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWaitEvents2");
+        call_function=(PFN_vkCmdWaitEvents2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWaitEvents2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdWaitEvents2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWaitEvents2");
+        call_function=(PFN_vkCmdWaitEvents2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWaitEvents2");
     }  
     
 call_function(commandBuffer, eventCount, pEvents, pDependencyInfos);
@@ -35028,10 +36106,11 @@ temp_GDaNrzU[plYhwwC]=deserialize_VkDependencyInfo(data_json["members"]["pDepend
         }();pDependencyInfos=temp_GDaNrzU;}();
 
 
+    PFN_vkCmdWaitEvents2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdWaitEvents2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWaitEvents2KHR");
+        call_function=(PFN_vkCmdWaitEvents2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWaitEvents2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdWaitEvents2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWaitEvents2KHR");
+        call_function=(PFN_vkCmdWaitEvents2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWaitEvents2KHR");
     }  
     
 call_function(commandBuffer, eventCount, pEvents, pDependencyInfos);
@@ -35107,10 +36186,11 @@ VkDependencyInfo* temp_tiECcRx;[&]() {
 }();pDependencyInfo=temp_tiECcRx;}();
 
 
+    PFN_vkCmdPipelineBarrier2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdPipelineBarrier2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPipelineBarrier2");
+        call_function=(PFN_vkCmdPipelineBarrier2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPipelineBarrier2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdPipelineBarrier2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPipelineBarrier2");
+        call_function=(PFN_vkCmdPipelineBarrier2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPipelineBarrier2");
     }  
     
 call_function(commandBuffer, pDependencyInfo);
@@ -35158,10 +36238,11 @@ VkDependencyInfo* temp_tiECcRx;[&]() {
 }();pDependencyInfo=temp_tiECcRx;}();
 
 
+    PFN_vkCmdPipelineBarrier2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdPipelineBarrier2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPipelineBarrier2KHR");
+        call_function=(PFN_vkCmdPipelineBarrier2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPipelineBarrier2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdPipelineBarrier2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPipelineBarrier2KHR");
+        call_function=(PFN_vkCmdPipelineBarrier2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdPipelineBarrier2KHR");
     }  
     
 call_function(commandBuffer, pDependencyInfo);
@@ -35219,10 +36300,11 @@ VkFence           fence
 fence=deserialize_VkFence(data_json["members"]["fence"]);}();
 
 
+    PFN_vkQueueSubmit2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkQueueSubmit2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueSubmit2");
+        call_function=(PFN_vkQueueSubmit2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueSubmit2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkQueueSubmit2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueSubmit2");
+        call_function=(PFN_vkQueueSubmit2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueSubmit2");
     }  
     
 auto return_value=call_function(queue, submitCount, pSubmits, fence);
@@ -35295,10 +36377,11 @@ VkFence           fence
 fence=deserialize_VkFence(data_json["members"]["fence"]);}();
 
 
+    PFN_vkQueueSubmit2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkQueueSubmit2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueSubmit2KHR");
+        call_function=(PFN_vkQueueSubmit2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueSubmit2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkQueueSubmit2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueSubmit2KHR");
+        call_function=(PFN_vkQueueSubmit2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkQueueSubmit2KHR");
     }  
     
 auto return_value=call_function(queue, submitCount, pSubmits, fence);
@@ -35360,10 +36443,11 @@ uint32_t                                            query
 query=deserialize_uint32_t(data_json["members"]["query"]);}();
 
 
+    PFN_vkCmdWriteTimestamp2 call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdWriteTimestamp2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteTimestamp2");
+        call_function=(PFN_vkCmdWriteTimestamp2)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteTimestamp2");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdWriteTimestamp2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteTimestamp2");
+        call_function=(PFN_vkCmdWriteTimestamp2)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteTimestamp2");
     }  
     
 call_function(commandBuffer, stage, queryPool, query);
@@ -35408,10 +36492,11 @@ uint32_t                                            query
 query=deserialize_uint32_t(data_json["members"]["query"]);}();
 
 
+    PFN_vkCmdWriteTimestamp2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdWriteTimestamp2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteTimestamp2KHR");
+        call_function=(PFN_vkCmdWriteTimestamp2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteTimestamp2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdWriteTimestamp2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteTimestamp2KHR");
+        call_function=(PFN_vkCmdWriteTimestamp2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteTimestamp2KHR");
     }  
     
 call_function(commandBuffer, stage, queryPool, query);
@@ -35461,10 +36546,11 @@ uint32_t                                            marker
 marker=deserialize_uint32_t(data_json["members"]["marker"]);}();
 
 
+    PFN_vkCmdWriteBufferMarker2AMD call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdWriteBufferMarker2AMD)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteBufferMarker2AMD");
+        call_function=(PFN_vkCmdWriteBufferMarker2AMD)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteBufferMarker2AMD");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdWriteBufferMarker2AMD)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteBufferMarker2AMD");
+        call_function=(PFN_vkCmdWriteBufferMarker2AMD)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteBufferMarker2AMD");
     }  
     
 call_function(commandBuffer, stage, dstBuffer, dstOffset, marker);
@@ -35528,10 +36614,11 @@ pCheckpointData[qGSartb]=deserialize_VkCheckpointData2NV(data_json["members"]["p
         }();
 
 
+    PFN_vkGetQueueCheckpointData2NV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetQueueCheckpointData2NV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetQueueCheckpointData2NV");
+        call_function=(PFN_vkGetQueueCheckpointData2NV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetQueueCheckpointData2NV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetQueueCheckpointData2NV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetQueueCheckpointData2NV");
+        call_function=(PFN_vkGetQueueCheckpointData2NV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetQueueCheckpointData2NV");
     }  
     
 call_function(queue, pCheckpointDataCount, pCheckpointData);
@@ -35597,10 +36684,11 @@ VkCopyMemoryToImageInfoEXT* temp_jpLaqFR;[&]() {
 }();pCopyMemoryToImageInfo=temp_jpLaqFR;}();
 
 
+    PFN_vkCopyMemoryToImageEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCopyMemoryToImageEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMemoryToImageEXT");
+        call_function=(PFN_vkCopyMemoryToImageEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMemoryToImageEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCopyMemoryToImageEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMemoryToImageEXT");
+        call_function=(PFN_vkCopyMemoryToImageEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMemoryToImageEXT");
     }  
     
 auto return_value=call_function(device, pCopyMemoryToImageInfo);
@@ -35650,10 +36738,11 @@ VkCopyImageToMemoryInfoEXT* temp_yMDzYHk;[&]() {
 }();pCopyImageToMemoryInfo=temp_yMDzYHk;}();
 
 
+    PFN_vkCopyImageToMemoryEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCopyImageToMemoryEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyImageToMemoryEXT");
+        call_function=(PFN_vkCopyImageToMemoryEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyImageToMemoryEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCopyImageToMemoryEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyImageToMemoryEXT");
+        call_function=(PFN_vkCopyImageToMemoryEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyImageToMemoryEXT");
     }  
     
 auto return_value=call_function(device, pCopyImageToMemoryInfo);
@@ -35703,10 +36792,11 @@ VkCopyImageToImageInfoEXT* temp_eMyolVE;[&]() {
 }();pCopyImageToImageInfo=temp_eMyolVE;}();
 
 
+    PFN_vkCopyImageToImageEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCopyImageToImageEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyImageToImageEXT");
+        call_function=(PFN_vkCopyImageToImageEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyImageToImageEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCopyImageToImageEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyImageToImageEXT");
+        call_function=(PFN_vkCopyImageToImageEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyImageToImageEXT");
     }  
     
 auto return_value=call_function(device, pCopyImageToImageInfo);
@@ -35762,10 +36852,11 @@ temp_FRhZcrI[tBgSFyU]=deserialize_VkHostImageLayoutTransitionInfoEXT(data_json["
         }();pTransitions=temp_FRhZcrI;}();
 
 
+    PFN_vkTransitionImageLayoutEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkTransitionImageLayoutEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkTransitionImageLayoutEXT");
+        call_function=(PFN_vkTransitionImageLayoutEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkTransitionImageLayoutEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkTransitionImageLayoutEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkTransitionImageLayoutEXT");
+        call_function=(PFN_vkTransitionImageLayoutEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkTransitionImageLayoutEXT");
     }  
     
 auto return_value=call_function(device, transitionCount, pTransitions);
@@ -35837,10 +36928,11 @@ VkVideoCapabilitiesKHR* pCapabilities
 }();
 
 
+    PFN_vkGetPhysicalDeviceVideoCapabilitiesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceVideoCapabilitiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceVideoCapabilitiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceVideoCapabilitiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceVideoCapabilitiesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceVideoCapabilitiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceVideoCapabilitiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceVideoCapabilitiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceVideoCapabilitiesKHR");
     }  
     
 auto return_value=call_function(physicalDevice, pVideoProfile, pCapabilities);
@@ -35927,10 +37019,11 @@ pVideoFormatProperties[FCsKhYI]=deserialize_VkVideoFormatPropertiesKHR(data_json
         }();
 
 
+    PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceVideoFormatPropertiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceVideoFormatPropertiesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceVideoFormatPropertiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceVideoFormatPropertiesKHR");
     }  
     
 auto return_value=call_function(physicalDevice, pVideoFormatInfo, pVideoFormatPropertyCount, pVideoFormatProperties);
@@ -36034,10 +37127,11 @@ VkVideoSessionKHR* pVideoSession
 }();
 
 
+    PFN_vkCreateVideoSessionKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateVideoSessionKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateVideoSessionKHR");
+        call_function=(PFN_vkCreateVideoSessionKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateVideoSessionKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateVideoSessionKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateVideoSessionKHR");
+        call_function=(PFN_vkCreateVideoSessionKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateVideoSessionKHR");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pVideoSession);
@@ -36113,10 +37207,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyVideoSessionKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyVideoSessionKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyVideoSessionKHR");
+        call_function=(PFN_vkDestroyVideoSessionKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyVideoSessionKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyVideoSessionKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyVideoSessionKHR");
+        call_function=(PFN_vkDestroyVideoSessionKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyVideoSessionKHR");
     }  
     
 call_function(device, videoSession, pAllocator);
@@ -36192,10 +37287,11 @@ VkVideoSessionParametersKHR* pVideoSessionParameters
 }();
 
 
+    PFN_vkCreateVideoSessionParametersKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateVideoSessionParametersKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateVideoSessionParametersKHR");
+        call_function=(PFN_vkCreateVideoSessionParametersKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateVideoSessionParametersKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateVideoSessionParametersKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateVideoSessionParametersKHR");
+        call_function=(PFN_vkCreateVideoSessionParametersKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateVideoSessionParametersKHR");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pVideoSessionParameters);
@@ -36271,10 +37367,11 @@ VkVideoSessionParametersUpdateInfoKHR* temp_NlvvwON;[&]() {
 }();pUpdateInfo=temp_NlvvwON;}();
 
 
+    PFN_vkUpdateVideoSessionParametersKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkUpdateVideoSessionParametersKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUpdateVideoSessionParametersKHR");
+        call_function=(PFN_vkUpdateVideoSessionParametersKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUpdateVideoSessionParametersKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkUpdateVideoSessionParametersKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUpdateVideoSessionParametersKHR");
+        call_function=(PFN_vkUpdateVideoSessionParametersKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUpdateVideoSessionParametersKHR");
     }  
     
 auto return_value=call_function(device, videoSessionParameters, pUpdateInfo);
@@ -36331,10 +37428,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyVideoSessionParametersKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyVideoSessionParametersKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyVideoSessionParametersKHR");
+        call_function=(PFN_vkDestroyVideoSessionParametersKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyVideoSessionParametersKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyVideoSessionParametersKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyVideoSessionParametersKHR");
+        call_function=(PFN_vkDestroyVideoSessionParametersKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyVideoSessionParametersKHR");
     }  
     
 call_function(device, videoSessionParameters, pAllocator);
@@ -36402,10 +37500,11 @@ pMemoryRequirements[bdhxnSI]=deserialize_VkVideoSessionMemoryRequirementsKHR(dat
         }();
 
 
+    PFN_vkGetVideoSessionMemoryRequirementsKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetVideoSessionMemoryRequirementsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetVideoSessionMemoryRequirementsKHR");
+        call_function=(PFN_vkGetVideoSessionMemoryRequirementsKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetVideoSessionMemoryRequirementsKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetVideoSessionMemoryRequirementsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetVideoSessionMemoryRequirementsKHR");
+        call_function=(PFN_vkGetVideoSessionMemoryRequirementsKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetVideoSessionMemoryRequirementsKHR");
     }  
     
 auto return_value=call_function(device, videoSession, pMemoryRequirementsCount, pMemoryRequirements);
@@ -36486,10 +37585,11 @@ temp_mcKvnZq[LGDSIkm]=deserialize_VkBindVideoSessionMemoryInfoKHR(data_json["mem
         }();pBindSessionMemoryInfos=temp_mcKvnZq;}();
 
 
+    PFN_vkBindVideoSessionMemoryKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkBindVideoSessionMemoryKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindVideoSessionMemoryKHR");
+        call_function=(PFN_vkBindVideoSessionMemoryKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindVideoSessionMemoryKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkBindVideoSessionMemoryKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindVideoSessionMemoryKHR");
+        call_function=(PFN_vkBindVideoSessionMemoryKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindVideoSessionMemoryKHR");
     }  
     
 auto return_value=call_function(device, videoSession, bindSessionMemoryInfoCount, pBindSessionMemoryInfos);
@@ -36552,10 +37652,11 @@ VkVideoDecodeInfoKHR* temp_jxIwYns;[&]() {
 }();pDecodeInfo=temp_jxIwYns;}();
 
 
+    PFN_vkCmdDecodeVideoKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDecodeVideoKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDecodeVideoKHR");
+        call_function=(PFN_vkCmdDecodeVideoKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDecodeVideoKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDecodeVideoKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDecodeVideoKHR");
+        call_function=(PFN_vkCmdDecodeVideoKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDecodeVideoKHR");
     }  
     
 call_function(commandBuffer, pDecodeInfo);
@@ -36603,10 +37704,11 @@ VkVideoBeginCodingInfoKHR* temp_VBOPNtl;[&]() {
 }();pBeginInfo=temp_VBOPNtl;}();
 
 
+    PFN_vkCmdBeginVideoCodingKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBeginVideoCodingKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginVideoCodingKHR");
+        call_function=(PFN_vkCmdBeginVideoCodingKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginVideoCodingKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBeginVideoCodingKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginVideoCodingKHR");
+        call_function=(PFN_vkCmdBeginVideoCodingKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginVideoCodingKHR");
     }  
     
 call_function(commandBuffer, pBeginInfo);
@@ -36654,10 +37756,11 @@ VkVideoCodingControlInfoKHR* temp_gSyggiV;[&]() {
 }();pCodingControlInfo=temp_gSyggiV;}();
 
 
+    PFN_vkCmdControlVideoCodingKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdControlVideoCodingKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdControlVideoCodingKHR");
+        call_function=(PFN_vkCmdControlVideoCodingKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdControlVideoCodingKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdControlVideoCodingKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdControlVideoCodingKHR");
+        call_function=(PFN_vkCmdControlVideoCodingKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdControlVideoCodingKHR");
     }  
     
 call_function(commandBuffer, pCodingControlInfo);
@@ -36705,10 +37808,11 @@ VkVideoEndCodingInfoKHR* temp_XUywMuH;[&]() {
 }();pEndCodingInfo=temp_XUywMuH;}();
 
 
+    PFN_vkCmdEndVideoCodingKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdEndVideoCodingKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndVideoCodingKHR");
+        call_function=(PFN_vkCmdEndVideoCodingKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndVideoCodingKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdEndVideoCodingKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndVideoCodingKHR");
+        call_function=(PFN_vkCmdEndVideoCodingKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndVideoCodingKHR");
     }  
     
 call_function(commandBuffer, pEndCodingInfo);
@@ -36762,10 +37866,11 @@ temp_dOphDsX[sumFLlb]=deserialize_VkDecompressMemoryRegionNV(data_json["members"
         }();pDecompressMemoryRegions=temp_dOphDsX;}();
 
 
+    PFN_vkCmdDecompressMemoryNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDecompressMemoryNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDecompressMemoryNV");
+        call_function=(PFN_vkCmdDecompressMemoryNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDecompressMemoryNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDecompressMemoryNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDecompressMemoryNV");
+        call_function=(PFN_vkCmdDecompressMemoryNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDecompressMemoryNV");
     }  
     
 call_function(commandBuffer, decompressRegionCount, pDecompressMemoryRegions);
@@ -36824,10 +37929,11 @@ uint32_t stride
 stride=deserialize_uint32_t(data_json["members"]["stride"]);}();
 
 
+    PFN_vkCmdDecompressMemoryIndirectCountNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdDecompressMemoryIndirectCountNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDecompressMemoryIndirectCountNV");
+        call_function=(PFN_vkCmdDecompressMemoryIndirectCountNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDecompressMemoryIndirectCountNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdDecompressMemoryIndirectCountNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDecompressMemoryIndirectCountNV");
+        call_function=(PFN_vkCmdDecompressMemoryIndirectCountNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdDecompressMemoryIndirectCountNV");
     }  
     
 call_function(commandBuffer, indirectCommandsAddress, indirectCommandsCountAddress, stride);
@@ -36902,10 +38008,11 @@ VkCuModuleNVX* pModule
 }();
 
 
+    PFN_vkCreateCuModuleNVX call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateCuModuleNVX)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateCuModuleNVX");
+        call_function=(PFN_vkCreateCuModuleNVX)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateCuModuleNVX");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateCuModuleNVX)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateCuModuleNVX");
+        call_function=(PFN_vkCreateCuModuleNVX)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateCuModuleNVX");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pModule);
@@ -37002,10 +38109,11 @@ VkCuFunctionNVX* pFunction
 }();
 
 
+    PFN_vkCreateCuFunctionNVX call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateCuFunctionNVX)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateCuFunctionNVX");
+        call_function=(PFN_vkCreateCuFunctionNVX)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateCuFunctionNVX");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateCuFunctionNVX)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateCuFunctionNVX");
+        call_function=(PFN_vkCreateCuFunctionNVX)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateCuFunctionNVX");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pFunction);
@@ -37081,10 +38189,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyCuModuleNVX call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyCuModuleNVX)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyCuModuleNVX");
+        call_function=(PFN_vkDestroyCuModuleNVX)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyCuModuleNVX");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyCuModuleNVX)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyCuModuleNVX");
+        call_function=(PFN_vkDestroyCuModuleNVX)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyCuModuleNVX");
     }  
     
 call_function(device, module, pAllocator);
@@ -37139,10 +38248,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyCuFunctionNVX call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyCuFunctionNVX)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyCuFunctionNVX");
+        call_function=(PFN_vkDestroyCuFunctionNVX)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyCuFunctionNVX");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyCuFunctionNVX)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyCuFunctionNVX");
+        call_function=(PFN_vkDestroyCuFunctionNVX)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyCuFunctionNVX");
     }  
     
 call_function(device, function, pAllocator);
@@ -37193,10 +38303,11 @@ VkCuLaunchInfoNVX* temp_KlvDTSK;[&]() {
 }();pLaunchInfo=temp_KlvDTSK;}();
 
 
+    PFN_vkCmdCuLaunchKernelNVX call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCuLaunchKernelNVX)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCuLaunchKernelNVX");
+        call_function=(PFN_vkCmdCuLaunchKernelNVX)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCuLaunchKernelNVX");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCuLaunchKernelNVX)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCuLaunchKernelNVX");
+        call_function=(PFN_vkCmdCuLaunchKernelNVX)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCuLaunchKernelNVX");
     }  
     
 call_function(commandBuffer, pLaunchInfo);
@@ -37253,10 +38364,11 @@ VkDeviceSize* pLayoutSizeInBytes
 }();}();
 
 
+    PFN_vkGetDescriptorSetLayoutSizeEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDescriptorSetLayoutSizeEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutSizeEXT");
+        call_function=(PFN_vkGetDescriptorSetLayoutSizeEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutSizeEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDescriptorSetLayoutSizeEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutSizeEXT");
+        call_function=(PFN_vkGetDescriptorSetLayoutSizeEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutSizeEXT");
     }  
     
 call_function(device, layout, pLayoutSizeInBytes);
@@ -37322,10 +38434,11 @@ VkDeviceSize* pOffset
 }();}();
 
 
+    PFN_vkGetDescriptorSetLayoutBindingOffsetEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDescriptorSetLayoutBindingOffsetEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutBindingOffsetEXT");
+        call_function=(PFN_vkGetDescriptorSetLayoutBindingOffsetEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutBindingOffsetEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDescriptorSetLayoutBindingOffsetEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutBindingOffsetEXT");
+        call_function=(PFN_vkGetDescriptorSetLayoutBindingOffsetEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutBindingOffsetEXT");
     }  
     
 call_function(device, layout, binding, pOffset);
@@ -37391,14 +38504,26 @@ void* pDescriptor
         pDescriptor=NULL;
         return;
         }
-    pDescriptor=deserialize_void_p(data_json["members"]["pDescriptor"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pDescriptor"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(dataSize*sizeof(char));
+        for (int vpfDqyN=0; vpfDqyN < dataSize; vpfDqyN++){
+            [&]() {
+temp[vpfDqyN]=deserialize_char(data_json["members"]["pDescriptor"]["members"][vpfDqyN]);}();;
+        }
+        }();pDescriptor=(void*)temp;
 }();
 
 
+    PFN_vkGetDescriptorEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDescriptorEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorEXT");
+        call_function=(PFN_vkGetDescriptorEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDescriptorEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorEXT");
+        call_function=(PFN_vkGetDescriptorEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorEXT");
     }  
     
 call_function(device, pDescriptorInfo, dataSize, pDescriptor);
@@ -37430,8 +38555,24 @@ result["members"]["pDescriptor"]=[&]() {
             return_ZdmvhAV["null"]=true;
             return return_ZdmvhAV;
         }
-        return serialize_void_p(pDescriptor);
-}();
+        return_ZdmvhAV=[&]() {
+    json return_RqHVqWz=json({});
+    
+        if (((char*)(pDescriptor))==NULL){
+            return_RqHVqWz["null"]=true;
+            return return_RqHVqWz;
+        }
+        
+        return_RqHVqWz["members"]={};
+        for(int RqHVqWz=0; RqHVqWz < dataSize; RqHVqWz++){
+            json temp;
+            temp=[&]() {
+    json return_kJxhrtF=json({});
+    return serialize_char(((char*)(pDescriptor))[RqHVqWz]);}();
+            return_RqHVqWz["members"].push_back(temp);
+        }
+        return return_RqHVqWz;
+        }();return return_ZdmvhAV;}();
 
         writeToConn(result);
     }
@@ -37464,10 +38605,11 @@ temp_BZDxrro[gGwgvLk]=deserialize_VkDescriptorBufferBindingInfoEXT(data_json["me
         }();pBindingInfos=temp_BZDxrro;}();
 
 
+    PFN_vkCmdBindDescriptorBuffersEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBindDescriptorBuffersEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindDescriptorBuffersEXT");
+        call_function=(PFN_vkCmdBindDescriptorBuffersEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindDescriptorBuffersEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBindDescriptorBuffersEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindDescriptorBuffersEXT");
+        call_function=(PFN_vkCmdBindDescriptorBuffersEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindDescriptorBuffersEXT");
     }  
     
 call_function(commandBuffer, bufferCount, pBindingInfos);
@@ -37564,10 +38706,11 @@ temp_xwrFSNw[EXboekJ]=deserialize_uint64_t(data_json["members"]["pOffsets"]["mem
         }();}();pOffsets=temp_xwrFSNw;}();
 
 
+    PFN_vkCmdSetDescriptorBufferOffsetsEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDescriptorBufferOffsetsEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDescriptorBufferOffsetsEXT");
+        call_function=(PFN_vkCmdSetDescriptorBufferOffsetsEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDescriptorBufferOffsetsEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDescriptorBufferOffsetsEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDescriptorBufferOffsetsEXT");
+        call_function=(PFN_vkCmdSetDescriptorBufferOffsetsEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDescriptorBufferOffsetsEXT");
     }  
     
 call_function(commandBuffer, pipelineBindPoint, layout, firstSet, setCount, pBufferIndices, pOffsets);
@@ -37653,10 +38796,11 @@ uint32_t set
 set=deserialize_uint32_t(data_json["members"]["set"]);}();
 
 
+    PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindDescriptorBufferEmbeddedSamplersEXT");
+        call_function=(PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindDescriptorBufferEmbeddedSamplersEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindDescriptorBufferEmbeddedSamplersEXT");
+        call_function=(PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindDescriptorBufferEmbeddedSamplersEXT");
     }  
     
 call_function(commandBuffer, pipelineBindPoint, layout, set);
@@ -37708,14 +38852,26 @@ void* pData
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(data_json["members"]["pData"].size()*sizeof(char));
+        for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"].size(); BIqCBLq++){
+            [&]() {
+temp[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 
 
+    PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferOpaqueCaptureDescriptorDataEXT");
+        call_function=(PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferOpaqueCaptureDescriptorDataEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferOpaqueCaptureDescriptorDataEXT");
+        call_function=(PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetBufferOpaqueCaptureDescriptorDataEXT");
     }  
     
 auto return_value=call_function(device, pInfo, pData);
@@ -37746,8 +38902,24 @@ result["members"]["pData"]=[&]() {
             return_XiNRkbL["null"]=true;
             return return_XiNRkbL;
         }
-        return serialize_void_p(pData);
-}();
+        return_XiNRkbL=[&]() {
+    json return_mMAfRwv=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_mMAfRwv["null"]=true;
+            return return_mMAfRwv;
+        }
+        
+        return_mMAfRwv["members"]={};
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+            json temp;
+            temp=[&]() {
+    json return_zerhPYp=json({});
+    return serialize_char(((char*)(pData))[mMAfRwv]);}();
+            return_mMAfRwv["members"].push_back(temp);
+        }
+        return return_mMAfRwv;
+        }();return return_XiNRkbL;}();
 
         writeToConn(result);
     }
@@ -37780,14 +38952,26 @@ void* pData
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(data_json["members"]["pData"].size()*sizeof(char));
+        for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"].size(); BIqCBLq++){
+            [&]() {
+temp[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 
 
+    PFN_vkGetImageOpaqueCaptureDescriptorDataEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetImageOpaqueCaptureDescriptorDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageOpaqueCaptureDescriptorDataEXT");
+        call_function=(PFN_vkGetImageOpaqueCaptureDescriptorDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageOpaqueCaptureDescriptorDataEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetImageOpaqueCaptureDescriptorDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageOpaqueCaptureDescriptorDataEXT");
+        call_function=(PFN_vkGetImageOpaqueCaptureDescriptorDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageOpaqueCaptureDescriptorDataEXT");
     }  
     
 auto return_value=call_function(device, pInfo, pData);
@@ -37818,8 +39002,24 @@ result["members"]["pData"]=[&]() {
             return_XiNRkbL["null"]=true;
             return return_XiNRkbL;
         }
-        return serialize_void_p(pData);
-}();
+        return_XiNRkbL=[&]() {
+    json return_mMAfRwv=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_mMAfRwv["null"]=true;
+            return return_mMAfRwv;
+        }
+        
+        return_mMAfRwv["members"]={};
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+            json temp;
+            temp=[&]() {
+    json return_zerhPYp=json({});
+    return serialize_char(((char*)(pData))[mMAfRwv]);}();
+            return_mMAfRwv["members"].push_back(temp);
+        }
+        return return_mMAfRwv;
+        }();return return_XiNRkbL;}();
 
         writeToConn(result);
     }
@@ -37852,14 +39052,26 @@ void* pData
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(data_json["members"]["pData"].size()*sizeof(char));
+        for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"].size(); BIqCBLq++){
+            [&]() {
+temp[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 
 
+    PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageViewOpaqueCaptureDescriptorDataEXT");
+        call_function=(PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageViewOpaqueCaptureDescriptorDataEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageViewOpaqueCaptureDescriptorDataEXT");
+        call_function=(PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageViewOpaqueCaptureDescriptorDataEXT");
     }  
     
 auto return_value=call_function(device, pInfo, pData);
@@ -37890,8 +39102,24 @@ result["members"]["pData"]=[&]() {
             return_XiNRkbL["null"]=true;
             return return_XiNRkbL;
         }
-        return serialize_void_p(pData);
-}();
+        return_XiNRkbL=[&]() {
+    json return_mMAfRwv=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_mMAfRwv["null"]=true;
+            return return_mMAfRwv;
+        }
+        
+        return_mMAfRwv["members"]={};
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+            json temp;
+            temp=[&]() {
+    json return_zerhPYp=json({});
+    return serialize_char(((char*)(pData))[mMAfRwv]);}();
+            return_mMAfRwv["members"].push_back(temp);
+        }
+        return return_mMAfRwv;
+        }();return return_XiNRkbL;}();
 
         writeToConn(result);
     }
@@ -37924,14 +39152,26 @@ void* pData
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(data_json["members"]["pData"].size()*sizeof(char));
+        for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"].size(); BIqCBLq++){
+            [&]() {
+temp[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 
 
+    PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSamplerOpaqueCaptureDescriptorDataEXT");
+        call_function=(PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSamplerOpaqueCaptureDescriptorDataEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSamplerOpaqueCaptureDescriptorDataEXT");
+        call_function=(PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetSamplerOpaqueCaptureDescriptorDataEXT");
     }  
     
 auto return_value=call_function(device, pInfo, pData);
@@ -37962,8 +39202,24 @@ result["members"]["pData"]=[&]() {
             return_XiNRkbL["null"]=true;
             return return_XiNRkbL;
         }
-        return serialize_void_p(pData);
-}();
+        return_XiNRkbL=[&]() {
+    json return_mMAfRwv=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_mMAfRwv["null"]=true;
+            return return_mMAfRwv;
+        }
+        
+        return_mMAfRwv["members"]={};
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+            json temp;
+            temp=[&]() {
+    json return_zerhPYp=json({});
+    return serialize_char(((char*)(pData))[mMAfRwv]);}();
+            return_mMAfRwv["members"].push_back(temp);
+        }
+        return return_mMAfRwv;
+        }();return return_XiNRkbL;}();
 
         writeToConn(result);
     }
@@ -37996,14 +39252,26 @@ void* pData
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(data_json["members"]["pData"].size()*sizeof(char));
+        for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"].size(); BIqCBLq++){
+            [&]() {
+temp[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 
 
+    PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT");
+        call_function=(PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT");
+        call_function=(PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT");
     }  
     
 auto return_value=call_function(device, pInfo, pData);
@@ -38034,8 +39302,24 @@ result["members"]["pData"]=[&]() {
             return_XiNRkbL["null"]=true;
             return return_XiNRkbL;
         }
-        return serialize_void_p(pData);
-}();
+        return_XiNRkbL=[&]() {
+    json return_mMAfRwv=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_mMAfRwv["null"]=true;
+            return return_mMAfRwv;
+        }
+        
+        return_mMAfRwv["members"]={};
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+            json temp;
+            temp=[&]() {
+    json return_zerhPYp=json({});
+    return serialize_char(((char*)(pData))[mMAfRwv]);}();
+            return_mMAfRwv["members"].push_back(temp);
+        }
+        return return_mMAfRwv;
+        }();return return_XiNRkbL;}();
 
         writeToConn(result);
     }
@@ -38057,10 +39341,11 @@ float          priority
 priority=deserialize_float(data_json["members"]["priority"]);}();
 
 
+    PFN_vkSetDeviceMemoryPriorityEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkSetDeviceMemoryPriorityEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetDeviceMemoryPriorityEXT");
+        call_function=(PFN_vkSetDeviceMemoryPriorityEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetDeviceMemoryPriorityEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkSetDeviceMemoryPriorityEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetDeviceMemoryPriorityEXT");
+        call_function=(PFN_vkSetDeviceMemoryPriorityEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkSetDeviceMemoryPriorityEXT");
     }  
     
 call_function(device, memory, priority);
@@ -38098,10 +39383,11 @@ VkDisplayKHR display
 display=deserialize_VkDisplayKHR(data_json["members"]["display"]);}();
 
 
+    PFN_vkAcquireDrmDisplayEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkAcquireDrmDisplayEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquireDrmDisplayEXT");
+        call_function=(PFN_vkAcquireDrmDisplayEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquireDrmDisplayEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkAcquireDrmDisplayEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquireDrmDisplayEXT");
+        call_function=(PFN_vkAcquireDrmDisplayEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkAcquireDrmDisplayEXT");
     }  
     
 auto return_value=call_function(physicalDevice, drmFd, display);
@@ -38153,10 +39439,11 @@ VkDisplayKHR* display
 }();
 
 
+    PFN_vkGetDrmDisplayEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDrmDisplayEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDrmDisplayEXT");
+        call_function=(PFN_vkGetDrmDisplayEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDrmDisplayEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDrmDisplayEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDrmDisplayEXT");
+        call_function=(PFN_vkGetDrmDisplayEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDrmDisplayEXT");
     }  
     
 auto return_value=call_function(physicalDevice, drmFd, connectorId, display);
@@ -38211,10 +39498,11 @@ uint64_t timeout
 timeout=deserialize_uint64_t(data_json["members"]["timeout"]);}();
 
 
+    PFN_vkWaitForPresentKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkWaitForPresentKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWaitForPresentKHR");
+        call_function=(PFN_vkWaitForPresentKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWaitForPresentKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkWaitForPresentKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWaitForPresentKHR");
+        call_function=(PFN_vkWaitForPresentKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWaitForPresentKHR");
     }  
     
 auto return_value=call_function(device, swapchain, presentId, timeout);
@@ -38262,10 +39550,11 @@ VkRenderingInfo* temp_bILFfVT;[&]() {
 }();pRenderingInfo=temp_bILFfVT;}();
 
 
+    PFN_vkCmdBeginRendering call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBeginRendering)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRendering");
+        call_function=(PFN_vkCmdBeginRendering)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRendering");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBeginRendering)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRendering");
+        call_function=(PFN_vkCmdBeginRendering)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRendering");
     }  
     
 call_function(commandBuffer, pRenderingInfo);
@@ -38313,10 +39602,11 @@ VkRenderingInfo* temp_bILFfVT;[&]() {
 }();pRenderingInfo=temp_bILFfVT;}();
 
 
+    PFN_vkCmdBeginRenderingKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBeginRenderingKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRenderingKHR");
+        call_function=(PFN_vkCmdBeginRenderingKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRenderingKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBeginRenderingKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRenderingKHR");
+        call_function=(PFN_vkCmdBeginRenderingKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBeginRenderingKHR");
     }  
     
 call_function(commandBuffer, pRenderingInfo);
@@ -38351,10 +39641,11 @@ VkCommandBuffer                   commandBuffer
 commandBuffer=deserialize_VkCommandBuffer(data_json["members"]["commandBuffer"]);}();
 
 
+    PFN_vkCmdEndRendering call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdEndRendering)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRendering");
+        call_function=(PFN_vkCmdEndRendering)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRendering");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdEndRendering)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRendering");
+        call_function=(PFN_vkCmdEndRendering)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRendering");
     }  
     
 call_function(commandBuffer);
@@ -38378,10 +39669,11 @@ VkCommandBuffer                   commandBuffer
 commandBuffer=deserialize_VkCommandBuffer(data_json["members"]["commandBuffer"]);}();
 
 
+    PFN_vkCmdEndRenderingKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdEndRenderingKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRenderingKHR");
+        call_function=(PFN_vkCmdEndRenderingKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRenderingKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdEndRenderingKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRenderingKHR");
+        call_function=(PFN_vkCmdEndRenderingKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdEndRenderingKHR");
     }  
     
 call_function(commandBuffer);
@@ -38430,10 +39722,11 @@ VkDescriptorSetLayoutHostMappingInfoVALVE* pHostMapping
 }();
 
 
+    PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutHostMappingInfoVALVE");
+        call_function=(PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutHostMappingInfoVALVE");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutHostMappingInfoVALVE");
+        call_function=(PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetLayoutHostMappingInfoVALVE");
     }  
     
 call_function(device, pBindingReference, pHostMapping);
@@ -38496,15 +39789,27 @@ void** ppData
         *(ppData)=NULL;
         return;
         }
-    *(ppData)=deserialize_void_p(data_json["members"]["ppData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["ppData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(data_json["members"]["ppData"].size()*sizeof(char));
+        for (int vkSRbVA=0; vkSRbVA < data_json["members"]["ppData"].size(); vkSRbVA++){
+            [&]() {
+temp[vkSRbVA]=deserialize_char(data_json["members"]["ppData"]["members"][vkSRbVA]);}();;
+        }
+        }();*(ppData)=(void*)temp;
 }();
 }();
 
 
+    PFN_vkGetDescriptorSetHostMappingVALVE call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDescriptorSetHostMappingVALVE)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetHostMappingVALVE");
+        call_function=(PFN_vkGetDescriptorSetHostMappingVALVE)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetHostMappingVALVE");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDescriptorSetHostMappingVALVE)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetHostMappingVALVE");
+        call_function=(PFN_vkGetDescriptorSetHostMappingVALVE)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDescriptorSetHostMappingVALVE");
     }  
     
 call_function(device, descriptorSet, ppData);
@@ -38532,8 +39837,24 @@ result["members"]["ppData"]=[&]() {
             return_KWNLtTl["null"]=true;
             return return_KWNLtTl;
         }
-        return serialize_void_p(*ppData);
-}();
+        return_KWNLtTl=[&]() {
+    json return_gTtZOBV=json({});
+    
+        if (((char*)(*ppData))==NULL){
+            return_gTtZOBV["null"]=true;
+            return return_gTtZOBV;
+        }
+        
+        return_gTtZOBV["members"]={};
+        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData))); gTtZOBV++){
+            json temp;
+            temp=[&]() {
+    json return_LrfUJiU=json({});
+    return serialize_char(((char*)(*ppData))[gTtZOBV]);}();
+            return_gTtZOBV["members"].push_back(temp);
+        }
+        return return_gTtZOBV;
+        }();return return_KWNLtTl;}();
 return return_PsFVEjO;}();
 
         writeToConn(result);
@@ -38586,10 +39907,11 @@ VkMicromapEXT*                        pMicromap
 }();
 
 
+    PFN_vkCreateMicromapEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateMicromapEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateMicromapEXT");
+        call_function=(PFN_vkCreateMicromapEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateMicromapEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateMicromapEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateMicromapEXT");
+        call_function=(PFN_vkCreateMicromapEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateMicromapEXT");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pMicromap);
@@ -38667,10 +39989,11 @@ temp_zlhvuoA[rmbdLDq]=deserialize_VkMicromapBuildInfoEXT(data_json["members"]["p
         }();pInfos=temp_zlhvuoA;}();
 
 
+    PFN_vkCmdBuildMicromapsEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBuildMicromapsEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBuildMicromapsEXT");
+        call_function=(PFN_vkCmdBuildMicromapsEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBuildMicromapsEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBuildMicromapsEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBuildMicromapsEXT");
+        call_function=(PFN_vkCmdBuildMicromapsEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBuildMicromapsEXT");
     }  
     
 call_function(commandBuffer, infoCount, pInfos);
@@ -38738,10 +40061,11 @@ temp_zlhvuoA[rmbdLDq]=deserialize_VkMicromapBuildInfoEXT(data_json["members"]["p
         }();pInfos=temp_zlhvuoA;}();
 
 
+    PFN_vkBuildMicromapsEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkBuildMicromapsEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBuildMicromapsEXT");
+        call_function=(PFN_vkBuildMicromapsEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBuildMicromapsEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkBuildMicromapsEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBuildMicromapsEXT");
+        call_function=(PFN_vkBuildMicromapsEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBuildMicromapsEXT");
     }  
     
 auto return_value=call_function(device, deferredOperation, infoCount, pInfos);
@@ -38808,10 +40132,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyMicromapEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyMicromapEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyMicromapEXT");
+        call_function=(PFN_vkDestroyMicromapEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyMicromapEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyMicromapEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyMicromapEXT");
+        call_function=(PFN_vkDestroyMicromapEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyMicromapEXT");
     }  
     
 call_function(device, micromap, pAllocator);
@@ -38862,10 +40187,11 @@ VkCopyMicromapInfoEXT* temp_jMMmqMa;[&]() {
 }();pInfo=temp_jMMmqMa;}();
 
 
+    PFN_vkCmdCopyMicromapEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyMicromapEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMicromapEXT");
+        call_function=(PFN_vkCmdCopyMicromapEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMicromapEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyMicromapEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMicromapEXT");
+        call_function=(PFN_vkCmdCopyMicromapEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMicromapEXT");
     }  
     
 call_function(commandBuffer, pInfo);
@@ -38917,10 +40243,11 @@ VkCopyMicromapInfoEXT* temp_jMMmqMa;[&]() {
 }();pInfo=temp_jMMmqMa;}();
 
 
+    PFN_vkCopyMicromapEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCopyMicromapEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMicromapEXT");
+        call_function=(PFN_vkCopyMicromapEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMicromapEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCopyMicromapEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMicromapEXT");
+        call_function=(PFN_vkCopyMicromapEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMicromapEXT");
     }  
     
 auto return_value=call_function(device, deferredOperation, pInfo);
@@ -38973,10 +40300,11 @@ VkCopyMicromapToMemoryInfoEXT* temp_vmtIeWF;[&]() {
 }();pInfo=temp_vmtIeWF;}();
 
 
+    PFN_vkCmdCopyMicromapToMemoryEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyMicromapToMemoryEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMicromapToMemoryEXT");
+        call_function=(PFN_vkCmdCopyMicromapToMemoryEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMicromapToMemoryEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyMicromapToMemoryEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMicromapToMemoryEXT");
+        call_function=(PFN_vkCmdCopyMicromapToMemoryEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMicromapToMemoryEXT");
     }  
     
 call_function(commandBuffer, pInfo);
@@ -39028,10 +40356,11 @@ VkCopyMicromapToMemoryInfoEXT* temp_vmtIeWF;[&]() {
 }();pInfo=temp_vmtIeWF;}();
 
 
+    PFN_vkCopyMicromapToMemoryEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCopyMicromapToMemoryEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMicromapToMemoryEXT");
+        call_function=(PFN_vkCopyMicromapToMemoryEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMicromapToMemoryEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCopyMicromapToMemoryEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMicromapToMemoryEXT");
+        call_function=(PFN_vkCopyMicromapToMemoryEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMicromapToMemoryEXT");
     }  
     
 auto return_value=call_function(device, deferredOperation, pInfo);
@@ -39084,10 +40413,11 @@ VkCopyMemoryToMicromapInfoEXT* temp_mIotiHJ;[&]() {
 }();pInfo=temp_mIotiHJ;}();
 
 
+    PFN_vkCmdCopyMemoryToMicromapEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdCopyMemoryToMicromapEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMemoryToMicromapEXT");
+        call_function=(PFN_vkCmdCopyMemoryToMicromapEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMemoryToMicromapEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdCopyMemoryToMicromapEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMemoryToMicromapEXT");
+        call_function=(PFN_vkCmdCopyMemoryToMicromapEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdCopyMemoryToMicromapEXT");
     }  
     
 call_function(commandBuffer, pInfo);
@@ -39139,10 +40469,11 @@ VkCopyMemoryToMicromapInfoEXT* temp_mIotiHJ;[&]() {
 }();pInfo=temp_mIotiHJ;}();
 
 
+    PFN_vkCopyMemoryToMicromapEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCopyMemoryToMicromapEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMemoryToMicromapEXT");
+        call_function=(PFN_vkCopyMemoryToMicromapEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMemoryToMicromapEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCopyMemoryToMicromapEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMemoryToMicromapEXT");
+        call_function=(PFN_vkCopyMemoryToMicromapEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCopyMemoryToMicromapEXT");
     }  
     
 auto return_value=call_function(device, deferredOperation, pInfo);
@@ -39213,10 +40544,11 @@ uint32_t firstQuery
 firstQuery=deserialize_uint32_t(data_json["members"]["firstQuery"]);}();
 
 
+    PFN_vkCmdWriteMicromapsPropertiesEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdWriteMicromapsPropertiesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteMicromapsPropertiesEXT");
+        call_function=(PFN_vkCmdWriteMicromapsPropertiesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteMicromapsPropertiesEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdWriteMicromapsPropertiesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteMicromapsPropertiesEXT");
+        call_function=(PFN_vkCmdWriteMicromapsPropertiesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdWriteMicromapsPropertiesEXT");
     }  
     
 call_function(commandBuffer, micromapCount, pMicromaps, queryType, queryPool, firstQuery);
@@ -39303,7 +40635,18 @@ void* pData
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(dataSize*sizeof(char));
+        for (int ThmltOQ=0; ThmltOQ < dataSize; ThmltOQ++){
+            [&]() {
+temp[ThmltOQ]=deserialize_char(data_json["members"]["pData"]["members"][ThmltOQ]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 size_t stride
         ;
@@ -39311,10 +40654,11 @@ size_t stride
 stride=deserialize_size_t(data_json["members"]["stride"]);}();
 
 
+    PFN_vkWriteMicromapsPropertiesEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkWriteMicromapsPropertiesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWriteMicromapsPropertiesEXT");
+        call_function=(PFN_vkWriteMicromapsPropertiesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWriteMicromapsPropertiesEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkWriteMicromapsPropertiesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWriteMicromapsPropertiesEXT");
+        call_function=(PFN_vkWriteMicromapsPropertiesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkWriteMicromapsPropertiesEXT");
     }  
     
 auto return_value=call_function(device, micromapCount, pMicromaps, queryType, dataSize, pData, stride);
@@ -39361,8 +40705,24 @@ result["members"]["pData"]=[&]() {
             return_uMNHZoi["null"]=true;
             return return_uMNHZoi;
         }
-        return serialize_void_p(pData);
-}();
+        return_uMNHZoi=[&]() {
+    json return_neDQhGk=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_neDQhGk["null"]=true;
+            return return_neDQhGk;
+        }
+        
+        return_neDQhGk["members"]={};
+        for(int neDQhGk=0; neDQhGk < dataSize; neDQhGk++){
+            json temp;
+            temp=[&]() {
+    json return_amcrAAE=json({});
+    return serialize_char(((char*)(pData))[neDQhGk]);}();
+            return_neDQhGk["members"].push_back(temp);
+        }
+        return return_neDQhGk;
+        }();return return_uMNHZoi;}();
 result["members"]["stride"]=[&]() {
     json return_LQXemmN=json({});
     return serialize_size_t(stride);}();
@@ -39404,10 +40764,11 @@ VkAccelerationStructureCompatibilityKHR* pCompatibility
 }();
 
 
+    PFN_vkGetDeviceMicromapCompatibilityEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceMicromapCompatibilityEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceMicromapCompatibilityEXT");
+        call_function=(PFN_vkGetDeviceMicromapCompatibilityEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceMicromapCompatibilityEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceMicromapCompatibilityEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceMicromapCompatibilityEXT");
+        call_function=(PFN_vkGetDeviceMicromapCompatibilityEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceMicromapCompatibilityEXT");
     }  
     
 call_function(device, pVersionInfo, pCompatibility);
@@ -39482,10 +40843,11 @@ VkMicromapBuildSizesInfoEXT*           pSizeInfo
 }();
 
 
+    PFN_vkGetMicromapBuildSizesEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetMicromapBuildSizesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMicromapBuildSizesEXT");
+        call_function=(PFN_vkGetMicromapBuildSizesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMicromapBuildSizesEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetMicromapBuildSizesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMicromapBuildSizesEXT");
+        call_function=(PFN_vkGetMicromapBuildSizesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetMicromapBuildSizesEXT");
     }  
     
 call_function(device, buildType, pBuildInfo, pSizeInfo);
@@ -39550,10 +40912,11 @@ VkShaderModuleIdentifierEXT* pIdentifier
 }();
 
 
+    PFN_vkGetShaderModuleIdentifierEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetShaderModuleIdentifierEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetShaderModuleIdentifierEXT");
+        call_function=(PFN_vkGetShaderModuleIdentifierEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetShaderModuleIdentifierEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetShaderModuleIdentifierEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetShaderModuleIdentifierEXT");
+        call_function=(PFN_vkGetShaderModuleIdentifierEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetShaderModuleIdentifierEXT");
     }  
     
 call_function(device, shaderModule, pIdentifier);
@@ -39616,10 +40979,11 @@ VkShaderModuleIdentifierEXT* pIdentifier
 }();
 
 
+    PFN_vkGetShaderModuleCreateInfoIdentifierEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetShaderModuleCreateInfoIdentifierEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetShaderModuleCreateInfoIdentifierEXT");
+        call_function=(PFN_vkGetShaderModuleCreateInfoIdentifierEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetShaderModuleCreateInfoIdentifierEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetShaderModuleCreateInfoIdentifierEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetShaderModuleCreateInfoIdentifierEXT");
+        call_function=(PFN_vkGetShaderModuleCreateInfoIdentifierEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetShaderModuleCreateInfoIdentifierEXT");
     }  
     
 call_function(device, pCreateInfo, pIdentifier);
@@ -39694,10 +41058,11 @@ VkSubresourceLayout2KHR* pLayout
 }();
 
 
+    PFN_vkGetImageSubresourceLayout2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetImageSubresourceLayout2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSubresourceLayout2KHR");
+        call_function=(PFN_vkGetImageSubresourceLayout2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSubresourceLayout2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetImageSubresourceLayout2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSubresourceLayout2KHR");
+        call_function=(PFN_vkGetImageSubresourceLayout2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSubresourceLayout2KHR");
     }  
     
 call_function(device, image, pSubresource, pLayout);
@@ -39775,10 +41140,11 @@ VkSubresourceLayout2KHR* pLayout
 }();
 
 
+    PFN_vkGetImageSubresourceLayout2EXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetImageSubresourceLayout2EXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSubresourceLayout2EXT");
+        call_function=(PFN_vkGetImageSubresourceLayout2EXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSubresourceLayout2EXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetImageSubresourceLayout2EXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSubresourceLayout2EXT");
+        call_function=(PFN_vkGetImageSubresourceLayout2EXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetImageSubresourceLayout2EXT");
     }  
     
 call_function(device, image, pSubresource, pLayout);
@@ -39852,10 +41218,11 @@ VkBaseOutStructure* pPipelineProperties
 }();
 
 
+    PFN_vkGetPipelinePropertiesEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPipelinePropertiesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelinePropertiesEXT");
+        call_function=(PFN_vkGetPipelinePropertiesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelinePropertiesEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPipelinePropertiesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelinePropertiesEXT");
+        call_function=(PFN_vkGetPipelinePropertiesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPipelinePropertiesEXT");
     }  
     
 auto return_value=call_function(device, pPipelineInfo, pPipelineProperties);
@@ -39933,10 +41300,11 @@ pProperties[tNwUCgx]=deserialize_VkTilePropertiesQCOM(data_json["members"]["pPro
         }();
 
 
+    PFN_vkGetFramebufferTilePropertiesQCOM call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetFramebufferTilePropertiesQCOM)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetFramebufferTilePropertiesQCOM");
+        call_function=(PFN_vkGetFramebufferTilePropertiesQCOM)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetFramebufferTilePropertiesQCOM");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetFramebufferTilePropertiesQCOM)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetFramebufferTilePropertiesQCOM");
+        call_function=(PFN_vkGetFramebufferTilePropertiesQCOM)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetFramebufferTilePropertiesQCOM");
     }  
     
 auto return_value=call_function(device, framebuffer, pPropertiesCount, pProperties);
@@ -40019,10 +41387,11 @@ VkTilePropertiesQCOM* pProperties
 }();
 
 
+    PFN_vkGetDynamicRenderingTilePropertiesQCOM call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDynamicRenderingTilePropertiesQCOM)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDynamicRenderingTilePropertiesQCOM");
+        call_function=(PFN_vkGetDynamicRenderingTilePropertiesQCOM)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDynamicRenderingTilePropertiesQCOM");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDynamicRenderingTilePropertiesQCOM)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDynamicRenderingTilePropertiesQCOM");
+        call_function=(PFN_vkGetDynamicRenderingTilePropertiesQCOM)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDynamicRenderingTilePropertiesQCOM");
     }  
     
 auto return_value=call_function(device, pRenderingInfo, pProperties);
@@ -40109,10 +41478,11 @@ pImageFormatProperties[wGEjAvM]=deserialize_VkOpticalFlowImageFormatPropertiesNV
         }();
 
 
+    PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceOpticalFlowImageFormatsNV");
+        call_function=(PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceOpticalFlowImageFormatsNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceOpticalFlowImageFormatsNV");
+        call_function=(PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceOpticalFlowImageFormatsNV");
     }  
     
 auto return_value=call_function(physicalDevice, pOpticalFlowImageFormatInfo, pFormatCount, pImageFormatProperties);
@@ -40216,10 +41586,11 @@ VkOpticalFlowSessionNV* pSession
 }();
 
 
+    PFN_vkCreateOpticalFlowSessionNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateOpticalFlowSessionNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateOpticalFlowSessionNV");
+        call_function=(PFN_vkCreateOpticalFlowSessionNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateOpticalFlowSessionNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateOpticalFlowSessionNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateOpticalFlowSessionNV");
+        call_function=(PFN_vkCreateOpticalFlowSessionNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateOpticalFlowSessionNV");
     }  
     
 auto return_value=call_function(device, pCreateInfo, pAllocator, pSession);
@@ -40295,10 +41666,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyOpticalFlowSessionNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyOpticalFlowSessionNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyOpticalFlowSessionNV");
+        call_function=(PFN_vkDestroyOpticalFlowSessionNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyOpticalFlowSessionNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyOpticalFlowSessionNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyOpticalFlowSessionNV");
+        call_function=(PFN_vkDestroyOpticalFlowSessionNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyOpticalFlowSessionNV");
     }  
     
 call_function(device, session, pAllocator);
@@ -40352,10 +41724,11 @@ VkImageLayout layout
 layout=deserialize_VkImageLayout(data_json["members"]["layout"]);}();
 
 
+    PFN_vkBindOpticalFlowSessionImageNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkBindOpticalFlowSessionImageNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindOpticalFlowSessionImageNV");
+        call_function=(PFN_vkBindOpticalFlowSessionImageNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindOpticalFlowSessionImageNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkBindOpticalFlowSessionImageNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindOpticalFlowSessionImageNV");
+        call_function=(PFN_vkBindOpticalFlowSessionImageNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkBindOpticalFlowSessionImageNV");
     }  
     
 auto return_value=call_function(device, session, bindingPoint, view, layout);
@@ -40410,10 +41783,11 @@ VkOpticalFlowExecuteInfoNV* temp_IlEEmKM;[&]() {
 }();pExecuteInfo=temp_IlEEmKM;}();
 
 
+    PFN_vkCmdOpticalFlowExecuteNV call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdOpticalFlowExecuteNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdOpticalFlowExecuteNV");
+        call_function=(PFN_vkCmdOpticalFlowExecuteNV)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdOpticalFlowExecuteNV");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdOpticalFlowExecuteNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdOpticalFlowExecuteNV");
+        call_function=(PFN_vkCmdOpticalFlowExecuteNV)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdOpticalFlowExecuteNV");
     }  
     
 call_function(commandBuffer, session, pExecuteInfo);
@@ -40475,10 +41849,11 @@ VkDeviceFaultInfoEXT* pFaultInfo
 }();
 
 
+    PFN_vkGetDeviceFaultInfoEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceFaultInfoEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceFaultInfoEXT");
+        call_function=(PFN_vkGetDeviceFaultInfoEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceFaultInfoEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceFaultInfoEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceFaultInfoEXT");
+        call_function=(PFN_vkGetDeviceFaultInfoEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceFaultInfoEXT");
     }  
     
 auto return_value=call_function(device, pFaultCounts, pFaultInfo);
@@ -40539,10 +41914,11 @@ VkDepthBiasInfoEXT* temp_HZmqdqu;[&]() {
 }();pDepthBiasInfo=temp_HZmqdqu;}();
 
 
+    PFN_vkCmdSetDepthBias2EXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdSetDepthBias2EXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBias2EXT");
+        call_function=(PFN_vkCmdSetDepthBias2EXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBias2EXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdSetDepthBias2EXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBias2EXT");
+        call_function=(PFN_vkCmdSetDepthBias2EXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdSetDepthBias2EXT");
     }  
     
 call_function(commandBuffer, pDepthBiasInfo);
@@ -40590,10 +41966,11 @@ VkReleaseSwapchainImagesInfoEXT* temp_qHKcUnn;[&]() {
 }();pReleaseInfo=temp_qHKcUnn;}();
 
 
+    PFN_vkReleaseSwapchainImagesEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkReleaseSwapchainImagesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkReleaseSwapchainImagesEXT");
+        call_function=(PFN_vkReleaseSwapchainImagesEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkReleaseSwapchainImagesEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkReleaseSwapchainImagesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkReleaseSwapchainImagesEXT");
+        call_function=(PFN_vkReleaseSwapchainImagesEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkReleaseSwapchainImagesEXT");
     }  
     
 auto return_value=call_function(device, pReleaseInfo);
@@ -40655,10 +42032,11 @@ VkSubresourceLayout2KHR* pLayout
 }();
 
 
+    PFN_vkGetDeviceImageSubresourceLayoutKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetDeviceImageSubresourceLayoutKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageSubresourceLayoutKHR");
+        call_function=(PFN_vkGetDeviceImageSubresourceLayoutKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageSubresourceLayoutKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetDeviceImageSubresourceLayoutKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageSubresourceLayoutKHR");
+        call_function=(PFN_vkGetDeviceImageSubresourceLayoutKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetDeviceImageSubresourceLayoutKHR");
     }  
     
 call_function(device, pInfo, pLayout);
@@ -40730,7 +42108,18 @@ void** ppData
         *(ppData)=NULL;
         return;
         }
-    *(ppData)=deserialize_void_p(data_json["members"]["ppData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["ppData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(data_json["members"]["ppData"].size()*sizeof(char));
+        for (int vkSRbVA=0; vkSRbVA < data_json["members"]["ppData"].size(); vkSRbVA++){
+            [&]() {
+temp[vkSRbVA]=deserialize_char(data_json["members"]["ppData"]["members"][vkSRbVA]);}();;
+        }
+        }();*(ppData)=(void*)temp;
 }();
 }();
 
@@ -40743,10 +42132,11 @@ void** ppData
         devicememory_to_mem_info[(uintptr_t)pMemoryMapInfo->memory]=info;
         
 
+    PFN_vkMapMemory2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkMapMemory2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkMapMemory2KHR");
+        call_function=(PFN_vkMapMemory2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkMapMemory2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkMapMemory2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkMapMemory2KHR");
+        call_function=(PFN_vkMapMemory2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkMapMemory2KHR");
     }  
     
 auto return_value=call_function(device, pMemoryMapInfo, ppData);
@@ -40784,8 +42174,24 @@ result["members"]["ppData"]=[&]() {
             return_KWNLtTl["null"]=true;
             return return_KWNLtTl;
         }
-        return serialize_void_p(*ppData);
-}();
+        return_KWNLtTl=[&]() {
+    json return_gTtZOBV=json({});
+    
+        if (((char*)(*ppData))==NULL){
+            return_gTtZOBV["null"]=true;
+            return return_gTtZOBV;
+        }
+        
+        return_gTtZOBV["members"]={};
+        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData))); gTtZOBV++){
+            json temp;
+            temp=[&]() {
+    json return_LrfUJiU=json({});
+    return serialize_char(((char*)(*ppData))[gTtZOBV]);}();
+            return_gTtZOBV["members"].push_back(temp);
+        }
+        return return_gTtZOBV;
+        }();return return_KWNLtTl;}();
 return return_PsFVEjO;}();
 
         writeToConn(result);
@@ -40813,10 +42219,11 @@ VkMemoryUnmapInfoKHR* temp_BqsUhGn;[&]() {
 }();pMemoryUnmapInfo=temp_BqsUhGn;}();
 
 
+    PFN_vkUnmapMemory2KHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkUnmapMemory2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUnmapMemory2KHR");
+        call_function=(PFN_vkUnmapMemory2KHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUnmapMemory2KHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkUnmapMemory2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUnmapMemory2KHR");
+        call_function=(PFN_vkUnmapMemory2KHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkUnmapMemory2KHR");
     }  
     
 auto return_value=call_function(device, pMemoryUnmapInfo);
@@ -40899,10 +42306,11 @@ pShaders[QevDDJq]=deserialize_VkShaderEXT(data_json["members"]["pShaders"]["memb
         }();
 
 
+    PFN_vkCreateShadersEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCreateShadersEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateShadersEXT");
+        call_function=(PFN_vkCreateShadersEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateShadersEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCreateShadersEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateShadersEXT");
+        call_function=(PFN_vkCreateShadersEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCreateShadersEXT");
     }  
     
 auto return_value=call_function(device, createInfoCount, pCreateInfos, pAllocator, pShaders);
@@ -40995,10 +42403,11 @@ VkAllocationCallbacks* temp_VAmhMvJ;[&]() {
 }();pAllocator=temp_VAmhMvJ;}();
 
 
+    PFN_vkDestroyShaderEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkDestroyShaderEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyShaderEXT");
+        call_function=(PFN_vkDestroyShaderEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyShaderEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkDestroyShaderEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyShaderEXT");
+        call_function=(PFN_vkDestroyShaderEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkDestroyShaderEXT");
     }  
     
 call_function(device, shader, pAllocator);
@@ -41058,14 +42467,26 @@ void* pData
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(data_json["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (data_json["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(*pDataSize*sizeof(char));
+        for (int cmmtDwc=0; cmmtDwc < *pDataSize; cmmtDwc++){
+            [&]() {
+temp[cmmtDwc]=deserialize_char(data_json["members"]["pData"]["members"][cmmtDwc]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 
 
+    PFN_vkGetShaderBinaryDataEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetShaderBinaryDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetShaderBinaryDataEXT");
+        call_function=(PFN_vkGetShaderBinaryDataEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetShaderBinaryDataEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetShaderBinaryDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetShaderBinaryDataEXT");
+        call_function=(PFN_vkGetShaderBinaryDataEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetShaderBinaryDataEXT");
     }  
     
 auto return_value=call_function(device, shader, pDataSize, pData);
@@ -41099,8 +42520,24 @@ result["members"]["pData"]=[&]() {
             return_MOqETBu["null"]=true;
             return return_MOqETBu;
         }
-        return serialize_void_p(pData);
-}();
+        return_MOqETBu=[&]() {
+    json return_MHUeMAs=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_MHUeMAs["null"]=true;
+            return return_MHUeMAs;
+        }
+        
+        return_MHUeMAs["members"]={};
+        for(int MHUeMAs=0; MHUeMAs < *pDataSize; MHUeMAs++){
+            json temp;
+            temp=[&]() {
+    json return_fEXHPKD=json({});
+    return serialize_char(((char*)(pData))[MHUeMAs]);}();
+            return_MHUeMAs["members"].push_back(temp);
+        }
+        return return_MHUeMAs;
+        }();return return_MOqETBu;}();
 
         writeToConn(result);
     }
@@ -41148,10 +42585,11 @@ temp_dfExjEB[aHysNTA]=deserialize_VkShaderEXT(data_json["members"]["pShaders"]["
         }();pShaders=temp_dfExjEB;}();
 
 
+    PFN_vkCmdBindShadersEXT call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkCmdBindShadersEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindShadersEXT");
+        call_function=(PFN_vkCmdBindShadersEXT)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindShadersEXT");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkCmdBindShadersEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindShadersEXT");
+        call_function=(PFN_vkCmdBindShadersEXT)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkCmdBindShadersEXT");
     }  
     
 call_function(commandBuffer, stageCount, pStages, pShaders);
@@ -41240,10 +42678,11 @@ pProperties[oQxHemi]=deserialize_VkCooperativeMatrixPropertiesKHR(data_json["mem
         }();
 
 
+    PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR call_function;
     if(data_json["parent"]["type"]=="Instance"){
-        auto call_function=(PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR)get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR");
     }else if(data_json["parent"]["type"]=="Device"){
-        auto call_function=(PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR");
+        call_function=(PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR)get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR");
     }  
     
 auto return_value=call_function(physicalDevice, pPropertyCount, pProperties);
@@ -45311,8 +46750,17 @@ data_json["members"]["pName"]=[&]() {
             return_UtWldLN["null"]=true;
             return return_UtWldLN;
         }
-        return serialize_char_p(pName);
-}();
+        
+        return_UtWldLN["members"]={};
+        for(int UtWldLN=0; UtWldLN < strlen(pName); UtWldLN++){
+            json temp;
+            temp=[&]() {
+    json return_cAmRZvH=json({});
+    return serialize_char(pName[UtWldLN]);}();
+            return_UtWldLN["members"].push_back(temp);
+        }
+        return return_UtWldLN;
+        }();
 }
 
         writeToConn(data_json);
@@ -49043,8 +50491,17 @@ data_json["members"]["pName"]=[&]() {
             return_UtWldLN["null"]=true;
             return return_UtWldLN;
         }
-        return serialize_char_p(pName);
-}();
+        
+        return_UtWldLN["members"]={};
+        for(int UtWldLN=0; UtWldLN < strlen(pName); UtWldLN++){
+            json temp;
+            temp=[&]() {
+    json return_cAmRZvH=json({});
+    return serialize_char(pName[UtWldLN]);}();
+            return_UtWldLN["members"].push_back(temp);
+        }
+        return return_UtWldLN;
+        }();
 }
 
         writeToConn(data_json);
@@ -53876,8 +55333,17 @@ data_json["members"]["pLayerName"]=[&]() {
             return_GVAKxQC["null"]=true;
             return return_GVAKxQC;
         }
-        return serialize_char_p(pLayerName);
-}();
+        
+        return_GVAKxQC["members"]={};
+        for(int GVAKxQC=0; GVAKxQC < strlen(pLayerName); GVAKxQC++){
+            json temp;
+            temp=[&]() {
+    json return_Yxvqrpv=json({});
+    return serialize_char(pLayerName[GVAKxQC]);}();
+            return_GVAKxQC["members"].push_back(temp);
+        }
+        return return_GVAKxQC;
+        }();
 data_json["members"]["pPropertyCount"]=[&]() {
     json return_MnYOHdG=json({});
     
@@ -54155,8 +55621,17 @@ data_json["members"]["pLayerName"]=[&]() {
             return_GVAKxQC["null"]=true;
             return return_GVAKxQC;
         }
-        return serialize_char_p(pLayerName);
-}();
+        
+        return_GVAKxQC["members"]={};
+        for(int GVAKxQC=0; GVAKxQC < strlen(pLayerName); GVAKxQC++){
+            json temp;
+            temp=[&]() {
+    json return_Yxvqrpv=json({});
+    return serialize_char(pLayerName[GVAKxQC]);}();
+            return_GVAKxQC["members"].push_back(temp);
+        }
+        return return_GVAKxQC;
+        }();
 data_json["members"]["pPropertyCount"]=[&]() {
     json return_MnYOHdG=json({});
     
@@ -54968,8 +56443,24 @@ data_json["members"]["ppData"]=[&]() {
             return_KWNLtTl["null"]=true;
             return return_KWNLtTl;
         }
-        return serialize_void_p(*ppData);
-}();
+        return_KWNLtTl=[&]() {
+    json return_gTtZOBV=json({});
+    
+        if (((char*)(*ppData))==NULL){
+            return_gTtZOBV["null"]=true;
+            return return_gTtZOBV;
+        }
+        
+        return_gTtZOBV["members"]={};
+        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData))); gTtZOBV++){
+            json temp;
+            temp=[&]() {
+    json return_LrfUJiU=json({});
+    return serialize_char(((char*)(*ppData))[gTtZOBV]);}();
+            return_gTtZOBV["members"].push_back(temp);
+        }
+        return return_gTtZOBV;
+        }();return return_KWNLtTl;}();
 return return_PsFVEjO;}();
 }
 
@@ -55050,7 +56541,18 @@ flags=deserialize_VkMemoryMapFlags(result["members"]["flags"]);}();
         *(ppData)=NULL;
         return;
         }
-    *(ppData)=deserialize_void_p(result["members"]["ppData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["ppData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(result["members"]["ppData"].size()*sizeof(char));
+        for (int zjLTbBV=0; zjLTbBV < result["members"]["ppData"].size(); zjLTbBV++){
+            [&]() {
+temp[zjLTbBV]=deserialize_char(result["members"]["ppData"]["members"][zjLTbBV]);}();;
+        }
+        }();*(ppData)=(void*)temp;
 }();
 }();
 VkResult return_value;
@@ -57887,8 +59389,24 @@ data_json["members"]["pData"]=[&]() {
             return_uMNHZoi["null"]=true;
             return return_uMNHZoi;
         }
-        return serialize_void_p(pData);
-}();
+        return_uMNHZoi=[&]() {
+    json return_neDQhGk=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_neDQhGk["null"]=true;
+            return return_neDQhGk;
+        }
+        
+        return_neDQhGk["members"]={};
+        for(int neDQhGk=0; neDQhGk < dataSize; neDQhGk++){
+            json temp;
+            temp=[&]() {
+    json return_amcrAAE=json({});
+    return serialize_char(((char*)(pData))[neDQhGk]);}();
+            return_neDQhGk["members"].push_back(temp);
+        }
+        return return_neDQhGk;
+        }();return return_uMNHZoi;}();
 data_json["members"]["stride"]=[&]() {
     json return_MQAmiOM=json({});
     return_MQAmiOM=[&]() {
@@ -57968,7 +59486,18 @@ dataSize=deserialize_size_t(result["members"]["dataSize"]);}();
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(result["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(dataSize*sizeof(char));
+        for (int wlYRguN=0; wlYRguN < dataSize; wlYRguN++){
+            [&]() {
+temp[wlYRguN]=deserialize_char(result["members"]["pData"]["members"][wlYRguN]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 [&]() {
 [&]() {
@@ -59724,8 +61253,24 @@ data_json["members"]["pData"]=[&]() {
             return_MOqETBu["null"]=true;
             return return_MOqETBu;
         }
-        return serialize_void_p(pData);
-}();
+        return_MOqETBu=[&]() {
+    json return_MHUeMAs=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_MHUeMAs["null"]=true;
+            return return_MHUeMAs;
+        }
+        
+        return_MHUeMAs["members"]={};
+        for(int MHUeMAs=0; MHUeMAs < *pDataSize; MHUeMAs++){
+            json temp;
+            temp=[&]() {
+    json return_fEXHPKD=json({});
+    return serialize_char(((char*)(pData))[MHUeMAs]);}();
+            return_MHUeMAs["members"].push_back(temp);
+        }
+        return return_MHUeMAs;
+        }();return return_MOqETBu;}();
 }
 
         writeToConn(data_json);
@@ -59800,7 +61345,18 @@ pipelineCache=deserialize_VkPipelineCache(result["members"]["pipelineCache"]);}(
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(result["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(*pDataSize*sizeof(char));
+        for (int wPndHqQ=0; wPndHqQ < *pDataSize; wPndHqQ++){
+            [&]() {
+temp[wPndHqQ]=deserialize_char(result["members"]["pData"]["members"][wPndHqQ]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 VkResult return_value;
 [&]() {
@@ -66937,8 +68493,24 @@ data_json["members"]["pData"]=[&]() {
             return_wzShuSQ["null"]=true;
             return return_wzShuSQ;
         }
-        return serialize_void_p(pData);
-}();
+        return_wzShuSQ=[&]() {
+    json return_HDgIRlh=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_HDgIRlh["null"]=true;
+            return return_HDgIRlh;
+        }
+        
+        return_HDgIRlh["members"]={};
+        for(int HDgIRlh=0; HDgIRlh < dataSize; HDgIRlh++){
+            json temp;
+            temp=[&]() {
+    json return_yxBkhlT=json({});
+    return serialize_char(((char*)(pData))[HDgIRlh]);}();
+            return_HDgIRlh["members"].push_back(temp);
+        }
+        return return_HDgIRlh;
+        }();return return_wzShuSQ;}();
 }
 
         writeToConn(data_json);
@@ -68912,8 +70484,24 @@ data_json["members"]["pValues"]=[&]() {
             return_sRPPxyU["null"]=true;
             return return_sRPPxyU;
         }
-        return serialize_void_p(pValues);
-}();
+        return_sRPPxyU=[&]() {
+    json return_SmycgMi=json({});
+    
+        if (((char*)(pValues))==NULL){
+            return_SmycgMi["null"]=true;
+            return return_SmycgMi;
+        }
+        
+        return_SmycgMi["members"]={};
+        for(int SmycgMi=0; SmycgMi < size; SmycgMi++){
+            json temp;
+            temp=[&]() {
+    json return_qrYfIem=json({});
+    return serialize_char(((char*)(pValues))[SmycgMi]);}();
+            return_SmycgMi["members"].push_back(temp);
+        }
+        return return_SmycgMi;
+        }();return return_sRPPxyU;}();
 }
 
         writeToConn(data_json);
@@ -72435,8 +74023,17 @@ data_json["members"]["pLayerPrefix"]=[&]() {
             return_HiVuHWN["null"]=true;
             return return_HiVuHWN;
         }
-        return serialize_char_p(pLayerPrefix);
-}();
+        
+        return_HiVuHWN["members"]={};
+        for(int HiVuHWN=0; HiVuHWN < strlen(pLayerPrefix); HiVuHWN++){
+            json temp;
+            temp=[&]() {
+    json return_NzhPjeM=json({});
+    return serialize_char(pLayerPrefix[HiVuHWN]);}();
+            return_HiVuHWN["members"].push_back(temp);
+        }
+        return return_HiVuHWN;
+        }();
 data_json["members"]["pMessage"]=[&]() {
     json return_cTmvEKt=json({});
     
@@ -72444,8 +74041,17 @@ data_json["members"]["pMessage"]=[&]() {
             return_cTmvEKt["null"]=true;
             return return_cTmvEKt;
         }
-        return serialize_char_p(pMessage);
-}();
+        
+        return_cTmvEKt["members"]={};
+        for(int cTmvEKt=0; cTmvEKt < strlen(pMessage); cTmvEKt++){
+            json temp;
+            temp=[&]() {
+    json return_eeAZmTG=json({});
+    return serialize_char(pMessage[cTmvEKt]);}();
+            return_cTmvEKt["members"].push_back(temp);
+        }
+        return return_cTmvEKt;
+        }();
 }
 
         writeToConn(data_json);
@@ -76155,8 +77761,24 @@ data_json["members"]["pAddress"]=[&]() {
             return_sHFWjQs["null"]=true;
             return return_sHFWjQs;
         }
-        return serialize_void_p(*pAddress);
-}();return return_eHgaHDY;}();
+        return_sHFWjQs=[&]() {
+    json return_FrKnLHF=json({});
+    
+        if (((char*)(*pAddress))==NULL){
+            return_FrKnLHF["null"]=true;
+            return return_FrKnLHF;
+        }
+        
+        return_FrKnLHF["members"]={};
+        for(int FrKnLHF=0; FrKnLHF < strlen(((char*)(*pAddress))); FrKnLHF++){
+            json temp;
+            temp=[&]() {
+    json return_wXaXjOG=json({});
+    return serialize_char(((char*)(*pAddress))[FrKnLHF]);}();
+            return_FrKnLHF["members"].push_back(temp);
+        }
+        return return_FrKnLHF;
+        }();return return_sHFWjQs;}();return return_eHgaHDY;}();
 return return_OJpMSoy;}();
 }
 
@@ -76234,7 +77856,18 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         *(pAddress)=NULL;
         return;
         }
-    *(pAddress)=deserialize_void_p(result["members"]["pAddress"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pAddress"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(result["members"]["pAddress"].size()*sizeof(char));
+        for (int pCOjhwW=0; pCOjhwW < result["members"]["pAddress"].size(); pCOjhwW++){
+            [&]() {
+temp[pCOjhwW]=deserialize_char(result["members"]["pAddress"]["members"][pCOjhwW]);}();;
+        }
+        }();*(pAddress)=(void*)temp;
 }();
 }();}();
 VkResult return_value;
@@ -80116,8 +81749,24 @@ data_json["members"]["pData"]=[&]() {
             return_WJrszUi["null"]=true;
             return return_WJrszUi;
         }
-        return serialize_void_p(pData);
-}();
+        return_WJrszUi=[&]() {
+    json return_GGILgQD=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_GGILgQD["null"]=true;
+            return return_GGILgQD;
+        }
+        
+        return_GGILgQD["members"]={};
+        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData))); GGILgQD++){
+            json temp;
+            temp=[&]() {
+    json return_nFeMGqw=json({});
+    return serialize_char(((char*)(pData))[GGILgQD]);}();
+            return_GGILgQD["members"].push_back(temp);
+        }
+        return return_GGILgQD;
+        }();return return_WJrszUi;}();
 }
 
         writeToConn(data_json);
@@ -80218,8 +81867,24 @@ data_json["members"]["pData"]=[&]() {
             return_WJrszUi["null"]=true;
             return return_WJrszUi;
         }
-        return serialize_void_p(pData);
-}();
+        return_WJrszUi=[&]() {
+    json return_GGILgQD=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_GGILgQD["null"]=true;
+            return return_GGILgQD;
+        }
+        
+        return_GGILgQD["members"]={};
+        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData))); GGILgQD++){
+            json temp;
+            temp=[&]() {
+    json return_nFeMGqw=json({});
+    return serialize_char(((char*)(pData))[GGILgQD]);}();
+            return_GGILgQD["members"].push_back(temp);
+        }
+        return return_GGILgQD;
+        }();return return_WJrszUi;}();
 }
 
         writeToConn(data_json);
@@ -80324,8 +81989,24 @@ data_json["members"]["pData"]=[&]() {
             return_WJrszUi["null"]=true;
             return return_WJrszUi;
         }
-        return serialize_void_p(pData);
-}();
+        return_WJrszUi=[&]() {
+    json return_GGILgQD=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_GGILgQD["null"]=true;
+            return return_GGILgQD;
+        }
+        
+        return_GGILgQD["members"]={};
+        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData))); GGILgQD++){
+            json temp;
+            temp=[&]() {
+    json return_nFeMGqw=json({});
+    return serialize_char(((char*)(pData))[GGILgQD]);}();
+            return_GGILgQD["members"].push_back(temp);
+        }
+        return return_GGILgQD;
+        }();return return_WJrszUi;}();
 }
 
         writeToConn(data_json);
@@ -84573,8 +86254,24 @@ data_json["members"]["pData"]=[&]() {
             return_MOqETBu["null"]=true;
             return return_MOqETBu;
         }
-        return serialize_void_p(pData);
-}();
+        return_MOqETBu=[&]() {
+    json return_MHUeMAs=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_MHUeMAs["null"]=true;
+            return return_MHUeMAs;
+        }
+        
+        return_MHUeMAs["members"]={};
+        for(int MHUeMAs=0; MHUeMAs < *pDataSize; MHUeMAs++){
+            json temp;
+            temp=[&]() {
+    json return_fEXHPKD=json({});
+    return serialize_char(((char*)(pData))[MHUeMAs]);}();
+            return_MHUeMAs["members"].push_back(temp);
+        }
+        return return_MHUeMAs;
+        }();return return_MOqETBu;}();
 }
 
         writeToConn(data_json);
@@ -84649,7 +86346,18 @@ validationCache=deserialize_VkValidationCacheEXT(result["members"]["validationCa
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(result["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(*pDataSize*sizeof(char));
+        for (int wPndHqQ=0; wPndHqQ < *pDataSize; wPndHqQ++){
+            [&]() {
+temp[wPndHqQ]=deserialize_char(result["members"]["pData"]["members"][wPndHqQ]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 VkResult return_value;
 [&]() {
@@ -85050,8 +86758,24 @@ data_json["members"]["pInfo"]=[&]() {
             return_qcUUUDM["null"]=true;
             return return_qcUUUDM;
         }
-        return serialize_void_p(pInfo);
-}();
+        return_qcUUUDM=[&]() {
+    json return_fSVsAzr=json({});
+    
+        if (((char*)(pInfo))==NULL){
+            return_fSVsAzr["null"]=true;
+            return return_fSVsAzr;
+        }
+        
+        return_fSVsAzr["members"]={};
+        for(int fSVsAzr=0; fSVsAzr < *pInfoSize; fSVsAzr++){
+            json temp;
+            temp=[&]() {
+    json return_KqVuOPz=json({});
+    return serialize_char(((char*)(pInfo))[fSVsAzr]);}();
+            return_fSVsAzr["members"].push_back(temp);
+        }
+        return return_fSVsAzr;
+        }();return return_qcUUUDM;}();
 }
 
         writeToConn(data_json);
@@ -85130,7 +86854,18 @@ infoType=deserialize_VkShaderInfoTypeAMD(result["members"]["infoType"]);}();
         pInfo=NULL;
         return;
         }
-    pInfo=deserialize_void_p(result["members"]["pInfo"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pInfo"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(*pInfoSize*sizeof(char));
+        for (int YvufVzo=0; YvufVzo < *pInfoSize; YvufVzo++){
+            [&]() {
+temp[YvufVzo]=deserialize_char(result["members"]["pInfo"]["members"][YvufVzo]);}();;
+        }
+        }();pInfo=(void*)temp;
 }();
 VkResult return_value;
 [&]() {
@@ -86614,8 +88349,24 @@ data_json["members"]["pHostPointer"]=[&]() {
             return_WXbmMtZ["null"]=true;
             return return_WXbmMtZ;
         }
-        return serialize_void_p(pHostPointer);
-}();
+        return_WXbmMtZ=[&]() {
+    json return_PDtsYsQ=json({});
+    
+        if (((char*)(pHostPointer))==NULL){
+            return_PDtsYsQ["null"]=true;
+            return return_PDtsYsQ;
+        }
+        
+        return_PDtsYsQ["members"]={};
+        for(int PDtsYsQ=0; PDtsYsQ < strlen(((char*)(pHostPointer))); PDtsYsQ++){
+            json temp;
+            temp=[&]() {
+    json return_GffuMIE=json({});
+    return serialize_char(((char*)(pHostPointer))[PDtsYsQ]);}();
+            return_PDtsYsQ["members"].push_back(temp);
+        }
+        return return_PDtsYsQ;
+        }();return return_WXbmMtZ;}();
 data_json["members"]["pMemoryHostPointerProperties"]=[&]() {
     json return_NWIiYEs=json({});
     
@@ -89048,8 +90799,24 @@ data_json["members"]["pCheckpointMarker"]=[&]() {
             return_qCRgzCw["null"]=true;
             return return_qCRgzCw;
         }
-        return serialize_void_p(pCheckpointMarker);
-}();
+        return_qCRgzCw=[&]() {
+    json return_GycxCRb=json({});
+    
+        if (((char*)(pCheckpointMarker))==NULL){
+            return_GycxCRb["null"]=true;
+            return return_GycxCRb;
+        }
+        
+        return_GycxCRb["members"]={};
+        for(int GycxCRb=0; GycxCRb < strlen(((char*)(pCheckpointMarker))); GycxCRb++){
+            json temp;
+            temp=[&]() {
+    json return_lJDOHfq=json({});
+    return serialize_char(((char*)(pCheckpointMarker))[GycxCRb]);}();
+            return_GycxCRb["members"].push_back(temp);
+        }
+        return return_GycxCRb;
+        }();return return_qCRgzCw;}();
 }
 
         writeToConn(data_json);
@@ -93024,8 +94791,24 @@ data_json["members"]["pData"]=[&]() {
             return_uMNHZoi["null"]=true;
             return return_uMNHZoi;
         }
-        return serialize_void_p(pData);
-}();
+        return_uMNHZoi=[&]() {
+    json return_neDQhGk=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_neDQhGk["null"]=true;
+            return return_neDQhGk;
+        }
+        
+        return_neDQhGk["members"]={};
+        for(int neDQhGk=0; neDQhGk < dataSize; neDQhGk++){
+            json temp;
+            temp=[&]() {
+    json return_amcrAAE=json({});
+    return serialize_char(((char*)(pData))[neDQhGk]);}();
+            return_neDQhGk["members"].push_back(temp);
+        }
+        return return_neDQhGk;
+        }();return return_uMNHZoi;}();
 data_json["members"]["stride"]=[&]() {
     json return_LQXemmN=json({});
     return serialize_size_t(stride);}();
@@ -93099,7 +94882,18 @@ dataSize=deserialize_size_t(result["members"]["dataSize"]);}();
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(result["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(dataSize*sizeof(char));
+        for (int wlYRguN=0; wlYRguN < dataSize; wlYRguN++){
+            [&]() {
+temp[wlYRguN]=deserialize_char(result["members"]["pData"]["members"][wlYRguN]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 [&]() {
 stride=deserialize_size_t(result["members"]["stride"]);}();
@@ -93486,8 +95280,24 @@ data_json["members"]["pData"]=[&]() {
             return_SWOVaNE["null"]=true;
             return return_SWOVaNE;
         }
-        return serialize_void_p(pData);
-}();
+        return_SWOVaNE=[&]() {
+    json return_DbOsRMX=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_DbOsRMX["null"]=true;
+            return return_DbOsRMX;
+        }
+        
+        return_DbOsRMX["members"]={};
+        for(int DbOsRMX=0; DbOsRMX < dataSize; DbOsRMX++){
+            json temp;
+            temp=[&]() {
+    json return_hjqtGpj=json({});
+    return serialize_char(((char*)(pData))[DbOsRMX]);}();
+            return_DbOsRMX["members"].push_back(temp);
+        }
+        return return_DbOsRMX;
+        }();return return_SWOVaNE;}();
 }
 
         writeToConn(data_json);
@@ -93559,7 +95369,18 @@ dataSize=deserialize_size_t(result["members"]["dataSize"]);}();
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(result["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(dataSize*sizeof(char));
+        for (int AwCUhtG=0; AwCUhtG < dataSize; AwCUhtG++){
+            [&]() {
+temp[AwCUhtG]=deserialize_char(result["members"]["pData"]["members"][AwCUhtG]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 VkResult return_value;
 [&]() {
@@ -93611,8 +95432,24 @@ data_json["members"]["pData"]=[&]() {
             return_SWOVaNE["null"]=true;
             return return_SWOVaNE;
         }
-        return serialize_void_p(pData);
-}();
+        return_SWOVaNE=[&]() {
+    json return_DbOsRMX=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_DbOsRMX["null"]=true;
+            return return_DbOsRMX;
+        }
+        
+        return_DbOsRMX["members"]={};
+        for(int DbOsRMX=0; DbOsRMX < dataSize; DbOsRMX++){
+            json temp;
+            temp=[&]() {
+    json return_hjqtGpj=json({});
+    return serialize_char(((char*)(pData))[DbOsRMX]);}();
+            return_DbOsRMX["members"].push_back(temp);
+        }
+        return return_DbOsRMX;
+        }();return return_SWOVaNE;}();
 }
 
         writeToConn(data_json);
@@ -93684,7 +95521,18 @@ dataSize=deserialize_size_t(result["members"]["dataSize"]);}();
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(result["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(dataSize*sizeof(char));
+        for (int AwCUhtG=0; AwCUhtG < dataSize; AwCUhtG++){
+            [&]() {
+temp[AwCUhtG]=deserialize_char(result["members"]["pData"]["members"][AwCUhtG]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 VkResult return_value;
 [&]() {
@@ -93736,8 +95584,24 @@ data_json["members"]["pData"]=[&]() {
             return_SWOVaNE["null"]=true;
             return return_SWOVaNE;
         }
-        return serialize_void_p(pData);
-}();
+        return_SWOVaNE=[&]() {
+    json return_DbOsRMX=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_DbOsRMX["null"]=true;
+            return return_DbOsRMX;
+        }
+        
+        return_DbOsRMX["members"]={};
+        for(int DbOsRMX=0; DbOsRMX < dataSize; DbOsRMX++){
+            json temp;
+            temp=[&]() {
+    json return_hjqtGpj=json({});
+    return serialize_char(((char*)(pData))[DbOsRMX]);}();
+            return_DbOsRMX["members"].push_back(temp);
+        }
+        return return_DbOsRMX;
+        }();return return_SWOVaNE;}();
 }
 
         writeToConn(data_json);
@@ -93809,7 +95673,18 @@ dataSize=deserialize_size_t(result["members"]["dataSize"]);}();
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(result["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(dataSize*sizeof(char));
+        for (int AwCUhtG=0; AwCUhtG < dataSize; AwCUhtG++){
+            [&]() {
+temp[AwCUhtG]=deserialize_char(result["members"]["pData"]["members"][AwCUhtG]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 VkResult return_value;
 [&]() {
@@ -93853,8 +95728,24 @@ data_json["members"]["pData"]=[&]() {
             return_SWOVaNE["null"]=true;
             return return_SWOVaNE;
         }
-        return serialize_void_p(pData);
-}();
+        return_SWOVaNE=[&]() {
+    json return_DbOsRMX=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_DbOsRMX["null"]=true;
+            return return_DbOsRMX;
+        }
+        
+        return_DbOsRMX["members"]={};
+        for(int DbOsRMX=0; DbOsRMX < dataSize; DbOsRMX++){
+            json temp;
+            temp=[&]() {
+    json return_hjqtGpj=json({});
+    return serialize_char(((char*)(pData))[DbOsRMX]);}();
+            return_DbOsRMX["members"].push_back(temp);
+        }
+        return return_DbOsRMX;
+        }();return return_SWOVaNE;}();
 }
 
         writeToConn(data_json);
@@ -93922,7 +95813,18 @@ dataSize=deserialize_size_t(result["members"]["dataSize"]);}();
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(result["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(dataSize*sizeof(char));
+        for (int AwCUhtG=0; AwCUhtG < dataSize; AwCUhtG++){
+            [&]() {
+temp[AwCUhtG]=deserialize_char(result["members"]["pData"]["members"][AwCUhtG]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 VkResult return_value;
 [&]() {
@@ -112834,8 +114736,24 @@ data_json["members"]["pDescriptor"]=[&]() {
             return_ZdmvhAV["null"]=true;
             return return_ZdmvhAV;
         }
-        return serialize_void_p(pDescriptor);
-}();
+        return_ZdmvhAV=[&]() {
+    json return_RqHVqWz=json({});
+    
+        if (((char*)(pDescriptor))==NULL){
+            return_RqHVqWz["null"]=true;
+            return return_RqHVqWz;
+        }
+        
+        return_RqHVqWz["members"]={};
+        for(int RqHVqWz=0; RqHVqWz < dataSize; RqHVqWz++){
+            json temp;
+            temp=[&]() {
+    json return_kJxhrtF=json({});
+    return serialize_char(((char*)(pDescriptor))[RqHVqWz]);}();
+            return_RqHVqWz["members"].push_back(temp);
+        }
+        return return_RqHVqWz;
+        }();return return_ZdmvhAV;}();
 }
 
         writeToConn(data_json);
@@ -112902,7 +114820,18 @@ dataSize=deserialize_size_t(result["members"]["dataSize"]);}();
         pDescriptor=NULL;
         return;
         }
-    pDescriptor=deserialize_void_p(result["members"]["pDescriptor"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pDescriptor"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(dataSize*sizeof(char));
+        for (int AbpRxUZ=0; AbpRxUZ < dataSize; AbpRxUZ++){
+            [&]() {
+temp[AbpRxUZ]=deserialize_char(result["members"]["pDescriptor"]["members"][AbpRxUZ]);}();;
+        }
+        }();pDescriptor=(void*)temp;
 }();
 }
 void vkCmdBindDescriptorBuffersEXT(
@@ -113293,8 +115222,24 @@ data_json["members"]["pData"]=[&]() {
             return_XiNRkbL["null"]=true;
             return return_XiNRkbL;
         }
-        return serialize_void_p(pData);
-}();
+        return_XiNRkbL=[&]() {
+    json return_mMAfRwv=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_mMAfRwv["null"]=true;
+            return return_mMAfRwv;
+        }
+        
+        return_mMAfRwv["members"]={};
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+            json temp;
+            temp=[&]() {
+    json return_zerhPYp=json({});
+    return serialize_char(((char*)(pData))[mMAfRwv]);}();
+            return_mMAfRwv["members"].push_back(temp);
+        }
+        return return_mMAfRwv;
+        }();return return_XiNRkbL;}();
 }
 
         writeToConn(data_json);
@@ -113359,7 +115304,18 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(result["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(result["members"]["pData"].size()*sizeof(char));
+        for (int MlLKgps=0; MlLKgps < result["members"]["pData"].size(); MlLKgps++){
+            [&]() {
+temp[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 VkResult return_value;
 [&]() {
@@ -113407,8 +115363,24 @@ data_json["members"]["pData"]=[&]() {
             return_XiNRkbL["null"]=true;
             return return_XiNRkbL;
         }
-        return serialize_void_p(pData);
-}();
+        return_XiNRkbL=[&]() {
+    json return_mMAfRwv=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_mMAfRwv["null"]=true;
+            return return_mMAfRwv;
+        }
+        
+        return_mMAfRwv["members"]={};
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+            json temp;
+            temp=[&]() {
+    json return_zerhPYp=json({});
+    return serialize_char(((char*)(pData))[mMAfRwv]);}();
+            return_mMAfRwv["members"].push_back(temp);
+        }
+        return return_mMAfRwv;
+        }();return return_XiNRkbL;}();
 }
 
         writeToConn(data_json);
@@ -113473,7 +115445,18 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(result["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(result["members"]["pData"].size()*sizeof(char));
+        for (int MlLKgps=0; MlLKgps < result["members"]["pData"].size(); MlLKgps++){
+            [&]() {
+temp[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 VkResult return_value;
 [&]() {
@@ -113521,8 +115504,24 @@ data_json["members"]["pData"]=[&]() {
             return_XiNRkbL["null"]=true;
             return return_XiNRkbL;
         }
-        return serialize_void_p(pData);
-}();
+        return_XiNRkbL=[&]() {
+    json return_mMAfRwv=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_mMAfRwv["null"]=true;
+            return return_mMAfRwv;
+        }
+        
+        return_mMAfRwv["members"]={};
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+            json temp;
+            temp=[&]() {
+    json return_zerhPYp=json({});
+    return serialize_char(((char*)(pData))[mMAfRwv]);}();
+            return_mMAfRwv["members"].push_back(temp);
+        }
+        return return_mMAfRwv;
+        }();return return_XiNRkbL;}();
 }
 
         writeToConn(data_json);
@@ -113587,7 +115586,18 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(result["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(result["members"]["pData"].size()*sizeof(char));
+        for (int MlLKgps=0; MlLKgps < result["members"]["pData"].size(); MlLKgps++){
+            [&]() {
+temp[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 VkResult return_value;
 [&]() {
@@ -113635,8 +115645,24 @@ data_json["members"]["pData"]=[&]() {
             return_XiNRkbL["null"]=true;
             return return_XiNRkbL;
         }
-        return serialize_void_p(pData);
-}();
+        return_XiNRkbL=[&]() {
+    json return_mMAfRwv=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_mMAfRwv["null"]=true;
+            return return_mMAfRwv;
+        }
+        
+        return_mMAfRwv["members"]={};
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+            json temp;
+            temp=[&]() {
+    json return_zerhPYp=json({});
+    return serialize_char(((char*)(pData))[mMAfRwv]);}();
+            return_mMAfRwv["members"].push_back(temp);
+        }
+        return return_mMAfRwv;
+        }();return return_XiNRkbL;}();
 }
 
         writeToConn(data_json);
@@ -113701,7 +115727,18 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(result["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(result["members"]["pData"].size()*sizeof(char));
+        for (int MlLKgps=0; MlLKgps < result["members"]["pData"].size(); MlLKgps++){
+            [&]() {
+temp[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 VkResult return_value;
 [&]() {
@@ -113749,8 +115786,24 @@ data_json["members"]["pData"]=[&]() {
             return_XiNRkbL["null"]=true;
             return return_XiNRkbL;
         }
-        return serialize_void_p(pData);
-}();
+        return_XiNRkbL=[&]() {
+    json return_mMAfRwv=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_mMAfRwv["null"]=true;
+            return return_mMAfRwv;
+        }
+        
+        return_mMAfRwv["members"]={};
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+            json temp;
+            temp=[&]() {
+    json return_zerhPYp=json({});
+    return serialize_char(((char*)(pData))[mMAfRwv]);}();
+            return_mMAfRwv["members"].push_back(temp);
+        }
+        return return_mMAfRwv;
+        }();return return_XiNRkbL;}();
 }
 
         writeToConn(data_json);
@@ -113815,7 +115868,18 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(result["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(result["members"]["pData"].size()*sizeof(char));
+        for (int MlLKgps=0; MlLKgps < result["members"]["pData"].size(); MlLKgps++){
+            [&]() {
+temp[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 VkResult return_value;
 [&]() {
@@ -114720,8 +116784,24 @@ data_json["members"]["ppData"]=[&]() {
             return_KWNLtTl["null"]=true;
             return return_KWNLtTl;
         }
-        return serialize_void_p(*ppData);
-}();
+        return_KWNLtTl=[&]() {
+    json return_gTtZOBV=json({});
+    
+        if (((char*)(*ppData))==NULL){
+            return_gTtZOBV["null"]=true;
+            return return_gTtZOBV;
+        }
+        
+        return_gTtZOBV["members"]={};
+        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData))); gTtZOBV++){
+            json temp;
+            temp=[&]() {
+    json return_LrfUJiU=json({});
+    return serialize_char(((char*)(*ppData))[gTtZOBV]);}();
+            return_gTtZOBV["members"].push_back(temp);
+        }
+        return return_gTtZOBV;
+        }();return return_KWNLtTl;}();
 return return_PsFVEjO;}();
 }
 
@@ -114794,7 +116874,18 @@ descriptorSet=deserialize_VkDescriptorSet(result["members"]["descriptorSet"]);}(
         *(ppData)=NULL;
         return;
         }
-    *(ppData)=deserialize_void_p(result["members"]["ppData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["ppData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(result["members"]["ppData"].size()*sizeof(char));
+        for (int zjLTbBV=0; zjLTbBV < result["members"]["ppData"].size(); zjLTbBV++){
+            [&]() {
+temp[zjLTbBV]=deserialize_char(result["members"]["ppData"]["members"][zjLTbBV]);}();;
+        }
+        }();*(ppData)=(void*)temp;
 }();
 }();
 }
@@ -116015,8 +118106,24 @@ data_json["members"]["pData"]=[&]() {
             return_uMNHZoi["null"]=true;
             return return_uMNHZoi;
         }
-        return serialize_void_p(pData);
-}();
+        return_uMNHZoi=[&]() {
+    json return_neDQhGk=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_neDQhGk["null"]=true;
+            return return_neDQhGk;
+        }
+        
+        return_neDQhGk["members"]={};
+        for(int neDQhGk=0; neDQhGk < dataSize; neDQhGk++){
+            json temp;
+            temp=[&]() {
+    json return_amcrAAE=json({});
+    return serialize_char(((char*)(pData))[neDQhGk]);}();
+            return_neDQhGk["members"].push_back(temp);
+        }
+        return return_neDQhGk;
+        }();return return_uMNHZoi;}();
 data_json["members"]["stride"]=[&]() {
     json return_LQXemmN=json({});
     return serialize_size_t(stride);}();
@@ -116090,7 +118197,18 @@ dataSize=deserialize_size_t(result["members"]["dataSize"]);}();
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(result["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(dataSize*sizeof(char));
+        for (int wlYRguN=0; wlYRguN < dataSize; wlYRguN++){
+            [&]() {
+temp[wlYRguN]=deserialize_char(result["members"]["pData"]["members"][wlYRguN]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 [&]() {
 stride=deserialize_size_t(result["members"]["stride"]);}();
@@ -118234,8 +120352,24 @@ data_json["members"]["ppData"]=[&]() {
             return_KWNLtTl["null"]=true;
             return return_KWNLtTl;
         }
-        return serialize_void_p(*ppData);
-}();
+        return_KWNLtTl=[&]() {
+    json return_gTtZOBV=json({});
+    
+        if (((char*)(*ppData))==NULL){
+            return_gTtZOBV["null"]=true;
+            return return_gTtZOBV;
+        }
+        
+        return_gTtZOBV["members"]={};
+        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData))); gTtZOBV++){
+            json temp;
+            temp=[&]() {
+    json return_LrfUJiU=json({});
+    return serialize_char(((char*)(*ppData))[gTtZOBV]);}();
+            return_gTtZOBV["members"].push_back(temp);
+        }
+        return return_gTtZOBV;
+        }();return return_KWNLtTl;}();
 return return_PsFVEjO;}();
 }
 
@@ -118307,7 +120441,18 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         *(ppData)=NULL;
         return;
         }
-    *(ppData)=deserialize_void_p(result["members"]["ppData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["ppData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(result["members"]["ppData"].size()*sizeof(char));
+        for (int zjLTbBV=0; zjLTbBV < result["members"]["ppData"].size(); zjLTbBV++){
+            [&]() {
+temp[zjLTbBV]=deserialize_char(result["members"]["ppData"]["members"][zjLTbBV]);}();;
+        }
+        }();*(ppData)=(void*)temp;
 }();
 }();
 VkResult return_value;
@@ -118731,8 +120876,24 @@ data_json["members"]["pData"]=[&]() {
             return_MOqETBu["null"]=true;
             return return_MOqETBu;
         }
-        return serialize_void_p(pData);
-}();
+        return_MOqETBu=[&]() {
+    json return_MHUeMAs=json({});
+    
+        if (((char*)(pData))==NULL){
+            return_MHUeMAs["null"]=true;
+            return return_MHUeMAs;
+        }
+        
+        return_MHUeMAs["members"]={};
+        for(int MHUeMAs=0; MHUeMAs < *pDataSize; MHUeMAs++){
+            json temp;
+            temp=[&]() {
+    json return_fEXHPKD=json({});
+    return serialize_char(((char*)(pData))[MHUeMAs]);}();
+            return_MHUeMAs["members"].push_back(temp);
+        }
+        return return_MHUeMAs;
+        }();return return_MOqETBu;}();
 }
 
         writeToConn(data_json);
@@ -118807,7 +120968,18 @@ shader=deserialize_VkShaderEXT(result["members"]["shader"]);}();
         pData=NULL;
         return;
         }
-    pData=deserialize_void_p(result["members"]["pData"]);
+    char* temp;[&]() {
+
+        if (result["members"]["pData"].contains("null")){
+        temp=NULL;
+        return;
+        }
+    temp=(char*)malloc(*pDataSize*sizeof(char));
+        for (int wPndHqQ=0; wPndHqQ < *pDataSize; wPndHqQ++){
+            [&]() {
+temp[wPndHqQ]=deserialize_char(result["members"]["pData"]["members"][wPndHqQ]);}();;
+        }
+        }();pData=(void*)temp;
 }();
 VkResult return_value;
 [&]() {

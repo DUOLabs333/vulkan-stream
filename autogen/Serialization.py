@@ -88,25 +88,7 @@ for struct,members in parsed["structs"].items():
         {struct} deserialize_{struct}(json name);
     """,header=True)
 
-for type in parsed["primitive_types"]:
-    if type in ["void","char"]:
-        write(f"""
-            json serialize_{type}_p(const {type}* name){{
-                return json::object({{ {{"value",(char *)name}}, {{"ptr",(uintptr_t)name}} }});
-            }};
-        """)
-        
-        write(f"""
-            {type}* deserialize_{type}_p(json name){{
-                return ({type}*)strdup(name["value"].get<std::string>().c_str());
-            }};
-        """)
-        
-        write(f"""
-            json serialize_{type}_p(const {type}* name);
-            {type}* deserialize_{type}_p(json name);
-        """,header=True)
-        
+for type in parsed["primitive_types"]:     
     if type not in ["void"]:
         write(f"""
             json serialize_{type}({type} name){{

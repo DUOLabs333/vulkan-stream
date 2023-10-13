@@ -65,8 +65,8 @@ write("""
 #endif
 #include <dlfcn.h>
 auto vulkan_library=dlopen(vulkan_library_name.c_str(), RTLD_LAZY | RTLD_GLOBAL);
-auto get_instance_proc_addr=(PFN_vkGetInstanceProcAddr)(dlsym(vulkan_library,"vkGetInstanceProcAddr")));
-auto get_device_proc_addr=(PFN_vkGetDeviceProcAddr)(dlsym(vulkan_library,"vkGetDeviceProcAddr")));
+auto get_instance_proc_addr=(PFN_vkGetInstanceProcAddr)dlsym(vulkan_library,"vkGetInstanceProcAddr");
+auto get_device_proc_addr=(PFN_vkGetDeviceProcAddr)dlsym(vulkan_library,"vkGetDeviceProcAddr");
 """)
 
 for name, command in parsed["commands"].items():
@@ -85,10 +85,11 @@ for name, command in parsed["commands"].items():
     write(register_DeviceMemory(name))
 
     write(f"""
+    PFN_{name} call_function;
     if(data_json["parent"]["type"]=="Instance"){{
-        auto call_function=(PFN_{name})get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"{name}");
+        call_function=(PFN_{name})get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"{name}");
     }}else if(data_json["parent"]["type"]=="Device"){{
-        auto call_function=(PFN_{name})get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"{name}");
+        call_function=(PFN_{name})get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"{name}");
     }}  
     """
     )
@@ -105,7 +106,7 @@ for name, command in parsed["commands"].items():
         result["type"]="Response";
     """)
     if name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
-        write('result["return"]=(return_value!=NULL ? true: false;')
+        write('result["return"]=(return_value!=NULL ? true: false);')
     else:
         write(serialize('result["return"]',return_value))
     
