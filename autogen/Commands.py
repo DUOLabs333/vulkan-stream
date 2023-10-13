@@ -65,6 +65,8 @@ write("""
 #endif
 #include <dlfcn.h>
 auto vulkan_library=dlopen(vulkan_library_name.c_str(), RTLD_LAZY | RTLD_GLOBAL);
+auto get_instance_proc_addr=(PFN_vkGetInstanceProcAddr)(dlsym(vulkan_library,"vkGetInstanceProcAddr")));
+auto get_device_proc_addr=(PFN_vkGetDeviceProcAddr)(dlsym(vulkan_library,"vkGetDeviceProcAddr")));
 """)
 
 for name, command in parsed["commands"].items():
@@ -82,11 +84,18 @@ for name, command in parsed["commands"].items():
         write(deserialize(param["name"],param_copy,initialize=True))
     write(register_DeviceMemory(name))
 
-    call_function=f"""((PFN_{name})(dlsym(vulkan_library,"{name}")))"""
-
+    write(f"""
+    if(data_json["parent"]["type"]=="Instance"){{
+        auto call_function=(PFN_{name})get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"{name}");
+    }}else if(data_json["parent"]["type"]=="Device"){{
+        auto call_function=(PFN_{name})get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"{name}");
+    }}  
+    """
+    )
+    
     call_arguments=", ".join([param["name"] for param in command["params"]])
     return_prefix="auto return_value=" if not is_void(command) else ""
-    write(return_prefix+call_function+"("+call_arguments+")"+";")
+    write(return_prefix+"call_function"+"("+call_arguments+")"+";")
     
     return_value=command.copy()
     return_value["name"]="return_value"
@@ -96,7 +105,7 @@ for name, command in parsed["commands"].items():
         result["type"]="Response";
     """)
     if name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
-        write('result["return"]=(uintptr_t)return_value;')
+        write('result["return"]=(return_value!=NULL ? true: false;')
     else:
         write(serialize('result["return"]',return_value))
     
@@ -136,6 +145,15 @@ write("}")
 write("void handle_command(json data);",header=True)
 
 write("#else") #Don't want server to get confused on which command we're talking about
+write("""
+typedef struct {
+VkInstance instance;
+VkDevice device;
+} parent_handle_struct;
+
+std::map<uintptr_t,parent_handle_struct> handle_to_parent_handle_struct;
+
+""")
 write("""extern "C" {""")
 
 for name, command in parsed["commands"].items():
@@ -148,6 +166,25 @@ for name, command in parsed["commands"].items():
     
     write(f"""data_json["type"]="command_{name}";""")
     
+    head=command["params"][0]
+    head_name=head["name"]
+    #Just set the children's struct ot the parent
+    if head["type"] in parsed["handles"]:
+        write(f"""
+        auto parent=handle_to_parent_handle_struct[(uintptr_t){head_name}];
+        if (parent.device!=NULL){{
+            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["handle"]=(uintptr_t)parent.device;
+        }}else{{
+            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["handle"]=(uintptr_t)parent.instance;
+        }}
+        """)
+    else:
+        write("""
+        data_json["parent"]["type"]="Instance";
+        data_json["parent"]["handle"]=NULL;
+        """)
     write(register_DeviceMemory(name))
     write("{") #Use scoping to allow us to overwrite const parameters as needed
     
@@ -210,12 +247,14 @@ for name, command in parsed["commands"].items():
         for command_name in parsed["commands"]:
             write(f"""
             else if (strcmp(pName,"{command_name}")==0){{
-                return_value= (result["return"]==NULL) ? NULL : ({command['type']}){command_name};
+                printf("Retrieving {command_name}...\\n");
+                return_value= (result["return"]==true) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
             }}
             """)
         write("""
             else {
-                throw std::runtime_error(std::string("Unknown function: ")+pName);
+                printf("%s\\n",(std::string("Unknown function: ")+pName).c_str());
+                return_value=NULL;
             }
         """)
     else:
@@ -251,7 +290,29 @@ for name, command in parsed["commands"].items():
         info->mapped_ranges.push_back(*ppData);
         
         """)
-    
+        
+    for creation_function in ["^vkAllocate(.*)s$","^vkCreate(.*)$"]:
+        if re.match(creation_function,name) is not None:
+            for param in reversed(command["params"]):
+                if (param["type"] in parsed["handles"]) and (param["num_indirection"]==1):
+                    handle=param
+                    break
+            
+            if handle["type"]=="VkDevice":
+                write(f"""handle_to_parent_handle_struct[(uintptr_t)(*{handle["name"]})]={{.instance=NULL,.device=(*{handle["name"]}) }};""")
+            elif handle["type"]=="VkInstance":
+                write(f"""handle_to_parent_handle_struct[(uintptr_t)(*{handle["name"]})]={{.instance=(*{handle["name"]}),.device=NULL}};""")
+            elif len(handle["length"])>0 and handle["length"][-1]!="":
+                write(f"""
+                for (int i=0; i<{handle["length"][-1]}; i++){{
+                    handle_to_parent_handle_struct[(uintptr_t){handle["name"]}[i]]=parent;
+                }}
+                """)
+            else:
+                write(f"""
+                handle_to_parent_handle_struct[(uintptr_t)(*{handle["name"]})]=parent;
+                """)
+            
     if not is_void(command):
         write("return return_value;")
     write("}")
