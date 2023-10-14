@@ -27,7 +27,60 @@ def funcpointer_in_callback(funcpointer):
         if any(member["type"]==funcpointer for member in members):
             return struct
     return None
+
+write("""
+json serialize_pNext(void* name){
+auto result=json({});
+auto type=(VkStructureType)name;
+if (false){
+}
+""")
+for struct,members in parsed["structs"].items():
+    member={}
+    member["name"]=f"(({struct}*)(name))"
+    member["type"]=struct
+    member["num_indirection"]=1
+    member["length"]=[]
+    
+    type=members[0]["value"] #The first member is always sType
+    if type=="":
+        continue
         
+    write(f"""
+    else if (type=={type}){{
+            {serialize("result",member)}
+    }}
+    """)
+write("return result;}")
+
+
+write("""
+void* deserialize_pNext(json name){
+void* result;
+auto type=(VkStructureType)name["sType"];
+if (false){
+}
+""")
+for struct,members in parsed["structs"].items():
+    member={}
+    member["name"]="name"
+    member["type"]=struct
+    member["num_indirection"]=1
+    member["length"]=[]
+    
+    type=members[0]["value"] #The first member is always sType
+    if type=="":
+        continue
+        
+    write(f"""
+    else if (type=={type}){{
+            {struct}* temp;
+            {deserialize("temp",member,initialize=True)}
+            result=(void*)temp;
+    }}
+    """)
+write("return result;}")
+
 for struct,members in parsed["structs"].items():
     write(f"""
     json serialize_{struct}({struct} name){{
@@ -46,8 +99,11 @@ for struct,members in parsed["structs"].items():
         member_copy["name"]="name."+member_copy["name"]
         for i,e in enumerate(member_copy["length"]):
             member_copy["length"][i]=add_struct_name(e, "name")
-                
-        write(serialize(f"""result["members"]["{member["name"]}"]""",member_copy))
+        #Subclass for pNext --- cast to VkStructureType, read it, then (de)serialize accordingly, changing type. Make two separate functions, serialize_pNext and deserialize_pNext
+        if member["name"]=="pNext":
+            write(f"""result["members"]["{member["name"]}"]=serialize_pNext({member_copy["name"]});""")
+        else:
+            write(serialize(f"""result["members"]["{member["name"]}"]""",member_copy))
     write("return result;}")
     
     is_callback=struct_is_callback(struct)
@@ -72,8 +128,12 @@ for struct,members in parsed["structs"].items():
         
         for i,e in enumerate(member_copy["length"]):
             member_copy["length"][i]=add_struct_name(e, "result")
-        
-        write(deserialize("result."+member["name"],member_copy,initialize=True))
+            
+        if member["name"]=="pNext":
+            write("result."+member["name"]+f"""=deserialize_pNext({member_copy["name"]});""")
+        else:
+            write(deserialize("result."+member["name"],member_copy,initialize=True))
+            
         if is_callback:
             if member["type"] in parsed["funcpointers"]:
                 write(f"""_struct->{member["type"]}_id={member_copy["name"]}["id"];""") 

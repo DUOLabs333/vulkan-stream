@@ -81,6 +81,8 @@ for item in vk.findall("./types/type"):
                 result["type"]=_type.text
                 result["num_indirection"]=_type.tail.count("*")
                 
+                result["value"]=member.attrib.get("values","")
+                
                 
                 if (result["type"] in external_handles) and result["num_indirection"]==0 and (len(result["length"])==0 or result["length"][-1]==""):
                         external_handles[result["type"]]=False #At least once case, it's not an pointer
