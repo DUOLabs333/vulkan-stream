@@ -281,8 +281,8 @@ char* temp_yiAxPXc;[&]() {
         temp_yiAxPXc=NULL;
         return;
         }
-    temp_yiAxPXc=(char*)malloc(data_json["members"]["pName"].size()*sizeof(char));
-        for (int GlauFko=0; GlauFko < data_json["members"]["pName"].size(); GlauFko++){
+    temp_yiAxPXc=(char*)malloc(data_json["members"]["pName"]["members"].size()*sizeof(char));
+        for (int GlauFko=0; GlauFko < data_json["members"]["pName"]["members"].size(); GlauFko++){
             [&]() {
 temp_yiAxPXc[GlauFko]=deserialize_char(data_json["members"]["pName"]["members"][GlauFko]);}();;
         }
@@ -313,7 +313,7 @@ result["members"]["pName"]=[&]() {
         }
         
         return_UtWldLN["members"]={};
-        for(int UtWldLN=0; UtWldLN < strlen(pName); UtWldLN++){
+        for(int UtWldLN=0; UtWldLN < strlen(pName)+1; UtWldLN++){
             json temp;
             temp=[&]() {
     json return_cAmRZvH=json({});
@@ -342,8 +342,8 @@ char* temp_yiAxPXc;[&]() {
         temp_yiAxPXc=NULL;
         return;
         }
-    temp_yiAxPXc=(char*)malloc(data_json["members"]["pName"].size()*sizeof(char));
-        for (int GlauFko=0; GlauFko < data_json["members"]["pName"].size(); GlauFko++){
+    temp_yiAxPXc=(char*)malloc(data_json["members"]["pName"]["members"].size()*sizeof(char));
+        for (int GlauFko=0; GlauFko < data_json["members"]["pName"]["members"].size(); GlauFko++){
             [&]() {
 temp_yiAxPXc[GlauFko]=deserialize_char(data_json["members"]["pName"]["members"][GlauFko]);}();;
         }
@@ -374,7 +374,7 @@ result["members"]["pName"]=[&]() {
         }
         
         return_UtWldLN["members"]={};
-        for(int UtWldLN=0; UtWldLN < strlen(pName); UtWldLN++){
+        for(int UtWldLN=0; UtWldLN < strlen(pName)+1; UtWldLN++){
             json temp;
             temp=[&]() {
     json return_cAmRZvH=json({});
@@ -1058,8 +1058,8 @@ char* temp_rAtvgFK;[&]() {
         temp_rAtvgFK=NULL;
         return;
         }
-    temp_rAtvgFK=(char*)malloc(data_json["members"]["pLayerName"].size()*sizeof(char));
-        for (int ouzAVlt=0; ouzAVlt < data_json["members"]["pLayerName"].size(); ouzAVlt++){
+    temp_rAtvgFK=(char*)malloc(data_json["members"]["pLayerName"]["members"].size()*sizeof(char));
+        for (int ouzAVlt=0; ouzAVlt < data_json["members"]["pLayerName"]["members"].size(); ouzAVlt++){
             [&]() {
 temp_rAtvgFK[ouzAVlt]=deserialize_char(data_json["members"]["pLayerName"]["members"][ouzAVlt]);}();;
         }
@@ -1115,7 +1115,7 @@ result["members"]["pLayerName"]=[&]() {
         }
         
         return_GVAKxQC["members"]={};
-        for(int GVAKxQC=0; GVAKxQC < strlen(pLayerName); GVAKxQC++){
+        for(int GVAKxQC=0; GVAKxQC < strlen(pLayerName)+1; GVAKxQC++){
             json temp;
             temp=[&]() {
     json return_Yxvqrpv=json({});
@@ -1258,8 +1258,8 @@ char* temp_rAtvgFK;[&]() {
         temp_rAtvgFK=NULL;
         return;
         }
-    temp_rAtvgFK=(char*)malloc(data_json["members"]["pLayerName"].size()*sizeof(char));
-        for (int ouzAVlt=0; ouzAVlt < data_json["members"]["pLayerName"].size(); ouzAVlt++){
+    temp_rAtvgFK=(char*)malloc(data_json["members"]["pLayerName"]["members"].size()*sizeof(char));
+        for (int ouzAVlt=0; ouzAVlt < data_json["members"]["pLayerName"]["members"].size(); ouzAVlt++){
             [&]() {
 temp_rAtvgFK[ouzAVlt]=deserialize_char(data_json["members"]["pLayerName"]["members"][ouzAVlt]);}();;
         }
@@ -1318,7 +1318,7 @@ result["members"]["pLayerName"]=[&]() {
         }
         
         return_GVAKxQC["members"]={};
-        for(int GVAKxQC=0; GVAKxQC < strlen(pLayerName); GVAKxQC++){
+        for(int GVAKxQC=0; GVAKxQC < strlen(pLayerName)+1; GVAKxQC++){
             json temp;
             temp=[&]() {
     json return_Yxvqrpv=json({});
@@ -1768,8 +1768,8 @@ void** ppData
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["ppData"].size()*sizeof(char));
-        for (int vkSRbVA=0; vkSRbVA < data_json["members"]["ppData"].size(); vkSRbVA++){
+    temp=(char*)malloc(data_json["members"]["ppData"]["members"].size()*sizeof(char));
+        for (int vkSRbVA=0; vkSRbVA < data_json["members"]["ppData"]["members"].size(); vkSRbVA++){
             [&]() {
 temp[vkSRbVA]=deserialize_char(data_json["members"]["ppData"]["members"][vkSRbVA]);}();;
         }
@@ -1842,7 +1842,7 @@ result["members"]["ppData"]=[&]() {
         }
         
         return_gTtZOBV["members"]={};
-        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData))); gTtZOBV++){
+        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData)))+1; gTtZOBV++){
             json temp;
             temp=[&]() {
     json return_LrfUJiU=json({});
@@ -13153,8 +13153,8 @@ char* temp_UPbMKRN;[&]() {
         temp_UPbMKRN=NULL;
         return;
         }
-    temp_UPbMKRN=(char*)malloc(data_json["members"]["pLayerPrefix"].size()*sizeof(char));
-        for (int pmCKyTW=0; pmCKyTW < data_json["members"]["pLayerPrefix"].size(); pmCKyTW++){
+    temp_UPbMKRN=(char*)malloc(data_json["members"]["pLayerPrefix"]["members"].size()*sizeof(char));
+        for (int pmCKyTW=0; pmCKyTW < data_json["members"]["pLayerPrefix"]["members"].size(); pmCKyTW++){
             [&]() {
 temp_UPbMKRN[pmCKyTW]=deserialize_char(data_json["members"]["pLayerPrefix"]["members"][pmCKyTW]);}();;
         }
@@ -13168,8 +13168,8 @@ char* temp_axNqXUF;[&]() {
         temp_axNqXUF=NULL;
         return;
         }
-    temp_axNqXUF=(char*)malloc(data_json["members"]["pMessage"].size()*sizeof(char));
-        for (int SOOXiEc=0; SOOXiEc < data_json["members"]["pMessage"].size(); SOOXiEc++){
+    temp_axNqXUF=(char*)malloc(data_json["members"]["pMessage"]["members"].size()*sizeof(char));
+        for (int SOOXiEc=0; SOOXiEc < data_json["members"]["pMessage"]["members"].size(); SOOXiEc++){
             [&]() {
 temp_axNqXUF[SOOXiEc]=deserialize_char(data_json["members"]["pMessage"]["members"][SOOXiEc]);}();;
         }
@@ -13215,7 +13215,7 @@ result["members"]["pLayerPrefix"]=[&]() {
         }
         
         return_HiVuHWN["members"]={};
-        for(int HiVuHWN=0; HiVuHWN < strlen(pLayerPrefix); HiVuHWN++){
+        for(int HiVuHWN=0; HiVuHWN < strlen(pLayerPrefix)+1; HiVuHWN++){
             json temp;
             temp=[&]() {
     json return_NzhPjeM=json({});
@@ -13233,7 +13233,7 @@ result["members"]["pMessage"]=[&]() {
         }
         
         return_cTmvEKt["members"]={};
-        for(int cTmvEKt=0; cTmvEKt < strlen(pMessage); cTmvEKt++){
+        for(int cTmvEKt=0; cTmvEKt < strlen(pMessage)+1; cTmvEKt++){
             json temp;
             temp=[&]() {
     json return_eeAZmTG=json({});
@@ -15449,8 +15449,8 @@ VkRemoteAddressNV* pAddress
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pAddress"].size()*sizeof(char));
-        for (int CHpZpnX=0; CHpZpnX < data_json["members"]["pAddress"].size(); CHpZpnX++){
+    temp=(char*)malloc(data_json["members"]["pAddress"]["members"].size()*sizeof(char));
+        for (int CHpZpnX=0; CHpZpnX < data_json["members"]["pAddress"]["members"].size(); CHpZpnX++){
             [&]() {
 temp[CHpZpnX]=deserialize_char(data_json["members"]["pAddress"]["members"][CHpZpnX]);}();;
         }
@@ -15512,7 +15512,7 @@ result["members"]["pAddress"]=[&]() {
         }
         
         return_FrKnLHF["members"]={};
-        for(int FrKnLHF=0; FrKnLHF < strlen(((char*)(*pAddress))); FrKnLHF++){
+        for(int FrKnLHF=0; FrKnLHF < strlen(((char*)(*pAddress)))+1; FrKnLHF++){
             json temp;
             temp=[&]() {
     json return_wXaXjOG=json({});
@@ -17958,8 +17958,8 @@ void* temp_ZfOKPBK;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pData"].size()*sizeof(char));
-        for (int SgJerzK=0; SgJerzK < data_json["members"]["pData"].size(); SgJerzK++){
+    temp=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
+        for (int SgJerzK=0; SgJerzK < data_json["members"]["pData"]["members"].size(); SgJerzK++){
             [&]() {
 temp[SgJerzK]=deserialize_char(data_json["members"]["pData"]["members"][SgJerzK]);}();;
         }
@@ -18004,7 +18004,7 @@ result["members"]["pData"]=[&]() {
         }
         
         return_GGILgQD["members"]={};
-        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData))); GGILgQD++){
+        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData)))+1; GGILgQD++){
             json temp;
             temp=[&]() {
     json return_nFeMGqw=json({});
@@ -18047,8 +18047,8 @@ void* temp_ZfOKPBK;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pData"].size()*sizeof(char));
-        for (int SgJerzK=0; SgJerzK < data_json["members"]["pData"].size(); SgJerzK++){
+    temp=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
+        for (int SgJerzK=0; SgJerzK < data_json["members"]["pData"]["members"].size(); SgJerzK++){
             [&]() {
 temp[SgJerzK]=deserialize_char(data_json["members"]["pData"]["members"][SgJerzK]);}();;
         }
@@ -18093,7 +18093,7 @@ result["members"]["pData"]=[&]() {
         }
         
         return_GGILgQD["members"]={};
-        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData))); GGILgQD++){
+        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData)))+1; GGILgQD++){
             json temp;
             temp=[&]() {
     json return_nFeMGqw=json({});
@@ -18140,8 +18140,8 @@ void* temp_ZfOKPBK;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pData"].size()*sizeof(char));
-        for (int SgJerzK=0; SgJerzK < data_json["members"]["pData"].size(); SgJerzK++){
+    temp=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
+        for (int SgJerzK=0; SgJerzK < data_json["members"]["pData"]["members"].size(); SgJerzK++){
             [&]() {
 temp[SgJerzK]=deserialize_char(data_json["members"]["pData"]["members"][SgJerzK]);}();;
         }
@@ -18189,7 +18189,7 @@ result["members"]["pData"]=[&]() {
         }
         
         return_GGILgQD["members"]={};
-        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData))); GGILgQD++){
+        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData)))+1; GGILgQD++){
             json temp;
             temp=[&]() {
     json return_nFeMGqw=json({});
@@ -22265,8 +22265,8 @@ void* temp_LPRHtvk;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pHostPointer"].size()*sizeof(char));
-        for (int VVgRQcl=0; VVgRQcl < data_json["members"]["pHostPointer"].size(); VVgRQcl++){
+    temp=(char*)malloc(data_json["members"]["pHostPointer"]["members"].size()*sizeof(char));
+        for (int VVgRQcl=0; VVgRQcl < data_json["members"]["pHostPointer"]["members"].size(); VVgRQcl++){
             [&]() {
 temp[VVgRQcl]=deserialize_char(data_json["members"]["pHostPointer"]["members"][VVgRQcl]);}();;
         }
@@ -22322,7 +22322,7 @@ result["members"]["pHostPointer"]=[&]() {
         }
         
         return_PDtsYsQ["members"]={};
-        for(int PDtsYsQ=0; PDtsYsQ < strlen(((char*)(pHostPointer))); PDtsYsQ++){
+        for(int PDtsYsQ=0; PDtsYsQ < strlen(((char*)(pHostPointer)))+1; PDtsYsQ++){
             json temp;
             temp=[&]() {
     json return_GffuMIE=json({});
@@ -23843,8 +23843,8 @@ void* temp_VaNobWO;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pCheckpointMarker"].size()*sizeof(char));
-        for (int dtXJUqj=0; dtXJUqj < data_json["members"]["pCheckpointMarker"].size(); dtXJUqj++){
+    temp=(char*)malloc(data_json["members"]["pCheckpointMarker"]["members"].size()*sizeof(char));
+        for (int dtXJUqj=0; dtXJUqj < data_json["members"]["pCheckpointMarker"]["members"].size(); dtXJUqj++){
             [&]() {
 temp[dtXJUqj]=deserialize_char(data_json["members"]["pCheckpointMarker"]["members"][dtXJUqj]);}();;
         }
@@ -23883,7 +23883,7 @@ result["members"]["pCheckpointMarker"]=[&]() {
         }
         
         return_GycxCRb["members"]={};
-        for(int GycxCRb=0; GycxCRb < strlen(((char*)(pCheckpointMarker))); GycxCRb++){
+        for(int GycxCRb=0; GycxCRb < strlen(((char*)(pCheckpointMarker)))+1; GycxCRb++){
             json temp;
             temp=[&]() {
     json return_lJDOHfq=json({});
@@ -38858,8 +38858,8 @@ void* pData
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pData"].size()*sizeof(char));
-        for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"].size(); BIqCBLq++){
+    temp=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
+        for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"]["members"].size(); BIqCBLq++){
             [&]() {
 temp[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
         }
@@ -38911,7 +38911,7 @@ result["members"]["pData"]=[&]() {
         }
         
         return_mMAfRwv["members"]={};
-        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData)))+1; mMAfRwv++){
             json temp;
             temp=[&]() {
     json return_zerhPYp=json({});
@@ -38958,8 +38958,8 @@ void* pData
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pData"].size()*sizeof(char));
-        for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"].size(); BIqCBLq++){
+    temp=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
+        for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"]["members"].size(); BIqCBLq++){
             [&]() {
 temp[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
         }
@@ -39011,7 +39011,7 @@ result["members"]["pData"]=[&]() {
         }
         
         return_mMAfRwv["members"]={};
-        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData)))+1; mMAfRwv++){
             json temp;
             temp=[&]() {
     json return_zerhPYp=json({});
@@ -39058,8 +39058,8 @@ void* pData
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pData"].size()*sizeof(char));
-        for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"].size(); BIqCBLq++){
+    temp=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
+        for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"]["members"].size(); BIqCBLq++){
             [&]() {
 temp[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
         }
@@ -39111,7 +39111,7 @@ result["members"]["pData"]=[&]() {
         }
         
         return_mMAfRwv["members"]={};
-        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData)))+1; mMAfRwv++){
             json temp;
             temp=[&]() {
     json return_zerhPYp=json({});
@@ -39158,8 +39158,8 @@ void* pData
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pData"].size()*sizeof(char));
-        for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"].size(); BIqCBLq++){
+    temp=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
+        for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"]["members"].size(); BIqCBLq++){
             [&]() {
 temp[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
         }
@@ -39211,7 +39211,7 @@ result["members"]["pData"]=[&]() {
         }
         
         return_mMAfRwv["members"]={};
-        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData)))+1; mMAfRwv++){
             json temp;
             temp=[&]() {
     json return_zerhPYp=json({});
@@ -39258,8 +39258,8 @@ void* pData
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pData"].size()*sizeof(char));
-        for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"].size(); BIqCBLq++){
+    temp=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
+        for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"]["members"].size(); BIqCBLq++){
             [&]() {
 temp[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
         }
@@ -39311,7 +39311,7 @@ result["members"]["pData"]=[&]() {
         }
         
         return_mMAfRwv["members"]={};
-        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData)))+1; mMAfRwv++){
             json temp;
             temp=[&]() {
     json return_zerhPYp=json({});
@@ -39795,8 +39795,8 @@ void** ppData
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["ppData"].size()*sizeof(char));
-        for (int vkSRbVA=0; vkSRbVA < data_json["members"]["ppData"].size(); vkSRbVA++){
+    temp=(char*)malloc(data_json["members"]["ppData"]["members"].size()*sizeof(char));
+        for (int vkSRbVA=0; vkSRbVA < data_json["members"]["ppData"]["members"].size(); vkSRbVA++){
             [&]() {
 temp[vkSRbVA]=deserialize_char(data_json["members"]["ppData"]["members"][vkSRbVA]);}();;
         }
@@ -39846,7 +39846,7 @@ result["members"]["ppData"]=[&]() {
         }
         
         return_gTtZOBV["members"]={};
-        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData))); gTtZOBV++){
+        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData)))+1; gTtZOBV++){
             json temp;
             temp=[&]() {
     json return_LrfUJiU=json({});
@@ -42114,8 +42114,8 @@ void** ppData
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["ppData"].size()*sizeof(char));
-        for (int vkSRbVA=0; vkSRbVA < data_json["members"]["ppData"].size(); vkSRbVA++){
+    temp=(char*)malloc(data_json["members"]["ppData"]["members"].size()*sizeof(char));
+        for (int vkSRbVA=0; vkSRbVA < data_json["members"]["ppData"]["members"].size(); vkSRbVA++){
             [&]() {
 temp[vkSRbVA]=deserialize_char(data_json["members"]["ppData"]["members"][vkSRbVA]);}();;
         }
@@ -42183,7 +42183,7 @@ result["members"]["ppData"]=[&]() {
         }
         
         return_gTtZOBV["members"]={};
-        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData))); gTtZOBV++){
+        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData)))+1; gTtZOBV++){
             json temp;
             temp=[&]() {
     json return_LrfUJiU=json({});
@@ -46504,7 +46504,7 @@ data_json["type"]="command_vkDestroyInstance";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -46597,7 +46597,7 @@ data_json["type"]="command_vkEnumeratePhysicalDevices";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -46719,6 +46719,13 @@ pPhysicalDevices[YgORJwy]=deserialize_VkPhysicalDevice(result["members"]["pPhysi
 VkResult return_value;
 [&]() {
 return_value=deserialize_VkResult(result["return"]);}();
+
+                if (pPhysicalDevices!=NULL){
+                    for (int i=0; i<*pPhysicalDeviceCount; i++){
+                        handle_to_parent_handle_struct[(uintptr_t)(pPhysicalDevices[i])]=parent;
+                    }
+                }
+                
 return return_value;
 }
 PFN_vkVoidFunction vkGetDeviceProcAddr(
@@ -46731,7 +46738,7 @@ data_json["type"]="command_vkGetDeviceProcAddr";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -46752,7 +46759,7 @@ data_json["members"]["pName"]=[&]() {
         }
         
         return_UtWldLN["members"]={};
-        for(int UtWldLN=0; UtWldLN < strlen(pName); UtWldLN++){
+        for(int UtWldLN=0; UtWldLN < strlen(pName)+1; UtWldLN++){
             json temp;
             temp=[&]() {
     json return_cAmRZvH=json({});
@@ -50472,7 +50479,7 @@ data_json["type"]="command_vkGetInstanceProcAddr";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -50493,7 +50500,7 @@ data_json["members"]["pName"]=[&]() {
         }
         
         return_UtWldLN["members"]={};
-        for(int UtWldLN=0; UtWldLN < strlen(pName); UtWldLN++){
+        for(int UtWldLN=0; UtWldLN < strlen(pName)+1; UtWldLN++){
             json temp;
             temp=[&]() {
     json return_cAmRZvH=json({});
@@ -54213,7 +54220,7 @@ data_json["type"]="command_vkGetPhysicalDeviceProperties";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -54314,7 +54321,7 @@ data_json["type"]="command_vkGetPhysicalDeviceQueueFamilyProperties";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -54444,7 +54451,7 @@ data_json["type"]="command_vkGetPhysicalDeviceMemoryProperties";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -54544,7 +54551,7 @@ data_json["type"]="command_vkGetPhysicalDeviceFeatures";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -54645,7 +54652,7 @@ data_json["type"]="command_vkGetPhysicalDeviceFormatProperties";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -54755,7 +54762,7 @@ data_json["type"]="command_vkGetPhysicalDeviceImageFormatProperties";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -54886,7 +54893,7 @@ data_json["type"]="command_vkCreateDevice";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -55015,7 +55022,7 @@ data_json["type"]="command_vkDestroyDevice";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -55335,7 +55342,7 @@ data_json["members"]["pLayerName"]=[&]() {
         }
         
         return_GVAKxQC["members"]={};
-        for(int GVAKxQC=0; GVAKxQC < strlen(pLayerName); GVAKxQC++){
+        for(int GVAKxQC=0; GVAKxQC < strlen(pLayerName)+1; GVAKxQC++){
             json temp;
             temp=[&]() {
     json return_Yxvqrpv=json({});
@@ -55466,7 +55473,7 @@ data_json["type"]="command_vkEnumerateDeviceLayerProperties";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -55602,7 +55609,7 @@ data_json["type"]="command_vkEnumerateDeviceExtensionProperties";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -55623,7 +55630,7 @@ data_json["members"]["pLayerName"]=[&]() {
         }
         
         return_GVAKxQC["members"]={};
-        for(int GVAKxQC=0; GVAKxQC < strlen(pLayerName); GVAKxQC++){
+        for(int GVAKxQC=0; GVAKxQC < strlen(pLayerName)+1; GVAKxQC++){
             json temp;
             temp=[&]() {
     json return_Yxvqrpv=json({});
@@ -55757,7 +55764,7 @@ data_json["type"]="command_vkGetDeviceQueue";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -55869,7 +55876,7 @@ data_json["type"]="command_vkQueueSubmit";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -55990,7 +55997,7 @@ data_json["type"]="command_vkQueueWaitIdle";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -56073,7 +56080,7 @@ data_json["type"]="command_vkDeviceWaitIdle";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -56159,7 +56166,7 @@ data_json["type"]="command_vkAllocateMemory";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -56288,7 +56295,7 @@ data_json["type"]="command_vkFreeMemory";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -56389,7 +56396,7 @@ data_json["type"]="command_vkMapMemory";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -56452,7 +56459,7 @@ data_json["members"]["ppData"]=[&]() {
         }
         
         return_gTtZOBV["members"]={};
-        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData))); gTtZOBV++){
+        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData)))+1; gTtZOBV++){
             json temp;
             temp=[&]() {
     json return_LrfUJiU=json({});
@@ -56547,8 +56554,8 @@ flags=deserialize_VkMemoryMapFlags(result["members"]["flags"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["ppData"].size()*sizeof(char));
-        for (int zjLTbBV=0; zjLTbBV < result["members"]["ppData"].size(); zjLTbBV++){
+    temp=(char*)malloc(result["members"]["ppData"]["members"].size()*sizeof(char));
+        for (int zjLTbBV=0; zjLTbBV < result["members"]["ppData"]["members"].size(); zjLTbBV++){
             [&]() {
 temp[zjLTbBV]=deserialize_char(result["members"]["ppData"]["members"][zjLTbBV]);}();;
         }
@@ -56589,7 +56596,7 @@ data_json["type"]="command_vkUnmapMemory";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -56675,7 +56682,7 @@ data_json["type"]="command_vkFlushMappedMemoryRanges";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -56784,7 +56791,7 @@ data_json["type"]="command_vkInvalidateMappedMemoryRanges";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -56893,7 +56900,7 @@ data_json["type"]="command_vkGetDeviceMemoryCommitment";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -57007,7 +57014,7 @@ data_json["type"]="command_vkGetBufferMemoryRequirements";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -57114,7 +57121,7 @@ data_json["type"]="command_vkBindBufferMemory";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -57217,7 +57224,7 @@ data_json["type"]="command_vkGetImageMemoryRequirements";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -57324,7 +57331,7 @@ data_json["type"]="command_vkBindImageMemory";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -57428,7 +57435,7 @@ data_json["type"]="command_vkGetImageSparseMemoryRequirements";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -57569,7 +57576,7 @@ data_json["type"]="command_vkGetPhysicalDeviceSparseImageFormatProperties";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -57726,7 +57733,7 @@ data_json["type"]="command_vkQueueBindSparse";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -57841,7 +57848,7 @@ data_json["type"]="command_vkCreateFence";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -57973,7 +57980,7 @@ data_json["type"]="command_vkDestroyFence";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -58071,7 +58078,7 @@ data_json["type"]="command_vkResetFences";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -58179,7 +58186,7 @@ data_json["type"]="command_vkGetFenceStatus";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -58271,7 +58278,7 @@ data_json["type"]="command_vkWaitForFences";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -58394,7 +58401,7 @@ data_json["type"]="command_vkCreateSemaphore";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -58526,7 +58533,7 @@ data_json["type"]="command_vkDestroySemaphore";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -58625,7 +58632,7 @@ data_json["type"]="command_vkCreateEvent";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -58757,7 +58764,7 @@ data_json["type"]="command_vkDestroyEvent";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -58854,7 +58861,7 @@ data_json["type"]="command_vkGetEventStatus";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -58943,7 +58950,7 @@ data_json["type"]="command_vkSetEvent";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -59032,7 +59039,7 @@ data_json["type"]="command_vkResetEvent";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -59123,7 +59130,7 @@ data_json["type"]="command_vkCreateQueryPool";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -59255,7 +59262,7 @@ data_json["type"]="command_vkDestroyQueryPool";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -59358,7 +59365,7 @@ data_json["type"]="command_vkGetQueryPoolResults";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -59521,7 +59528,7 @@ data_json["type"]="command_vkResetQueryPool";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -59618,7 +59625,7 @@ data_json["type"]="command_vkResetQueryPoolEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -59715,7 +59722,7 @@ data_json["type"]="command_vkCreateBuffer";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -59847,7 +59854,7 @@ data_json["type"]="command_vkDestroyBuffer";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -59946,7 +59953,7 @@ data_json["type"]="command_vkCreateBufferView";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -60078,7 +60085,7 @@ data_json["type"]="command_vkDestroyBufferView";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -60177,7 +60184,7 @@ data_json["type"]="command_vkCreateImage";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -60309,7 +60316,7 @@ data_json["type"]="command_vkDestroyImage";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -60408,7 +60415,7 @@ data_json["type"]="command_vkGetImageSubresourceLayout";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -60527,7 +60534,7 @@ data_json["type"]="command_vkCreateImageView";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -60659,7 +60666,7 @@ data_json["type"]="command_vkDestroyImageView";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -60758,7 +60765,7 @@ data_json["type"]="command_vkCreateShaderModule";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -60890,7 +60897,7 @@ data_json["type"]="command_vkDestroyShaderModule";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -60989,7 +60996,7 @@ data_json["type"]="command_vkCreatePipelineCache";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -61121,7 +61128,7 @@ data_json["type"]="command_vkDestroyPipelineCache";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -61220,7 +61227,7 @@ data_json["type"]="command_vkGetPipelineCacheData";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -61375,7 +61382,7 @@ data_json["type"]="command_vkMergePipelineCaches";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -61492,7 +61499,7 @@ data_json["type"]="command_vkCreateGraphicsPipelines";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -61636,8 +61643,10 @@ VkResult return_value;
 [&]() {
 return_value=deserialize_VkResult(result["return"]);}();
 
-                for (int i=0; i<createInfoCount; i++){
-                    handle_to_parent_handle_struct[(uintptr_t)pPipelines[i]]=parent;
+                if (pPipelines!=NULL){
+                    for (int i=0; i<createInfoCount; i++){
+                        handle_to_parent_handle_struct[(uintptr_t)(pPipelines[i])]=parent;
+                    }
                 }
                 
 return return_value;
@@ -61656,7 +61665,7 @@ data_json["type"]="command_vkCreateComputePipelines";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -61800,8 +61809,10 @@ VkResult return_value;
 [&]() {
 return_value=deserialize_VkResult(result["return"]);}();
 
-                for (int i=0; i<createInfoCount; i++){
-                    handle_to_parent_handle_struct[(uintptr_t)pPipelines[i]]=parent;
+                if (pPipelines!=NULL){
+                    for (int i=0; i<createInfoCount; i++){
+                        handle_to_parent_handle_struct[(uintptr_t)(pPipelines[i])]=parent;
+                    }
                 }
                 
 return return_value;
@@ -61817,7 +61828,7 @@ data_json["type"]="command_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -61927,7 +61938,7 @@ data_json["type"]="command_vkDestroyPipeline";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -62026,7 +62037,7 @@ data_json["type"]="command_vkCreatePipelineLayout";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -62158,7 +62169,7 @@ data_json["type"]="command_vkDestroyPipelineLayout";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -62257,7 +62268,7 @@ data_json["type"]="command_vkCreateSampler";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -62389,7 +62400,7 @@ data_json["type"]="command_vkDestroySampler";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -62488,7 +62499,7 @@ data_json["type"]="command_vkCreateDescriptorSetLayout";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -62620,7 +62631,7 @@ data_json["type"]="command_vkDestroyDescriptorSetLayout";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -62719,7 +62730,7 @@ data_json["type"]="command_vkCreateDescriptorPool";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -62851,7 +62862,7 @@ data_json["type"]="command_vkDestroyDescriptorPool";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -62949,7 +62960,7 @@ data_json["type"]="command_vkResetDescriptorPool";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -63044,7 +63055,7 @@ data_json["type"]="command_vkAllocateDescriptorSets";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -63159,8 +63170,10 @@ VkResult return_value;
 [&]() {
 return_value=deserialize_VkResult(result["return"]);}();
 
-                for (int i=0; i<pAllocateInfo->descriptorSetCount; i++){
-                    handle_to_parent_handle_struct[(uintptr_t)pDescriptorSets[i]]=parent;
+                if (pDescriptorSets!=NULL){
+                    for (int i=0; i<pAllocateInfo->descriptorSetCount; i++){
+                        handle_to_parent_handle_struct[(uintptr_t)(pDescriptorSets[i])]=parent;
+                    }
                 }
                 
 return return_value;
@@ -63177,7 +63190,7 @@ data_json["type"]="command_vkFreeDescriptorSets";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -63293,7 +63306,7 @@ data_json["type"]="command_vkUpdateDescriptorSets";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -63423,7 +63436,7 @@ data_json["type"]="command_vkCreateFramebuffer";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -63555,7 +63568,7 @@ data_json["type"]="command_vkDestroyFramebuffer";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -63654,7 +63667,7 @@ data_json["type"]="command_vkCreateRenderPass";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -63786,7 +63799,7 @@ data_json["type"]="command_vkDestroyRenderPass";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -63884,7 +63897,7 @@ data_json["type"]="command_vkGetRenderAreaGranularity";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -63990,7 +64003,7 @@ data_json["type"]="command_vkGetRenderingAreaGranularityKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -64104,7 +64117,7 @@ data_json["type"]="command_vkCreateCommandPool";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -64236,7 +64249,7 @@ data_json["type"]="command_vkDestroyCommandPool";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -64334,7 +64347,7 @@ data_json["type"]="command_vkResetCommandPool";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -64429,7 +64442,7 @@ data_json["type"]="command_vkAllocateCommandBuffers";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -64544,8 +64557,10 @@ VkResult return_value;
 [&]() {
 return_value=deserialize_VkResult(result["return"]);}();
 
-                for (int i=0; i<pAllocateInfo->commandBufferCount; i++){
-                    handle_to_parent_handle_struct[(uintptr_t)pCommandBuffers[i]]=parent;
+                if (pCommandBuffers!=NULL){
+                    for (int i=0; i<pAllocateInfo->commandBufferCount; i++){
+                        handle_to_parent_handle_struct[(uintptr_t)(pCommandBuffers[i])]=parent;
+                    }
                 }
                 
 return return_value;
@@ -64562,7 +64577,7 @@ data_json["type"]="command_vkFreeCommandBuffers";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -64671,7 +64686,7 @@ data_json["type"]="command_vkBeginCommandBuffer";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -64766,7 +64781,7 @@ data_json["type"]="command_vkEndCommandBuffer";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -64850,7 +64865,7 @@ data_json["type"]="command_vkResetCommandBuffer";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -64940,7 +64955,7 @@ data_json["type"]="command_vkCmdBindPipeline";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -65030,7 +65045,7 @@ data_json["type"]="command_vkCmdSetAttachmentFeedbackLoopEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -65117,7 +65132,7 @@ data_json["type"]="command_vkCmdSetViewport";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -65228,7 +65243,7 @@ data_json["type"]="command_vkCmdSetScissor";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -65337,7 +65352,7 @@ data_json["type"]="command_vkCmdSetLineWidth";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -65424,7 +65439,7 @@ data_json["type"]="command_vkCmdSetDepthBias";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -65519,7 +65534,7 @@ data_json["type"]="command_vkCmdSetBlendConstants";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -65619,7 +65634,7 @@ data_json["type"]="command_vkCmdSetDepthBounds";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -65710,7 +65725,7 @@ data_json["type"]="command_vkCmdSetStencilCompareMask";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -65801,7 +65816,7 @@ data_json["type"]="command_vkCmdSetStencilWriteMask";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -65892,7 +65907,7 @@ data_json["type"]="command_vkCmdSetStencilReference";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -65988,7 +66003,7 @@ data_json["type"]="command_vkCmdBindDescriptorSets";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -66133,7 +66148,7 @@ data_json["type"]="command_vkCmdBindIndexBuffer";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -66234,7 +66249,7 @@ data_json["type"]="command_vkCmdBindVertexBuffers";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -66367,7 +66382,7 @@ data_json["type"]="command_vkCmdDraw";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -66471,7 +66486,7 @@ data_json["type"]="command_vkCmdDrawIndexed";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -66580,7 +66595,7 @@ data_json["type"]="command_vkCmdDrawMultiEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -66704,7 +66719,7 @@ data_json["type"]="command_vkCmdDrawMultiIndexedEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -66838,7 +66853,7 @@ data_json["type"]="command_vkCmdDrawIndirect";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -66944,7 +66959,7 @@ data_json["type"]="command_vkCmdDrawIndexedIndirect";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -67049,7 +67064,7 @@ data_json["type"]="command_vkCmdDispatch";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -67145,7 +67160,7 @@ data_json["type"]="command_vkCmdDispatchIndirect";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -67237,7 +67252,7 @@ data_json["type"]="command_vkCmdSubpassShadingHUAWEI";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -67319,7 +67334,7 @@ data_json["type"]="command_vkCmdDrawClusterHUAWEI";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -67415,7 +67430,7 @@ data_json["type"]="command_vkCmdDrawClusterIndirectHUAWEI";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -67509,7 +67524,7 @@ data_json["type"]="command_vkCmdUpdatePipelineIndirectBufferNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -67602,7 +67617,7 @@ data_json["type"]="command_vkCmdCopyBuffer";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -67721,7 +67736,7 @@ data_json["type"]="command_vkCmdCopyImage";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -67851,7 +67866,7 @@ data_json["type"]="command_vkCmdBlitImage";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -67984,7 +67999,7 @@ data_json["type"]="command_vkCmdCopyBufferToImage";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -68107,7 +68122,7 @@ data_json["type"]="command_vkCmdCopyImageToBuffer";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -68228,7 +68243,7 @@ data_json["type"]="command_vkCmdCopyMemoryIndirectNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -68331,7 +68346,7 @@ data_json["type"]="command_vkCmdCopyMemoryToImageIndirectNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -68461,7 +68476,7 @@ data_json["type"]="command_vkCmdUpdateBuffer";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -68591,7 +68606,7 @@ data_json["type"]="command_vkCmdFillBuffer";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -68701,7 +68716,7 @@ data_json["type"]="command_vkCmdClearColorImage";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -68831,7 +68846,7 @@ data_json["type"]="command_vkCmdClearDepthStencilImage";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -68960,7 +68975,7 @@ data_json["type"]="command_vkCmdClearAttachments";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -69093,7 +69108,7 @@ data_json["type"]="command_vkCmdResolveImage";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -69218,7 +69233,7 @@ data_json["type"]="command_vkCmdSetEvent";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -69309,7 +69324,7 @@ data_json["type"]="command_vkCmdResetEvent";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -69408,7 +69423,7 @@ data_json["type"]="command_vkCmdWaitEvents";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -69602,7 +69617,7 @@ data_json["type"]="command_vkCmdPipelineBarrier";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -69771,7 +69786,7 @@ data_json["type"]="command_vkCmdBeginQuery";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -69867,7 +69882,7 @@ data_json["type"]="command_vkCmdEndQuery";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -69957,7 +69972,7 @@ data_json["type"]="command_vkCmdBeginConditionalRenderingEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -70048,7 +70063,7 @@ data_json["type"]="command_vkCmdEndConditionalRenderingEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -70130,7 +70145,7 @@ data_json["type"]="command_vkCmdResetQueryPool";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -70227,7 +70242,7 @@ data_json["type"]="command_vkCmdWriteTimestamp";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -70328,7 +70343,7 @@ data_json["type"]="command_vkCmdCopyQueryPoolResults";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -70453,7 +70468,7 @@ data_json["type"]="command_vkCmdPushConstants";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -70580,7 +70595,7 @@ data_json["type"]="command_vkCmdBeginRenderPass";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -70677,7 +70692,7 @@ data_json["type"]="command_vkCmdNextSubpass";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -70761,7 +70776,7 @@ data_json["type"]="command_vkCmdEndRenderPass";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -70842,7 +70857,7 @@ data_json["type"]="command_vkCmdExecuteCommands";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -70947,7 +70962,7 @@ data_json["type"]="command_vkGetPhysicalDeviceDisplayPropertiesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -71082,7 +71097,7 @@ data_json["type"]="command_vkGetPhysicalDeviceDisplayPlanePropertiesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -71218,7 +71233,7 @@ data_json["type"]="command_vkGetDisplayPlaneSupportedDisplaysKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -71359,7 +71374,7 @@ data_json["type"]="command_vkGetDisplayModePropertiesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -71501,7 +71516,7 @@ data_json["type"]="command_vkCreateDisplayModeKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -71639,7 +71654,7 @@ data_json["type"]="command_vkGetDisplayPlaneCapabilitiesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -71755,7 +71770,7 @@ data_json["type"]="command_vkCreateDisplayPlaneSurfaceKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -71889,7 +71904,7 @@ data_json["type"]="command_vkCreateSharedSwapchainsKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -72028,8 +72043,10 @@ VkResult return_value;
 [&]() {
 return_value=deserialize_VkResult(result["return"]);}();
 
-                for (int i=0; i<swapchainCount; i++){
-                    handle_to_parent_handle_struct[(uintptr_t)pSwapchains[i]]=parent;
+                if (pSwapchains!=NULL){
+                    for (int i=0; i<swapchainCount; i++){
+                        handle_to_parent_handle_struct[(uintptr_t)(pSwapchains[i])]=parent;
+                    }
                 }
                 
 return return_value;
@@ -72045,7 +72062,7 @@ data_json["type"]="command_vkDestroySurfaceKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -72144,7 +72161,7 @@ data_json["type"]="command_vkGetPhysicalDeviceSurfaceSupportKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -72267,7 +72284,7 @@ data_json["type"]="command_vkGetPhysicalDeviceSurfaceCapabilitiesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -72378,7 +72395,7 @@ data_json["type"]="command_vkGetPhysicalDeviceSurfaceFormatsKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -72519,7 +72536,7 @@ data_json["type"]="command_vkGetPhysicalDeviceSurfacePresentModesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -72660,7 +72677,7 @@ data_json["type"]="command_vkCreateSwapchainKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -72792,7 +72809,7 @@ data_json["type"]="command_vkDestroySwapchainKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -72891,7 +72908,7 @@ data_json["type"]="command_vkGetSwapchainImagesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -73034,7 +73051,7 @@ data_json["type"]="command_vkAcquireNextImageKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -73158,7 +73175,7 @@ data_json["type"]="command_vkQueuePresentKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -73256,7 +73273,7 @@ data_json["type"]="command_vkCreateXlibSurfaceKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -73389,7 +73406,7 @@ data_json["type"]="command_vkGetPhysicalDeviceXlibPresentationSupportKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -73505,7 +73522,7 @@ data_json["type"]="command_vkCreateXcbSurfaceKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -73638,7 +73655,7 @@ data_json["type"]="command_vkGetPhysicalDeviceXcbPresentationSupportKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -73754,7 +73771,7 @@ data_json["type"]="command_vkCreateDebugReportCallbackEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -73886,7 +73903,7 @@ data_json["type"]="command_vkDestroyDebugReportCallbackEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -73989,7 +74006,7 @@ data_json["type"]="command_vkDebugReportMessageEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -74025,7 +74042,7 @@ data_json["members"]["pLayerPrefix"]=[&]() {
         }
         
         return_HiVuHWN["members"]={};
-        for(int HiVuHWN=0; HiVuHWN < strlen(pLayerPrefix); HiVuHWN++){
+        for(int HiVuHWN=0; HiVuHWN < strlen(pLayerPrefix)+1; HiVuHWN++){
             json temp;
             temp=[&]() {
     json return_NzhPjeM=json({});
@@ -74043,7 +74060,7 @@ data_json["members"]["pMessage"]=[&]() {
         }
         
         return_cTmvEKt["members"]={};
-        for(int cTmvEKt=0; cTmvEKt < strlen(pMessage); cTmvEKt++){
+        for(int cTmvEKt=0; cTmvEKt < strlen(pMessage)+1; cTmvEKt++){
             json temp;
             temp=[&]() {
     json return_eeAZmTG=json({});
@@ -74132,7 +74149,7 @@ data_json["type"]="command_vkDebugMarkerSetObjectNameEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -74228,7 +74245,7 @@ data_json["type"]="command_vkDebugMarkerSetObjectTagEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -74324,7 +74341,7 @@ data_json["type"]="command_vkCmdDebugMarkerBeginEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -74415,7 +74432,7 @@ data_json["type"]="command_vkCmdDebugMarkerEndEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -74495,7 +74512,7 @@ data_json["type"]="command_vkCmdDebugMarkerInsertEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -74593,7 +74610,7 @@ data_json["type"]="command_vkGetPhysicalDeviceExternalImageFormatPropertiesNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -74728,7 +74745,7 @@ data_json["type"]="command_vkCmdExecuteGeneratedCommandsNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -74828,7 +74845,7 @@ data_json["type"]="command_vkCmdPreprocessGeneratedCommandsNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -74922,7 +74939,7 @@ data_json["type"]="command_vkCmdBindPipelineShaderGroupNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -75018,7 +75035,7 @@ data_json["type"]="command_vkGetGeneratedCommandsMemoryRequirementsNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -75132,7 +75149,7 @@ data_json["type"]="command_vkCreateIndirectCommandsLayoutNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -75264,7 +75281,7 @@ data_json["type"]="command_vkDestroyIndirectCommandsLayoutNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -75361,7 +75378,7 @@ data_json["type"]="command_vkGetPhysicalDeviceFeatures2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -75461,7 +75478,7 @@ data_json["type"]="command_vkGetPhysicalDeviceFeatures2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -75561,7 +75578,7 @@ data_json["type"]="command_vkGetPhysicalDeviceProperties2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -75661,7 +75678,7 @@ data_json["type"]="command_vkGetPhysicalDeviceProperties2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -75762,7 +75779,7 @@ data_json["type"]="command_vkGetPhysicalDeviceFormatProperties2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -75868,7 +75885,7 @@ data_json["type"]="command_vkGetPhysicalDeviceFormatProperties2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -75974,7 +75991,7 @@ data_json["type"]="command_vkGetPhysicalDeviceImageFormatProperties2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -76091,7 +76108,7 @@ data_json["type"]="command_vkGetPhysicalDeviceImageFormatProperties2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -76208,7 +76225,7 @@ data_json["type"]="command_vkGetPhysicalDeviceQueueFamilyProperties2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -76339,7 +76356,7 @@ data_json["type"]="command_vkGetPhysicalDeviceQueueFamilyProperties2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -76469,7 +76486,7 @@ data_json["type"]="command_vkGetPhysicalDeviceMemoryProperties2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -76569,7 +76586,7 @@ data_json["type"]="command_vkGetPhysicalDeviceMemoryProperties2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -76671,7 +76688,7 @@ data_json["type"]="command_vkGetPhysicalDeviceSparseImageFormatProperties2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -76815,7 +76832,7 @@ data_json["type"]="command_vkGetPhysicalDeviceSparseImageFormatProperties2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -76961,7 +76978,7 @@ data_json["type"]="command_vkCmdPushDescriptorSetKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -77081,7 +77098,7 @@ data_json["type"]="command_vkTrimCommandPool";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -77172,7 +77189,7 @@ data_json["type"]="command_vkTrimCommandPoolKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -77263,7 +77280,7 @@ data_json["type"]="command_vkGetPhysicalDeviceExternalBufferProperties";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -77376,7 +77393,7 @@ data_json["type"]="command_vkGetPhysicalDeviceExternalBufferPropertiesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -77489,7 +77506,7 @@ data_json["type"]="command_vkGetMemoryFdKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -77607,7 +77624,7 @@ data_json["type"]="command_vkGetMemoryFdPropertiesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -77722,7 +77739,7 @@ data_json["type"]="command_vkGetMemoryRemoteAddressNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -77770,7 +77787,7 @@ data_json["members"]["pAddress"]=[&]() {
         }
         
         return_FrKnLHF["members"]={};
-        for(int FrKnLHF=0; FrKnLHF < strlen(((char*)(*pAddress))); FrKnLHF++){
+        for(int FrKnLHF=0; FrKnLHF < strlen(((char*)(*pAddress)))+1; FrKnLHF++){
             json temp;
             temp=[&]() {
     json return_wXaXjOG=json({});
@@ -77862,8 +77879,8 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["pAddress"].size()*sizeof(char));
-        for (int pCOjhwW=0; pCOjhwW < result["members"]["pAddress"].size(); pCOjhwW++){
+    temp=(char*)malloc(result["members"]["pAddress"]["members"].size()*sizeof(char));
+        for (int pCOjhwW=0; pCOjhwW < result["members"]["pAddress"]["members"].size(); pCOjhwW++){
             [&]() {
 temp[pCOjhwW]=deserialize_char(result["members"]["pAddress"]["members"][pCOjhwW]);}();;
         }
@@ -77886,7 +77903,7 @@ data_json["type"]="command_vkGetPhysicalDeviceExternalSemaphoreProperties";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -77999,7 +78016,7 @@ data_json["type"]="command_vkGetPhysicalDeviceExternalSemaphorePropertiesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -78112,7 +78129,7 @@ data_json["type"]="command_vkGetSemaphoreFdKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -78228,7 +78245,7 @@ data_json["type"]="command_vkImportSemaphoreFdKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -78325,7 +78342,7 @@ data_json["type"]="command_vkGetPhysicalDeviceExternalFenceProperties";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -78438,7 +78455,7 @@ data_json["type"]="command_vkGetPhysicalDeviceExternalFencePropertiesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -78551,7 +78568,7 @@ data_json["type"]="command_vkGetFenceFdKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -78667,7 +78684,7 @@ data_json["type"]="command_vkImportFenceFdKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -78763,7 +78780,7 @@ data_json["type"]="command_vkReleaseDisplayEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -78853,7 +78870,7 @@ data_json["type"]="command_vkDisplayPowerControlEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -78956,7 +78973,7 @@ data_json["type"]="command_vkRegisterDeviceEventEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -79087,7 +79104,7 @@ data_json["type"]="command_vkRegisterDisplayEventEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -79222,7 +79239,7 @@ data_json["type"]="command_vkGetSwapchainCounterEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -79337,7 +79354,7 @@ data_json["type"]="command_vkGetPhysicalDeviceSurfaceCapabilities2EXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -79447,7 +79464,7 @@ data_json["type"]="command_vkEnumeratePhysicalDeviceGroups";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -79582,7 +79599,7 @@ data_json["type"]="command_vkEnumeratePhysicalDeviceGroupsKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -79719,7 +79736,7 @@ data_json["type"]="command_vkGetDeviceGroupPeerMemoryFeatures";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -79837,7 +79854,7 @@ data_json["type"]="command_vkGetDeviceGroupPeerMemoryFeaturesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -79953,7 +79970,7 @@ data_json["type"]="command_vkBindBufferMemory2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -80062,7 +80079,7 @@ data_json["type"]="command_vkBindBufferMemory2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -80171,7 +80188,7 @@ data_json["type"]="command_vkBindImageMemory2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -80280,7 +80297,7 @@ data_json["type"]="command_vkBindImageMemory2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -80388,7 +80405,7 @@ data_json["type"]="command_vkCmdSetDeviceMask";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -80473,7 +80490,7 @@ data_json["type"]="command_vkCmdSetDeviceMaskKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -80558,7 +80575,7 @@ data_json["type"]="command_vkGetDeviceGroupPresentCapabilitiesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -80663,7 +80680,7 @@ data_json["type"]="command_vkGetDeviceGroupSurfacePresentModesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -80773,7 +80790,7 @@ data_json["type"]="command_vkAcquireNextImage2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -80894,7 +80911,7 @@ data_json["type"]="command_vkCmdDispatchBase";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -81009,7 +81026,7 @@ data_json["type"]="command_vkCmdDispatchBaseKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -81121,7 +81138,7 @@ data_json["type"]="command_vkGetPhysicalDevicePresentRectanglesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -81262,7 +81279,7 @@ data_json["type"]="command_vkCreateDescriptorUpdateTemplate";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -81395,7 +81412,7 @@ data_json["type"]="command_vkCreateDescriptorUpdateTemplateKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -81527,7 +81544,7 @@ data_json["type"]="command_vkDestroyDescriptorUpdateTemplate";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -81625,7 +81642,7 @@ data_json["type"]="command_vkDestroyDescriptorUpdateTemplateKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -81724,7 +81741,7 @@ data_json["type"]="command_vkUpdateDescriptorSetWithTemplate";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -81758,7 +81775,7 @@ data_json["members"]["pData"]=[&]() {
         }
         
         return_GGILgQD["members"]={};
-        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData))); GGILgQD++){
+        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData)))+1; GGILgQD++){
             json temp;
             temp=[&]() {
     json return_nFeMGqw=json({});
@@ -81842,7 +81859,7 @@ data_json["type"]="command_vkUpdateDescriptorSetWithTemplateKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -81876,7 +81893,7 @@ data_json["members"]["pData"]=[&]() {
         }
         
         return_GGILgQD["members"]={};
-        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData))); GGILgQD++){
+        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData)))+1; GGILgQD++){
             json temp;
             temp=[&]() {
     json return_nFeMGqw=json({});
@@ -81961,7 +81978,7 @@ data_json["type"]="command_vkCmdPushDescriptorSetWithTemplateKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -81998,7 +82015,7 @@ data_json["members"]["pData"]=[&]() {
         }
         
         return_GGILgQD["members"]={};
-        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData))); GGILgQD++){
+        for(int GGILgQD=0; GGILgQD < strlen(((char*)(pData)))+1; GGILgQD++){
             json temp;
             temp=[&]() {
     json return_nFeMGqw=json({});
@@ -82084,7 +82101,7 @@ data_json["type"]="command_vkSetHdrMetadataEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -82207,7 +82224,7 @@ data_json["type"]="command_vkGetSwapchainStatusKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -82297,7 +82314,7 @@ data_json["type"]="command_vkGetRefreshCycleDurationGOOGLE";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -82408,7 +82425,7 @@ data_json["type"]="command_vkGetPastPresentationTimingGOOGLE";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -82549,7 +82566,7 @@ data_json["type"]="command_vkCmdSetViewportWScalingNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -82660,7 +82677,7 @@ data_json["type"]="command_vkCmdSetDiscardRectangleEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -82769,7 +82786,7 @@ data_json["type"]="command_vkCmdSetDiscardRectangleEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -82857,7 +82874,7 @@ data_json["type"]="command_vkCmdSetDiscardRectangleModeEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -82942,7 +82959,7 @@ data_json["type"]="command_vkCmdSetSampleLocationsEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -83035,7 +83052,7 @@ data_json["type"]="command_vkGetPhysicalDeviceMultisamplePropertiesEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -83141,7 +83158,7 @@ data_json["type"]="command_vkGetPhysicalDeviceSurfaceCapabilities2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -83259,7 +83276,7 @@ data_json["type"]="command_vkGetPhysicalDeviceSurfaceFormats2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -83406,7 +83423,7 @@ data_json["type"]="command_vkGetPhysicalDeviceDisplayProperties2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -83541,7 +83558,7 @@ data_json["type"]="command_vkGetPhysicalDeviceDisplayPlaneProperties2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -83677,7 +83694,7 @@ data_json["type"]="command_vkGetDisplayModeProperties2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -83817,7 +83834,7 @@ data_json["type"]="command_vkGetDisplayPlaneCapabilities2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -83934,7 +83951,7 @@ data_json["type"]="command_vkGetBufferMemoryRequirements2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -84047,7 +84064,7 @@ data_json["type"]="command_vkGetBufferMemoryRequirements2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -84160,7 +84177,7 @@ data_json["type"]="command_vkGetImageMemoryRequirements2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -84273,7 +84290,7 @@ data_json["type"]="command_vkGetImageMemoryRequirements2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -84387,7 +84404,7 @@ data_json["type"]="command_vkGetImageSparseMemoryRequirements2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -84531,7 +84548,7 @@ data_json["type"]="command_vkGetImageSparseMemoryRequirements2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -84674,7 +84691,7 @@ data_json["type"]="command_vkGetDeviceBufferMemoryRequirements";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -84787,7 +84804,7 @@ data_json["type"]="command_vkGetDeviceBufferMemoryRequirementsKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -84900,7 +84917,7 @@ data_json["type"]="command_vkGetDeviceImageMemoryRequirements";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -85013,7 +85030,7 @@ data_json["type"]="command_vkGetDeviceImageMemoryRequirementsKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -85127,7 +85144,7 @@ data_json["type"]="command_vkGetDeviceImageSparseMemoryRequirements";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -85271,7 +85288,7 @@ data_json["type"]="command_vkGetDeviceImageSparseMemoryRequirementsKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -85415,7 +85432,7 @@ data_json["type"]="command_vkCreateSamplerYcbcrConversion";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -85548,7 +85565,7 @@ data_json["type"]="command_vkCreateSamplerYcbcrConversionKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -85680,7 +85697,7 @@ data_json["type"]="command_vkDestroySamplerYcbcrConversion";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -85778,7 +85795,7 @@ data_json["type"]="command_vkDestroySamplerYcbcrConversionKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -85876,7 +85893,7 @@ data_json["type"]="command_vkGetDeviceQueue2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -85990,7 +86007,7 @@ data_json["type"]="command_vkCreateValidationCacheEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -86122,7 +86139,7 @@ data_json["type"]="command_vkDestroyValidationCacheEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -86221,7 +86238,7 @@ data_json["type"]="command_vkGetValidationCacheDataEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -86376,7 +86393,7 @@ data_json["type"]="command_vkMergeValidationCachesEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -86490,7 +86507,7 @@ data_json["type"]="command_vkGetDescriptorSetLayoutSupport";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -86603,7 +86620,7 @@ data_json["type"]="command_vkGetDescriptorSetLayoutSupportKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -86719,7 +86736,7 @@ data_json["type"]="command_vkGetShaderInfoAMD";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -86883,7 +86900,7 @@ data_json["type"]="command_vkSetLocalDimmingAMD";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -86977,7 +86994,7 @@ data_json["type"]="command_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -87114,7 +87131,7 @@ data_json["type"]="command_vkGetCalibratedTimestampsEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -87272,7 +87289,7 @@ data_json["type"]="command_vkSetDebugUtilsObjectNameEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -87368,7 +87385,7 @@ data_json["type"]="command_vkSetDebugUtilsObjectTagEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -87464,7 +87481,7 @@ data_json["type"]="command_vkQueueBeginDebugUtilsLabelEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -87555,7 +87572,7 @@ data_json["type"]="command_vkQueueEndDebugUtilsLabelEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -87635,7 +87652,7 @@ data_json["type"]="command_vkQueueInsertDebugUtilsLabelEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -87727,7 +87744,7 @@ data_json["type"]="command_vkCmdBeginDebugUtilsLabelEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -87818,7 +87835,7 @@ data_json["type"]="command_vkCmdEndDebugUtilsLabelEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -87898,7 +87915,7 @@ data_json["type"]="command_vkCmdInsertDebugUtilsLabelEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -87992,7 +88009,7 @@ data_json["type"]="command_vkCreateDebugUtilsMessengerEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -88124,7 +88141,7 @@ data_json["type"]="command_vkDestroyDebugUtilsMessengerEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -88223,7 +88240,7 @@ data_json["type"]="command_vkSubmitDebugUtilsMessageEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -88327,7 +88344,7 @@ data_json["type"]="command_vkGetMemoryHostPointerPropertiesEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -88358,7 +88375,7 @@ data_json["members"]["pHostPointer"]=[&]() {
         }
         
         return_PDtsYsQ["members"]={};
-        for(int PDtsYsQ=0; PDtsYsQ < strlen(((char*)(pHostPointer))); PDtsYsQ++){
+        for(int PDtsYsQ=0; PDtsYsQ < strlen(((char*)(pHostPointer)))+1; PDtsYsQ++){
             json temp;
             temp=[&]() {
     json return_GffuMIE=json({});
@@ -88465,7 +88482,7 @@ data_json["type"]="command_vkCmdWriteBufferMarkerAMD";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -88570,7 +88587,7 @@ data_json["type"]="command_vkCreateRenderPass2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -88703,7 +88720,7 @@ data_json["type"]="command_vkCreateRenderPass2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -88835,7 +88852,7 @@ data_json["type"]="command_vkCmdBeginRenderPass2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -88940,7 +88957,7 @@ data_json["type"]="command_vkCmdBeginRenderPass2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -89045,7 +89062,7 @@ data_json["type"]="command_vkCmdNextSubpass2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -89150,7 +89167,7 @@ data_json["type"]="command_vkCmdNextSubpass2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -89254,7 +89271,7 @@ data_json["type"]="command_vkCmdEndRenderPass2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -89346,7 +89363,7 @@ data_json["type"]="command_vkCmdEndRenderPass2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -89439,7 +89456,7 @@ data_json["type"]="command_vkGetSemaphoreCounterValue";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -89549,7 +89566,7 @@ data_json["type"]="command_vkGetSemaphoreCounterValueKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -89659,7 +89676,7 @@ data_json["type"]="command_vkWaitSemaphores";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -89761,7 +89778,7 @@ data_json["type"]="command_vkWaitSemaphoresKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -89862,7 +89879,7 @@ data_json["type"]="command_vkSignalSemaphore";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -89958,7 +89975,7 @@ data_json["type"]="command_vkSignalSemaphoreKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -90059,7 +90076,7 @@ data_json["type"]="command_vkCmdDrawIndirectCount";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -90180,7 +90197,7 @@ data_json["type"]="command_vkCmdDrawIndirectCountKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -90301,7 +90318,7 @@ data_json["type"]="command_vkCmdDrawIndirectCountAMD";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -90422,7 +90439,7 @@ data_json["type"]="command_vkCmdDrawIndexedIndirectCount";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -90543,7 +90560,7 @@ data_json["type"]="command_vkCmdDrawIndexedIndirectCountKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -90664,7 +90681,7 @@ data_json["type"]="command_vkCmdDrawIndexedIndirectCountAMD";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -90780,7 +90797,7 @@ data_json["type"]="command_vkCmdSetCheckpointNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -90808,7 +90825,7 @@ data_json["members"]["pCheckpointMarker"]=[&]() {
         }
         
         return_GycxCRb["members"]={};
-        for(int GycxCRb=0; GycxCRb < strlen(((char*)(pCheckpointMarker))); GycxCRb++){
+        for(int GycxCRb=0; GycxCRb < strlen(((char*)(pCheckpointMarker)))+1; GycxCRb++){
             json temp;
             temp=[&]() {
     json return_lJDOHfq=json({});
@@ -90887,7 +90904,7 @@ data_json["type"]="command_vkGetQueueCheckpointDataNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -91021,7 +91038,7 @@ data_json["type"]="command_vkCmdBindTransformFeedbackBuffersEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -91175,7 +91192,7 @@ data_json["type"]="command_vkCmdBeginTransformFeedbackEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -91308,7 +91325,7 @@ data_json["type"]="command_vkCmdEndTransformFeedbackEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -91441,7 +91458,7 @@ data_json["type"]="command_vkCmdBeginQueryIndexedEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -91543,7 +91560,7 @@ data_json["type"]="command_vkCmdEndQueryIndexedEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -91643,7 +91660,7 @@ data_json["type"]="command_vkCmdDrawIndirectByteCountEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -91758,7 +91775,7 @@ data_json["type"]="command_vkCmdSetExclusiveScissorNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -91869,7 +91886,7 @@ data_json["type"]="command_vkCmdSetExclusiveScissorEnableNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -91981,7 +91998,7 @@ data_json["type"]="command_vkCmdBindShadingRateImageNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -92073,7 +92090,7 @@ data_json["type"]="command_vkCmdSetViewportShadingRatePaletteNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -92184,7 +92201,7 @@ data_json["type"]="command_vkCmdSetCoarseSampleOrderNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -92294,7 +92311,7 @@ data_json["type"]="command_vkCmdDrawMeshTasksNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -92387,7 +92404,7 @@ data_json["type"]="command_vkCmdDrawMeshTasksIndirectNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -92495,7 +92512,7 @@ data_json["type"]="command_vkCmdDrawMeshTasksIndirectCountNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -92613,7 +92630,7 @@ data_json["type"]="command_vkCmdDrawMeshTasksEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -92711,7 +92728,7 @@ data_json["type"]="command_vkCmdDrawMeshTasksIndirectEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -92819,7 +92836,7 @@ data_json["type"]="command_vkCmdDrawMeshTasksIndirectCountEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -92936,7 +92953,7 @@ data_json["type"]="command_vkCompileDeferredNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -93032,7 +93049,7 @@ data_json["type"]="command_vkCreateAccelerationStructureNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -93164,7 +93181,7 @@ data_json["type"]="command_vkCmdBindInvocationMaskHUAWEI";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -93255,7 +93272,7 @@ data_json["type"]="command_vkDestroyAccelerationStructureKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -93353,7 +93370,7 @@ data_json["type"]="command_vkDestroyAccelerationStructureNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -93451,7 +93468,7 @@ data_json["type"]="command_vkGetAccelerationStructureMemoryRequirementsNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -93564,7 +93581,7 @@ data_json["type"]="command_vkBindAccelerationStructureMemoryNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -93674,7 +93691,7 @@ data_json["type"]="command_vkCmdCopyAccelerationStructureNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -93769,7 +93786,7 @@ data_json["type"]="command_vkCmdCopyAccelerationStructureKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -93862,7 +93879,7 @@ data_json["type"]="command_vkCopyAccelerationStructureKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -93963,7 +93980,7 @@ data_json["type"]="command_vkCmdCopyAccelerationStructureToMemoryKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -94056,7 +94073,7 @@ data_json["type"]="command_vkCopyAccelerationStructureToMemoryKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -94157,7 +94174,7 @@ data_json["type"]="command_vkCmdCopyMemoryToAccelerationStructureKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -94250,7 +94267,7 @@ data_json["type"]="command_vkCopyMemoryToAccelerationStructureKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -94355,7 +94372,7 @@ data_json["type"]="command_vkCmdWriteAccelerationStructuresPropertiesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -94478,7 +94495,7 @@ data_json["type"]="command_vkCmdWriteAccelerationStructuresPropertiesNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -94604,7 +94621,7 @@ data_json["type"]="command_vkCmdBuildAccelerationStructureNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -94745,7 +94762,7 @@ data_json["type"]="command_vkWriteAccelerationStructuresPropertiesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -94918,7 +94935,7 @@ data_json["type"]="command_vkCmdTraceRaysKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -95074,7 +95091,7 @@ data_json["type"]="command_vkCmdTraceRaysNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -95249,7 +95266,7 @@ data_json["type"]="command_vkGetRayTracingShaderGroupHandlesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -95401,7 +95418,7 @@ data_json["type"]="command_vkGetRayTracingShaderGroupHandlesNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -95553,7 +95570,7 @@ data_json["type"]="command_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -95703,7 +95720,7 @@ data_json["type"]="command_vkGetAccelerationStructureHandleNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -95845,7 +95862,7 @@ data_json["type"]="command_vkCreateRayTracingPipelinesNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -95989,8 +96006,10 @@ VkResult return_value;
 [&]() {
 return_value=deserialize_VkResult(result["return"]);}();
 
-                for (int i=0; i<createInfoCount; i++){
-                    handle_to_parent_handle_struct[(uintptr_t)pPipelines[i]]=parent;
+                if (pPipelines!=NULL){
+                    for (int i=0; i<createInfoCount; i++){
+                        handle_to_parent_handle_struct[(uintptr_t)(pPipelines[i])]=parent;
+                    }
                 }
                 
 return return_value;
@@ -96010,7 +96029,7 @@ data_json["type"]="command_vkCreateRayTracingPipelinesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -96159,8 +96178,10 @@ VkResult return_value;
 [&]() {
 return_value=deserialize_VkResult(result["return"]);}();
 
-                for (int i=0; i<createInfoCount; i++){
-                    handle_to_parent_handle_struct[(uintptr_t)pPipelines[i]]=parent;
+                if (pPipelines!=NULL){
+                    for (int i=0; i<createInfoCount; i++){
+                        handle_to_parent_handle_struct[(uintptr_t)(pPipelines[i])]=parent;
+                    }
                 }
                 
 return return_value;
@@ -96176,7 +96197,7 @@ data_json["type"]="command_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -96314,7 +96335,7 @@ data_json["type"]="command_vkCmdTraceRaysIndirectKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -96450,7 +96471,7 @@ data_json["type"]="command_vkCmdTraceRaysIndirect2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -96539,7 +96560,7 @@ data_json["type"]="command_vkGetDeviceAccelerationStructureCompatibilityKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -96653,7 +96674,7 @@ data_json["type"]="command_vkGetRayTracingShaderGroupStackSizeKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -96753,7 +96774,7 @@ data_json["type"]="command_vkCmdSetRayTracingPipelineStackSizeKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -96838,7 +96859,7 @@ data_json["type"]="command_vkGetImageViewHandleNVX";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -96935,7 +96956,7 @@ data_json["type"]="command_vkGetImageViewAddressNVX";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -97047,7 +97068,7 @@ data_json["type"]="command_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryC
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -97217,7 +97238,7 @@ data_json["type"]="command_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesK
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -97329,7 +97350,7 @@ data_json["type"]="command_vkAcquireProfilingLockKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -97424,7 +97445,7 @@ data_json["type"]="command_vkReleaseProfilingLockKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -97505,7 +97526,7 @@ data_json["type"]="command_vkGetImageDrmFormatModifierPropertiesEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -97614,7 +97635,7 @@ data_json["type"]="command_vkGetBufferOpaqueCaptureAddress";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -97710,7 +97731,7 @@ data_json["type"]="command_vkGetBufferOpaqueCaptureAddressKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -97806,7 +97827,7 @@ data_json["type"]="command_vkGetBufferDeviceAddress";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -97903,7 +97924,7 @@ data_json["type"]="command_vkGetBufferDeviceAddressKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -98000,7 +98021,7 @@ data_json["type"]="command_vkGetBufferDeviceAddressEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -98099,7 +98120,7 @@ data_json["type"]="command_vkCreateHeadlessSurfaceEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -98231,7 +98252,7 @@ data_json["type"]="command_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCo
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -98365,7 +98386,7 @@ data_json["type"]="command_vkInitializePerformanceApiINTEL";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -98460,7 +98481,7 @@ data_json["type"]="command_vkUninitializePerformanceApiINTEL";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -98540,7 +98561,7 @@ data_json["type"]="command_vkCmdSetPerformanceMarkerINTEL";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -98636,7 +98657,7 @@ data_json["type"]="command_vkCmdSetPerformanceStreamMarkerINTEL";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -98732,7 +98753,7 @@ data_json["type"]="command_vkCmdSetPerformanceOverrideINTEL";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -98829,7 +98850,7 @@ data_json["type"]="command_vkAcquirePerformanceConfigurationINTEL";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -98945,7 +98966,7 @@ data_json["type"]="command_vkReleasePerformanceConfigurationINTEL";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -99034,7 +99055,7 @@ data_json["type"]="command_vkQueueSetPerformanceConfigurationINTEL";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -99124,7 +99145,7 @@ data_json["type"]="command_vkGetPerformanceParameterINTEL";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -99233,7 +99254,7 @@ data_json["type"]="command_vkGetDeviceMemoryOpaqueCaptureAddress";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -99329,7 +99350,7 @@ data_json["type"]="command_vkGetDeviceMemoryOpaqueCaptureAddressKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -99427,7 +99448,7 @@ data_json["type"]="command_vkGetPipelineExecutablePropertiesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -99575,7 +99596,7 @@ data_json["type"]="command_vkGetPipelineExecutableStatisticsKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -99723,7 +99744,7 @@ data_json["type"]="command_vkGetPipelineExecutableInternalRepresentationsKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -99870,7 +99891,7 @@ data_json["type"]="command_vkCmdSetLineStippleEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -99961,7 +99982,7 @@ data_json["type"]="command_vkGetPhysicalDeviceToolProperties";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -100096,7 +100117,7 @@ data_json["type"]="command_vkGetPhysicalDeviceToolPropertiesEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -100232,7 +100253,7 @@ data_json["type"]="command_vkCreateAccelerationStructureKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -100365,7 +100386,7 @@ data_json["type"]="command_vkCmdBuildAccelerationStructuresKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -100500,7 +100521,7 @@ data_json["type"]="command_vkCmdBuildAccelerationStructuresIndirectKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -100674,7 +100695,7 @@ data_json["type"]="command_vkBuildAccelerationStructuresKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -100814,7 +100835,7 @@ data_json["type"]="command_vkGetAccelerationStructureDeviceAddressKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -100912,7 +100933,7 @@ data_json["type"]="command_vkCreateDeferredOperationKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -101032,7 +101053,7 @@ data_json["type"]="command_vkDestroyDeferredOperationKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -101129,7 +101150,7 @@ data_json["type"]="command_vkGetDeferredOperationMaxConcurrencyKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -101218,7 +101239,7 @@ data_json["type"]="command_vkGetDeferredOperationResultKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -101307,7 +101328,7 @@ data_json["type"]="command_vkDeferredOperationJoinKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -101397,7 +101418,7 @@ data_json["type"]="command_vkGetPipelineIndirectMemoryRequirementsNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -101509,7 +101530,7 @@ data_json["type"]="command_vkGetPipelineIndirectDeviceAddressNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -101606,7 +101627,7 @@ data_json["type"]="command_vkCmdSetCullMode";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -101691,7 +101712,7 @@ data_json["type"]="command_vkCmdSetCullModeEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -101776,7 +101797,7 @@ data_json["type"]="command_vkCmdSetFrontFace";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -101861,7 +101882,7 @@ data_json["type"]="command_vkCmdSetFrontFaceEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -101946,7 +101967,7 @@ data_json["type"]="command_vkCmdSetPrimitiveTopology";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -102031,7 +102052,7 @@ data_json["type"]="command_vkCmdSetPrimitiveTopologyEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -102117,7 +102138,7 @@ data_json["type"]="command_vkCmdSetViewportWithCount";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -102222,7 +102243,7 @@ data_json["type"]="command_vkCmdSetViewportWithCountEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -102327,7 +102348,7 @@ data_json["type"]="command_vkCmdSetScissorWithCount";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -102432,7 +102453,7 @@ data_json["type"]="command_vkCmdSetScissorWithCountEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -102539,7 +102560,7 @@ data_json["type"]="command_vkCmdBindIndexBuffer2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -102650,7 +102671,7 @@ data_json["type"]="command_vkCmdBindVertexBuffers2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -102827,7 +102848,7 @@ data_json["type"]="command_vkCmdBindVertexBuffers2EXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -102999,7 +103020,7 @@ data_json["type"]="command_vkCmdSetDepthTestEnable";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -103087,7 +103108,7 @@ data_json["type"]="command_vkCmdSetDepthTestEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -103175,7 +103196,7 @@ data_json["type"]="command_vkCmdSetDepthWriteEnable";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -103263,7 +103284,7 @@ data_json["type"]="command_vkCmdSetDepthWriteEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -103351,7 +103372,7 @@ data_json["type"]="command_vkCmdSetDepthCompareOp";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -103436,7 +103457,7 @@ data_json["type"]="command_vkCmdSetDepthCompareOpEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -103521,7 +103542,7 @@ data_json["type"]="command_vkCmdSetDepthBoundsTestEnable";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -103609,7 +103630,7 @@ data_json["type"]="command_vkCmdSetDepthBoundsTestEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -103697,7 +103718,7 @@ data_json["type"]="command_vkCmdSetStencilTestEnable";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -103785,7 +103806,7 @@ data_json["type"]="command_vkCmdSetStencilTestEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -103877,7 +103898,7 @@ data_json["type"]="command_vkCmdSetStencilOp";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -103986,7 +104007,7 @@ data_json["type"]="command_vkCmdSetStencilOpEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -104091,7 +104112,7 @@ data_json["type"]="command_vkCmdSetPatchControlPointsEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -104176,7 +104197,7 @@ data_json["type"]="command_vkCmdSetRasterizerDiscardEnable";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -104264,7 +104285,7 @@ data_json["type"]="command_vkCmdSetRasterizerDiscardEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -104352,7 +104373,7 @@ data_json["type"]="command_vkCmdSetDepthBiasEnable";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -104440,7 +104461,7 @@ data_json["type"]="command_vkCmdSetDepthBiasEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -104528,7 +104549,7 @@ data_json["type"]="command_vkCmdSetLogicOpEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -104613,7 +104634,7 @@ data_json["type"]="command_vkCmdSetPrimitiveRestartEnable";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -104701,7 +104722,7 @@ data_json["type"]="command_vkCmdSetPrimitiveRestartEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -104789,7 +104810,7 @@ data_json["type"]="command_vkCmdSetTessellationDomainOriginEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -104874,7 +104895,7 @@ data_json["type"]="command_vkCmdSetDepthClampEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -104962,7 +104983,7 @@ data_json["type"]="command_vkCmdSetPolygonModeEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -105047,7 +105068,7 @@ data_json["type"]="command_vkCmdSetRasterizationSamplesEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -105133,7 +105154,7 @@ data_json["type"]="command_vkCmdSetSampleMaskEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -105239,7 +105260,7 @@ data_json["type"]="command_vkCmdSetAlphaToCoverageEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -105327,7 +105348,7 @@ data_json["type"]="command_vkCmdSetAlphaToOneEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -105415,7 +105436,7 @@ data_json["type"]="command_vkCmdSetLogicOpEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -105505,7 +105526,7 @@ data_json["type"]="command_vkCmdSetColorBlendEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -105618,7 +105639,7 @@ data_json["type"]="command_vkCmdSetColorBlendEquationEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -105729,7 +105750,7 @@ data_json["type"]="command_vkCmdSetColorWriteMaskEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -105838,7 +105859,7 @@ data_json["type"]="command_vkCmdSetRasterizationStreamEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -105923,7 +105944,7 @@ data_json["type"]="command_vkCmdSetConservativeRasterizationModeEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -106008,7 +106029,7 @@ data_json["type"]="command_vkCmdSetExtraPrimitiveOverestimationSizeEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -106093,7 +106114,7 @@ data_json["type"]="command_vkCmdSetDepthClipEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -106181,7 +106202,7 @@ data_json["type"]="command_vkCmdSetSampleLocationsEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -106271,7 +106292,7 @@ data_json["type"]="command_vkCmdSetColorBlendAdvancedEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -106380,7 +106401,7 @@ data_json["type"]="command_vkCmdSetProvokingVertexModeEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -106465,7 +106486,7 @@ data_json["type"]="command_vkCmdSetLineRasterizationModeEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -106550,7 +106571,7 @@ data_json["type"]="command_vkCmdSetLineStippleEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -106638,7 +106659,7 @@ data_json["type"]="command_vkCmdSetDepthClipNegativeOneToOneEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -106726,7 +106747,7 @@ data_json["type"]="command_vkCmdSetViewportWScalingEnableNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -106816,7 +106837,7 @@ data_json["type"]="command_vkCmdSetViewportSwizzleNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -106925,7 +106946,7 @@ data_json["type"]="command_vkCmdSetCoverageToColorEnableNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -107013,7 +107034,7 @@ data_json["type"]="command_vkCmdSetCoverageToColorLocationNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -107098,7 +107119,7 @@ data_json["type"]="command_vkCmdSetCoverageModulationModeNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -107183,7 +107204,7 @@ data_json["type"]="command_vkCmdSetCoverageModulationTableEnableNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -107272,7 +107293,7 @@ data_json["type"]="command_vkCmdSetCoverageModulationTableNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -107376,7 +107397,7 @@ data_json["type"]="command_vkCmdSetShadingRateImageEnableNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -107464,7 +107485,7 @@ data_json["type"]="command_vkCmdSetCoverageReductionModeNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -107549,7 +107570,7 @@ data_json["type"]="command_vkCmdSetRepresentativeFragmentTestEnableNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -107639,7 +107660,7 @@ data_json["type"]="command_vkCreatePrivateDataSlot";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -107772,7 +107793,7 @@ data_json["type"]="command_vkCreatePrivateDataSlotEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -107904,7 +107925,7 @@ data_json["type"]="command_vkDestroyPrivateDataSlot";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -108002,7 +108023,7 @@ data_json["type"]="command_vkDestroyPrivateDataSlotEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -108102,7 +108123,7 @@ data_json["type"]="command_vkSetPrivateData";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -108209,7 +108230,7 @@ data_json["type"]="command_vkSetPrivateDataEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -108316,7 +108337,7 @@ data_json["type"]="command_vkGetPrivateData";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -108434,7 +108455,7 @@ data_json["type"]="command_vkGetPrivateDataEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -108549,7 +108570,7 @@ data_json["type"]="command_vkCmdCopyBuffer2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -108641,7 +108662,7 @@ data_json["type"]="command_vkCmdCopyBuffer2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -108733,7 +108754,7 @@ data_json["type"]="command_vkCmdCopyImage2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -108825,7 +108846,7 @@ data_json["type"]="command_vkCmdCopyImage2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -108917,7 +108938,7 @@ data_json["type"]="command_vkCmdBlitImage2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -109009,7 +109030,7 @@ data_json["type"]="command_vkCmdBlitImage2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -109101,7 +109122,7 @@ data_json["type"]="command_vkCmdCopyBufferToImage2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -109193,7 +109214,7 @@ data_json["type"]="command_vkCmdCopyBufferToImage2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -109285,7 +109306,7 @@ data_json["type"]="command_vkCmdCopyImageToBuffer2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -109377,7 +109398,7 @@ data_json["type"]="command_vkCmdCopyImageToBuffer2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -109469,7 +109490,7 @@ data_json["type"]="command_vkCmdResolveImage2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -109561,7 +109582,7 @@ data_json["type"]="command_vkCmdResolveImage2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -109654,7 +109675,7 @@ data_json["type"]="command_vkCmdSetFragmentShadingRateKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -109766,7 +109787,7 @@ data_json["type"]="command_vkGetPhysicalDeviceFragmentShadingRatesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -109901,7 +109922,7 @@ data_json["type"]="command_vkCmdSetFragmentShadingRateEnumNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -110008,7 +110029,7 @@ data_json["type"]="command_vkGetAccelerationStructureBuildSizesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -110147,7 +110168,7 @@ data_json["type"]="command_vkCmdSetVertexInputEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -110276,7 +110297,7 @@ data_json["type"]="command_vkCmdSetColorWriteEnableEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -110383,7 +110404,7 @@ data_json["type"]="command_vkCmdSetEvent2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -110481,7 +110502,7 @@ data_json["type"]="command_vkCmdSetEvent2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -110579,7 +110600,7 @@ data_json["type"]="command_vkCmdResetEvent2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -110670,7 +110691,7 @@ data_json["type"]="command_vkCmdResetEvent2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -110762,7 +110783,7 @@ data_json["type"]="command_vkCmdWaitEvents2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -110887,7 +110908,7 @@ data_json["type"]="command_vkCmdWaitEvents2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -111010,7 +111031,7 @@ data_json["type"]="command_vkCmdPipelineBarrier2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -111102,7 +111123,7 @@ data_json["type"]="command_vkCmdPipelineBarrier2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -111196,7 +111217,7 @@ data_json["type"]="command_vkQueueSubmit2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -111311,7 +111332,7 @@ data_json["type"]="command_vkQueueSubmit2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -111426,7 +111447,7 @@ data_json["type"]="command_vkCmdWriteTimestamp2";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -111523,7 +111544,7 @@ data_json["type"]="command_vkCmdWriteTimestamp2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -111621,7 +111642,7 @@ data_json["type"]="command_vkCmdWriteBufferMarker2AMD";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -111725,7 +111746,7 @@ data_json["type"]="command_vkGetQueueCheckpointData2NV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -111855,7 +111876,7 @@ data_json["type"]="command_vkCopyMemoryToImageEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -111951,7 +111972,7 @@ data_json["type"]="command_vkCopyImageToMemoryEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -112047,7 +112068,7 @@ data_json["type"]="command_vkCopyImageToImageEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -112144,7 +112165,7 @@ data_json["type"]="command_vkTransitionImageLayoutEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -112253,7 +112274,7 @@ data_json["type"]="command_vkGetPhysicalDeviceVideoCapabilitiesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -112371,7 +112392,7 @@ data_json["type"]="command_vkGetPhysicalDeviceVideoFormatPropertiesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -112519,7 +112540,7 @@ data_json["type"]="command_vkCreateVideoSessionKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -112651,7 +112672,7 @@ data_json["type"]="command_vkDestroyVideoSessionKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -112750,7 +112771,7 @@ data_json["type"]="command_vkCreateVideoSessionParametersKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -112882,7 +112903,7 @@ data_json["type"]="command_vkUpdateVideoSessionParametersKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -112984,7 +113005,7 @@ data_json["type"]="command_vkDestroyVideoSessionParametersKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -113083,7 +113104,7 @@ data_json["type"]="command_vkGetVideoSessionMemoryRequirementsKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -113224,7 +113245,7 @@ data_json["type"]="command_vkBindVideoSessionMemoryKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -113337,7 +113358,7 @@ data_json["type"]="command_vkCmdDecodeVideoKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -113429,7 +113450,7 @@ data_json["type"]="command_vkCmdBeginVideoCodingKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -113521,7 +113542,7 @@ data_json["type"]="command_vkCmdControlVideoCodingKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -113613,7 +113634,7 @@ data_json["type"]="command_vkCmdEndVideoCodingKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -113706,7 +113727,7 @@ data_json["type"]="command_vkCmdDecompressMemoryNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -113812,7 +113833,7 @@ data_json["type"]="command_vkCmdDecompressMemoryIndirectCountNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -113915,7 +113936,7 @@ data_json["type"]="command_vkCreateCuModuleNVX";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -114048,7 +114069,7 @@ data_json["type"]="command_vkCreateCuFunctionNVX";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -114180,7 +114201,7 @@ data_json["type"]="command_vkDestroyCuModuleNVX";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -114278,7 +114299,7 @@ data_json["type"]="command_vkDestroyCuFunctionNVX";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -114375,7 +114396,7 @@ data_json["type"]="command_vkCmdCuLaunchKernelNVX";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -114468,7 +114489,7 @@ data_json["type"]="command_vkGetDescriptorSetLayoutSizeEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -114583,7 +114604,7 @@ data_json["type"]="command_vkGetDescriptorSetLayoutBindingOffsetEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -114703,7 +114724,7 @@ data_json["type"]="command_vkGetDescriptorEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -114845,7 +114866,7 @@ data_json["type"]="command_vkCmdBindDescriptorBuffersEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -114954,7 +114975,7 @@ data_json["type"]="command_vkCmdSetDescriptorBufferOffsetsEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -115096,7 +115117,7 @@ data_json["type"]="command_vkCmdBindDescriptorBufferEmbeddedSamplersEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -115192,7 +115213,7 @@ data_json["type"]="command_vkGetBufferOpaqueCaptureDescriptorDataEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -115231,7 +115252,7 @@ data_json["members"]["pData"]=[&]() {
         }
         
         return_mMAfRwv["members"]={};
-        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData)))+1; mMAfRwv++){
             json temp;
             temp=[&]() {
     json return_zerhPYp=json({});
@@ -115310,8 +115331,8 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["pData"].size()*sizeof(char));
-        for (int MlLKgps=0; MlLKgps < result["members"]["pData"].size(); MlLKgps++){
+    temp=(char*)malloc(result["members"]["pData"]["members"].size()*sizeof(char));
+        for (int MlLKgps=0; MlLKgps < result["members"]["pData"]["members"].size(); MlLKgps++){
             [&]() {
 temp[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
         }
@@ -115333,7 +115354,7 @@ data_json["type"]="command_vkGetImageOpaqueCaptureDescriptorDataEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -115372,7 +115393,7 @@ data_json["members"]["pData"]=[&]() {
         }
         
         return_mMAfRwv["members"]={};
-        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData)))+1; mMAfRwv++){
             json temp;
             temp=[&]() {
     json return_zerhPYp=json({});
@@ -115451,8 +115472,8 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["pData"].size()*sizeof(char));
-        for (int MlLKgps=0; MlLKgps < result["members"]["pData"].size(); MlLKgps++){
+    temp=(char*)malloc(result["members"]["pData"]["members"].size()*sizeof(char));
+        for (int MlLKgps=0; MlLKgps < result["members"]["pData"]["members"].size(); MlLKgps++){
             [&]() {
 temp[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
         }
@@ -115474,7 +115495,7 @@ data_json["type"]="command_vkGetImageViewOpaqueCaptureDescriptorDataEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -115513,7 +115534,7 @@ data_json["members"]["pData"]=[&]() {
         }
         
         return_mMAfRwv["members"]={};
-        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData)))+1; mMAfRwv++){
             json temp;
             temp=[&]() {
     json return_zerhPYp=json({});
@@ -115592,8 +115613,8 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["pData"].size()*sizeof(char));
-        for (int MlLKgps=0; MlLKgps < result["members"]["pData"].size(); MlLKgps++){
+    temp=(char*)malloc(result["members"]["pData"]["members"].size()*sizeof(char));
+        for (int MlLKgps=0; MlLKgps < result["members"]["pData"]["members"].size(); MlLKgps++){
             [&]() {
 temp[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
         }
@@ -115615,7 +115636,7 @@ data_json["type"]="command_vkGetSamplerOpaqueCaptureDescriptorDataEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -115654,7 +115675,7 @@ data_json["members"]["pData"]=[&]() {
         }
         
         return_mMAfRwv["members"]={};
-        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData)))+1; mMAfRwv++){
             json temp;
             temp=[&]() {
     json return_zerhPYp=json({});
@@ -115733,8 +115754,8 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["pData"].size()*sizeof(char));
-        for (int MlLKgps=0; MlLKgps < result["members"]["pData"].size(); MlLKgps++){
+    temp=(char*)malloc(result["members"]["pData"]["members"].size()*sizeof(char));
+        for (int MlLKgps=0; MlLKgps < result["members"]["pData"]["members"].size(); MlLKgps++){
             [&]() {
 temp[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
         }
@@ -115756,7 +115777,7 @@ data_json["type"]="command_vkGetAccelerationStructureOpaqueCaptureDescriptorData
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -115795,7 +115816,7 @@ data_json["members"]["pData"]=[&]() {
         }
         
         return_mMAfRwv["members"]={};
-        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData))); mMAfRwv++){
+        for(int mMAfRwv=0; mMAfRwv < strlen(((char*)(pData)))+1; mMAfRwv++){
             json temp;
             temp=[&]() {
     json return_zerhPYp=json({});
@@ -115874,8 +115895,8 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["pData"].size()*sizeof(char));
-        for (int MlLKgps=0; MlLKgps < result["members"]["pData"].size(); MlLKgps++){
+    temp=(char*)malloc(result["members"]["pData"]["members"].size()*sizeof(char));
+        for (int MlLKgps=0; MlLKgps < result["members"]["pData"]["members"].size(); MlLKgps++){
             [&]() {
 temp[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
         }
@@ -115897,7 +115918,7 @@ data_json["type"]="command_vkSetDeviceMemoryPriorityEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -115988,7 +116009,7 @@ data_json["type"]="command_vkAcquireDrmDisplayEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -116084,7 +116105,7 @@ data_json["type"]="command_vkGetDrmDisplayEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -116200,7 +116221,7 @@ data_json["type"]="command_vkWaitForPresentKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -116299,7 +116320,7 @@ data_json["type"]="command_vkCmdBeginRendering";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -116391,7 +116412,7 @@ data_json["type"]="command_vkCmdBeginRenderingKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -116482,7 +116503,7 @@ data_json["type"]="command_vkCmdEndRendering";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -116561,7 +116582,7 @@ data_json["type"]="command_vkCmdEndRenderingKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -116642,7 +116663,7 @@ data_json["type"]="command_vkGetDescriptorSetLayoutHostMappingInfoVALVE";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -116755,7 +116776,7 @@ data_json["type"]="command_vkGetDescriptorSetHostMappingVALVE";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -116793,7 +116814,7 @@ data_json["members"]["ppData"]=[&]() {
         }
         
         return_gTtZOBV["members"]={};
-        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData))); gTtZOBV++){
+        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData)))+1; gTtZOBV++){
             json temp;
             temp=[&]() {
     json return_LrfUJiU=json({});
@@ -116880,8 +116901,8 @@ descriptorSet=deserialize_VkDescriptorSet(result["members"]["descriptorSet"]);}(
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["ppData"].size()*sizeof(char));
-        for (int zjLTbBV=0; zjLTbBV < result["members"]["ppData"].size(); zjLTbBV++){
+    temp=(char*)malloc(result["members"]["ppData"]["members"].size()*sizeof(char));
+        for (int zjLTbBV=0; zjLTbBV < result["members"]["ppData"]["members"].size(); zjLTbBV++){
             [&]() {
 temp[zjLTbBV]=deserialize_char(result["members"]["ppData"]["members"][zjLTbBV]);}();;
         }
@@ -116901,7 +116922,7 @@ data_json["type"]="command_vkCreateMicromapEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -117033,7 +117054,7 @@ data_json["type"]="command_vkCmdBuildMicromapsEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -117139,7 +117160,7 @@ data_json["type"]="command_vkBuildMicromapsEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -117253,7 +117274,7 @@ data_json["type"]="command_vkDestroyMicromapEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -117350,7 +117371,7 @@ data_json["type"]="command_vkCmdCopyMicromapEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -117443,7 +117464,7 @@ data_json["type"]="command_vkCopyMicromapEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -117544,7 +117565,7 @@ data_json["type"]="command_vkCmdCopyMicromapToMemoryEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -117637,7 +117658,7 @@ data_json["type"]="command_vkCopyMicromapToMemoryEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -117738,7 +117759,7 @@ data_json["type"]="command_vkCmdCopyMemoryToMicromapEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -117831,7 +117852,7 @@ data_json["type"]="command_vkCopyMemoryToMicromapEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -117936,7 +117957,7 @@ data_json["type"]="command_vkCmdWriteMicromapsPropertiesEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -118060,7 +118081,7 @@ data_json["type"]="command_vkWriteMicromapsPropertiesEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -118228,7 +118249,7 @@ data_json["type"]="command_vkGetDeviceMicromapCompatibilityEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -118342,7 +118363,7 @@ data_json["type"]="command_vkGetMicromapBuildSizesEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -118460,7 +118481,7 @@ data_json["type"]="command_vkGetShaderModuleIdentifierEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -118566,7 +118587,7 @@ data_json["type"]="command_vkGetShaderModuleCreateInfoIdentifierEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -118680,7 +118701,7 @@ data_json["type"]="command_vkGetImageSubresourceLayout2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -118799,7 +118820,7 @@ data_json["type"]="command_vkGetImageSubresourceLayout2EXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -118917,7 +118938,7 @@ data_json["type"]="command_vkGetPipelinePropertiesEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -119035,7 +119056,7 @@ data_json["type"]="command_vkGetFramebufferTilePropertiesQCOM";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -119175,7 +119196,7 @@ data_json["type"]="command_vkGetDynamicRenderingTilePropertiesQCOM";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -119293,7 +119314,7 @@ data_json["type"]="command_vkGetPhysicalDeviceOpticalFlowImageFormatsNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -119441,7 +119462,7 @@ data_json["type"]="command_vkCreateOpticalFlowSessionNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -119573,7 +119594,7 @@ data_json["type"]="command_vkDestroyOpticalFlowSessionNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -119673,7 +119694,7 @@ data_json["type"]="command_vkBindOpticalFlowSessionImageNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -119778,7 +119799,7 @@ data_json["type"]="command_vkCmdOpticalFlowExecuteNV";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -119876,7 +119897,7 @@ data_json["type"]="command_vkGetDeviceFaultInfoEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -120000,7 +120021,7 @@ data_json["type"]="command_vkCmdSetDepthBias2EXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -120092,7 +120113,7 @@ data_json["type"]="command_vkReleaseSwapchainImagesEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -120189,7 +120210,7 @@ data_json["type"]="command_vkGetDeviceImageSubresourceLayoutKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -120302,7 +120323,7 @@ data_json["type"]="command_vkMapMemory2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -120361,7 +120382,7 @@ data_json["members"]["ppData"]=[&]() {
         }
         
         return_gTtZOBV["members"]={};
-        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData))); gTtZOBV++){
+        for(int gTtZOBV=0; gTtZOBV < strlen(((char*)(*ppData)))+1; gTtZOBV++){
             json temp;
             temp=[&]() {
     json return_LrfUJiU=json({});
@@ -120447,8 +120468,8 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["ppData"].size()*sizeof(char));
-        for (int zjLTbBV=0; zjLTbBV < result["members"]["ppData"].size(); zjLTbBV++){
+    temp=(char*)malloc(result["members"]["ppData"]["members"].size()*sizeof(char));
+        for (int zjLTbBV=0; zjLTbBV < result["members"]["ppData"]["members"].size(); zjLTbBV++){
             [&]() {
 temp[zjLTbBV]=deserialize_char(result["members"]["ppData"]["members"][zjLTbBV]);}();;
         }
@@ -120489,7 +120510,7 @@ data_json["type"]="command_vkUnmapMemory2KHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -120588,7 +120609,7 @@ data_json["type"]="command_vkCreateShadersEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -120727,8 +120748,10 @@ VkResult return_value;
 [&]() {
 return_value=deserialize_VkResult(result["return"]);}();
 
-                for (int i=0; i<createInfoCount; i++){
-                    handle_to_parent_handle_struct[(uintptr_t)pShaders[i]]=parent;
+                if (pShaders!=NULL){
+                    for (int i=0; i<createInfoCount; i++){
+                        handle_to_parent_handle_struct[(uintptr_t)(pShaders[i])]=parent;
+                    }
                 }
                 
 return return_value;
@@ -120744,7 +120767,7 @@ data_json["type"]="command_vkDestroyShaderEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -120843,7 +120866,7 @@ data_json["type"]="command_vkGetShaderBinaryDataEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -120998,7 +121021,7 @@ data_json["type"]="command_vkCmdBindShadersEXT";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";
@@ -121122,7 +121145,7 @@ data_json["type"]="command_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR";
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
         if (parent.device!=NULL){
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }else{
             data_json["parent"]["type"]="Instance";

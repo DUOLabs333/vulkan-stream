@@ -64,7 +64,7 @@ def serialize(variable,value):
         val["length"].pop()
         
         if length[-1]=="null-terminated":
-            length[-1]=f"strlen({name})"
+            length[-1]=f"strlen({name})+1"
             
         result+=f"""
         {result_json}["members"]={{}};
@@ -148,7 +148,7 @@ def deserialize(variable,value,initialize=False):
                 result+=f"{variable}=deserialize_{type}_p({name});\n"
     elif (len(length)>0 and (length[-1]!="")):
         if length[-1]=="null-terminated":
-            length[-1]=f"{name}.size()"
+            length[-1]=f"""{name}["members"].size()"""
             
         if num_indirection>0: #Dynamic array, so each element of char** would be char*
             if initialize:

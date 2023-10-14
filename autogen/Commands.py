@@ -174,7 +174,7 @@ for name, command in parsed["commands"].items():
         write(f"""
         auto parent=handle_to_parent_handle_struct[(uintptr_t){head_name}];
         if (parent.device!=NULL){{
-            data_json["parent"]["type"]="Instance";
+            data_json["parent"]["type"]="Device";
             data_json["parent"]["handle"]=(uintptr_t)parent.device;
         }}else{{
             data_json["parent"]["type"]="Instance";
@@ -292,21 +292,27 @@ for name, command in parsed["commands"].items():
         
         """)
         
-    for creation_function in ["^vkAllocate(.*)s$","^vkCreate(.*)$"]:
+    for creation_function in ["^vkAllocate(.*)s$","^vkCreate(.*)$","^vkEnumerate(.*)s$"]:
         if re.match(creation_function,name) is not None:
+            matched=False
             for param in reversed(command["params"]):
                 if (param["type"] in parsed["handles"]) and (param["num_indirection"]==1):
                     handle=param
+                    matched=True
                     break
-            
+            if not matched:
+                break
+                
             if handle["type"]=="VkDevice":
                 write(f"""handle_to_parent_handle_struct[(uintptr_t)(*{handle["name"]})]={{.instance=NULL,.device=(*{handle["name"]}) }};""")
             elif handle["type"]=="VkInstance":
                 write(f"""handle_to_parent_handle_struct[(uintptr_t)(*{handle["name"]})]={{.instance=(*{handle["name"]}),.device=NULL}};""")
             elif len(handle["length"])>0 and handle["length"][-1]!="":
                 write(f"""
-                for (int i=0; i<{handle["length"][-1]}; i++){{
-                    handle_to_parent_handle_struct[(uintptr_t){handle["name"]}[i]]=parent;
+                if ({handle["name"]}!=NULL){{
+                    for (int i=0; i<{handle["length"][-1]}; i++){{
+                        handle_to_parent_handle_struct[(uintptr_t)({handle["name"]}[i])]=parent;
+                    }}
                 }}
                 """)
             else:

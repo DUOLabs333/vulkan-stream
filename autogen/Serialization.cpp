@@ -504,7 +504,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_CKwDpuY["members"]={};
-        for(int CKwDpuY=0; CKwDpuY < strlen(((char*)(name.pNext))); CKwDpuY++){
+        for(int CKwDpuY=0; CKwDpuY < strlen(((char*)(name.pNext)))+1; CKwDpuY++){
             json temp;
             temp=[&]() {
     json return_YWCBCkX=json({});
@@ -522,7 +522,7 @@ result["members"]["pApplicationName"]=[&]() {
         }
         
         return_zvDTisH["members"]={};
-        for(int zvDTisH=0; zvDTisH < strlen(name.pApplicationName); zvDTisH++){
+        for(int zvDTisH=0; zvDTisH < strlen(name.pApplicationName)+1; zvDTisH++){
             json temp;
             temp=[&]() {
     json return_CRrVzCv=json({});
@@ -543,7 +543,7 @@ result["members"]["pEngineName"]=[&]() {
         }
         
         return_IeqYpMP["members"]={};
-        for(int IeqYpMP=0; IeqYpMP < strlen(name.pEngineName); IeqYpMP++){
+        for(int IeqYpMP=0; IeqYpMP < strlen(name.pEngineName)+1; IeqYpMP++){
             json temp;
             temp=[&]() {
     json return_cTdhvDN=json({});
@@ -578,8 +578,8 @@ void* temp_tTXsqWM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FqXNYHR=0; FqXNYHR < name["members"]["pNext"].size(); FqXNYHR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FqXNYHR=0; FqXNYHR < name["members"]["pNext"]["members"].size(); FqXNYHR++){
             [&]() {
 temp[FqXNYHR]=deserialize_char(name["members"]["pNext"]["members"][FqXNYHR]);}();;
         }
@@ -592,8 +592,8 @@ char* temp_mmkIEWW;[&]() {
         temp_mmkIEWW=NULL;
         return;
         }
-    temp_mmkIEWW=(char*)malloc(name["members"]["pApplicationName"].size()*sizeof(char));
-        for (int GbFVFGj=0; GbFVFGj < name["members"]["pApplicationName"].size(); GbFVFGj++){
+    temp_mmkIEWW=(char*)malloc(name["members"]["pApplicationName"]["members"].size()*sizeof(char));
+        for (int GbFVFGj=0; GbFVFGj < name["members"]["pApplicationName"]["members"].size(); GbFVFGj++){
             [&]() {
 temp_mmkIEWW[GbFVFGj]=deserialize_char(name["members"]["pApplicationName"]["members"][GbFVFGj]);}();;
         }
@@ -607,8 +607,8 @@ char* temp_wBBxWNt;[&]() {
         temp_wBBxWNt=NULL;
         return;
         }
-    temp_wBBxWNt=(char*)malloc(name["members"]["pEngineName"].size()*sizeof(char));
-        for (int ZkxDLqZ=0; ZkxDLqZ < name["members"]["pEngineName"].size(); ZkxDLqZ++){
+    temp_wBBxWNt=(char*)malloc(name["members"]["pEngineName"]["members"].size()*sizeof(char));
+        for (int ZkxDLqZ=0; ZkxDLqZ < name["members"]["pEngineName"]["members"].size(); ZkxDLqZ++){
             [&]() {
 temp_wBBxWNt[ZkxDLqZ]=deserialize_char(name["members"]["pEngineName"]["members"][ZkxDLqZ]);}();;
         }
@@ -639,7 +639,7 @@ result["members"]["pUserData"]=[&]() {
         }
         
         return_ckadoDn["members"]={};
-        for(int ckadoDn=0; ckadoDn < strlen(((char*)(name.pUserData))); ckadoDn++){
+        for(int ckadoDn=0; ckadoDn < strlen(((char*)(name.pUserData)))+1; ckadoDn++){
             json temp;
             temp=[&]() {
     json return_OMpHlLz=json({});
@@ -689,8 +689,8 @@ auto _struct = new VkAllocationCallbacks_struct;
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pUserData"].size()*sizeof(char));
-        for (int gLWLjWN=0; gLWLjWN < name["members"]["pUserData"].size(); gLWLjWN++){
+    temp=(char*)malloc(name["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int gLWLjWN=0; gLWLjWN < name["members"]["pUserData"]["members"].size(); gLWLjWN++){
             [&]() {
 temp[gLWLjWN]=deserialize_char(name["members"]["pUserData"]["members"][gLWLjWN]);}();;
         }
@@ -759,7 +759,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_CKwDpuY["members"]={};
-        for(int CKwDpuY=0; CKwDpuY < strlen(((char*)(name.pNext))); CKwDpuY++){
+        for(int CKwDpuY=0; CKwDpuY < strlen(((char*)(name.pNext)))+1; CKwDpuY++){
             json temp;
             temp=[&]() {
     json return_YWCBCkX=json({});
@@ -815,8 +815,8 @@ void* temp_tTXsqWM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FqXNYHR=0; FqXNYHR < name["members"]["pNext"].size(); FqXNYHR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FqXNYHR=0; FqXNYHR < name["members"]["pNext"]["members"].size(); FqXNYHR++){
             [&]() {
 temp[FqXNYHR]=deserialize_char(name["members"]["pNext"]["members"][FqXNYHR]);}();;
         }
@@ -866,7 +866,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_CKwDpuY["members"]={};
-        for(int CKwDpuY=0; CKwDpuY < strlen(((char*)(name.pNext))); CKwDpuY++){
+        for(int CKwDpuY=0; CKwDpuY < strlen(((char*)(name.pNext)))+1; CKwDpuY++){
             json temp;
             temp=[&]() {
     json return_YWCBCkX=json({});
@@ -922,7 +922,7 @@ result["members"]["ppEnabledLayerNames"]=[&]() {
         }
         
         return_Ziaryta["members"]={};
-        for(int Ziaryta=0; Ziaryta < strlen(name.ppEnabledLayerNames[DbSwPwH]); Ziaryta++){
+        for(int Ziaryta=0; Ziaryta < strlen(name.ppEnabledLayerNames[DbSwPwH])+1; Ziaryta++){
             json temp;
             temp=[&]() {
     json return_VjoYOpl=json({});
@@ -958,7 +958,7 @@ result["members"]["ppEnabledExtensionNames"]=[&]() {
         }
         
         return_NTIEHyT["members"]={};
-        for(int NTIEHyT=0; NTIEHyT < strlen(name.ppEnabledExtensionNames[cbpcoAX]); NTIEHyT++){
+        for(int NTIEHyT=0; NTIEHyT < strlen(name.ppEnabledExtensionNames[cbpcoAX])+1; NTIEHyT++){
             json temp;
             temp=[&]() {
     json return_KeEVszW=json({});
@@ -1002,8 +1002,8 @@ void* temp_tTXsqWM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FqXNYHR=0; FqXNYHR < name["members"]["pNext"].size(); FqXNYHR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FqXNYHR=0; FqXNYHR < name["members"]["pNext"]["members"].size(); FqXNYHR++){
             [&]() {
 temp[FqXNYHR]=deserialize_char(name["members"]["pNext"]["members"][FqXNYHR]);}();;
         }
@@ -1043,8 +1043,8 @@ char** temp_TFFtnLi;[&]() {
         temp_TFFtnLi[FhFwYWw]=NULL;
         return;
         }
-    temp_TFFtnLi[FhFwYWw]=(char*)malloc(name["members"]["ppEnabledLayerNames"]["members"][FhFwYWw].size()*sizeof(char));
-        for (int UDgMnlK=0; UDgMnlK < name["members"]["ppEnabledLayerNames"]["members"][FhFwYWw].size(); UDgMnlK++){
+    temp_TFFtnLi[FhFwYWw]=(char*)malloc(name["members"]["ppEnabledLayerNames"]["members"][FhFwYWw]["members"].size()*sizeof(char));
+        for (int UDgMnlK=0; UDgMnlK < name["members"]["ppEnabledLayerNames"]["members"][FhFwYWw]["members"].size(); UDgMnlK++){
             [&]() {
 temp_TFFtnLi[FhFwYWw][UDgMnlK]=deserialize_char(name["members"]["ppEnabledLayerNames"]["members"][FhFwYWw]["members"][UDgMnlK]);}();;
         }
@@ -1068,8 +1068,8 @@ char** temp_zEUymwE;[&]() {
         temp_zEUymwE[jvttGCc]=NULL;
         return;
         }
-    temp_zEUymwE[jvttGCc]=(char*)malloc(name["members"]["ppEnabledExtensionNames"]["members"][jvttGCc].size()*sizeof(char));
-        for (int lpBwPUy=0; lpBwPUy < name["members"]["ppEnabledExtensionNames"]["members"][jvttGCc].size(); lpBwPUy++){
+    temp_zEUymwE[jvttGCc]=(char*)malloc(name["members"]["ppEnabledExtensionNames"]["members"][jvttGCc]["members"].size()*sizeof(char));
+        for (int lpBwPUy=0; lpBwPUy < name["members"]["ppEnabledExtensionNames"]["members"][jvttGCc]["members"].size(); lpBwPUy++){
             [&]() {
 temp_zEUymwE[jvttGCc][lpBwPUy]=deserialize_char(name["members"]["ppEnabledExtensionNames"]["members"][jvttGCc]["members"][lpBwPUy]);}();;
         }
@@ -1112,7 +1112,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_CKwDpuY["members"]={};
-        for(int CKwDpuY=0; CKwDpuY < strlen(((char*)(name.pNext))); CKwDpuY++){
+        for(int CKwDpuY=0; CKwDpuY < strlen(((char*)(name.pNext)))+1; CKwDpuY++){
             json temp;
             temp=[&]() {
     json return_YWCBCkX=json({});
@@ -1158,7 +1158,7 @@ result["members"]["ppEnabledLayerNames"]=[&]() {
         }
         
         return_Ziaryta["members"]={};
-        for(int Ziaryta=0; Ziaryta < strlen(name.ppEnabledLayerNames[DbSwPwH]); Ziaryta++){
+        for(int Ziaryta=0; Ziaryta < strlen(name.ppEnabledLayerNames[DbSwPwH])+1; Ziaryta++){
             json temp;
             temp=[&]() {
     json return_VjoYOpl=json({});
@@ -1194,7 +1194,7 @@ result["members"]["ppEnabledExtensionNames"]=[&]() {
         }
         
         return_SErTYXn["members"]={};
-        for(int SErTYXn=0; SErTYXn < strlen(name.ppEnabledExtensionNames[lAWYZpe]); SErTYXn++){
+        for(int SErTYXn=0; SErTYXn < strlen(name.ppEnabledExtensionNames[lAWYZpe])+1; SErTYXn++){
             json temp;
             temp=[&]() {
     json return_hklhLTn=json({});
@@ -1227,8 +1227,8 @@ void* temp_tTXsqWM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FqXNYHR=0; FqXNYHR < name["members"]["pNext"].size(); FqXNYHR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FqXNYHR=0; FqXNYHR < name["members"]["pNext"]["members"].size(); FqXNYHR++){
             [&]() {
 temp[FqXNYHR]=deserialize_char(name["members"]["pNext"]["members"][FqXNYHR]);}();;
         }
@@ -1264,8 +1264,8 @@ char** temp_TFFtnLi;[&]() {
         temp_TFFtnLi[FhFwYWw]=NULL;
         return;
         }
-    temp_TFFtnLi[FhFwYWw]=(char*)malloc(name["members"]["ppEnabledLayerNames"]["members"][FhFwYWw].size()*sizeof(char));
-        for (int UDgMnlK=0; UDgMnlK < name["members"]["ppEnabledLayerNames"]["members"][FhFwYWw].size(); UDgMnlK++){
+    temp_TFFtnLi[FhFwYWw]=(char*)malloc(name["members"]["ppEnabledLayerNames"]["members"][FhFwYWw]["members"].size()*sizeof(char));
+        for (int UDgMnlK=0; UDgMnlK < name["members"]["ppEnabledLayerNames"]["members"][FhFwYWw]["members"].size(); UDgMnlK++){
             [&]() {
 temp_TFFtnLi[FhFwYWw][UDgMnlK]=deserialize_char(name["members"]["ppEnabledLayerNames"]["members"][FhFwYWw]["members"][UDgMnlK]);}();;
         }
@@ -1289,8 +1289,8 @@ char** temp_SDvRpXY;[&]() {
         temp_SDvRpXY[IomKVOQ]=NULL;
         return;
         }
-    temp_SDvRpXY[IomKVOQ]=(char*)malloc(name["members"]["ppEnabledExtensionNames"]["members"][IomKVOQ].size()*sizeof(char));
-        for (int NWSofxs=0; NWSofxs < name["members"]["ppEnabledExtensionNames"]["members"][IomKVOQ].size(); NWSofxs++){
+    temp_SDvRpXY[IomKVOQ]=(char*)malloc(name["members"]["ppEnabledExtensionNames"]["members"][IomKVOQ]["members"].size()*sizeof(char));
+        for (int NWSofxs=0; NWSofxs < name["members"]["ppEnabledExtensionNames"]["members"][IomKVOQ]["members"].size(); NWSofxs++){
             [&]() {
 temp_SDvRpXY[IomKVOQ][NWSofxs]=deserialize_char(name["members"]["ppEnabledExtensionNames"]["members"][IomKVOQ]["members"][NWSofxs]);}();;
         }
@@ -1414,7 +1414,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -1451,8 +1451,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -1636,7 +1636,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -1678,8 +1678,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -1841,7 +1841,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -1939,8 +1939,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -2020,7 +2020,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -2070,8 +2070,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -2116,7 +2116,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gSvJhWw["members"]={};
-        for(int gSvJhWw=0; gSvJhWw < strlen(((char*)(name.pNext))); gSvJhWw++){
+        for(int gSvJhWw=0; gSvJhWw < strlen(((char*)(name.pNext)))+1; gSvJhWw++){
             json temp;
             temp=[&]() {
     json return_LmeHFYb=json({});
@@ -2148,8 +2148,8 @@ void* temp_lEvEGvb;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int HrQiuVE=0; HrQiuVE < name["members"]["pNext"].size(); HrQiuVE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int HrQiuVE=0; HrQiuVE < name["members"]["pNext"]["members"].size(); HrQiuVE++){
             [&]() {
 temp[HrQiuVE]=deserialize_char(name["members"]["pNext"]["members"][HrQiuVE]);}();;
         }
@@ -2182,7 +2182,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -2246,8 +2246,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -2302,7 +2302,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -2350,8 +2350,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -2487,7 +2487,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -2522,8 +2522,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -2558,7 +2558,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -2612,8 +2612,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -2660,7 +2660,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -2713,8 +2713,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -2761,7 +2761,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -2844,8 +2844,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -2964,7 +2964,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -3011,8 +3011,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -3335,7 +3335,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -3469,8 +3469,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -3832,7 +3832,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BspviZs["members"]={};
-        for(int BspviZs=0; BspviZs < strlen(((char*)(name.pNext))); BspviZs++){
+        for(int BspviZs=0; BspviZs < strlen(((char*)(name.pNext)))+1; BspviZs++){
             json temp;
             temp=[&]() {
     json return_myGzYIS=json({});
@@ -3885,8 +3885,8 @@ void* temp_YSmRZda;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XtXGFUI=0; XtXGFUI < name["members"]["pNext"].size(); XtXGFUI++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XtXGFUI=0; XtXGFUI < name["members"]["pNext"]["members"].size(); XtXGFUI++){
             [&]() {
 temp[XtXGFUI]=deserialize_char(name["members"]["pNext"]["members"][XtXGFUI]);}();;
         }
@@ -3996,7 +3996,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -4049,8 +4049,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -4119,7 +4119,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -4175,8 +4175,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -4226,7 +4226,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -4279,8 +4279,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -4451,7 +4451,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -4478,7 +4478,7 @@ result["members"]["pName"]=[&]() {
         }
         
         return_bOYNyyd["members"]={};
-        for(int bOYNyyd=0; bOYNyyd < strlen(name.pName); bOYNyyd++){
+        for(int bOYNyyd=0; bOYNyyd < strlen(name.pName)+1; bOYNyyd++){
             json temp;
             temp=[&]() {
     json return_wKPuVTC=json({});
@@ -4496,7 +4496,7 @@ result["members"]["pName"]=[&]() {
         }
         
         return_bOYNyyd["members"]={};
-        for(int bOYNyyd=0; bOYNyyd < strlen(name.pName); bOYNyyd++){
+        for(int bOYNyyd=0; bOYNyyd < strlen(name.pName)+1; bOYNyyd++){
             json temp;
             temp=[&]() {
     json return_wKPuVTC=json({});
@@ -4536,8 +4536,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -4556,8 +4556,8 @@ char* temp_bpdPFzV;[&]() {
         temp_bpdPFzV=NULL;
         return;
         }
-    temp_bpdPFzV=(char*)malloc(name["members"]["pName"].size()*sizeof(char));
-        for (int XfysswB=0; XfysswB < name["members"]["pName"].size(); XfysswB++){
+    temp_bpdPFzV=(char*)malloc(name["members"]["pName"]["members"].size()*sizeof(char));
+        for (int XfysswB=0; XfysswB < name["members"]["pName"]["members"].size(); XfysswB++){
             [&]() {
 temp_bpdPFzV[XfysswB]=deserialize_char(name["members"]["pName"]["members"][XfysswB]);}();;
         }
@@ -4569,8 +4569,8 @@ char* temp_bpdPFzV;[&]() {
         temp_bpdPFzV=NULL;
         return;
         }
-    temp_bpdPFzV=(char*)malloc(name["members"]["pName"].size()*sizeof(char));
-        for (int XfysswB=0; XfysswB < name["members"]["pName"].size(); XfysswB++){
+    temp_bpdPFzV=(char*)malloc(name["members"]["pName"]["members"].size()*sizeof(char));
+        for (int XfysswB=0; XfysswB < name["members"]["pName"]["members"].size(); XfysswB++){
             [&]() {
 temp_bpdPFzV[XfysswB]=deserialize_char(name["members"]["pName"]["members"][XfysswB]);}();;
         }
@@ -4611,7 +4611,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -4655,8 +4655,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -4697,7 +4697,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DzzZOZU["members"]={};
-        for(int DzzZOZU=0; DzzZOZU < strlen(((char*)(name.pNext))); DzzZOZU++){
+        for(int DzzZOZU=0; DzzZOZU < strlen(((char*)(name.pNext)))+1; DzzZOZU++){
             json temp;
             temp=[&]() {
     json return_KchNDnF=json({});
@@ -4741,8 +4741,8 @@ void* temp_TczvWNh;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int czfkvZb=0; czfkvZb < name["members"]["pNext"].size(); czfkvZb++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int czfkvZb=0; czfkvZb < name["members"]["pNext"]["members"].size(); czfkvZb++){
             [&]() {
 temp[czfkvZb]=deserialize_char(name["members"]["pNext"]["members"][czfkvZb]);}();;
         }
@@ -4782,7 +4782,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gSvJhWw["members"]={};
-        for(int gSvJhWw=0; gSvJhWw < strlen(((char*)(name.pNext))); gSvJhWw++){
+        for(int gSvJhWw=0; gSvJhWw < strlen(((char*)(name.pNext)))+1; gSvJhWw++){
             json temp;
             temp=[&]() {
     json return_LmeHFYb=json({});
@@ -4814,8 +4814,8 @@ void* temp_lEvEGvb;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int HrQiuVE=0; HrQiuVE < name["members"]["pNext"].size(); HrQiuVE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int HrQiuVE=0; HrQiuVE < name["members"]["pNext"]["members"].size(); HrQiuVE++){
             [&]() {
 temp[HrQiuVE]=deserialize_char(name["members"]["pNext"]["members"][HrQiuVE]);}();;
         }
@@ -4905,7 +4905,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -4979,8 +4979,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -5043,7 +5043,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -5083,8 +5083,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -5122,7 +5122,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -5157,8 +5157,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -5193,7 +5193,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -5267,8 +5267,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -5331,7 +5331,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -5399,8 +5399,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -5456,7 +5456,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -5529,8 +5529,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -5649,7 +5649,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -5723,8 +5723,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -5784,7 +5784,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -5837,8 +5837,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -5932,7 +5932,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -5999,8 +5999,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -6055,7 +6055,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -6240,8 +6240,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -6411,7 +6411,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -6474,8 +6474,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -6609,7 +6609,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -6683,8 +6683,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -6747,7 +6747,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -6830,8 +6830,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -6897,7 +6897,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -6932,8 +6932,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -6968,7 +6968,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -7006,8 +7006,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -7044,7 +7044,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -7093,8 +7093,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -7138,7 +7138,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -7181,8 +7181,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -7226,7 +7226,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -7285,8 +7285,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -7782,7 +7782,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -7877,8 +7877,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -7956,7 +7956,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -7988,8 +7988,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -8022,7 +8022,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -8054,8 +8054,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -9254,7 +9254,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -9286,8 +9286,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -9320,7 +9320,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -9361,8 +9361,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -9401,7 +9401,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -9466,8 +9466,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -9663,7 +9663,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -9773,8 +9773,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -9856,7 +9856,7 @@ result["members"]["displayName"]=[&]() {
         }
         
         return_ntDJBDI["members"]={};
-        for(int ntDJBDI=0; ntDJBDI < strlen(name.displayName); ntDJBDI++){
+        for(int ntDJBDI=0; ntDJBDI < strlen(name.displayName)+1; ntDJBDI++){
             json temp;
             temp=[&]() {
     json return_gWwbUHx=json({});
@@ -9898,8 +9898,8 @@ char* temp_OknVlWm;[&]() {
         temp_OknVlWm=NULL;
         return;
         }
-    temp_OknVlWm=(char*)malloc(name["members"]["displayName"].size()*sizeof(char));
-        for (int NmchkhS=0; NmchkhS < name["members"]["displayName"].size(); NmchkhS++){
+    temp_OknVlWm=(char*)malloc(name["members"]["displayName"]["members"].size()*sizeof(char));
+        for (int NmchkhS=0; NmchkhS < name["members"]["displayName"]["members"].size(); NmchkhS++){
             [&]() {
 temp_OknVlWm[NmchkhS]=deserialize_char(name["members"]["displayName"]["members"][NmchkhS]);}();;
         }
@@ -10004,7 +10004,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -10039,8 +10039,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -10131,7 +10131,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -10184,8 +10184,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -10232,7 +10232,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -10272,8 +10272,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -10372,7 +10372,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -10417,8 +10417,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -10462,7 +10462,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -10507,8 +10507,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -10573,7 +10573,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -10670,8 +10670,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -10748,7 +10748,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_qrfWxRw["members"]={};
-        for(int qrfWxRw=0; qrfWxRw < strlen(((char*)(name.pNext))); qrfWxRw++){
+        for(int qrfWxRw=0; qrfWxRw < strlen(((char*)(name.pNext)))+1; qrfWxRw++){
             json temp;
             temp=[&]() {
     json return_GsYIOzC=json({});
@@ -10855,8 +10855,8 @@ void* temp_yMFsvBw;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int BdMlzmT=0; BdMlzmT < name["members"]["pNext"].size(); BdMlzmT++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int BdMlzmT=0; BdMlzmT < name["members"]["pNext"]["members"].size(); BdMlzmT++){
             [&]() {
 temp[BdMlzmT]=deserialize_char(name["members"]["pNext"]["members"][BdMlzmT]);}();;
         }
@@ -10942,7 +10942,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -10973,7 +10973,7 @@ result["members"]["pUserData"]=[&]() {
         }
         
         return_yFtevbn["members"]={};
-        for(int yFtevbn=0; yFtevbn < strlen(((char*)(name.pUserData))); yFtevbn++){
+        for(int yFtevbn=0; yFtevbn < strlen(((char*)(name.pUserData)))+1; yFtevbn++){
             json temp;
             temp=[&]() {
     json return_XsYTkgz=json({});
@@ -11010,8 +11010,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -11038,8 +11038,8 @@ _struct->PFN_vkDebugReportCallbackEXT_id=name["members"]["pfnCallback"]["id"];
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pUserData"].size()*sizeof(char));
-        for (int MExKlSf=0; MExKlSf < name["members"]["pUserData"].size(); MExKlSf++){
+    temp=(char*)malloc(name["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int MExKlSf=0; MExKlSf < name["members"]["pUserData"]["members"].size(); MExKlSf++){
             [&]() {
 temp[MExKlSf]=deserialize_char(name["members"]["pUserData"]["members"][MExKlSf]);}();;
         }
@@ -11073,7 +11073,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -11123,8 +11123,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -11170,7 +11170,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -11241,8 +11241,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -11303,7 +11303,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -11335,8 +11335,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -11369,7 +11369,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -11393,7 +11393,7 @@ result["members"]["pObjectName"]=[&]() {
         }
         
         return_mhvUDzw["members"]={};
-        for(int mhvUDzw=0; mhvUDzw < strlen(name.pObjectName); mhvUDzw++){
+        for(int mhvUDzw=0; mhvUDzw < strlen(name.pObjectName)+1; mhvUDzw++){
             json temp;
             temp=[&]() {
     json return_wDobBOp=json({});
@@ -11422,8 +11422,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -11440,8 +11440,8 @@ char* temp_MerXJMg;[&]() {
         temp_MerXJMg=NULL;
         return;
         }
-    temp_MerXJMg=(char*)malloc(name["members"]["pObjectName"].size()*sizeof(char));
-        for (int YqMQdiP=0; YqMQdiP < name["members"]["pObjectName"].size(); YqMQdiP++){
+    temp_MerXJMg=(char*)malloc(name["members"]["pObjectName"]["members"].size()*sizeof(char));
+        for (int YqMQdiP=0; YqMQdiP < name["members"]["pObjectName"]["members"].size(); YqMQdiP++){
             [&]() {
 temp_MerXJMg[YqMQdiP]=deserialize_char(name["members"]["pObjectName"]["members"][YqMQdiP]);}();;
         }
@@ -11471,7 +11471,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -11537,8 +11537,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -11597,7 +11597,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -11615,7 +11615,7 @@ result["members"]["pMarkerName"]=[&]() {
         }
         
         return_PrBzFHq["members"]={};
-        for(int PrBzFHq=0; PrBzFHq < strlen(name.pMarkerName); PrBzFHq++){
+        for(int PrBzFHq=0; PrBzFHq < strlen(name.pMarkerName)+1; PrBzFHq++){
             json temp;
             temp=[&]() {
     json return_bhXTyDS=json({});
@@ -11657,8 +11657,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -11671,8 +11671,8 @@ char* temp_OpAxvNb;[&]() {
         temp_OpAxvNb=NULL;
         return;
         }
-    temp_OpAxvNb=(char*)malloc(name["members"]["pMarkerName"].size()*sizeof(char));
-        for (int CsqYngU=0; CsqYngU < name["members"]["pMarkerName"].size(); CsqYngU++){
+    temp_OpAxvNb=(char*)malloc(name["members"]["pMarkerName"]["members"].size()*sizeof(char));
+        for (int CsqYngU=0; CsqYngU < name["members"]["pMarkerName"]["members"].size(); CsqYngU++){
             [&]() {
 temp_OpAxvNb[CsqYngU]=deserialize_char(name["members"]["pMarkerName"]["members"][CsqYngU]);}();;
         }
@@ -11709,7 +11709,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -11743,8 +11743,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -11778,7 +11778,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -11812,8 +11812,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -11847,7 +11847,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -11882,8 +11882,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -11949,7 +11949,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -11981,8 +11981,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -12015,7 +12015,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -12047,8 +12047,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -12081,7 +12081,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -12114,8 +12114,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -12149,7 +12149,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dnFegcI["members"]={};
-        for(int dnFegcI=0; dnFegcI < strlen(((char*)(name.pNext))); dnFegcI++){
+        for(int dnFegcI=0; dnFegcI < strlen(((char*)(name.pNext)))+1; dnFegcI++){
             json temp;
             temp=[&]() {
     json return_tJPAjpe=json({});
@@ -12192,8 +12192,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfHoroN=0; XfHoroN < name["members"]["pNext"].size(); XfHoroN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfHoroN=0; XfHoroN < name["members"]["pNext"]["members"].size(); XfHoroN++){
             [&]() {
 temp[XfHoroN]=deserialize_char(name["members"]["pNext"]["members"][XfHoroN]);}();;
         }
@@ -12233,7 +12233,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -12265,8 +12265,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -12299,7 +12299,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -12331,8 +12331,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -12365,7 +12365,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -12397,8 +12397,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -12431,7 +12431,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -12463,8 +12463,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -12497,7 +12497,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_iUMONij["members"]={};
-        for(int iUMONij=0; iUMONij < strlen(((char*)(name.pNext))); iUMONij++){
+        for(int iUMONij=0; iUMONij < strlen(((char*)(name.pNext)))+1; iUMONij++){
             json temp;
             temp=[&]() {
     json return_jKBjTOw=json({});
@@ -12530,8 +12530,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iDKuMMl=0; iDKuMMl < name["members"]["pNext"].size(); iDKuMMl++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iDKuMMl=0; iDKuMMl < name["members"]["pNext"]["members"].size(); iDKuMMl++){
             [&]() {
 temp[iDKuMMl]=deserialize_char(name["members"]["pNext"]["members"][iDKuMMl]);}();;
         }
@@ -12565,7 +12565,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_iUMONij["members"]={};
-        for(int iUMONij=0; iUMONij < strlen(((char*)(name.pNext))); iUMONij++){
+        for(int iUMONij=0; iUMONij < strlen(((char*)(name.pNext)))+1; iUMONij++){
             json temp;
             temp=[&]() {
     json return_jKBjTOw=json({});
@@ -12598,8 +12598,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iDKuMMl=0; iDKuMMl < name["members"]["pNext"].size(); iDKuMMl++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iDKuMMl=0; iDKuMMl < name["members"]["pNext"]["members"].size(); iDKuMMl++){
             [&]() {
 temp[iDKuMMl]=deserialize_char(name["members"]["pNext"]["members"][iDKuMMl]);}();;
         }
@@ -12633,7 +12633,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -12688,8 +12688,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -12738,7 +12738,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -12769,8 +12769,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -12803,7 +12803,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_QrhDlGJ["members"]={};
-        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext))); QrhDlGJ++){
+        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext)))+1; QrhDlGJ++){
             json temp;
             temp=[&]() {
     json return_iwabBQa=json({});
@@ -12875,8 +12875,8 @@ void* temp_rKirhFM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"].size(); orSBOiu++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"]["members"].size(); orSBOiu++){
             [&]() {
 temp[orSBOiu]=deserialize_char(name["members"]["pNext"]["members"][orSBOiu]);}();;
         }
@@ -12944,7 +12944,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_yUuLRrM["members"]={};
-        for(int yUuLRrM=0; yUuLRrM < strlen(((char*)(name.pNext))); yUuLRrM++){
+        for(int yUuLRrM=0; yUuLRrM < strlen(((char*)(name.pNext)))+1; yUuLRrM++){
             json temp;
             temp=[&]() {
     json return_mbuAVtw=json({});
@@ -13015,8 +13015,8 @@ void* temp_rbkRlJL;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int DxMkVGH=0; DxMkVGH < name["members"]["pNext"].size(); DxMkVGH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int DxMkVGH=0; DxMkVGH < name["members"]["pNext"]["members"].size(); DxMkVGH++){
             [&]() {
 temp[DxMkVGH]=deserialize_char(name["members"]["pNext"]["members"][DxMkVGH]);}();;
         }
@@ -13191,7 +13191,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vUXOXkz["members"]={};
-        for(int vUXOXkz=0; vUXOXkz < strlen(((char*)(name.pNext))); vUXOXkz++){
+        for(int vUXOXkz=0; vUXOXkz < strlen(((char*)(name.pNext)))+1; vUXOXkz++){
             json temp;
             temp=[&]() {
     json return_DGyChlW=json({});
@@ -13291,8 +13291,8 @@ void* temp_jeWdYOg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xZdSNCp=0; xZdSNCp < name["members"]["pNext"].size(); xZdSNCp++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xZdSNCp=0; xZdSNCp < name["members"]["pNext"]["members"].size(); xZdSNCp++){
             [&]() {
 temp[xZdSNCp]=deserialize_char(name["members"]["pNext"]["members"][xZdSNCp]);}();;
         }
@@ -13372,7 +13372,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_rBgzMMw["members"]={};
-        for(int rBgzMMw=0; rBgzMMw < strlen(((char*)(name.pNext))); rBgzMMw++){
+        for(int rBgzMMw=0; rBgzMMw < strlen(((char*)(name.pNext)))+1; rBgzMMw++){
             json temp;
             temp=[&]() {
     json return_ejnGIWb=json({});
@@ -13449,8 +13449,8 @@ void* temp_YvSbgFq;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int bfrvKlJ=0; bfrvKlJ < name["members"]["pNext"].size(); bfrvKlJ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int bfrvKlJ=0; bfrvKlJ < name["members"]["pNext"]["members"].size(); bfrvKlJ++){
             [&]() {
 temp[bfrvKlJ]=deserialize_char(name["members"]["pNext"]["members"][bfrvKlJ]);}();;
         }
@@ -13515,7 +13515,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_jaGYMMt["members"]={};
-        for(int jaGYMMt=0; jaGYMMt < strlen(((char*)(name.pNext))); jaGYMMt++){
+        for(int jaGYMMt=0; jaGYMMt < strlen(((char*)(name.pNext)))+1; jaGYMMt++){
             json temp;
             temp=[&]() {
     json return_vucWmcI=json({});
@@ -13606,8 +13606,8 @@ void* temp_BOnLiIL;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int yPIrNHj=0; yPIrNHj < name["members"]["pNext"].size(); yPIrNHj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int yPIrNHj=0; yPIrNHj < name["members"]["pNext"]["members"].size(); yPIrNHj++){
             [&]() {
 temp[yPIrNHj]=deserialize_char(name["members"]["pNext"]["members"][yPIrNHj]);}();;
         }
@@ -13679,7 +13679,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HwomHKN["members"]={};
-        for(int HwomHKN=0; HwomHKN < strlen(((char*)(name.pNext))); HwomHKN++){
+        for(int HwomHKN=0; HwomHKN < strlen(((char*)(name.pNext)))+1; HwomHKN++){
             json temp;
             temp=[&]() {
     json return_kNuhIKz=json({});
@@ -13720,8 +13720,8 @@ void* temp_VBAOmYt;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RRrHqsk=0; RRrHqsk < name["members"]["pNext"].size(); RRrHqsk++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RRrHqsk=0; RRrHqsk < name["members"]["pNext"]["members"].size(); RRrHqsk++){
             [&]() {
 temp[RRrHqsk]=deserialize_char(name["members"]["pNext"]["members"][RRrHqsk]);}();;
         }
@@ -13760,7 +13760,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DzzZOZU["members"]={};
-        for(int DzzZOZU=0; DzzZOZU < strlen(((char*)(name.pNext))); DzzZOZU++){
+        for(int DzzZOZU=0; DzzZOZU < strlen(((char*)(name.pNext)))+1; DzzZOZU++){
             json temp;
             temp=[&]() {
     json return_KchNDnF=json({});
@@ -13795,8 +13795,8 @@ void* temp_TczvWNh;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int czfkvZb=0; czfkvZb < name["members"]["pNext"].size(); czfkvZb++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int czfkvZb=0; czfkvZb < name["members"]["pNext"]["members"].size(); czfkvZb++){
             [&]() {
 temp[czfkvZb]=deserialize_char(name["members"]["pNext"]["members"][czfkvZb]);}();;
         }
@@ -13850,7 +13850,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -13881,8 +13881,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -13915,7 +13915,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -13946,8 +13946,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -13980,7 +13980,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -14011,8 +14011,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -14045,7 +14045,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -14076,8 +14076,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -14110,7 +14110,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -14141,8 +14141,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -14175,7 +14175,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -14206,8 +14206,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -14240,7 +14240,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -14271,8 +14271,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -14305,7 +14305,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -14336,8 +14336,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -14370,7 +14370,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -14414,8 +14414,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -14456,7 +14456,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -14500,8 +14500,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -14542,7 +14542,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -14573,8 +14573,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -14607,7 +14607,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -14638,8 +14638,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -14672,7 +14672,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -14703,8 +14703,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -14737,7 +14737,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -14768,8 +14768,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -14802,7 +14802,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -14833,8 +14833,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -14867,7 +14867,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -14898,8 +14898,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -14932,7 +14932,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -14976,8 +14976,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -15018,7 +15018,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -15062,8 +15062,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -15104,7 +15104,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -15135,8 +15135,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -15231,7 +15231,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -15291,8 +15291,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -15341,7 +15341,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -15401,8 +15401,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -15451,7 +15451,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -15501,8 +15501,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -15621,7 +15621,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -15659,8 +15659,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -15697,7 +15697,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -15735,8 +15735,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -15773,7 +15773,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -15811,8 +15811,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -15849,7 +15849,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -15887,8 +15887,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -15977,7 +15977,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -16009,8 +16009,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -16043,7 +16043,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -16075,8 +16075,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -16109,7 +16109,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -16140,8 +16140,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -16174,7 +16174,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -16205,8 +16205,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -16239,7 +16239,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -16277,8 +16277,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -16315,7 +16315,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -16353,8 +16353,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -16391,7 +16391,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -16422,8 +16422,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -16456,7 +16456,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -16487,8 +16487,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -16521,7 +16521,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -16596,8 +16596,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -16654,7 +16654,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -16729,8 +16729,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -16787,7 +16787,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -16819,8 +16819,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -16853,7 +16853,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -16885,8 +16885,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -16919,7 +16919,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -16951,8 +16951,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -16985,7 +16985,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -17017,8 +17017,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -17051,7 +17051,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -17083,8 +17083,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -17117,7 +17117,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -17149,8 +17149,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -17183,7 +17183,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -17218,8 +17218,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -17254,7 +17254,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -17285,8 +17285,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -17319,7 +17319,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -17354,8 +17354,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -17390,7 +17390,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -17422,8 +17422,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -17456,7 +17456,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -17488,8 +17488,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -17522,7 +17522,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -17559,8 +17559,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -17597,7 +17597,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -17634,8 +17634,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -17672,7 +17672,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -17704,8 +17704,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -17738,7 +17738,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -17770,8 +17770,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -17804,7 +17804,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -17845,8 +17845,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -17885,7 +17885,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -17920,8 +17920,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -17956,7 +17956,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -17988,8 +17988,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -18022,7 +18022,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -18054,8 +18054,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -18088,7 +18088,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -18125,8 +18125,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -18163,7 +18163,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -18200,8 +18200,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -18238,7 +18238,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -18270,8 +18270,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -18304,7 +18304,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -18336,8 +18336,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -18370,7 +18370,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -18411,8 +18411,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -18451,7 +18451,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -18486,8 +18486,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -18522,7 +18522,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -18565,8 +18565,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -18606,7 +18606,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -18649,8 +18649,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -18690,7 +18690,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -18724,8 +18724,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -18760,7 +18760,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -18794,8 +18794,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -18830,7 +18830,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -18922,8 +18922,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -18999,7 +18999,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -19091,8 +19091,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -19168,7 +19168,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -19229,8 +19229,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -19283,7 +19283,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -19315,8 +19315,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -19349,7 +19349,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -19381,8 +19381,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -19415,7 +19415,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -19447,8 +19447,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -19481,7 +19481,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -19513,8 +19513,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -19547,7 +19547,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -19596,8 +19596,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -19640,7 +19640,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -19689,8 +19689,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -19733,7 +19733,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -19768,8 +19768,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -19804,7 +19804,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -19839,8 +19839,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -19875,7 +19875,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -19915,8 +19915,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -19954,7 +19954,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -19994,8 +19994,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -20033,7 +20033,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -20083,8 +20083,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -20130,7 +20130,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -20180,8 +20180,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -20227,7 +20227,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -20267,8 +20267,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -20306,7 +20306,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -20346,8 +20346,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -20385,7 +20385,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -20456,8 +20456,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -20518,7 +20518,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -20589,8 +20589,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -20651,7 +20651,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -20704,8 +20704,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -20753,7 +20753,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -20806,8 +20806,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -20855,7 +20855,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -20887,8 +20887,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -20921,7 +20921,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -20953,8 +20953,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -20987,7 +20987,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -21079,8 +21079,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -21156,7 +21156,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -21248,8 +21248,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -21325,7 +21325,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -21360,8 +21360,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -21396,7 +21396,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -21431,8 +21431,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -21467,7 +21467,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -21511,8 +21511,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -21552,7 +21552,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -21584,8 +21584,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -21618,7 +21618,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -21653,8 +21653,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -21689,7 +21689,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -21733,8 +21733,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -21775,7 +21775,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -21828,8 +21828,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -21877,7 +21877,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -21927,8 +21927,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -21974,7 +21974,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -22024,8 +22024,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -22071,7 +22071,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -22103,8 +22103,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -22219,7 +22219,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_pyqMmwX["members"]={};
-        for(int pyqMmwX=0; pyqMmwX < strlen(((char*)(name.pNext))); pyqMmwX++){
+        for(int pyqMmwX=0; pyqMmwX < strlen(((char*)(name.pNext)))+1; pyqMmwX++){
             json temp;
             temp=[&]() {
     json return_ZTdMgxy=json({});
@@ -22287,8 +22287,8 @@ void* temp_HSNaCQD;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int DFFtUwc=0; DFFtUwc < name["members"]["pNext"].size(); DFFtUwc++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int DFFtUwc=0; DFFtUwc < name["members"]["pNext"]["members"].size(); DFFtUwc++){
             [&]() {
 temp[DFFtUwc]=deserialize_char(name["members"]["pNext"]["members"][DFFtUwc]);}();;
         }
@@ -22346,7 +22346,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_pyqMmwX["members"]={};
-        for(int pyqMmwX=0; pyqMmwX < strlen(((char*)(name.pNext))); pyqMmwX++){
+        for(int pyqMmwX=0; pyqMmwX < strlen(((char*)(name.pNext)))+1; pyqMmwX++){
             json temp;
             temp=[&]() {
     json return_ZTdMgxy=json({});
@@ -22414,8 +22414,8 @@ void* temp_HSNaCQD;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int DFFtUwc=0; DFFtUwc < name["members"]["pNext"].size(); DFFtUwc++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int DFFtUwc=0; DFFtUwc < name["members"]["pNext"]["members"].size(); DFFtUwc++){
             [&]() {
 temp[DFFtUwc]=deserialize_char(name["members"]["pNext"]["members"][DFFtUwc]);}();;
         }
@@ -22494,7 +22494,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -22527,8 +22527,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -22562,7 +22562,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -22612,8 +22612,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -22659,7 +22659,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -22692,8 +22692,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -22727,7 +22727,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_GdGbgkP["members"]={};
-        for(int GdGbgkP=0; GdGbgkP < strlen(((char*)(name.pNext))); GdGbgkP++){
+        for(int GdGbgkP=0; GdGbgkP < strlen(((char*)(name.pNext)))+1; GdGbgkP++){
             json temp;
             temp=[&]() {
     json return_ULTSnMU=json({});
@@ -22780,8 +22780,8 @@ void* temp_elzpggu;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int MSTGFxk=0; MSTGFxk < name["members"]["pNext"].size(); MSTGFxk++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int MSTGFxk=0; MSTGFxk < name["members"]["pNext"]["members"].size(); MSTGFxk++){
             [&]() {
 temp[MSTGFxk]=deserialize_char(name["members"]["pNext"]["members"][MSTGFxk]);}();;
         }
@@ -22828,7 +22828,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dnFegcI["members"]={};
-        for(int dnFegcI=0; dnFegcI < strlen(((char*)(name.pNext))); dnFegcI++){
+        for(int dnFegcI=0; dnFegcI < strlen(((char*)(name.pNext)))+1; dnFegcI++){
             json temp;
             temp=[&]() {
     json return_tJPAjpe=json({});
@@ -22861,8 +22861,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfHoroN=0; XfHoroN < name["members"]["pNext"].size(); XfHoroN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfHoroN=0; XfHoroN < name["members"]["pNext"]["members"].size(); XfHoroN++){
             [&]() {
 temp[XfHoroN]=deserialize_char(name["members"]["pNext"]["members"][XfHoroN]);}();;
         }
@@ -22896,7 +22896,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gSvJhWw["members"]={};
-        for(int gSvJhWw=0; gSvJhWw < strlen(((char*)(name.pNext))); gSvJhWw++){
+        for(int gSvJhWw=0; gSvJhWw < strlen(((char*)(name.pNext)))+1; gSvJhWw++){
             json temp;
             temp=[&]() {
     json return_LmeHFYb=json({});
@@ -22930,8 +22930,8 @@ void* temp_lEvEGvb;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int HrQiuVE=0; HrQiuVE < name["members"]["pNext"].size(); HrQiuVE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int HrQiuVE=0; HrQiuVE < name["members"]["pNext"]["members"].size(); HrQiuVE++){
             [&]() {
 temp[HrQiuVE]=deserialize_char(name["members"]["pNext"]["members"][HrQiuVE]);}();;
         }
@@ -23017,7 +23017,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -23067,8 +23067,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -23156,7 +23156,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -23211,8 +23211,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -23292,7 +23292,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -23345,8 +23345,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -23394,7 +23394,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -23425,8 +23425,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -23459,7 +23459,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_PVlVzUD["members"]={};
-        for(int PVlVzUD=0; PVlVzUD < strlen(((char*)(name.pNext))); PVlVzUD++){
+        for(int PVlVzUD=0; PVlVzUD < strlen(((char*)(name.pNext)))+1; PVlVzUD++){
             json temp;
             temp=[&]() {
     json return_iJMFbTE=json({});
@@ -23515,8 +23515,8 @@ void* temp_kChWqaa;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int kavmYFv=0; kavmYFv < name["members"]["pNext"].size(); kavmYFv++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int kavmYFv=0; kavmYFv < name["members"]["pNext"]["members"].size(); kavmYFv++){
             [&]() {
 temp[kavmYFv]=deserialize_char(name["members"]["pNext"]["members"][kavmYFv]);}();;
         }
@@ -23566,7 +23566,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -23599,8 +23599,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -23686,7 +23686,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_PIFIRAa["members"]={};
-        for(int PIFIRAa=0; PIFIRAa < strlen(((char*)(name.pNext))); PIFIRAa++){
+        for(int PIFIRAa=0; PIFIRAa < strlen(((char*)(name.pNext)))+1; PIFIRAa++){
             json temp;
             temp=[&]() {
     json return_TKbZMtK=json({});
@@ -23736,8 +23736,8 @@ void* temp_MNdfgEW;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int WUOhjCY=0; WUOhjCY < name["members"]["pNext"].size(); WUOhjCY++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int WUOhjCY=0; WUOhjCY < name["members"]["pNext"]["members"].size(); WUOhjCY++){
             [&]() {
 temp[WUOhjCY]=deserialize_char(name["members"]["pNext"]["members"][WUOhjCY]);}();;
         }
@@ -23783,7 +23783,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_PIFIRAa["members"]={};
-        for(int PIFIRAa=0; PIFIRAa < strlen(((char*)(name.pNext))); PIFIRAa++){
+        for(int PIFIRAa=0; PIFIRAa < strlen(((char*)(name.pNext)))+1; PIFIRAa++){
             json temp;
             temp=[&]() {
     json return_TKbZMtK=json({});
@@ -23833,8 +23833,8 @@ void* temp_MNdfgEW;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int WUOhjCY=0; WUOhjCY < name["members"]["pNext"].size(); WUOhjCY++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int WUOhjCY=0; WUOhjCY < name["members"]["pNext"]["members"].size(); WUOhjCY++){
             [&]() {
 temp[WUOhjCY]=deserialize_char(name["members"]["pNext"]["members"][WUOhjCY]);}();;
         }
@@ -23880,7 +23880,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -23912,8 +23912,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -23946,7 +23946,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_tjJmLHi["members"]={};
-        for(int tjJmLHi=0; tjJmLHi < strlen(((char*)(name.pNext))); tjJmLHi++){
+        for(int tjJmLHi=0; tjJmLHi < strlen(((char*)(name.pNext)))+1; tjJmLHi++){
             json temp;
             temp=[&]() {
     json return_vzPYEMV=json({});
@@ -23977,8 +23977,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int kMUZTCS=0; kMUZTCS < name["members"]["pNext"].size(); kMUZTCS++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int kMUZTCS=0; kMUZTCS < name["members"]["pNext"]["members"].size(); kMUZTCS++){
             [&]() {
 temp[kMUZTCS]=deserialize_char(name["members"]["pNext"]["members"][kMUZTCS]);}();;
         }
@@ -24011,7 +24011,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -24042,8 +24042,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -24076,7 +24076,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -24107,8 +24107,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -24141,7 +24141,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -24172,8 +24172,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -24206,7 +24206,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -24237,8 +24237,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -24271,7 +24271,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -24306,8 +24306,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -24342,7 +24342,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -24373,8 +24373,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -24407,7 +24407,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -24438,8 +24438,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -24472,7 +24472,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -24520,8 +24520,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -24564,7 +24564,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -24612,8 +24612,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -24656,7 +24656,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_oMWOblP["members"]={};
-        for(int oMWOblP=0; oMWOblP < strlen(((char*)(name.pNext))); oMWOblP++){
+        for(int oMWOblP=0; oMWOblP < strlen(((char*)(name.pNext)))+1; oMWOblP++){
             json temp;
             temp=[&]() {
     json return_AAyNWAc=json({});
@@ -24698,8 +24698,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ZIEPtjf=0; ZIEPtjf < name["members"]["pNext"].size(); ZIEPtjf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ZIEPtjf=0; ZIEPtjf < name["members"]["pNext"]["members"].size(); ZIEPtjf++){
             [&]() {
 temp[ZIEPtjf]=deserialize_char(name["members"]["pNext"]["members"][ZIEPtjf]);}();;
         }
@@ -24739,7 +24739,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_mDIroCt["members"]={};
-        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext))); mDIroCt++){
+        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext)))+1; mDIroCt++){
             json temp;
             temp=[&]() {
     json return_Riekxgn=json({});
@@ -24772,8 +24772,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"].size(); RzJZikE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"]["members"].size(); RzJZikE++){
             [&]() {
 temp[RzJZikE]=deserialize_char(name["members"]["pNext"]["members"][RzJZikE]);}();;
         }
@@ -24807,7 +24807,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_mDIroCt["members"]={};
-        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext))); mDIroCt++){
+        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext)))+1; mDIroCt++){
             json temp;
             temp=[&]() {
     json return_Riekxgn=json({});
@@ -24840,8 +24840,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"].size(); RzJZikE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"]["members"].size(); RzJZikE++){
             [&]() {
 temp[RzJZikE]=deserialize_char(name["members"]["pNext"]["members"][RzJZikE]);}();;
         }
@@ -24875,7 +24875,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_omdKpwK["members"]={};
-        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext))); omdKpwK++){
+        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext)))+1; omdKpwK++){
             json temp;
             temp=[&]() {
     json return_qeQDPTn=json({});
@@ -24907,8 +24907,8 @@ void* temp_ETCebxi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"].size(); DBXiMSF++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"]["members"].size(); DBXiMSF++){
             [&]() {
 temp[DBXiMSF]=deserialize_char(name["members"]["pNext"]["members"][DBXiMSF]);}();;
         }
@@ -24941,7 +24941,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_omdKpwK["members"]={};
-        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext))); omdKpwK++){
+        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext)))+1; omdKpwK++){
             json temp;
             temp=[&]() {
     json return_qeQDPTn=json({});
@@ -24973,8 +24973,8 @@ void* temp_ETCebxi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"].size(); DBXiMSF++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"]["members"].size(); DBXiMSF++){
             [&]() {
 temp[DBXiMSF]=deserialize_char(name["members"]["pNext"]["members"][DBXiMSF]);}();;
         }
@@ -25007,7 +25007,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_KeGTVqc["members"]={};
-        for(int KeGTVqc=0; KeGTVqc < strlen(((char*)(name.pNext))); KeGTVqc++){
+        for(int KeGTVqc=0; KeGTVqc < strlen(((char*)(name.pNext)))+1; KeGTVqc++){
             json temp;
             temp=[&]() {
     json return_iHYyTxs=json({});
@@ -25047,8 +25047,8 @@ void* temp_parBwKB;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UtWKUgz=0; UtWKUgz < name["members"]["pNext"].size(); UtWKUgz++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UtWKUgz=0; UtWKUgz < name["members"]["pNext"]["members"].size(); UtWKUgz++){
             [&]() {
 temp[UtWKUgz]=deserialize_char(name["members"]["pNext"]["members"][UtWKUgz]);}();;
         }
@@ -25090,7 +25090,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_KeGTVqc["members"]={};
-        for(int KeGTVqc=0; KeGTVqc < strlen(((char*)(name.pNext))); KeGTVqc++){
+        for(int KeGTVqc=0; KeGTVqc < strlen(((char*)(name.pNext)))+1; KeGTVqc++){
             json temp;
             temp=[&]() {
     json return_iHYyTxs=json({});
@@ -25130,8 +25130,8 @@ void* temp_parBwKB;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UtWKUgz=0; UtWKUgz < name["members"]["pNext"].size(); UtWKUgz++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UtWKUgz=0; UtWKUgz < name["members"]["pNext"]["members"].size(); UtWKUgz++){
             [&]() {
 temp[UtWKUgz]=deserialize_char(name["members"]["pNext"]["members"][UtWKUgz]);}();;
         }
@@ -25173,7 +25173,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_omdKpwK["members"]={};
-        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext))); omdKpwK++){
+        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext)))+1; omdKpwK++){
             json temp;
             temp=[&]() {
     json return_qeQDPTn=json({});
@@ -25205,8 +25205,8 @@ void* temp_ETCebxi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"].size(); DBXiMSF++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"]["members"].size(); DBXiMSF++){
             [&]() {
 temp[DBXiMSF]=deserialize_char(name["members"]["pNext"]["members"][DBXiMSF]);}();;
         }
@@ -25239,7 +25239,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_omdKpwK["members"]={};
-        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext))); omdKpwK++){
+        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext)))+1; omdKpwK++){
             json temp;
             temp=[&]() {
     json return_qeQDPTn=json({});
@@ -25271,8 +25271,8 @@ void* temp_ETCebxi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"].size(); DBXiMSF++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"]["members"].size(); DBXiMSF++){
             [&]() {
 temp[DBXiMSF]=deserialize_char(name["members"]["pNext"]["members"][DBXiMSF]);}();;
         }
@@ -25305,7 +25305,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_omdKpwK["members"]={};
-        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext))); omdKpwK++){
+        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext)))+1; omdKpwK++){
             json temp;
             temp=[&]() {
     json return_qeQDPTn=json({});
@@ -25337,8 +25337,8 @@ void* temp_ETCebxi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"].size(); DBXiMSF++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"]["members"].size(); DBXiMSF++){
             [&]() {
 temp[DBXiMSF]=deserialize_char(name["members"]["pNext"]["members"][DBXiMSF]);}();;
         }
@@ -25371,7 +25371,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_omdKpwK["members"]={};
-        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext))); omdKpwK++){
+        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext)))+1; omdKpwK++){
             json temp;
             temp=[&]() {
     json return_qeQDPTn=json({});
@@ -25403,8 +25403,8 @@ void* temp_ETCebxi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"].size(); DBXiMSF++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"]["members"].size(); DBXiMSF++){
             [&]() {
 temp[DBXiMSF]=deserialize_char(name["members"]["pNext"]["members"][DBXiMSF]);}();;
         }
@@ -25437,7 +25437,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_omdKpwK["members"]={};
-        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext))); omdKpwK++){
+        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext)))+1; omdKpwK++){
             json temp;
             temp=[&]() {
     json return_qeQDPTn=json({});
@@ -25480,8 +25480,8 @@ void* temp_ETCebxi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"].size(); DBXiMSF++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"]["members"].size(); DBXiMSF++){
             [&]() {
 temp[DBXiMSF]=deserialize_char(name["members"]["pNext"]["members"][DBXiMSF]);}();;
         }
@@ -25525,7 +25525,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_omdKpwK["members"]={};
-        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext))); omdKpwK++){
+        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext)))+1; omdKpwK++){
             json temp;
             temp=[&]() {
     json return_qeQDPTn=json({});
@@ -25568,8 +25568,8 @@ void* temp_ETCebxi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"].size(); DBXiMSF++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"]["members"].size(); DBXiMSF++){
             [&]() {
 temp[DBXiMSF]=deserialize_char(name["members"]["pNext"]["members"][DBXiMSF]);}();;
         }
@@ -25613,7 +25613,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -25644,8 +25644,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -25678,7 +25678,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -25709,8 +25709,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -25743,7 +25743,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_VqJMjTu["members"]={};
-        for(int VqJMjTu=0; VqJMjTu < strlen(((char*)(name.pNext))); VqJMjTu++){
+        for(int VqJMjTu=0; VqJMjTu < strlen(((char*)(name.pNext)))+1; VqJMjTu++){
             json temp;
             temp=[&]() {
     json return_jXBFzfw=json({});
@@ -25774,8 +25774,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int scPCNqA=0; scPCNqA < name["members"]["pNext"].size(); scPCNqA++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int scPCNqA=0; scPCNqA < name["members"]["pNext"]["members"].size(); scPCNqA++){
             [&]() {
 temp[scPCNqA]=deserialize_char(name["members"]["pNext"]["members"][scPCNqA]);}();;
         }
@@ -25808,7 +25808,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_VqJMjTu["members"]={};
-        for(int VqJMjTu=0; VqJMjTu < strlen(((char*)(name.pNext))); VqJMjTu++){
+        for(int VqJMjTu=0; VqJMjTu < strlen(((char*)(name.pNext)))+1; VqJMjTu++){
             json temp;
             temp=[&]() {
     json return_jXBFzfw=json({});
@@ -25839,8 +25839,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int scPCNqA=0; scPCNqA < name["members"]["pNext"].size(); scPCNqA++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int scPCNqA=0; scPCNqA < name["members"]["pNext"]["members"].size(); scPCNqA++){
             [&]() {
 temp[scPCNqA]=deserialize_char(name["members"]["pNext"]["members"][scPCNqA]);}();;
         }
@@ -25873,7 +25873,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -25904,8 +25904,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -25938,7 +25938,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -25969,8 +25969,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -26003,7 +26003,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -26041,8 +26041,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -26079,7 +26079,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -26117,8 +26117,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -26155,7 +26155,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -26190,8 +26190,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -26226,7 +26226,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -26261,8 +26261,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -26297,7 +26297,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -26329,8 +26329,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -26363,7 +26363,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -26398,8 +26398,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -26434,7 +26434,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -26466,8 +26466,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -26500,7 +26500,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -26532,8 +26532,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -26566,7 +26566,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -26598,8 +26598,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -26632,7 +26632,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -26664,8 +26664,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -26698,7 +26698,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -26730,8 +26730,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -26764,7 +26764,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -26819,8 +26819,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -26868,7 +26868,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -26923,8 +26923,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -26972,7 +26972,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -27004,8 +27004,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -27038,7 +27038,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -27070,8 +27070,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -27104,7 +27104,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -27136,8 +27136,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -27170,7 +27170,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -27202,8 +27202,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -27236,7 +27236,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -27269,8 +27269,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -27304,7 +27304,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -27337,8 +27337,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -27372,7 +27372,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -27403,8 +27403,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -27437,7 +27437,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -27468,8 +27468,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -27502,7 +27502,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -27535,8 +27535,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -27570,7 +27570,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -27610,8 +27610,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -27649,7 +27649,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_PIFIRAa["members"]={};
-        for(int PIFIRAa=0; PIFIRAa < strlen(((char*)(name.pNext))); PIFIRAa++){
+        for(int PIFIRAa=0; PIFIRAa < strlen(((char*)(name.pNext)))+1; PIFIRAa++){
             json temp;
             temp=[&]() {
     json return_TKbZMtK=json({});
@@ -27683,8 +27683,8 @@ void* temp_MNdfgEW;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int WUOhjCY=0; WUOhjCY < name["members"]["pNext"].size(); WUOhjCY++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int WUOhjCY=0; WUOhjCY < name["members"]["pNext"]["members"].size(); WUOhjCY++){
             [&]() {
 temp[WUOhjCY]=deserialize_char(name["members"]["pNext"]["members"][WUOhjCY]);}();;
         }
@@ -27718,7 +27718,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -27751,8 +27751,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -27786,7 +27786,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -27819,8 +27819,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -27854,7 +27854,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_qksLCsC["members"]={};
-        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext))); qksLCsC++){
+        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext)))+1; qksLCsC++){
             json temp;
             temp=[&]() {
     json return_qlTkbxn=json({});
@@ -27892,8 +27892,8 @@ void* temp_YIdsYkt;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"].size(); xiAUTQz++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"]["members"].size(); xiAUTQz++){
             [&]() {
 temp[xiAUTQz]=deserialize_char(name["members"]["pNext"]["members"][xiAUTQz]);}();;
         }
@@ -27930,7 +27930,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LStNoUH["members"]={};
-        for(int LStNoUH=0; LStNoUH < strlen(((char*)(name.pNext))); LStNoUH++){
+        for(int LStNoUH=0; LStNoUH < strlen(((char*)(name.pNext)))+1; LStNoUH++){
             json temp;
             temp=[&]() {
     json return_pXWymYt=json({});
@@ -27970,8 +27970,8 @@ void* temp_BtWPJhQ;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RPFsQsS=0; RPFsQsS < name["members"]["pNext"].size(); RPFsQsS++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RPFsQsS=0; RPFsQsS < name["members"]["pNext"]["members"].size(); RPFsQsS++){
             [&]() {
 temp[RPFsQsS]=deserialize_char(name["members"]["pNext"]["members"][RPFsQsS]);}();;
         }
@@ -28009,7 +28009,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -28047,8 +28047,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -28085,7 +28085,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -28123,8 +28123,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -28182,7 +28182,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -28238,8 +28238,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -28331,7 +28331,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -28402,8 +28402,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -28464,7 +28464,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -28501,8 +28501,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -28538,7 +28538,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -28593,8 +28593,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -28641,7 +28641,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -28672,8 +28672,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -28706,7 +28706,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -28738,8 +28738,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -28772,7 +28772,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -28804,8 +28804,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -28838,7 +28838,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -28871,8 +28871,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -28906,7 +28906,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_bwYhDhd["members"]={};
-        for(int bwYhDhd=0; bwYhDhd < strlen(((char*)(name.pNext))); bwYhDhd++){
+        for(int bwYhDhd=0; bwYhDhd < strlen(((char*)(name.pNext)))+1; bwYhDhd++){
             json temp;
             temp=[&]() {
     json return_UywxEbK=json({});
@@ -28939,8 +28939,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int kPSctNU=0; kPSctNU < name["members"]["pNext"].size(); kPSctNU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int kPSctNU=0; kPSctNU < name["members"]["pNext"]["members"].size(); kPSctNU++){
             [&]() {
 temp[kPSctNU]=deserialize_char(name["members"]["pNext"]["members"][kPSctNU]);}();;
         }
@@ -28974,7 +28974,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -29030,8 +29030,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -29079,7 +29079,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -29121,8 +29121,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -29161,7 +29161,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ePDHwWm["members"]={};
-        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext))); ePDHwWm++){
+        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext)))+1; ePDHwWm++){
             json temp;
             temp=[&]() {
     json return_vqZuHkL=json({});
@@ -29199,8 +29199,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"].size(); ghdHOrj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"]["members"].size(); ghdHOrj++){
             [&]() {
 temp[ghdHOrj]=deserialize_char(name["members"]["pNext"]["members"][ghdHOrj]);}();;
         }
@@ -29237,7 +29237,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ePDHwWm["members"]={};
-        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext))); ePDHwWm++){
+        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext)))+1; ePDHwWm++){
             json temp;
             temp=[&]() {
     json return_vqZuHkL=json({});
@@ -29275,8 +29275,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"].size(); ghdHOrj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"]["members"].size(); ghdHOrj++){
             [&]() {
 temp[ghdHOrj]=deserialize_char(name["members"]["pNext"]["members"][ghdHOrj]);}();;
         }
@@ -29313,7 +29313,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -29356,8 +29356,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -29398,7 +29398,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -29441,8 +29441,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -29483,7 +29483,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -29540,8 +29540,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -29594,7 +29594,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -29651,8 +29651,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -29705,7 +29705,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -29737,8 +29737,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -29771,7 +29771,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -29803,8 +29803,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -29837,7 +29837,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LStNoUH["members"]={};
-        for(int LStNoUH=0; LStNoUH < strlen(((char*)(name.pNext))); LStNoUH++){
+        for(int LStNoUH=0; LStNoUH < strlen(((char*)(name.pNext)))+1; LStNoUH++){
             json temp;
             temp=[&]() {
     json return_pXWymYt=json({});
@@ -29898,8 +29898,8 @@ void* temp_BtWPJhQ;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RPFsQsS=0; RPFsQsS < name["members"]["pNext"].size(); RPFsQsS++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RPFsQsS=0; RPFsQsS < name["members"]["pNext"]["members"].size(); RPFsQsS++){
             [&]() {
 temp[RPFsQsS]=deserialize_char(name["members"]["pNext"]["members"][RPFsQsS]);}();;
         }
@@ -29952,7 +29952,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -30002,8 +30002,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -30049,7 +30049,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -30099,8 +30099,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -30146,7 +30146,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -30206,8 +30206,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -30262,7 +30262,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -30294,8 +30294,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -30328,7 +30328,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -30364,8 +30364,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -30401,7 +30401,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -30437,8 +30437,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -30474,7 +30474,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -30507,8 +30507,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -30542,7 +30542,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -30575,8 +30575,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -30610,7 +30610,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -30643,8 +30643,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -30678,7 +30678,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -30711,8 +30711,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -30746,7 +30746,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -30779,8 +30779,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -30814,7 +30814,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -30872,8 +30872,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -30922,7 +30922,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_QrhDlGJ["members"]={};
-        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext))); QrhDlGJ++){
+        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext)))+1; QrhDlGJ++){
             json temp;
             temp=[&]() {
     json return_iwabBQa=json({});
@@ -30981,8 +30981,8 @@ void* temp_rKirhFM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"].size(); orSBOiu++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"]["members"].size(); orSBOiu++){
             [&]() {
 temp[orSBOiu]=deserialize_char(name["members"]["pNext"]["members"][orSBOiu]);}();;
         }
@@ -31034,7 +31034,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -31067,8 +31067,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -31102,7 +31102,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -31135,8 +31135,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -31170,7 +31170,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -31203,8 +31203,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -31238,7 +31238,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -31271,8 +31271,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -31306,7 +31306,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -31344,8 +31344,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -31382,7 +31382,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -31420,8 +31420,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -31458,7 +31458,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -31496,8 +31496,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -31534,7 +31534,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -31643,8 +31643,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -31724,7 +31724,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -31833,8 +31833,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -31914,7 +31914,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -31947,8 +31947,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -31982,7 +31982,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -32015,8 +32015,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -32147,7 +32147,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vUXOXkz["members"]={};
-        for(int vUXOXkz=0; vUXOXkz < strlen(((char*)(name.pNext))); vUXOXkz++){
+        for(int vUXOXkz=0; vUXOXkz < strlen(((char*)(name.pNext)))+1; vUXOXkz++){
             json temp;
             temp=[&]() {
     json return_DGyChlW=json({});
@@ -32179,8 +32179,8 @@ void* temp_jeWdYOg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xZdSNCp=0; xZdSNCp < name["members"]["pNext"].size(); xZdSNCp++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xZdSNCp=0; xZdSNCp < name["members"]["pNext"]["members"].size(); xZdSNCp++){
             [&]() {
 temp[xZdSNCp]=deserialize_char(name["members"]["pNext"]["members"][xZdSNCp]);}();;
         }
@@ -32213,7 +32213,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vUXOXkz["members"]={};
-        for(int vUXOXkz=0; vUXOXkz < strlen(((char*)(name.pNext))); vUXOXkz++){
+        for(int vUXOXkz=0; vUXOXkz < strlen(((char*)(name.pNext)))+1; vUXOXkz++){
             json temp;
             temp=[&]() {
     json return_DGyChlW=json({});
@@ -32245,8 +32245,8 @@ void* temp_jeWdYOg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xZdSNCp=0; xZdSNCp < name["members"]["pNext"].size(); xZdSNCp++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xZdSNCp=0; xZdSNCp < name["members"]["pNext"]["members"].size(); xZdSNCp++){
             [&]() {
 temp[xZdSNCp]=deserialize_char(name["members"]["pNext"]["members"][xZdSNCp]);}();;
         }
@@ -32279,7 +32279,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -32312,8 +32312,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -32347,7 +32347,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -32380,8 +32380,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -32415,7 +32415,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -32459,8 +32459,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -32500,7 +32500,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -32544,8 +32544,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -32585,7 +32585,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gwOIPFK["members"]={};
-        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext))); gwOIPFK++){
+        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext)))+1; gwOIPFK++){
             json temp;
             temp=[&]() {
     json return_XRJxgUx=json({});
@@ -32609,7 +32609,7 @@ result["members"]["pObjectName"]=[&]() {
         }
         
         return_zCtDSaW["members"]={};
-        for(int zCtDSaW=0; zCtDSaW < strlen(name.pObjectName); zCtDSaW++){
+        for(int zCtDSaW=0; zCtDSaW < strlen(name.pObjectName)+1; zCtDSaW++){
             json temp;
             temp=[&]() {
     json return_AKoPMaJ=json({});
@@ -32638,8 +32638,8 @@ void* temp_vQLyWGy;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"].size(); iVScxqU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"]["members"].size(); iVScxqU++){
             [&]() {
 temp[iVScxqU]=deserialize_char(name["members"]["pNext"]["members"][iVScxqU]);}();;
         }
@@ -32656,8 +32656,8 @@ char* temp_rdFCMgM;[&]() {
         temp_rdFCMgM=NULL;
         return;
         }
-    temp_rdFCMgM=(char*)malloc(name["members"]["pObjectName"].size()*sizeof(char));
-        for (int IXnrNPz=0; IXnrNPz < name["members"]["pObjectName"].size(); IXnrNPz++){
+    temp_rdFCMgM=(char*)malloc(name["members"]["pObjectName"]["members"].size()*sizeof(char));
+        for (int IXnrNPz=0; IXnrNPz < name["members"]["pObjectName"]["members"].size(); IXnrNPz++){
             [&]() {
 temp_rdFCMgM[IXnrNPz]=deserialize_char(name["members"]["pObjectName"]["members"][IXnrNPz]);}();;
         }
@@ -32687,7 +32687,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -32753,8 +32753,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -32813,7 +32813,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -32831,7 +32831,7 @@ result["members"]["pLabelName"]=[&]() {
         }
         
         return_rxORfMa["members"]={};
-        for(int rxORfMa=0; rxORfMa < strlen(name.pLabelName); rxORfMa++){
+        for(int rxORfMa=0; rxORfMa < strlen(name.pLabelName)+1; rxORfMa++){
             json temp;
             temp=[&]() {
     json return_GrXlJcy=json({});
@@ -32873,8 +32873,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -32887,8 +32887,8 @@ char* temp_eQxbagU;[&]() {
         temp_eQxbagU=NULL;
         return;
         }
-    temp_eQxbagU=(char*)malloc(name["members"]["pLabelName"].size()*sizeof(char));
-        for (int cOjzgLL=0; cOjzgLL < name["members"]["pLabelName"].size(); cOjzgLL++){
+    temp_eQxbagU=(char*)malloc(name["members"]["pLabelName"]["members"].size()*sizeof(char));
+        for (int cOjzgLL=0; cOjzgLL < name["members"]["pLabelName"]["members"].size(); cOjzgLL++){
             [&]() {
 temp_eQxbagU[cOjzgLL]=deserialize_char(name["members"]["pLabelName"]["members"][cOjzgLL]);}();;
         }
@@ -32925,7 +32925,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_JMCMPox["members"]={};
-        for(int JMCMPox=0; JMCMPox < strlen(((char*)(name.pNext))); JMCMPox++){
+        for(int JMCMPox=0; JMCMPox < strlen(((char*)(name.pNext)))+1; JMCMPox++){
             json temp;
             temp=[&]() {
     json return_uPJwgjo=json({});
@@ -32962,7 +32962,7 @@ result["members"]["pUserData"]=[&]() {
         }
         
         return_RRmlUFw["members"]={};
-        for(int RRmlUFw=0; RRmlUFw < strlen(((char*)(name.pUserData))); RRmlUFw++){
+        for(int RRmlUFw=0; RRmlUFw < strlen(((char*)(name.pUserData)))+1; RRmlUFw++){
             json temp;
             temp=[&]() {
     json return_MVaTtbI=json({});
@@ -33001,8 +33001,8 @@ void* temp_uqxCRHj;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mcyEWeP=0; mcyEWeP < name["members"]["pNext"].size(); mcyEWeP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mcyEWeP=0; mcyEWeP < name["members"]["pNext"]["members"].size(); mcyEWeP++){
             [&]() {
 temp[mcyEWeP]=deserialize_char(name["members"]["pNext"]["members"][mcyEWeP]);}();;
         }
@@ -33033,8 +33033,8 @@ _struct->PFN_vkDebugUtilsMessengerCallbackEXT_id=name["members"]["pfnUserCallbac
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pUserData"].size()*sizeof(char));
-        for (int eepZzwm=0; eepZzwm < name["members"]["pUserData"].size(); eepZzwm++){
+    temp=(char*)malloc(name["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int eepZzwm=0; eepZzwm < name["members"]["pUserData"]["members"].size(); eepZzwm++){
             [&]() {
 temp[eepZzwm]=deserialize_char(name["members"]["pUserData"]["members"][eepZzwm]);}();;
         }
@@ -33068,7 +33068,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dINOMtL["members"]={};
-        for(int dINOMtL=0; dINOMtL < strlen(((char*)(name.pNext))); dINOMtL++){
+        for(int dINOMtL=0; dINOMtL < strlen(((char*)(name.pNext)))+1; dINOMtL++){
             json temp;
             temp=[&]() {
     json return_UUWDFFc=json({});
@@ -33089,7 +33089,7 @@ result["members"]["pMessageIdName"]=[&]() {
         }
         
         return_CWEwSNf["members"]={};
-        for(int CWEwSNf=0; CWEwSNf < strlen(name.pMessageIdName); CWEwSNf++){
+        for(int CWEwSNf=0; CWEwSNf < strlen(name.pMessageIdName)+1; CWEwSNf++){
             json temp;
             temp=[&]() {
     json return_iCDIHHN=json({});
@@ -33110,7 +33110,7 @@ result["members"]["pMessage"]=[&]() {
         }
         
         return_pskDqOd["members"]={};
-        for(int pskDqOd=0; pskDqOd < strlen(name.pMessage); pskDqOd++){
+        for(int pskDqOd=0; pskDqOd < strlen(name.pMessage)+1; pskDqOd++){
             json temp;
             temp=[&]() {
     json return_dZSXRMD=json({});
@@ -33202,8 +33202,8 @@ void* temp_YYyfkNN;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ceyRXsX=0; ceyRXsX < name["members"]["pNext"].size(); ceyRXsX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ceyRXsX=0; ceyRXsX < name["members"]["pNext"]["members"].size(); ceyRXsX++){
             [&]() {
 temp[ceyRXsX]=deserialize_char(name["members"]["pNext"]["members"][ceyRXsX]);}();;
         }
@@ -33218,8 +33218,8 @@ char* temp_fTNfYzK;[&]() {
         temp_fTNfYzK=NULL;
         return;
         }
-    temp_fTNfYzK=(char*)malloc(name["members"]["pMessageIdName"].size()*sizeof(char));
-        for (int tvISrMQ=0; tvISrMQ < name["members"]["pMessageIdName"].size(); tvISrMQ++){
+    temp_fTNfYzK=(char*)malloc(name["members"]["pMessageIdName"]["members"].size()*sizeof(char));
+        for (int tvISrMQ=0; tvISrMQ < name["members"]["pMessageIdName"]["members"].size(); tvISrMQ++){
             [&]() {
 temp_fTNfYzK[tvISrMQ]=deserialize_char(name["members"]["pMessageIdName"]["members"][tvISrMQ]);}();;
         }
@@ -33233,8 +33233,8 @@ char* temp_EwtEAwN;[&]() {
         temp_EwtEAwN=NULL;
         return;
         }
-    temp_EwtEAwN=(char*)malloc(name["members"]["pMessage"].size()*sizeof(char));
-        for (int gstOJxn=0; gstOJxn < name["members"]["pMessage"].size(); gstOJxn++){
+    temp_EwtEAwN=(char*)malloc(name["members"]["pMessage"]["members"].size()*sizeof(char));
+        for (int gstOJxn=0; gstOJxn < name["members"]["pMessage"]["members"].size(); gstOJxn++){
             [&]() {
 temp_EwtEAwN[gstOJxn]=deserialize_char(name["members"]["pMessage"]["members"][gstOJxn]);}();;
         }
@@ -33309,7 +33309,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -33342,8 +33342,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -33377,7 +33377,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_zteIbMs["members"]={};
-        for(int zteIbMs=0; zteIbMs < strlen(((char*)(name.pNext))); zteIbMs++){
+        for(int zteIbMs=0; zteIbMs < strlen(((char*)(name.pNext)))+1; zteIbMs++){
             json temp;
             temp=[&]() {
     json return_jwnnJne=json({});
@@ -33408,7 +33408,7 @@ result["members"]["pUserData"]=[&]() {
         }
         
         return_TVyjdsc["members"]={};
-        for(int TVyjdsc=0; TVyjdsc < strlen(((char*)(name.pUserData))); TVyjdsc++){
+        for(int TVyjdsc=0; TVyjdsc < strlen(((char*)(name.pUserData)))+1; TVyjdsc++){
             json temp;
             temp=[&]() {
     json return_zukeyfa=json({});
@@ -33445,8 +33445,8 @@ void* temp_Pqdomxx;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int YNRXBXy=0; YNRXBXy < name["members"]["pNext"].size(); YNRXBXy++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int YNRXBXy=0; YNRXBXy < name["members"]["pNext"]["members"].size(); YNRXBXy++){
             [&]() {
 temp[YNRXBXy]=deserialize_char(name["members"]["pNext"]["members"][YNRXBXy]);}();;
         }
@@ -33473,8 +33473,8 @@ _struct->PFN_vkDeviceMemoryReportCallbackEXT_id=name["members"]["pfnUserCallback
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pUserData"].size()*sizeof(char));
-        for (int iYWWPzC=0; iYWWPzC < name["members"]["pUserData"].size(); iYWWPzC++){
+    temp=(char*)malloc(name["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int iYWWPzC=0; iYWWPzC < name["members"]["pUserData"]["members"].size(); iYWWPzC++){
             [&]() {
 temp[iYWWPzC]=deserialize_char(name["members"]["pUserData"]["members"][iYWWPzC]);}();;
         }
@@ -33508,7 +33508,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -33559,8 +33559,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -33606,7 +33606,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -33634,7 +33634,7 @@ result["members"]["pHostPointer"]=[&]() {
         }
         
         return_TQCyxwa["members"]={};
-        for(int TQCyxwa=0; TQCyxwa < strlen(((char*)(name.pHostPointer))); TQCyxwa++){
+        for(int TQCyxwa=0; TQCyxwa < strlen(((char*)(name.pHostPointer)))+1; TQCyxwa++){
             json temp;
             temp=[&]() {
     json return_LiAebEa=json({});
@@ -33663,8 +33663,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -33684,8 +33684,8 @@ result.handleType=deserialize_VkExternalMemoryHandleTypeFlagBits(name["members"]
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pHostPointer"].size()*sizeof(char));
-        for (int fCVTbAw=0; fCVTbAw < name["members"]["pHostPointer"].size(); fCVTbAw++){
+    temp=(char*)malloc(name["members"]["pHostPointer"]["members"].size()*sizeof(char));
+        for (int fCVTbAw=0; fCVTbAw < name["members"]["pHostPointer"]["members"].size(); fCVTbAw++){
             [&]() {
 temp[fCVTbAw]=deserialize_char(name["members"]["pHostPointer"]["members"][fCVTbAw]);}();;
         }
@@ -33716,7 +33716,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -33747,8 +33747,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -33781,7 +33781,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -33814,8 +33814,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -33849,7 +33849,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -33916,8 +33916,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -33972,7 +33972,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -34004,8 +34004,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -34038,7 +34038,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -34108,8 +34108,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -34168,7 +34168,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_RCEoUFS["members"]={};
-        for(int RCEoUFS=0; RCEoUFS < strlen(((char*)(name.pNext))); RCEoUFS++){
+        for(int RCEoUFS=0; RCEoUFS < strlen(((char*)(name.pNext)))+1; RCEoUFS++){
             json temp;
             temp=[&]() {
     json return_RUmJPan=json({});
@@ -34202,8 +34202,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FaVEdyO=0; FaVEdyO < name["members"]["pNext"].size(); FaVEdyO++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FaVEdyO=0; FaVEdyO < name["members"]["pNext"]["members"].size(); FaVEdyO++){
             [&]() {
 temp[FaVEdyO]=deserialize_char(name["members"]["pNext"]["members"][FaVEdyO]);}();;
         }
@@ -34238,7 +34238,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LStNoUH["members"]={};
-        for(int LStNoUH=0; LStNoUH < strlen(((char*)(name.pNext))); LStNoUH++){
+        for(int LStNoUH=0; LStNoUH < strlen(((char*)(name.pNext)))+1; LStNoUH++){
             json temp;
             temp=[&]() {
     json return_pXWymYt=json({});
@@ -34276,8 +34276,8 @@ void* temp_BtWPJhQ;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RPFsQsS=0; RPFsQsS < name["members"]["pNext"].size(); RPFsQsS++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RPFsQsS=0; RPFsQsS < name["members"]["pNext"]["members"].size(); RPFsQsS++){
             [&]() {
 temp[RPFsQsS]=deserialize_char(name["members"]["pNext"]["members"][RPFsQsS]);}();;
         }
@@ -34314,7 +34314,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -34442,8 +34442,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -34534,7 +34534,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -34662,8 +34662,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -34754,7 +34754,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -34865,8 +34865,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -34950,7 +34950,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -35061,8 +35061,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -35146,7 +35146,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dINOMtL["members"]={};
-        for(int dINOMtL=0; dINOMtL < strlen(((char*)(name.pNext))); dINOMtL++){
+        for(int dINOMtL=0; dINOMtL < strlen(((char*)(name.pNext)))+1; dINOMtL++){
             json temp;
             temp=[&]() {
     json return_UUWDFFc=json({});
@@ -35196,8 +35196,8 @@ void* temp_YYyfkNN;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ceyRXsX=0; ceyRXsX < name["members"]["pNext"].size(); ceyRXsX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ceyRXsX=0; ceyRXsX < name["members"]["pNext"]["members"].size(); ceyRXsX++){
             [&]() {
 temp[ceyRXsX]=deserialize_char(name["members"]["pNext"]["members"][ceyRXsX]);}();;
         }
@@ -35243,7 +35243,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dINOMtL["members"]={};
-        for(int dINOMtL=0; dINOMtL < strlen(((char*)(name.pNext))); dINOMtL++){
+        for(int dINOMtL=0; dINOMtL < strlen(((char*)(name.pNext)))+1; dINOMtL++){
             json temp;
             temp=[&]() {
     json return_UUWDFFc=json({});
@@ -35293,8 +35293,8 @@ void* temp_YYyfkNN;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ceyRXsX=0; ceyRXsX < name["members"]["pNext"].size(); ceyRXsX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ceyRXsX=0; ceyRXsX < name["members"]["pNext"]["members"].size(); ceyRXsX++){
             [&]() {
 temp[ceyRXsX]=deserialize_char(name["members"]["pNext"]["members"][ceyRXsX]);}();;
         }
@@ -35340,7 +35340,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -35390,8 +35390,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -35437,7 +35437,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -35487,8 +35487,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -35534,7 +35534,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -35565,8 +35565,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -35599,7 +35599,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -35630,8 +35630,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -35664,7 +35664,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -35720,8 +35720,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -35770,7 +35770,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -35826,8 +35826,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -35876,7 +35876,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -35914,8 +35914,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -35952,7 +35952,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -35990,8 +35990,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -36028,7 +36028,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ZPeUPfV["members"]={};
-        for(int ZPeUPfV=0; ZPeUPfV < strlen(((char*)(name.pNext))); ZPeUPfV++){
+        for(int ZPeUPfV=0; ZPeUPfV < strlen(((char*)(name.pNext)))+1; ZPeUPfV++){
             json temp;
             temp=[&]() {
     json return_pVmKIiP=json({});
@@ -36158,8 +36158,8 @@ void* temp_tuuajEc;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int giUnoop=0; giUnoop < name["members"]["pNext"].size(); giUnoop++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int giUnoop=0; giUnoop < name["members"]["pNext"]["members"].size(); giUnoop++){
             [&]() {
 temp[giUnoop]=deserialize_char(name["members"]["pNext"]["members"][giUnoop]);}();;
         }
@@ -36265,7 +36265,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ZPeUPfV["members"]={};
-        for(int ZPeUPfV=0; ZPeUPfV < strlen(((char*)(name.pNext))); ZPeUPfV++){
+        for(int ZPeUPfV=0; ZPeUPfV < strlen(((char*)(name.pNext)))+1; ZPeUPfV++){
             json temp;
             temp=[&]() {
     json return_pVmKIiP=json({});
@@ -36395,8 +36395,8 @@ void* temp_tuuajEc;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int giUnoop=0; giUnoop < name["members"]["pNext"].size(); giUnoop++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int giUnoop=0; giUnoop < name["members"]["pNext"]["members"].size(); giUnoop++){
             [&]() {
 temp[giUnoop]=deserialize_char(name["members"]["pNext"]["members"][giUnoop]);}();;
         }
@@ -36502,7 +36502,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -36555,8 +36555,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -36603,7 +36603,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -36656,8 +36656,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -36704,7 +36704,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_SaCCuQS["members"]={};
-        for(int SaCCuQS=0; SaCCuQS < strlen(((char*)(name.pNext))); SaCCuQS++){
+        for(int SaCCuQS=0; SaCCuQS < strlen(((char*)(name.pNext)))+1; SaCCuQS++){
             json temp;
             temp=[&]() {
     json return_tKWDhbh=json({});
@@ -36820,8 +36820,8 @@ void* temp_WQLvfWf;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iRVYrIE=0; iRVYrIE < name["members"]["pNext"].size(); iRVYrIE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iRVYrIE=0; iRVYrIE < name["members"]["pNext"]["members"].size(); iRVYrIE++){
             [&]() {
 temp[iRVYrIE]=deserialize_char(name["members"]["pNext"]["members"][iRVYrIE]);}();;
         }
@@ -36914,7 +36914,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_SaCCuQS["members"]={};
-        for(int SaCCuQS=0; SaCCuQS < strlen(((char*)(name.pNext))); SaCCuQS++){
+        for(int SaCCuQS=0; SaCCuQS < strlen(((char*)(name.pNext)))+1; SaCCuQS++){
             json temp;
             temp=[&]() {
     json return_tKWDhbh=json({});
@@ -37030,8 +37030,8 @@ void* temp_WQLvfWf;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iRVYrIE=0; iRVYrIE < name["members"]["pNext"].size(); iRVYrIE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iRVYrIE=0; iRVYrIE < name["members"]["pNext"]["members"].size(); iRVYrIE++){
             [&]() {
 temp[iRVYrIE]=deserialize_char(name["members"]["pNext"]["members"][iRVYrIE]);}();;
         }
@@ -37124,7 +37124,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -37156,8 +37156,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -37190,7 +37190,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -37222,8 +37222,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -37256,7 +37256,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MSILGvQ["members"]={};
-        for(int MSILGvQ=0; MSILGvQ < strlen(((char*)(name.pNext))); MSILGvQ++){
+        for(int MSILGvQ=0; MSILGvQ < strlen(((char*)(name.pNext)))+1; MSILGvQ++){
             json temp;
             temp=[&]() {
     json return_WDwdqPx=json({});
@@ -37285,8 +37285,8 @@ void* temp_CsJpJdp;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ZiTOsrq=0; ZiTOsrq < name["members"]["pNext"].size(); ZiTOsrq++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ZiTOsrq=0; ZiTOsrq < name["members"]["pNext"]["members"].size(); ZiTOsrq++){
             [&]() {
 temp[ZiTOsrq]=deserialize_char(name["members"]["pNext"]["members"][ZiTOsrq]);}();;
         }
@@ -37317,7 +37317,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MSILGvQ["members"]={};
-        for(int MSILGvQ=0; MSILGvQ < strlen(((char*)(name.pNext))); MSILGvQ++){
+        for(int MSILGvQ=0; MSILGvQ < strlen(((char*)(name.pNext)))+1; MSILGvQ++){
             json temp;
             temp=[&]() {
     json return_WDwdqPx=json({});
@@ -37346,8 +37346,8 @@ void* temp_CsJpJdp;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ZiTOsrq=0; ZiTOsrq < name["members"]["pNext"].size(); ZiTOsrq++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ZiTOsrq=0; ZiTOsrq < name["members"]["pNext"]["members"].size(); ZiTOsrq++){
             [&]() {
 temp[ZiTOsrq]=deserialize_char(name["members"]["pNext"]["members"][ZiTOsrq]);}();;
         }
@@ -37378,7 +37378,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -37411,8 +37411,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -37446,7 +37446,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -37479,8 +37479,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -37514,7 +37514,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -37545,8 +37545,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -37579,7 +37579,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -37610,8 +37610,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -37644,7 +37644,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -37679,8 +37679,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -37715,7 +37715,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -37750,8 +37750,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -37786,7 +37786,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -37857,8 +37857,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -37919,7 +37919,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -37990,8 +37990,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -38052,7 +38052,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -38123,8 +38123,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -38185,7 +38185,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -38256,8 +38256,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -38318,7 +38318,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -38353,8 +38353,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -38389,7 +38389,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -38424,8 +38424,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -38481,7 +38481,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_qksLCsC["members"]={};
-        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext))); qksLCsC++){
+        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext)))+1; qksLCsC++){
             json temp;
             temp=[&]() {
     json return_qlTkbxn=json({});
@@ -38531,8 +38531,8 @@ void* temp_YIdsYkt;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"].size(); xiAUTQz++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"]["members"].size(); xiAUTQz++){
             [&]() {
 temp[xiAUTQz]=deserialize_char(name["members"]["pNext"]["members"][xiAUTQz]);}();;
         }
@@ -38578,7 +38578,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -38609,8 +38609,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -38643,7 +38643,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -38683,8 +38683,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -38723,7 +38723,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_qksLCsC["members"]={};
-        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext))); qksLCsC++){
+        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext)))+1; qksLCsC++){
             json temp;
             temp=[&]() {
     json return_qlTkbxn=json({});
@@ -38757,8 +38757,8 @@ void* temp_YIdsYkt;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"].size(); xiAUTQz++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"]["members"].size(); xiAUTQz++){
             [&]() {
 temp[xiAUTQz]=deserialize_char(name["members"]["pNext"]["members"][xiAUTQz]);}();;
         }
@@ -38792,7 +38792,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -38835,8 +38835,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -38876,7 +38876,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -38919,8 +38919,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -38960,7 +38960,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -38998,8 +38998,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -39036,7 +39036,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -39079,8 +39079,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -39120,7 +39120,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -39163,8 +39163,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -39204,7 +39204,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -39242,8 +39242,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -39280,7 +39280,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -39318,8 +39318,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -39356,7 +39356,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -39444,8 +39444,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -39512,7 +39512,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -39600,8 +39600,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -39668,7 +39668,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -39706,8 +39706,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -39744,7 +39744,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_voZpfut["members"]={};
-        for(int voZpfut=0; voZpfut < strlen(((char*)(name.pNext))); voZpfut++){
+        for(int voZpfut=0; voZpfut < strlen(((char*)(name.pNext)))+1; voZpfut++){
             json temp;
             temp=[&]() {
     json return_PMYpLVC=json({});
@@ -39775,8 +39775,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int pAdqvtr=0; pAdqvtr < name["members"]["pNext"].size(); pAdqvtr++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int pAdqvtr=0; pAdqvtr < name["members"]["pNext"]["members"].size(); pAdqvtr++){
             [&]() {
 temp[pAdqvtr]=deserialize_char(name["members"]["pNext"]["members"][pAdqvtr]);}();;
         }
@@ -39809,7 +39809,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -39837,7 +39837,7 @@ result["members"]["pCheckpointMarker"]=[&]() {
         }
         
         return_dlJcMCH["members"]={};
-        for(int dlJcMCH=0; dlJcMCH < strlen(((char*)(name.pCheckpointMarker))); dlJcMCH++){
+        for(int dlJcMCH=0; dlJcMCH < strlen(((char*)(name.pCheckpointMarker)))+1; dlJcMCH++){
             json temp;
             temp=[&]() {
     json return_biTDqNR=json({});
@@ -39865,8 +39865,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -39886,8 +39886,8 @@ result.stage=deserialize_VkPipelineStageFlagBits(name["members"]["stage"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pCheckpointMarker"].size()*sizeof(char));
-        for (int RCegkhN=0; RCegkhN < name["members"]["pCheckpointMarker"].size(); RCegkhN++){
+    temp=(char*)malloc(name["members"]["pCheckpointMarker"]["members"].size()*sizeof(char));
+        for (int RCegkhN=0; RCegkhN < name["members"]["pCheckpointMarker"]["members"].size(); RCegkhN++){
             [&]() {
 temp[RCegkhN]=deserialize_char(name["members"]["pCheckpointMarker"]["members"][RCegkhN]);}();;
         }
@@ -39918,7 +39918,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADnTxBV["members"]={};
-        for(int ADnTxBV=0; ADnTxBV < strlen(((char*)(name.pNext))); ADnTxBV++){
+        for(int ADnTxBV=0; ADnTxBV < strlen(((char*)(name.pNext)))+1; ADnTxBV++){
             json temp;
             temp=[&]() {
     json return_TxgwNDk=json({});
@@ -39962,8 +39962,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UmbMfJN=0; UmbMfJN < name["members"]["pNext"].size(); UmbMfJN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UmbMfJN=0; UmbMfJN < name["members"]["pNext"]["members"].size(); UmbMfJN++){
             [&]() {
 temp[UmbMfJN]=deserialize_char(name["members"]["pNext"]["members"][UmbMfJN]);}();;
         }
@@ -40004,7 +40004,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADnTxBV["members"]={};
-        for(int ADnTxBV=0; ADnTxBV < strlen(((char*)(name.pNext))); ADnTxBV++){
+        for(int ADnTxBV=0; ADnTxBV < strlen(((char*)(name.pNext)))+1; ADnTxBV++){
             json temp;
             temp=[&]() {
     json return_TxgwNDk=json({});
@@ -40048,8 +40048,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UmbMfJN=0; UmbMfJN < name["members"]["pNext"].size(); UmbMfJN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UmbMfJN=0; UmbMfJN < name["members"]["pNext"]["members"].size(); UmbMfJN++){
             [&]() {
 temp[UmbMfJN]=deserialize_char(name["members"]["pNext"]["members"][UmbMfJN]);}();;
         }
@@ -40090,7 +40090,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_AAhxnfd["members"]={};
-        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext))); AAhxnfd++){
+        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext)))+1; AAhxnfd++){
             json temp;
             temp=[&]() {
     json return_YSMKesD=json({});
@@ -40136,8 +40136,8 @@ void* temp_UqlSjfi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"].size(); XDrkVsx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"]["members"].size(); XDrkVsx++){
             [&]() {
 temp[XDrkVsx]=deserialize_char(name["members"]["pNext"]["members"][XDrkVsx]);}();;
         }
@@ -40183,7 +40183,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_AAhxnfd["members"]={};
-        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext))); AAhxnfd++){
+        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext)))+1; AAhxnfd++){
             json temp;
             temp=[&]() {
     json return_YSMKesD=json({});
@@ -40229,8 +40229,8 @@ void* temp_UqlSjfi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"].size(); XDrkVsx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"]["members"].size(); XDrkVsx++){
             [&]() {
 temp[XDrkVsx]=deserialize_char(name["members"]["pNext"]["members"][XDrkVsx]);}();;
         }
@@ -40276,7 +40276,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -40308,8 +40308,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -40342,7 +40342,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -40375,8 +40375,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -40410,7 +40410,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -40448,8 +40448,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -40486,7 +40486,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -40554,8 +40554,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -40611,7 +40611,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LStNoUH["members"]={};
-        for(int LStNoUH=0; LStNoUH < strlen(((char*)(name.pNext))); LStNoUH++){
+        for(int LStNoUH=0; LStNoUH < strlen(((char*)(name.pNext)))+1; LStNoUH++){
             json temp;
             temp=[&]() {
     json return_pXWymYt=json({});
@@ -40646,8 +40646,8 @@ void* temp_BtWPJhQ;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RPFsQsS=0; RPFsQsS < name["members"]["pNext"].size(); RPFsQsS++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RPFsQsS=0; RPFsQsS < name["members"]["pNext"]["members"].size(); RPFsQsS++){
             [&]() {
 temp[RPFsQsS]=deserialize_char(name["members"]["pNext"]["members"][RPFsQsS]);}();;
         }
@@ -40682,7 +40682,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -40715,8 +40715,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -40750,7 +40750,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gSvJhWw["members"]={};
-        for(int gSvJhWw=0; gSvJhWw < strlen(((char*)(name.pNext))); gSvJhWw++){
+        for(int gSvJhWw=0; gSvJhWw < strlen(((char*)(name.pNext)))+1; gSvJhWw++){
             json temp;
             temp=[&]() {
     json return_LmeHFYb=json({});
@@ -40784,8 +40784,8 @@ void* temp_lEvEGvb;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int HrQiuVE=0; HrQiuVE < name["members"]["pNext"].size(); HrQiuVE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int HrQiuVE=0; HrQiuVE < name["members"]["pNext"]["members"].size(); HrQiuVE++){
             [&]() {
 temp[HrQiuVE]=deserialize_char(name["members"]["pNext"]["members"][HrQiuVE]);}();;
         }
@@ -40819,7 +40819,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -40852,8 +40852,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -40887,7 +40887,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_PVlVzUD["members"]={};
-        for(int PVlVzUD=0; PVlVzUD < strlen(((char*)(name.pNext))); PVlVzUD++){
+        for(int PVlVzUD=0; PVlVzUD < strlen(((char*)(name.pNext)))+1; PVlVzUD++){
             json temp;
             temp=[&]() {
     json return_iJMFbTE=json({});
@@ -40937,8 +40937,8 @@ void* temp_kChWqaa;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int kavmYFv=0; kavmYFv < name["members"]["pNext"].size(); kavmYFv++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int kavmYFv=0; kavmYFv < name["members"]["pNext"]["members"].size(); kavmYFv++){
             [&]() {
 temp[kavmYFv]=deserialize_char(name["members"]["pNext"]["members"][kavmYFv]);}();;
         }
@@ -40984,7 +40984,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HJEzPTB["members"]={};
-        for(int HJEzPTB=0; HJEzPTB < strlen(((char*)(name.pNext))); HJEzPTB++){
+        for(int HJEzPTB=0; HJEzPTB < strlen(((char*)(name.pNext)))+1; HJEzPTB++){
             json temp;
             temp=[&]() {
     json return_AwGVpxY=json({});
@@ -41017,8 +41017,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int aMnQrlT=0; aMnQrlT < name["members"]["pNext"].size(); aMnQrlT++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int aMnQrlT=0; aMnQrlT < name["members"]["pNext"]["members"].size(); aMnQrlT++){
             [&]() {
 temp[aMnQrlT]=deserialize_char(name["members"]["pNext"]["members"][aMnQrlT]);}();;
         }
@@ -41052,7 +41052,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -41090,8 +41090,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -41128,7 +41128,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HJEzPTB["members"]={};
-        for(int HJEzPTB=0; HJEzPTB < strlen(((char*)(name.pNext))); HJEzPTB++){
+        for(int HJEzPTB=0; HJEzPTB < strlen(((char*)(name.pNext)))+1; HJEzPTB++){
             json temp;
             temp=[&]() {
     json return_AwGVpxY=json({});
@@ -41161,8 +41161,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int aMnQrlT=0; aMnQrlT < name["members"]["pNext"].size(); aMnQrlT++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int aMnQrlT=0; aMnQrlT < name["members"]["pNext"]["members"].size(); aMnQrlT++){
             [&]() {
 temp[aMnQrlT]=deserialize_char(name["members"]["pNext"]["members"][aMnQrlT]);}();;
         }
@@ -41196,7 +41196,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -41229,8 +41229,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -41264,7 +41264,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -41297,8 +41297,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -41332,7 +41332,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LwAgtLE["members"]={};
-        for(int LwAgtLE=0; LwAgtLE < strlen(((char*)(name.pNext))); LwAgtLE++){
+        for(int LwAgtLE=0; LwAgtLE < strlen(((char*)(name.pNext)))+1; LwAgtLE++){
             json temp;
             temp=[&]() {
     json return_OVgpfbc=json({});
@@ -41363,8 +41363,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int sgpUUYH=0; sgpUUYH < name["members"]["pNext"].size(); sgpUUYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int sgpUUYH=0; sgpUUYH < name["members"]["pNext"]["members"].size(); sgpUUYH++){
             [&]() {
 temp[sgpUUYH]=deserialize_char(name["members"]["pNext"]["members"][sgpUUYH]);}();;
         }
@@ -41397,7 +41397,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_UCTKCEs["members"]={};
-        for(int UCTKCEs=0; UCTKCEs < strlen(((char*)(name.pNext))); UCTKCEs++){
+        for(int UCTKCEs=0; UCTKCEs < strlen(((char*)(name.pNext)))+1; UCTKCEs++){
             json temp;
             temp=[&]() {
     json return_UUIrMQL=json({});
@@ -41430,8 +41430,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ZaoERcz=0; ZaoERcz < name["members"]["pNext"].size(); ZaoERcz++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ZaoERcz=0; ZaoERcz < name["members"]["pNext"]["members"].size(); ZaoERcz++){
             [&]() {
 temp[ZaoERcz]=deserialize_char(name["members"]["pNext"]["members"][ZaoERcz]);}();;
         }
@@ -41465,7 +41465,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LwAgtLE["members"]={};
-        for(int LwAgtLE=0; LwAgtLE < strlen(((char*)(name.pNext))); LwAgtLE++){
+        for(int LwAgtLE=0; LwAgtLE < strlen(((char*)(name.pNext)))+1; LwAgtLE++){
             json temp;
             temp=[&]() {
     json return_OVgpfbc=json({});
@@ -41499,8 +41499,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int sgpUUYH=0; sgpUUYH < name["members"]["pNext"].size(); sgpUUYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int sgpUUYH=0; sgpUUYH < name["members"]["pNext"]["members"].size(); sgpUUYH++){
             [&]() {
 temp[sgpUUYH]=deserialize_char(name["members"]["pNext"]["members"][sgpUUYH]);}();;
         }
@@ -41582,7 +41582,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ufzkmFv["members"]={};
-        for(int ufzkmFv=0; ufzkmFv < strlen(((char*)(name.pNext))); ufzkmFv++){
+        for(int ufzkmFv=0; ufzkmFv < strlen(((char*)(name.pNext)))+1; ufzkmFv++){
             json temp;
             temp=[&]() {
     json return_IenIgFW=json({});
@@ -41637,8 +41637,8 @@ void* temp_PNRKDrN;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int DlqllKf=0; DlqllKf < name["members"]["pNext"].size(); DlqllKf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int DlqllKf=0; DlqllKf < name["members"]["pNext"]["members"].size(); DlqllKf++){
             [&]() {
 temp[DlqllKf]=deserialize_char(name["members"]["pNext"]["members"][DlqllKf]);}();;
         }
@@ -41687,7 +41687,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -41725,8 +41725,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -41763,7 +41763,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -41800,8 +41800,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -41838,7 +41838,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -41871,8 +41871,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -41989,7 +41989,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_OFqqiGx["members"]={};
-        for(int OFqqiGx=0; OFqqiGx < strlen(((char*)(name.pNext))); OFqqiGx++){
+        for(int OFqqiGx=0; OFqqiGx < strlen(((char*)(name.pNext)))+1; OFqqiGx++){
             json temp;
             temp=[&]() {
     json return_oBYzEbo=json({});
@@ -42042,8 +42042,8 @@ void* temp_LYpRwAQ;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int rFUzSEs=0; rFUzSEs < name["members"]["pNext"].size(); rFUzSEs++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int rFUzSEs=0; rFUzSEs < name["members"]["pNext"]["members"].size(); rFUzSEs++){
             [&]() {
 temp[rFUzSEs]=deserialize_char(name["members"]["pNext"]["members"][rFUzSEs]);}();;
         }
@@ -42091,7 +42091,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -42129,8 +42129,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -42167,7 +42167,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -42254,8 +42254,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -42343,7 +42343,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -42396,8 +42396,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -42443,7 +42443,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -42603,8 +42603,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -42741,7 +42741,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -42785,8 +42785,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -42827,7 +42827,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -42867,7 +42867,7 @@ result["members"]["pShaderGroupCaptureReplayHandle"]=[&]() {
         }
         
         return_LUAjcBd["members"]={};
-        for(int LUAjcBd=0; LUAjcBd < strlen(((char*)(name.pShaderGroupCaptureReplayHandle))); LUAjcBd++){
+        for(int LUAjcBd=0; LUAjcBd < strlen(((char*)(name.pShaderGroupCaptureReplayHandle)))+1; LUAjcBd++){
             json temp;
             temp=[&]() {
     json return_FIZZAIC=json({});
@@ -42896,8 +42896,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -42926,8 +42926,8 @@ void* temp_cSHLvWy;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pShaderGroupCaptureReplayHandle"].size()*sizeof(char));
-        for (int ydTNxzy=0; ydTNxzy < name["members"]["pShaderGroupCaptureReplayHandle"].size(); ydTNxzy++){
+    temp=(char*)malloc(name["members"]["pShaderGroupCaptureReplayHandle"]["members"].size()*sizeof(char));
+        for (int ydTNxzy=0; ydTNxzy < name["members"]["pShaderGroupCaptureReplayHandle"]["members"].size(); ydTNxzy++){
             [&]() {
 temp[ydTNxzy]=deserialize_char(name["members"]["pShaderGroupCaptureReplayHandle"]["members"][ydTNxzy]);}();;
         }
@@ -42958,7 +42958,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -43044,8 +43044,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -43116,7 +43116,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -43235,8 +43235,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -43340,7 +43340,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_FmPJZys["members"]={};
-        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext))); FmPJZys++){
+        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext)))+1; FmPJZys++){
             json temp;
             temp=[&]() {
     json return_oKTqgAS=json({});
@@ -43410,8 +43410,8 @@ void* temp_nOXYBOh;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"].size(); cZMRgjQ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"]["members"].size(); cZMRgjQ++){
             [&]() {
 temp[cZMRgjQ]=deserialize_char(name["members"]["pNext"]["members"][cZMRgjQ]);}();;
         }
@@ -43468,7 +43468,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_FmPJZys["members"]={};
-        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext))); FmPJZys++){
+        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext)))+1; FmPJZys++){
             json temp;
             temp=[&]() {
     json return_oKTqgAS=json({});
@@ -43511,8 +43511,8 @@ void* temp_nOXYBOh;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"].size(); cZMRgjQ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"]["members"].size(); cZMRgjQ++){
             [&]() {
 temp[cZMRgjQ]=deserialize_char(name["members"]["pNext"]["members"][cZMRgjQ]);}();;
         }
@@ -43573,7 +43573,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ZMMnKvU["members"]={};
-        for(int ZMMnKvU=0; ZMMnKvU < strlen(((char*)(name.pNext))); ZMMnKvU++){
+        for(int ZMMnKvU=0; ZMMnKvU < strlen(((char*)(name.pNext)))+1; ZMMnKvU++){
             json temp;
             temp=[&]() {
     json return_glCdzrK=json({});
@@ -43611,8 +43611,8 @@ void* temp_JJbddRC;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ilKPuBl=0; ilKPuBl < name["members"]["pNext"].size(); ilKPuBl++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ilKPuBl=0; ilKPuBl < name["members"]["pNext"]["members"].size(); ilKPuBl++){
             [&]() {
 temp[ilKPuBl]=deserialize_char(name["members"]["pNext"]["members"][ilKPuBl]);}();;
         }
@@ -43649,7 +43649,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -43708,8 +43708,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -43761,7 +43761,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -43798,8 +43798,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -43835,7 +43835,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_CKwDpuY["members"]={};
-        for(int CKwDpuY=0; CKwDpuY < strlen(((char*)(name.pNext))); CKwDpuY++){
+        for(int CKwDpuY=0; CKwDpuY < strlen(((char*)(name.pNext)))+1; CKwDpuY++){
             json temp;
             temp=[&]() {
     json return_YWCBCkX=json({});
@@ -43896,8 +43896,8 @@ void* temp_tTXsqWM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FqXNYHR=0; FqXNYHR < name["members"]["pNext"].size(); FqXNYHR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FqXNYHR=0; FqXNYHR < name["members"]["pNext"]["members"].size(); FqXNYHR++){
             [&]() {
 temp[FqXNYHR]=deserialize_char(name["members"]["pNext"]["members"][FqXNYHR]);}();;
         }
@@ -43950,7 +43950,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -44000,8 +44000,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -44047,7 +44047,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_cJJSNOb["members"]={};
-        for(int cJJSNOb=0; cJJSNOb < strlen(((char*)(name.pNext))); cJJSNOb++){
+        for(int cJJSNOb=0; cJJSNOb < strlen(((char*)(name.pNext)))+1; cJJSNOb++){
             json temp;
             temp=[&]() {
     json return_JzTcWlY=json({});
@@ -44097,8 +44097,8 @@ void* temp_hwqRCnl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ggXCSdi=0; ggXCSdi < name["members"]["pNext"].size(); ggXCSdi++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ggXCSdi=0; ggXCSdi < name["members"]["pNext"]["members"].size(); ggXCSdi++){
             [&]() {
 temp[ggXCSdi]=deserialize_char(name["members"]["pNext"]["members"][ggXCSdi]);}();;
         }
@@ -44144,7 +44144,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_omdKpwK["members"]={};
-        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext))); omdKpwK++){
+        for(int omdKpwK=0; omdKpwK < strlen(((char*)(name.pNext)))+1; omdKpwK++){
             json temp;
             temp=[&]() {
     json return_qeQDPTn=json({});
@@ -44179,8 +44179,8 @@ void* temp_ETCebxi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"].size(); DBXiMSF++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int DBXiMSF=0; DBXiMSF < name["members"]["pNext"]["members"].size(); DBXiMSF++){
             [&]() {
 temp[DBXiMSF]=deserialize_char(name["members"]["pNext"]["members"][DBXiMSF]);}();;
         }
@@ -44215,7 +44215,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -44268,8 +44268,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -44315,7 +44315,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -44368,8 +44368,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -44415,7 +44415,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -44448,8 +44448,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -44483,7 +44483,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -44535,8 +44535,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -44583,7 +44583,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -44635,8 +44635,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -44683,7 +44683,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -44735,8 +44735,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -44958,7 +44958,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -44996,8 +44996,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -45034,7 +45034,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -45083,8 +45083,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -45155,7 +45155,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -45211,8 +45211,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -45262,7 +45262,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -45312,8 +45312,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -45359,7 +45359,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -45412,8 +45412,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -45461,7 +45461,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -45492,8 +45492,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -45526,7 +45526,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -45558,8 +45558,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -45592,7 +45592,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -45624,8 +45624,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -45658,7 +45658,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -45690,8 +45690,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -45724,7 +45724,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -45767,8 +45767,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -45808,7 +45808,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -45841,8 +45841,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -45876,7 +45876,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -45909,8 +45909,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -45944,7 +45944,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -45983,8 +45983,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -46022,7 +46022,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_mDIroCt["members"]={};
-        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext))); mDIroCt++){
+        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext)))+1; mDIroCt++){
             json temp;
             temp=[&]() {
     json return_Riekxgn=json({});
@@ -46066,8 +46066,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"].size(); RzJZikE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"]["members"].size(); RzJZikE++){
             [&]() {
 temp[RzJZikE]=deserialize_char(name["members"]["pNext"]["members"][RzJZikE]);}();;
         }
@@ -46108,7 +46108,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -46139,8 +46139,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -46173,7 +46173,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -46205,8 +46205,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -46239,7 +46239,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_jaGYMMt["members"]={};
-        for(int jaGYMMt=0; jaGYMMt < strlen(((char*)(name.pNext))); jaGYMMt++){
+        for(int jaGYMMt=0; jaGYMMt < strlen(((char*)(name.pNext)))+1; jaGYMMt++){
             json temp;
             temp=[&]() {
     json return_vucWmcI=json({});
@@ -46289,8 +46289,8 @@ void* temp_BOnLiIL;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int yPIrNHj=0; yPIrNHj < name["members"]["pNext"].size(); yPIrNHj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int yPIrNHj=0; yPIrNHj < name["members"]["pNext"]["members"].size(); yPIrNHj++){
             [&]() {
 temp[yPIrNHj]=deserialize_char(name["members"]["pNext"]["members"][yPIrNHj]);}();;
         }
@@ -46336,7 +46336,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -46369,8 +46369,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -46404,7 +46404,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -46437,8 +46437,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -46472,7 +46472,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -46506,8 +46506,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -46541,7 +46541,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -46574,8 +46574,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -46609,7 +46609,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -46642,8 +46642,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -46677,7 +46677,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -46710,8 +46710,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -46745,7 +46745,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gKtmbTH["members"]={};
-        for(int gKtmbTH=0; gKtmbTH < strlen(((char*)(name.pNext))); gKtmbTH++){
+        for(int gKtmbTH=0; gKtmbTH < strlen(((char*)(name.pNext)))+1; gKtmbTH++){
             json temp;
             temp=[&]() {
     json return_wLfAaPh=json({});
@@ -46782,8 +46782,8 @@ void* temp_raXkrsj;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int kAAyiND=0; kAAyiND < name["members"]["pNext"].size(); kAAyiND++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int kAAyiND=0; kAAyiND < name["members"]["pNext"]["members"].size(); kAAyiND++){
             [&]() {
 temp[kAAyiND]=deserialize_char(name["members"]["pNext"]["members"][kAAyiND]);}();;
         }
@@ -46819,7 +46819,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -46877,8 +46877,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -46925,7 +46925,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -46958,8 +46958,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -46993,7 +46993,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_jaGYMMt["members"]={};
-        for(int jaGYMMt=0; jaGYMMt < strlen(((char*)(name.pNext))); jaGYMMt++){
+        for(int jaGYMMt=0; jaGYMMt < strlen(((char*)(name.pNext)))+1; jaGYMMt++){
             json temp;
             temp=[&]() {
     json return_vucWmcI=json({});
@@ -47025,8 +47025,8 @@ void* temp_BOnLiIL;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int yPIrNHj=0; yPIrNHj < name["members"]["pNext"].size(); yPIrNHj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int yPIrNHj=0; yPIrNHj < name["members"]["pNext"]["members"].size(); yPIrNHj++){
             [&]() {
 temp[yPIrNHj]=deserialize_char(name["members"]["pNext"]["members"][yPIrNHj]);}();;
         }
@@ -47059,7 +47059,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -47092,8 +47092,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -47127,7 +47127,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -47170,8 +47170,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -47211,7 +47211,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -47254,8 +47254,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -47295,7 +47295,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -47338,8 +47338,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -47379,7 +47379,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -47422,8 +47422,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -47463,7 +47463,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gwOIPFK["members"]={};
-        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext))); gwOIPFK++){
+        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext)))+1; gwOIPFK++){
             json temp;
             temp=[&]() {
     json return_XRJxgUx=json({});
@@ -47495,8 +47495,8 @@ void* temp_vQLyWGy;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"].size(); iVScxqU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"]["members"].size(); iVScxqU++){
             [&]() {
 temp[iVScxqU]=deserialize_char(name["members"]["pNext"]["members"][iVScxqU]);}();;
         }
@@ -47529,7 +47529,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gwOIPFK["members"]={};
-        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext))); gwOIPFK++){
+        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext)))+1; gwOIPFK++){
             json temp;
             temp=[&]() {
     json return_XRJxgUx=json({});
@@ -47561,8 +47561,8 @@ void* temp_vQLyWGy;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"].size(); iVScxqU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"]["members"].size(); iVScxqU++){
             [&]() {
 temp[iVScxqU]=deserialize_char(name["members"]["pNext"]["members"][iVScxqU]);}();;
         }
@@ -47595,7 +47595,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gwOIPFK["members"]={};
-        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext))); gwOIPFK++){
+        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext)))+1; gwOIPFK++){
             json temp;
             temp=[&]() {
     json return_XRJxgUx=json({});
@@ -47627,8 +47627,8 @@ void* temp_vQLyWGy;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"].size(); iVScxqU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"]["members"].size(); iVScxqU++){
             [&]() {
 temp[iVScxqU]=deserialize_char(name["members"]["pNext"]["members"][iVScxqU]);}();;
         }
@@ -47661,7 +47661,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -47693,8 +47693,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -47727,7 +47727,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -47759,8 +47759,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -47793,7 +47793,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -47827,8 +47827,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -47862,7 +47862,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -47893,8 +47893,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -47927,7 +47927,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -47965,8 +47965,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -48003,7 +48003,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_hByJpGl["members"]={};
-        for(int hByJpGl=0; hByJpGl < strlen(((char*)(name.pNext))); hByJpGl++){
+        for(int hByJpGl=0; hByJpGl < strlen(((char*)(name.pNext)))+1; hByJpGl++){
             json temp;
             temp=[&]() {
     json return_zOSmHzD=json({});
@@ -48036,8 +48036,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int sKmKhOn=0; sKmKhOn < name["members"]["pNext"].size(); sKmKhOn++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int sKmKhOn=0; sKmKhOn < name["members"]["pNext"]["members"].size(); sKmKhOn++){
             [&]() {
 temp[sKmKhOn]=deserialize_char(name["members"]["pNext"]["members"][sKmKhOn]);}();;
         }
@@ -48071,7 +48071,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_hByJpGl["members"]={};
-        for(int hByJpGl=0; hByJpGl < strlen(((char*)(name.pNext))); hByJpGl++){
+        for(int hByJpGl=0; hByJpGl < strlen(((char*)(name.pNext)))+1; hByJpGl++){
             json temp;
             temp=[&]() {
     json return_zOSmHzD=json({});
@@ -48104,8 +48104,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int sKmKhOn=0; sKmKhOn < name["members"]["pNext"].size(); sKmKhOn++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int sKmKhOn=0; sKmKhOn < name["members"]["pNext"]["members"].size(); sKmKhOn++){
             [&]() {
 temp[sKmKhOn]=deserialize_char(name["members"]["pNext"]["members"][sKmKhOn]);}();;
         }
@@ -48139,7 +48139,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_AAhxnfd["members"]={};
-        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext))); AAhxnfd++){
+        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext)))+1; AAhxnfd++){
             json temp;
             temp=[&]() {
     json return_YSMKesD=json({});
@@ -48189,8 +48189,8 @@ void* temp_UqlSjfi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"].size(); XDrkVsx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"]["members"].size(); XDrkVsx++){
             [&]() {
 temp[XDrkVsx]=deserialize_char(name["members"]["pNext"]["members"][XDrkVsx]);}();;
         }
@@ -48236,7 +48236,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_AAhxnfd["members"]={};
-        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext))); AAhxnfd++){
+        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext)))+1; AAhxnfd++){
             json temp;
             temp=[&]() {
     json return_YSMKesD=json({});
@@ -48286,8 +48286,8 @@ void* temp_UqlSjfi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"].size(); XDrkVsx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"]["members"].size(); XDrkVsx++){
             [&]() {
 temp[XDrkVsx]=deserialize_char(name["members"]["pNext"]["members"][XDrkVsx]);}();;
         }
@@ -48333,7 +48333,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_AAhxnfd["members"]={};
-        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext))); AAhxnfd++){
+        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext)))+1; AAhxnfd++){
             json temp;
             temp=[&]() {
     json return_YSMKesD=json({});
@@ -48398,8 +48398,8 @@ void* temp_UqlSjfi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"].size(); XDrkVsx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"]["members"].size(); XDrkVsx++){
             [&]() {
 temp[XDrkVsx]=deserialize_char(name["members"]["pNext"]["members"][XDrkVsx]);}();;
         }
@@ -48455,7 +48455,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_AAhxnfd["members"]={};
-        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext))); AAhxnfd++){
+        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext)))+1; AAhxnfd++){
             json temp;
             temp=[&]() {
     json return_YSMKesD=json({});
@@ -48520,8 +48520,8 @@ void* temp_UqlSjfi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"].size(); XDrkVsx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"]["members"].size(); XDrkVsx++){
             [&]() {
 temp[XDrkVsx]=deserialize_char(name["members"]["pNext"]["members"][XDrkVsx]);}();;
         }
@@ -48577,7 +48577,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_AAhxnfd["members"]={};
-        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext))); AAhxnfd++){
+        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext)))+1; AAhxnfd++){
             json temp;
             temp=[&]() {
     json return_YSMKesD=json({});
@@ -48627,8 +48627,8 @@ void* temp_UqlSjfi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"].size(); XDrkVsx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"]["members"].size(); XDrkVsx++){
             [&]() {
 temp[XDrkVsx]=deserialize_char(name["members"]["pNext"]["members"][XDrkVsx]);}();;
         }
@@ -48674,7 +48674,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_AAhxnfd["members"]={};
-        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext))); AAhxnfd++){
+        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext)))+1; AAhxnfd++){
             json temp;
             temp=[&]() {
     json return_YSMKesD=json({});
@@ -48724,8 +48724,8 @@ void* temp_UqlSjfi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"].size(); XDrkVsx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"]["members"].size(); XDrkVsx++){
             [&]() {
 temp[XDrkVsx]=deserialize_char(name["members"]["pNext"]["members"][XDrkVsx]);}();;
         }
@@ -48771,7 +48771,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ePDHwWm["members"]={};
-        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext))); ePDHwWm++){
+        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext)))+1; ePDHwWm++){
             json temp;
             temp=[&]() {
     json return_vqZuHkL=json({});
@@ -48804,8 +48804,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"].size(); ghdHOrj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"]["members"].size(); ghdHOrj++){
             [&]() {
 temp[ghdHOrj]=deserialize_char(name["members"]["pNext"]["members"][ghdHOrj]);}();;
         }
@@ -48839,7 +48839,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ePDHwWm["members"]={};
-        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext))); ePDHwWm++){
+        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext)))+1; ePDHwWm++){
             json temp;
             temp=[&]() {
     json return_vqZuHkL=json({});
@@ -48872,8 +48872,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"].size(); ghdHOrj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"]["members"].size(); ghdHOrj++){
             [&]() {
 temp[ghdHOrj]=deserialize_char(name["members"]["pNext"]["members"][ghdHOrj]);}();;
         }
@@ -48907,7 +48907,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -48945,8 +48945,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -48983,7 +48983,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -49014,8 +49014,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -49048,7 +49048,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -49100,8 +49100,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -49148,7 +49148,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -49181,8 +49181,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -49216,7 +49216,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -49254,8 +49254,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -49292,7 +49292,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -49330,8 +49330,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -49410,7 +49410,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_zteIbMs["members"]={};
-        for(int zteIbMs=0; zteIbMs < strlen(((char*)(name.pNext))); zteIbMs++){
+        for(int zteIbMs=0; zteIbMs < strlen(((char*)(name.pNext)))+1; zteIbMs++){
             json temp;
             temp=[&]() {
     json return_jwnnJne=json({});
@@ -49471,8 +49471,8 @@ void* temp_Pqdomxx;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int YNRXBXy=0; YNRXBXy < name["members"]["pNext"].size(); YNRXBXy++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int YNRXBXy=0; YNRXBXy < name["members"]["pNext"]["members"].size(); YNRXBXy++){
             [&]() {
 temp[YNRXBXy]=deserialize_char(name["members"]["pNext"]["members"][YNRXBXy]);}();;
         }
@@ -49527,7 +49527,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_zteIbMs["members"]={};
-        for(int zteIbMs=0; zteIbMs < strlen(((char*)(name.pNext))); zteIbMs++){
+        for(int zteIbMs=0; zteIbMs < strlen(((char*)(name.pNext)))+1; zteIbMs++){
             json temp;
             temp=[&]() {
     json return_jwnnJne=json({});
@@ -49588,8 +49588,8 @@ void* temp_Pqdomxx;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int YNRXBXy=0; YNRXBXy < name["members"]["pNext"].size(); YNRXBXy++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int YNRXBXy=0; YNRXBXy < name["members"]["pNext"]["members"].size(); YNRXBXy++){
             [&]() {
 temp[YNRXBXy]=deserialize_char(name["members"]["pNext"]["members"][YNRXBXy]);}();;
         }
@@ -49644,7 +49644,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_TKZgOGe["members"]={};
-        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext))); TKZgOGe++){
+        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext)))+1; TKZgOGe++){
             json temp;
             temp=[&]() {
     json return_vKaymkQ=json({});
@@ -49677,8 +49677,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"].size(); RflsJpr++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"]["members"].size(); RflsJpr++){
             [&]() {
 temp[RflsJpr]=deserialize_char(name["members"]["pNext"]["members"][RflsJpr]);}();;
         }
@@ -49712,7 +49712,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -49745,8 +49745,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -49780,7 +49780,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -49813,8 +49813,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -49848,7 +49848,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -49886,8 +49886,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -49924,7 +49924,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -49957,8 +49957,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -49992,7 +49992,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -50042,8 +50042,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -50087,7 +50087,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_oMWOblP["members"]={};
-        for(int oMWOblP=0; oMWOblP < strlen(((char*)(name.pNext))); oMWOblP++){
+        for(int oMWOblP=0; oMWOblP < strlen(((char*)(name.pNext)))+1; oMWOblP++){
             json temp;
             temp=[&]() {
     json return_AAyNWAc=json({});
@@ -50157,8 +50157,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ZIEPtjf=0; ZIEPtjf < name["members"]["pNext"].size(); ZIEPtjf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ZIEPtjf=0; ZIEPtjf < name["members"]["pNext"]["members"].size(); ZIEPtjf++){
             [&]() {
 temp[ZIEPtjf]=deserialize_char(name["members"]["pNext"]["members"][ZIEPtjf]);}();;
         }
@@ -50212,7 +50212,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_rBgzMMw["members"]={};
-        for(int rBgzMMw=0; rBgzMMw < strlen(((char*)(name.pNext))); rBgzMMw++){
+        for(int rBgzMMw=0; rBgzMMw < strlen(((char*)(name.pNext)))+1; rBgzMMw++){
             json temp;
             temp=[&]() {
     json return_ejnGIWb=json({});
@@ -50265,8 +50265,8 @@ void* temp_YvSbgFq;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int bfrvKlJ=0; bfrvKlJ < name["members"]["pNext"].size(); bfrvKlJ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int bfrvKlJ=0; bfrvKlJ < name["members"]["pNext"]["members"].size(); bfrvKlJ++){
             [&]() {
 temp[bfrvKlJ]=deserialize_char(name["members"]["pNext"]["members"][bfrvKlJ]);}();;
         }
@@ -50355,7 +50355,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -50390,8 +50390,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -50426,7 +50426,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_zteIbMs["members"]={};
-        for(int zteIbMs=0; zteIbMs < strlen(((char*)(name.pNext))); zteIbMs++){
+        for(int zteIbMs=0; zteIbMs < strlen(((char*)(name.pNext)))+1; zteIbMs++){
             json temp;
             temp=[&]() {
     json return_jwnnJne=json({});
@@ -50458,8 +50458,8 @@ void* temp_Pqdomxx;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int YNRXBXy=0; YNRXBXy < name["members"]["pNext"].size(); YNRXBXy++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int YNRXBXy=0; YNRXBXy < name["members"]["pNext"]["members"].size(); YNRXBXy++){
             [&]() {
 temp[YNRXBXy]=deserialize_char(name["members"]["pNext"]["members"][YNRXBXy]);}();;
         }
@@ -50492,7 +50492,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -50524,8 +50524,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -50558,7 +50558,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -50591,8 +50591,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -50626,7 +50626,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dINOMtL["members"]={};
-        for(int dINOMtL=0; dINOMtL < strlen(((char*)(name.pNext))); dINOMtL++){
+        for(int dINOMtL=0; dINOMtL < strlen(((char*)(name.pNext)))+1; dINOMtL++){
             json temp;
             temp=[&]() {
     json return_UUWDFFc=json({});
@@ -50661,8 +50661,8 @@ void* temp_YYyfkNN;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ceyRXsX=0; ceyRXsX < name["members"]["pNext"].size(); ceyRXsX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ceyRXsX=0; ceyRXsX < name["members"]["pNext"]["members"].size(); ceyRXsX++){
             [&]() {
 temp[ceyRXsX]=deserialize_char(name["members"]["pNext"]["members"][ceyRXsX]);}();;
         }
@@ -50697,7 +50697,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_WscTLgV["members"]={};
-        for(int WscTLgV=0; WscTLgV < strlen(((char*)(name.pNext))); WscTLgV++){
+        for(int WscTLgV=0; WscTLgV < strlen(((char*)(name.pNext)))+1; WscTLgV++){
             json temp;
             temp=[&]() {
     json return_jZVDTHj=json({});
@@ -50737,8 +50737,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int AOTTFXa=0; AOTTFXa < name["members"]["pNext"].size(); AOTTFXa++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int AOTTFXa=0; AOTTFXa < name["members"]["pNext"]["members"].size(); AOTTFXa++){
             [&]() {
 temp[AOTTFXa]=deserialize_char(name["members"]["pNext"]["members"][AOTTFXa]);}();;
         }
@@ -50777,7 +50777,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -50810,8 +50810,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -50849,7 +50849,7 @@ result["members"]["valueString"]=[&]() {
         }
         
         return_QjcaeRG["members"]={};
-        for(int QjcaeRG=0; QjcaeRG < strlen(name.valueString); QjcaeRG++){
+        for(int QjcaeRG=0; QjcaeRG < strlen(name.valueString)+1; QjcaeRG++){
             json temp;
             temp=[&]() {
     json return_ggILkqs=json({});
@@ -50879,8 +50879,8 @@ char* temp_zSjHOfo;[&]() {
         temp_zSjHOfo=NULL;
         return;
         }
-    temp_zSjHOfo=(char*)malloc(name["members"]["valueString"].size()*sizeof(char));
-        for (int UMKlirx=0; UMKlirx < name["members"]["valueString"].size(); UMKlirx++){
+    temp_zSjHOfo=(char*)malloc(name["members"]["valueString"]["members"].size()*sizeof(char));
+        for (int UMKlirx=0; UMKlirx < name["members"]["valueString"]["members"].size(); UMKlirx++){
             [&]() {
 temp_zSjHOfo[UMKlirx]=deserialize_char(name["members"]["valueString"]["members"][UMKlirx]);}();;
         }
@@ -50931,7 +50931,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_qksLCsC["members"]={};
-        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext))); qksLCsC++){
+        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext)))+1; qksLCsC++){
             json temp;
             temp=[&]() {
     json return_qlTkbxn=json({});
@@ -50956,7 +50956,7 @@ result["members"]["pUserData"]=[&]() {
         }
         
         return_tdTMUpb["members"]={};
-        for(int tdTMUpb=0; tdTMUpb < strlen(((char*)(name.pUserData))); tdTMUpb++){
+        for(int tdTMUpb=0; tdTMUpb < strlen(((char*)(name.pUserData)))+1; tdTMUpb++){
             json temp;
             temp=[&]() {
     json return_RqwjBWY=json({});
@@ -50985,8 +50985,8 @@ void* temp_YIdsYkt;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"].size(); xiAUTQz++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"]["members"].size(); xiAUTQz++){
             [&]() {
 temp[xiAUTQz]=deserialize_char(name["members"]["pNext"]["members"][xiAUTQz]);}();;
         }
@@ -51004,8 +51004,8 @@ temp[xiAUTQz]=deserialize_char(name["members"]["pNext"]["members"][xiAUTQz]);}()
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pUserData"].size()*sizeof(char));
-        for (int mhFqFWQ=0; mhFqFWQ < name["members"]["pUserData"].size(); mhFqFWQ++){
+    temp=(char*)malloc(name["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int mhFqFWQ=0; mhFqFWQ < name["members"]["pUserData"]["members"].size(); mhFqFWQ++){
             [&]() {
 temp[mhFqFWQ]=deserialize_char(name["members"]["pUserData"]["members"][mhFqFWQ]);}();;
         }
@@ -51036,7 +51036,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_qksLCsC["members"]={};
-        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext))); qksLCsC++){
+        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext)))+1; qksLCsC++){
             json temp;
             temp=[&]() {
     json return_qlTkbxn=json({});
@@ -51068,8 +51068,8 @@ void* temp_YIdsYkt;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"].size(); xiAUTQz++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"]["members"].size(); xiAUTQz++){
             [&]() {
 temp[xiAUTQz]=deserialize_char(name["members"]["pNext"]["members"][xiAUTQz]);}();;
         }
@@ -51102,7 +51102,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_qksLCsC["members"]={};
-        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext))); qksLCsC++){
+        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext)))+1; qksLCsC++){
             json temp;
             temp=[&]() {
     json return_qlTkbxn=json({});
@@ -51134,8 +51134,8 @@ void* temp_YIdsYkt;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"].size(); xiAUTQz++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"]["members"].size(); xiAUTQz++){
             [&]() {
 temp[xiAUTQz]=deserialize_char(name["members"]["pNext"]["members"][xiAUTQz]);}();;
         }
@@ -51168,7 +51168,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_qksLCsC["members"]={};
-        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext))); qksLCsC++){
+        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext)))+1; qksLCsC++){
             json temp;
             temp=[&]() {
     json return_qlTkbxn=json({});
@@ -51200,8 +51200,8 @@ void* temp_YIdsYkt;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"].size(); xiAUTQz++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"]["members"].size(); xiAUTQz++){
             [&]() {
 temp[xiAUTQz]=deserialize_char(name["members"]["pNext"]["members"][xiAUTQz]);}();;
         }
@@ -51234,7 +51234,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_qksLCsC["members"]={};
-        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext))); qksLCsC++){
+        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext)))+1; qksLCsC++){
             json temp;
             temp=[&]() {
     json return_qlTkbxn=json({});
@@ -51266,8 +51266,8 @@ void* temp_YIdsYkt;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"].size(); xiAUTQz++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"]["members"].size(); xiAUTQz++){
             [&]() {
 temp[xiAUTQz]=deserialize_char(name["members"]["pNext"]["members"][xiAUTQz]);}();;
         }
@@ -51300,7 +51300,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_qksLCsC["members"]={};
-        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext))); qksLCsC++){
+        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext)))+1; qksLCsC++){
             json temp;
             temp=[&]() {
     json return_qlTkbxn=json({});
@@ -51340,8 +51340,8 @@ void* temp_YIdsYkt;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"].size(); xiAUTQz++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"]["members"].size(); xiAUTQz++){
             [&]() {
 temp[xiAUTQz]=deserialize_char(name["members"]["pNext"]["members"][xiAUTQz]);}();;
         }
@@ -51379,7 +51379,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_qksLCsC["members"]={};
-        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext))); qksLCsC++){
+        for(int qksLCsC=0; qksLCsC < strlen(((char*)(name.pNext)))+1; qksLCsC++){
             json temp;
             temp=[&]() {
     json return_qlTkbxn=json({});
@@ -51411,8 +51411,8 @@ void* temp_YIdsYkt;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"].size(); xiAUTQz++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xiAUTQz=0; xiAUTQz < name["members"]["pNext"]["members"].size(); xiAUTQz++){
             [&]() {
 temp[xiAUTQz]=deserialize_char(name["members"]["pNext"]["members"][xiAUTQz]);}();;
         }
@@ -51445,7 +51445,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -51483,8 +51483,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -51521,7 +51521,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -51554,8 +51554,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -51589,7 +51589,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_mDIroCt["members"]={};
-        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext))); mDIroCt++){
+        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext)))+1; mDIroCt++){
             json temp;
             temp=[&]() {
     json return_Riekxgn=json({});
@@ -51623,8 +51623,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"].size(); RzJZikE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"]["members"].size(); RzJZikE++){
             [&]() {
 temp[RzJZikE]=deserialize_char(name["members"]["pNext"]["members"][RzJZikE]);}();;
         }
@@ -51659,7 +51659,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -51692,8 +51692,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -51727,7 +51727,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_oJiIEwZ["members"]={};
-        for(int oJiIEwZ=0; oJiIEwZ < strlen(((char*)(name.pNext))); oJiIEwZ++){
+        for(int oJiIEwZ=0; oJiIEwZ < strlen(((char*)(name.pNext)))+1; oJiIEwZ++){
             json temp;
             temp=[&]() {
     json return_TJEIQOt=json({});
@@ -51770,8 +51770,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int SRljumV=0; SRljumV < name["members"]["pNext"].size(); SRljumV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int SRljumV=0; SRljumV < name["members"]["pNext"]["members"].size(); SRljumV++){
             [&]() {
 temp[SRljumV]=deserialize_char(name["members"]["pNext"]["members"][SRljumV]);}();;
         }
@@ -51811,7 +51811,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -51844,8 +51844,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -51879,7 +51879,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -51912,8 +51912,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -51947,7 +51947,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -51978,8 +51978,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -52012,7 +52012,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -52050,8 +52050,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -52088,7 +52088,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -52119,8 +52119,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -52153,7 +52153,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -52187,8 +52187,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -52223,7 +52223,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -52257,8 +52257,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -52293,7 +52293,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -52326,8 +52326,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -52361,7 +52361,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -52393,8 +52393,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -52427,7 +52427,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -52459,8 +52459,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -52493,7 +52493,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -52553,8 +52553,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -52603,7 +52603,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -52638,8 +52638,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -52708,7 +52708,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -52768,8 +52768,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -52818,7 +52818,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -52905,8 +52905,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -52975,7 +52975,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -53008,8 +53008,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -53043,7 +53043,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -53076,8 +53076,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -53111,7 +53111,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -53144,8 +53144,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -53179,7 +53179,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -53227,8 +53227,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -53271,7 +53271,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -53319,8 +53319,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -53363,7 +53363,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ePDHwWm["members"]={};
-        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext))); ePDHwWm++){
+        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext)))+1; ePDHwWm++){
             json temp;
             temp=[&]() {
     json return_vqZuHkL=json({});
@@ -53401,8 +53401,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"].size(); ghdHOrj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"]["members"].size(); ghdHOrj++){
             [&]() {
 temp[ghdHOrj]=deserialize_char(name["members"]["pNext"]["members"][ghdHOrj]);}();;
         }
@@ -53439,7 +53439,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ePDHwWm["members"]={};
-        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext))); ePDHwWm++){
+        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext)))+1; ePDHwWm++){
             json temp;
             temp=[&]() {
     json return_vqZuHkL=json({});
@@ -53477,8 +53477,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"].size(); ghdHOrj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"]["members"].size(); ghdHOrj++){
             [&]() {
 temp[ghdHOrj]=deserialize_char(name["members"]["pNext"]["members"][ghdHOrj]);}();;
         }
@@ -53515,7 +53515,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_mDIroCt["members"]={};
-        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext))); mDIroCt++){
+        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext)))+1; mDIroCt++){
             json temp;
             temp=[&]() {
     json return_Riekxgn=json({});
@@ -53555,8 +53555,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"].size(); RzJZikE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"]["members"].size(); RzJZikE++){
             [&]() {
 temp[RzJZikE]=deserialize_char(name["members"]["pNext"]["members"][RzJZikE]);}();;
         }
@@ -53595,7 +53595,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_mDIroCt["members"]={};
-        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext))); mDIroCt++){
+        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext)))+1; mDIroCt++){
             json temp;
             temp=[&]() {
     json return_Riekxgn=json({});
@@ -53635,8 +53635,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"].size(); RzJZikE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"]["members"].size(); RzJZikE++){
             [&]() {
 temp[RzJZikE]=deserialize_char(name["members"]["pNext"]["members"][RzJZikE]);}();;
         }
@@ -53675,7 +53675,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ePDHwWm["members"]={};
-        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext))); ePDHwWm++){
+        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext)))+1; ePDHwWm++){
             json temp;
             temp=[&]() {
     json return_vqZuHkL=json({});
@@ -53706,8 +53706,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"].size(); ghdHOrj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"]["members"].size(); ghdHOrj++){
             [&]() {
 temp[ghdHOrj]=deserialize_char(name["members"]["pNext"]["members"][ghdHOrj]);}();;
         }
@@ -53740,7 +53740,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ePDHwWm["members"]={};
-        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext))); ePDHwWm++){
+        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext)))+1; ePDHwWm++){
             json temp;
             temp=[&]() {
     json return_vqZuHkL=json({});
@@ -53771,8 +53771,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"].size(); ghdHOrj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"]["members"].size(); ghdHOrj++){
             [&]() {
 temp[ghdHOrj]=deserialize_char(name["members"]["pNext"]["members"][ghdHOrj]);}();;
         }
@@ -53805,7 +53805,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ePDHwWm["members"]={};
-        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext))); ePDHwWm++){
+        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext)))+1; ePDHwWm++){
             json temp;
             temp=[&]() {
     json return_vqZuHkL=json({});
@@ -53836,8 +53836,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"].size(); ghdHOrj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"]["members"].size(); ghdHOrj++){
             [&]() {
 temp[ghdHOrj]=deserialize_char(name["members"]["pNext"]["members"][ghdHOrj]);}();;
         }
@@ -53870,7 +53870,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -53904,8 +53904,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -53940,7 +53940,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -53971,8 +53971,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -54005,7 +54005,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -54067,8 +54067,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -54118,7 +54118,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BpUJFWd["members"]={};
-        for(int BpUJFWd=0; BpUJFWd < strlen(((char*)(name.pNext))); BpUJFWd++){
+        for(int BpUJFWd=0; BpUJFWd < strlen(((char*)(name.pNext)))+1; BpUJFWd++){
             json temp;
             temp=[&]() {
     json return_aRkrQsy=json({});
@@ -54150,8 +54150,8 @@ void* temp_CdQyhvD;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int TOpJmDf=0; TOpJmDf < name["members"]["pNext"].size(); TOpJmDf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int TOpJmDf=0; TOpJmDf < name["members"]["pNext"]["members"].size(); TOpJmDf++){
             [&]() {
 temp[TOpJmDf]=deserialize_char(name["members"]["pNext"]["members"][TOpJmDf]);}();;
         }
@@ -54184,7 +54184,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BpUJFWd["members"]={};
-        for(int BpUJFWd=0; BpUJFWd < strlen(((char*)(name.pNext))); BpUJFWd++){
+        for(int BpUJFWd=0; BpUJFWd < strlen(((char*)(name.pNext)))+1; BpUJFWd++){
             json temp;
             temp=[&]() {
     json return_aRkrQsy=json({});
@@ -54216,8 +54216,8 @@ void* temp_CdQyhvD;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int TOpJmDf=0; TOpJmDf < name["members"]["pNext"].size(); TOpJmDf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int TOpJmDf=0; TOpJmDf < name["members"]["pNext"]["members"].size(); TOpJmDf++){
             [&]() {
 temp[TOpJmDf]=deserialize_char(name["members"]["pNext"]["members"][TOpJmDf]);}();;
         }
@@ -54250,7 +54250,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -54282,8 +54282,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -54316,7 +54316,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -54348,8 +54348,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -54382,7 +54382,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -54440,8 +54440,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -54490,7 +54490,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -54521,8 +54521,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -54555,7 +54555,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_TOslSgQ["members"]={};
-        for(int TOslSgQ=0; TOslSgQ < strlen(((char*)(name.pNext))); TOslSgQ++){
+        for(int TOslSgQ=0; TOslSgQ < strlen(((char*)(name.pNext)))+1; TOslSgQ++){
             json temp;
             temp=[&]() {
     json return_EIqwVJQ=json({});
@@ -54598,8 +54598,8 @@ void* temp_zZdIlQI;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mQAuqdn=0; mQAuqdn < name["members"]["pNext"].size(); mQAuqdn++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mQAuqdn=0; mQAuqdn < name["members"]["pNext"]["members"].size(); mQAuqdn++){
             [&]() {
 temp[mQAuqdn]=deserialize_char(name["members"]["pNext"]["members"][mQAuqdn]);}();;
         }
@@ -54639,7 +54639,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -54672,8 +54672,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -54707,7 +54707,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -54740,8 +54740,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -54775,7 +54775,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -54863,8 +54863,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -54931,7 +54931,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_egFsZYt["members"]={};
-        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext))); egFsZYt++){
+        for(int egFsZYt=0; egFsZYt < strlen(((char*)(name.pNext)))+1; egFsZYt++){
             json temp;
             temp=[&]() {
     json return_lfDpnwU=json({});
@@ -55042,8 +55042,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"].size(); IJWeKYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int IJWeKYH=0; IJWeKYH < name["members"]["pNext"]["members"].size(); IJWeKYH++){
             [&]() {
 temp[IJWeKYH]=deserialize_char(name["members"]["pNext"]["members"][IJWeKYH]);}();;
         }
@@ -55123,7 +55123,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -55386,8 +55386,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -55559,7 +55559,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -55815,8 +55815,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -55987,7 +55987,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -56090,8 +56090,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -56167,7 +56167,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_mDIroCt["members"]={};
-        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext))); mDIroCt++){
+        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext)))+1; mDIroCt++){
             json temp;
             temp=[&]() {
     json return_Riekxgn=json({});
@@ -56400,8 +56400,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"].size(); RzJZikE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"]["members"].size(); RzJZikE++){
             [&]() {
 temp[RzJZikE]=deserialize_char(name["members"]["pNext"]["members"][RzJZikE]);}();;
         }
@@ -56557,7 +56557,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_pAezFXm["members"]={};
-        for(int pAezFXm=0; pAezFXm < strlen(((char*)(name.pNext))); pAezFXm++){
+        for(int pAezFXm=0; pAezFXm < strlen(((char*)(name.pNext)))+1; pAezFXm++){
             json temp;
             temp=[&]() {
     json return_mGwIgNO=json({});
@@ -56589,8 +56589,8 @@ void* temp_JiHiPqv;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int QJgRoeZ=0; QJgRoeZ < name["members"]["pNext"].size(); QJgRoeZ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int QJgRoeZ=0; QJgRoeZ < name["members"]["pNext"]["members"].size(); QJgRoeZ++){
             [&]() {
 temp[QJgRoeZ]=deserialize_char(name["members"]["pNext"]["members"][QJgRoeZ]);}();;
         }
@@ -56623,7 +56623,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -56656,8 +56656,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -56691,7 +56691,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -56774,8 +56774,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -56836,7 +56836,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -56919,8 +56919,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -56981,7 +56981,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_pAezFXm["members"]={};
-        for(int pAezFXm=0; pAezFXm < strlen(((char*)(name.pNext))); pAezFXm++){
+        for(int pAezFXm=0; pAezFXm < strlen(((char*)(name.pNext)))+1; pAezFXm++){
             json temp;
             temp=[&]() {
     json return_mGwIgNO=json({});
@@ -57016,8 +57016,8 @@ void* temp_JiHiPqv;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int QJgRoeZ=0; QJgRoeZ < name["members"]["pNext"].size(); QJgRoeZ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int QJgRoeZ=0; QJgRoeZ < name["members"]["pNext"]["members"].size(); QJgRoeZ++){
             [&]() {
 temp[QJgRoeZ]=deserialize_char(name["members"]["pNext"]["members"][QJgRoeZ]);}();;
         }
@@ -57052,7 +57052,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_OOxpLZd["members"]={};
-        for(int OOxpLZd=0; OOxpLZd < strlen(((char*)(name.pNext))); OOxpLZd++){
+        for(int OOxpLZd=0; OOxpLZd < strlen(((char*)(name.pNext)))+1; OOxpLZd++){
             json temp;
             temp=[&]() {
     json return_gBIEaON=json({});
@@ -57083,8 +57083,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int TngeoyR=0; TngeoyR < name["members"]["pNext"].size(); TngeoyR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int TngeoyR=0; TngeoyR < name["members"]["pNext"]["members"].size(); TngeoyR++){
             [&]() {
 temp[TngeoyR]=deserialize_char(name["members"]["pNext"]["members"][TngeoyR]);}();;
         }
@@ -57117,7 +57117,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -57155,8 +57155,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -57193,7 +57193,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ZKRXfdj["members"]={};
-        for(int ZKRXfdj=0; ZKRXfdj < strlen(((char*)(name.pNext))); ZKRXfdj++){
+        for(int ZKRXfdj=0; ZKRXfdj < strlen(((char*)(name.pNext)))+1; ZKRXfdj++){
             json temp;
             temp=[&]() {
     json return_AuPmNoD=json({});
@@ -57230,8 +57230,8 @@ void* temp_JlfUJFP;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jgNbhxI=0; jgNbhxI < name["members"]["pNext"].size(); jgNbhxI++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jgNbhxI=0; jgNbhxI < name["members"]["pNext"]["members"].size(); jgNbhxI++){
             [&]() {
 temp[jgNbhxI]=deserialize_char(name["members"]["pNext"]["members"][jgNbhxI]);}();;
         }
@@ -57267,7 +57267,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -57305,8 +57305,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -57345,7 +57345,7 @@ result["members"]["hostAddress"]=[&]() {
         }
         
         return_HblUWih["members"]={};
-        for(int HblUWih=0; HblUWih < strlen(((char*)(name.hostAddress))); HblUWih++){
+        for(int HblUWih=0; HblUWih < strlen(((char*)(name.hostAddress)))+1; HblUWih++){
             json temp;
             temp=[&]() {
     json return_rJQBNmc=json({});
@@ -57374,8 +57374,8 @@ result.deviceAddress=deserialize_uint64_t(name["members"]["deviceAddress"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["hostAddress"].size()*sizeof(char));
-        for (int ndVXRxr=0; ndVXRxr < name["members"]["hostAddress"].size(); ndVXRxr++){
+    temp=(char*)malloc(name["members"]["hostAddress"]["members"].size()*sizeof(char));
+        for (int ndVXRxr=0; ndVXRxr < name["members"]["hostAddress"]["members"].size(); ndVXRxr++){
             [&]() {
 temp[ndVXRxr]=deserialize_char(name["members"]["hostAddress"]["members"][ndVXRxr]);}();;
         }
@@ -57408,7 +57408,7 @@ result["members"]["hostAddress"]=[&]() {
         }
         
         return_McJIkdv["members"]={};
-        for(int McJIkdv=0; McJIkdv < strlen(((char*)(name.hostAddress))); McJIkdv++){
+        for(int McJIkdv=0; McJIkdv < strlen(((char*)(name.hostAddress)))+1; McJIkdv++){
             json temp;
             temp=[&]() {
     json return_KKSNhhl=json({});
@@ -57438,8 +57438,8 @@ void* temp_ThycBZJ;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["hostAddress"].size()*sizeof(char));
-        for (int XcWcfMT=0; XcWcfMT < name["members"]["hostAddress"].size(); XcWcfMT++){
+    temp=(char*)malloc(name["members"]["hostAddress"]["members"].size()*sizeof(char));
+        for (int XcWcfMT=0; XcWcfMT < name["members"]["hostAddress"]["members"].size(); XcWcfMT++){
             [&]() {
 temp[XcWcfMT]=deserialize_char(name["members"]["hostAddress"]["members"][XcWcfMT]);}();;
         }
@@ -57470,7 +57470,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BpUJFWd["members"]={};
-        for(int BpUJFWd=0; BpUJFWd < strlen(((char*)(name.pNext))); BpUJFWd++){
+        for(int BpUJFWd=0; BpUJFWd < strlen(((char*)(name.pNext)))+1; BpUJFWd++){
             json temp;
             temp=[&]() {
     json return_aRkrQsy=json({});
@@ -57522,8 +57522,8 @@ void* temp_CdQyhvD;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int TOpJmDf=0; TOpJmDf < name["members"]["pNext"].size(); TOpJmDf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int TOpJmDf=0; TOpJmDf < name["members"]["pNext"]["members"].size(); TOpJmDf++){
             [&]() {
 temp[TOpJmDf]=deserialize_char(name["members"]["pNext"]["members"][TOpJmDf]);}();;
         }
@@ -57569,7 +57569,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ZPeUPfV["members"]={};
-        for(int ZPeUPfV=0; ZPeUPfV < strlen(((char*)(name.pNext))); ZPeUPfV++){
+        for(int ZPeUPfV=0; ZPeUPfV < strlen(((char*)(name.pNext)))+1; ZPeUPfV++){
             json temp;
             temp=[&]() {
     json return_pVmKIiP=json({});
@@ -57606,8 +57606,8 @@ void* temp_tuuajEc;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int giUnoop=0; giUnoop < name["members"]["pNext"].size(); giUnoop++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int giUnoop=0; giUnoop < name["members"]["pNext"]["members"].size(); giUnoop++){
             [&]() {
 temp[giUnoop]=deserialize_char(name["members"]["pNext"]["members"][giUnoop]);}();;
         }
@@ -57643,7 +57643,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ZPeUPfV["members"]={};
-        for(int ZPeUPfV=0; ZPeUPfV < strlen(((char*)(name.pNext))); ZPeUPfV++){
+        for(int ZPeUPfV=0; ZPeUPfV < strlen(((char*)(name.pNext)))+1; ZPeUPfV++){
             json temp;
             temp=[&]() {
     json return_pVmKIiP=json({});
@@ -57680,8 +57680,8 @@ void* temp_tuuajEc;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int giUnoop=0; giUnoop < name["members"]["pNext"].size(); giUnoop++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int giUnoop=0; giUnoop < name["members"]["pNext"]["members"].size(); giUnoop++){
             [&]() {
 temp[giUnoop]=deserialize_char(name["members"]["pNext"]["members"][giUnoop]);}();;
         }
@@ -57743,7 +57743,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -57781,8 +57781,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -57819,7 +57819,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dINOMtL["members"]={};
-        for(int dINOMtL=0; dINOMtL < strlen(((char*)(name.pNext))); dINOMtL++){
+        for(int dINOMtL=0; dINOMtL < strlen(((char*)(name.pNext)))+1; dINOMtL++){
             json temp;
             temp=[&]() {
     json return_UUWDFFc=json({});
@@ -57920,8 +57920,8 @@ void* temp_YYyfkNN;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ceyRXsX=0; ceyRXsX < name["members"]["pNext"].size(); ceyRXsX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ceyRXsX=0; ceyRXsX < name["members"]["pNext"]["members"].size(); ceyRXsX++){
             [&]() {
 temp[ceyRXsX]=deserialize_char(name["members"]["pNext"]["members"][ceyRXsX]);}();;
         }
@@ -58033,7 +58033,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_rBgzMMw["members"]={};
-        for(int rBgzMMw=0; rBgzMMw < strlen(((char*)(name.pNext))); rBgzMMw++){
+        for(int rBgzMMw=0; rBgzMMw < strlen(((char*)(name.pNext)))+1; rBgzMMw++){
             json temp;
             temp=[&]() {
     json return_ejnGIWb=json({});
@@ -58086,8 +58086,8 @@ void* temp_YvSbgFq;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int bfrvKlJ=0; bfrvKlJ < name["members"]["pNext"].size(); bfrvKlJ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int bfrvKlJ=0; bfrvKlJ < name["members"]["pNext"]["members"].size(); bfrvKlJ++){
             [&]() {
 temp[bfrvKlJ]=deserialize_char(name["members"]["pNext"]["members"][bfrvKlJ]);}();;
         }
@@ -58389,7 +58389,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gwOIPFK["members"]={};
-        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext))); gwOIPFK++){
+        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext)))+1; gwOIPFK++){
             json temp;
             temp=[&]() {
     json return_XRJxgUx=json({});
@@ -58421,8 +58421,8 @@ void* temp_vQLyWGy;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"].size(); iVScxqU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"]["members"].size(); iVScxqU++){
             [&]() {
 temp[iVScxqU]=deserialize_char(name["members"]["pNext"]["members"][iVScxqU]);}();;
         }
@@ -58455,7 +58455,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gwOIPFK["members"]={};
-        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext))); gwOIPFK++){
+        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext)))+1; gwOIPFK++){
             json temp;
             temp=[&]() {
     json return_XRJxgUx=json({});
@@ -58502,8 +58502,8 @@ void* temp_vQLyWGy;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"].size(); iVScxqU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"]["members"].size(); iVScxqU++){
             [&]() {
 temp[iVScxqU]=deserialize_char(name["members"]["pNext"]["members"][iVScxqU]);}();;
         }
@@ -58547,7 +58547,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gwOIPFK["members"]={};
-        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext))); gwOIPFK++){
+        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext)))+1; gwOIPFK++){
             json temp;
             temp=[&]() {
     json return_XRJxgUx=json({});
@@ -58585,8 +58585,8 @@ void* temp_vQLyWGy;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"].size(); iVScxqU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"]["members"].size(); iVScxqU++){
             [&]() {
 temp[iVScxqU]=deserialize_char(name["members"]["pNext"]["members"][iVScxqU]);}();;
         }
@@ -58623,7 +58623,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gwOIPFK["members"]={};
-        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext))); gwOIPFK++){
+        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext)))+1; gwOIPFK++){
             json temp;
             temp=[&]() {
     json return_XRJxgUx=json({});
@@ -58661,8 +58661,8 @@ void* temp_vQLyWGy;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"].size(); iVScxqU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"]["members"].size(); iVScxqU++){
             [&]() {
 temp[iVScxqU]=deserialize_char(name["members"]["pNext"]["members"][iVScxqU]);}();;
         }
@@ -58699,7 +58699,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gwOIPFK["members"]={};
-        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext))); gwOIPFK++){
+        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext)))+1; gwOIPFK++){
             json temp;
             temp=[&]() {
     json return_XRJxgUx=json({});
@@ -58737,8 +58737,8 @@ void* temp_vQLyWGy;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"].size(); iVScxqU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"]["members"].size(); iVScxqU++){
             [&]() {
 temp[iVScxqU]=deserialize_char(name["members"]["pNext"]["members"][iVScxqU]);}();;
         }
@@ -58775,7 +58775,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -58810,8 +58810,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -58846,7 +58846,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gwOIPFK["members"]={};
-        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext))); gwOIPFK++){
+        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext)))+1; gwOIPFK++){
             json temp;
             temp=[&]() {
     json return_XRJxgUx=json({});
@@ -58896,8 +58896,8 @@ void* temp_vQLyWGy;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"].size(); iVScxqU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"]["members"].size(); iVScxqU++){
             [&]() {
 temp[iVScxqU]=deserialize_char(name["members"]["pNext"]["members"][iVScxqU]);}();;
         }
@@ -58943,7 +58943,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -58976,8 +58976,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -59011,7 +59011,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -59054,8 +59054,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -59095,7 +59095,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -59278,8 +59278,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -59403,7 +59403,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -59436,8 +59436,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -59557,7 +59557,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_hJedDSk["members"]={};
-        for(int hJedDSk=0; hJedDSk < strlen(((char*)(name.pNext))); hJedDSk++){
+        for(int hJedDSk=0; hJedDSk < strlen(((char*)(name.pNext)))+1; hJedDSk++){
             json temp;
             temp=[&]() {
     json return_MsKedHb=json({});
@@ -59588,8 +59588,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int KfoycTU=0; KfoycTU < name["members"]["pNext"].size(); KfoycTU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int KfoycTU=0; KfoycTU < name["members"]["pNext"]["members"].size(); KfoycTU++){
             [&]() {
 temp[KfoycTU]=deserialize_char(name["members"]["pNext"]["members"][KfoycTU]);}();;
         }
@@ -59622,7 +59622,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_CKwDpuY["members"]={};
-        for(int CKwDpuY=0; CKwDpuY < strlen(((char*)(name.pNext))); CKwDpuY++){
+        for(int CKwDpuY=0; CKwDpuY < strlen(((char*)(name.pNext)))+1; CKwDpuY++){
             json temp;
             temp=[&]() {
     json return_YWCBCkX=json({});
@@ -59654,8 +59654,8 @@ void* temp_tTXsqWM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FqXNYHR=0; FqXNYHR < name["members"]["pNext"].size(); FqXNYHR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FqXNYHR=0; FqXNYHR < name["members"]["pNext"]["members"].size(); FqXNYHR++){
             [&]() {
 temp[FqXNYHR]=deserialize_char(name["members"]["pNext"]["members"][FqXNYHR]);}();;
         }
@@ -59688,7 +59688,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_hJedDSk["members"]={};
-        for(int hJedDSk=0; hJedDSk < strlen(((char*)(name.pNext))); hJedDSk++){
+        for(int hJedDSk=0; hJedDSk < strlen(((char*)(name.pNext)))+1; hJedDSk++){
             json temp;
             temp=[&]() {
     json return_MsKedHb=json({});
@@ -59722,8 +59722,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int KfoycTU=0; KfoycTU < name["members"]["pNext"].size(); KfoycTU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int KfoycTU=0; KfoycTU < name["members"]["pNext"]["members"].size(); KfoycTU++){
             [&]() {
 temp[KfoycTU]=deserialize_char(name["members"]["pNext"]["members"][KfoycTU]);}();;
         }
@@ -59758,7 +59758,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -59791,8 +59791,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -59826,7 +59826,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_FQqTgbw["members"]={};
-        for(int FQqTgbw=0; FQqTgbw < strlen(((char*)(name.pNext))); FQqTgbw++){
+        for(int FQqTgbw=0; FQqTgbw < strlen(((char*)(name.pNext)))+1; FQqTgbw++){
             json temp;
             temp=[&]() {
     json return_cOLxsJF=json({});
@@ -59858,8 +59858,8 @@ void* temp_pXLFMNj;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int bzyYjVt=0; bzyYjVt < name["members"]["pNext"].size(); bzyYjVt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int bzyYjVt=0; bzyYjVt < name["members"]["pNext"]["members"].size(); bzyYjVt++){
             [&]() {
 temp[bzyYjVt]=deserialize_char(name["members"]["pNext"]["members"][bzyYjVt]);}();;
         }
@@ -59892,7 +59892,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dnFegcI["members"]={};
-        for(int dnFegcI=0; dnFegcI < strlen(((char*)(name.pNext))); dnFegcI++){
+        for(int dnFegcI=0; dnFegcI < strlen(((char*)(name.pNext)))+1; dnFegcI++){
             json temp;
             temp=[&]() {
     json return_tJPAjpe=json({});
@@ -59925,8 +59925,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfHoroN=0; XfHoroN < name["members"]["pNext"].size(); XfHoroN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfHoroN=0; XfHoroN < name["members"]["pNext"]["members"].size(); XfHoroN++){
             [&]() {
 temp[XfHoroN]=deserialize_char(name["members"]["pNext"]["members"][XfHoroN]);}();;
         }
@@ -59960,7 +59960,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dnFegcI["members"]={};
-        for(int dnFegcI=0; dnFegcI < strlen(((char*)(name.pNext))); dnFegcI++){
+        for(int dnFegcI=0; dnFegcI < strlen(((char*)(name.pNext)))+1; dnFegcI++){
             json temp;
             temp=[&]() {
     json return_tJPAjpe=json({});
@@ -59993,8 +59993,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfHoroN=0; XfHoroN < name["members"]["pNext"].size(); XfHoroN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfHoroN=0; XfHoroN < name["members"]["pNext"]["members"].size(); XfHoroN++){
             [&]() {
 temp[XfHoroN]=deserialize_char(name["members"]["pNext"]["members"][XfHoroN]);}();;
         }
@@ -60028,7 +60028,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -60061,8 +60061,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -60096,7 +60096,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -60139,8 +60139,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -60180,7 +60180,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -60218,8 +60218,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -60256,7 +60256,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -60289,8 +60289,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -60324,7 +60324,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -60357,8 +60357,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -60392,7 +60392,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -60440,8 +60440,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -60484,7 +60484,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -60522,8 +60522,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -60560,7 +60560,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -60593,8 +60593,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -60628,7 +60628,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_fQuAOcc["members"]={};
-        for(int fQuAOcc=0; fQuAOcc < strlen(((char*)(name.pNext))); fQuAOcc++){
+        for(int fQuAOcc=0; fQuAOcc < strlen(((char*)(name.pNext)))+1; fQuAOcc++){
             json temp;
             temp=[&]() {
     json return_RcEVOsI=json({});
@@ -60666,8 +60666,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UjgudPg=0; UjgudPg < name["members"]["pNext"].size(); UjgudPg++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UjgudPg=0; UjgudPg < name["members"]["pNext"]["members"].size(); UjgudPg++){
             [&]() {
 temp[UjgudPg]=deserialize_char(name["members"]["pNext"]["members"][UjgudPg]);}();;
         }
@@ -60704,7 +60704,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -60748,8 +60748,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -60789,7 +60789,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -60833,8 +60833,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -60874,7 +60874,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -60918,8 +60918,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -60960,7 +60960,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -61004,8 +61004,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -61046,7 +61046,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -61107,8 +61107,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -61157,7 +61157,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -61218,8 +61218,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -61268,7 +61268,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -61317,8 +61317,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -61362,7 +61362,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -61411,8 +61411,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -61456,7 +61456,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -61500,8 +61500,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -61542,7 +61542,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -61586,8 +61586,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -61628,7 +61628,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -61684,8 +61684,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -61735,7 +61735,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -61791,8 +61791,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -61842,7 +61842,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -61904,8 +61904,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -61959,7 +61959,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -62021,8 +62021,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -62076,7 +62076,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -62141,8 +62141,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -62198,7 +62198,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -62263,8 +62263,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -62320,7 +62320,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HwomHKN["members"]={};
-        for(int HwomHKN=0; HwomHKN < strlen(((char*)(name.pNext))); HwomHKN++){
+        for(int HwomHKN=0; HwomHKN < strlen(((char*)(name.pNext)))+1; HwomHKN++){
             json temp;
             temp=[&]() {
     json return_kNuhIKz=json({});
@@ -62379,8 +62379,8 @@ void* temp_VBAOmYt;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RRrHqsk=0; RRrHqsk < name["members"]["pNext"].size(); RRrHqsk++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RRrHqsk=0; RRrHqsk < name["members"]["pNext"]["members"].size(); RRrHqsk++){
             [&]() {
 temp[RRrHqsk]=deserialize_char(name["members"]["pNext"]["members"][RRrHqsk]);}();;
         }
@@ -62432,7 +62432,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HwomHKN["members"]={};
-        for(int HwomHKN=0; HwomHKN < strlen(((char*)(name.pNext))); HwomHKN++){
+        for(int HwomHKN=0; HwomHKN < strlen(((char*)(name.pNext)))+1; HwomHKN++){
             json temp;
             temp=[&]() {
     json return_kNuhIKz=json({});
@@ -62491,8 +62491,8 @@ void* temp_VBAOmYt;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RRrHqsk=0; RRrHqsk < name["members"]["pNext"].size(); RRrHqsk++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RRrHqsk=0; RRrHqsk < name["members"]["pNext"]["members"].size(); RRrHqsk++){
             [&]() {
 temp[RRrHqsk]=deserialize_char(name["members"]["pNext"]["members"][RRrHqsk]);}();;
         }
@@ -62544,7 +62544,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BpUJFWd["members"]={};
-        for(int BpUJFWd=0; BpUJFWd < strlen(((char*)(name.pNext))); BpUJFWd++){
+        for(int BpUJFWd=0; BpUJFWd < strlen(((char*)(name.pNext)))+1; BpUJFWd++){
             json temp;
             temp=[&]() {
     json return_aRkrQsy=json({});
@@ -62603,8 +62603,8 @@ void* temp_CdQyhvD;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int TOpJmDf=0; TOpJmDf < name["members"]["pNext"].size(); TOpJmDf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int TOpJmDf=0; TOpJmDf < name["members"]["pNext"]["members"].size(); TOpJmDf++){
             [&]() {
 temp[TOpJmDf]=deserialize_char(name["members"]["pNext"]["members"][TOpJmDf]);}();;
         }
@@ -62656,7 +62656,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BpUJFWd["members"]={};
-        for(int BpUJFWd=0; BpUJFWd < strlen(((char*)(name.pNext))); BpUJFWd++){
+        for(int BpUJFWd=0; BpUJFWd < strlen(((char*)(name.pNext)))+1; BpUJFWd++){
             json temp;
             temp=[&]() {
     json return_aRkrQsy=json({});
@@ -62715,8 +62715,8 @@ void* temp_CdQyhvD;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int TOpJmDf=0; TOpJmDf < name["members"]["pNext"].size(); TOpJmDf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int TOpJmDf=0; TOpJmDf < name["members"]["pNext"]["members"].size(); TOpJmDf++){
             [&]() {
 temp[TOpJmDf]=deserialize_char(name["members"]["pNext"]["members"][TOpJmDf]);}();;
         }
@@ -62768,7 +62768,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_FmPJZys["members"]={};
-        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext))); FmPJZys++){
+        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext)))+1; FmPJZys++){
             json temp;
             temp=[&]() {
     json return_oKTqgAS=json({});
@@ -62830,8 +62830,8 @@ void* temp_nOXYBOh;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"].size(); cZMRgjQ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"]["members"].size(); cZMRgjQ++){
             [&]() {
 temp[cZMRgjQ]=deserialize_char(name["members"]["pNext"]["members"][cZMRgjQ]);}();;
         }
@@ -62885,7 +62885,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_FmPJZys["members"]={};
-        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext))); FmPJZys++){
+        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext)))+1; FmPJZys++){
             json temp;
             temp=[&]() {
     json return_oKTqgAS=json({});
@@ -62947,8 +62947,8 @@ void* temp_nOXYBOh;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"].size(); cZMRgjQ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"]["members"].size(); cZMRgjQ++){
             [&]() {
 temp[cZMRgjQ]=deserialize_char(name["members"]["pNext"]["members"][cZMRgjQ]);}();;
         }
@@ -63002,7 +63002,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -63040,8 +63040,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -63078,7 +63078,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_FmPJZys["members"]={};
-        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext))); FmPJZys++){
+        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext)))+1; FmPJZys++){
             json temp;
             temp=[&]() {
     json return_oKTqgAS=json({});
@@ -63121,8 +63121,8 @@ void* temp_nOXYBOh;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"].size(); cZMRgjQ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"]["members"].size(); cZMRgjQ++){
             [&]() {
 temp[cZMRgjQ]=deserialize_char(name["members"]["pNext"]["members"][cZMRgjQ]);}();;
         }
@@ -63166,7 +63166,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_yUuLRrM["members"]={};
-        for(int yUuLRrM=0; yUuLRrM < strlen(((char*)(name.pNext))); yUuLRrM++){
+        for(int yUuLRrM=0; yUuLRrM < strlen(((char*)(name.pNext)))+1; yUuLRrM++){
             json temp;
             temp=[&]() {
     json return_mbuAVtw=json({});
@@ -63211,8 +63211,8 @@ void* temp_rbkRlJL;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int DxMkVGH=0; DxMkVGH < name["members"]["pNext"].size(); DxMkVGH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int DxMkVGH=0; DxMkVGH < name["members"]["pNext"]["members"].size(); DxMkVGH++){
             [&]() {
 temp[DxMkVGH]=deserialize_char(name["members"]["pNext"]["members"][DxMkVGH]);}();;
         }
@@ -63252,7 +63252,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -63295,8 +63295,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -63336,7 +63336,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -63435,8 +63435,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -63511,7 +63511,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -63545,8 +63545,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -63581,7 +63581,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -63614,8 +63614,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -63649,7 +63649,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -63682,8 +63682,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -63717,7 +63717,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -63760,8 +63760,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -63801,7 +63801,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HJEzPTB["members"]={};
-        for(int HJEzPTB=0; HJEzPTB < strlen(((char*)(name.pNext))); HJEzPTB++){
+        for(int HJEzPTB=0; HJEzPTB < strlen(((char*)(name.pNext)))+1; HJEzPTB++){
             json temp;
             temp=[&]() {
     json return_AwGVpxY=json({});
@@ -63832,8 +63832,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int aMnQrlT=0; aMnQrlT < name["members"]["pNext"].size(); aMnQrlT++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int aMnQrlT=0; aMnQrlT < name["members"]["pNext"]["members"].size(); aMnQrlT++){
             [&]() {
 temp[aMnQrlT]=deserialize_char(name["members"]["pNext"]["members"][aMnQrlT]);}();;
         }
@@ -63866,7 +63866,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_jaGYMMt["members"]={};
-        for(int jaGYMMt=0; jaGYMMt < strlen(((char*)(name.pNext))); jaGYMMt++){
+        for(int jaGYMMt=0; jaGYMMt < strlen(((char*)(name.pNext)))+1; jaGYMMt++){
             json temp;
             temp=[&]() {
     json return_vucWmcI=json({});
@@ -63914,8 +63914,8 @@ void* temp_BOnLiIL;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int yPIrNHj=0; yPIrNHj < name["members"]["pNext"].size(); yPIrNHj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int yPIrNHj=0; yPIrNHj < name["members"]["pNext"]["members"].size(); yPIrNHj++){
             [&]() {
 temp[yPIrNHj]=deserialize_char(name["members"]["pNext"]["members"][yPIrNHj]);}();;
         }
@@ -63957,7 +63957,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -64001,8 +64001,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -64042,7 +64042,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_bwYhDhd["members"]={};
-        for(int bwYhDhd=0; bwYhDhd < strlen(((char*)(name.pNext))); bwYhDhd++){
+        for(int bwYhDhd=0; bwYhDhd < strlen(((char*)(name.pNext)))+1; bwYhDhd++){
             json temp;
             temp=[&]() {
     json return_UywxEbK=json({});
@@ -64080,8 +64080,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int kPSctNU=0; kPSctNU < name["members"]["pNext"].size(); kPSctNU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int kPSctNU=0; kPSctNU < name["members"]["pNext"]["members"].size(); kPSctNU++){
             [&]() {
 temp[kPSctNU]=deserialize_char(name["members"]["pNext"]["members"][kPSctNU]);}();;
         }
@@ -64118,7 +64118,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_bwYhDhd["members"]={};
-        for(int bwYhDhd=0; bwYhDhd < strlen(((char*)(name.pNext))); bwYhDhd++){
+        for(int bwYhDhd=0; bwYhDhd < strlen(((char*)(name.pNext)))+1; bwYhDhd++){
             json temp;
             temp=[&]() {
     json return_UywxEbK=json({});
@@ -64151,8 +64151,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int kPSctNU=0; kPSctNU < name["members"]["pNext"].size(); kPSctNU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int kPSctNU=0; kPSctNU < name["members"]["pNext"]["members"].size(); kPSctNU++){
             [&]() {
 temp[kPSctNU]=deserialize_char(name["members"]["pNext"]["members"][kPSctNU]);}();;
         }
@@ -64186,7 +64186,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LwAgtLE["members"]={};
-        for(int LwAgtLE=0; LwAgtLE < strlen(((char*)(name.pNext))); LwAgtLE++){
+        for(int LwAgtLE=0; LwAgtLE < strlen(((char*)(name.pNext)))+1; LwAgtLE++){
             json temp;
             temp=[&]() {
     json return_OVgpfbc=json({});
@@ -64219,8 +64219,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int sgpUUYH=0; sgpUUYH < name["members"]["pNext"].size(); sgpUUYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int sgpUUYH=0; sgpUUYH < name["members"]["pNext"]["members"].size(); sgpUUYH++){
             [&]() {
 temp[sgpUUYH]=deserialize_char(name["members"]["pNext"]["members"][sgpUUYH]);}();;
         }
@@ -64254,7 +64254,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LwAgtLE["members"]={};
-        for(int LwAgtLE=0; LwAgtLE < strlen(((char*)(name.pNext))); LwAgtLE++){
+        for(int LwAgtLE=0; LwAgtLE < strlen(((char*)(name.pNext)))+1; LwAgtLE++){
             json temp;
             temp=[&]() {
     json return_OVgpfbc=json({});
@@ -64287,8 +64287,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int sgpUUYH=0; sgpUUYH < name["members"]["pNext"].size(); sgpUUYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int sgpUUYH=0; sgpUUYH < name["members"]["pNext"]["members"].size(); sgpUUYH++){
             [&]() {
 temp[sgpUUYH]=deserialize_char(name["members"]["pNext"]["members"][sgpUUYH]);}();;
         }
@@ -64322,7 +64322,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LwAgtLE["members"]={};
-        for(int LwAgtLE=0; LwAgtLE < strlen(((char*)(name.pNext))); LwAgtLE++){
+        for(int LwAgtLE=0; LwAgtLE < strlen(((char*)(name.pNext)))+1; LwAgtLE++){
             json temp;
             temp=[&]() {
     json return_OVgpfbc=json({});
@@ -64355,8 +64355,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int sgpUUYH=0; sgpUUYH < name["members"]["pNext"].size(); sgpUUYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int sgpUUYH=0; sgpUUYH < name["members"]["pNext"]["members"].size(); sgpUUYH++){
             [&]() {
 temp[sgpUUYH]=deserialize_char(name["members"]["pNext"]["members"][sgpUUYH]);}();;
         }
@@ -64484,7 +64484,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_cNmgvzB["members"]={};
-        for(int cNmgvzB=0; cNmgvzB < strlen(((char*)(name.pNext))); cNmgvzB++){
+        for(int cNmgvzB=0; cNmgvzB < strlen(((char*)(name.pNext)))+1; cNmgvzB++){
             json temp;
             temp=[&]() {
     json return_JcCwKxw=json({});
@@ -64534,8 +64534,8 @@ void* temp_JKBkNvS;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OcoWRjM=0; OcoWRjM < name["members"]["pNext"].size(); OcoWRjM++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OcoWRjM=0; OcoWRjM < name["members"]["pNext"]["members"].size(); OcoWRjM++){
             [&]() {
 temp[OcoWRjM]=deserialize_char(name["members"]["pNext"]["members"][OcoWRjM]);}();;
         }
@@ -64581,7 +64581,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_cNmgvzB["members"]={};
-        for(int cNmgvzB=0; cNmgvzB < strlen(((char*)(name.pNext))); cNmgvzB++){
+        for(int cNmgvzB=0; cNmgvzB < strlen(((char*)(name.pNext)))+1; cNmgvzB++){
             json temp;
             temp=[&]() {
     json return_JcCwKxw=json({});
@@ -64631,8 +64631,8 @@ void* temp_JKBkNvS;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OcoWRjM=0; OcoWRjM < name["members"]["pNext"].size(); OcoWRjM++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OcoWRjM=0; OcoWRjM < name["members"]["pNext"]["members"].size(); OcoWRjM++){
             [&]() {
 temp[OcoWRjM]=deserialize_char(name["members"]["pNext"]["members"][OcoWRjM]);}();;
         }
@@ -64678,7 +64678,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -64711,8 +64711,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -64746,7 +64746,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -64780,8 +64780,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -64815,7 +64815,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -64848,8 +64848,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -64883,7 +64883,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -64916,8 +64916,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -64951,7 +64951,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -64991,8 +64991,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -65031,7 +65031,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -65071,8 +65071,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -65111,7 +65111,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -65144,8 +65144,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -65179,7 +65179,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -65231,8 +65231,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -65284,7 +65284,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -65325,8 +65325,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -65365,7 +65365,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -65406,8 +65406,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -65446,7 +65446,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -65505,8 +65505,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -65557,7 +65557,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -65616,8 +65616,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -65668,7 +65668,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -65728,8 +65728,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -65780,7 +65780,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -65840,8 +65840,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -65892,7 +65892,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_Wyngqjw["members"]={};
-        for(int Wyngqjw=0; Wyngqjw < strlen(((char*)(name.pNext))); Wyngqjw++){
+        for(int Wyngqjw=0; Wyngqjw < strlen(((char*)(name.pNext)))+1; Wyngqjw++){
             json temp;
             temp=[&]() {
     json return_oLGgNZK=json({});
@@ -65987,8 +65987,8 @@ void* temp_jCYwOxP;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int CDlbAui=0; CDlbAui < name["members"]["pNext"].size(); CDlbAui++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int CDlbAui=0; CDlbAui < name["members"]["pNext"]["members"].size(); CDlbAui++){
             [&]() {
 temp[CDlbAui]=deserialize_char(name["members"]["pNext"]["members"][CDlbAui]);}();;
         }
@@ -66066,7 +66066,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_Wyngqjw["members"]={};
-        for(int Wyngqjw=0; Wyngqjw < strlen(((char*)(name.pNext))); Wyngqjw++){
+        for(int Wyngqjw=0; Wyngqjw < strlen(((char*)(name.pNext)))+1; Wyngqjw++){
             json temp;
             temp=[&]() {
     json return_oLGgNZK=json({});
@@ -66161,8 +66161,8 @@ void* temp_jCYwOxP;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int CDlbAui=0; CDlbAui < name["members"]["pNext"].size(); CDlbAui++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int CDlbAui=0; CDlbAui < name["members"]["pNext"]["members"].size(); CDlbAui++){
             [&]() {
 temp[CDlbAui]=deserialize_char(name["members"]["pNext"]["members"][CDlbAui]);}();;
         }
@@ -66240,7 +66240,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_JlgBeBw["members"]={};
-        for(int JlgBeBw=0; JlgBeBw < strlen(((char*)(name.pNext))); JlgBeBw++){
+        for(int JlgBeBw=0; JlgBeBw < strlen(((char*)(name.pNext)))+1; JlgBeBw++){
             json temp;
             temp=[&]() {
     json return_UJrVnwi=json({});
@@ -66281,8 +66281,8 @@ void* temp_hIwmzDf;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int hDSSPCY=0; hDSSPCY < name["members"]["pNext"].size(); hDSSPCY++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int hDSSPCY=0; hDSSPCY < name["members"]["pNext"]["members"].size(); hDSSPCY++){
             [&]() {
 temp[hDSSPCY]=deserialize_char(name["members"]["pNext"]["members"][hDSSPCY]);}();;
         }
@@ -66321,7 +66321,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_JlgBeBw["members"]={};
-        for(int JlgBeBw=0; JlgBeBw < strlen(((char*)(name.pNext))); JlgBeBw++){
+        for(int JlgBeBw=0; JlgBeBw < strlen(((char*)(name.pNext)))+1; JlgBeBw++){
             json temp;
             temp=[&]() {
     json return_UJrVnwi=json({});
@@ -66362,8 +66362,8 @@ void* temp_hIwmzDf;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int hDSSPCY=0; hDSSPCY < name["members"]["pNext"].size(); hDSSPCY++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int hDSSPCY=0; hDSSPCY < name["members"]["pNext"]["members"].size(); hDSSPCY++){
             [&]() {
 temp[hDSSPCY]=deserialize_char(name["members"]["pNext"]["members"][hDSSPCY]);}();;
         }
@@ -66402,7 +66402,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_JlgBeBw["members"]={};
-        for(int JlgBeBw=0; JlgBeBw < strlen(((char*)(name.pNext))); JlgBeBw++){
+        for(int JlgBeBw=0; JlgBeBw < strlen(((char*)(name.pNext)))+1; JlgBeBw++){
             json temp;
             temp=[&]() {
     json return_UJrVnwi=json({});
@@ -66437,8 +66437,8 @@ void* temp_hIwmzDf;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int hDSSPCY=0; hDSSPCY < name["members"]["pNext"].size(); hDSSPCY++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int hDSSPCY=0; hDSSPCY < name["members"]["pNext"]["members"].size(); hDSSPCY++){
             [&]() {
 temp[hDSSPCY]=deserialize_char(name["members"]["pNext"]["members"][hDSSPCY]);}();;
         }
@@ -66473,7 +66473,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_JlgBeBw["members"]={};
-        for(int JlgBeBw=0; JlgBeBw < strlen(((char*)(name.pNext))); JlgBeBw++){
+        for(int JlgBeBw=0; JlgBeBw < strlen(((char*)(name.pNext)))+1; JlgBeBw++){
             json temp;
             temp=[&]() {
     json return_UJrVnwi=json({});
@@ -66508,8 +66508,8 @@ void* temp_hIwmzDf;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int hDSSPCY=0; hDSSPCY < name["members"]["pNext"].size(); hDSSPCY++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int hDSSPCY=0; hDSSPCY < name["members"]["pNext"]["members"].size(); hDSSPCY++){
             [&]() {
 temp[hDSSPCY]=deserialize_char(name["members"]["pNext"]["members"][hDSSPCY]);}();;
         }
@@ -66544,7 +66544,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_JlgBeBw["members"]={};
-        for(int JlgBeBw=0; JlgBeBw < strlen(((char*)(name.pNext))); JlgBeBw++){
+        for(int JlgBeBw=0; JlgBeBw < strlen(((char*)(name.pNext)))+1; JlgBeBw++){
             json temp;
             temp=[&]() {
     json return_UJrVnwi=json({});
@@ -66639,8 +66639,8 @@ void* temp_hIwmzDf;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int hDSSPCY=0; hDSSPCY < name["members"]["pNext"].size(); hDSSPCY++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int hDSSPCY=0; hDSSPCY < name["members"]["pNext"]["members"].size(); hDSSPCY++){
             [&]() {
 temp[hDSSPCY]=deserialize_char(name["members"]["pNext"]["members"][hDSSPCY]);}();;
         }
@@ -66718,7 +66718,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_JlgBeBw["members"]={};
-        for(int JlgBeBw=0; JlgBeBw < strlen(((char*)(name.pNext))); JlgBeBw++){
+        for(int JlgBeBw=0; JlgBeBw < strlen(((char*)(name.pNext)))+1; JlgBeBw++){
             json temp;
             temp=[&]() {
     json return_UJrVnwi=json({});
@@ -66813,8 +66813,8 @@ void* temp_hIwmzDf;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int hDSSPCY=0; hDSSPCY < name["members"]["pNext"].size(); hDSSPCY++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int hDSSPCY=0; hDSSPCY < name["members"]["pNext"]["members"].size(); hDSSPCY++){
             [&]() {
 temp[hDSSPCY]=deserialize_char(name["members"]["pNext"]["members"][hDSSPCY]);}();;
         }
@@ -66892,7 +66892,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_voZpfut["members"]={};
-        for(int voZpfut=0; voZpfut < strlen(((char*)(name.pNext))); voZpfut++){
+        for(int voZpfut=0; voZpfut < strlen(((char*)(name.pNext)))+1; voZpfut++){
             json temp;
             temp=[&]() {
     json return_PMYpLVC=json({});
@@ -66923,8 +66923,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int pAdqvtr=0; pAdqvtr < name["members"]["pNext"].size(); pAdqvtr++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int pAdqvtr=0; pAdqvtr < name["members"]["pNext"]["members"].size(); pAdqvtr++){
             [&]() {
 temp[pAdqvtr]=deserialize_char(name["members"]["pNext"]["members"][pAdqvtr]);}();;
         }
@@ -66957,7 +66957,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -66985,7 +66985,7 @@ result["members"]["pCheckpointMarker"]=[&]() {
         }
         
         return_dlJcMCH["members"]={};
-        for(int dlJcMCH=0; dlJcMCH < strlen(((char*)(name.pCheckpointMarker))); dlJcMCH++){
+        for(int dlJcMCH=0; dlJcMCH < strlen(((char*)(name.pCheckpointMarker)))+1; dlJcMCH++){
             json temp;
             temp=[&]() {
     json return_biTDqNR=json({});
@@ -67013,8 +67013,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -67034,8 +67034,8 @@ result.stage=deserialize_VkPipelineStageFlags2(name["members"]["stage"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pCheckpointMarker"].size()*sizeof(char));
-        for (int RCegkhN=0; RCegkhN < name["members"]["pCheckpointMarker"].size(); RCegkhN++){
+    temp=(char*)malloc(name["members"]["pCheckpointMarker"]["members"].size()*sizeof(char));
+        for (int RCegkhN=0; RCegkhN < name["members"]["pCheckpointMarker"]["members"].size(); RCegkhN++){
             [&]() {
 temp[RCegkhN]=deserialize_char(name["members"]["pCheckpointMarker"]["members"][RCegkhN]);}();;
         }
@@ -67066,7 +67066,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -67099,8 +67099,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -67134,7 +67134,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -67167,8 +67167,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -67202,7 +67202,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -67235,8 +67235,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -67270,7 +67270,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_oQSyspt["members"]={};
-        for(int oQSyspt=0; oQSyspt < strlen(((char*)(name.pNext))); oQSyspt++){
+        for(int oQSyspt=0; oQSyspt < strlen(((char*)(name.pNext)))+1; oQSyspt++){
             json temp;
             temp=[&]() {
     json return_lCgUumP=json({});
@@ -67358,8 +67358,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqHPVwL=0; mqHPVwL < name["members"]["pNext"].size(); mqHPVwL++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqHPVwL=0; mqHPVwL < name["members"]["pNext"]["members"].size(); mqHPVwL++){
             [&]() {
 temp[mqHPVwL]=deserialize_char(name["members"]["pNext"]["members"][mqHPVwL]);}();;
         }
@@ -67428,7 +67428,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vUXOXkz["members"]={};
-        for(int vUXOXkz=0; vUXOXkz < strlen(((char*)(name.pNext))); vUXOXkz++){
+        for(int vUXOXkz=0; vUXOXkz < strlen(((char*)(name.pNext)))+1; vUXOXkz++){
             json temp;
             temp=[&]() {
     json return_DGyChlW=json({});
@@ -67453,7 +67453,7 @@ result["members"]["pHostPointer"]=[&]() {
         }
         
         return_qWBknlp["members"]={};
-        for(int qWBknlp=0; qWBknlp < strlen(((char*)(name.pHostPointer))); qWBknlp++){
+        for(int qWBknlp=0; qWBknlp < strlen(((char*)(name.pHostPointer)))+1; qWBknlp++){
             json temp;
             temp=[&]() {
     json return_yXcQUme=json({});
@@ -67497,8 +67497,8 @@ void* temp_jeWdYOg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xZdSNCp=0; xZdSNCp < name["members"]["pNext"].size(); xZdSNCp++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xZdSNCp=0; xZdSNCp < name["members"]["pNext"]["members"].size(); xZdSNCp++){
             [&]() {
 temp[xZdSNCp]=deserialize_char(name["members"]["pNext"]["members"][xZdSNCp]);}();;
         }
@@ -67517,8 +67517,8 @@ void* temp_GIINBcP;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pHostPointer"].size()*sizeof(char));
-        for (int nHahYAM=0; nHahYAM < name["members"]["pHostPointer"].size(); nHahYAM++){
+    temp=(char*)malloc(name["members"]["pHostPointer"]["members"].size()*sizeof(char));
+        for (int nHahYAM=0; nHahYAM < name["members"]["pHostPointer"]["members"].size(); nHahYAM++){
             [&]() {
 temp[nHahYAM]=deserialize_char(name["members"]["pHostPointer"]["members"][nHahYAM]);}();;
         }
@@ -67559,7 +67559,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vUXOXkz["members"]={};
-        for(int vUXOXkz=0; vUXOXkz < strlen(((char*)(name.pNext))); vUXOXkz++){
+        for(int vUXOXkz=0; vUXOXkz < strlen(((char*)(name.pNext)))+1; vUXOXkz++){
             json temp;
             temp=[&]() {
     json return_DGyChlW=json({});
@@ -67584,7 +67584,7 @@ result["members"]["pHostPointer"]=[&]() {
         }
         
         return_xhVNpeb["members"]={};
-        for(int xhVNpeb=0; xhVNpeb < strlen(((char*)(name.pHostPointer))); xhVNpeb++){
+        for(int xhVNpeb=0; xhVNpeb < strlen(((char*)(name.pHostPointer)))+1; xhVNpeb++){
             json temp;
             temp=[&]() {
     json return_kPkxkKM=json({});
@@ -67628,8 +67628,8 @@ void* temp_jeWdYOg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xZdSNCp=0; xZdSNCp < name["members"]["pNext"].size(); xZdSNCp++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xZdSNCp=0; xZdSNCp < name["members"]["pNext"]["members"].size(); xZdSNCp++){
             [&]() {
 temp[xZdSNCp]=deserialize_char(name["members"]["pNext"]["members"][xZdSNCp]);}();;
         }
@@ -67647,8 +67647,8 @@ temp[xZdSNCp]=deserialize_char(name["members"]["pNext"]["members"][xZdSNCp]);}()
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pHostPointer"].size()*sizeof(char));
-        for (int SSrgkaT=0; SSrgkaT < name["members"]["pHostPointer"].size(); SSrgkaT++){
+    temp=(char*)malloc(name["members"]["pHostPointer"]["members"].size()*sizeof(char));
+        for (int SSrgkaT=0; SSrgkaT < name["members"]["pHostPointer"]["members"].size(); SSrgkaT++){
             [&]() {
 temp[SSrgkaT]=deserialize_char(name["members"]["pHostPointer"]["members"][SSrgkaT]);}();;
         }
@@ -67689,7 +67689,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_FmPJZys["members"]={};
-        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext))); FmPJZys++){
+        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext)))+1; FmPJZys++){
             json temp;
             temp=[&]() {
     json return_oKTqgAS=json({});
@@ -67748,8 +67748,8 @@ void* temp_nOXYBOh;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"].size(); cZMRgjQ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"]["members"].size(); cZMRgjQ++){
             [&]() {
 temp[cZMRgjQ]=deserialize_char(name["members"]["pNext"]["members"][cZMRgjQ]);}();;
         }
@@ -67801,7 +67801,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_FmPJZys["members"]={};
-        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext))); FmPJZys++){
+        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext)))+1; FmPJZys++){
             json temp;
             temp=[&]() {
     json return_oKTqgAS=json({});
@@ -67860,8 +67860,8 @@ void* temp_nOXYBOh;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"].size(); cZMRgjQ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"]["members"].size(); cZMRgjQ++){
             [&]() {
 temp[cZMRgjQ]=deserialize_char(name["members"]["pNext"]["members"][cZMRgjQ]);}();;
         }
@@ -67913,7 +67913,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_FmPJZys["members"]={};
-        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext))); FmPJZys++){
+        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext)))+1; FmPJZys++){
             json temp;
             temp=[&]() {
     json return_oKTqgAS=json({});
@@ -67978,8 +67978,8 @@ void* temp_nOXYBOh;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"].size(); cZMRgjQ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"]["members"].size(); cZMRgjQ++){
             [&]() {
 temp[cZMRgjQ]=deserialize_char(name["members"]["pNext"]["members"][cZMRgjQ]);}();;
         }
@@ -68035,7 +68035,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_qrfWxRw["members"]={};
-        for(int qrfWxRw=0; qrfWxRw < strlen(((char*)(name.pNext))); qrfWxRw++){
+        for(int qrfWxRw=0; qrfWxRw < strlen(((char*)(name.pNext)))+1; qrfWxRw++){
             json temp;
             temp=[&]() {
     json return_GsYIOzC=json({});
@@ -68076,8 +68076,8 @@ void* temp_yMFsvBw;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int BdMlzmT=0; BdMlzmT < name["members"]["pNext"].size(); BdMlzmT++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int BdMlzmT=0; BdMlzmT < name["members"]["pNext"]["members"].size(); BdMlzmT++){
             [&]() {
 temp[BdMlzmT]=deserialize_char(name["members"]["pNext"]["members"][BdMlzmT]);}();;
         }
@@ -68116,7 +68116,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -68149,8 +68149,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -68184,7 +68184,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -68222,8 +68222,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -68260,7 +68260,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -68303,8 +68303,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -68344,7 +68344,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DbrgFUU["members"]={};
-        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext))); DbrgFUU++){
+        for(int DbrgFUU=0; DbrgFUU < strlen(((char*)(name.pNext)))+1; DbrgFUU++){
             json temp;
             temp=[&]() {
     json return_tWKIlWe=json({});
@@ -68377,8 +68377,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"].size(); vWKmgVN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int vWKmgVN=0; vWKmgVN < name["members"]["pNext"]["members"].size(); vWKmgVN++){
             [&]() {
 temp[vWKmgVN]=deserialize_char(name["members"]["pNext"]["members"][vWKmgVN]);}();;
         }
@@ -68412,7 +68412,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_tjJmLHi["members"]={};
-        for(int tjJmLHi=0; tjJmLHi < strlen(((char*)(name.pNext))); tjJmLHi++){
+        for(int tjJmLHi=0; tjJmLHi < strlen(((char*)(name.pNext)))+1; tjJmLHi++){
             json temp;
             temp=[&]() {
     json return_vzPYEMV=json({});
@@ -68445,8 +68445,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int kMUZTCS=0; kMUZTCS < name["members"]["pNext"].size(); kMUZTCS++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int kMUZTCS=0; kMUZTCS < name["members"]["pNext"]["members"].size(); kMUZTCS++){
             [&]() {
 temp[kMUZTCS]=deserialize_char(name["members"]["pNext"]["members"][kMUZTCS]);}();;
         }
@@ -68480,7 +68480,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -68513,8 +68513,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -68548,7 +68548,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DzzZOZU["members"]={};
-        for(int DzzZOZU=0; DzzZOZU < strlen(((char*)(name.pNext))); DzzZOZU++){
+        for(int DzzZOZU=0; DzzZOZU < strlen(((char*)(name.pNext)))+1; DzzZOZU++){
             json temp;
             temp=[&]() {
     json return_KchNDnF=json({});
@@ -68585,8 +68585,8 @@ void* temp_TczvWNh;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int czfkvZb=0; czfkvZb < name["members"]["pNext"].size(); czfkvZb++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int czfkvZb=0; czfkvZb < name["members"]["pNext"]["members"].size(); czfkvZb++){
             [&]() {
 temp[czfkvZb]=deserialize_char(name["members"]["pNext"]["members"][czfkvZb]);}();;
         }
@@ -68622,7 +68622,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ePDHwWm["members"]={};
-        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext))); ePDHwWm++){
+        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext)))+1; ePDHwWm++){
             json temp;
             temp=[&]() {
     json return_vqZuHkL=json({});
@@ -68655,8 +68655,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"].size(); ghdHOrj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"]["members"].size(); ghdHOrj++){
             [&]() {
 temp[ghdHOrj]=deserialize_char(name["members"]["pNext"]["members"][ghdHOrj]);}();;
         }
@@ -68690,7 +68690,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HJEzPTB["members"]={};
-        for(int HJEzPTB=0; HJEzPTB < strlen(((char*)(name.pNext))); HJEzPTB++){
+        for(int HJEzPTB=0; HJEzPTB < strlen(((char*)(name.pNext)))+1; HJEzPTB++){
             json temp;
             temp=[&]() {
     json return_AwGVpxY=json({});
@@ -68721,8 +68721,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int aMnQrlT=0; aMnQrlT < name["members"]["pNext"].size(); aMnQrlT++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int aMnQrlT=0; aMnQrlT < name["members"]["pNext"]["members"].size(); aMnQrlT++){
             [&]() {
 temp[aMnQrlT]=deserialize_char(name["members"]["pNext"]["members"][aMnQrlT]);}();;
         }
@@ -68755,7 +68755,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HJEzPTB["members"]={};
-        for(int HJEzPTB=0; HJEzPTB < strlen(((char*)(name.pNext))); HJEzPTB++){
+        for(int HJEzPTB=0; HJEzPTB < strlen(((char*)(name.pNext)))+1; HJEzPTB++){
             json temp;
             temp=[&]() {
     json return_AwGVpxY=json({});
@@ -68788,8 +68788,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int aMnQrlT=0; aMnQrlT < name["members"]["pNext"].size(); aMnQrlT++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int aMnQrlT=0; aMnQrlT < name["members"]["pNext"]["members"].size(); aMnQrlT++){
             [&]() {
 temp[aMnQrlT]=deserialize_char(name["members"]["pNext"]["members"][aMnQrlT]);}();;
         }
@@ -68823,7 +68823,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ZMMnKvU["members"]={};
-        for(int ZMMnKvU=0; ZMMnKvU < strlen(((char*)(name.pNext))); ZMMnKvU++){
+        for(int ZMMnKvU=0; ZMMnKvU < strlen(((char*)(name.pNext)))+1; ZMMnKvU++){
             json temp;
             temp=[&]() {
     json return_glCdzrK=json({});
@@ -68873,8 +68873,8 @@ void* temp_JJbddRC;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ilKPuBl=0; ilKPuBl < name["members"]["pNext"].size(); ilKPuBl++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ilKPuBl=0; ilKPuBl < name["members"]["pNext"]["members"].size(); ilKPuBl++){
             [&]() {
 temp[ilKPuBl]=deserialize_char(name["members"]["pNext"]["members"][ilKPuBl]);}();;
         }
@@ -68920,7 +68920,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ompHUgo["members"]={};
-        for(int ompHUgo=0; ompHUgo < strlen(((char*)(name.pNext))); ompHUgo++){
+        for(int ompHUgo=0; ompHUgo < strlen(((char*)(name.pNext)))+1; ompHUgo++){
             json temp;
             temp=[&]() {
     json return_BEtAstS=json({});
@@ -68952,8 +68952,8 @@ void* temp_NnKFuco;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int TIzZneH=0; TIzZneH < name["members"]["pNext"].size(); TIzZneH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int TIzZneH=0; TIzZneH < name["members"]["pNext"]["members"].size(); TIzZneH++){
             [&]() {
 temp[TIzZneH]=deserialize_char(name["members"]["pNext"]["members"][TIzZneH]);}();;
         }
@@ -68986,7 +68986,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vPcAYBO["members"]={};
-        for(int vPcAYBO=0; vPcAYBO < strlen(((char*)(name.pNext))); vPcAYBO++){
+        for(int vPcAYBO=0; vPcAYBO < strlen(((char*)(name.pNext)))+1; vPcAYBO++){
             json temp;
             temp=[&]() {
     json return_IWfrHGg=json({});
@@ -69032,8 +69032,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int WLsYajk=0; WLsYajk < name["members"]["pNext"].size(); WLsYajk++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int WLsYajk=0; WLsYajk < name["members"]["pNext"]["members"].size(); WLsYajk++){
             [&]() {
 temp[WLsYajk]=deserialize_char(name["members"]["pNext"]["members"][WLsYajk]);}();;
         }
@@ -69076,7 +69076,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -69117,8 +69117,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -69157,7 +69157,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -69216,8 +69216,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -69268,7 +69268,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_pOqiWUD["members"]={};
-        for(int pOqiWUD=0; pOqiWUD < strlen(((char*)(name.pNext))); pOqiWUD++){
+        for(int pOqiWUD=0; pOqiWUD < strlen(((char*)(name.pNext)))+1; pOqiWUD++){
             json temp;
             temp=[&]() {
     json return_iwuxPkA=json({});
@@ -69302,8 +69302,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int lmCyHNI=0; lmCyHNI < name["members"]["pNext"].size(); lmCyHNI++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int lmCyHNI=0; lmCyHNI < name["members"]["pNext"]["members"].size(); lmCyHNI++){
             [&]() {
 temp[lmCyHNI]=deserialize_char(name["members"]["pNext"]["members"][lmCyHNI]);}();;
         }
@@ -69338,7 +69338,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_yVVDren["members"]={};
-        for(int yVVDren=0; yVVDren < strlen(((char*)(name.pNext))); yVVDren++){
+        for(int yVVDren=0; yVVDren < strlen(((char*)(name.pNext)))+1; yVVDren++){
             json temp;
             temp=[&]() {
     json return_NLpoiEa=json({});
@@ -69383,8 +69383,8 @@ void* temp_JNBnRPo;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jEIuktB=0; jEIuktB < name["members"]["pNext"].size(); jEIuktB++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jEIuktB=0; jEIuktB < name["members"]["pNext"]["members"].size(); jEIuktB++){
             [&]() {
 temp[jEIuktB]=deserialize_char(name["members"]["pNext"]["members"][jEIuktB]);}();;
         }
@@ -69425,7 +69425,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -69466,8 +69466,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -69506,7 +69506,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -69549,8 +69549,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -69594,7 +69594,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_FOZCSgm["members"]={};
-        for(int FOZCSgm=0; FOZCSgm < strlen(((char*)(name.pNext))); FOZCSgm++){
+        for(int FOZCSgm=0; FOZCSgm < strlen(((char*)(name.pNext)))+1; FOZCSgm++){
             json temp;
             temp=[&]() {
     json return_ucWQAlr=json({});
@@ -69625,8 +69625,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int cMPjfDz=0; cMPjfDz < name["members"]["pNext"].size(); cMPjfDz++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int cMPjfDz=0; cMPjfDz < name["members"]["pNext"]["members"].size(); cMPjfDz++){
             [&]() {
 temp[cMPjfDz]=deserialize_char(name["members"]["pNext"]["members"][cMPjfDz]);}();;
         }
@@ -69659,7 +69659,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_FmPJZys["members"]={};
-        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext))); FmPJZys++){
+        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext)))+1; FmPJZys++){
             json temp;
             temp=[&]() {
     json return_oKTqgAS=json({});
@@ -69691,8 +69691,8 @@ void* temp_nOXYBOh;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"].size(); cZMRgjQ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"]["members"].size(); cZMRgjQ++){
             [&]() {
 temp[cZMRgjQ]=deserialize_char(name["members"]["pNext"]["members"][cZMRgjQ]);}();;
         }
@@ -69725,7 +69725,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -69805,8 +69805,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -69875,7 +69875,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HcuouLk["members"]={};
-        for(int HcuouLk=0; HcuouLk < strlen(((char*)(name.pNext))); HcuouLk++){
+        for(int HcuouLk=0; HcuouLk < strlen(((char*)(name.pNext)))+1; HcuouLk++){
             json temp;
             temp=[&]() {
     json return_yJaGEzQ=json({});
@@ -69911,8 +69911,8 @@ void* temp_lJhqsvl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int bGbUeLO=0; bGbUeLO < name["members"]["pNext"].size(); bGbUeLO++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int bGbUeLO=0; bGbUeLO < name["members"]["pNext"]["members"].size(); bGbUeLO++){
             [&]() {
 temp[bGbUeLO]=deserialize_char(name["members"]["pNext"]["members"][bGbUeLO]);}();;
         }
@@ -69948,7 +69948,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -69983,8 +69983,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -70020,7 +70020,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_faRCiUs["members"]={};
-        for(int faRCiUs=0; faRCiUs < strlen(((char*)(name.pNext))); faRCiUs++){
+        for(int faRCiUs=0; faRCiUs < strlen(((char*)(name.pNext)))+1; faRCiUs++){
             json temp;
             temp=[&]() {
     json return_MLBoRYa=json({});
@@ -70073,8 +70073,8 @@ void* temp_eLzIyci;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int yuEpDwU=0; yuEpDwU < name["members"]["pNext"].size(); yuEpDwU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int yuEpDwU=0; yuEpDwU < name["members"]["pNext"]["members"].size(); yuEpDwU++){
             [&]() {
 temp[yuEpDwU]=deserialize_char(name["members"]["pNext"]["members"][yuEpDwU]);}();;
         }
@@ -70127,7 +70127,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_uaFkYyZ["members"]={};
-        for(int uaFkYyZ=0; uaFkYyZ < strlen(((char*)(name.pNext))); uaFkYyZ++){
+        for(int uaFkYyZ=0; uaFkYyZ < strlen(((char*)(name.pNext)))+1; uaFkYyZ++){
             json temp;
             temp=[&]() {
     json return_DMMkCQm=json({});
@@ -70173,8 +70173,8 @@ void* temp_uBPrQGe;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int NvDyuWk=0; NvDyuWk < name["members"]["pNext"].size(); NvDyuWk++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int NvDyuWk=0; NvDyuWk < name["members"]["pNext"]["members"].size(); NvDyuWk++){
             [&]() {
 temp[NvDyuWk]=deserialize_char(name["members"]["pNext"]["members"][NvDyuWk]);}();;
         }
@@ -70220,7 +70220,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_uRgCYfq["members"]={};
-        for(int uRgCYfq=0; uRgCYfq < strlen(((char*)(name.pNext))); uRgCYfq++){
+        for(int uRgCYfq=0; uRgCYfq < strlen(((char*)(name.pNext)))+1; uRgCYfq++){
             json temp;
             temp=[&]() {
     json return_xnNxbSB=json({});
@@ -70279,8 +70279,8 @@ void* temp_cECUQNC;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int bIAUXaG=0; bIAUXaG < name["members"]["pNext"].size(); bIAUXaG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int bIAUXaG=0; bIAUXaG < name["members"]["pNext"]["members"].size(); bIAUXaG++){
             [&]() {
 temp[bIAUXaG]=deserialize_char(name["members"]["pNext"]["members"][bIAUXaG]);}();;
         }
@@ -70335,7 +70335,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -70373,8 +70373,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -70414,7 +70414,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vUXOXkz["members"]={};
-        for(int vUXOXkz=0; vUXOXkz < strlen(((char*)(name.pNext))); vUXOXkz++){
+        for(int vUXOXkz=0; vUXOXkz < strlen(((char*)(name.pNext)))+1; vUXOXkz++){
             json temp;
             temp=[&]() {
     json return_DGyChlW=json({});
@@ -70447,8 +70447,8 @@ void* temp_jeWdYOg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xZdSNCp=0; xZdSNCp < name["members"]["pNext"].size(); xZdSNCp++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xZdSNCp=0; xZdSNCp < name["members"]["pNext"]["members"].size(); xZdSNCp++){
             [&]() {
 temp[xZdSNCp]=deserialize_char(name["members"]["pNext"]["members"][xZdSNCp]);}();;
         }
@@ -70482,7 +70482,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -70514,8 +70514,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -70549,7 +70549,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_yUuLRrM["members"]={};
-        for(int yUuLRrM=0; yUuLRrM < strlen(((char*)(name.pNext))); yUuLRrM++){
+        for(int yUuLRrM=0; yUuLRrM < strlen(((char*)(name.pNext)))+1; yUuLRrM++){
             json temp;
             temp=[&]() {
     json return_mbuAVtw=json({});
@@ -70614,8 +70614,8 @@ void* temp_rbkRlJL;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int DxMkVGH=0; DxMkVGH < name["members"]["pNext"].size(); DxMkVGH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int DxMkVGH=0; DxMkVGH < name["members"]["pNext"]["members"].size(); DxMkVGH++){
             [&]() {
 temp[DxMkVGH]=deserialize_char(name["members"]["pNext"]["members"][DxMkVGH]);}();;
         }
@@ -70679,7 +70679,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_FQqTgbw["members"]={};
-        for(int FQqTgbw=0; FQqTgbw < strlen(((char*)(name.pNext))); FQqTgbw++){
+        for(int FQqTgbw=0; FQqTgbw < strlen(((char*)(name.pNext)))+1; FQqTgbw++){
             json temp;
             temp=[&]() {
     json return_cOLxsJF=json({});
@@ -70728,8 +70728,8 @@ void* temp_pXLFMNj;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int bzyYjVt=0; bzyYjVt < name["members"]["pNext"].size(); bzyYjVt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int bzyYjVt=0; bzyYjVt < name["members"]["pNext"]["members"].size(); bzyYjVt++){
             [&]() {
 temp[bzyYjVt]=deserialize_char(name["members"]["pNext"]["members"][bzyYjVt]);}();;
         }
@@ -70777,7 +70777,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_FmPJZys["members"]={};
-        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext))); FmPJZys++){
+        for(int FmPJZys=0; FmPJZys < strlen(((char*)(name.pNext)))+1; FmPJZys++){
             json temp;
             temp=[&]() {
     json return_oKTqgAS=json({});
@@ -70836,8 +70836,8 @@ void* temp_nOXYBOh;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"].size(); cZMRgjQ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int cZMRgjQ=0; cZMRgjQ < name["members"]["pNext"]["members"].size(); cZMRgjQ++){
             [&]() {
 temp[cZMRgjQ]=deserialize_char(name["members"]["pNext"]["members"][cZMRgjQ]);}();;
         }
@@ -70892,7 +70892,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ircznoJ["members"]={};
-        for(int ircznoJ=0; ircznoJ < strlen(((char*)(name.pNext))); ircznoJ++){
+        for(int ircznoJ=0; ircznoJ < strlen(((char*)(name.pNext)))+1; ircznoJ++){
             json temp;
             temp=[&]() {
     json return_zBiLZCF=json({});
@@ -70930,8 +70930,8 @@ void* temp_UCWRHpe;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int AlAyQVK=0; AlAyQVK < name["members"]["pNext"].size(); AlAyQVK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int AlAyQVK=0; AlAyQVK < name["members"]["pNext"]["members"].size(); AlAyQVK++){
             [&]() {
 temp[AlAyQVK]=deserialize_char(name["members"]["pNext"]["members"][AlAyQVK]);}();;
         }
@@ -70971,7 +70971,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BpUJFWd["members"]={};
-        for(int BpUJFWd=0; BpUJFWd < strlen(((char*)(name.pNext))); BpUJFWd++){
+        for(int BpUJFWd=0; BpUJFWd < strlen(((char*)(name.pNext)))+1; BpUJFWd++){
             json temp;
             temp=[&]() {
     json return_aRkrQsy=json({});
@@ -71043,8 +71043,8 @@ void* temp_CdQyhvD;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int TOpJmDf=0; TOpJmDf < name["members"]["pNext"].size(); TOpJmDf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int TOpJmDf=0; TOpJmDf < name["members"]["pNext"]["members"].size(); TOpJmDf++){
             [&]() {
 temp[TOpJmDf]=deserialize_char(name["members"]["pNext"]["members"][TOpJmDf]);}();;
         }
@@ -71111,7 +71111,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HuFGcJY["members"]={};
-        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext))); HuFGcJY++){
+        for(int HuFGcJY=0; HuFGcJY < strlen(((char*)(name.pNext)))+1; HuFGcJY++){
             json temp;
             temp=[&]() {
     json return_aiyVqsO=json({});
@@ -71149,8 +71149,8 @@ void* temp_AcezPAl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"].size(); fDLdTgP++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fDLdTgP=0; fDLdTgP < name["members"]["pNext"]["members"].size(); fDLdTgP++){
             [&]() {
 temp[fDLdTgP]=deserialize_char(name["members"]["pNext"]["members"][fDLdTgP]);}();;
         }
@@ -71187,7 +71187,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gwOIPFK["members"]={};
-        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext))); gwOIPFK++){
+        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext)))+1; gwOIPFK++){
             json temp;
             temp=[&]() {
     json return_XRJxgUx=json({});
@@ -71219,8 +71219,8 @@ void* temp_vQLyWGy;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"].size(); iVScxqU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"]["members"].size(); iVScxqU++){
             [&]() {
 temp[iVScxqU]=deserialize_char(name["members"]["pNext"]["members"][iVScxqU]);}();;
         }
@@ -71253,7 +71253,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DuYkTid["members"]={};
-        for(int DuYkTid=0; DuYkTid < strlen(((char*)(name.pNext))); DuYkTid++){
+        for(int DuYkTid=0; DuYkTid < strlen(((char*)(name.pNext)))+1; DuYkTid++){
             json temp;
             temp=[&]() {
     json return_lzqnZOX=json({});
@@ -71312,8 +71312,8 @@ void* temp_ORQkGkt;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int wtSINMt=0; wtSINMt < name["members"]["pNext"].size(); wtSINMt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int wtSINMt=0; wtSINMt < name["members"]["pNext"]["members"].size(); wtSINMt++){
             [&]() {
 temp[wtSINMt]=deserialize_char(name["members"]["pNext"]["members"][wtSINMt]);}();;
         }
@@ -71365,7 +71365,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_AAhxnfd["members"]={};
-        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext))); AAhxnfd++){
+        for(int AAhxnfd=0; AAhxnfd < strlen(((char*)(name.pNext)))+1; AAhxnfd++){
             json temp;
             temp=[&]() {
     json return_YSMKesD=json({});
@@ -71397,8 +71397,8 @@ void* temp_UqlSjfi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"].size(); XDrkVsx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XDrkVsx=0; XDrkVsx < name["members"]["pNext"]["members"].size(); XDrkVsx++){
             [&]() {
 temp[XDrkVsx]=deserialize_char(name["members"]["pNext"]["members"][XDrkVsx]);}();;
         }
@@ -71431,7 +71431,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vUXOXkz["members"]={};
-        for(int vUXOXkz=0; vUXOXkz < strlen(((char*)(name.pNext))); vUXOXkz++){
+        for(int vUXOXkz=0; vUXOXkz < strlen(((char*)(name.pNext)))+1; vUXOXkz++){
             json temp;
             temp=[&]() {
     json return_DGyChlW=json({});
@@ -71463,8 +71463,8 @@ void* temp_jeWdYOg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xZdSNCp=0; xZdSNCp < name["members"]["pNext"].size(); xZdSNCp++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xZdSNCp=0; xZdSNCp < name["members"]["pNext"]["members"].size(); xZdSNCp++){
             [&]() {
 temp[xZdSNCp]=deserialize_char(name["members"]["pNext"]["members"][xZdSNCp]);}();;
         }
@@ -71497,7 +71497,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -71530,8 +71530,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -71565,7 +71565,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_faRCiUs["members"]={};
-        for(int faRCiUs=0; faRCiUs < strlen(((char*)(name.pNext))); faRCiUs++){
+        for(int faRCiUs=0; faRCiUs < strlen(((char*)(name.pNext)))+1; faRCiUs++){
             json temp;
             temp=[&]() {
     json return_MLBoRYa=json({});
@@ -71613,8 +71613,8 @@ void* temp_eLzIyci;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int yuEpDwU=0; yuEpDwU < name["members"]["pNext"].size(); yuEpDwU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int yuEpDwU=0; yuEpDwU < name["members"]["pNext"]["members"].size(); yuEpDwU++){
             [&]() {
 temp[yuEpDwU]=deserialize_char(name["members"]["pNext"]["members"][yuEpDwU]);}();;
         }
@@ -71661,7 +71661,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -71694,8 +71694,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -71729,7 +71729,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -71767,8 +71767,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -71805,7 +71805,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -71843,8 +71843,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -71881,7 +71881,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_jaGYMMt["members"]={};
-        for(int jaGYMMt=0; jaGYMMt < strlen(((char*)(name.pNext))); jaGYMMt++){
+        for(int jaGYMMt=0; jaGYMMt < strlen(((char*)(name.pNext)))+1; jaGYMMt++){
             json temp;
             temp=[&]() {
     json return_vucWmcI=json({});
@@ -71913,8 +71913,8 @@ void* temp_BOnLiIL;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int yPIrNHj=0; yPIrNHj < name["members"]["pNext"].size(); yPIrNHj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int yPIrNHj=0; yPIrNHj < name["members"]["pNext"]["members"].size(); yPIrNHj++){
             [&]() {
 temp[yPIrNHj]=deserialize_char(name["members"]["pNext"]["members"][yPIrNHj]);}();;
         }
@@ -71947,7 +71947,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -72004,8 +72004,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -72058,7 +72058,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_jaGYMMt["members"]={};
-        for(int jaGYMMt=0; jaGYMMt < strlen(((char*)(name.pNext))); jaGYMMt++){
+        for(int jaGYMMt=0; jaGYMMt < strlen(((char*)(name.pNext)))+1; jaGYMMt++){
             json temp;
             temp=[&]() {
     json return_vucWmcI=json({});
@@ -72079,7 +72079,7 @@ result["members"]["pName"]=[&]() {
         }
         
         return_uJAzPZs["members"]={};
-        for(int uJAzPZs=0; uJAzPZs < strlen(name.pName); uJAzPZs++){
+        for(int uJAzPZs=0; uJAzPZs < strlen(name.pName)+1; uJAzPZs++){
             json temp;
             temp=[&]() {
     json return_bKaanHX=json({});
@@ -72108,8 +72108,8 @@ void* temp_BOnLiIL;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int yPIrNHj=0; yPIrNHj < name["members"]["pNext"].size(); yPIrNHj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int yPIrNHj=0; yPIrNHj < name["members"]["pNext"]["members"].size(); yPIrNHj++){
             [&]() {
 temp[yPIrNHj]=deserialize_char(name["members"]["pNext"]["members"][yPIrNHj]);}();;
         }
@@ -72124,8 +72124,8 @@ char* temp_zOZVJXK;[&]() {
         temp_zOZVJXK=NULL;
         return;
         }
-    temp_zOZVJXK=(char*)malloc(name["members"]["pName"].size()*sizeof(char));
-        for (int xXEADVU=0; xXEADVU < name["members"]["pName"].size(); xXEADVU++){
+    temp_zOZVJXK=(char*)malloc(name["members"]["pName"]["members"].size()*sizeof(char));
+        for (int xXEADVU=0; xXEADVU < name["members"]["pName"]["members"].size(); xXEADVU++){
             [&]() {
 temp_zOZVJXK[xXEADVU]=deserialize_char(name["members"]["pName"]["members"][xXEADVU]);}();;
         }
@@ -72155,7 +72155,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -72218,7 +72218,7 @@ result["members"]["pParams"]=[&]() {
         }
         
         return_dNkvNoM["members"]={};
-        for(int dNkvNoM=0; dNkvNoM < strlen(((char*)(name.pParams[niNzIgH]))); dNkvNoM++){
+        for(int dNkvNoM=0; dNkvNoM < strlen(((char*)(name.pParams[niNzIgH])))+1; dNkvNoM++){
             json temp;
             temp=[&]() {
     json return_DOquaHh=json({});
@@ -72261,7 +72261,7 @@ result["members"]["pExtras"]=[&]() {
         }
         
         return_THXVmIh["members"]={};
-        for(int THXVmIh=0; THXVmIh < strlen(((char*)(name.pExtras[YTrEFMA]))); THXVmIh++){
+        for(int THXVmIh=0; THXVmIh < strlen(((char*)(name.pExtras[YTrEFMA])))+1; THXVmIh++){
             json temp;
             temp=[&]() {
     json return_hEsijQw=json({});
@@ -72294,8 +72294,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -72340,8 +72340,8 @@ void** temp_SbXRnSQ;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pParams"]["members"][lOtylDw].size()*sizeof(char));
-        for (int jhnrPEb=0; jhnrPEb < name["members"]["pParams"]["members"][lOtylDw].size(); jhnrPEb++){
+    temp=(char*)malloc(name["members"]["pParams"]["members"][lOtylDw]["members"].size()*sizeof(char));
+        for (int jhnrPEb=0; jhnrPEb < name["members"]["pParams"]["members"][lOtylDw]["members"].size(); jhnrPEb++){
             [&]() {
 temp[jhnrPEb]=deserialize_char(name["members"]["pParams"]["members"][lOtylDw]["members"][jhnrPEb]);}();;
         }
@@ -72372,8 +72372,8 @@ void** temp_QagTvgn;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pExtras"]["members"][HebGJSQ].size()*sizeof(char));
-        for (int kyMNsPo=0; kyMNsPo < name["members"]["pExtras"]["members"][HebGJSQ].size(); kyMNsPo++){
+    temp=(char*)malloc(name["members"]["pExtras"]["members"][HebGJSQ]["members"].size()*sizeof(char));
+        for (int kyMNsPo=0; kyMNsPo < name["members"]["pExtras"]["members"][HebGJSQ]["members"].size(); kyMNsPo++){
             [&]() {
 temp[kyMNsPo]=deserialize_char(name["members"]["pExtras"]["members"][HebGJSQ]["members"][kyMNsPo]);}();;
         }
@@ -72406,7 +72406,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -72454,8 +72454,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -72498,7 +72498,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -72643,8 +72643,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -72750,7 +72750,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -72781,8 +72781,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -72815,7 +72815,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_oMWOblP["members"]={};
-        for(int oMWOblP=0; oMWOblP < strlen(((char*)(name.pNext))); oMWOblP++){
+        for(int oMWOblP=0; oMWOblP < strlen(((char*)(name.pNext)))+1; oMWOblP++){
             json temp;
             temp=[&]() {
     json return_AAyNWAc=json({});
@@ -72856,8 +72856,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ZIEPtjf=0; ZIEPtjf < name["members"]["pNext"].size(); ZIEPtjf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ZIEPtjf=0; ZIEPtjf < name["members"]["pNext"]["members"].size(); ZIEPtjf++){
             [&]() {
 temp[ZIEPtjf]=deserialize_char(name["members"]["pNext"]["members"][ZIEPtjf]);}();;
         }
@@ -72896,7 +72896,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_oMWOblP["members"]={};
-        for(int oMWOblP=0; oMWOblP < strlen(((char*)(name.pNext))); oMWOblP++){
+        for(int oMWOblP=0; oMWOblP < strlen(((char*)(name.pNext)))+1; oMWOblP++){
             json temp;
             temp=[&]() {
     json return_AAyNWAc=json({});
@@ -72932,8 +72932,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ZIEPtjf=0; ZIEPtjf < name["members"]["pNext"].size(); ZIEPtjf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ZIEPtjf=0; ZIEPtjf < name["members"]["pNext"]["members"].size(); ZIEPtjf++){
             [&]() {
 temp[ZIEPtjf]=deserialize_char(name["members"]["pNext"]["members"][ZIEPtjf]);}();;
         }
@@ -72969,7 +72969,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_oMWOblP["members"]={};
-        for(int oMWOblP=0; oMWOblP < strlen(((char*)(name.pNext))); oMWOblP++){
+        for(int oMWOblP=0; oMWOblP < strlen(((char*)(name.pNext)))+1; oMWOblP++){
             json temp;
             temp=[&]() {
     json return_AAyNWAc=json({});
@@ -73000,8 +73000,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ZIEPtjf=0; ZIEPtjf < name["members"]["pNext"].size(); ZIEPtjf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ZIEPtjf=0; ZIEPtjf < name["members"]["pNext"]["members"].size(); ZIEPtjf++){
             [&]() {
 temp[ZIEPtjf]=deserialize_char(name["members"]["pNext"]["members"][ZIEPtjf]);}();;
         }
@@ -73251,7 +73251,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -73286,8 +73286,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -73322,7 +73322,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -73354,8 +73354,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -73388,7 +73388,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -73420,8 +73420,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -73454,7 +73454,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -73486,8 +73486,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -73520,7 +73520,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -73552,8 +73552,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -73586,7 +73586,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -73621,8 +73621,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -73657,7 +73657,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -73682,7 +73682,7 @@ result["members"]["opaqueCaptureDescriptorData"]=[&]() {
         }
         
         return_VPHYiHk["members"]={};
-        for(int VPHYiHk=0; VPHYiHk < strlen(((char*)(name.opaqueCaptureDescriptorData))); VPHYiHk++){
+        for(int VPHYiHk=0; VPHYiHk < strlen(((char*)(name.opaqueCaptureDescriptorData)))+1; VPHYiHk++){
             json temp;
             temp=[&]() {
     json return_wWAtjri=json({});
@@ -73711,8 +73711,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -73731,8 +73731,8 @@ void* temp_NAuAibT;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["opaqueCaptureDescriptorData"].size()*sizeof(char));
-        for (int NnbSZHK=0; NnbSZHK < name["members"]["opaqueCaptureDescriptorData"].size(); NnbSZHK++){
+    temp=(char*)malloc(name["members"]["opaqueCaptureDescriptorData"]["members"].size()*sizeof(char));
+        for (int NnbSZHK=0; NnbSZHK < name["members"]["opaqueCaptureDescriptorData"]["members"].size(); NnbSZHK++){
             [&]() {
 temp[NnbSZHK]=deserialize_char(name["members"]["opaqueCaptureDescriptorData"]["members"][NnbSZHK]);}();;
         }
@@ -73763,7 +73763,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_TKZgOGe["members"]={};
-        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext))); TKZgOGe++){
+        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext)))+1; TKZgOGe++){
             json temp;
             temp=[&]() {
     json return_vKaymkQ=json({});
@@ -73796,8 +73796,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"].size(); RflsJpr++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"]["members"].size(); RflsJpr++){
             [&]() {
 temp[RflsJpr]=deserialize_char(name["members"]["pNext"]["members"][RflsJpr]);}();;
         }
@@ -73831,7 +73831,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_TKZgOGe["members"]={};
-        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext))); TKZgOGe++){
+        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext)))+1; TKZgOGe++){
             json temp;
             temp=[&]() {
     json return_vKaymkQ=json({});
@@ -73864,8 +73864,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"].size(); RflsJpr++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"]["members"].size(); RflsJpr++){
             [&]() {
 temp[RflsJpr]=deserialize_char(name["members"]["pNext"]["members"][RflsJpr]);}();;
         }
@@ -73899,7 +73899,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_TKZgOGe["members"]={};
-        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext))); TKZgOGe++){
+        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext)))+1; TKZgOGe++){
             json temp;
             temp=[&]() {
     json return_vKaymkQ=json({});
@@ -74077,8 +74077,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"].size(); RflsJpr++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"]["members"].size(); RflsJpr++){
             [&]() {
 temp[RflsJpr]=deserialize_char(name["members"]["pNext"]["members"][RflsJpr]);}();;
         }
@@ -74199,7 +74199,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_TKZgOGe["members"]={};
-        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext))); TKZgOGe++){
+        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext)))+1; TKZgOGe++){
             json temp;
             temp=[&]() {
     json return_vKaymkQ=json({});
@@ -74377,8 +74377,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"].size(); RflsJpr++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"]["members"].size(); RflsJpr++){
             [&]() {
 temp[RflsJpr]=deserialize_char(name["members"]["pNext"]["members"][RflsJpr]);}();;
         }
@@ -74499,7 +74499,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -74549,8 +74549,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -74595,7 +74595,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ePDHwWm["members"]={};
-        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext))); ePDHwWm++){
+        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext)))+1; ePDHwWm++){
             json temp;
             temp=[&]() {
     json return_vqZuHkL=json({});
@@ -74628,8 +74628,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"].size(); ghdHOrj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"]["members"].size(); ghdHOrj++){
             [&]() {
 temp[ghdHOrj]=deserialize_char(name["members"]["pNext"]["members"][ghdHOrj]);}();;
         }
@@ -74663,7 +74663,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ePDHwWm["members"]={};
-        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext))); ePDHwWm++){
+        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext)))+1; ePDHwWm++){
             json temp;
             temp=[&]() {
     json return_vqZuHkL=json({});
@@ -74696,8 +74696,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"].size(); ghdHOrj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"]["members"].size(); ghdHOrj++){
             [&]() {
 temp[ghdHOrj]=deserialize_char(name["members"]["pNext"]["members"][ghdHOrj]);}();;
         }
@@ -74731,7 +74731,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ePDHwWm["members"]={};
-        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext))); ePDHwWm++){
+        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext)))+1; ePDHwWm++){
             json temp;
             temp=[&]() {
     json return_vqZuHkL=json({});
@@ -74764,8 +74764,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"].size(); ghdHOrj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"]["members"].size(); ghdHOrj++){
             [&]() {
 temp[ghdHOrj]=deserialize_char(name["members"]["pNext"]["members"][ghdHOrj]);}();;
         }
@@ -74799,7 +74799,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -74837,8 +74837,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -74875,7 +74875,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BpUJFWd["members"]={};
-        for(int BpUJFWd=0; BpUJFWd < strlen(((char*)(name.pNext))); BpUJFWd++){
+        for(int BpUJFWd=0; BpUJFWd < strlen(((char*)(name.pNext)))+1; BpUJFWd++){
             json temp;
             temp=[&]() {
     json return_aRkrQsy=json({});
@@ -74907,8 +74907,8 @@ void* temp_CdQyhvD;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int TOpJmDf=0; TOpJmDf < name["members"]["pNext"].size(); TOpJmDf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int TOpJmDf=0; TOpJmDf < name["members"]["pNext"]["members"].size(); TOpJmDf++){
             [&]() {
 temp[TOpJmDf]=deserialize_char(name["members"]["pNext"]["members"][TOpJmDf]);}();;
         }
@@ -74941,7 +74941,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vUXOXkz["members"]={};
-        for(int vUXOXkz=0; vUXOXkz < strlen(((char*)(name.pNext))); vUXOXkz++){
+        for(int vUXOXkz=0; vUXOXkz < strlen(((char*)(name.pNext)))+1; vUXOXkz++){
             json temp;
             temp=[&]() {
     json return_DGyChlW=json({});
@@ -74976,8 +74976,8 @@ void* temp_jeWdYOg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xZdSNCp=0; xZdSNCp < name["members"]["pNext"].size(); xZdSNCp++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xZdSNCp=0; xZdSNCp < name["members"]["pNext"]["members"].size(); xZdSNCp++){
             [&]() {
 temp[xZdSNCp]=deserialize_char(name["members"]["pNext"]["members"][xZdSNCp]);}();;
         }
@@ -75247,7 +75247,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -75282,8 +75282,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -75318,7 +75318,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -75351,8 +75351,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -75386,7 +75386,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -75423,8 +75423,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -75461,7 +75461,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -75498,8 +75498,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -75536,7 +75536,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -75585,8 +75585,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -75657,7 +75657,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_QrhDlGJ["members"]={};
-        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext))); QrhDlGJ++){
+        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext)))+1; QrhDlGJ++){
             json temp;
             temp=[&]() {
     json return_iwabBQa=json({});
@@ -75716,8 +75716,8 @@ void* temp_rKirhFM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"].size(); orSBOiu++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"]["members"].size(); orSBOiu++){
             [&]() {
 temp[orSBOiu]=deserialize_char(name["members"]["pNext"]["members"][orSBOiu]);}();;
         }
@@ -75769,7 +75769,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_QrhDlGJ["members"]={};
-        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext))); QrhDlGJ++){
+        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext)))+1; QrhDlGJ++){
             json temp;
             temp=[&]() {
     json return_iwabBQa=json({});
@@ -75828,8 +75828,8 @@ void* temp_rKirhFM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"].size(); orSBOiu++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"]["members"].size(); orSBOiu++){
             [&]() {
 temp[orSBOiu]=deserialize_char(name["members"]["pNext"]["members"][orSBOiu]);}();;
         }
@@ -75881,7 +75881,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_QrhDlGJ["members"]={};
-        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext))); QrhDlGJ++){
+        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext)))+1; QrhDlGJ++){
             json temp;
             temp=[&]() {
     json return_iwabBQa=json({});
@@ -75965,8 +75965,8 @@ void* temp_rKirhFM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"].size(); orSBOiu++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"]["members"].size(); orSBOiu++){
             [&]() {
 temp[orSBOiu]=deserialize_char(name["members"]["pNext"]["members"][orSBOiu]);}();;
         }
@@ -76042,7 +76042,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_QrhDlGJ["members"]={};
-        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext))); QrhDlGJ++){
+        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext)))+1; QrhDlGJ++){
             json temp;
             temp=[&]() {
     json return_iwabBQa=json({});
@@ -76126,8 +76126,8 @@ void* temp_rKirhFM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"].size(); orSBOiu++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"]["members"].size(); orSBOiu++){
             [&]() {
 temp[orSBOiu]=deserialize_char(name["members"]["pNext"]["members"][orSBOiu]);}();;
         }
@@ -76203,7 +76203,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_QrhDlGJ["members"]={};
-        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext))); QrhDlGJ++){
+        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext)))+1; QrhDlGJ++){
             json temp;
             temp=[&]() {
     json return_iwabBQa=json({});
@@ -76256,8 +76256,8 @@ void* temp_rKirhFM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"].size(); orSBOiu++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"]["members"].size(); orSBOiu++){
             [&]() {
 temp[orSBOiu]=deserialize_char(name["members"]["pNext"]["members"][orSBOiu]);}();;
         }
@@ -76304,7 +76304,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_QrhDlGJ["members"]={};
-        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext))); QrhDlGJ++){
+        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext)))+1; QrhDlGJ++){
             json temp;
             temp=[&]() {
     json return_iwabBQa=json({});
@@ -76357,8 +76357,8 @@ void* temp_rKirhFM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"].size(); orSBOiu++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"]["members"].size(); orSBOiu++){
             [&]() {
 temp[orSBOiu]=deserialize_char(name["members"]["pNext"]["members"][orSBOiu]);}();;
         }
@@ -76405,7 +76405,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_uaFkYyZ["members"]={};
-        for(int uaFkYyZ=0; uaFkYyZ < strlen(((char*)(name.pNext))); uaFkYyZ++){
+        for(int uaFkYyZ=0; uaFkYyZ < strlen(((char*)(name.pNext)))+1; uaFkYyZ++){
             json temp;
             temp=[&]() {
     json return_DMMkCQm=json({});
@@ -76443,8 +76443,8 @@ void* temp_uBPrQGe;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int NvDyuWk=0; NvDyuWk < name["members"]["pNext"].size(); NvDyuWk++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int NvDyuWk=0; NvDyuWk < name["members"]["pNext"]["members"].size(); NvDyuWk++){
             [&]() {
 temp[NvDyuWk]=deserialize_char(name["members"]["pNext"]["members"][NvDyuWk]);}();;
         }
@@ -76481,7 +76481,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_QrhDlGJ["members"]={};
-        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext))); QrhDlGJ++){
+        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext)))+1; QrhDlGJ++){
             json temp;
             temp=[&]() {
     json return_iwabBQa=json({});
@@ -76516,8 +76516,8 @@ void* temp_rKirhFM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"].size(); orSBOiu++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"]["members"].size(); orSBOiu++){
             [&]() {
 temp[orSBOiu]=deserialize_char(name["members"]["pNext"]["members"][orSBOiu]);}();;
         }
@@ -76552,7 +76552,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADnTxBV["members"]={};
-        for(int ADnTxBV=0; ADnTxBV < strlen(((char*)(name.pNext))); ADnTxBV++){
+        for(int ADnTxBV=0; ADnTxBV < strlen(((char*)(name.pNext)))+1; ADnTxBV++){
             json temp;
             temp=[&]() {
     json return_TxgwNDk=json({});
@@ -76585,8 +76585,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UmbMfJN=0; UmbMfJN < name["members"]["pNext"].size(); UmbMfJN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UmbMfJN=0; UmbMfJN < name["members"]["pNext"]["members"].size(); UmbMfJN++){
             [&]() {
 temp[UmbMfJN]=deserialize_char(name["members"]["pNext"]["members"][UmbMfJN]);}();;
         }
@@ -76620,7 +76620,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADnTxBV["members"]={};
-        for(int ADnTxBV=0; ADnTxBV < strlen(((char*)(name.pNext))); ADnTxBV++){
+        for(int ADnTxBV=0; ADnTxBV < strlen(((char*)(name.pNext)))+1; ADnTxBV++){
             json temp;
             temp=[&]() {
     json return_TxgwNDk=json({});
@@ -76653,8 +76653,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UmbMfJN=0; UmbMfJN < name["members"]["pNext"].size(); UmbMfJN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UmbMfJN=0; UmbMfJN < name["members"]["pNext"]["members"].size(); UmbMfJN++){
             [&]() {
 temp[UmbMfJN]=deserialize_char(name["members"]["pNext"]["members"][UmbMfJN]);}();;
         }
@@ -76688,7 +76688,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_QrhDlGJ["members"]={};
-        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext))); QrhDlGJ++){
+        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext)))+1; QrhDlGJ++){
             json temp;
             temp=[&]() {
     json return_iwabBQa=json({});
@@ -76756,8 +76756,8 @@ void* temp_rKirhFM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"].size(); orSBOiu++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"]["members"].size(); orSBOiu++){
             [&]() {
 temp[orSBOiu]=deserialize_char(name["members"]["pNext"]["members"][orSBOiu]);}();;
         }
@@ -76815,7 +76815,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_QrhDlGJ["members"]={};
-        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext))); QrhDlGJ++){
+        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext)))+1; QrhDlGJ++){
             json temp;
             temp=[&]() {
     json return_iwabBQa=json({});
@@ -76883,8 +76883,8 @@ void* temp_rKirhFM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"].size(); orSBOiu++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"]["members"].size(); orSBOiu++){
             [&]() {
 temp[orSBOiu]=deserialize_char(name["members"]["pNext"]["members"][orSBOiu]);}();;
         }
@@ -76942,7 +76942,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_QrhDlGJ["members"]={};
-        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext))); QrhDlGJ++){
+        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext)))+1; QrhDlGJ++){
             json temp;
             temp=[&]() {
     json return_iwabBQa=json({});
@@ -76995,8 +76995,8 @@ void* temp_rKirhFM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"].size(); orSBOiu++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"]["members"].size(); orSBOiu++){
             [&]() {
 temp[orSBOiu]=deserialize_char(name["members"]["pNext"]["members"][orSBOiu]);}();;
         }
@@ -77044,7 +77044,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_QrhDlGJ["members"]={};
-        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext))); QrhDlGJ++){
+        for(int QrhDlGJ=0; QrhDlGJ < strlen(((char*)(name.pNext)))+1; QrhDlGJ++){
             json temp;
             temp=[&]() {
     json return_iwabBQa=json({});
@@ -77097,8 +77097,8 @@ void* temp_rKirhFM;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"].size(); orSBOiu++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int orSBOiu=0; orSBOiu < name["members"]["pNext"]["members"].size(); orSBOiu++){
             [&]() {
 temp[orSBOiu]=deserialize_char(name["members"]["pNext"]["members"][orSBOiu]);}();;
         }
@@ -77146,7 +77146,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -77185,8 +77185,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -77223,7 +77223,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LwAgtLE["members"]={};
-        for(int LwAgtLE=0; LwAgtLE < strlen(((char*)(name.pNext))); LwAgtLE++){
+        for(int LwAgtLE=0; LwAgtLE < strlen(((char*)(name.pNext)))+1; LwAgtLE++){
             json temp;
             temp=[&]() {
     json return_OVgpfbc=json({});
@@ -77256,8 +77256,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int sgpUUYH=0; sgpUUYH < name["members"]["pNext"].size(); sgpUUYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int sgpUUYH=0; sgpUUYH < name["members"]["pNext"]["members"].size(); sgpUUYH++){
             [&]() {
 temp[sgpUUYH]=deserialize_char(name["members"]["pNext"]["members"][sgpUUYH]);}();;
         }
@@ -77291,7 +77291,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -77323,8 +77323,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -77357,7 +77357,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -77400,8 +77400,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -77441,7 +77441,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -77484,8 +77484,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -77525,7 +77525,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LwAgtLE["members"]={};
-        for(int LwAgtLE=0; LwAgtLE < strlen(((char*)(name.pNext))); LwAgtLE++){
+        for(int LwAgtLE=0; LwAgtLE < strlen(((char*)(name.pNext)))+1; LwAgtLE++){
             json temp;
             temp=[&]() {
     json return_OVgpfbc=json({});
@@ -77558,8 +77558,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int sgpUUYH=0; sgpUUYH < name["members"]["pNext"].size(); sgpUUYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int sgpUUYH=0; sgpUUYH < name["members"]["pNext"]["members"].size(); sgpUUYH++){
             [&]() {
 temp[sgpUUYH]=deserialize_char(name["members"]["pNext"]["members"][sgpUUYH]);}();;
         }
@@ -77593,7 +77593,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -77626,8 +77626,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -77661,7 +77661,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -77699,8 +77699,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -77737,7 +77737,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_yVVDren["members"]={};
-        for(int yVVDren=0; yVVDren < strlen(((char*)(name.pNext))); yVVDren++){
+        for(int yVVDren=0; yVVDren < strlen(((char*)(name.pNext)))+1; yVVDren++){
             json temp;
             temp=[&]() {
     json return_NLpoiEa=json({});
@@ -77769,8 +77769,8 @@ void* temp_JNBnRPo;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jEIuktB=0; jEIuktB < name["members"]["pNext"].size(); jEIuktB++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jEIuktB=0; jEIuktB < name["members"]["pNext"]["members"].size(); jEIuktB++){
             [&]() {
 temp[jEIuktB]=deserialize_char(name["members"]["pNext"]["members"][jEIuktB]);}();;
         }
@@ -77803,7 +77803,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_qtMEAfr["members"]={};
-        for(int qtMEAfr=0; qtMEAfr < strlen(((char*)(name.pNext))); qtMEAfr++){
+        for(int qtMEAfr=0; qtMEAfr < strlen(((char*)(name.pNext)))+1; qtMEAfr++){
             json temp;
             temp=[&]() {
     json return_cntHQDE=json({});
@@ -77836,8 +77836,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ZUSeyKJ=0; ZUSeyKJ < name["members"]["pNext"].size(); ZUSeyKJ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ZUSeyKJ=0; ZUSeyKJ < name["members"]["pNext"]["members"].size(); ZUSeyKJ++){
             [&]() {
 temp[ZUSeyKJ]=deserialize_char(name["members"]["pNext"]["members"][ZUSeyKJ]);}();;
         }
@@ -77871,7 +77871,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_PVlVzUD["members"]={};
-        for(int PVlVzUD=0; PVlVzUD < strlen(((char*)(name.pNext))); PVlVzUD++){
+        for(int PVlVzUD=0; PVlVzUD < strlen(((char*)(name.pNext)))+1; PVlVzUD++){
             json temp;
             temp=[&]() {
     json return_iJMFbTE=json({});
@@ -77906,8 +77906,8 @@ void* temp_kChWqaa;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int kavmYFv=0; kavmYFv < name["members"]["pNext"].size(); kavmYFv++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int kavmYFv=0; kavmYFv < name["members"]["pNext"]["members"].size(); kavmYFv++){
             [&]() {
 temp[kavmYFv]=deserialize_char(name["members"]["pNext"]["members"][kavmYFv]);}();;
         }
@@ -77942,7 +77942,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_GLECXcT["members"]={};
-        for(int GLECXcT=0; GLECXcT < strlen(((char*)(name.pNext))); GLECXcT++){
+        for(int GLECXcT=0; GLECXcT < strlen(((char*)(name.pNext)))+1; GLECXcT++){
             json temp;
             temp=[&]() {
     json return_YCncZxw=json({});
@@ -77976,8 +77976,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mzSqMoD=0; mzSqMoD < name["members"]["pNext"].size(); mzSqMoD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mzSqMoD=0; mzSqMoD < name["members"]["pNext"]["members"].size(); mzSqMoD++){
             [&]() {
 temp[mzSqMoD]=deserialize_char(name["members"]["pNext"]["members"][mzSqMoD]);}();;
         }
@@ -78012,7 +78012,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_VVzrTxc["members"]={};
-        for(int VVzrTxc=0; VVzrTxc < strlen(((char*)(name.pNext))); VVzrTxc++){
+        for(int VVzrTxc=0; VVzrTxc < strlen(((char*)(name.pNext)))+1; VVzrTxc++){
             json temp;
             temp=[&]() {
     json return_nTiUyji=json({});
@@ -78045,8 +78045,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OKkmuQS=0; OKkmuQS < name["members"]["pNext"].size(); OKkmuQS++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OKkmuQS=0; OKkmuQS < name["members"]["pNext"]["members"].size(); OKkmuQS++){
             [&]() {
 temp[OKkmuQS]=deserialize_char(name["members"]["pNext"]["members"][OKkmuQS]);}();;
         }
@@ -78080,7 +78080,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -78121,8 +78121,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -78160,7 +78160,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_zteIbMs["members"]={};
-        for(int zteIbMs=0; zteIbMs < strlen(((char*)(name.pNext))); zteIbMs++){
+        for(int zteIbMs=0; zteIbMs < strlen(((char*)(name.pNext)))+1; zteIbMs++){
             json temp;
             temp=[&]() {
     json return_jwnnJne=json({});
@@ -78210,8 +78210,8 @@ void* temp_Pqdomxx;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int YNRXBXy=0; YNRXBXy < name["members"]["pNext"].size(); YNRXBXy++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int YNRXBXy=0; YNRXBXy < name["members"]["pNext"]["members"].size(); YNRXBXy++){
             [&]() {
 temp[YNRXBXy]=deserialize_char(name["members"]["pNext"]["members"][YNRXBXy]);}();;
         }
@@ -78257,7 +78257,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dnFegcI["members"]={};
-        for(int dnFegcI=0; dnFegcI < strlen(((char*)(name.pNext))); dnFegcI++){
+        for(int dnFegcI=0; dnFegcI < strlen(((char*)(name.pNext)))+1; dnFegcI++){
             json temp;
             temp=[&]() {
     json return_tJPAjpe=json({});
@@ -78301,8 +78301,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfHoroN=0; XfHoroN < name["members"]["pNext"].size(); XfHoroN++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfHoroN=0; XfHoroN < name["members"]["pNext"]["members"].size(); XfHoroN++){
             [&]() {
 temp[XfHoroN]=deserialize_char(name["members"]["pNext"]["members"][XfHoroN]);}();;
         }
@@ -78342,7 +78342,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_jaGYMMt["members"]={};
-        for(int jaGYMMt=0; jaGYMMt < strlen(((char*)(name.pNext))); jaGYMMt++){
+        for(int jaGYMMt=0; jaGYMMt < strlen(((char*)(name.pNext)))+1; jaGYMMt++){
             json temp;
             temp=[&]() {
     json return_vucWmcI=json({});
@@ -78395,8 +78395,8 @@ void* temp_BOnLiIL;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int yPIrNHj=0; yPIrNHj < name["members"]["pNext"].size(); yPIrNHj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int yPIrNHj=0; yPIrNHj < name["members"]["pNext"]["members"].size(); yPIrNHj++){
             [&]() {
 temp[yPIrNHj]=deserialize_char(name["members"]["pNext"]["members"][yPIrNHj]);}();;
         }
@@ -78443,7 +78443,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -78476,8 +78476,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -78511,7 +78511,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_KGHQsym["members"]={};
-        for(int KGHQsym=0; KGHQsym < strlen(((char*)(name.pNext))); KGHQsym++){
+        for(int KGHQsym=0; KGHQsym < strlen(((char*)(name.pNext)))+1; KGHQsym++){
             json temp;
             temp=[&]() {
     json return_FoCKdfa=json({});
@@ -78545,8 +78545,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int fprIxcs=0; fprIxcs < name["members"]["pNext"].size(); fprIxcs++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int fprIxcs=0; fprIxcs < name["members"]["pNext"]["members"].size(); fprIxcs++){
             [&]() {
 temp[fprIxcs]=deserialize_char(name["members"]["pNext"]["members"][fprIxcs]);}();;
         }
@@ -78581,7 +78581,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -78614,8 +78614,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -78649,7 +78649,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ePDHwWm["members"]={};
-        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext))); ePDHwWm++){
+        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext)))+1; ePDHwWm++){
             json temp;
             temp=[&]() {
     json return_vqZuHkL=json({});
@@ -78680,8 +78680,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"].size(); ghdHOrj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"]["members"].size(); ghdHOrj++){
             [&]() {
 temp[ghdHOrj]=deserialize_char(name["members"]["pNext"]["members"][ghdHOrj]);}();;
         }
@@ -78714,7 +78714,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ePDHwWm["members"]={};
-        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext))); ePDHwWm++){
+        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext)))+1; ePDHwWm++){
             json temp;
             temp=[&]() {
     json return_vqZuHkL=json({});
@@ -78745,8 +78745,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"].size(); ghdHOrj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"]["members"].size(); ghdHOrj++){
             [&]() {
 temp[ghdHOrj]=deserialize_char(name["members"]["pNext"]["members"][ghdHOrj]);}();;
         }
@@ -78779,7 +78779,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ePDHwWm["members"]={};
-        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext))); ePDHwWm++){
+        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext)))+1; ePDHwWm++){
             json temp;
             temp=[&]() {
     json return_vqZuHkL=json({});
@@ -78810,8 +78810,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"].size(); ghdHOrj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"]["members"].size(); ghdHOrj++){
             [&]() {
 temp[ghdHOrj]=deserialize_char(name["members"]["pNext"]["members"][ghdHOrj]);}();;
         }
@@ -78844,7 +78844,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ePDHwWm["members"]={};
-        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext))); ePDHwWm++){
+        for(int ePDHwWm=0; ePDHwWm < strlen(((char*)(name.pNext)))+1; ePDHwWm++){
             json temp;
             temp=[&]() {
     json return_vqZuHkL=json({});
@@ -78875,8 +78875,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"].size(); ghdHOrj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ghdHOrj=0; ghdHOrj < name["members"]["pNext"]["members"].size(); ghdHOrj++){
             [&]() {
 temp[ghdHOrj]=deserialize_char(name["members"]["pNext"]["members"][ghdHOrj]);}();;
         }
@@ -78909,7 +78909,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vZuCwBb["members"]={};
-        for(int vZuCwBb=0; vZuCwBb < strlen(((char*)(name.pNext))); vZuCwBb++){
+        for(int vZuCwBb=0; vZuCwBb < strlen(((char*)(name.pNext)))+1; vZuCwBb++){
             json temp;
             temp=[&]() {
     json return_ELqzooH=json({});
@@ -78943,8 +78943,8 @@ void* temp_zDIBRgk;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int gFvgSGg=0; gFvgSGg < name["members"]["pNext"].size(); gFvgSGg++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int gFvgSGg=0; gFvgSGg < name["members"]["pNext"]["members"].size(); gFvgSGg++){
             [&]() {
 temp[gFvgSGg]=deserialize_char(name["members"]["pNext"]["members"][gFvgSGg]);}();;
         }
@@ -78994,7 +78994,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_idJGveA["members"]={};
-        for(int idJGveA=0; idJGveA < strlen(((char*)(name.pNext))); idJGveA++){
+        for(int idJGveA=0; idJGveA < strlen(((char*)(name.pNext)))+1; idJGveA++){
             json temp;
             temp=[&]() {
     json return_ubyXGMh=json({});
@@ -79034,8 +79034,8 @@ void* temp_CCduxaA;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int BpVuFXr=0; BpVuFXr < name["members"]["pNext"].size(); BpVuFXr++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int BpVuFXr=0; BpVuFXr < name["members"]["pNext"]["members"].size(); BpVuFXr++){
             [&]() {
 temp[BpVuFXr]=deserialize_char(name["members"]["pNext"]["members"][BpVuFXr]);}();;
         }
@@ -79117,7 +79117,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gKtmbTH["members"]={};
-        for(int gKtmbTH=0; gKtmbTH < strlen(((char*)(name.pNext))); gKtmbTH++){
+        for(int gKtmbTH=0; gKtmbTH < strlen(((char*)(name.pNext)))+1; gKtmbTH++){
             json temp;
             temp=[&]() {
     json return_wLfAaPh=json({});
@@ -79157,8 +79157,8 @@ void* temp_raXkrsj;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int kAAyiND=0; kAAyiND < name["members"]["pNext"].size(); kAAyiND++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int kAAyiND=0; kAAyiND < name["members"]["pNext"]["members"].size(); kAAyiND++){
             [&]() {
 temp[kAAyiND]=deserialize_char(name["members"]["pNext"]["members"][kAAyiND]);}();;
         }
@@ -79199,7 +79199,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BmXWqAm["members"]={};
-        for(int BmXWqAm=0; BmXWqAm < strlen(((char*)(name.pNext))); BmXWqAm++){
+        for(int BmXWqAm=0; BmXWqAm < strlen(((char*)(name.pNext)))+1; BmXWqAm++){
             json temp;
             temp=[&]() {
     json return_GTuBLcK=json({});
@@ -79232,8 +79232,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int GtqneLy=0; GtqneLy < name["members"]["pNext"].size(); GtqneLy++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int GtqneLy=0; GtqneLy < name["members"]["pNext"]["members"].size(); GtqneLy++){
             [&]() {
 temp[GtqneLy]=deserialize_char(name["members"]["pNext"]["members"][GtqneLy]);}();;
         }
@@ -79267,7 +79267,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dINOMtL["members"]={};
-        for(int dINOMtL=0; dINOMtL < strlen(((char*)(name.pNext))); dINOMtL++){
+        for(int dINOMtL=0; dINOMtL < strlen(((char*)(name.pNext)))+1; dINOMtL++){
             json temp;
             temp=[&]() {
     json return_UUWDFFc=json({});
@@ -79376,8 +79376,8 @@ void* temp_YYyfkNN;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ceyRXsX=0; ceyRXsX < name["members"]["pNext"].size(); ceyRXsX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ceyRXsX=0; ceyRXsX < name["members"]["pNext"]["members"].size(); ceyRXsX++){
             [&]() {
 temp[ceyRXsX]=deserialize_char(name["members"]["pNext"]["members"][ceyRXsX]);}();;
         }
@@ -79463,7 +79463,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_rBgzMMw["members"]={};
-        for(int rBgzMMw=0; rBgzMMw < strlen(((char*)(name.pNext))); rBgzMMw++){
+        for(int rBgzMMw=0; rBgzMMw < strlen(((char*)(name.pNext)))+1; rBgzMMw++){
             json temp;
             temp=[&]() {
     json return_ejnGIWb=json({});
@@ -79516,8 +79516,8 @@ void* temp_YvSbgFq;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int bfrvKlJ=0; bfrvKlJ < name["members"]["pNext"].size(); bfrvKlJ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int bfrvKlJ=0; bfrvKlJ < name["members"]["pNext"]["members"].size(); bfrvKlJ++){
             [&]() {
 temp[bfrvKlJ]=deserialize_char(name["members"]["pNext"]["members"][bfrvKlJ]);}();;
         }
@@ -79563,7 +79563,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gwOIPFK["members"]={};
-        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext))); gwOIPFK++){
+        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext)))+1; gwOIPFK++){
             json temp;
             temp=[&]() {
     json return_XRJxgUx=json({});
@@ -79610,8 +79610,8 @@ void* temp_vQLyWGy;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"].size(); iVScxqU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"]["members"].size(); iVScxqU++){
             [&]() {
 temp[iVScxqU]=deserialize_char(name["members"]["pNext"]["members"][iVScxqU]);}();;
         }
@@ -79655,7 +79655,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gwOIPFK["members"]={};
-        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext))); gwOIPFK++){
+        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext)))+1; gwOIPFK++){
             json temp;
             temp=[&]() {
     json return_XRJxgUx=json({});
@@ -79693,8 +79693,8 @@ void* temp_vQLyWGy;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"].size(); iVScxqU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"]["members"].size(); iVScxqU++){
             [&]() {
 temp[iVScxqU]=deserialize_char(name["members"]["pNext"]["members"][iVScxqU]);}();;
         }
@@ -79731,7 +79731,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gwOIPFK["members"]={};
-        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext))); gwOIPFK++){
+        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext)))+1; gwOIPFK++){
             json temp;
             temp=[&]() {
     json return_XRJxgUx=json({});
@@ -79769,8 +79769,8 @@ void* temp_vQLyWGy;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"].size(); iVScxqU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"]["members"].size(); iVScxqU++){
             [&]() {
 temp[iVScxqU]=deserialize_char(name["members"]["pNext"]["members"][iVScxqU]);}();;
         }
@@ -79807,7 +79807,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gwOIPFK["members"]={};
-        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext))); gwOIPFK++){
+        for(int gwOIPFK=0; gwOIPFK < strlen(((char*)(name.pNext)))+1; gwOIPFK++){
             json temp;
             temp=[&]() {
     json return_XRJxgUx=json({});
@@ -79845,8 +79845,8 @@ void* temp_vQLyWGy;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"].size(); iVScxqU++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iVScxqU=0; iVScxqU < name["members"]["pNext"]["members"].size(); iVScxqU++){
             [&]() {
 temp[iVScxqU]=deserialize_char(name["members"]["pNext"]["members"][iVScxqU]);}();;
         }
@@ -79883,7 +79883,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -79927,8 +79927,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -80020,7 +80020,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -80063,8 +80063,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -80104,7 +80104,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -80138,8 +80138,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -80174,7 +80174,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_iUMONij["members"]={};
-        for(int iUMONij=0; iUMONij < strlen(((char*)(name.pNext))); iUMONij++){
+        for(int iUMONij=0; iUMONij < strlen(((char*)(name.pNext)))+1; iUMONij++){
             json temp;
             temp=[&]() {
     json return_jKBjTOw=json({});
@@ -80273,8 +80273,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iDKuMMl=0; iDKuMMl < name["members"]["pNext"].size(); iDKuMMl++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iDKuMMl=0; iDKuMMl < name["members"]["pNext"]["members"].size(); iDKuMMl++){
             [&]() {
 temp[iDKuMMl]=deserialize_char(name["members"]["pNext"]["members"][iDKuMMl]);}();;
         }
@@ -80354,7 +80354,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -80395,8 +80395,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -80434,7 +80434,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -80467,8 +80467,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -80502,7 +80502,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -80535,8 +80535,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -80570,7 +80570,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_gSvJhWw["members"]={};
-        for(int gSvJhWw=0; gSvJhWw < strlen(((char*)(name.pNext))); gSvJhWw++){
+        for(int gSvJhWw=0; gSvJhWw < strlen(((char*)(name.pNext)))+1; gSvJhWw++){
             json temp;
             temp=[&]() {
     json return_LmeHFYb=json({});
@@ -80604,8 +80604,8 @@ void* temp_lEvEGvb;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int HrQiuVE=0; HrQiuVE < name["members"]["pNext"].size(); HrQiuVE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int HrQiuVE=0; HrQiuVE < name["members"]["pNext"]["members"].size(); HrQiuVE++){
             [&]() {
 temp[HrQiuVE]=deserialize_char(name["members"]["pNext"]["members"][HrQiuVE]);}();;
         }
@@ -80639,7 +80639,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_zerrGcJ["members"]={};
-        for(int zerrGcJ=0; zerrGcJ < strlen(((char*)(name.pNext))); zerrGcJ++){
+        for(int zerrGcJ=0; zerrGcJ < strlen(((char*)(name.pNext)))+1; zerrGcJ++){
             json temp;
             temp=[&]() {
     json return_MmtHEaL=json({});
@@ -80672,8 +80672,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tKLhAeg=0; tKLhAeg < name["members"]["pNext"].size(); tKLhAeg++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tKLhAeg=0; tKLhAeg < name["members"]["pNext"]["members"].size(); tKLhAeg++){
             [&]() {
 temp[tKLhAeg]=deserialize_char(name["members"]["pNext"]["members"][tKLhAeg]);}();;
         }
@@ -80707,7 +80707,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -80740,8 +80740,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -80775,7 +80775,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_cJJSNOb["members"]={};
-        for(int cJJSNOb=0; cJJSNOb < strlen(((char*)(name.pNext))); cJJSNOb++){
+        for(int cJJSNOb=0; cJJSNOb < strlen(((char*)(name.pNext)))+1; cJJSNOb++){
             json temp;
             temp=[&]() {
     json return_JzTcWlY=json({});
@@ -80816,8 +80816,8 @@ void* temp_hwqRCnl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ggXCSdi=0; ggXCSdi < name["members"]["pNext"].size(); ggXCSdi++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ggXCSdi=0; ggXCSdi < name["members"]["pNext"]["members"].size(); ggXCSdi++){
             [&]() {
 temp[ggXCSdi]=deserialize_char(name["members"]["pNext"]["members"][ggXCSdi]);}();;
         }
@@ -80856,7 +80856,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -80896,8 +80896,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -80936,7 +80936,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_yVVDren["members"]={};
-        for(int yVVDren=0; yVVDren < strlen(((char*)(name.pNext))); yVVDren++){
+        for(int yVVDren=0; yVVDren < strlen(((char*)(name.pNext)))+1; yVVDren++){
             json temp;
             temp=[&]() {
     json return_NLpoiEa=json({});
@@ -80974,8 +80974,8 @@ void* temp_JNBnRPo;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jEIuktB=0; jEIuktB < name["members"]["pNext"].size(); jEIuktB++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jEIuktB=0; jEIuktB < name["members"]["pNext"]["members"].size(); jEIuktB++){
             [&]() {
 temp[jEIuktB]=deserialize_char(name["members"]["pNext"]["members"][jEIuktB]);}();;
         }
@@ -81012,7 +81012,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -81055,8 +81055,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -81096,7 +81096,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_dApomuT["members"]={};
-        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext))); dApomuT++){
+        for(int dApomuT=0; dApomuT < strlen(((char*)(name.pNext)))+1; dApomuT++){
             json temp;
             temp=[&]() {
     json return_SasiYrZ=json({});
@@ -81136,8 +81136,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"].size(); OAWUfSf++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OAWUfSf=0; OAWUfSf < name["members"]["pNext"]["members"].size(); OAWUfSf++){
             [&]() {
 temp[OAWUfSf]=deserialize_char(name["members"]["pNext"]["members"][OAWUfSf]);}();;
         }
@@ -81176,7 +81176,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -81209,8 +81209,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -81244,7 +81244,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -81281,8 +81281,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -81319,7 +81319,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -81352,8 +81352,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -81387,7 +81387,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_cJJSNOb["members"]={};
-        for(int cJJSNOb=0; cJJSNOb < strlen(((char*)(name.pNext))); cJJSNOb++){
+        for(int cJJSNOb=0; cJJSNOb < strlen(((char*)(name.pNext)))+1; cJJSNOb++){
             json temp;
             temp=[&]() {
     json return_JzTcWlY=json({});
@@ -81422,8 +81422,8 @@ void* temp_hwqRCnl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ggXCSdi=0; ggXCSdi < name["members"]["pNext"].size(); ggXCSdi++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ggXCSdi=0; ggXCSdi < name["members"]["pNext"]["members"].size(); ggXCSdi++){
             [&]() {
 temp[ggXCSdi]=deserialize_char(name["members"]["pNext"]["members"][ggXCSdi]);}();;
         }
@@ -81458,7 +81458,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -81491,8 +81491,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -81526,7 +81526,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -81559,8 +81559,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -81594,7 +81594,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -81627,8 +81627,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -81662,7 +81662,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -81706,8 +81706,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -81748,7 +81748,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -81781,8 +81781,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -81816,7 +81816,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -81885,8 +81885,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -81943,7 +81943,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_qrfWxRw["members"]={};
-        for(int qrfWxRw=0; qrfWxRw < strlen(((char*)(name.pNext))); qrfWxRw++){
+        for(int qrfWxRw=0; qrfWxRw < strlen(((char*)(name.pNext)))+1; qrfWxRw++){
             json temp;
             temp=[&]() {
     json return_GsYIOzC=json({});
@@ -81975,8 +81975,8 @@ void* temp_yMFsvBw;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int BdMlzmT=0; BdMlzmT < name["members"]["pNext"].size(); BdMlzmT++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int BdMlzmT=0; BdMlzmT < name["members"]["pNext"]["members"].size(); BdMlzmT++){
             [&]() {
 temp[BdMlzmT]=deserialize_char(name["members"]["pNext"]["members"][BdMlzmT]);}();;
         }
@@ -82009,7 +82009,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_qrfWxRw["members"]={};
-        for(int qrfWxRw=0; qrfWxRw < strlen(((char*)(name.pNext))); qrfWxRw++){
+        for(int qrfWxRw=0; qrfWxRw < strlen(((char*)(name.pNext)))+1; qrfWxRw++){
             json temp;
             temp=[&]() {
     json return_GsYIOzC=json({});
@@ -82041,8 +82041,8 @@ void* temp_yMFsvBw;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int BdMlzmT=0; BdMlzmT < name["members"]["pNext"].size(); BdMlzmT++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int BdMlzmT=0; BdMlzmT < name["members"]["pNext"]["members"].size(); BdMlzmT++){
             [&]() {
 temp[BdMlzmT]=deserialize_char(name["members"]["pNext"]["members"][BdMlzmT]);}();;
         }
@@ -82075,7 +82075,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_WAatVhp["members"]={};
-        for(int WAatVhp=0; WAatVhp < strlen(((char*)(name.pNext))); WAatVhp++){
+        for(int WAatVhp=0; WAatVhp < strlen(((char*)(name.pNext)))+1; WAatVhp++){
             json temp;
             temp=[&]() {
     json return_WwgqUcy=json({});
@@ -82130,8 +82130,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int oEKVKZh=0; oEKVKZh < name["members"]["pNext"].size(); oEKVKZh++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int oEKVKZh=0; oEKVKZh < name["members"]["pNext"]["members"].size(); oEKVKZh++){
             [&]() {
 temp[oEKVKZh]=deserialize_char(name["members"]["pNext"]["members"][oEKVKZh]);}();;
         }
@@ -82180,7 +82180,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_WAatVhp["members"]={};
-        for(int WAatVhp=0; WAatVhp < strlen(((char*)(name.pNext))); WAatVhp++){
+        for(int WAatVhp=0; WAatVhp < strlen(((char*)(name.pNext)))+1; WAatVhp++){
             json temp;
             temp=[&]() {
     json return_WwgqUcy=json({});
@@ -82211,7 +82211,7 @@ result["members"]["pPrivateData"]=[&]() {
         }
         
         return_QfeXJGh["members"]={};
-        for(int QfeXJGh=0; QfeXJGh < strlen(((char*)(name.pPrivateData))); QfeXJGh++){
+        for(int QfeXJGh=0; QfeXJGh < strlen(((char*)(name.pPrivateData)))+1; QfeXJGh++){
             json temp;
             temp=[&]() {
     json return_gLTfnhg=json({});
@@ -82239,8 +82239,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int oEKVKZh=0; oEKVKZh < name["members"]["pNext"].size(); oEKVKZh++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int oEKVKZh=0; oEKVKZh < name["members"]["pNext"]["members"].size(); oEKVKZh++){
             [&]() {
 temp[oEKVKZh]=deserialize_char(name["members"]["pNext"]["members"][oEKVKZh]);}();;
         }
@@ -82263,8 +82263,8 @@ void* temp_EgwcKIG;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pPrivateData"].size()*sizeof(char));
-        for (int MSxwnWR=0; MSxwnWR < name["members"]["pPrivateData"].size(); MSxwnWR++){
+    temp=(char*)malloc(name["members"]["pPrivateData"]["members"].size()*sizeof(char));
+        for (int MSxwnWR=0; MSxwnWR < name["members"]["pPrivateData"]["members"].size(); MSxwnWR++){
             [&]() {
 temp[MSxwnWR]=deserialize_char(name["members"]["pPrivateData"]["members"][MSxwnWR]);}();;
         }
@@ -82295,7 +82295,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -82347,8 +82347,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -82396,7 +82396,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_TKZgOGe["members"]={};
-        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext))); TKZgOGe++){
+        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext)))+1; TKZgOGe++){
             json temp;
             temp=[&]() {
     json return_vKaymkQ=json({});
@@ -82434,8 +82434,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"].size(); RflsJpr++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"]["members"].size(); RflsJpr++){
             [&]() {
 temp[RflsJpr]=deserialize_char(name["members"]["pNext"]["members"][RflsJpr]);}();;
         }
@@ -82545,7 +82545,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_TKZgOGe["members"]={};
-        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext))); TKZgOGe++){
+        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext)))+1; TKZgOGe++){
             json temp;
             temp=[&]() {
     json return_vKaymkQ=json({});
@@ -82584,8 +82584,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"].size(); RflsJpr++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"]["members"].size(); RflsJpr++){
             [&]() {
 temp[RflsJpr]=deserialize_char(name["members"]["pNext"]["members"][RflsJpr]);}();;
         }
@@ -82623,7 +82623,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_TKZgOGe["members"]={};
-        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext))); TKZgOGe++){
+        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext)))+1; TKZgOGe++){
             json temp;
             temp=[&]() {
     json return_vKaymkQ=json({});
@@ -82683,7 +82683,7 @@ result["members"]["pVendorBinaryData"]=[&]() {
         }
         
         return_IIhxACs["members"]={};
-        for(int IIhxACs=0; IIhxACs < strlen(((char*)(name.pVendorBinaryData))); IIhxACs++){
+        for(int IIhxACs=0; IIhxACs < strlen(((char*)(name.pVendorBinaryData)))+1; IIhxACs++){
             json temp;
             temp=[&]() {
     json return_fwxJGmc=json({});
@@ -82711,8 +82711,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"].size(); RflsJpr++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"]["members"].size(); RflsJpr++){
             [&]() {
 temp[RflsJpr]=deserialize_char(name["members"]["pNext"]["members"][RflsJpr]);}();;
         }
@@ -82757,8 +82757,8 @@ result.description[LwqpVeT]=deserialize_char(name["members"]["description"]["mem
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pVendorBinaryData"].size()*sizeof(char));
-        for (int BCGOVjU=0; BCGOVjU < name["members"]["pVendorBinaryData"].size(); BCGOVjU++){
+    temp=(char*)malloc(name["members"]["pVendorBinaryData"]["members"].size()*sizeof(char));
+        for (int BCGOVjU=0; BCGOVjU < name["members"]["pVendorBinaryData"]["members"].size(); BCGOVjU++){
             [&]() {
 temp[BCGOVjU]=deserialize_char(name["members"]["pVendorBinaryData"]["members"][BCGOVjU]);}();;
         }
@@ -82870,7 +82870,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_FyGcbvK["members"]={};
-        for(int FyGcbvK=0; FyGcbvK < strlen(((char*)(name.pNext))); FyGcbvK++){
+        for(int FyGcbvK=0; FyGcbvK < strlen(((char*)(name.pNext)))+1; FyGcbvK++){
             json temp;
             temp=[&]() {
     json return_feAWANy=json({});
@@ -82903,8 +82903,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ptwmfxO=0; ptwmfxO < name["members"]["pNext"].size(); ptwmfxO++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ptwmfxO=0; ptwmfxO < name["members"]["pNext"]["members"].size(); ptwmfxO++){
             [&]() {
 temp[ptwmfxO]=deserialize_char(name["members"]["pNext"]["members"][ptwmfxO]);}();;
         }
@@ -82938,7 +82938,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -82976,8 +82976,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -83014,7 +83014,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_sZzmQOp["members"]={};
-        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext))); sZzmQOp++){
+        for(int sZzmQOp=0; sZzmQOp < strlen(((char*)(name.pNext)))+1; sZzmQOp++){
             json temp;
             temp=[&]() {
     json return_kSYLCBc=json({});
@@ -83051,8 +83051,8 @@ void* temp_rKpvWpi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"].size(); ASQjILX++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ASQjILX=0; ASQjILX < name["members"]["pNext"]["members"].size(); ASQjILX++){
             [&]() {
 temp[ASQjILX]=deserialize_char(name["members"]["pNext"]["members"][ASQjILX]);}();;
         }
@@ -83136,7 +83136,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_mDIroCt["members"]={};
-        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext))); mDIroCt++){
+        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext)))+1; mDIroCt++){
             json temp;
             temp=[&]() {
     json return_Riekxgn=json({});
@@ -83173,8 +83173,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"].size(); RzJZikE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"]["members"].size(); RzJZikE++){
             [&]() {
 temp[RzJZikE]=deserialize_char(name["members"]["pNext"]["members"][RzJZikE]);}();;
         }
@@ -83211,7 +83211,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -83244,8 +83244,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -83279,7 +83279,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_jaGYMMt["members"]={};
-        for(int jaGYMMt=0; jaGYMMt < strlen(((char*)(name.pNext))); jaGYMMt++){
+        for(int jaGYMMt=0; jaGYMMt < strlen(((char*)(name.pNext)))+1; jaGYMMt++){
             json temp;
             temp=[&]() {
     json return_vucWmcI=json({});
@@ -83358,7 +83358,7 @@ result["members"]["pTag"]=[&]() {
         }
         
         return_ImIGScc["members"]={};
-        for(int ImIGScc=0; ImIGScc < strlen(((char*)(name.pTag))); ImIGScc++){
+        for(int ImIGScc=0; ImIGScc < strlen(((char*)(name.pTag)))+1; ImIGScc++){
             json temp;
             temp=[&]() {
     json return_ogUkmBY=json({});
@@ -83387,8 +83387,8 @@ void* temp_BOnLiIL;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int yPIrNHj=0; yPIrNHj < name["members"]["pNext"].size(); yPIrNHj++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int yPIrNHj=0; yPIrNHj < name["members"]["pNext"]["members"].size(); yPIrNHj++){
             [&]() {
 temp[yPIrNHj]=deserialize_char(name["members"]["pNext"]["members"][yPIrNHj]);}();;
         }
@@ -83445,8 +83445,8 @@ void* temp_osdFHPX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pTag"].size()*sizeof(char));
-        for (int FTLruKP=0; FTLruKP < name["members"]["pTag"].size(); FTLruKP++){
+    temp=(char*)malloc(name["members"]["pTag"]["members"].size()*sizeof(char));
+        for (int FTLruKP=0; FTLruKP < name["members"]["pTag"]["members"].size(); FTLruKP++){
             [&]() {
 temp[FTLruKP]=deserialize_char(name["members"]["pTag"]["members"][FTLruKP]);}();;
         }
@@ -83477,7 +83477,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -83510,8 +83510,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -83545,7 +83545,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LMzVXwE["members"]={};
-        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext))); LMzVXwE++){
+        for(int LMzVXwE=0; LMzVXwE < strlen(((char*)(name.pNext)))+1; LMzVXwE++){
             json temp;
             temp=[&]() {
     json return_DRTKwys=json({});
@@ -83578,8 +83578,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"].size(); UYJmhMR++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int UYJmhMR=0; UYJmhMR < name["members"]["pNext"]["members"].size(); UYJmhMR++){
             [&]() {
 temp[UYJmhMR]=deserialize_char(name["members"]["pNext"]["members"][UYJmhMR]);}();;
         }
@@ -83613,7 +83613,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_TKZgOGe["members"]={};
-        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext))); TKZgOGe++){
+        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext)))+1; TKZgOGe++){
             json temp;
             temp=[&]() {
     json return_vKaymkQ=json({});
@@ -83644,8 +83644,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"].size(); RflsJpr++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"]["members"].size(); RflsJpr++){
             [&]() {
 temp[RflsJpr]=deserialize_char(name["members"]["pNext"]["members"][RflsJpr]);}();;
         }
@@ -83678,7 +83678,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MklKjfA["members"]={};
-        for(int MklKjfA=0; MklKjfA < strlen(((char*)(name.pNext))); MklKjfA++){
+        for(int MklKjfA=0; MklKjfA < strlen(((char*)(name.pNext)))+1; MklKjfA++){
             json temp;
             temp=[&]() {
     json return_YMVEXPu=json({});
@@ -83721,8 +83721,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int kiiXcHb=0; kiiXcHb < name["members"]["pNext"].size(); kiiXcHb++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int kiiXcHb=0; kiiXcHb < name["members"]["pNext"]["members"].size(); kiiXcHb++){
             [&]() {
 temp[kiiXcHb]=deserialize_char(name["members"]["pNext"]["members"][kiiXcHb]);}();;
         }
@@ -83763,7 +83763,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_hByJpGl["members"]={};
-        for(int hByJpGl=0; hByJpGl < strlen(((char*)(name.pNext))); hByJpGl++){
+        for(int hByJpGl=0; hByJpGl < strlen(((char*)(name.pNext)))+1; hByJpGl++){
             json temp;
             temp=[&]() {
     json return_zOSmHzD=json({});
@@ -83812,8 +83812,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int sKmKhOn=0; sKmKhOn < name["members"]["pNext"].size(); sKmKhOn++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int sKmKhOn=0; sKmKhOn < name["members"]["pNext"]["members"].size(); sKmKhOn++){
             [&]() {
 temp[sKmKhOn]=deserialize_char(name["members"]["pNext"]["members"][sKmKhOn]);}();;
         }
@@ -83858,7 +83858,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_TKZgOGe["members"]={};
-        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext))); TKZgOGe++){
+        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext)))+1; TKZgOGe++){
             json temp;
             temp=[&]() {
     json return_vKaymkQ=json({});
@@ -83891,8 +83891,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"].size(); RflsJpr++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"]["members"].size(); RflsJpr++){
             [&]() {
 temp[RflsJpr]=deserialize_char(name["members"]["pNext"]["members"][RflsJpr]);}();;
         }
@@ -83926,7 +83926,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_zteIbMs["members"]={};
-        for(int zteIbMs=0; zteIbMs < strlen(((char*)(name.pNext))); zteIbMs++){
+        for(int zteIbMs=0; zteIbMs < strlen(((char*)(name.pNext)))+1; zteIbMs++){
             json temp;
             temp=[&]() {
     json return_jwnnJne=json({});
@@ -83976,8 +83976,8 @@ void* temp_Pqdomxx;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int YNRXBXy=0; YNRXBXy < name["members"]["pNext"].size(); YNRXBXy++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int YNRXBXy=0; YNRXBXy < name["members"]["pNext"]["members"].size(); YNRXBXy++){
             [&]() {
 temp[YNRXBXy]=deserialize_char(name["members"]["pNext"]["members"][YNRXBXy]);}();;
         }
@@ -84023,7 +84023,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_zteIbMs["members"]={};
-        for(int zteIbMs=0; zteIbMs < strlen(((char*)(name.pNext))); zteIbMs++){
+        for(int zteIbMs=0; zteIbMs < strlen(((char*)(name.pNext)))+1; zteIbMs++){
             json temp;
             temp=[&]() {
     json return_jwnnJne=json({});
@@ -84073,8 +84073,8 @@ void* temp_Pqdomxx;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int YNRXBXy=0; YNRXBXy < name["members"]["pNext"].size(); YNRXBXy++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int YNRXBXy=0; YNRXBXy < name["members"]["pNext"]["members"].size(); YNRXBXy++){
             [&]() {
 temp[YNRXBXy]=deserialize_char(name["members"]["pNext"]["members"][YNRXBXy]);}();;
         }
@@ -84120,7 +84120,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_zteIbMs["members"]={};
-        for(int zteIbMs=0; zteIbMs < strlen(((char*)(name.pNext))); zteIbMs++){
+        for(int zteIbMs=0; zteIbMs < strlen(((char*)(name.pNext)))+1; zteIbMs++){
             json temp;
             temp=[&]() {
     json return_jwnnJne=json({});
@@ -84170,8 +84170,8 @@ void* temp_Pqdomxx;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int YNRXBXy=0; YNRXBXy < name["members"]["pNext"].size(); YNRXBXy++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int YNRXBXy=0; YNRXBXy < name["members"]["pNext"]["members"].size(); YNRXBXy++){
             [&]() {
 temp[YNRXBXy]=deserialize_char(name["members"]["pNext"]["members"][YNRXBXy]);}();;
         }
@@ -84217,7 +84217,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HwomHKN["members"]={};
-        for(int HwomHKN=0; HwomHKN < strlen(((char*)(name.pNext))); HwomHKN++){
+        for(int HwomHKN=0; HwomHKN < strlen(((char*)(name.pNext)))+1; HwomHKN++){
             json temp;
             temp=[&]() {
     json return_kNuhIKz=json({});
@@ -84255,8 +84255,8 @@ void* temp_VBAOmYt;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RRrHqsk=0; RRrHqsk < name["members"]["pNext"].size(); RRrHqsk++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RRrHqsk=0; RRrHqsk < name["members"]["pNext"]["members"].size(); RRrHqsk++){
             [&]() {
 temp[RRrHqsk]=deserialize_char(name["members"]["pNext"]["members"][RRrHqsk]);}();;
         }
@@ -84293,7 +84293,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HwomHKN["members"]={};
-        for(int HwomHKN=0; HwomHKN < strlen(((char*)(name.pNext))); HwomHKN++){
+        for(int HwomHKN=0; HwomHKN < strlen(((char*)(name.pNext)))+1; HwomHKN++){
             json temp;
             temp=[&]() {
     json return_kNuhIKz=json({});
@@ -84346,8 +84346,8 @@ void* temp_VBAOmYt;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RRrHqsk=0; RRrHqsk < name["members"]["pNext"].size(); RRrHqsk++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RRrHqsk=0; RRrHqsk < name["members"]["pNext"]["members"].size(); RRrHqsk++){
             [&]() {
 temp[RRrHqsk]=deserialize_char(name["members"]["pNext"]["members"][RRrHqsk]);}();;
         }
@@ -84395,7 +84395,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -84443,8 +84443,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -84487,7 +84487,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_VVzrTxc["members"]={};
-        for(int VVzrTxc=0; VVzrTxc < strlen(((char*)(name.pNext))); VVzrTxc++){
+        for(int VVzrTxc=0; VVzrTxc < strlen(((char*)(name.pNext)))+1; VVzrTxc++){
             json temp;
             temp=[&]() {
     json return_nTiUyji=json({});
@@ -84520,8 +84520,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int OKkmuQS=0; OKkmuQS < name["members"]["pNext"].size(); OKkmuQS++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int OKkmuQS=0; OKkmuQS < name["members"]["pNext"]["members"].size(); OKkmuQS++){
             [&]() {
 temp[OKkmuQS]=deserialize_char(name["members"]["pNext"]["members"][OKkmuQS]);}();;
         }
@@ -84555,7 +84555,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_ADDANKp["members"]={};
-        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext))); ADDANKp++){
+        for(int ADDANKp=0; ADDANKp < strlen(((char*)(name.pNext)))+1; ADDANKp++){
             json temp;
             temp=[&]() {
     json return_jjiMkmX=json({});
@@ -84586,8 +84586,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"].size(); FoFGpmG++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int FoFGpmG=0; FoFGpmG < name["members"]["pNext"]["members"].size(); FoFGpmG++){
             [&]() {
 temp[FoFGpmG]=deserialize_char(name["members"]["pNext"]["members"][FoFGpmG]);}();;
         }
@@ -84620,7 +84620,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_iUMONij["members"]={};
-        for(int iUMONij=0; iUMONij < strlen(((char*)(name.pNext))); iUMONij++){
+        for(int iUMONij=0; iUMONij < strlen(((char*)(name.pNext)))+1; iUMONij++){
             json temp;
             temp=[&]() {
     json return_jKBjTOw=json({});
@@ -84654,8 +84654,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iDKuMMl=0; iDKuMMl < name["members"]["pNext"].size(); iDKuMMl++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iDKuMMl=0; iDKuMMl < name["members"]["pNext"]["members"].size(); iDKuMMl++){
             [&]() {
 temp[iDKuMMl]=deserialize_char(name["members"]["pNext"]["members"][iDKuMMl]);}();;
         }
@@ -84694,7 +84694,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_hlKaMUa["members"]={};
-        for(int hlKaMUa=0; hlKaMUa < strlen(((char*)(name.pNext))); hlKaMUa++){
+        for(int hlKaMUa=0; hlKaMUa < strlen(((char*)(name.pNext)))+1; hlKaMUa++){
             json temp;
             temp=[&]() {
     json return_onYiYtv=json({});
@@ -84746,8 +84746,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int VkHsbvD=0; VkHsbvD < name["members"]["pNext"].size(); VkHsbvD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int VkHsbvD=0; VkHsbvD < name["members"]["pNext"]["members"].size(); VkHsbvD++){
             [&]() {
 temp[VkHsbvD]=deserialize_char(name["members"]["pNext"]["members"][VkHsbvD]);}();;
         }
@@ -84795,7 +84795,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -84828,8 +84828,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -84863,7 +84863,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -84896,8 +84896,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -84931,7 +84931,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_SaCCuQS["members"]={};
-        for(int SaCCuQS=0; SaCCuQS < strlen(((char*)(name.pNext))); SaCCuQS++){
+        for(int SaCCuQS=0; SaCCuQS < strlen(((char*)(name.pNext)))+1; SaCCuQS++){
             json temp;
             temp=[&]() {
     json return_tKWDhbh=json({});
@@ -84982,8 +84982,8 @@ void* temp_WQLvfWf;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int iRVYrIE=0; iRVYrIE < name["members"]["pNext"].size(); iRVYrIE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int iRVYrIE=0; iRVYrIE < name["members"]["pNext"]["members"].size(); iRVYrIE++){
             [&]() {
 temp[iRVYrIE]=deserialize_char(name["members"]["pNext"]["members"][iRVYrIE]);}();;
         }
@@ -85036,7 +85036,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_mDIroCt["members"]={};
-        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext))); mDIroCt++){
+        for(int mDIroCt=0; mDIroCt < strlen(((char*)(name.pNext)))+1; mDIroCt++){
             json temp;
             temp=[&]() {
     json return_Riekxgn=json({});
@@ -85073,8 +85073,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"].size(); RzJZikE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RzJZikE=0; RzJZikE < name["members"]["pNext"]["members"].size(); RzJZikE++){
             [&]() {
 temp[RzJZikE]=deserialize_char(name["members"]["pNext"]["members"][RzJZikE]);}();;
         }
@@ -85111,7 +85111,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -85144,8 +85144,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -85179,7 +85179,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HLJxZkA["members"]={};
-        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext))); HLJxZkA++){
+        for(int HLJxZkA=0; HLJxZkA < strlen(((char*)(name.pNext)))+1; HLJxZkA++){
             json temp;
             temp=[&]() {
     json return_UzBGJSH=json({});
@@ -85229,8 +85229,8 @@ void* temp_HPQLPrg;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"].size(); mqQpGAK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int mqQpGAK=0; mqQpGAK < name["members"]["pNext"]["members"].size(); mqQpGAK++){
             [&]() {
 temp[mqQpGAK]=deserialize_char(name["members"]["pNext"]["members"][mqQpGAK]);}();;
         }
@@ -85276,7 +85276,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_BSnhWHz["members"]={};
-        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext))); BSnhWHz++){
+        for(int BSnhWHz=0; BSnhWHz < strlen(((char*)(name.pNext)))+1; BSnhWHz++){
             json temp;
             temp=[&]() {
     json return_nERznot=json({});
@@ -85301,7 +85301,7 @@ result["members"]["pQueriedLowLatencyData"]=[&]() {
         }
         
         return_pmpJbAK["members"]={};
-        for(int pmpJbAK=0; pmpJbAK < strlen(((char*)(name.pQueriedLowLatencyData))); pmpJbAK++){
+        for(int pmpJbAK=0; pmpJbAK < strlen(((char*)(name.pQueriedLowLatencyData)))+1; pmpJbAK++){
             json temp;
             temp=[&]() {
     json return_DsUsXDp=json({});
@@ -85330,8 +85330,8 @@ void* temp_WJwVPQi;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"].size(); uYAMLtE++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int uYAMLtE=0; uYAMLtE < name["members"]["pNext"]["members"].size(); uYAMLtE++){
             [&]() {
 temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}();;
         }
@@ -85349,8 +85349,8 @@ temp[uYAMLtE]=deserialize_char(name["members"]["pNext"]["members"][uYAMLtE]);}()
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pQueriedLowLatencyData"].size()*sizeof(char));
-        for (int suPkpss=0; suPkpss < name["members"]["pQueriedLowLatencyData"].size(); suPkpss++){
+    temp=(char*)malloc(name["members"]["pQueriedLowLatencyData"]["members"].size()*sizeof(char));
+        for (int suPkpss=0; suPkpss < name["members"]["pQueriedLowLatencyData"]["members"].size(); suPkpss++){
             [&]() {
 temp[suPkpss]=deserialize_char(name["members"]["pQueriedLowLatencyData"]["members"][suPkpss]);}();;
         }
@@ -85381,7 +85381,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_cJJSNOb["members"]={};
-        for(int cJJSNOb=0; cJJSNOb < strlen(((char*)(name.pNext))); cJJSNOb++){
+        for(int cJJSNOb=0; cJJSNOb < strlen(((char*)(name.pNext)))+1; cJJSNOb++){
             json temp;
             temp=[&]() {
     json return_JzTcWlY=json({});
@@ -85426,8 +85426,8 @@ void* temp_hwqRCnl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ggXCSdi=0; ggXCSdi < name["members"]["pNext"].size(); ggXCSdi++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ggXCSdi=0; ggXCSdi < name["members"]["pNext"]["members"].size(); ggXCSdi++){
             [&]() {
 temp[ggXCSdi]=deserialize_char(name["members"]["pNext"]["members"][ggXCSdi]);}();;
         }
@@ -85468,7 +85468,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_vdrriXD["members"]={};
-        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext))); vdrriXD++){
+        for(int vdrriXD=0; vdrriXD < strlen(((char*)(name.pNext)))+1; vdrriXD++){
             json temp;
             temp=[&]() {
     json return_eBYaBVT=json({});
@@ -85503,8 +85503,8 @@ void* temp_oEiJnWX;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"].size(); XfVRDPx++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int XfVRDPx=0; XfVRDPx < name["members"]["pNext"]["members"].size(); XfVRDPx++){
             [&]() {
 temp[XfVRDPx]=deserialize_char(name["members"]["pNext"]["members"][XfVRDPx]);}();;
         }
@@ -85539,7 +85539,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_qrsQwZl["members"]={};
-        for(int qrsQwZl=0; qrsQwZl < strlen(((char*)(name.pNext))); qrsQwZl++){
+        for(int qrsQwZl=0; qrsQwZl < strlen(((char*)(name.pNext)))+1; qrsQwZl++){
             json temp;
             temp=[&]() {
     json return_XGoKtAF=json({});
@@ -85572,8 +85572,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int EuYCLtQ=0; EuYCLtQ < name["members"]["pNext"].size(); EuYCLtQ++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int EuYCLtQ=0; EuYCLtQ < name["members"]["pNext"]["members"].size(); EuYCLtQ++){
             [&]() {
 temp[EuYCLtQ]=deserialize_char(name["members"]["pNext"]["members"][EuYCLtQ]);}();;
         }
@@ -85607,7 +85607,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_NOHcLvZ["members"]={};
-        for(int NOHcLvZ=0; NOHcLvZ < strlen(((char*)(name.pNext))); NOHcLvZ++){
+        for(int NOHcLvZ=0; NOHcLvZ < strlen(((char*)(name.pNext)))+1; NOHcLvZ++){
             json temp;
             temp=[&]() {
     json return_cJzFexl=json({});
@@ -85651,8 +85651,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int xYFdAfs=0; xYFdAfs < name["members"]["pNext"].size(); xYFdAfs++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int xYFdAfs=0; xYFdAfs < name["members"]["pNext"]["members"].size(); xYFdAfs++){
             [&]() {
 temp[xYFdAfs]=deserialize_char(name["members"]["pNext"]["members"][xYFdAfs]);}();;
         }
@@ -85692,7 +85692,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_DuYkTid["members"]={};
-        for(int DuYkTid=0; DuYkTid < strlen(((char*)(name.pNext))); DuYkTid++){
+        for(int DuYkTid=0; DuYkTid < strlen(((char*)(name.pNext)))+1; DuYkTid++){
             json temp;
             temp=[&]() {
     json return_lzqnZOX=json({});
@@ -85750,7 +85750,7 @@ result["members"]["pName"]=[&]() {
         }
         
         return_kSZCtHR["members"]={};
-        for(int kSZCtHR=0; kSZCtHR < strlen(name.pName); kSZCtHR++){
+        for(int kSZCtHR=0; kSZCtHR < strlen(name.pName)+1; kSZCtHR++){
             json temp;
             temp=[&]() {
     json return_aXTWYrb=json({});
@@ -85832,8 +85832,8 @@ void* temp_ORQkGkt;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int wtSINMt=0; wtSINMt < name["members"]["pNext"].size(); wtSINMt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int wtSINMt=0; wtSINMt < name["members"]["pNext"]["members"].size(); wtSINMt++){
             [&]() {
 temp[wtSINMt]=deserialize_char(name["members"]["pNext"]["members"][wtSINMt]);}();;
         }
@@ -85876,8 +85876,8 @@ char* temp_TWxpuLh;[&]() {
         temp_TWxpuLh=NULL;
         return;
         }
-    temp_TWxpuLh=(char*)malloc(name["members"]["pName"].size()*sizeof(char));
-        for (int EeyoVnX=0; EeyoVnX < name["members"]["pName"].size(); EeyoVnX++){
+    temp_TWxpuLh=(char*)malloc(name["members"]["pName"]["members"].size()*sizeof(char));
+        for (int EeyoVnX=0; EeyoVnX < name["members"]["pName"]["members"].size(); EeyoVnX++){
             [&]() {
 temp_TWxpuLh[EeyoVnX]=deserialize_char(name["members"]["pName"]["members"][EeyoVnX]);}();;
         }
@@ -85948,7 +85948,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -85991,8 +85991,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -86032,7 +86032,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -86075,8 +86075,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -86116,7 +86116,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_TKZgOGe["members"]={};
-        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext))); TKZgOGe++){
+        for(int TKZgOGe=0; TKZgOGe < strlen(((char*)(name.pNext)))+1; TKZgOGe++){
             json temp;
             temp=[&]() {
     json return_vKaymkQ=json({});
@@ -86154,8 +86154,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"].size(); RflsJpr++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int RflsJpr=0; RflsJpr < name["members"]["pNext"]["members"].size(); RflsJpr++){
             [&]() {
 temp[RflsJpr]=deserialize_char(name["members"]["pNext"]["members"][RflsJpr]);}();;
         }
@@ -86192,7 +86192,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -86249,8 +86249,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -86300,7 +86300,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_envrzLP["members"]={};
-        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext))); envrzLP++){
+        for(int envrzLP=0; envrzLP < strlen(((char*)(name.pNext)))+1; envrzLP++){
             json temp;
             temp=[&]() {
     json return_bIHwLEY=json({});
@@ -86331,8 +86331,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"].size(); JXSHXlV++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int JXSHXlV=0; JXSHXlV < name["members"]["pNext"]["members"].size(); JXSHXlV++){
             [&]() {
 temp[JXSHXlV]=deserialize_char(name["members"]["pNext"]["members"][JXSHXlV]);}();;
         }
@@ -86365,7 +86365,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -86398,8 +86398,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -86433,7 +86433,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_HTvJxwI["members"]={};
-        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext))); HTvJxwI++){
+        for(int HTvJxwI=0; HTvJxwI < strlen(((char*)(name.pNext)))+1; HTvJxwI++){
             json temp;
             temp=[&]() {
     json return_UtdlQJE=json({});
@@ -86466,8 +86466,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"].size(); tQwdmnK++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int tQwdmnK=0; tQwdmnK < name["members"]["pNext"]["members"].size(); tQwdmnK++){
             [&]() {
 temp[tQwdmnK]=deserialize_char(name["members"]["pNext"]["members"][tQwdmnK]);}();;
         }
@@ -86501,7 +86501,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_MLeWUnI["members"]={};
-        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext))); MLeWUnI++){
+        for(int MLeWUnI=0; MLeWUnI < strlen(((char*)(name.pNext)))+1; MLeWUnI++){
             json temp;
             temp=[&]() {
     json return_CttfuGI=json({});
@@ -86539,8 +86539,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"].size(); jheBiPD++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int jheBiPD=0; jheBiPD < name["members"]["pNext"]["members"].size(); jheBiPD++){
             [&]() {
 temp[jheBiPD]=deserialize_char(name["members"]["pNext"]["members"][jheBiPD]);}();;
         }
@@ -86577,7 +86577,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_IjXjCjG["members"]={};
-        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext))); IjXjCjG++){
+        for(int IjXjCjG=0; IjXjCjG < strlen(((char*)(name.pNext)))+1; IjXjCjG++){
             json temp;
             temp=[&]() {
     json return_tIlAozv=json({});
@@ -86610,8 +86610,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"].size(); dePiXNt++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int dePiXNt=0; dePiXNt < name["members"]["pNext"]["members"].size(); dePiXNt++){
             [&]() {
 temp[dePiXNt]=deserialize_char(name["members"]["pNext"]["members"][dePiXNt]);}();;
         }
@@ -86645,7 +86645,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_cJJSNOb["members"]={};
-        for(int cJJSNOb=0; cJJSNOb < strlen(((char*)(name.pNext))); cJJSNOb++){
+        for(int cJJSNOb=0; cJJSNOb < strlen(((char*)(name.pNext)))+1; cJJSNOb++){
             json temp;
             temp=[&]() {
     json return_JzTcWlY=json({});
@@ -86677,8 +86677,8 @@ void* temp_hwqRCnl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ggXCSdi=0; ggXCSdi < name["members"]["pNext"].size(); ggXCSdi++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ggXCSdi=0; ggXCSdi < name["members"]["pNext"]["members"].size(); ggXCSdi++){
             [&]() {
 temp[ggXCSdi]=deserialize_char(name["members"]["pNext"]["members"][ggXCSdi]);}();;
         }
@@ -86711,7 +86711,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_cJJSNOb["members"]={};
-        for(int cJJSNOb=0; cJJSNOb < strlen(((char*)(name.pNext))); cJJSNOb++){
+        for(int cJJSNOb=0; cJJSNOb < strlen(((char*)(name.pNext)))+1; cJJSNOb++){
             json temp;
             temp=[&]() {
     json return_JzTcWlY=json({});
@@ -86743,8 +86743,8 @@ void* temp_hwqRCnl;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int ggXCSdi=0; ggXCSdi < name["members"]["pNext"].size(); ggXCSdi++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int ggXCSdi=0; ggXCSdi < name["members"]["pNext"]["members"].size(); ggXCSdi++){
             [&]() {
 temp[ggXCSdi]=deserialize_char(name["members"]["pNext"]["members"][ggXCSdi]);}();;
         }
@@ -86777,7 +86777,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_tjJmLHi["members"]={};
-        for(int tjJmLHi=0; tjJmLHi < strlen(((char*)(name.pNext))); tjJmLHi++){
+        for(int tjJmLHi=0; tjJmLHi < strlen(((char*)(name.pNext)))+1; tjJmLHi++){
             json temp;
             temp=[&]() {
     json return_vzPYEMV=json({});
@@ -86810,8 +86810,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int kMUZTCS=0; kMUZTCS < name["members"]["pNext"].size(); kMUZTCS++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int kMUZTCS=0; kMUZTCS < name["members"]["pNext"]["members"].size(); kMUZTCS++){
             [&]() {
 temp[kMUZTCS]=deserialize_char(name["members"]["pNext"]["members"][kMUZTCS]);}();;
         }
@@ -86845,7 +86845,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_tWulzyC["members"]={};
-        for(int tWulzyC=0; tWulzyC < strlen(((char*)(name.pNext))); tWulzyC++){
+        for(int tWulzyC=0; tWulzyC < strlen(((char*)(name.pNext)))+1; tWulzyC++){
             json temp;
             temp=[&]() {
     json return_QXYdWqR=json({});
@@ -86876,8 +86876,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int WLIbwGg=0; WLIbwGg < name["members"]["pNext"].size(); WLIbwGg++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int WLIbwGg=0; WLIbwGg < name["members"]["pNext"]["members"].size(); WLIbwGg++){
             [&]() {
 temp[WLIbwGg]=deserialize_char(name["members"]["pNext"]["members"][WLIbwGg]);}();;
         }
@@ -86910,7 +86910,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_pVnrwtO["members"]={};
-        for(int pVnrwtO=0; pVnrwtO < strlen(((char*)(name.pNext))); pVnrwtO++){
+        for(int pVnrwtO=0; pVnrwtO < strlen(((char*)(name.pNext)))+1; pVnrwtO++){
             json temp;
             temp=[&]() {
     json return_TMMALWy=json({});
@@ -86945,8 +86945,8 @@ void* temp_hVMMtNZ;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int pygSTjW=0; pygSTjW < name["members"]["pNext"].size(); pygSTjW++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int pygSTjW=0; pygSTjW < name["members"]["pNext"]["members"].size(); pygSTjW++){
             [&]() {
 temp[pygSTjW]=deserialize_char(name["members"]["pNext"]["members"][pygSTjW]);}();;
         }
@@ -86981,7 +86981,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_LwAgtLE["members"]={};
-        for(int LwAgtLE=0; LwAgtLE < strlen(((char*)(name.pNext))); LwAgtLE++){
+        for(int LwAgtLE=0; LwAgtLE < strlen(((char*)(name.pNext)))+1; LwAgtLE++){
             json temp;
             temp=[&]() {
     json return_OVgpfbc=json({});
@@ -87014,8 +87014,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int sgpUUYH=0; sgpUUYH < name["members"]["pNext"].size(); sgpUUYH++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int sgpUUYH=0; sgpUUYH < name["members"]["pNext"]["members"].size(); sgpUUYH++){
             [&]() {
 temp[sgpUUYH]=deserialize_char(name["members"]["pNext"]["members"][sgpUUYH]);}();;
         }
@@ -87049,7 +87049,7 @@ result["members"]["pNext"]=[&]() {
         }
         
         return_FShuePX["members"]={};
-        for(int FShuePX=0; FShuePX < strlen(((char*)(name.pNext))); FShuePX++){
+        for(int FShuePX=0; FShuePX < strlen(((char*)(name.pNext)))+1; FShuePX++){
             json temp;
             temp=[&]() {
     json return_dBkoKjt=json({});
@@ -87080,8 +87080,8 @@ result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(name["members"]["pNext"].size()*sizeof(char));
-        for (int BTyZxfS=0; BTyZxfS < name["members"]["pNext"].size(); BTyZxfS++){
+    temp=(char*)malloc(name["members"]["pNext"]["members"].size()*sizeof(char));
+        for (int BTyZxfS=0; BTyZxfS < name["members"]["pNext"]["members"].size(); BTyZxfS++){
             [&]() {
 temp[BTyZxfS]=deserialize_char(name["members"]["pNext"]["members"][BTyZxfS]);}();;
         }
@@ -92431,7 +92431,7 @@ data["members"]["pUserData"]=[&]() {
         }
         
         return_unEcZHd["members"]={};
-        for(int unEcZHd=0; unEcZHd < strlen(((char*)(_struct->pUserData))); unEcZHd++){
+        for(int unEcZHd=0; unEcZHd < strlen(((char*)(_struct->pUserData)))+1; unEcZHd++){
             json temp;
             temp=[&]() {
     json return_raAVfvN=json({});
@@ -92498,8 +92498,8 @@ break;
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pUserData"].size()*sizeof(char));
-        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"].size(); GXobTLu++){
+    temp=(char*)malloc(data["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"]["members"].size(); GXobTLu++){
             [&]() {
 temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu]);}();;
         }
@@ -92531,7 +92531,7 @@ result["params"]["pUserData"]=[&]() {
         }
         
         return_qPEUoOT["members"]={};
-        for(int qPEUoOT=0; qPEUoOT < strlen(((char*)(pUserData))); qPEUoOT++){
+        for(int qPEUoOT=0; qPEUoOT < strlen(((char*)(pUserData)))+1; qPEUoOT++){
             json temp;
             temp=[&]() {
     json return_BCIGQWq=json({});
@@ -92575,8 +92575,8 @@ writeToConn(result);
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pUserData"].size()*sizeof(char));
-        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"].size(); GXobTLu++){
+    temp=(char*)malloc(data["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"]["members"].size(); GXobTLu++){
             [&]() {
 temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu]);}();;
         }
@@ -92631,7 +92631,7 @@ data["members"]["pUserData"]=[&]() {
         }
         
         return_unEcZHd["members"]={};
-        for(int unEcZHd=0; unEcZHd < strlen(((char*)(_struct->pUserData))); unEcZHd++){
+        for(int unEcZHd=0; unEcZHd < strlen(((char*)(_struct->pUserData)))+1; unEcZHd++){
             json temp;
             temp=[&]() {
     json return_raAVfvN=json({});
@@ -92698,8 +92698,8 @@ break;
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pUserData"].size()*sizeof(char));
-        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"].size(); GXobTLu++){
+    temp=(char*)malloc(data["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"]["members"].size(); GXobTLu++){
             [&]() {
 temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu]);}();;
         }
@@ -92731,7 +92731,7 @@ result["params"]["pUserData"]=[&]() {
         }
         
         return_qPEUoOT["members"]={};
-        for(int qPEUoOT=0; qPEUoOT < strlen(((char*)(pUserData))); qPEUoOT++){
+        for(int qPEUoOT=0; qPEUoOT < strlen(((char*)(pUserData)))+1; qPEUoOT++){
             json temp;
             temp=[&]() {
     json return_BCIGQWq=json({});
@@ -92775,8 +92775,8 @@ writeToConn(result);
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pUserData"].size()*sizeof(char));
-        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"].size(); GXobTLu++){
+    temp=(char*)malloc(data["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"]["members"].size(); GXobTLu++){
             [&]() {
 temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu]);}();;
         }
@@ -92832,7 +92832,7 @@ data["members"]["pUserData"]=[&]() {
         }
         
         return_unEcZHd["members"]={};
-        for(int unEcZHd=0; unEcZHd < strlen(((char*)(_struct->pUserData))); unEcZHd++){
+        for(int unEcZHd=0; unEcZHd < strlen(((char*)(_struct->pUserData)))+1; unEcZHd++){
             json temp;
             temp=[&]() {
     json return_raAVfvN=json({});
@@ -92857,7 +92857,7 @@ data["members"]["pOriginal"]=[&]() {
         }
         
         return_hpAXNbU["members"]={};
-        for(int hpAXNbU=0; hpAXNbU < strlen(((char*)(pOriginal))); hpAXNbU++){
+        for(int hpAXNbU=0; hpAXNbU < strlen(((char*)(pOriginal)))+1; hpAXNbU++){
             json temp;
             temp=[&]() {
     json return_OLmcPVf=json({});
@@ -92927,8 +92927,8 @@ break;
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pUserData"].size()*sizeof(char));
-        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"].size(); GXobTLu++){
+    temp=(char*)malloc(data["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"]["members"].size(); GXobTLu++){
             [&]() {
 temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu]);}();;
         }
@@ -92947,8 +92947,8 @@ temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu])
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pOriginal"].size()*sizeof(char));
-        for (int SBajMeG=0; SBajMeG < data["members"]["pOriginal"].size(); SBajMeG++){
+    temp=(char*)malloc(data["members"]["pOriginal"]["members"].size()*sizeof(char));
+        for (int SBajMeG=0; SBajMeG < data["members"]["pOriginal"]["members"].size(); SBajMeG++){
             [&]() {
 temp[SBajMeG]=deserialize_char(data["members"]["pOriginal"]["members"][SBajMeG]);}();;
         }
@@ -92980,7 +92980,7 @@ result["result"]=[&]() {
         }
         
         return_XKfffIn["members"]={};
-        for(int XKfffIn=0; XKfffIn < strlen(((char*)(result_temp))); XKfffIn++){
+        for(int XKfffIn=0; XKfffIn < strlen(((char*)(result_temp)))+1; XKfffIn++){
             json temp;
             temp=[&]() {
     json return_kogWQlH=json({});
@@ -93005,7 +93005,7 @@ result["params"]["pUserData"]=[&]() {
         }
         
         return_qPEUoOT["members"]={};
-        for(int qPEUoOT=0; qPEUoOT < strlen(((char*)(pUserData))); qPEUoOT++){
+        for(int qPEUoOT=0; qPEUoOT < strlen(((char*)(pUserData)))+1; qPEUoOT++){
             json temp;
             temp=[&]() {
     json return_BCIGQWq=json({});
@@ -93030,7 +93030,7 @@ result["params"]["pOriginal"]=[&]() {
         }
         
         return_hpAXNbU["members"]={};
-        for(int hpAXNbU=0; hpAXNbU < strlen(((char*)(pOriginal))); hpAXNbU++){
+        for(int hpAXNbU=0; hpAXNbU < strlen(((char*)(pOriginal)))+1; hpAXNbU++){
             json temp;
             temp=[&]() {
     json return_OLmcPVf=json({});
@@ -93085,8 +93085,8 @@ writeToConn(result);
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pUserData"].size()*sizeof(char));
-        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"].size(); GXobTLu++){
+    temp=(char*)malloc(data["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"]["members"].size(); GXobTLu++){
             [&]() {
 temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu]);}();;
         }
@@ -93104,8 +93104,8 @@ temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu])
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pOriginal"].size()*sizeof(char));
-        for (int SBajMeG=0; SBajMeG < data["members"]["pOriginal"].size(); SBajMeG++){
+    temp=(char*)malloc(data["members"]["pOriginal"]["members"].size()*sizeof(char));
+        for (int SBajMeG=0; SBajMeG < data["members"]["pOriginal"]["members"].size(); SBajMeG++){
             [&]() {
 temp[SBajMeG]=deserialize_char(data["members"]["pOriginal"]["members"][SBajMeG]);}();;
         }
@@ -93130,8 +93130,8 @@ void* result;
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["result"].size()*sizeof(char));
-        for (int pZIIzsC=0; pZIIzsC < data["result"].size(); pZIIzsC++){
+    temp=(char*)malloc(data["result"]["members"].size()*sizeof(char));
+        for (int pZIIzsC=0; pZIIzsC < data["result"]["members"].size(); pZIIzsC++){
             [&]() {
 temp[pZIIzsC]=deserialize_char(data["result"]["members"][pZIIzsC]);}();;
         }
@@ -93187,7 +93187,7 @@ data["members"]["pUserData"]=[&]() {
         }
         
         return_unEcZHd["members"]={};
-        for(int unEcZHd=0; unEcZHd < strlen(((char*)(_struct->pUserData))); unEcZHd++){
+        for(int unEcZHd=0; unEcZHd < strlen(((char*)(_struct->pUserData)))+1; unEcZHd++){
             json temp;
             temp=[&]() {
     json return_raAVfvN=json({});
@@ -93257,8 +93257,8 @@ break;
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pUserData"].size()*sizeof(char));
-        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"].size(); GXobTLu++){
+    temp=(char*)malloc(data["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"]["members"].size(); GXobTLu++){
             [&]() {
 temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu]);}();;
         }
@@ -93290,7 +93290,7 @@ result["result"]=[&]() {
         }
         
         return_CDUsIoi["members"]={};
-        for(int CDUsIoi=0; CDUsIoi < strlen(((char*)(result_temp))); CDUsIoi++){
+        for(int CDUsIoi=0; CDUsIoi < strlen(((char*)(result_temp)))+1; CDUsIoi++){
             json temp;
             temp=[&]() {
     json return_zIefmUP=json({});
@@ -93315,7 +93315,7 @@ result["params"]["pUserData"]=[&]() {
         }
         
         return_qPEUoOT["members"]={};
-        for(int qPEUoOT=0; qPEUoOT < strlen(((char*)(pUserData))); qPEUoOT++){
+        for(int qPEUoOT=0; qPEUoOT < strlen(((char*)(pUserData)))+1; qPEUoOT++){
             json temp;
             temp=[&]() {
     json return_BCIGQWq=json({});
@@ -93369,8 +93369,8 @@ writeToConn(result);
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pUserData"].size()*sizeof(char));
-        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"].size(); GXobTLu++){
+    temp=(char*)malloc(data["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"]["members"].size(); GXobTLu++){
             [&]() {
 temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu]);}();;
         }
@@ -93395,8 +93395,8 @@ void* result;
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["result"].size()*sizeof(char));
-        for (int IgLZDWV=0; IgLZDWV < data["result"].size(); IgLZDWV++){
+    temp=(char*)malloc(data["result"]["members"].size()*sizeof(char));
+        for (int IgLZDWV=0; IgLZDWV < data["result"]["members"].size(); IgLZDWV++){
             [&]() {
 temp[IgLZDWV]=deserialize_char(data["result"]["members"][IgLZDWV]);}();;
         }
@@ -93450,7 +93450,7 @@ data["members"]["pUserData"]=[&]() {
         }
         
         return_unEcZHd["members"]={};
-        for(int unEcZHd=0; unEcZHd < strlen(((char*)(_struct->pUserData))); unEcZHd++){
+        for(int unEcZHd=0; unEcZHd < strlen(((char*)(_struct->pUserData)))+1; unEcZHd++){
             json temp;
             temp=[&]() {
     json return_raAVfvN=json({});
@@ -93475,7 +93475,7 @@ data["members"]["pMemory"]=[&]() {
         }
         
         return_tUdVjxD["members"]={};
-        for(int tUdVjxD=0; tUdVjxD < strlen(((char*)(pMemory))); tUdVjxD++){
+        for(int tUdVjxD=0; tUdVjxD < strlen(((char*)(pMemory)))+1; tUdVjxD++){
             json temp;
             temp=[&]() {
     json return_MNfkVsd=json({});
@@ -93533,8 +93533,8 @@ break;
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pUserData"].size()*sizeof(char));
-        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"].size(); GXobTLu++){
+    temp=(char*)malloc(data["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"]["members"].size(); GXobTLu++){
             [&]() {
 temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu]);}();;
         }
@@ -93553,8 +93553,8 @@ temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu])
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pMemory"].size()*sizeof(char));
-        for (int gIlUuhM=0; gIlUuhM < data["members"]["pMemory"].size(); gIlUuhM++){
+    temp=(char*)malloc(data["members"]["pMemory"]["members"].size()*sizeof(char));
+        for (int gIlUuhM=0; gIlUuhM < data["members"]["pMemory"]["members"].size(); gIlUuhM++){
             [&]() {
 temp[gIlUuhM]=deserialize_char(data["members"]["pMemory"]["members"][gIlUuhM]);}();;
         }
@@ -93577,7 +93577,7 @@ result["params"]["pUserData"]=[&]() {
         }
         
         return_qPEUoOT["members"]={};
-        for(int qPEUoOT=0; qPEUoOT < strlen(((char*)(pUserData))); qPEUoOT++){
+        for(int qPEUoOT=0; qPEUoOT < strlen(((char*)(pUserData)))+1; qPEUoOT++){
             json temp;
             temp=[&]() {
     json return_BCIGQWq=json({});
@@ -93602,7 +93602,7 @@ result["params"]["pMemory"]=[&]() {
         }
         
         return_tUdVjxD["members"]={};
-        for(int tUdVjxD=0; tUdVjxD < strlen(((char*)(pMemory))); tUdVjxD++){
+        for(int tUdVjxD=0; tUdVjxD < strlen(((char*)(pMemory)))+1; tUdVjxD++){
             json temp;
             temp=[&]() {
     json return_MNfkVsd=json({});
@@ -93635,8 +93635,8 @@ writeToConn(result);
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pUserData"].size()*sizeof(char));
-        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"].size(); GXobTLu++){
+    temp=(char*)malloc(data["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"]["members"].size(); GXobTLu++){
             [&]() {
 temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu]);}();;
         }
@@ -93654,8 +93654,8 @@ temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu])
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pMemory"].size()*sizeof(char));
-        for (int gIlUuhM=0; gIlUuhM < data["members"]["pMemory"].size(); gIlUuhM++){
+    temp=(char*)malloc(data["members"]["pMemory"]["members"].size()*sizeof(char));
+        for (int gIlUuhM=0; gIlUuhM < data["members"]["pMemory"]["members"].size(); gIlUuhM++){
             [&]() {
 temp[gIlUuhM]=deserialize_char(data["members"]["pMemory"]["members"][gIlUuhM]);}();;
         }
@@ -93745,7 +93745,7 @@ data["members"]["pUserData"]=[&]() {
         }
         
         return_unEcZHd["members"]={};
-        for(int unEcZHd=0; unEcZHd < strlen(((char*)(_struct->pUserData))); unEcZHd++){
+        for(int unEcZHd=0; unEcZHd < strlen(((char*)(_struct->pUserData)))+1; unEcZHd++){
             json temp;
             temp=[&]() {
     json return_raAVfvN=json({});
@@ -93842,8 +93842,8 @@ char* temp_iHizcpU;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pUserData"].size()*sizeof(char));
-        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"].size(); GXobTLu++){
+    temp=(char*)malloc(data["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"]["members"].size(); GXobTLu++){
             [&]() {
 temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu]);}();;
         }
@@ -93908,7 +93908,7 @@ result["params"]["pUserData"]=[&]() {
         }
         
         return_qPEUoOT["members"]={};
-        for(int qPEUoOT=0; qPEUoOT < strlen(((char*)(pUserData))); qPEUoOT++){
+        for(int qPEUoOT=0; qPEUoOT < strlen(((char*)(pUserData)))+1; qPEUoOT++){
             json temp;
             temp=[&]() {
     json return_BCIGQWq=json({});
@@ -93959,8 +93959,8 @@ messageCode=deserialize_int32_t(data["members"]["messageCode"]);}();
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pUserData"].size()*sizeof(char));
-        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"].size(); GXobTLu++){
+    temp=(char*)malloc(data["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"]["members"].size(); GXobTLu++){
             [&]() {
 temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu]);}();;
         }
@@ -94030,7 +94030,7 @@ data["members"]["pUserData"]=[&]() {
         }
         
         return_fRlCnrV["members"]={};
-        for(int fRlCnrV=0; fRlCnrV < strlen(((char*)(_struct->pUserData))); fRlCnrV++){
+        for(int fRlCnrV=0; fRlCnrV < strlen(((char*)(_struct->pUserData)))+1; fRlCnrV++){
             json temp;
             temp=[&]() {
     json return_XipnJcc=json({});
@@ -94106,8 +94106,8 @@ VkDebugUtilsMessengerCallbackDataEXT* temp_xGrGtVB;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pUserData"].size()*sizeof(char));
-        for (int YtUluaf=0; YtUluaf < data["members"]["pUserData"].size(); YtUluaf++){
+    temp=(char*)malloc(data["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int YtUluaf=0; YtUluaf < data["members"]["pUserData"]["members"].size(); YtUluaf++){
             [&]() {
 temp[YtUluaf]=deserialize_char(data["members"]["pUserData"]["members"][YtUluaf]);}();;
         }
@@ -94152,7 +94152,7 @@ result["params"]["pUserData"]=[&]() {
         }
         
         return_gGNzsdh["members"]={};
-        for(int gGNzsdh=0; gGNzsdh < strlen(((char*)(pUserData))); gGNzsdh++){
+        for(int gGNzsdh=0; gGNzsdh < strlen(((char*)(pUserData)))+1; gGNzsdh++){
             json temp;
             temp=[&]() {
     json return_BJHGTiO=json({});
@@ -94192,8 +94192,8 @@ messageTypes=deserialize_VkDebugUtilsMessageTypeFlagsEXT(data["members"]["messag
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pUserData"].size()*sizeof(char));
-        for (int YtUluaf=0; YtUluaf < data["members"]["pUserData"].size(); YtUluaf++){
+    temp=(char*)malloc(data["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int YtUluaf=0; YtUluaf < data["members"]["pUserData"]["members"].size(); YtUluaf++){
             [&]() {
 temp[YtUluaf]=deserialize_char(data["members"]["pUserData"]["members"][YtUluaf]);}();;
         }
@@ -94255,7 +94255,7 @@ data["members"]["pUserData"]=[&]() {
         }
         
         return_unEcZHd["members"]={};
-        for(int unEcZHd=0; unEcZHd < strlen(((char*)(_struct->pUserData))); unEcZHd++){
+        for(int unEcZHd=0; unEcZHd < strlen(((char*)(_struct->pUserData)))+1; unEcZHd++){
             json temp;
             temp=[&]() {
     json return_raAVfvN=json({});
@@ -94325,8 +94325,8 @@ VkDeviceMemoryReportCallbackDataEXT* temp_NmJlCaN;[&]() {
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pUserData"].size()*sizeof(char));
-        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"].size(); GXobTLu++){
+    temp=(char*)malloc(data["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"]["members"].size(); GXobTLu++){
             [&]() {
 temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu]);}();;
         }
@@ -94360,7 +94360,7 @@ result["params"]["pUserData"]=[&]() {
         }
         
         return_qPEUoOT["members"]={};
-        for(int qPEUoOT=0; qPEUoOT < strlen(((char*)(pUserData))); qPEUoOT++){
+        for(int qPEUoOT=0; qPEUoOT < strlen(((char*)(pUserData)))+1; qPEUoOT++){
             json temp;
             temp=[&]() {
     json return_BCIGQWq=json({});
@@ -94394,8 +94394,8 @@ writeToConn(result);
         temp=NULL;
         return;
         }
-    temp=(char*)malloc(data["members"]["pUserData"].size()*sizeof(char));
-        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"].size(); GXobTLu++){
+    temp=(char*)malloc(data["members"]["pUserData"]["members"].size()*sizeof(char));
+        for (int GXobTLu=0; GXobTLu < data["members"]["pUserData"]["members"].size(); GXobTLu++){
             [&]() {
 temp[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][GXobTLu]);}();;
         }
