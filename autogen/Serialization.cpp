@@ -10,9 +10,15 @@ using json = nlohmann::json;
 #include <Synchronization.hpp>
 
 
-json serialize_pNext(void* name){
+json serialize_pNext(const void* name){
 auto result=json({});
-auto type=(VkStructureType)name;
+if (name==NULL){
+    result["null"]=true;
+    return result;
+}
+auto chain=((VkBaseInStructure*)name);
+auto type=chain->sType;
+
 if (false){
 }
 
@@ -13276,11 +13282,22 @@ return return_MqUxMpf;}();
 return return_fjZOWku;}();
     }
     
-return result;}
+
+else{
+    result=serialize_pNext( (void*)(chain->pNext) ); //Ignore invalid sTypes
+}
+
+return result;
+}
+
 
 void* deserialize_pNext(json name){
 void* result;
-auto type=(VkStructureType)name["sType"];
+if (name.contains("null")){
+    result=NULL;
+    return result;
+}
+auto type=(VkStructureType)name["members"]["sType"]["value"];
 if (false){
 }
 
@@ -27437,7 +27454,17 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_bRMCyHm=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_bmnQyVL=json({});
+    
+        if (name.pNext==NULL){
+            return_bmnQyVL["null"]=true;
+            return return_bmnQyVL;
+        }
+        return_bmnQyVL=[&]() {
+    json return_tiehufe=json({});
+    return serialize_VkBaseOutStructure(*name.pNext);}();
+return return_bmnQyVL;}();
 return result;}
 
     VkBaseOutStructure deserialize_VkBaseOutStructure(json name){
@@ -27445,7 +27472,16 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+
+        if (name["members"]["pNext"].contains("null")){
+        result.pNext=NULL;
+        return;
+        }
+    result.pNext=(VkBaseOutStructure*)malloc(sizeof(VkBaseOutStructure));
+[&]() {
+*(result.pNext)=deserialize_VkBaseOutStructure(name["members"]["pNext"]);}();
+}();
 return result;}
 
     json serialize_VkBaseInStructure(VkBaseInStructure name){
@@ -27455,7 +27491,17 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_bRMCyHm=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_onuscma=json({});
+    
+        if (name.pNext==NULL){
+            return_onuscma["null"]=true;
+            return return_onuscma;
+        }
+        return_onuscma=[&]() {
+    json return_OFJvovE=json({});
+    return serialize_VkBaseInStructure(*name.pNext);}();
+return return_onuscma;}();
 return result;}
 
     VkBaseInStructure deserialize_VkBaseInStructure(json name){
@@ -27463,7 +27509,17 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+VkBaseInStructure* temp_mEdSUBy;[&]() {
+
+        if (name["members"]["pNext"].contains("null")){
+        temp_mEdSUBy=NULL;
+        return;
+        }
+    temp_mEdSUBy=(VkBaseInStructure*)malloc(sizeof(VkBaseInStructure));
+[&]() {
+*(temp_mEdSUBy)=deserialize_VkBaseInStructure(name["members"]["pNext"]);}();
+}();result.pNext=temp_mEdSUBy;}();
 return result;}
 
     json serialize_VkOffset2D(VkOffset2D name){

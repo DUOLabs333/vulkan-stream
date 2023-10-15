@@ -29,9 +29,15 @@ def funcpointer_in_callback(funcpointer):
     return None
 
 write("""
-json serialize_pNext(void* name){
+json serialize_pNext(const void* name){
 auto result=json({});
-auto type=(VkStructureType)name;
+if (name==NULL){
+    result["null"]=true;
+    return result;
+}
+auto chain=((VkBaseInStructure*)name);
+auto type=chain->sType;
+
 if (false){
 }
 """)
@@ -51,13 +57,25 @@ for struct,members in parsed["structs"].items():
             {serialize("result",member)}
     }}
     """)
-write("return result;}")
+
+write("""
+else{
+    result=serialize_pNext( (void*)(chain->pNext) ); //Ignore invalid sTypes
+}
+
+return result;
+}
+""")
 
 
 write("""
 void* deserialize_pNext(json name){
 void* result;
-auto type=(VkStructureType)name["sType"];
+if (name.contains("null")){
+    result=NULL;
+    return result;
+}
+auto type=(VkStructureType)name["members"]["sType"]["value"];
 if (false){
 }
 """)
@@ -99,8 +117,8 @@ for struct,members in parsed["structs"].items():
         member_copy["name"]="name."+member_copy["name"]
         for i,e in enumerate(member_copy["length"]):
             member_copy["length"][i]=add_struct_name(e, "name")
-        #Subclass for pNext --- cast to VkStructureType, read it, then (de)serialize accordingly, changing type. Make two separate functions, serialize_pNext and deserialize_pNext
-        if member["name"]=="pNext":
+        
+        if member["name"]=="pNext" and member["type"]=="void" and member["num_indirection"]==1:
             write(f"""result["members"]["{member["name"]}"]=serialize_pNext({member_copy["name"]});""")
         else:
             write(serialize(f"""result["members"]["{member["name"]}"]""",member_copy))
@@ -116,6 +134,7 @@ for struct,members in parsed["structs"].items():
             else:
                 write(f"uintptr_t {member['type']}_id;")
         write(f"}} {struct}_struct;")
+        
     write(f"""
     {struct} deserialize_{struct}(json name){{
         auto result={struct}();
@@ -129,7 +148,7 @@ for struct,members in parsed["structs"].items():
         for i,e in enumerate(member_copy["length"]):
             member_copy["length"][i]=add_struct_name(e, "result")
             
-        if member["name"]=="pNext":
+        if member["name"]=="pNext" and member["type"]=="void" and member["num_indirection"]==1:
             write("result."+member["name"]+f"""=deserialize_pNext({member_copy["name"]});""")
         else:
             write(deserialize("result."+member["name"],member_copy,initialize=True))
