@@ -138,9 +138,10 @@ def deserialize(variable,value,initialize=False):
         if not(len(length)>0 and length[-1]!=""): #Doesn't have predefined length
             val["length"].append("null-terminated")
             
-        result+="char* temp;"
-        result+=deserialize("temp",val,initialize=True)
-        result+=f"{variable}=(void*)temp;\n"
+        temp_temp="temp_"+random_string(value);
+        result+=f"char* {temp_temp};"
+        result+=deserialize(temp_temp,val,initialize=True)
+        result+=f"{variable}=(void*){temp_temp};\n"
     elif (type in parsed["external_handles"] and num_indirection<2):
             if num_indirection==0:
                 result+=f"{variable}=deserialize_{type}({name});\n"

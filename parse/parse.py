@@ -70,6 +70,9 @@ for item in vk.findall("./types/type"):
             members=item.findall("member")
             
             for i,member in enumerate(members):
+                if member.attrib.get("api","")=="vulkansc":
+                    members[i]=None
+                    continue
                 result={}
                 
                 result["name"]=member.find("name").text
@@ -90,7 +93,7 @@ for item in vk.findall("./types/type"):
                 result["header"]=ET.tostring(member, encoding='utf8', method='text').decode()
                 
                 members[i]=result
-            
+            members=[_ for _ in members if _ is not None]
         structs[name]=members
         if name in aliases:
             structs[aliases[name]]=members

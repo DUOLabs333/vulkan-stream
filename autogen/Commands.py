@@ -71,7 +71,7 @@ auto get_device_proc_addr=(PFN_vkGetDeviceProcAddr)dlsym(vulkan_library,"vkGetDe
 
 for name, command in parsed["commands"].items():
     write(f"""
-    void handle_{name}(json data_json){{
+    void handle_{name}(json &data_json){{
     //Will only be called by the server
     """)
     
@@ -124,10 +124,10 @@ for name, command in parsed["commands"].items():
         writeToConn(result);
     }""")
     
-    write(f"""void handle_{name}(json data);""",header=True)
+    write(f"""void handle_{name}(json &data);""",header=True)
 
 write("""
-void handle_command(json data){
+void handle_command(json &data){
 //Will only be called by the server
 std::string command=data["type"].get<std::string>().substr(std::string("command_").length());
 
@@ -136,6 +136,9 @@ std::string command=data["type"].get<std::string>().substr(std::string("command_
 for command in parsed["commands"]:
     write(f"""
         if(command=="{command}"){{
+            if (command=="vkGetPhysicalDeviceProperties2"){{
+            ////printf("%s\\n",data.dump().c_str());
+        }}
             handle_{command}(data);
             return;
         }}
@@ -143,7 +146,7 @@ for command in parsed["commands"]:
 
 write("}")
 
-write("void handle_command(json data);",header=True)
+write("void handle_command(json &data);",header=True)
 
 write("#else") #Don't want server to get confused on which command we're talking about
 write("""
