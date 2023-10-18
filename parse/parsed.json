@@ -4400,17 +4400,6 @@
                 "header": "const char* pNameNull-terminated entry point name\n            "
             },
             {
-                "name": "pName",
-                "const": true,
-                "length": [
-                    "null-terminated"
-                ],
-                "type": "char",
-                "num_indirection": 1,
-                "value": "",
-                "header": "const char* pNameNull-terminated entry point name\n            "
-            },
-            {
                 "name": "pSpecializationInfo",
                 "const": true,
                 "length": [
@@ -5688,17 +5677,6 @@
                 "header": "const VkPipelineShaderStageCreateInfo* pStagesOne entry for each active shader stage\n            "
             },
             {
-                "name": "pStages",
-                "const": true,
-                "length": [
-                    "stageCount"
-                ],
-                "type": "VkPipelineShaderStageCreateInfo",
-                "num_indirection": 1,
-                "value": "",
-                "header": "const VkPipelineShaderStageCreateInfo* pStagesOne entry for each active shader stage\n            "
-            },
-            {
                 "name": "pVertexInputState",
                 "const": true,
                 "length": [
@@ -5897,17 +5875,6 @@
                 "num_indirection": 0,
                 "value": "",
                 "header": "size_t           initialDataSizeSize of initial data to populate cache, in bytes\n            "
-            },
-            {
-                "name": "initialDataSize",
-                "const": false,
-                "length": [
-                    ""
-                ],
-                "type": "size_t",
-                "num_indirection": 0,
-                "value": "",
-                "header": "size_t                         initialDataSizeSize of initial data to populate cache, in bytes\n            "
             },
             {
                 "name": "pInitialData",
@@ -10464,17 +10431,6 @@
                 "num_indirection": 0,
                 "value": "",
                 "header": "VkSwapchainKHR                         oldSwapchainExisting swap chain to replace, if any\n            "
-            },
-            {
-                "name": "oldSwapchain",
-                "const": false,
-                "length": [
-                    ""
-                ],
-                "type": "VkSwapchainKHR",
-                "num_indirection": 0,
-                "value": "",
-                "header": "VkSwapchainKHR oldSwapchainExisting swap chain to replace, if any\n        "
             }
         ],
         "VkPresentInfoKHR": [
@@ -56061,17 +56017,6 @@
                 "header": "uint32_t                                      colorAttachmentCount\n            "
             },
             {
-                "name": "colorAttachmentCount",
-                "const": false,
-                "length": [
-                    ""
-                ],
-                "type": "uint32_t",
-                "num_indirection": 0,
-                "value": "",
-                "header": "uint32_t                                                    colorAttachmentCount\n            "
-            },
-            {
                 "name": "pColorAttachmentFormats",
                 "const": true,
                 "length": [
@@ -56171,17 +56116,6 @@
                 "num_indirection": 0,
                 "value": "",
                 "header": "uint32_t                                      colorAttachmentCount\n            "
-            },
-            {
-                "name": "colorAttachmentCount",
-                "const": false,
-                "length": [
-                    ""
-                ],
-                "type": "uint32_t",
-                "num_indirection": 0,
-                "value": "",
-                "header": "uint32_t                                                    colorAttachmentCount\n            "
             },
             {
                 "name": "pColorAttachmentFormats",

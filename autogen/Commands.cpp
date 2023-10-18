@@ -34,7 +34,7 @@ auto get_instance_proc_addr=(PFN_vkGetInstanceProcAddr)dlsym(vulkan_library,"vkG
 auto get_device_proc_addr=(PFN_vkGetDeviceProcAddr)dlsym(vulkan_library,"vkGetDeviceProcAddr");
 
 
-    void handle_vkCreateInstance(json data_json){
+    void handle_vkCreateInstance(json &data_json){
     //Will only be called by the server
     
 VkInstanceCreateInfo* pCreateInfo
@@ -128,7 +128,7 @@ return return_uTmbaBc;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyInstance(json data_json){
+    void handle_vkDestroyInstance(json &data_json){
     //Will only be called by the server
     
 VkInstance instance
@@ -180,7 +180,7 @@ return return_ZuJzhrn;}();
         writeToConn(result);
     }
 
-    void handle_vkEnumeratePhysicalDevices(json data_json){
+    void handle_vkEnumeratePhysicalDevices(json &data_json){
     //Will only be called by the server
     
 VkInstance instance
@@ -265,7 +265,7 @@ result["members"]["pPhysicalDevices"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceProcAddr(json data_json){
+    void handle_vkGetDeviceProcAddr(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -326,7 +326,7 @@ result["members"]["pName"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetInstanceProcAddr(json data_json){
+    void handle_vkGetInstanceProcAddr(json &data_json){
     //Will only be called by the server
     
 VkInstance instance
@@ -387,7 +387,7 @@ result["members"]["pName"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceProperties(json data_json){
+    void handle_vkGetPhysicalDeviceProperties(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -438,7 +438,7 @@ return return_khdQLrQ;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceQueueFamilyProperties(json data_json){
+    void handle_vkGetPhysicalDeviceQueueFamilyProperties(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -521,7 +521,7 @@ result["members"]["pQueueFamilyProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceMemoryProperties(json data_json){
+    void handle_vkGetPhysicalDeviceMemoryProperties(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -572,7 +572,7 @@ return return_ccVshit;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceFeatures(json data_json){
+    void handle_vkGetPhysicalDeviceFeatures(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -623,7 +623,7 @@ return return_wXsZLQh;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceFormatProperties(json data_json){
+    void handle_vkGetPhysicalDeviceFormatProperties(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -681,7 +681,7 @@ return return_VFiMeek;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceImageFormatProperties(json data_json){
+    void handle_vkGetPhysicalDeviceImageFormatProperties(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -769,7 +769,7 @@ return return_bJlBypv;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateDevice(json data_json){
+    void handle_vkCreateDevice(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -870,7 +870,7 @@ return return_mEaCsnj;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyDevice(json data_json){
+    void handle_vkDestroyDevice(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -922,7 +922,7 @@ return return_ZuJzhrn;}();
         writeToConn(result);
     }
 
-    void handle_vkEnumerateInstanceVersion(json data_json){
+    void handle_vkEnumerateInstanceVersion(json &data_json){
     //Will only be called by the server
     
 uint32_t* pApiVersion
@@ -968,7 +968,7 @@ return return_dYdaZSt;}();
         writeToConn(result);
     }
 
-    void handle_vkEnumerateInstanceLayerProperties(json data_json){
+    void handle_vkEnumerateInstanceLayerProperties(json &data_json){
     //Will only be called by the server
     
 uint32_t* pPropertyCount
@@ -1046,7 +1046,7 @@ result["members"]["pProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkEnumerateInstanceExtensionProperties(json data_json){
+    void handle_vkEnumerateInstanceExtensionProperties(json &data_json){
     //Will only be called by the server
     
 char* pLayerName
@@ -1157,7 +1157,7 @@ result["members"]["pProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkEnumerateDeviceLayerProperties(json data_json){
+    void handle_vkEnumerateDeviceLayerProperties(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -1242,7 +1242,7 @@ result["members"]["pProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkEnumerateDeviceExtensionProperties(json data_json){
+    void handle_vkEnumerateDeviceExtensionProperties(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -1360,7 +1360,7 @@ result["members"]["pProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceQueue(json data_json){
+    void handle_vkGetDeviceQueue(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -1425,7 +1425,7 @@ return return_WCWxniJ;}();
         writeToConn(result);
     }
 
-    void handle_vkQueueSubmit(json data_json){
+    void handle_vkQueueSubmit(json &data_json){
     //Will only be called by the server
     
 VkQueue queue
@@ -1502,7 +1502,7 @@ result["members"]["fence"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkQueueWaitIdle(json data_json){
+    void handle_vkQueueWaitIdle(json &data_json){
     //Will only be called by the server
     
 VkQueue queue
@@ -1532,7 +1532,7 @@ result["members"]["queue"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkDeviceWaitIdle(json data_json){
+    void handle_vkDeviceWaitIdle(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -1562,7 +1562,7 @@ result["members"]["device"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkAllocateMemory(json data_json){
+    void handle_vkAllocateMemory(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -1663,7 +1663,7 @@ return return_ngdHqpy;}();
         writeToConn(result);
     }
 
-    void handle_vkFreeMemory(json data_json){
+    void handle_vkFreeMemory(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -1722,7 +1722,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkMapMemory(json data_json){
+    void handle_vkMapMemory(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -1762,18 +1762,18 @@ void** ppData
         *(ppData)=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_sdRgFat;[&]() {
 
         if (data_json["members"]["ppData"].contains("null")){
-        temp=NULL;
+        temp_sdRgFat=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["ppData"]["members"].size()*sizeof(char));
+    temp_sdRgFat=(char*)malloc(data_json["members"]["ppData"]["members"].size()*sizeof(char));
         for (int vkSRbVA=0; vkSRbVA < data_json["members"]["ppData"]["members"].size(); vkSRbVA++){
             [&]() {
-temp[vkSRbVA]=deserialize_char(data_json["members"]["ppData"]["members"][vkSRbVA]);}();;
+temp_sdRgFat[vkSRbVA]=deserialize_char(data_json["members"]["ppData"]["members"][vkSRbVA]);}();;
         }
-        }();*(ppData)=(void*)temp;
+        }();*(ppData)=(void*)temp_sdRgFat;
 }();
 }();
 
@@ -1859,7 +1859,7 @@ return return_PsFVEjO;}();
         writeToConn(result);
     }
 
-    void handle_vkUnmapMemory(json data_json){
+    void handle_vkUnmapMemory(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -1894,7 +1894,7 @@ result["members"]["memory"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkFlushMappedMemoryRanges(json data_json){
+    void handle_vkFlushMappedMemoryRanges(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -1964,7 +1964,7 @@ result["members"]["pMemoryRanges"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkInvalidateMappedMemoryRanges(json data_json){
+    void handle_vkInvalidateMappedMemoryRanges(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -2034,7 +2034,7 @@ result["members"]["pMemoryRanges"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceMemoryCommitment(json data_json){
+    void handle_vkGetDeviceMemoryCommitment(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -2100,7 +2100,7 @@ return return_pfhFKRe;}();
         writeToConn(result);
     }
 
-    void handle_vkGetBufferMemoryRequirements(json data_json){
+    void handle_vkGetBufferMemoryRequirements(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -2158,7 +2158,7 @@ return return_eielYFe;}();
         writeToConn(result);
     }
 
-    void handle_vkBindBufferMemory(json data_json){
+    void handle_vkBindBufferMemory(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -2212,7 +2212,7 @@ result["members"]["memoryOffset"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetImageMemoryRequirements(json data_json){
+    void handle_vkGetImageMemoryRequirements(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -2270,7 +2270,7 @@ return return_eielYFe;}();
         writeToConn(result);
     }
 
-    void handle_vkBindImageMemory(json data_json){
+    void handle_vkBindImageMemory(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -2324,7 +2324,7 @@ result["members"]["memoryOffset"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetImageSparseMemoryRequirements(json data_json){
+    void handle_vkGetImageSparseMemoryRequirements(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -2414,7 +2414,7 @@ result["members"]["pSparseMemoryRequirements"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceSparseImageFormatProperties(json data_json){
+    void handle_vkGetPhysicalDeviceSparseImageFormatProperties(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -2532,7 +2532,7 @@ result["members"]["pProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkQueueBindSparse(json data_json){
+    void handle_vkQueueBindSparse(json &data_json){
     //Will only be called by the server
     
 VkQueue queue
@@ -2609,7 +2609,7 @@ result["members"]["fence"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateFence(json data_json){
+    void handle_vkCreateFence(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -2710,7 +2710,7 @@ return return_zBsTPmH;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyFence(json data_json){
+    void handle_vkDestroyFence(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -2769,7 +2769,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkResetFences(json data_json){
+    void handle_vkResetFences(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -2839,7 +2839,7 @@ result["members"]["pFences"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetFenceStatus(json data_json){
+    void handle_vkGetFenceStatus(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -2876,7 +2876,7 @@ result["members"]["fence"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkWaitForFences(json data_json){
+    void handle_vkWaitForFences(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -2972,7 +2972,7 @@ result["members"]["timeout"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateSemaphore(json data_json){
+    void handle_vkCreateSemaphore(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -3073,7 +3073,7 @@ return return_EFOALCS;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroySemaphore(json data_json){
+    void handle_vkDestroySemaphore(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -3132,7 +3132,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateEvent(json data_json){
+    void handle_vkCreateEvent(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -3233,7 +3233,7 @@ return return_cvCJvFz;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyEvent(json data_json){
+    void handle_vkDestroyEvent(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -3292,7 +3292,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkGetEventStatus(json data_json){
+    void handle_vkGetEventStatus(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -3329,7 +3329,7 @@ result["members"]["event"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkSetEvent(json data_json){
+    void handle_vkSetEvent(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -3366,7 +3366,7 @@ result["members"]["event"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkResetEvent(json data_json){
+    void handle_vkResetEvent(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -3403,7 +3403,7 @@ result["members"]["event"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateQueryPool(json data_json){
+    void handle_vkCreateQueryPool(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -3504,7 +3504,7 @@ return return_NSHWQnu;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyQueryPool(json data_json){
+    void handle_vkDestroyQueryPool(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -3563,7 +3563,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkGetQueryPoolResults(json data_json){
+    void handle_vkGetQueryPoolResults(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -3594,18 +3594,18 @@ void* pData
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_pmySkLY;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_pmySkLY=NULL;
         return;
         }
-    temp=(char*)malloc(dataSize*sizeof(char));
+    temp_pmySkLY=(char*)malloc(dataSize*sizeof(char));
         for (int ThmltOQ=0; ThmltOQ < dataSize; ThmltOQ++){
             [&]() {
-temp[ThmltOQ]=deserialize_char(data_json["members"]["pData"]["members"][ThmltOQ]);}();;
+temp_pmySkLY[ThmltOQ]=deserialize_char(data_json["members"]["pData"]["members"][ThmltOQ]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_pmySkLY;
 }();
 VkDeviceSize stride
             ;
@@ -3684,7 +3684,7 @@ result["members"]["flags"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkResetQueryPool(json data_json){
+    void handle_vkResetQueryPool(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -3733,7 +3733,7 @@ result["members"]["queryCount"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkResetQueryPoolEXT(json data_json){
+    void handle_vkResetQueryPoolEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -3782,7 +3782,7 @@ result["members"]["queryCount"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateBuffer(json data_json){
+    void handle_vkCreateBuffer(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -3883,7 +3883,7 @@ return return_BRVliuB;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyBuffer(json data_json){
+    void handle_vkDestroyBuffer(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -3942,7 +3942,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateBufferView(json data_json){
+    void handle_vkCreateBufferView(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -4043,7 +4043,7 @@ return return_TqkDHmq;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyBufferView(json data_json){
+    void handle_vkDestroyBufferView(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -4102,7 +4102,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateImage(json data_json){
+    void handle_vkCreateImage(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -4203,7 +4203,7 @@ return return_uVXSXiL;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyImage(json data_json){
+    void handle_vkDestroyImage(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -4262,7 +4262,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkGetImageSubresourceLayout(json data_json){
+    void handle_vkGetImageSubresourceLayout(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -4344,7 +4344,7 @@ return return_qgpJVgb;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateImageView(json data_json){
+    void handle_vkCreateImageView(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -4445,7 +4445,7 @@ return return_GRDMWAC;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyImageView(json data_json){
+    void handle_vkDestroyImageView(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -4504,7 +4504,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateShaderModule(json data_json){
+    void handle_vkCreateShaderModule(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -4605,7 +4605,7 @@ return return_CDnEWkq;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyShaderModule(json data_json){
+    void handle_vkDestroyShaderModule(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -4664,7 +4664,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkCreatePipelineCache(json data_json){
+    void handle_vkCreatePipelineCache(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -4765,7 +4765,7 @@ return return_qHxmzrm;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyPipelineCache(json data_json){
+    void handle_vkDestroyPipelineCache(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -4824,7 +4824,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPipelineCacheData(json data_json){
+    void handle_vkGetPipelineCacheData(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -4855,18 +4855,18 @@ void* pData
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_MwrARnf;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_MwrARnf=NULL;
         return;
         }
-    temp=(char*)malloc(*pDataSize*sizeof(char));
+    temp_MwrARnf=(char*)malloc(*pDataSize*sizeof(char));
         for (int cmmtDwc=0; cmmtDwc < *pDataSize; cmmtDwc++){
             [&]() {
-temp[cmmtDwc]=deserialize_char(data_json["members"]["pData"]["members"][cmmtDwc]);}();;
+temp_MwrARnf[cmmtDwc]=deserialize_char(data_json["members"]["pData"]["members"][cmmtDwc]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_MwrARnf;
 }();
 
 
@@ -4930,7 +4930,7 @@ result["members"]["pData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkMergePipelineCaches(json data_json){
+    void handle_vkMergePipelineCaches(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -5007,7 +5007,7 @@ result["members"]["pSrcCaches"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateGraphicsPipelines(json data_json){
+    void handle_vkCreateGraphicsPipelines(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -5140,7 +5140,7 @@ result["members"]["pPipelines"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateComputePipelines(json data_json){
+    void handle_vkCreateComputePipelines(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -5273,7 +5273,7 @@ result["members"]["pPipelines"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI(json data_json){
+    void handle_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -5333,7 +5333,7 @@ return return_qTkFMPy;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyPipeline(json data_json){
+    void handle_vkDestroyPipeline(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -5392,7 +5392,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkCreatePipelineLayout(json data_json){
+    void handle_vkCreatePipelineLayout(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -5493,7 +5493,7 @@ return return_pqmQaMo;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyPipelineLayout(json data_json){
+    void handle_vkDestroyPipelineLayout(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -5552,7 +5552,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateSampler(json data_json){
+    void handle_vkCreateSampler(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -5653,7 +5653,7 @@ return return_YnzdpEe;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroySampler(json data_json){
+    void handle_vkDestroySampler(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -5712,7 +5712,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateDescriptorSetLayout(json data_json){
+    void handle_vkCreateDescriptorSetLayout(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -5813,7 +5813,7 @@ return return_WkIPvFu;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyDescriptorSetLayout(json data_json){
+    void handle_vkDestroyDescriptorSetLayout(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -5872,7 +5872,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateDescriptorPool(json data_json){
+    void handle_vkCreateDescriptorPool(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -5973,7 +5973,7 @@ return return_ZZOytMO;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyDescriptorPool(json data_json){
+    void handle_vkDestroyDescriptorPool(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -6032,7 +6032,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkResetDescriptorPool(json data_json){
+    void handle_vkResetDescriptorPool(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -6076,7 +6076,7 @@ result["members"]["flags"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkAllocateDescriptorSets(json data_json){
+    void handle_vkAllocateDescriptorSets(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -6162,7 +6162,7 @@ result["members"]["pDescriptorSets"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkFreeDescriptorSets(json data_json){
+    void handle_vkFreeDescriptorSets(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -6239,7 +6239,7 @@ result["members"]["pDescriptorSets"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkUpdateDescriptorSets(json data_json){
+    void handle_vkUpdateDescriptorSets(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -6347,7 +6347,7 @@ result["members"]["pDescriptorCopies"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateFramebuffer(json data_json){
+    void handle_vkCreateFramebuffer(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -6448,7 +6448,7 @@ return return_kVSxqJO;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyFramebuffer(json data_json){
+    void handle_vkDestroyFramebuffer(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -6507,7 +6507,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateRenderPass(json data_json){
+    void handle_vkCreateRenderPass(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -6608,7 +6608,7 @@ return return_TnevtBk;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyRenderPass(json data_json){
+    void handle_vkDestroyRenderPass(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -6667,7 +6667,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkGetRenderAreaGranularity(json data_json){
+    void handle_vkGetRenderAreaGranularity(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -6725,7 +6725,7 @@ return return_INpWsMF;}();
         writeToConn(result);
     }
 
-    void handle_vkGetRenderingAreaGranularityKHR(json data_json){
+    void handle_vkGetRenderingAreaGranularityKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -6800,7 +6800,7 @@ return return_INpWsMF;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateCommandPool(json data_json){
+    void handle_vkCreateCommandPool(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -6901,7 +6901,7 @@ return return_QWAExWc;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyCommandPool(json data_json){
+    void handle_vkDestroyCommandPool(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -6960,7 +6960,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkResetCommandPool(json data_json){
+    void handle_vkResetCommandPool(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -7004,7 +7004,7 @@ result["members"]["flags"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkAllocateCommandBuffers(json data_json){
+    void handle_vkAllocateCommandBuffers(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -7090,7 +7090,7 @@ result["members"]["pCommandBuffers"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkFreeCommandBuffers(json data_json){
+    void handle_vkFreeCommandBuffers(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -7165,7 +7165,7 @@ result["members"]["pCommandBuffers"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkBeginCommandBuffer(json data_json){
+    void handle_vkBeginCommandBuffer(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -7219,7 +7219,7 @@ return return_UNpLxBG;}();
         writeToConn(result);
     }
 
-    void handle_vkEndCommandBuffer(json data_json){
+    void handle_vkEndCommandBuffer(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -7249,7 +7249,7 @@ result["members"]["commandBuffer"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkResetCommandBuffer(json data_json){
+    void handle_vkResetCommandBuffer(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -7286,7 +7286,7 @@ result["members"]["flags"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBindPipeline(json data_json){
+    void handle_vkCmdBindPipeline(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -7328,7 +7328,7 @@ result["members"]["pipeline"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetAttachmentFeedbackLoopEnableEXT(json data_json){
+    void handle_vkCmdSetAttachmentFeedbackLoopEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -7363,7 +7363,7 @@ result["members"]["aspectMask"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetViewport(json data_json){
+    void handle_vkCmdSetViewport(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -7438,7 +7438,7 @@ result["members"]["pViewports"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetScissor(json data_json){
+    void handle_vkCmdSetScissor(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -7513,7 +7513,7 @@ result["members"]["pScissors"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetLineWidth(json data_json){
+    void handle_vkCmdSetLineWidth(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -7548,7 +7548,7 @@ result["members"]["lineWidth"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDepthBias(json data_json){
+    void handle_vkCmdSetDepthBias(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -7597,7 +7597,7 @@ result["members"]["depthBiasSlopeFactor"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetBlendConstants(json data_json){
+    void handle_vkCmdSetBlendConstants(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -7648,7 +7648,7 @@ result["members"]["blendConstants"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDepthBounds(json data_json){
+    void handle_vkCmdSetDepthBounds(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -7690,7 +7690,7 @@ result["members"]["maxDepthBounds"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetStencilCompareMask(json data_json){
+    void handle_vkCmdSetStencilCompareMask(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -7732,7 +7732,7 @@ result["members"]["compareMask"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetStencilWriteMask(json data_json){
+    void handle_vkCmdSetStencilWriteMask(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -7774,7 +7774,7 @@ result["members"]["writeMask"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetStencilReference(json data_json){
+    void handle_vkCmdSetStencilReference(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -7816,7 +7816,7 @@ result["members"]["reference"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBindDescriptorSets(json data_json){
+    void handle_vkCmdBindDescriptorSets(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -7945,7 +7945,7 @@ result["members"]["pDynamicOffsets"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBindIndexBuffer(json data_json){
+    void handle_vkCmdBindIndexBuffer(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -7997,7 +7997,7 @@ result["members"]["indexType"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBindVertexBuffers(json data_json){
+    void handle_vkCmdBindVertexBuffers(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -8113,7 +8113,7 @@ result["members"]["pOffsets"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDraw(json data_json){
+    void handle_vkCmdDraw(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -8169,7 +8169,7 @@ result["members"]["firstInstance"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawIndexed(json data_json){
+    void handle_vkCmdDrawIndexed(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -8232,7 +8232,7 @@ result["members"]["firstInstance"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawMultiEXT(json data_json){
+    void handle_vkCmdDrawMultiEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -8321,7 +8321,7 @@ result["members"]["stride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawMultiIndexedEXT(json data_json){
+    void handle_vkCmdDrawMultiIndexedEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -8434,7 +8434,7 @@ return return_EkkCrxm;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawIndirect(json data_json){
+    void handle_vkCmdDrawIndirect(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -8493,7 +8493,7 @@ result["members"]["stride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawIndexedIndirect(json data_json){
+    void handle_vkCmdDrawIndexedIndirect(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -8552,7 +8552,7 @@ result["members"]["stride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDispatch(json data_json){
+    void handle_vkCmdDispatch(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -8601,7 +8601,7 @@ result["members"]["groupCountZ"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDispatchIndirect(json data_json){
+    void handle_vkCmdDispatchIndirect(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -8646,7 +8646,7 @@ result["members"]["offset"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSubpassShadingHUAWEI(json data_json){
+    void handle_vkCmdSubpassShadingHUAWEI(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -8674,7 +8674,7 @@ result["members"]["commandBuffer"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawClusterHUAWEI(json data_json){
+    void handle_vkCmdDrawClusterHUAWEI(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -8723,7 +8723,7 @@ result["members"]["groupCountZ"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawClusterIndirectHUAWEI(json data_json){
+    void handle_vkCmdDrawClusterIndirectHUAWEI(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -8768,7 +8768,7 @@ result["members"]["offset"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdUpdatePipelineIndirectBufferNV(json data_json){
+    void handle_vkCmdUpdatePipelineIndirectBufferNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -8810,7 +8810,7 @@ result["members"]["pipeline"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyBuffer(json data_json){
+    void handle_vkCmdCopyBuffer(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -8892,7 +8892,7 @@ result["members"]["pRegions"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyImage(json data_json){
+    void handle_vkCmdCopyImage(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -8988,7 +8988,7 @@ result["members"]["pRegions"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBlitImage(json data_json){
+    void handle_vkCmdBlitImage(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -9091,7 +9091,7 @@ result["members"]["filter"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyBufferToImage(json data_json){
+    void handle_vkCmdCopyBufferToImage(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -9180,7 +9180,7 @@ result["members"]["pRegions"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyImageToBuffer(json data_json){
+    void handle_vkCmdCopyImageToBuffer(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -9269,7 +9269,7 @@ result["members"]["pRegions"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyMemoryIndirectNV(json data_json){
+    void handle_vkCmdCopyMemoryIndirectNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -9321,7 +9321,7 @@ result["members"]["stride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyMemoryToImageIndirectNV(json data_json){
+    void handle_vkCmdCopyMemoryToImageIndirectNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -9420,7 +9420,7 @@ result["members"]["pImageSubresources"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdUpdateBuffer(json data_json){
+    void handle_vkCmdUpdateBuffer(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -9450,18 +9450,18 @@ void* temp_UfbnUEl;[&]() {
         temp_UfbnUEl=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_qmVmOnL;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_qmVmOnL=NULL;
         return;
         }
-    temp=(char*)malloc(dataSize*sizeof(char));
+    temp_qmVmOnL=(char*)malloc(dataSize*sizeof(char));
         for (int cHEVDjz=0; cHEVDjz < dataSize; cHEVDjz++){
             [&]() {
-temp[cHEVDjz]=deserialize_char(data_json["members"]["pData"]["members"][cHEVDjz]);}();;
+temp_qmVmOnL[cHEVDjz]=deserialize_char(data_json["members"]["pData"]["members"][cHEVDjz]);}();;
         }
-        }();temp_UfbnUEl=(void*)temp;
+        }();temp_UfbnUEl=(void*)temp_qmVmOnL;
 }();pData=temp_UfbnUEl;}();
 
 
@@ -9522,7 +9522,7 @@ result["members"]["pData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdFillBuffer(json data_json){
+    void handle_vkCmdFillBuffer(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -9584,7 +9584,7 @@ result["members"]["data"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdClearColorImage(json data_json){
+    void handle_vkCmdClearColorImage(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -9690,7 +9690,7 @@ result["members"]["pRanges"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdClearDepthStencilImage(json data_json){
+    void handle_vkCmdClearDepthStencilImage(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -9796,7 +9796,7 @@ result["members"]["pRanges"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdClearAttachments(json data_json){
+    void handle_vkCmdClearAttachments(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -9904,7 +9904,7 @@ result["members"]["pRects"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdResolveImage(json data_json){
+    void handle_vkCmdResolveImage(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -10000,7 +10000,7 @@ result["members"]["pRegions"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetEvent(json data_json){
+    void handle_vkCmdSetEvent(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -10042,7 +10042,7 @@ result["members"]["stageMask"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdResetEvent(json data_json){
+    void handle_vkCmdResetEvent(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -10084,7 +10084,7 @@ result["members"]["stageMask"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdWaitEvents(json data_json){
+    void handle_vkCmdWaitEvents(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -10286,7 +10286,7 @@ result["members"]["pImageMemoryBarriers"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdPipelineBarrier(json data_json){
+    void handle_vkCmdPipelineBarrier(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -10455,7 +10455,7 @@ result["members"]["pImageMemoryBarriers"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBeginQuery(json data_json){
+    void handle_vkCmdBeginQuery(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -10504,7 +10504,7 @@ result["members"]["flags"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdEndQuery(json data_json){
+    void handle_vkCmdEndQuery(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -10546,7 +10546,7 @@ result["members"]["query"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBeginConditionalRenderingEXT(json data_json){
+    void handle_vkCmdBeginConditionalRenderingEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -10598,7 +10598,7 @@ return return_CoegtaT;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdEndConditionalRenderingEXT(json data_json){
+    void handle_vkCmdEndConditionalRenderingEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -10626,7 +10626,7 @@ result["members"]["commandBuffer"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdResetQueryPool(json data_json){
+    void handle_vkCmdResetQueryPool(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -10675,7 +10675,7 @@ result["members"]["queryCount"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdWriteTimestamp(json data_json){
+    void handle_vkCmdWriteTimestamp(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -10724,7 +10724,7 @@ result["members"]["query"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyQueryPoolResults(json data_json){
+    void handle_vkCmdCopyQueryPoolResults(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -10807,7 +10807,7 @@ result["members"]["flags"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdPushConstants(json data_json){
+    void handle_vkCmdPushConstants(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -10839,18 +10839,18 @@ void* temp_jdgMsUN;[&]() {
         temp_jdgMsUN=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_sSrikYT;[&]() {
 
         if (data_json["members"]["pValues"].contains("null")){
-        temp=NULL;
+        temp_sSrikYT=NULL;
         return;
         }
-    temp=(char*)malloc(size*sizeof(char));
+    temp_sSrikYT=(char*)malloc(size*sizeof(char));
         for (int ENOouqW=0; ENOouqW < size; ENOouqW++){
             [&]() {
-temp[ENOouqW]=deserialize_char(data_json["members"]["pValues"]["members"][ENOouqW]);}();;
+temp_sSrikYT[ENOouqW]=deserialize_char(data_json["members"]["pValues"]["members"][ENOouqW]);}();;
         }
-        }();temp_jdgMsUN=(void*)temp;
+        }();temp_jdgMsUN=(void*)temp_sSrikYT;
 }();pValues=temp_jdgMsUN;}();
 
 
@@ -10910,7 +10910,7 @@ result["members"]["pValues"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBeginRenderPass(json data_json){
+    void handle_vkCmdBeginRenderPass(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -10969,7 +10969,7 @@ result["members"]["contents"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdNextSubpass(json data_json){
+    void handle_vkCmdNextSubpass(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -11004,7 +11004,7 @@ result["members"]["contents"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdEndRenderPass(json data_json){
+    void handle_vkCmdEndRenderPass(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -11032,7 +11032,7 @@ result["members"]["commandBuffer"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdExecuteCommands(json data_json){
+    void handle_vkCmdExecuteCommands(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -11100,7 +11100,7 @@ result["members"]["pCommandBuffers"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceDisplayPropertiesKHR(json data_json){
+    void handle_vkGetPhysicalDeviceDisplayPropertiesKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -11185,7 +11185,7 @@ result["members"]["pProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceDisplayPlanePropertiesKHR(json data_json){
+    void handle_vkGetPhysicalDeviceDisplayPlanePropertiesKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -11270,7 +11270,7 @@ result["members"]["pProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDisplayPlaneSupportedDisplaysKHR(json data_json){
+    void handle_vkGetDisplayPlaneSupportedDisplaysKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -11362,7 +11362,7 @@ result["members"]["pDisplays"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDisplayModePropertiesKHR(json data_json){
+    void handle_vkGetDisplayModePropertiesKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -11454,7 +11454,7 @@ result["members"]["pProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateDisplayModeKHR(json data_json){
+    void handle_vkCreateDisplayModeKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -11562,7 +11562,7 @@ return return_RHdXMGo;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDisplayPlaneCapabilitiesKHR(json data_json){
+    void handle_vkGetDisplayPlaneCapabilitiesKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -11629,7 +11629,7 @@ return return_PQtFORm;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateDisplayPlaneSurfaceKHR(json data_json){
+    void handle_vkCreateDisplayPlaneSurfaceKHR(json &data_json){
     //Will only be called by the server
     
 VkInstance instance
@@ -11730,7 +11730,7 @@ return return_BdLSuHF;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateSharedSwapchainsKHR(json data_json){
+    void handle_vkCreateSharedSwapchainsKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -11856,7 +11856,7 @@ result["members"]["pSwapchains"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkDestroySurfaceKHR(json data_json){
+    void handle_vkDestroySurfaceKHR(json &data_json){
     //Will only be called by the server
     
 VkInstance instance
@@ -11915,7 +11915,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceSurfaceSupportKHR(json data_json){
+    void handle_vkGetPhysicalDeviceSurfaceSupportKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -11990,7 +11990,7 @@ return return_gsABEHm;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceSurfaceCapabilitiesKHR(json data_json){
+    void handle_vkGetPhysicalDeviceSurfaceCapabilitiesKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -12050,7 +12050,7 @@ return return_WbBdQJC;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceSurfaceFormatsKHR(json data_json){
+    void handle_vkGetPhysicalDeviceSurfaceFormatsKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -12142,7 +12142,7 @@ result["members"]["pSurfaceFormats"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceSurfacePresentModesKHR(json data_json){
+    void handle_vkGetPhysicalDeviceSurfacePresentModesKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -12234,7 +12234,7 @@ result["members"]["pPresentModes"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateSwapchainKHR(json data_json){
+    void handle_vkCreateSwapchainKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -12335,7 +12335,7 @@ return return_OhNzlXU;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroySwapchainKHR(json data_json){
+    void handle_vkDestroySwapchainKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -12394,7 +12394,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkGetSwapchainImagesKHR(json data_json){
+    void handle_vkGetSwapchainImagesKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -12486,7 +12486,7 @@ result["members"]["pSwapchainImages"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkAcquireNextImageKHR(json data_json){
+    void handle_vkAcquireNextImageKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -12567,7 +12567,7 @@ return return_wAoznVg;}();
         writeToConn(result);
     }
 
-    void handle_vkQueuePresentKHR(json data_json){
+    void handle_vkQueuePresentKHR(json &data_json){
     //Will only be called by the server
     
 VkQueue queue
@@ -12621,7 +12621,7 @@ return return_XMpJnBv;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateXlibSurfaceKHR(json data_json){
+    void handle_vkCreateXlibSurfaceKHR(json &data_json){
     //Will only be called by the server
     
 VkInstance instance
@@ -12722,7 +12722,7 @@ return return_BdLSuHF;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceXlibPresentationSupportKHR(json data_json){
+    void handle_vkGetPhysicalDeviceXlibPresentationSupportKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -12789,7 +12789,7 @@ result["members"]["visualID"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateXcbSurfaceKHR(json data_json){
+    void handle_vkCreateXcbSurfaceKHR(json &data_json){
     //Will only be called by the server
     
 VkInstance instance
@@ -12890,7 +12890,7 @@ return return_BdLSuHF;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceXcbPresentationSupportKHR(json data_json){
+    void handle_vkGetPhysicalDeviceXcbPresentationSupportKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -12957,7 +12957,7 @@ result["members"]["visual_id"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateDebugReportCallbackEXT(json data_json){
+    void handle_vkCreateDebugReportCallbackEXT(json &data_json){
     //Will only be called by the server
     
 VkInstance instance
@@ -13058,7 +13058,7 @@ return return_hctiRyW;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyDebugReportCallbackEXT(json data_json){
+    void handle_vkDestroyDebugReportCallbackEXT(json &data_json){
     //Will only be called by the server
     
 VkInstance instance
@@ -13117,7 +13117,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkDebugReportMessageEXT(json data_json){
+    void handle_vkDebugReportMessageEXT(json &data_json){
     //Will only be called by the server
     
 VkInstance instance
@@ -13246,7 +13246,7 @@ result["members"]["pMessage"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkDebugMarkerSetObjectNameEXT(json data_json){
+    void handle_vkDebugMarkerSetObjectNameEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -13300,7 +13300,7 @@ return return_WkpwAIZ;}();
         writeToConn(result);
     }
 
-    void handle_vkDebugMarkerSetObjectTagEXT(json data_json){
+    void handle_vkDebugMarkerSetObjectTagEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -13354,7 +13354,7 @@ return return_CMFOmcQ;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdDebugMarkerBeginEXT(json data_json){
+    void handle_vkCmdDebugMarkerBeginEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -13406,7 +13406,7 @@ return return_jQLIdBb;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdDebugMarkerEndEXT(json data_json){
+    void handle_vkCmdDebugMarkerEndEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -13434,7 +13434,7 @@ result["members"]["commandBuffer"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDebugMarkerInsertEXT(json data_json){
+    void handle_vkCmdDebugMarkerInsertEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -13486,7 +13486,7 @@ return return_jQLIdBb;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceExternalImageFormatPropertiesNV(json data_json){
+    void handle_vkGetPhysicalDeviceExternalImageFormatPropertiesNV(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -13581,7 +13581,7 @@ return return_UJDXnOW;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdExecuteGeneratedCommandsNV(json data_json){
+    void handle_vkCmdExecuteGeneratedCommandsNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -13643,7 +13643,7 @@ return return_qcgHLcQ;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdPreprocessGeneratedCommandsNV(json data_json){
+    void handle_vkCmdPreprocessGeneratedCommandsNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -13695,7 +13695,7 @@ return return_qcgHLcQ;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdBindPipelineShaderGroupNV(json data_json){
+    void handle_vkCmdBindPipelineShaderGroupNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -13744,7 +13744,7 @@ result["members"]["groupIndex"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetGeneratedCommandsMemoryRequirementsNV(json data_json){
+    void handle_vkGetGeneratedCommandsMemoryRequirementsNV(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -13819,7 +13819,7 @@ return return_aEBODbS;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateIndirectCommandsLayoutNV(json data_json){
+    void handle_vkCreateIndirectCommandsLayoutNV(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -13920,7 +13920,7 @@ return return_nBIslMF;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyIndirectCommandsLayoutNV(json data_json){
+    void handle_vkDestroyIndirectCommandsLayoutNV(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -13979,7 +13979,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceFeatures2(json data_json){
+    void handle_vkGetPhysicalDeviceFeatures2(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -14030,7 +14030,7 @@ return return_NLaVJyq;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceFeatures2KHR(json data_json){
+    void handle_vkGetPhysicalDeviceFeatures2KHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -14081,7 +14081,7 @@ return return_NLaVJyq;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceProperties2(json data_json){
+    void handle_vkGetPhysicalDeviceProperties2(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -14132,7 +14132,7 @@ return return_akDLFmv;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceProperties2KHR(json data_json){
+    void handle_vkGetPhysicalDeviceProperties2KHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -14183,7 +14183,7 @@ return return_akDLFmv;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceFormatProperties2(json data_json){
+    void handle_vkGetPhysicalDeviceFormatProperties2(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -14241,7 +14241,7 @@ return return_kdtZRLw;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceFormatProperties2KHR(json data_json){
+    void handle_vkGetPhysicalDeviceFormatProperties2KHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -14299,7 +14299,7 @@ return return_kdtZRLw;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceImageFormatProperties2(json data_json){
+    void handle_vkGetPhysicalDeviceImageFormatProperties2(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -14376,7 +14376,7 @@ return return_FmCXoHs;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceImageFormatProperties2KHR(json data_json){
+    void handle_vkGetPhysicalDeviceImageFormatProperties2KHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -14453,7 +14453,7 @@ return return_FmCXoHs;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceQueueFamilyProperties2(json data_json){
+    void handle_vkGetPhysicalDeviceQueueFamilyProperties2(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -14536,7 +14536,7 @@ result["members"]["pQueueFamilyProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceQueueFamilyProperties2KHR(json data_json){
+    void handle_vkGetPhysicalDeviceQueueFamilyProperties2KHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -14619,7 +14619,7 @@ result["members"]["pQueueFamilyProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceMemoryProperties2(json data_json){
+    void handle_vkGetPhysicalDeviceMemoryProperties2(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -14670,7 +14670,7 @@ return return_OIWnyZP;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceMemoryProperties2KHR(json data_json){
+    void handle_vkGetPhysicalDeviceMemoryProperties2KHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -14721,7 +14721,7 @@ return return_OIWnyZP;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceSparseImageFormatProperties2(json data_json){
+    void handle_vkGetPhysicalDeviceSparseImageFormatProperties2(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -14828,7 +14828,7 @@ result["members"]["pProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceSparseImageFormatProperties2KHR(json data_json){
+    void handle_vkGetPhysicalDeviceSparseImageFormatProperties2KHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -14935,7 +14935,7 @@ result["members"]["pProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdPushDescriptorSetKHR(json data_json){
+    void handle_vkCmdPushDescriptorSetKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -15024,7 +15024,7 @@ result["members"]["pDescriptorWrites"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkTrimCommandPool(json data_json){
+    void handle_vkTrimCommandPool(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -15066,7 +15066,7 @@ result["members"]["flags"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkTrimCommandPoolKHR(json data_json){
+    void handle_vkTrimCommandPoolKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -15108,7 +15108,7 @@ result["members"]["flags"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceExternalBufferProperties(json data_json){
+    void handle_vkGetPhysicalDeviceExternalBufferProperties(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -15183,7 +15183,7 @@ return return_vRsFjhU;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceExternalBufferPropertiesKHR(json data_json){
+    void handle_vkGetPhysicalDeviceExternalBufferPropertiesKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -15258,7 +15258,7 @@ return return_vRsFjhU;}();
         writeToConn(result);
     }
 
-    void handle_vkGetMemoryFdKHR(json data_json){
+    void handle_vkGetMemoryFdKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -15335,7 +15335,7 @@ return return_purnqnB;}();
         writeToConn(result);
     }
 
-    void handle_vkGetMemoryFdPropertiesKHR(json data_json){
+    void handle_vkGetMemoryFdPropertiesKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -15402,7 +15402,7 @@ return return_zdZgrpr;}();
         writeToConn(result);
     }
 
-    void handle_vkGetMemoryRemoteAddressNV(json data_json){
+    void handle_vkGetMemoryRemoteAddressNV(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -15443,18 +15443,18 @@ VkRemoteAddressNV* pAddress
         *(pAddress)=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_AUMIFSh;[&]() {
 
         if (data_json["members"]["pAddress"].contains("null")){
-        temp=NULL;
+        temp_AUMIFSh=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pAddress"]["members"].size()*sizeof(char));
+    temp_AUMIFSh=(char*)malloc(data_json["members"]["pAddress"]["members"].size()*sizeof(char));
         for (int CHpZpnX=0; CHpZpnX < data_json["members"]["pAddress"]["members"].size(); CHpZpnX++){
             [&]() {
-temp[CHpZpnX]=deserialize_char(data_json["members"]["pAddress"]["members"][CHpZpnX]);}();;
+temp_AUMIFSh[CHpZpnX]=deserialize_char(data_json["members"]["pAddress"]["members"][CHpZpnX]);}();;
         }
-        }();*(pAddress)=(void*)temp;
+        }();*(pAddress)=(void*)temp_AUMIFSh;
 }();
 }();}();
 
@@ -15526,7 +15526,7 @@ return return_OJpMSoy;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceExternalSemaphoreProperties(json data_json){
+    void handle_vkGetPhysicalDeviceExternalSemaphoreProperties(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -15601,7 +15601,7 @@ return return_kExcklQ;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceExternalSemaphorePropertiesKHR(json data_json){
+    void handle_vkGetPhysicalDeviceExternalSemaphorePropertiesKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -15676,7 +15676,7 @@ return return_kExcklQ;}();
         writeToConn(result);
     }
 
-    void handle_vkGetSemaphoreFdKHR(json data_json){
+    void handle_vkGetSemaphoreFdKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -15753,7 +15753,7 @@ return return_purnqnB;}();
         writeToConn(result);
     }
 
-    void handle_vkImportSemaphoreFdKHR(json data_json){
+    void handle_vkImportSemaphoreFdKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -15807,7 +15807,7 @@ return return_jeeivUs;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceExternalFenceProperties(json data_json){
+    void handle_vkGetPhysicalDeviceExternalFenceProperties(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -15882,7 +15882,7 @@ return return_RpWaOtS;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceExternalFencePropertiesKHR(json data_json){
+    void handle_vkGetPhysicalDeviceExternalFencePropertiesKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -15957,7 +15957,7 @@ return return_RpWaOtS;}();
         writeToConn(result);
     }
 
-    void handle_vkGetFenceFdKHR(json data_json){
+    void handle_vkGetFenceFdKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -16034,7 +16034,7 @@ return return_purnqnB;}();
         writeToConn(result);
     }
 
-    void handle_vkImportFenceFdKHR(json data_json){
+    void handle_vkImportFenceFdKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -16088,7 +16088,7 @@ return return_XHYjhuK;}();
         writeToConn(result);
     }
 
-    void handle_vkReleaseDisplayEXT(json data_json){
+    void handle_vkReleaseDisplayEXT(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -16125,7 +16125,7 @@ result["members"]["display"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkDisplayPowerControlEXT(json data_json){
+    void handle_vkDisplayPowerControlEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -16186,7 +16186,7 @@ return return_jxnhUCX;}();
         writeToConn(result);
     }
 
-    void handle_vkRegisterDeviceEventEXT(json data_json){
+    void handle_vkRegisterDeviceEventEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -16287,7 +16287,7 @@ return return_zBsTPmH;}();
         writeToConn(result);
     }
 
-    void handle_vkRegisterDisplayEventEXT(json data_json){
+    void handle_vkRegisterDisplayEventEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -16395,7 +16395,7 @@ return return_zBsTPmH;}();
         writeToConn(result);
     }
 
-    void handle_vkGetSwapchainCounterEXT(json data_json){
+    void handle_vkGetSwapchainCounterEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -16462,7 +16462,7 @@ return return_NekDqlp;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceSurfaceCapabilities2EXT(json data_json){
+    void handle_vkGetPhysicalDeviceSurfaceCapabilities2EXT(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -16522,7 +16522,7 @@ return return_lVVGnrS;}();
         writeToConn(result);
     }
 
-    void handle_vkEnumeratePhysicalDeviceGroups(json data_json){
+    void handle_vkEnumeratePhysicalDeviceGroups(json &data_json){
     //Will only be called by the server
     
 VkInstance instance
@@ -16607,7 +16607,7 @@ result["members"]["pPhysicalDeviceGroupProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkEnumeratePhysicalDeviceGroupsKHR(json data_json){
+    void handle_vkEnumeratePhysicalDeviceGroupsKHR(json &data_json){
     //Will only be called by the server
     
 VkInstance instance
@@ -16692,7 +16692,7 @@ result["members"]["pPhysicalDeviceGroupProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceGroupPeerMemoryFeatures(json data_json){
+    void handle_vkGetDeviceGroupPeerMemoryFeatures(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -16764,7 +16764,7 @@ return return_BeDVtEx;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceGroupPeerMemoryFeaturesKHR(json data_json){
+    void handle_vkGetDeviceGroupPeerMemoryFeaturesKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -16836,7 +16836,7 @@ return return_BeDVtEx;}();
         writeToConn(result);
     }
 
-    void handle_vkBindBufferMemory2(json data_json){
+    void handle_vkBindBufferMemory2(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -16906,7 +16906,7 @@ result["members"]["pBindInfos"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkBindBufferMemory2KHR(json data_json){
+    void handle_vkBindBufferMemory2KHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -16976,7 +16976,7 @@ result["members"]["pBindInfos"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkBindImageMemory2(json data_json){
+    void handle_vkBindImageMemory2(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -17046,7 +17046,7 @@ result["members"]["pBindInfos"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkBindImageMemory2KHR(json data_json){
+    void handle_vkBindImageMemory2KHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -17116,7 +17116,7 @@ result["members"]["pBindInfos"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDeviceMask(json data_json){
+    void handle_vkCmdSetDeviceMask(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -17151,7 +17151,7 @@ result["members"]["deviceMask"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDeviceMaskKHR(json data_json){
+    void handle_vkCmdSetDeviceMaskKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -17186,7 +17186,7 @@ result["members"]["deviceMask"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceGroupPresentCapabilitiesKHR(json data_json){
+    void handle_vkGetDeviceGroupPresentCapabilitiesKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -17239,7 +17239,7 @@ return return_dljCelU;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceGroupSurfacePresentModesKHR(json data_json){
+    void handle_vkGetDeviceGroupSurfacePresentModesKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -17299,7 +17299,7 @@ return return_eSGSKjz;}();
         writeToConn(result);
     }
 
-    void handle_vkAcquireNextImage2KHR(json data_json){
+    void handle_vkAcquireNextImage2KHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -17376,7 +17376,7 @@ return return_wAoznVg;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdDispatchBase(json data_json){
+    void handle_vkCmdDispatchBase(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -17446,7 +17446,7 @@ result["members"]["groupCountZ"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDispatchBaseKHR(json data_json){
+    void handle_vkCmdDispatchBaseKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -17516,7 +17516,7 @@ result["members"]["groupCountZ"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDevicePresentRectanglesKHR(json data_json){
+    void handle_vkGetPhysicalDevicePresentRectanglesKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -17608,7 +17608,7 @@ result["members"]["pRects"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateDescriptorUpdateTemplate(json data_json){
+    void handle_vkCreateDescriptorUpdateTemplate(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -17709,7 +17709,7 @@ return return_gtnBaaU;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateDescriptorUpdateTemplateKHR(json data_json){
+    void handle_vkCreateDescriptorUpdateTemplateKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -17810,7 +17810,7 @@ return return_gtnBaaU;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyDescriptorUpdateTemplate(json data_json){
+    void handle_vkDestroyDescriptorUpdateTemplate(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -17869,7 +17869,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyDescriptorUpdateTemplateKHR(json data_json){
+    void handle_vkDestroyDescriptorUpdateTemplateKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -17928,7 +17928,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkUpdateDescriptorSetWithTemplate(json data_json){
+    void handle_vkUpdateDescriptorSetWithTemplate(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -17952,18 +17952,18 @@ void* temp_ZfOKPBK;[&]() {
         temp_ZfOKPBK=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_vFRxFIR;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_vFRxFIR=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
+    temp_vFRxFIR=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
         for (int SgJerzK=0; SgJerzK < data_json["members"]["pData"]["members"].size(); SgJerzK++){
             [&]() {
-temp[SgJerzK]=deserialize_char(data_json["members"]["pData"]["members"][SgJerzK]);}();;
+temp_vFRxFIR[SgJerzK]=deserialize_char(data_json["members"]["pData"]["members"][SgJerzK]);}();;
         }
-        }();temp_ZfOKPBK=(void*)temp;
+        }();temp_ZfOKPBK=(void*)temp_vFRxFIR;
 }();pData=temp_ZfOKPBK;}();
 
 
@@ -18017,7 +18017,7 @@ result["members"]["pData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkUpdateDescriptorSetWithTemplateKHR(json data_json){
+    void handle_vkUpdateDescriptorSetWithTemplateKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -18041,18 +18041,18 @@ void* temp_ZfOKPBK;[&]() {
         temp_ZfOKPBK=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_vFRxFIR;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_vFRxFIR=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
+    temp_vFRxFIR=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
         for (int SgJerzK=0; SgJerzK < data_json["members"]["pData"]["members"].size(); SgJerzK++){
             [&]() {
-temp[SgJerzK]=deserialize_char(data_json["members"]["pData"]["members"][SgJerzK]);}();;
+temp_vFRxFIR[SgJerzK]=deserialize_char(data_json["members"]["pData"]["members"][SgJerzK]);}();;
         }
-        }();temp_ZfOKPBK=(void*)temp;
+        }();temp_ZfOKPBK=(void*)temp_vFRxFIR;
 }();pData=temp_ZfOKPBK;}();
 
 
@@ -18106,7 +18106,7 @@ result["members"]["pData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdPushDescriptorSetWithTemplateKHR(json data_json){
+    void handle_vkCmdPushDescriptorSetWithTemplateKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -18134,18 +18134,18 @@ void* temp_ZfOKPBK;[&]() {
         temp_ZfOKPBK=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_vFRxFIR;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_vFRxFIR=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
+    temp_vFRxFIR=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
         for (int SgJerzK=0; SgJerzK < data_json["members"]["pData"]["members"].size(); SgJerzK++){
             [&]() {
-temp[SgJerzK]=deserialize_char(data_json["members"]["pData"]["members"][SgJerzK]);}();;
+temp_vFRxFIR[SgJerzK]=deserialize_char(data_json["members"]["pData"]["members"][SgJerzK]);}();;
         }
-        }();temp_ZfOKPBK=(void*)temp;
+        }();temp_ZfOKPBK=(void*)temp_vFRxFIR;
 }();pData=temp_ZfOKPBK;}();
 
 
@@ -18202,7 +18202,7 @@ result["members"]["pData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkSetHdrMetadataEXT(json data_json){
+    void handle_vkSetHdrMetadataEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -18303,7 +18303,7 @@ result["members"]["pMetadata"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetSwapchainStatusKHR(json data_json){
+    void handle_vkGetSwapchainStatusKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -18340,7 +18340,7 @@ result["members"]["swapchain"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetRefreshCycleDurationGOOGLE(json data_json){
+    void handle_vkGetRefreshCycleDurationGOOGLE(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -18400,7 +18400,7 @@ return return_qKcuXbY;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPastPresentationTimingGOOGLE(json data_json){
+    void handle_vkGetPastPresentationTimingGOOGLE(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -18492,7 +18492,7 @@ result["members"]["pPresentationTimings"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetViewportWScalingNV(json data_json){
+    void handle_vkCmdSetViewportWScalingNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -18567,7 +18567,7 @@ result["members"]["pViewportWScalings"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDiscardRectangleEXT(json data_json){
+    void handle_vkCmdSetDiscardRectangleEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -18642,7 +18642,7 @@ result["members"]["pDiscardRectangles"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDiscardRectangleEnableEXT(json data_json){
+    void handle_vkCmdSetDiscardRectangleEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -18680,7 +18680,7 @@ result["members"]["discardRectangleEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDiscardRectangleModeEXT(json data_json){
+    void handle_vkCmdSetDiscardRectangleModeEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -18715,7 +18715,7 @@ result["members"]["discardRectangleMode"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetSampleLocationsEXT(json data_json){
+    void handle_vkCmdSetSampleLocationsEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -18767,7 +18767,7 @@ return return_kwFhXKV;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceMultisamplePropertiesEXT(json data_json){
+    void handle_vkGetPhysicalDeviceMultisamplePropertiesEXT(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -18825,7 +18825,7 @@ return return_PREXSTI;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceSurfaceCapabilities2KHR(json data_json){
+    void handle_vkGetPhysicalDeviceSurfaceCapabilities2KHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -18902,7 +18902,7 @@ return return_YAklVrf;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceSurfaceFormats2KHR(json data_json){
+    void handle_vkGetPhysicalDeviceSurfaceFormats2KHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -19011,7 +19011,7 @@ result["members"]["pSurfaceFormats"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceDisplayProperties2KHR(json data_json){
+    void handle_vkGetPhysicalDeviceDisplayProperties2KHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -19096,7 +19096,7 @@ result["members"]["pProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceDisplayPlaneProperties2KHR(json data_json){
+    void handle_vkGetPhysicalDeviceDisplayPlaneProperties2KHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -19181,7 +19181,7 @@ result["members"]["pProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDisplayModeProperties2KHR(json data_json){
+    void handle_vkGetDisplayModeProperties2KHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -19273,7 +19273,7 @@ result["members"]["pProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDisplayPlaneCapabilities2KHR(json data_json){
+    void handle_vkGetDisplayPlaneCapabilities2KHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -19350,7 +19350,7 @@ return return_RosOiXm;}();
         writeToConn(result);
     }
 
-    void handle_vkGetBufferMemoryRequirements2(json data_json){
+    void handle_vkGetBufferMemoryRequirements2(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -19425,7 +19425,7 @@ return return_aEBODbS;}();
         writeToConn(result);
     }
 
-    void handle_vkGetBufferMemoryRequirements2KHR(json data_json){
+    void handle_vkGetBufferMemoryRequirements2KHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -19500,7 +19500,7 @@ return return_aEBODbS;}();
         writeToConn(result);
     }
 
-    void handle_vkGetImageMemoryRequirements2(json data_json){
+    void handle_vkGetImageMemoryRequirements2(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -19575,7 +19575,7 @@ return return_aEBODbS;}();
         writeToConn(result);
     }
 
-    void handle_vkGetImageMemoryRequirements2KHR(json data_json){
+    void handle_vkGetImageMemoryRequirements2KHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -19650,7 +19650,7 @@ return return_aEBODbS;}();
         writeToConn(result);
     }
 
-    void handle_vkGetImageSparseMemoryRequirements2(json data_json){
+    void handle_vkGetImageSparseMemoryRequirements2(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -19757,7 +19757,7 @@ result["members"]["pSparseMemoryRequirements"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetImageSparseMemoryRequirements2KHR(json data_json){
+    void handle_vkGetImageSparseMemoryRequirements2KHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -19864,7 +19864,7 @@ result["members"]["pSparseMemoryRequirements"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceBufferMemoryRequirements(json data_json){
+    void handle_vkGetDeviceBufferMemoryRequirements(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -19939,7 +19939,7 @@ return return_aEBODbS;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceBufferMemoryRequirementsKHR(json data_json){
+    void handle_vkGetDeviceBufferMemoryRequirementsKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -20014,7 +20014,7 @@ return return_aEBODbS;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceImageMemoryRequirements(json data_json){
+    void handle_vkGetDeviceImageMemoryRequirements(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -20089,7 +20089,7 @@ return return_aEBODbS;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceImageMemoryRequirementsKHR(json data_json){
+    void handle_vkGetDeviceImageMemoryRequirementsKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -20164,7 +20164,7 @@ return return_aEBODbS;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceImageSparseMemoryRequirements(json data_json){
+    void handle_vkGetDeviceImageSparseMemoryRequirements(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -20271,7 +20271,7 @@ result["members"]["pSparseMemoryRequirements"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceImageSparseMemoryRequirementsKHR(json data_json){
+    void handle_vkGetDeviceImageSparseMemoryRequirementsKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -20378,7 +20378,7 @@ result["members"]["pSparseMemoryRequirements"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateSamplerYcbcrConversion(json data_json){
+    void handle_vkCreateSamplerYcbcrConversion(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -20479,7 +20479,7 @@ return return_lClrQTW;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateSamplerYcbcrConversionKHR(json data_json){
+    void handle_vkCreateSamplerYcbcrConversionKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -20580,7 +20580,7 @@ return return_lClrQTW;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroySamplerYcbcrConversion(json data_json){
+    void handle_vkDestroySamplerYcbcrConversion(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -20639,7 +20639,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroySamplerYcbcrConversionKHR(json data_json){
+    void handle_vkDestroySamplerYcbcrConversionKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -20698,7 +20698,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceQueue2(json data_json){
+    void handle_vkGetDeviceQueue2(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -20773,7 +20773,7 @@ return return_WCWxniJ;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateValidationCacheEXT(json data_json){
+    void handle_vkCreateValidationCacheEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -20874,7 +20874,7 @@ return return_gwTOVQJ;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyValidationCacheEXT(json data_json){
+    void handle_vkDestroyValidationCacheEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -20933,7 +20933,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkGetValidationCacheDataEXT(json data_json){
+    void handle_vkGetValidationCacheDataEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -20964,18 +20964,18 @@ void* pData
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_MwrARnf;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_MwrARnf=NULL;
         return;
         }
-    temp=(char*)malloc(*pDataSize*sizeof(char));
+    temp_MwrARnf=(char*)malloc(*pDataSize*sizeof(char));
         for (int cmmtDwc=0; cmmtDwc < *pDataSize; cmmtDwc++){
             [&]() {
-temp[cmmtDwc]=deserialize_char(data_json["members"]["pData"]["members"][cmmtDwc]);}();;
+temp_MwrARnf[cmmtDwc]=deserialize_char(data_json["members"]["pData"]["members"][cmmtDwc]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_MwrARnf;
 }();
 
 
@@ -21039,7 +21039,7 @@ result["members"]["pData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkMergeValidationCachesEXT(json data_json){
+    void handle_vkMergeValidationCachesEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -21116,7 +21116,7 @@ result["members"]["pSrcCaches"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDescriptorSetLayoutSupport(json data_json){
+    void handle_vkGetDescriptorSetLayoutSupport(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -21191,7 +21191,7 @@ return return_RLuZPkt;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDescriptorSetLayoutSupportKHR(json data_json){
+    void handle_vkGetDescriptorSetLayoutSupportKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -21266,7 +21266,7 @@ return return_RLuZPkt;}();
         writeToConn(result);
     }
 
-    void handle_vkGetShaderInfoAMD(json data_json){
+    void handle_vkGetShaderInfoAMD(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -21305,18 +21305,18 @@ void* pInfo
         pInfo=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_nSDXAIq;[&]() {
 
         if (data_json["members"]["pInfo"].contains("null")){
-        temp=NULL;
+        temp_nSDXAIq=NULL;
         return;
         }
-    temp=(char*)malloc(*pInfoSize*sizeof(char));
+    temp_nSDXAIq=(char*)malloc(*pInfoSize*sizeof(char));
         for (int BIqTZhR=0; BIqTZhR < *pInfoSize; BIqTZhR++){
             [&]() {
-temp[BIqTZhR]=deserialize_char(data_json["members"]["pInfo"]["members"][BIqTZhR]);}();;
+temp_nSDXAIq[BIqTZhR]=deserialize_char(data_json["members"]["pInfo"]["members"][BIqTZhR]);}();;
         }
-        }();pInfo=(void*)temp;
+        }();pInfo=(void*)temp_nSDXAIq;
 }();
 
 
@@ -21386,7 +21386,7 @@ result["members"]["pInfo"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkSetLocalDimmingAMD(json data_json){
+    void handle_vkSetLocalDimmingAMD(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -21431,7 +21431,7 @@ result["members"]["localDimmingEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT(json data_json){
+    void handle_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -21516,7 +21516,7 @@ result["members"]["pTimeDomains"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetCalibratedTimestampsEXT(json data_json){
+    void handle_vkGetCalibratedTimestampsEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -21641,7 +21641,7 @@ return return_mAcbwvC;}();
         writeToConn(result);
     }
 
-    void handle_vkSetDebugUtilsObjectNameEXT(json data_json){
+    void handle_vkSetDebugUtilsObjectNameEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -21695,7 +21695,7 @@ return return_YLVgCDA;}();
         writeToConn(result);
     }
 
-    void handle_vkSetDebugUtilsObjectTagEXT(json data_json){
+    void handle_vkSetDebugUtilsObjectTagEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -21749,7 +21749,7 @@ return return_HWYOysZ;}();
         writeToConn(result);
     }
 
-    void handle_vkQueueBeginDebugUtilsLabelEXT(json data_json){
+    void handle_vkQueueBeginDebugUtilsLabelEXT(json &data_json){
     //Will only be called by the server
     
 VkQueue queue
@@ -21801,7 +21801,7 @@ return return_QfllhgL;}();
         writeToConn(result);
     }
 
-    void handle_vkQueueEndDebugUtilsLabelEXT(json data_json){
+    void handle_vkQueueEndDebugUtilsLabelEXT(json &data_json){
     //Will only be called by the server
     
 VkQueue queue
@@ -21829,7 +21829,7 @@ result["members"]["queue"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkQueueInsertDebugUtilsLabelEXT(json data_json){
+    void handle_vkQueueInsertDebugUtilsLabelEXT(json &data_json){
     //Will only be called by the server
     
 VkQueue queue
@@ -21881,7 +21881,7 @@ return return_QfllhgL;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdBeginDebugUtilsLabelEXT(json data_json){
+    void handle_vkCmdBeginDebugUtilsLabelEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -21933,7 +21933,7 @@ return return_QfllhgL;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdEndDebugUtilsLabelEXT(json data_json){
+    void handle_vkCmdEndDebugUtilsLabelEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -21961,7 +21961,7 @@ result["members"]["commandBuffer"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdInsertDebugUtilsLabelEXT(json data_json){
+    void handle_vkCmdInsertDebugUtilsLabelEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -22013,7 +22013,7 @@ return return_QfllhgL;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateDebugUtilsMessengerEXT(json data_json){
+    void handle_vkCreateDebugUtilsMessengerEXT(json &data_json){
     //Will only be called by the server
     
 VkInstance instance
@@ -22114,7 +22114,7 @@ return return_ZCRusdY;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyDebugUtilsMessengerEXT(json data_json){
+    void handle_vkDestroyDebugUtilsMessengerEXT(json &data_json){
     //Will only be called by the server
     
 VkInstance instance
@@ -22173,7 +22173,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkSubmitDebugUtilsMessageEXT(json data_json){
+    void handle_vkSubmitDebugUtilsMessageEXT(json &data_json){
     //Will only be called by the server
     
 VkInstance instance
@@ -22239,7 +22239,7 @@ return return_gnnYNco;}();
         writeToConn(result);
     }
 
-    void handle_vkGetMemoryHostPointerPropertiesEXT(json data_json){
+    void handle_vkGetMemoryHostPointerPropertiesEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -22259,18 +22259,18 @@ void* temp_LPRHtvk;[&]() {
         temp_LPRHtvk=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_TDfwqhN;[&]() {
 
         if (data_json["members"]["pHostPointer"].contains("null")){
-        temp=NULL;
+        temp_TDfwqhN=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pHostPointer"]["members"].size()*sizeof(char));
+    temp_TDfwqhN=(char*)malloc(data_json["members"]["pHostPointer"]["members"].size()*sizeof(char));
         for (int VVgRQcl=0; VVgRQcl < data_json["members"]["pHostPointer"]["members"].size(); VVgRQcl++){
             [&]() {
-temp[VVgRQcl]=deserialize_char(data_json["members"]["pHostPointer"]["members"][VVgRQcl]);}();;
+temp_TDfwqhN[VVgRQcl]=deserialize_char(data_json["members"]["pHostPointer"]["members"][VVgRQcl]);}();;
         }
-        }();temp_LPRHtvk=(void*)temp;
+        }();temp_LPRHtvk=(void*)temp_TDfwqhN;
 }();pHostPointer=temp_LPRHtvk;}();
 VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties
         ;
@@ -22346,7 +22346,7 @@ return return_NWIiYEs;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdWriteBufferMarkerAMD(json data_json){
+    void handle_vkCmdWriteBufferMarkerAMD(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -22405,7 +22405,7 @@ result["members"]["marker"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateRenderPass2(json data_json){
+    void handle_vkCreateRenderPass2(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -22506,7 +22506,7 @@ return return_TnevtBk;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateRenderPass2KHR(json data_json){
+    void handle_vkCreateRenderPass2KHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -22607,7 +22607,7 @@ return return_TnevtBk;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdBeginRenderPass2(json data_json){
+    void handle_vkCmdBeginRenderPass2(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -22683,7 +22683,7 @@ return return_CLoPPjt;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdBeginRenderPass2KHR(json data_json){
+    void handle_vkCmdBeginRenderPass2KHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -22759,7 +22759,7 @@ return return_CLoPPjt;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdNextSubpass2(json data_json){
+    void handle_vkCmdNextSubpass2(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -22835,7 +22835,7 @@ return return_pzJYPYs;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdNextSubpass2KHR(json data_json){
+    void handle_vkCmdNextSubpass2KHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -22911,7 +22911,7 @@ return return_pzJYPYs;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdEndRenderPass2(json data_json){
+    void handle_vkCmdEndRenderPass2(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -22963,7 +22963,7 @@ return return_pzJYPYs;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdEndRenderPass2KHR(json data_json){
+    void handle_vkCmdEndRenderPass2KHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -23015,7 +23015,7 @@ return return_pzJYPYs;}();
         writeToConn(result);
     }
 
-    void handle_vkGetSemaphoreCounterValue(json data_json){
+    void handle_vkGetSemaphoreCounterValue(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -23075,7 +23075,7 @@ return return_SkZiOMx;}();
         writeToConn(result);
     }
 
-    void handle_vkGetSemaphoreCounterValueKHR(json data_json){
+    void handle_vkGetSemaphoreCounterValueKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -23135,7 +23135,7 @@ return return_SkZiOMx;}();
         writeToConn(result);
     }
 
-    void handle_vkWaitSemaphores(json data_json){
+    void handle_vkWaitSemaphores(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -23196,7 +23196,7 @@ result["members"]["timeout"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkWaitSemaphoresKHR(json data_json){
+    void handle_vkWaitSemaphoresKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -23257,7 +23257,7 @@ result["members"]["timeout"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkSignalSemaphore(json data_json){
+    void handle_vkSignalSemaphore(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -23311,7 +23311,7 @@ return return_HVHlwUx;}();
         writeToConn(result);
     }
 
-    void handle_vkSignalSemaphoreKHR(json data_json){
+    void handle_vkSignalSemaphoreKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -23365,7 +23365,7 @@ return return_HVHlwUx;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawIndirectCount(json data_json){
+    void handle_vkCmdDrawIndirectCount(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -23441,7 +23441,7 @@ result["members"]["stride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawIndirectCountKHR(json data_json){
+    void handle_vkCmdDrawIndirectCountKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -23517,7 +23517,7 @@ result["members"]["stride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawIndirectCountAMD(json data_json){
+    void handle_vkCmdDrawIndirectCountAMD(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -23593,7 +23593,7 @@ result["members"]["stride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawIndexedIndirectCount(json data_json){
+    void handle_vkCmdDrawIndexedIndirectCount(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -23669,7 +23669,7 @@ result["members"]["stride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawIndexedIndirectCountKHR(json data_json){
+    void handle_vkCmdDrawIndexedIndirectCountKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -23745,7 +23745,7 @@ result["members"]["stride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawIndexedIndirectCountAMD(json data_json){
+    void handle_vkCmdDrawIndexedIndirectCountAMD(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -23821,7 +23821,7 @@ result["members"]["stride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetCheckpointNV(json data_json){
+    void handle_vkCmdSetCheckpointNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -23837,18 +23837,18 @@ void* temp_VaNobWO;[&]() {
         temp_VaNobWO=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_Cfynkwp;[&]() {
 
         if (data_json["members"]["pCheckpointMarker"].contains("null")){
-        temp=NULL;
+        temp_Cfynkwp=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pCheckpointMarker"]["members"].size()*sizeof(char));
+    temp_Cfynkwp=(char*)malloc(data_json["members"]["pCheckpointMarker"]["members"].size()*sizeof(char));
         for (int dtXJUqj=0; dtXJUqj < data_json["members"]["pCheckpointMarker"]["members"].size(); dtXJUqj++){
             [&]() {
-temp[dtXJUqj]=deserialize_char(data_json["members"]["pCheckpointMarker"]["members"][dtXJUqj]);}();;
+temp_Cfynkwp[dtXJUqj]=deserialize_char(data_json["members"]["pCheckpointMarker"]["members"][dtXJUqj]);}();;
         }
-        }();temp_VaNobWO=(void*)temp;
+        }();temp_VaNobWO=(void*)temp_Cfynkwp;
 }();pCheckpointMarker=temp_VaNobWO;}();
 
 
@@ -23896,7 +23896,7 @@ result["members"]["pCheckpointMarker"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetQueueCheckpointDataNV(json data_json){
+    void handle_vkGetQueueCheckpointDataNV(json &data_json){
     //Will only be called by the server
     
 VkQueue queue
@@ -23979,7 +23979,7 @@ result["members"]["pCheckpointData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBindTransformFeedbackBuffersEXT(json data_json){
+    void handle_vkCmdBindTransformFeedbackBuffersEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -24136,7 +24136,7 @@ result["members"]["pSizes"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBeginTransformFeedbackEXT(json data_json){
+    void handle_vkCmdBeginTransformFeedbackEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -24252,7 +24252,7 @@ result["members"]["pCounterBufferOffsets"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdEndTransformFeedbackEXT(json data_json){
+    void handle_vkCmdEndTransformFeedbackEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -24368,7 +24368,7 @@ result["members"]["pCounterBufferOffsets"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBeginQueryIndexedEXT(json data_json){
+    void handle_vkCmdBeginQueryIndexedEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -24424,7 +24424,7 @@ result["members"]["index"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdEndQueryIndexedEXT(json data_json){
+    void handle_vkCmdEndQueryIndexedEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -24473,7 +24473,7 @@ result["members"]["index"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawIndirectByteCountEXT(json data_json){
+    void handle_vkCmdDrawIndirectByteCountEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -24546,7 +24546,7 @@ result["members"]["vertexStride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetExclusiveScissorNV(json data_json){
+    void handle_vkCmdSetExclusiveScissorNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -24621,7 +24621,7 @@ result["members"]["pExclusiveScissors"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetExclusiveScissorEnableNV(json data_json){
+    void handle_vkCmdSetExclusiveScissorEnableNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -24704,7 +24704,7 @@ result["members"]["pExclusiveScissorEnables"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBindShadingRateImageNV(json data_json){
+    void handle_vkCmdBindShadingRateImageNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -24746,7 +24746,7 @@ result["members"]["imageLayout"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetViewportShadingRatePaletteNV(json data_json){
+    void handle_vkCmdSetViewportShadingRatePaletteNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -24821,7 +24821,7 @@ result["members"]["pShadingRatePalettes"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetCoarseSampleOrderNV(json data_json){
+    void handle_vkCmdSetCoarseSampleOrderNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -24896,7 +24896,7 @@ result["members"]["pCustomSampleOrders"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawMeshTasksNV(json data_json){
+    void handle_vkCmdDrawMeshTasksNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -24938,7 +24938,7 @@ result["members"]["firstTask"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawMeshTasksIndirectNV(json data_json){
+    void handle_vkCmdDrawMeshTasksIndirectNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -24997,7 +24997,7 @@ result["members"]["stride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawMeshTasksIndirectCountNV(json data_json){
+    void handle_vkCmdDrawMeshTasksIndirectCountNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -25073,7 +25073,7 @@ result["members"]["stride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawMeshTasksEXT(json data_json){
+    void handle_vkCmdDrawMeshTasksEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -25122,7 +25122,7 @@ result["members"]["groupCountZ"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawMeshTasksIndirectEXT(json data_json){
+    void handle_vkCmdDrawMeshTasksIndirectEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -25181,7 +25181,7 @@ result["members"]["stride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDrawMeshTasksIndirectCountEXT(json data_json){
+    void handle_vkCmdDrawMeshTasksIndirectCountEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -25257,7 +25257,7 @@ result["members"]["stride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCompileDeferredNV(json data_json){
+    void handle_vkCompileDeferredNV(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -25301,7 +25301,7 @@ result["members"]["shader"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateAccelerationStructureNV(json data_json){
+    void handle_vkCreateAccelerationStructureNV(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -25402,7 +25402,7 @@ return return_OUUStUb;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdBindInvocationMaskHUAWEI(json data_json){
+    void handle_vkCmdBindInvocationMaskHUAWEI(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -25444,7 +25444,7 @@ result["members"]["imageLayout"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkDestroyAccelerationStructureKHR(json data_json){
+    void handle_vkDestroyAccelerationStructureKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -25503,7 +25503,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyAccelerationStructureNV(json data_json){
+    void handle_vkDestroyAccelerationStructureNV(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -25562,7 +25562,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkGetAccelerationStructureMemoryRequirementsNV(json data_json){
+    void handle_vkGetAccelerationStructureMemoryRequirementsNV(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -25637,7 +25637,7 @@ return return_sgoXXWQ;}();
         writeToConn(result);
     }
 
-    void handle_vkBindAccelerationStructureMemoryNV(json data_json){
+    void handle_vkBindAccelerationStructureMemoryNV(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -25707,7 +25707,7 @@ result["members"]["pBindInfos"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyAccelerationStructureNV(json data_json){
+    void handle_vkCmdCopyAccelerationStructureNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -25756,7 +25756,7 @@ result["members"]["mode"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyAccelerationStructureKHR(json data_json){
+    void handle_vkCmdCopyAccelerationStructureKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -25808,7 +25808,7 @@ return return_QZQfWxf;}();
         writeToConn(result);
     }
 
-    void handle_vkCopyAccelerationStructureKHR(json data_json){
+    void handle_vkCopyAccelerationStructureKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -25869,7 +25869,7 @@ return return_QZQfWxf;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyAccelerationStructureToMemoryKHR(json data_json){
+    void handle_vkCmdCopyAccelerationStructureToMemoryKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -25921,7 +25921,7 @@ return return_UbSBUTG;}();
         writeToConn(result);
     }
 
-    void handle_vkCopyAccelerationStructureToMemoryKHR(json data_json){
+    void handle_vkCopyAccelerationStructureToMemoryKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -25982,7 +25982,7 @@ return return_UbSBUTG;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyMemoryToAccelerationStructureKHR(json data_json){
+    void handle_vkCmdCopyMemoryToAccelerationStructureKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -26034,7 +26034,7 @@ return return_XBqtfOw;}();
         writeToConn(result);
     }
 
-    void handle_vkCopyMemoryToAccelerationStructureKHR(json data_json){
+    void handle_vkCopyMemoryToAccelerationStructureKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -26095,7 +26095,7 @@ return return_XBqtfOw;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdWriteAccelerationStructuresPropertiesKHR(json data_json){
+    void handle_vkCmdWriteAccelerationStructuresPropertiesKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -26184,7 +26184,7 @@ result["members"]["firstQuery"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdWriteAccelerationStructuresPropertiesNV(json data_json){
+    void handle_vkCmdWriteAccelerationStructuresPropertiesNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -26273,7 +26273,7 @@ result["members"]["firstQuery"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBuildAccelerationStructureNV(json data_json){
+    void handle_vkCmdBuildAccelerationStructureNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -26383,7 +26383,7 @@ result["members"]["scratchOffset"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkWriteAccelerationStructuresPropertiesKHR(json data_json){
+    void handle_vkWriteAccelerationStructuresPropertiesKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -26425,18 +26425,18 @@ void* pData
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_pmySkLY;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_pmySkLY=NULL;
         return;
         }
-    temp=(char*)malloc(dataSize*sizeof(char));
+    temp_pmySkLY=(char*)malloc(dataSize*sizeof(char));
         for (int ThmltOQ=0; ThmltOQ < dataSize; ThmltOQ++){
             [&]() {
-temp[ThmltOQ]=deserialize_char(data_json["members"]["pData"]["members"][ThmltOQ]);}();;
+temp_pmySkLY[ThmltOQ]=deserialize_char(data_json["members"]["pData"]["members"][ThmltOQ]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_pmySkLY;
 }();
 size_t stride
         ;
@@ -26520,7 +26520,7 @@ result["members"]["stride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdTraceRaysKHR(json data_json){
+    void handle_vkCmdTraceRaysKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -26665,7 +26665,7 @@ result["members"]["depth"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdTraceRaysNV(json data_json){
+    void handle_vkCmdTraceRaysNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -26812,7 +26812,7 @@ result["members"]["depth"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetRayTracingShaderGroupHandlesKHR(json data_json){
+    void handle_vkGetRayTracingShaderGroupHandlesKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -26843,18 +26843,18 @@ void* pData
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_xDjkkst;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_xDjkkst=NULL;
         return;
         }
-    temp=(char*)malloc(dataSize*sizeof(char));
+    temp_xDjkkst=(char*)malloc(dataSize*sizeof(char));
         for (int Huohrnv=0; Huohrnv < dataSize; Huohrnv++){
             [&]() {
-temp[Huohrnv]=deserialize_char(data_json["members"]["pData"]["members"][Huohrnv]);}();;
+temp_xDjkkst[Huohrnv]=deserialize_char(data_json["members"]["pData"]["members"][Huohrnv]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_xDjkkst;
 }();
 
 
@@ -26916,7 +26916,7 @@ result["members"]["pData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetRayTracingShaderGroupHandlesNV(json data_json){
+    void handle_vkGetRayTracingShaderGroupHandlesNV(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -26947,18 +26947,18 @@ void* pData
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_xDjkkst;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_xDjkkst=NULL;
         return;
         }
-    temp=(char*)malloc(dataSize*sizeof(char));
+    temp_xDjkkst=(char*)malloc(dataSize*sizeof(char));
         for (int Huohrnv=0; Huohrnv < dataSize; Huohrnv++){
             [&]() {
-temp[Huohrnv]=deserialize_char(data_json["members"]["pData"]["members"][Huohrnv]);}();;
+temp_xDjkkst[Huohrnv]=deserialize_char(data_json["members"]["pData"]["members"][Huohrnv]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_xDjkkst;
 }();
 
 
@@ -27020,7 +27020,7 @@ result["members"]["pData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR(json data_json){
+    void handle_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -27051,18 +27051,18 @@ void* pData
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_xDjkkst;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_xDjkkst=NULL;
         return;
         }
-    temp=(char*)malloc(dataSize*sizeof(char));
+    temp_xDjkkst=(char*)malloc(dataSize*sizeof(char));
         for (int Huohrnv=0; Huohrnv < dataSize; Huohrnv++){
             [&]() {
-temp[Huohrnv]=deserialize_char(data_json["members"]["pData"]["members"][Huohrnv]);}();;
+temp_xDjkkst[Huohrnv]=deserialize_char(data_json["members"]["pData"]["members"][Huohrnv]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_xDjkkst;
 }();
 
 
@@ -27124,7 +27124,7 @@ result["members"]["pData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetAccelerationStructureHandleNV(json data_json){
+    void handle_vkGetAccelerationStructureHandleNV(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -27147,18 +27147,18 @@ void* pData
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_xDjkkst;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_xDjkkst=NULL;
         return;
         }
-    temp=(char*)malloc(dataSize*sizeof(char));
+    temp_xDjkkst=(char*)malloc(dataSize*sizeof(char));
         for (int Huohrnv=0; Huohrnv < dataSize; Huohrnv++){
             [&]() {
-temp[Huohrnv]=deserialize_char(data_json["members"]["pData"]["members"][Huohrnv]);}();;
+temp_xDjkkst[Huohrnv]=deserialize_char(data_json["members"]["pData"]["members"][Huohrnv]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_xDjkkst;
 }();
 
 
@@ -27214,7 +27214,7 @@ result["members"]["pData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateRayTracingPipelinesNV(json data_json){
+    void handle_vkCreateRayTracingPipelinesNV(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -27347,7 +27347,7 @@ result["members"]["pPipelines"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateRayTracingPipelinesKHR(json data_json){
+    void handle_vkCreateRayTracingPipelinesKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -27487,7 +27487,7 @@ result["members"]["pPipelines"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(json data_json){
+    void handle_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -27572,7 +27572,7 @@ result["members"]["pProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdTraceRaysIndirectKHR(json data_json){
+    void handle_vkCmdTraceRaysIndirectKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -27706,7 +27706,7 @@ result["members"]["indirectDeviceAddress"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdTraceRaysIndirect2KHR(json data_json){
+    void handle_vkCmdTraceRaysIndirect2KHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -27744,7 +27744,7 @@ result["members"]["indirectDeviceAddress"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceAccelerationStructureCompatibilityKHR(json data_json){
+    void handle_vkGetDeviceAccelerationStructureCompatibilityKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -27819,7 +27819,7 @@ return return_pFzhFrX;}();
         writeToConn(result);
     }
 
-    void handle_vkGetRayTracingShaderGroupStackSizeKHR(json data_json){
+    void handle_vkGetRayTracingShaderGroupStackSizeKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -27872,7 +27872,7 @@ result["members"]["groupShader"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetRayTracingPipelineStackSizeKHR(json data_json){
+    void handle_vkCmdSetRayTracingPipelineStackSizeKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -27907,7 +27907,7 @@ result["members"]["pipelineStackSize"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetImageViewHandleNVX(json data_json){
+    void handle_vkGetImageViewHandleNVX(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -27961,7 +27961,7 @@ return return_wRfjyoW;}();
         writeToConn(result);
     }
 
-    void handle_vkGetImageViewAddressNVX(json data_json){
+    void handle_vkGetImageViewAddressNVX(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -28021,7 +28021,7 @@ return return_TUehTTT;}();
         writeToConn(result);
     }
 
-    void handle_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(json data_json){
+    void handle_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -28145,7 +28145,7 @@ result["members"]["pCounterDescriptions"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(json data_json){
+    void handle_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -28220,7 +28220,7 @@ return return_NECAfdR;}();
         writeToConn(result);
     }
 
-    void handle_vkAcquireProfilingLockKHR(json data_json){
+    void handle_vkAcquireProfilingLockKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -28274,7 +28274,7 @@ return return_PvvMlSF;}();
         writeToConn(result);
     }
 
-    void handle_vkReleaseProfilingLockKHR(json data_json){
+    void handle_vkReleaseProfilingLockKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -28302,7 +28302,7 @@ result["members"]["device"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetImageDrmFormatModifierPropertiesEXT(json data_json){
+    void handle_vkGetImageDrmFormatModifierPropertiesEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -28362,7 +28362,7 @@ return return_NsUKWEd;}();
         writeToConn(result);
     }
 
-    void handle_vkGetBufferOpaqueCaptureAddress(json data_json){
+    void handle_vkGetBufferOpaqueCaptureAddress(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -28416,7 +28416,7 @@ return return_oEfTpxK;}();
         writeToConn(result);
     }
 
-    void handle_vkGetBufferOpaqueCaptureAddressKHR(json data_json){
+    void handle_vkGetBufferOpaqueCaptureAddressKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -28470,7 +28470,7 @@ return return_oEfTpxK;}();
         writeToConn(result);
     }
 
-    void handle_vkGetBufferDeviceAddress(json data_json){
+    void handle_vkGetBufferDeviceAddress(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -28526,7 +28526,7 @@ return return_oEfTpxK;}();
         writeToConn(result);
     }
 
-    void handle_vkGetBufferDeviceAddressKHR(json data_json){
+    void handle_vkGetBufferDeviceAddressKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -28582,7 +28582,7 @@ return return_oEfTpxK;}();
         writeToConn(result);
     }
 
-    void handle_vkGetBufferDeviceAddressEXT(json data_json){
+    void handle_vkGetBufferDeviceAddressEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -28638,7 +28638,7 @@ return return_oEfTpxK;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateHeadlessSurfaceEXT(json data_json){
+    void handle_vkCreateHeadlessSurfaceEXT(json &data_json){
     //Will only be called by the server
     
 VkInstance instance
@@ -28739,7 +28739,7 @@ return return_BdLSuHF;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(json data_json){
+    void handle_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -28824,7 +28824,7 @@ result["members"]["pCombinations"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkInitializePerformanceApiINTEL(json data_json){
+    void handle_vkInitializePerformanceApiINTEL(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -28878,7 +28878,7 @@ return return_CovSjPo;}();
         writeToConn(result);
     }
 
-    void handle_vkUninitializePerformanceApiINTEL(json data_json){
+    void handle_vkUninitializePerformanceApiINTEL(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -28906,7 +28906,7 @@ result["members"]["device"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetPerformanceMarkerINTEL(json data_json){
+    void handle_vkCmdSetPerformanceMarkerINTEL(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -28960,7 +28960,7 @@ return return_wkrGWmk;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdSetPerformanceStreamMarkerINTEL(json data_json){
+    void handle_vkCmdSetPerformanceStreamMarkerINTEL(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -29014,7 +29014,7 @@ return return_kGNypPg;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdSetPerformanceOverrideINTEL(json data_json){
+    void handle_vkCmdSetPerformanceOverrideINTEL(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -29068,7 +29068,7 @@ return return_HHdsdYE;}();
         writeToConn(result);
     }
 
-    void handle_vkAcquirePerformanceConfigurationINTEL(json data_json){
+    void handle_vkAcquirePerformanceConfigurationINTEL(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -29145,7 +29145,7 @@ return return_zYnksFs;}();
         writeToConn(result);
     }
 
-    void handle_vkReleasePerformanceConfigurationINTEL(json data_json){
+    void handle_vkReleasePerformanceConfigurationINTEL(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -29182,7 +29182,7 @@ result["members"]["configuration"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkQueueSetPerformanceConfigurationINTEL(json data_json){
+    void handle_vkQueueSetPerformanceConfigurationINTEL(json &data_json){
     //Will only be called by the server
     
 VkQueue queue
@@ -29219,7 +29219,7 @@ result["members"]["configuration"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPerformanceParameterINTEL(json data_json){
+    void handle_vkGetPerformanceParameterINTEL(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -29279,7 +29279,7 @@ return return_qndEXiC;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceMemoryOpaqueCaptureAddress(json data_json){
+    void handle_vkGetDeviceMemoryOpaqueCaptureAddress(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -29333,7 +29333,7 @@ return return_VEmTKsL;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceMemoryOpaqueCaptureAddressKHR(json data_json){
+    void handle_vkGetDeviceMemoryOpaqueCaptureAddressKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -29387,7 +29387,7 @@ return return_VEmTKsL;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPipelineExecutablePropertiesKHR(json data_json){
+    void handle_vkGetPipelineExecutablePropertiesKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice                        device
@@ -29496,7 +29496,7 @@ result["members"]["pProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPipelineExecutableStatisticsKHR(json data_json){
+    void handle_vkGetPipelineExecutableStatisticsKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice                        device
@@ -29605,7 +29605,7 @@ result["members"]["pStatistics"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPipelineExecutableInternalRepresentationsKHR(json data_json){
+    void handle_vkGetPipelineExecutableInternalRepresentationsKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice                        device
@@ -29714,7 +29714,7 @@ result["members"]["pInternalRepresentations"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetLineStippleEXT(json data_json){
+    void handle_vkCmdSetLineStippleEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -29756,7 +29756,7 @@ result["members"]["lineStipplePattern"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceToolProperties(json data_json){
+    void handle_vkGetPhysicalDeviceToolProperties(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -29841,7 +29841,7 @@ result["members"]["pToolProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceToolPropertiesEXT(json data_json){
+    void handle_vkGetPhysicalDeviceToolPropertiesEXT(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -29926,7 +29926,7 @@ result["members"]["pToolProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateAccelerationStructureKHR(json data_json){
+    void handle_vkCreateAccelerationStructureKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice                                           device
@@ -30027,7 +30027,7 @@ return return_MTkmBUe;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdBuildAccelerationStructuresKHR(json data_json){
+    void handle_vkCmdBuildAccelerationStructuresKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                                    commandBuffer
@@ -30144,7 +30144,7 @@ return return_lHHXjZl;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdBuildAccelerationStructuresIndirectKHR(json data_json){
+    void handle_vkCmdBuildAccelerationStructuresIndirectKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                  commandBuffer
@@ -30335,7 +30335,7 @@ return return_YCjurkR;}();
         writeToConn(result);
     }
 
-    void handle_vkBuildAccelerationStructuresKHR(json data_json){
+    void handle_vkBuildAccelerationStructuresKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice                                           device
@@ -30461,7 +30461,7 @@ return return_lHHXjZl;}();
         writeToConn(result);
     }
 
-    void handle_vkGetAccelerationStructureDeviceAddressKHR(json data_json){
+    void handle_vkGetAccelerationStructureDeviceAddressKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -30517,7 +30517,7 @@ return return_LRvGJOb;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateDeferredOperationKHR(json data_json){
+    void handle_vkCreateDeferredOperationKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -30594,7 +30594,7 @@ return return_CKyJuyJ;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyDeferredOperationKHR(json data_json){
+    void handle_vkDestroyDeferredOperationKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -30653,7 +30653,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDeferredOperationMaxConcurrencyKHR(json data_json){
+    void handle_vkGetDeferredOperationMaxConcurrencyKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -30690,7 +30690,7 @@ result["members"]["operation"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDeferredOperationResultKHR(json data_json){
+    void handle_vkGetDeferredOperationResultKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -30727,7 +30727,7 @@ result["members"]["operation"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkDeferredOperationJoinKHR(json data_json){
+    void handle_vkDeferredOperationJoinKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -30764,7 +30764,7 @@ result["members"]["operation"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPipelineIndirectMemoryRequirementsNV(json data_json){
+    void handle_vkGetPipelineIndirectMemoryRequirementsNV(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -30839,7 +30839,7 @@ return return_aEBODbS;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPipelineIndirectDeviceAddressNV(json data_json){
+    void handle_vkGetPipelineIndirectDeviceAddressNV(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -30895,7 +30895,7 @@ return return_lCiRNLA;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdSetCullMode(json data_json){
+    void handle_vkCmdSetCullMode(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -30930,7 +30930,7 @@ result["members"]["cullMode"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetCullModeEXT(json data_json){
+    void handle_vkCmdSetCullModeEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -30965,7 +30965,7 @@ result["members"]["cullMode"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetFrontFace(json data_json){
+    void handle_vkCmdSetFrontFace(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -31000,7 +31000,7 @@ result["members"]["frontFace"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetFrontFaceEXT(json data_json){
+    void handle_vkCmdSetFrontFaceEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -31035,7 +31035,7 @@ result["members"]["frontFace"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetPrimitiveTopology(json data_json){
+    void handle_vkCmdSetPrimitiveTopology(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -31070,7 +31070,7 @@ result["members"]["primitiveTopology"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetPrimitiveTopologyEXT(json data_json){
+    void handle_vkCmdSetPrimitiveTopologyEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -31105,7 +31105,7 @@ result["members"]["primitiveTopology"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetViewportWithCount(json data_json){
+    void handle_vkCmdSetViewportWithCount(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -31173,7 +31173,7 @@ result["members"]["pViewports"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetViewportWithCountEXT(json data_json){
+    void handle_vkCmdSetViewportWithCountEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -31241,7 +31241,7 @@ result["members"]["pViewports"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetScissorWithCount(json data_json){
+    void handle_vkCmdSetScissorWithCount(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -31309,7 +31309,7 @@ result["members"]["pScissors"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetScissorWithCountEXT(json data_json){
+    void handle_vkCmdSetScissorWithCountEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -31377,7 +31377,7 @@ result["members"]["pScissors"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBindIndexBuffer2KHR(json data_json){
+    void handle_vkCmdBindIndexBuffer2KHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -31439,7 +31439,7 @@ result["members"]["indexType"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBindVertexBuffers2(json data_json){
+    void handle_vkCmdBindVertexBuffers2(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -31637,7 +31637,7 @@ result["members"]["pStrides"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBindVertexBuffers2EXT(json data_json){
+    void handle_vkCmdBindVertexBuffers2EXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -31835,7 +31835,7 @@ result["members"]["pStrides"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDepthTestEnable(json data_json){
+    void handle_vkCmdSetDepthTestEnable(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -31873,7 +31873,7 @@ result["members"]["depthTestEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDepthTestEnableEXT(json data_json){
+    void handle_vkCmdSetDepthTestEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -31911,7 +31911,7 @@ result["members"]["depthTestEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDepthWriteEnable(json data_json){
+    void handle_vkCmdSetDepthWriteEnable(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -31949,7 +31949,7 @@ result["members"]["depthWriteEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDepthWriteEnableEXT(json data_json){
+    void handle_vkCmdSetDepthWriteEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -31987,7 +31987,7 @@ result["members"]["depthWriteEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDepthCompareOp(json data_json){
+    void handle_vkCmdSetDepthCompareOp(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32022,7 +32022,7 @@ result["members"]["depthCompareOp"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDepthCompareOpEXT(json data_json){
+    void handle_vkCmdSetDepthCompareOpEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32057,7 +32057,7 @@ result["members"]["depthCompareOp"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDepthBoundsTestEnable(json data_json){
+    void handle_vkCmdSetDepthBoundsTestEnable(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32095,7 +32095,7 @@ result["members"]["depthBoundsTestEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDepthBoundsTestEnableEXT(json data_json){
+    void handle_vkCmdSetDepthBoundsTestEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32133,7 +32133,7 @@ result["members"]["depthBoundsTestEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetStencilTestEnable(json data_json){
+    void handle_vkCmdSetStencilTestEnable(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32171,7 +32171,7 @@ result["members"]["stencilTestEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetStencilTestEnableEXT(json data_json){
+    void handle_vkCmdSetStencilTestEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32209,7 +32209,7 @@ result["members"]["stencilTestEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetStencilOp(json data_json){
+    void handle_vkCmdSetStencilOp(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32272,7 +32272,7 @@ result["members"]["compareOp"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetStencilOpEXT(json data_json){
+    void handle_vkCmdSetStencilOpEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32335,7 +32335,7 @@ result["members"]["compareOp"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetPatchControlPointsEXT(json data_json){
+    void handle_vkCmdSetPatchControlPointsEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32370,7 +32370,7 @@ result["members"]["patchControlPoints"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetRasterizerDiscardEnable(json data_json){
+    void handle_vkCmdSetRasterizerDiscardEnable(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32408,7 +32408,7 @@ result["members"]["rasterizerDiscardEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetRasterizerDiscardEnableEXT(json data_json){
+    void handle_vkCmdSetRasterizerDiscardEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32446,7 +32446,7 @@ result["members"]["rasterizerDiscardEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDepthBiasEnable(json data_json){
+    void handle_vkCmdSetDepthBiasEnable(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32484,7 +32484,7 @@ result["members"]["depthBiasEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDepthBiasEnableEXT(json data_json){
+    void handle_vkCmdSetDepthBiasEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32522,7 +32522,7 @@ result["members"]["depthBiasEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetLogicOpEXT(json data_json){
+    void handle_vkCmdSetLogicOpEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32557,7 +32557,7 @@ result["members"]["logicOp"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetPrimitiveRestartEnable(json data_json){
+    void handle_vkCmdSetPrimitiveRestartEnable(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32595,7 +32595,7 @@ result["members"]["primitiveRestartEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetPrimitiveRestartEnableEXT(json data_json){
+    void handle_vkCmdSetPrimitiveRestartEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32633,7 +32633,7 @@ result["members"]["primitiveRestartEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetTessellationDomainOriginEXT(json data_json){
+    void handle_vkCmdSetTessellationDomainOriginEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32668,7 +32668,7 @@ result["members"]["domainOrigin"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDepthClampEnableEXT(json data_json){
+    void handle_vkCmdSetDepthClampEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32706,7 +32706,7 @@ result["members"]["depthClampEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetPolygonModeEXT(json data_json){
+    void handle_vkCmdSetPolygonModeEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32741,7 +32741,7 @@ result["members"]["polygonMode"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetRasterizationSamplesEXT(json data_json){
+    void handle_vkCmdSetRasterizationSamplesEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32776,7 +32776,7 @@ result["members"]["rasterizationSamples"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetSampleMaskEXT(json data_json){
+    void handle_vkCmdSetSampleMaskEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32852,7 +32852,7 @@ result["members"]["pSampleMask"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetAlphaToCoverageEnableEXT(json data_json){
+    void handle_vkCmdSetAlphaToCoverageEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32890,7 +32890,7 @@ result["members"]["alphaToCoverageEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetAlphaToOneEnableEXT(json data_json){
+    void handle_vkCmdSetAlphaToOneEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32928,7 +32928,7 @@ result["members"]["alphaToOneEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetLogicOpEnableEXT(json data_json){
+    void handle_vkCmdSetLogicOpEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -32966,7 +32966,7 @@ result["members"]["logicOpEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetColorBlendEnableEXT(json data_json){
+    void handle_vkCmdSetColorBlendEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33049,7 +33049,7 @@ result["members"]["pColorBlendEnables"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetColorBlendEquationEXT(json data_json){
+    void handle_vkCmdSetColorBlendEquationEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33124,7 +33124,7 @@ result["members"]["pColorBlendEquations"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetColorWriteMaskEXT(json data_json){
+    void handle_vkCmdSetColorWriteMaskEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33199,7 +33199,7 @@ result["members"]["pColorWriteMasks"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetRasterizationStreamEXT(json data_json){
+    void handle_vkCmdSetRasterizationStreamEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33234,7 +33234,7 @@ result["members"]["rasterizationStream"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetConservativeRasterizationModeEXT(json data_json){
+    void handle_vkCmdSetConservativeRasterizationModeEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33269,7 +33269,7 @@ result["members"]["conservativeRasterizationMode"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetExtraPrimitiveOverestimationSizeEXT(json data_json){
+    void handle_vkCmdSetExtraPrimitiveOverestimationSizeEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33304,7 +33304,7 @@ result["members"]["extraPrimitiveOverestimationSize"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDepthClipEnableEXT(json data_json){
+    void handle_vkCmdSetDepthClipEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33342,7 +33342,7 @@ result["members"]["depthClipEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetSampleLocationsEnableEXT(json data_json){
+    void handle_vkCmdSetSampleLocationsEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33380,7 +33380,7 @@ result["members"]["sampleLocationsEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetColorBlendAdvancedEXT(json data_json){
+    void handle_vkCmdSetColorBlendAdvancedEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33455,7 +33455,7 @@ result["members"]["pColorBlendAdvanced"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetProvokingVertexModeEXT(json data_json){
+    void handle_vkCmdSetProvokingVertexModeEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33490,7 +33490,7 @@ result["members"]["provokingVertexMode"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetLineRasterizationModeEXT(json data_json){
+    void handle_vkCmdSetLineRasterizationModeEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33525,7 +33525,7 @@ result["members"]["lineRasterizationMode"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetLineStippleEnableEXT(json data_json){
+    void handle_vkCmdSetLineStippleEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33563,7 +33563,7 @@ result["members"]["stippledLineEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDepthClipNegativeOneToOneEXT(json data_json){
+    void handle_vkCmdSetDepthClipNegativeOneToOneEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33601,7 +33601,7 @@ result["members"]["negativeOneToOne"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetViewportWScalingEnableNV(json data_json){
+    void handle_vkCmdSetViewportWScalingEnableNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33639,7 +33639,7 @@ result["members"]["viewportWScalingEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetViewportSwizzleNV(json data_json){
+    void handle_vkCmdSetViewportSwizzleNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33714,7 +33714,7 @@ result["members"]["pViewportSwizzles"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetCoverageToColorEnableNV(json data_json){
+    void handle_vkCmdSetCoverageToColorEnableNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33752,7 +33752,7 @@ result["members"]["coverageToColorEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetCoverageToColorLocationNV(json data_json){
+    void handle_vkCmdSetCoverageToColorLocationNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33787,7 +33787,7 @@ result["members"]["coverageToColorLocation"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetCoverageModulationModeNV(json data_json){
+    void handle_vkCmdSetCoverageModulationModeNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33822,7 +33822,7 @@ result["members"]["coverageModulationMode"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetCoverageModulationTableEnableNV(json data_json){
+    void handle_vkCmdSetCoverageModulationTableEnableNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33860,7 +33860,7 @@ result["members"]["coverageModulationTableEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetCoverageModulationTableNV(json data_json){
+    void handle_vkCmdSetCoverageModulationTableNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33928,7 +33928,7 @@ result["members"]["pCoverageModulationTable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetShadingRateImageEnableNV(json data_json){
+    void handle_vkCmdSetShadingRateImageEnableNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -33966,7 +33966,7 @@ result["members"]["shadingRateImageEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetCoverageReductionModeNV(json data_json){
+    void handle_vkCmdSetCoverageReductionModeNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -34001,7 +34001,7 @@ result["members"]["coverageReductionMode"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetRepresentativeFragmentTestEnableNV(json data_json){
+    void handle_vkCmdSetRepresentativeFragmentTestEnableNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -34039,7 +34039,7 @@ result["members"]["representativeFragmentTestEnable"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreatePrivateDataSlot(json data_json){
+    void handle_vkCreatePrivateDataSlot(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -34140,7 +34140,7 @@ return return_WdYulQe;}();
         writeToConn(result);
     }
 
-    void handle_vkCreatePrivateDataSlotEXT(json data_json){
+    void handle_vkCreatePrivateDataSlotEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -34241,7 +34241,7 @@ return return_WdYulQe;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyPrivateDataSlot(json data_json){
+    void handle_vkDestroyPrivateDataSlot(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -34300,7 +34300,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyPrivateDataSlotEXT(json data_json){
+    void handle_vkDestroyPrivateDataSlotEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -34359,7 +34359,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkSetPrivateData(json data_json){
+    void handle_vkSetPrivateData(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -34417,7 +34417,7 @@ result["members"]["data"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkSetPrivateDataEXT(json data_json){
+    void handle_vkSetPrivateDataEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -34475,7 +34475,7 @@ result["members"]["data"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPrivateData(json data_json){
+    void handle_vkGetPrivateData(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -34547,7 +34547,7 @@ return return_jFrVNYC;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPrivateDataEXT(json data_json){
+    void handle_vkGetPrivateDataEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -34619,7 +34619,7 @@ return return_jFrVNYC;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyBuffer2(json data_json){
+    void handle_vkCmdCopyBuffer2(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -34671,7 +34671,7 @@ return return_WJOqvuo;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyBuffer2KHR(json data_json){
+    void handle_vkCmdCopyBuffer2KHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -34723,7 +34723,7 @@ return return_WJOqvuo;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyImage2(json data_json){
+    void handle_vkCmdCopyImage2(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -34775,7 +34775,7 @@ return return_NAsYnFQ;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyImage2KHR(json data_json){
+    void handle_vkCmdCopyImage2KHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -34827,7 +34827,7 @@ return return_NAsYnFQ;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdBlitImage2(json data_json){
+    void handle_vkCmdBlitImage2(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -34879,7 +34879,7 @@ return return_TfIvjlb;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdBlitImage2KHR(json data_json){
+    void handle_vkCmdBlitImage2KHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -34931,7 +34931,7 @@ return return_TfIvjlb;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyBufferToImage2(json data_json){
+    void handle_vkCmdCopyBufferToImage2(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -34983,7 +34983,7 @@ return return_BAFniQJ;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyBufferToImage2KHR(json data_json){
+    void handle_vkCmdCopyBufferToImage2KHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -35035,7 +35035,7 @@ return return_BAFniQJ;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyImageToBuffer2(json data_json){
+    void handle_vkCmdCopyImageToBuffer2(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -35087,7 +35087,7 @@ return return_giJOUhS;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyImageToBuffer2KHR(json data_json){
+    void handle_vkCmdCopyImageToBuffer2KHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -35139,7 +35139,7 @@ return return_giJOUhS;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdResolveImage2(json data_json){
+    void handle_vkCmdResolveImage2(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -35191,7 +35191,7 @@ return return_DoRDwhn;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdResolveImage2KHR(json data_json){
+    void handle_vkCmdResolveImage2KHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -35243,7 +35243,7 @@ return return_DoRDwhn;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdSetFragmentShadingRateKHR(json data_json){
+    void handle_vkCmdSetFragmentShadingRateKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer           commandBuffer
@@ -35318,7 +35318,7 @@ result["members"]["combinerOps"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceFragmentShadingRatesKHR(json data_json){
+    void handle_vkGetPhysicalDeviceFragmentShadingRatesKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -35403,7 +35403,7 @@ result["members"]["pFragmentShadingRates"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetFragmentShadingRateEnumNV(json data_json){
+    void handle_vkCmdSetFragmentShadingRateEnumNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer           commandBuffer
@@ -35461,7 +35461,7 @@ result["members"]["combinerOps"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetAccelerationStructureBuildSizesKHR(json data_json){
+    void handle_vkGetAccelerationStructureBuildSizesKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice                                            device
@@ -35576,7 +35576,7 @@ return return_pwVaXgY;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdSetVertexInputEXT(json data_json){
+    void handle_vkCmdSetVertexInputEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -35684,7 +35684,7 @@ result["members"]["pVertexAttributeDescriptions"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetColorWriteEnableEXT(json data_json){
+    void handle_vkCmdSetColorWriteEnableEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer       commandBuffer
@@ -35760,7 +35760,7 @@ result["members"]["pColorWriteEnables"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetEvent2(json data_json){
+    void handle_vkCmdSetEvent2(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                   commandBuffer
@@ -35819,7 +35819,7 @@ return return_kkgOCck;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdSetEvent2KHR(json data_json){
+    void handle_vkCmdSetEvent2KHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                   commandBuffer
@@ -35878,7 +35878,7 @@ return return_kkgOCck;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdResetEvent2(json data_json){
+    void handle_vkCmdResetEvent2(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                   commandBuffer
@@ -35920,7 +35920,7 @@ result["members"]["stageMask"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdResetEvent2KHR(json data_json){
+    void handle_vkCmdResetEvent2KHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                   commandBuffer
@@ -35962,7 +35962,7 @@ result["members"]["stageMask"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdWaitEvents2(json data_json){
+    void handle_vkCmdWaitEvents2(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                   commandBuffer
@@ -36063,7 +36063,7 @@ result["members"]["pDependencyInfos"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdWaitEvents2KHR(json data_json){
+    void handle_vkCmdWaitEvents2KHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                   commandBuffer
@@ -36164,7 +36164,7 @@ result["members"]["pDependencyInfos"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdPipelineBarrier2(json data_json){
+    void handle_vkCmdPipelineBarrier2(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                   commandBuffer
@@ -36216,7 +36216,7 @@ return return_kkgOCck;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdPipelineBarrier2KHR(json data_json){
+    void handle_vkCmdPipelineBarrier2KHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                   commandBuffer
@@ -36268,7 +36268,7 @@ return return_kkgOCck;}();
         writeToConn(result);
     }
 
-    void handle_vkQueueSubmit2(json data_json){
+    void handle_vkQueueSubmit2(json &data_json){
     //Will only be called by the server
     
 VkQueue                           queue
@@ -36345,7 +36345,7 @@ result["members"]["fence"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkQueueSubmit2KHR(json data_json){
+    void handle_vkQueueSubmit2KHR(json &data_json){
     //Will only be called by the server
     
 VkQueue                           queue
@@ -36422,7 +36422,7 @@ result["members"]["fence"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdWriteTimestamp2(json data_json){
+    void handle_vkCmdWriteTimestamp2(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                   commandBuffer
@@ -36471,7 +36471,7 @@ result["members"]["query"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdWriteTimestamp2KHR(json data_json){
+    void handle_vkCmdWriteTimestamp2KHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                   commandBuffer
@@ -36520,7 +36520,7 @@ result["members"]["query"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdWriteBufferMarker2AMD(json data_json){
+    void handle_vkCmdWriteBufferMarker2AMD(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                   commandBuffer
@@ -36579,7 +36579,7 @@ result["members"]["marker"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetQueueCheckpointData2NV(json data_json){
+    void handle_vkGetQueueCheckpointData2NV(json &data_json){
     //Will only be called by the server
     
 VkQueue queue
@@ -36662,7 +36662,7 @@ result["members"]["pCheckpointData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCopyMemoryToImageEXT(json data_json){
+    void handle_vkCopyMemoryToImageEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -36716,7 +36716,7 @@ return return_FHlXCaf;}();
         writeToConn(result);
     }
 
-    void handle_vkCopyImageToMemoryEXT(json data_json){
+    void handle_vkCopyImageToMemoryEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -36770,7 +36770,7 @@ return return_tRkegag;}();
         writeToConn(result);
     }
 
-    void handle_vkCopyImageToImageEXT(json data_json){
+    void handle_vkCopyImageToImageEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -36824,7 +36824,7 @@ return return_cylMZXt;}();
         writeToConn(result);
     }
 
-    void handle_vkTransitionImageLayoutEXT(json data_json){
+    void handle_vkTransitionImageLayoutEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -36894,7 +36894,7 @@ result["members"]["pTransitions"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceVideoCapabilitiesKHR(json data_json){
+    void handle_vkGetPhysicalDeviceVideoCapabilitiesKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -36971,7 +36971,7 @@ return return_twwgZMf;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceVideoFormatPropertiesKHR(json data_json){
+    void handle_vkGetPhysicalDeviceVideoFormatPropertiesKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -37080,7 +37080,7 @@ result["members"]["pVideoFormatProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateVideoSessionKHR(json data_json){
+    void handle_vkCreateVideoSessionKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -37181,7 +37181,7 @@ return return_UBFowBY;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyVideoSessionKHR(json data_json){
+    void handle_vkDestroyVideoSessionKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -37240,7 +37240,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateVideoSessionParametersKHR(json data_json){
+    void handle_vkCreateVideoSessionParametersKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -37341,7 +37341,7 @@ return return_cFKdyDw;}();
         writeToConn(result);
     }
 
-    void handle_vkUpdateVideoSessionParametersKHR(json data_json){
+    void handle_vkUpdateVideoSessionParametersKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -37402,7 +37402,7 @@ return return_BKRYRwF;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyVideoSessionParametersKHR(json data_json){
+    void handle_vkDestroyVideoSessionParametersKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -37461,7 +37461,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkGetVideoSessionMemoryRequirementsKHR(json data_json){
+    void handle_vkGetVideoSessionMemoryRequirementsKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -37553,7 +37553,7 @@ result["members"]["pMemoryRequirements"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkBindVideoSessionMemoryKHR(json data_json){
+    void handle_vkBindVideoSessionMemoryKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -37630,7 +37630,7 @@ result["members"]["pBindSessionMemoryInfos"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDecodeVideoKHR(json data_json){
+    void handle_vkCmdDecodeVideoKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -37682,7 +37682,7 @@ return return_CMuqgQm;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdBeginVideoCodingKHR(json data_json){
+    void handle_vkCmdBeginVideoCodingKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -37734,7 +37734,7 @@ return return_GNqfByK;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdControlVideoCodingKHR(json data_json){
+    void handle_vkCmdControlVideoCodingKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -37786,7 +37786,7 @@ return return_udkYcOu;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdEndVideoCodingKHR(json data_json){
+    void handle_vkCmdEndVideoCodingKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -37838,7 +37838,7 @@ return return_ZVrxRdf;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdDecompressMemoryNV(json data_json){
+    void handle_vkCmdDecompressMemoryNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -37906,7 +37906,7 @@ result["members"]["pDecompressMemoryRegions"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdDecompressMemoryIndirectCountNV(json data_json){
+    void handle_vkCmdDecompressMemoryIndirectCountNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -37961,7 +37961,7 @@ result["members"]["stride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateCuModuleNVX(json data_json){
+    void handle_vkCreateCuModuleNVX(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -38062,7 +38062,7 @@ return return_JNcoqEH;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateCuFunctionNVX(json data_json){
+    void handle_vkCreateCuFunctionNVX(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -38163,7 +38163,7 @@ return return_McZaipD;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyCuModuleNVX(json data_json){
+    void handle_vkDestroyCuModuleNVX(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -38222,7 +38222,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyCuFunctionNVX(json data_json){
+    void handle_vkDestroyCuFunctionNVX(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -38281,7 +38281,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdCuLaunchKernelNVX(json data_json){
+    void handle_vkCmdCuLaunchKernelNVX(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -38333,7 +38333,7 @@ return return_GlpDTMX;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDescriptorSetLayoutSizeEXT(json data_json){
+    void handle_vkGetDescriptorSetLayoutSizeEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -38399,7 +38399,7 @@ return return_SyjiaTi;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDescriptorSetLayoutBindingOffsetEXT(json data_json){
+    void handle_vkGetDescriptorSetLayoutBindingOffsetEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -38472,7 +38472,7 @@ return return_FmcfIzq;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDescriptorEXT(json data_json){
+    void handle_vkGetDescriptorEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -38504,18 +38504,18 @@ void* pDescriptor
         pDescriptor=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_AFgFHbk;[&]() {
 
         if (data_json["members"]["pDescriptor"].contains("null")){
-        temp=NULL;
+        temp_AFgFHbk=NULL;
         return;
         }
-    temp=(char*)malloc(dataSize*sizeof(char));
+    temp_AFgFHbk=(char*)malloc(dataSize*sizeof(char));
         for (int vpfDqyN=0; vpfDqyN < dataSize; vpfDqyN++){
             [&]() {
-temp[vpfDqyN]=deserialize_char(data_json["members"]["pDescriptor"]["members"][vpfDqyN]);}();;
+temp_AFgFHbk[vpfDqyN]=deserialize_char(data_json["members"]["pDescriptor"]["members"][vpfDqyN]);}();;
         }
-        }();pDescriptor=(void*)temp;
+        }();pDescriptor=(void*)temp_AFgFHbk;
 }();
 
 
@@ -38577,7 +38577,7 @@ result["members"]["pDescriptor"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBindDescriptorBuffersEXT(json data_json){
+    void handle_vkCmdBindDescriptorBuffersEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -38645,7 +38645,7 @@ result["members"]["pBindingInfos"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDescriptorBufferOffsetsEXT(json data_json){
+    void handle_vkCmdSetDescriptorBufferOffsetsEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -38775,7 +38775,7 @@ result["members"]["pOffsets"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBindDescriptorBufferEmbeddedSamplersEXT(json data_json){
+    void handle_vkCmdBindDescriptorBufferEmbeddedSamplersEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -38824,7 +38824,7 @@ result["members"]["set"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetBufferOpaqueCaptureDescriptorDataEXT(json data_json){
+    void handle_vkGetBufferOpaqueCaptureDescriptorDataEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -38852,18 +38852,18 @@ void* pData
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_TGQCeBs;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_TGQCeBs=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
+    temp_TGQCeBs=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
         for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"]["members"].size(); BIqCBLq++){
             [&]() {
-temp[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
+temp_TGQCeBs[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_TGQCeBs;
 }();
 
 
@@ -38924,7 +38924,7 @@ result["members"]["pData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetImageOpaqueCaptureDescriptorDataEXT(json data_json){
+    void handle_vkGetImageOpaqueCaptureDescriptorDataEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -38952,18 +38952,18 @@ void* pData
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_TGQCeBs;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_TGQCeBs=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
+    temp_TGQCeBs=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
         for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"]["members"].size(); BIqCBLq++){
             [&]() {
-temp[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
+temp_TGQCeBs[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_TGQCeBs;
 }();
 
 
@@ -39024,7 +39024,7 @@ result["members"]["pData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetImageViewOpaqueCaptureDescriptorDataEXT(json data_json){
+    void handle_vkGetImageViewOpaqueCaptureDescriptorDataEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -39052,18 +39052,18 @@ void* pData
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_TGQCeBs;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_TGQCeBs=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
+    temp_TGQCeBs=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
         for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"]["members"].size(); BIqCBLq++){
             [&]() {
-temp[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
+temp_TGQCeBs[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_TGQCeBs;
 }();
 
 
@@ -39124,7 +39124,7 @@ result["members"]["pData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetSamplerOpaqueCaptureDescriptorDataEXT(json data_json){
+    void handle_vkGetSamplerOpaqueCaptureDescriptorDataEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -39152,18 +39152,18 @@ void* pData
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_TGQCeBs;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_TGQCeBs=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
+    temp_TGQCeBs=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
         for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"]["members"].size(); BIqCBLq++){
             [&]() {
-temp[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
+temp_TGQCeBs[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_TGQCeBs;
 }();
 
 
@@ -39224,7 +39224,7 @@ result["members"]["pData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT(json data_json){
+    void handle_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -39252,18 +39252,18 @@ void* pData
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_TGQCeBs;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_TGQCeBs=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
+    temp_TGQCeBs=(char*)malloc(data_json["members"]["pData"]["members"].size()*sizeof(char));
         for (int BIqCBLq=0; BIqCBLq < data_json["members"]["pData"]["members"].size(); BIqCBLq++){
             [&]() {
-temp[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
+temp_TGQCeBs[BIqCBLq]=deserialize_char(data_json["members"]["pData"]["members"][BIqCBLq]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_TGQCeBs;
 }();
 
 
@@ -39324,7 +39324,7 @@ result["members"]["pData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkSetDeviceMemoryPriorityEXT(json data_json){
+    void handle_vkSetDeviceMemoryPriorityEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice       device
@@ -39366,7 +39366,7 @@ result["members"]["priority"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkAcquireDrmDisplayEXT(json data_json){
+    void handle_vkAcquireDrmDisplayEXT(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -39410,7 +39410,7 @@ result["members"]["display"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDrmDisplayEXT(json data_json){
+    void handle_vkGetDrmDisplayEXT(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -39477,7 +39477,7 @@ return return_BihiZSI;}();
         writeToConn(result);
     }
 
-    void handle_vkWaitForPresentKHR(json data_json){
+    void handle_vkWaitForPresentKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -39528,7 +39528,7 @@ result["members"]["timeout"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBeginRendering(json data_json){
+    void handle_vkCmdBeginRendering(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                   commandBuffer
@@ -39580,7 +39580,7 @@ return return_krduLwc;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdBeginRenderingKHR(json data_json){
+    void handle_vkCmdBeginRenderingKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                   commandBuffer
@@ -39632,7 +39632,7 @@ return return_krduLwc;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdEndRendering(json data_json){
+    void handle_vkCmdEndRendering(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                   commandBuffer
@@ -39660,7 +39660,7 @@ result["members"]["commandBuffer"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdEndRenderingKHR(json data_json){
+    void handle_vkCmdEndRenderingKHR(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                   commandBuffer
@@ -39688,7 +39688,7 @@ result["members"]["commandBuffer"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDescriptorSetLayoutHostMappingInfoVALVE(json data_json){
+    void handle_vkGetDescriptorSetLayoutHostMappingInfoVALVE(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -39763,7 +39763,7 @@ return return_zFoJqwR;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDescriptorSetHostMappingVALVE(json data_json){
+    void handle_vkGetDescriptorSetHostMappingVALVE(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -39789,18 +39789,18 @@ void** ppData
         *(ppData)=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_sdRgFat;[&]() {
 
         if (data_json["members"]["ppData"].contains("null")){
-        temp=NULL;
+        temp_sdRgFat=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["ppData"]["members"].size()*sizeof(char));
+    temp_sdRgFat=(char*)malloc(data_json["members"]["ppData"]["members"].size()*sizeof(char));
         for (int vkSRbVA=0; vkSRbVA < data_json["members"]["ppData"]["members"].size(); vkSRbVA++){
             [&]() {
-temp[vkSRbVA]=deserialize_char(data_json["members"]["ppData"]["members"][vkSRbVA]);}();;
+temp_sdRgFat[vkSRbVA]=deserialize_char(data_json["members"]["ppData"]["members"][vkSRbVA]);}();;
         }
-        }();*(ppData)=(void*)temp;
+        }();*(ppData)=(void*)temp_sdRgFat;
 }();
 }();
 
@@ -39860,7 +39860,7 @@ return return_PsFVEjO;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateMicromapEXT(json data_json){
+    void handle_vkCreateMicromapEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice                                           device
@@ -39961,7 +39961,7 @@ return return_PvwFtTD;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdBuildMicromapsEXT(json data_json){
+    void handle_vkCmdBuildMicromapsEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer                                    commandBuffer
@@ -40029,7 +40029,7 @@ result["members"]["pInfos"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkBuildMicromapsEXT(json data_json){
+    void handle_vkBuildMicromapsEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice                                           device
@@ -40106,7 +40106,7 @@ result["members"]["pInfos"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkDestroyMicromapEXT(json data_json){
+    void handle_vkDestroyMicromapEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -40165,7 +40165,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyMicromapEXT(json data_json){
+    void handle_vkCmdCopyMicromapEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -40217,7 +40217,7 @@ return return_TrwWiWF;}();
         writeToConn(result);
     }
 
-    void handle_vkCopyMicromapEXT(json data_json){
+    void handle_vkCopyMicromapEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -40278,7 +40278,7 @@ return return_TrwWiWF;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyMicromapToMemoryEXT(json data_json){
+    void handle_vkCmdCopyMicromapToMemoryEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -40330,7 +40330,7 @@ return return_SHeoyPq;}();
         writeToConn(result);
     }
 
-    void handle_vkCopyMicromapToMemoryEXT(json data_json){
+    void handle_vkCopyMicromapToMemoryEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -40391,7 +40391,7 @@ return return_SHeoyPq;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdCopyMemoryToMicromapEXT(json data_json){
+    void handle_vkCmdCopyMemoryToMicromapEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -40443,7 +40443,7 @@ return return_CUDMZsl;}();
         writeToConn(result);
     }
 
-    void handle_vkCopyMemoryToMicromapEXT(json data_json){
+    void handle_vkCopyMemoryToMicromapEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -40504,7 +40504,7 @@ return return_CUDMZsl;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdWriteMicromapsPropertiesEXT(json data_json){
+    void handle_vkCmdWriteMicromapsPropertiesEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -40593,7 +40593,7 @@ result["members"]["firstQuery"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkWriteMicromapsPropertiesEXT(json data_json){
+    void handle_vkWriteMicromapsPropertiesEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -40635,18 +40635,18 @@ void* pData
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_pmySkLY;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_pmySkLY=NULL;
         return;
         }
-    temp=(char*)malloc(dataSize*sizeof(char));
+    temp_pmySkLY=(char*)malloc(dataSize*sizeof(char));
         for (int ThmltOQ=0; ThmltOQ < dataSize; ThmltOQ++){
             [&]() {
-temp[ThmltOQ]=deserialize_char(data_json["members"]["pData"]["members"][ThmltOQ]);}();;
+temp_pmySkLY[ThmltOQ]=deserialize_char(data_json["members"]["pData"]["members"][ThmltOQ]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_pmySkLY;
 }();
 size_t stride
         ;
@@ -40730,7 +40730,7 @@ result["members"]["stride"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceMicromapCompatibilityEXT(json data_json){
+    void handle_vkGetDeviceMicromapCompatibilityEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -40805,7 +40805,7 @@ return return_pFzhFrX;}();
         writeToConn(result);
     }
 
-    void handle_vkGetMicromapBuildSizesEXT(json data_json){
+    void handle_vkGetMicromapBuildSizesEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice                                            device
@@ -40887,7 +40887,7 @@ return return_aHvteGR;}();
         writeToConn(result);
     }
 
-    void handle_vkGetShaderModuleIdentifierEXT(json data_json){
+    void handle_vkGetShaderModuleIdentifierEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -40945,7 +40945,7 @@ return return_ihsGwgD;}();
         writeToConn(result);
     }
 
-    void handle_vkGetShaderModuleCreateInfoIdentifierEXT(json data_json){
+    void handle_vkGetShaderModuleCreateInfoIdentifierEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -41020,7 +41020,7 @@ return return_ihsGwgD;}();
         writeToConn(result);
     }
 
-    void handle_vkGetImageSubresourceLayout2KHR(json data_json){
+    void handle_vkGetImageSubresourceLayout2KHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -41102,7 +41102,7 @@ return return_iqRegYw;}();
         writeToConn(result);
     }
 
-    void handle_vkGetImageSubresourceLayout2EXT(json data_json){
+    void handle_vkGetImageSubresourceLayout2EXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -41184,7 +41184,7 @@ return return_iqRegYw;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPipelinePropertiesEXT(json data_json){
+    void handle_vkGetPipelinePropertiesEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -41261,7 +41261,7 @@ return return_PQgRlGt;}();
         writeToConn(result);
     }
 
-    void handle_vkGetFramebufferTilePropertiesQCOM(json data_json){
+    void handle_vkGetFramebufferTilePropertiesQCOM(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -41353,7 +41353,7 @@ result["members"]["pProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetDynamicRenderingTilePropertiesQCOM(json data_json){
+    void handle_vkGetDynamicRenderingTilePropertiesQCOM(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -41430,7 +41430,7 @@ return return_hhhTRmg;}();
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceOpticalFlowImageFormatsNV(json data_json){
+    void handle_vkGetPhysicalDeviceOpticalFlowImageFormatsNV(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -41539,7 +41539,7 @@ result["members"]["pImageFormatProperties"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCreateOpticalFlowSessionNV(json data_json){
+    void handle_vkCreateOpticalFlowSessionNV(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -41640,7 +41640,7 @@ return return_LIJRsCt;}();
         writeToConn(result);
     }
 
-    void handle_vkDestroyOpticalFlowSessionNV(json data_json){
+    void handle_vkDestroyOpticalFlowSessionNV(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -41699,7 +41699,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkBindOpticalFlowSessionImageNV(json data_json){
+    void handle_vkBindOpticalFlowSessionImageNV(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -41757,7 +41757,7 @@ result["members"]["layout"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdOpticalFlowExecuteNV(json data_json){
+    void handle_vkCmdOpticalFlowExecuteNV(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -41816,7 +41816,7 @@ return return_USYZqXI;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceFaultInfoEXT(json data_json){
+    void handle_vkGetDeviceFaultInfoEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -41892,7 +41892,7 @@ return return_bOwqwxH;}();
         writeToConn(result);
     }
 
-    void handle_vkCmdSetDepthBias2EXT(json data_json){
+    void handle_vkCmdSetDepthBias2EXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -41944,7 +41944,7 @@ return return_EVfWBBK;}();
         writeToConn(result);
     }
 
-    void handle_vkReleaseSwapchainImagesEXT(json data_json){
+    void handle_vkReleaseSwapchainImagesEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -41998,7 +41998,7 @@ return return_bWEwLpe;}();
         writeToConn(result);
     }
 
-    void handle_vkGetDeviceImageSubresourceLayoutKHR(json data_json){
+    void handle_vkGetDeviceImageSubresourceLayoutKHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -42073,7 +42073,7 @@ return return_iqRegYw;}();
         writeToConn(result);
     }
 
-    void handle_vkMapMemory2KHR(json data_json){
+    void handle_vkMapMemory2KHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -42108,18 +42108,18 @@ void** ppData
         *(ppData)=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_sdRgFat;[&]() {
 
         if (data_json["members"]["ppData"].contains("null")){
-        temp=NULL;
+        temp_sdRgFat=NULL;
         return;
         }
-    temp=(char*)malloc(data_json["members"]["ppData"]["members"].size()*sizeof(char));
+    temp_sdRgFat=(char*)malloc(data_json["members"]["ppData"]["members"].size()*sizeof(char));
         for (int vkSRbVA=0; vkSRbVA < data_json["members"]["ppData"]["members"].size(); vkSRbVA++){
             [&]() {
-temp[vkSRbVA]=deserialize_char(data_json["members"]["ppData"]["members"][vkSRbVA]);}();;
+temp_sdRgFat[vkSRbVA]=deserialize_char(data_json["members"]["ppData"]["members"][vkSRbVA]);}();;
         }
-        }();*(ppData)=(void*)temp;
+        }();*(ppData)=(void*)temp_sdRgFat;
 }();
 }();
 
@@ -42197,7 +42197,7 @@ return return_PsFVEjO;}();
         writeToConn(result);
     }
 
-    void handle_vkUnmapMemory2KHR(json data_json){
+    void handle_vkUnmapMemory2KHR(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -42251,7 +42251,7 @@ return return_MSeIZcJ;}();
         writeToConn(result);
     }
 
-    void handle_vkCreateShadersEXT(json data_json){
+    void handle_vkCreateShadersEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -42377,7 +42377,7 @@ result["members"]["pShaders"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkDestroyShaderEXT(json data_json){
+    void handle_vkDestroyShaderEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -42436,7 +42436,7 @@ return return_JstQEaC;}();
         writeToConn(result);
     }
 
-    void handle_vkGetShaderBinaryDataEXT(json data_json){
+    void handle_vkGetShaderBinaryDataEXT(json &data_json){
     //Will only be called by the server
     
 VkDevice device
@@ -42467,18 +42467,18 @@ void* pData
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_MwrARnf;[&]() {
 
         if (data_json["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_MwrARnf=NULL;
         return;
         }
-    temp=(char*)malloc(*pDataSize*sizeof(char));
+    temp_MwrARnf=(char*)malloc(*pDataSize*sizeof(char));
         for (int cmmtDwc=0; cmmtDwc < *pDataSize; cmmtDwc++){
             [&]() {
-temp[cmmtDwc]=deserialize_char(data_json["members"]["pData"]["members"][cmmtDwc]);}();;
+temp_MwrARnf[cmmtDwc]=deserialize_char(data_json["members"]["pData"]["members"][cmmtDwc]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_MwrARnf;
 }();
 
 
@@ -42542,7 +42542,7 @@ result["members"]["pData"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkCmdBindShadersEXT(json data_json){
+    void handle_vkCmdBindShadersEXT(json &data_json){
     //Will only be called by the server
     
 VkCommandBuffer commandBuffer
@@ -42643,7 +42643,7 @@ result["members"]["pShaders"]=[&]() {
         writeToConn(result);
     }
 
-    void handle_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(json data_json){
+    void handle_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(json &data_json){
     //Will only be called by the server
     
 VkPhysicalDevice physicalDevice
@@ -42728,3637 +42728,5452 @@ result["members"]["pProperties"]=[&]() {
         writeToConn(result);
     }
 
-void handle_command(json data){
+void handle_command(json &data){
 //Will only be called by the server
 std::string command=data["type"].get<std::string>().substr(std::string("command_").length());
 
 
 
         if(command=="vkCreateInstance"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateInstance(data);
             return;
         }
     
 
         if(command=="vkDestroyInstance"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyInstance(data);
             return;
         }
     
 
         if(command=="vkEnumeratePhysicalDevices"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkEnumeratePhysicalDevices(data);
             return;
         }
     
 
         if(command=="vkGetDeviceProcAddr"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceProcAddr(data);
             return;
         }
     
 
         if(command=="vkGetInstanceProcAddr"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetInstanceProcAddr(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceProperties"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceProperties(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceQueueFamilyProperties"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceQueueFamilyProperties(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceMemoryProperties"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceMemoryProperties(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceFeatures"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceFeatures(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceFormatProperties"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceFormatProperties(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceImageFormatProperties"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceImageFormatProperties(data);
             return;
         }
     
 
         if(command=="vkCreateDevice"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateDevice(data);
             return;
         }
     
 
         if(command=="vkDestroyDevice"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyDevice(data);
             return;
         }
     
 
         if(command=="vkEnumerateInstanceVersion"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkEnumerateInstanceVersion(data);
             return;
         }
     
 
         if(command=="vkEnumerateInstanceLayerProperties"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkEnumerateInstanceLayerProperties(data);
             return;
         }
     
 
         if(command=="vkEnumerateInstanceExtensionProperties"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkEnumerateInstanceExtensionProperties(data);
             return;
         }
     
 
         if(command=="vkEnumerateDeviceLayerProperties"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkEnumerateDeviceLayerProperties(data);
             return;
         }
     
 
         if(command=="vkEnumerateDeviceExtensionProperties"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkEnumerateDeviceExtensionProperties(data);
             return;
         }
     
 
         if(command=="vkGetDeviceQueue"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceQueue(data);
             return;
         }
     
 
         if(command=="vkQueueSubmit"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkQueueSubmit(data);
             return;
         }
     
 
         if(command=="vkQueueWaitIdle"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkQueueWaitIdle(data);
             return;
         }
     
 
         if(command=="vkDeviceWaitIdle"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDeviceWaitIdle(data);
             return;
         }
     
 
         if(command=="vkAllocateMemory"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkAllocateMemory(data);
             return;
         }
     
 
         if(command=="vkFreeMemory"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkFreeMemory(data);
             return;
         }
     
 
         if(command=="vkMapMemory"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkMapMemory(data);
             return;
         }
     
 
         if(command=="vkUnmapMemory"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkUnmapMemory(data);
             return;
         }
     
 
         if(command=="vkFlushMappedMemoryRanges"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkFlushMappedMemoryRanges(data);
             return;
         }
     
 
         if(command=="vkInvalidateMappedMemoryRanges"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkInvalidateMappedMemoryRanges(data);
             return;
         }
     
 
         if(command=="vkGetDeviceMemoryCommitment"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceMemoryCommitment(data);
             return;
         }
     
 
         if(command=="vkGetBufferMemoryRequirements"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetBufferMemoryRequirements(data);
             return;
         }
     
 
         if(command=="vkBindBufferMemory"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkBindBufferMemory(data);
             return;
         }
     
 
         if(command=="vkGetImageMemoryRequirements"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetImageMemoryRequirements(data);
             return;
         }
     
 
         if(command=="vkBindImageMemory"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkBindImageMemory(data);
             return;
         }
     
 
         if(command=="vkGetImageSparseMemoryRequirements"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetImageSparseMemoryRequirements(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceSparseImageFormatProperties"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceSparseImageFormatProperties(data);
             return;
         }
     
 
         if(command=="vkQueueBindSparse"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkQueueBindSparse(data);
             return;
         }
     
 
         if(command=="vkCreateFence"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateFence(data);
             return;
         }
     
 
         if(command=="vkDestroyFence"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyFence(data);
             return;
         }
     
 
         if(command=="vkResetFences"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkResetFences(data);
             return;
         }
     
 
         if(command=="vkGetFenceStatus"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetFenceStatus(data);
             return;
         }
     
 
         if(command=="vkWaitForFences"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkWaitForFences(data);
             return;
         }
     
 
         if(command=="vkCreateSemaphore"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateSemaphore(data);
             return;
         }
     
 
         if(command=="vkDestroySemaphore"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroySemaphore(data);
             return;
         }
     
 
         if(command=="vkCreateEvent"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateEvent(data);
             return;
         }
     
 
         if(command=="vkDestroyEvent"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyEvent(data);
             return;
         }
     
 
         if(command=="vkGetEventStatus"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetEventStatus(data);
             return;
         }
     
 
         if(command=="vkSetEvent"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkSetEvent(data);
             return;
         }
     
 
         if(command=="vkResetEvent"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkResetEvent(data);
             return;
         }
     
 
         if(command=="vkCreateQueryPool"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateQueryPool(data);
             return;
         }
     
 
         if(command=="vkDestroyQueryPool"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyQueryPool(data);
             return;
         }
     
 
         if(command=="vkGetQueryPoolResults"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetQueryPoolResults(data);
             return;
         }
     
 
         if(command=="vkResetQueryPool"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkResetQueryPool(data);
             return;
         }
     
 
         if(command=="vkResetQueryPoolEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkResetQueryPoolEXT(data);
             return;
         }
     
 
         if(command=="vkCreateBuffer"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateBuffer(data);
             return;
         }
     
 
         if(command=="vkDestroyBuffer"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyBuffer(data);
             return;
         }
     
 
         if(command=="vkCreateBufferView"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateBufferView(data);
             return;
         }
     
 
         if(command=="vkDestroyBufferView"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyBufferView(data);
             return;
         }
     
 
         if(command=="vkCreateImage"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateImage(data);
             return;
         }
     
 
         if(command=="vkDestroyImage"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyImage(data);
             return;
         }
     
 
         if(command=="vkGetImageSubresourceLayout"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetImageSubresourceLayout(data);
             return;
         }
     
 
         if(command=="vkCreateImageView"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateImageView(data);
             return;
         }
     
 
         if(command=="vkDestroyImageView"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyImageView(data);
             return;
         }
     
 
         if(command=="vkCreateShaderModule"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateShaderModule(data);
             return;
         }
     
 
         if(command=="vkDestroyShaderModule"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyShaderModule(data);
             return;
         }
     
 
         if(command=="vkCreatePipelineCache"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreatePipelineCache(data);
             return;
         }
     
 
         if(command=="vkDestroyPipelineCache"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyPipelineCache(data);
             return;
         }
     
 
         if(command=="vkGetPipelineCacheData"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPipelineCacheData(data);
             return;
         }
     
 
         if(command=="vkMergePipelineCaches"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkMergePipelineCaches(data);
             return;
         }
     
 
         if(command=="vkCreateGraphicsPipelines"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateGraphicsPipelines(data);
             return;
         }
     
 
         if(command=="vkCreateComputePipelines"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateComputePipelines(data);
             return;
         }
     
 
         if(command=="vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI(data);
             return;
         }
     
 
         if(command=="vkDestroyPipeline"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyPipeline(data);
             return;
         }
     
 
         if(command=="vkCreatePipelineLayout"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreatePipelineLayout(data);
             return;
         }
     
 
         if(command=="vkDestroyPipelineLayout"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyPipelineLayout(data);
             return;
         }
     
 
         if(command=="vkCreateSampler"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateSampler(data);
             return;
         }
     
 
         if(command=="vkDestroySampler"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroySampler(data);
             return;
         }
     
 
         if(command=="vkCreateDescriptorSetLayout"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateDescriptorSetLayout(data);
             return;
         }
     
 
         if(command=="vkDestroyDescriptorSetLayout"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyDescriptorSetLayout(data);
             return;
         }
     
 
         if(command=="vkCreateDescriptorPool"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateDescriptorPool(data);
             return;
         }
     
 
         if(command=="vkDestroyDescriptorPool"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyDescriptorPool(data);
             return;
         }
     
 
         if(command=="vkResetDescriptorPool"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkResetDescriptorPool(data);
             return;
         }
     
 
         if(command=="vkAllocateDescriptorSets"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkAllocateDescriptorSets(data);
             return;
         }
     
 
         if(command=="vkFreeDescriptorSets"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkFreeDescriptorSets(data);
             return;
         }
     
 
         if(command=="vkUpdateDescriptorSets"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkUpdateDescriptorSets(data);
             return;
         }
     
 
         if(command=="vkCreateFramebuffer"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateFramebuffer(data);
             return;
         }
     
 
         if(command=="vkDestroyFramebuffer"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyFramebuffer(data);
             return;
         }
     
 
         if(command=="vkCreateRenderPass"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateRenderPass(data);
             return;
         }
     
 
         if(command=="vkDestroyRenderPass"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyRenderPass(data);
             return;
         }
     
 
         if(command=="vkGetRenderAreaGranularity"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetRenderAreaGranularity(data);
             return;
         }
     
 
         if(command=="vkGetRenderingAreaGranularityKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetRenderingAreaGranularityKHR(data);
             return;
         }
     
 
         if(command=="vkCreateCommandPool"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateCommandPool(data);
             return;
         }
     
 
         if(command=="vkDestroyCommandPool"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyCommandPool(data);
             return;
         }
     
 
         if(command=="vkResetCommandPool"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkResetCommandPool(data);
             return;
         }
     
 
         if(command=="vkAllocateCommandBuffers"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkAllocateCommandBuffers(data);
             return;
         }
     
 
         if(command=="vkFreeCommandBuffers"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkFreeCommandBuffers(data);
             return;
         }
     
 
         if(command=="vkBeginCommandBuffer"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkBeginCommandBuffer(data);
             return;
         }
     
 
         if(command=="vkEndCommandBuffer"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkEndCommandBuffer(data);
             return;
         }
     
 
         if(command=="vkResetCommandBuffer"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkResetCommandBuffer(data);
             return;
         }
     
 
         if(command=="vkCmdBindPipeline"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBindPipeline(data);
             return;
         }
     
 
         if(command=="vkCmdSetAttachmentFeedbackLoopEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetAttachmentFeedbackLoopEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetViewport"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetViewport(data);
             return;
         }
     
 
         if(command=="vkCmdSetScissor"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetScissor(data);
             return;
         }
     
 
         if(command=="vkCmdSetLineWidth"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetLineWidth(data);
             return;
         }
     
 
         if(command=="vkCmdSetDepthBias"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDepthBias(data);
             return;
         }
     
 
         if(command=="vkCmdSetBlendConstants"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetBlendConstants(data);
             return;
         }
     
 
         if(command=="vkCmdSetDepthBounds"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDepthBounds(data);
             return;
         }
     
 
         if(command=="vkCmdSetStencilCompareMask"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetStencilCompareMask(data);
             return;
         }
     
 
         if(command=="vkCmdSetStencilWriteMask"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetStencilWriteMask(data);
             return;
         }
     
 
         if(command=="vkCmdSetStencilReference"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetStencilReference(data);
             return;
         }
     
 
         if(command=="vkCmdBindDescriptorSets"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBindDescriptorSets(data);
             return;
         }
     
 
         if(command=="vkCmdBindIndexBuffer"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBindIndexBuffer(data);
             return;
         }
     
 
         if(command=="vkCmdBindVertexBuffers"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBindVertexBuffers(data);
             return;
         }
     
 
         if(command=="vkCmdDraw"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDraw(data);
             return;
         }
     
 
         if(command=="vkCmdDrawIndexed"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawIndexed(data);
             return;
         }
     
 
         if(command=="vkCmdDrawMultiEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawMultiEXT(data);
             return;
         }
     
 
         if(command=="vkCmdDrawMultiIndexedEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawMultiIndexedEXT(data);
             return;
         }
     
 
         if(command=="vkCmdDrawIndirect"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawIndirect(data);
             return;
         }
     
 
         if(command=="vkCmdDrawIndexedIndirect"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawIndexedIndirect(data);
             return;
         }
     
 
         if(command=="vkCmdDispatch"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDispatch(data);
             return;
         }
     
 
         if(command=="vkCmdDispatchIndirect"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDispatchIndirect(data);
             return;
         }
     
 
         if(command=="vkCmdSubpassShadingHUAWEI"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSubpassShadingHUAWEI(data);
             return;
         }
     
 
         if(command=="vkCmdDrawClusterHUAWEI"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawClusterHUAWEI(data);
             return;
         }
     
 
         if(command=="vkCmdDrawClusterIndirectHUAWEI"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawClusterIndirectHUAWEI(data);
             return;
         }
     
 
         if(command=="vkCmdUpdatePipelineIndirectBufferNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdUpdatePipelineIndirectBufferNV(data);
             return;
         }
     
 
         if(command=="vkCmdCopyBuffer"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyBuffer(data);
             return;
         }
     
 
         if(command=="vkCmdCopyImage"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyImage(data);
             return;
         }
     
 
         if(command=="vkCmdBlitImage"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBlitImage(data);
             return;
         }
     
 
         if(command=="vkCmdCopyBufferToImage"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyBufferToImage(data);
             return;
         }
     
 
         if(command=="vkCmdCopyImageToBuffer"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyImageToBuffer(data);
             return;
         }
     
 
         if(command=="vkCmdCopyMemoryIndirectNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyMemoryIndirectNV(data);
             return;
         }
     
 
         if(command=="vkCmdCopyMemoryToImageIndirectNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyMemoryToImageIndirectNV(data);
             return;
         }
     
 
         if(command=="vkCmdUpdateBuffer"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdUpdateBuffer(data);
             return;
         }
     
 
         if(command=="vkCmdFillBuffer"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdFillBuffer(data);
             return;
         }
     
 
         if(command=="vkCmdClearColorImage"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdClearColorImage(data);
             return;
         }
     
 
         if(command=="vkCmdClearDepthStencilImage"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdClearDepthStencilImage(data);
             return;
         }
     
 
         if(command=="vkCmdClearAttachments"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdClearAttachments(data);
             return;
         }
     
 
         if(command=="vkCmdResolveImage"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdResolveImage(data);
             return;
         }
     
 
         if(command=="vkCmdSetEvent"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetEvent(data);
             return;
         }
     
 
         if(command=="vkCmdResetEvent"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdResetEvent(data);
             return;
         }
     
 
         if(command=="vkCmdWaitEvents"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdWaitEvents(data);
             return;
         }
     
 
         if(command=="vkCmdPipelineBarrier"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdPipelineBarrier(data);
             return;
         }
     
 
         if(command=="vkCmdBeginQuery"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBeginQuery(data);
             return;
         }
     
 
         if(command=="vkCmdEndQuery"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdEndQuery(data);
             return;
         }
     
 
         if(command=="vkCmdBeginConditionalRenderingEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBeginConditionalRenderingEXT(data);
             return;
         }
     
 
         if(command=="vkCmdEndConditionalRenderingEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdEndConditionalRenderingEXT(data);
             return;
         }
     
 
         if(command=="vkCmdResetQueryPool"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdResetQueryPool(data);
             return;
         }
     
 
         if(command=="vkCmdWriteTimestamp"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdWriteTimestamp(data);
             return;
         }
     
 
         if(command=="vkCmdCopyQueryPoolResults"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyQueryPoolResults(data);
             return;
         }
     
 
         if(command=="vkCmdPushConstants"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdPushConstants(data);
             return;
         }
     
 
         if(command=="vkCmdBeginRenderPass"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBeginRenderPass(data);
             return;
         }
     
 
         if(command=="vkCmdNextSubpass"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdNextSubpass(data);
             return;
         }
     
 
         if(command=="vkCmdEndRenderPass"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdEndRenderPass(data);
             return;
         }
     
 
         if(command=="vkCmdExecuteCommands"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdExecuteCommands(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceDisplayPropertiesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceDisplayPropertiesKHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceDisplayPlanePropertiesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceDisplayPlanePropertiesKHR(data);
             return;
         }
     
 
         if(command=="vkGetDisplayPlaneSupportedDisplaysKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDisplayPlaneSupportedDisplaysKHR(data);
             return;
         }
     
 
         if(command=="vkGetDisplayModePropertiesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDisplayModePropertiesKHR(data);
             return;
         }
     
 
         if(command=="vkCreateDisplayModeKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateDisplayModeKHR(data);
             return;
         }
     
 
         if(command=="vkGetDisplayPlaneCapabilitiesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDisplayPlaneCapabilitiesKHR(data);
             return;
         }
     
 
         if(command=="vkCreateDisplayPlaneSurfaceKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateDisplayPlaneSurfaceKHR(data);
             return;
         }
     
 
         if(command=="vkCreateSharedSwapchainsKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateSharedSwapchainsKHR(data);
             return;
         }
     
 
         if(command=="vkDestroySurfaceKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroySurfaceKHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceSurfaceSupportKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceSurfaceSupportKHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceSurfaceCapabilitiesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceSurfaceCapabilitiesKHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceSurfaceFormatsKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceSurfaceFormatsKHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceSurfacePresentModesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceSurfacePresentModesKHR(data);
             return;
         }
     
 
         if(command=="vkCreateSwapchainKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateSwapchainKHR(data);
             return;
         }
     
 
         if(command=="vkDestroySwapchainKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroySwapchainKHR(data);
             return;
         }
     
 
         if(command=="vkGetSwapchainImagesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetSwapchainImagesKHR(data);
             return;
         }
     
 
         if(command=="vkAcquireNextImageKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkAcquireNextImageKHR(data);
             return;
         }
     
 
         if(command=="vkQueuePresentKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkQueuePresentKHR(data);
             return;
         }
     
 
         if(command=="vkCreateXlibSurfaceKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateXlibSurfaceKHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceXlibPresentationSupportKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceXlibPresentationSupportKHR(data);
             return;
         }
     
 
         if(command=="vkCreateXcbSurfaceKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateXcbSurfaceKHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceXcbPresentationSupportKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceXcbPresentationSupportKHR(data);
             return;
         }
     
 
         if(command=="vkCreateDebugReportCallbackEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateDebugReportCallbackEXT(data);
             return;
         }
     
 
         if(command=="vkDestroyDebugReportCallbackEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyDebugReportCallbackEXT(data);
             return;
         }
     
 
         if(command=="vkDebugReportMessageEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDebugReportMessageEXT(data);
             return;
         }
     
 
         if(command=="vkDebugMarkerSetObjectNameEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDebugMarkerSetObjectNameEXT(data);
             return;
         }
     
 
         if(command=="vkDebugMarkerSetObjectTagEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDebugMarkerSetObjectTagEXT(data);
             return;
         }
     
 
         if(command=="vkCmdDebugMarkerBeginEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDebugMarkerBeginEXT(data);
             return;
         }
     
 
         if(command=="vkCmdDebugMarkerEndEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDebugMarkerEndEXT(data);
             return;
         }
     
 
         if(command=="vkCmdDebugMarkerInsertEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDebugMarkerInsertEXT(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceExternalImageFormatPropertiesNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceExternalImageFormatPropertiesNV(data);
             return;
         }
     
 
         if(command=="vkCmdExecuteGeneratedCommandsNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdExecuteGeneratedCommandsNV(data);
             return;
         }
     
 
         if(command=="vkCmdPreprocessGeneratedCommandsNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdPreprocessGeneratedCommandsNV(data);
             return;
         }
     
 
         if(command=="vkCmdBindPipelineShaderGroupNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBindPipelineShaderGroupNV(data);
             return;
         }
     
 
         if(command=="vkGetGeneratedCommandsMemoryRequirementsNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetGeneratedCommandsMemoryRequirementsNV(data);
             return;
         }
     
 
         if(command=="vkCreateIndirectCommandsLayoutNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateIndirectCommandsLayoutNV(data);
             return;
         }
     
 
         if(command=="vkDestroyIndirectCommandsLayoutNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyIndirectCommandsLayoutNV(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceFeatures2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceFeatures2(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceFeatures2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceFeatures2KHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceProperties2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceProperties2(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceProperties2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceProperties2KHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceFormatProperties2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceFormatProperties2(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceFormatProperties2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceFormatProperties2KHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceImageFormatProperties2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceImageFormatProperties2(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceImageFormatProperties2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceImageFormatProperties2KHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceQueueFamilyProperties2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceQueueFamilyProperties2(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceQueueFamilyProperties2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceQueueFamilyProperties2KHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceMemoryProperties2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceMemoryProperties2(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceMemoryProperties2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceMemoryProperties2KHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceSparseImageFormatProperties2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceSparseImageFormatProperties2(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceSparseImageFormatProperties2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceSparseImageFormatProperties2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdPushDescriptorSetKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdPushDescriptorSetKHR(data);
             return;
         }
     
 
         if(command=="vkTrimCommandPool"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkTrimCommandPool(data);
             return;
         }
     
 
         if(command=="vkTrimCommandPoolKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkTrimCommandPoolKHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceExternalBufferProperties"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceExternalBufferProperties(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceExternalBufferPropertiesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceExternalBufferPropertiesKHR(data);
             return;
         }
     
 
         if(command=="vkGetMemoryFdKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetMemoryFdKHR(data);
             return;
         }
     
 
         if(command=="vkGetMemoryFdPropertiesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetMemoryFdPropertiesKHR(data);
             return;
         }
     
 
         if(command=="vkGetMemoryRemoteAddressNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetMemoryRemoteAddressNV(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceExternalSemaphoreProperties"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceExternalSemaphoreProperties(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceExternalSemaphorePropertiesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceExternalSemaphorePropertiesKHR(data);
             return;
         }
     
 
         if(command=="vkGetSemaphoreFdKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetSemaphoreFdKHR(data);
             return;
         }
     
 
         if(command=="vkImportSemaphoreFdKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkImportSemaphoreFdKHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceExternalFenceProperties"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceExternalFenceProperties(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceExternalFencePropertiesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceExternalFencePropertiesKHR(data);
             return;
         }
     
 
         if(command=="vkGetFenceFdKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetFenceFdKHR(data);
             return;
         }
     
 
         if(command=="vkImportFenceFdKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkImportFenceFdKHR(data);
             return;
         }
     
 
         if(command=="vkReleaseDisplayEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkReleaseDisplayEXT(data);
             return;
         }
     
 
         if(command=="vkDisplayPowerControlEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDisplayPowerControlEXT(data);
             return;
         }
     
 
         if(command=="vkRegisterDeviceEventEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkRegisterDeviceEventEXT(data);
             return;
         }
     
 
         if(command=="vkRegisterDisplayEventEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkRegisterDisplayEventEXT(data);
             return;
         }
     
 
         if(command=="vkGetSwapchainCounterEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetSwapchainCounterEXT(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceSurfaceCapabilities2EXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceSurfaceCapabilities2EXT(data);
             return;
         }
     
 
         if(command=="vkEnumeratePhysicalDeviceGroups"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkEnumeratePhysicalDeviceGroups(data);
             return;
         }
     
 
         if(command=="vkEnumeratePhysicalDeviceGroupsKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkEnumeratePhysicalDeviceGroupsKHR(data);
             return;
         }
     
 
         if(command=="vkGetDeviceGroupPeerMemoryFeatures"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceGroupPeerMemoryFeatures(data);
             return;
         }
     
 
         if(command=="vkGetDeviceGroupPeerMemoryFeaturesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceGroupPeerMemoryFeaturesKHR(data);
             return;
         }
     
 
         if(command=="vkBindBufferMemory2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkBindBufferMemory2(data);
             return;
         }
     
 
         if(command=="vkBindBufferMemory2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkBindBufferMemory2KHR(data);
             return;
         }
     
 
         if(command=="vkBindImageMemory2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkBindImageMemory2(data);
             return;
         }
     
 
         if(command=="vkBindImageMemory2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkBindImageMemory2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdSetDeviceMask"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDeviceMask(data);
             return;
         }
     
 
         if(command=="vkCmdSetDeviceMaskKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDeviceMaskKHR(data);
             return;
         }
     
 
         if(command=="vkGetDeviceGroupPresentCapabilitiesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceGroupPresentCapabilitiesKHR(data);
             return;
         }
     
 
         if(command=="vkGetDeviceGroupSurfacePresentModesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceGroupSurfacePresentModesKHR(data);
             return;
         }
     
 
         if(command=="vkAcquireNextImage2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkAcquireNextImage2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdDispatchBase"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDispatchBase(data);
             return;
         }
     
 
         if(command=="vkCmdDispatchBaseKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDispatchBaseKHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDevicePresentRectanglesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDevicePresentRectanglesKHR(data);
             return;
         }
     
 
         if(command=="vkCreateDescriptorUpdateTemplate"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateDescriptorUpdateTemplate(data);
             return;
         }
     
 
         if(command=="vkCreateDescriptorUpdateTemplateKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateDescriptorUpdateTemplateKHR(data);
             return;
         }
     
 
         if(command=="vkDestroyDescriptorUpdateTemplate"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyDescriptorUpdateTemplate(data);
             return;
         }
     
 
         if(command=="vkDestroyDescriptorUpdateTemplateKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyDescriptorUpdateTemplateKHR(data);
             return;
         }
     
 
         if(command=="vkUpdateDescriptorSetWithTemplate"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkUpdateDescriptorSetWithTemplate(data);
             return;
         }
     
 
         if(command=="vkUpdateDescriptorSetWithTemplateKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkUpdateDescriptorSetWithTemplateKHR(data);
             return;
         }
     
 
         if(command=="vkCmdPushDescriptorSetWithTemplateKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdPushDescriptorSetWithTemplateKHR(data);
             return;
         }
     
 
         if(command=="vkSetHdrMetadataEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkSetHdrMetadataEXT(data);
             return;
         }
     
 
         if(command=="vkGetSwapchainStatusKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetSwapchainStatusKHR(data);
             return;
         }
     
 
         if(command=="vkGetRefreshCycleDurationGOOGLE"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetRefreshCycleDurationGOOGLE(data);
             return;
         }
     
 
         if(command=="vkGetPastPresentationTimingGOOGLE"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPastPresentationTimingGOOGLE(data);
             return;
         }
     
 
         if(command=="vkCmdSetViewportWScalingNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetViewportWScalingNV(data);
             return;
         }
     
 
         if(command=="vkCmdSetDiscardRectangleEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDiscardRectangleEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetDiscardRectangleEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDiscardRectangleEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetDiscardRectangleModeEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDiscardRectangleModeEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetSampleLocationsEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetSampleLocationsEXT(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceMultisamplePropertiesEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceMultisamplePropertiesEXT(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceSurfaceCapabilities2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceSurfaceCapabilities2KHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceSurfaceFormats2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceSurfaceFormats2KHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceDisplayProperties2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceDisplayProperties2KHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceDisplayPlaneProperties2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceDisplayPlaneProperties2KHR(data);
             return;
         }
     
 
         if(command=="vkGetDisplayModeProperties2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDisplayModeProperties2KHR(data);
             return;
         }
     
 
         if(command=="vkGetDisplayPlaneCapabilities2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDisplayPlaneCapabilities2KHR(data);
             return;
         }
     
 
         if(command=="vkGetBufferMemoryRequirements2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetBufferMemoryRequirements2(data);
             return;
         }
     
 
         if(command=="vkGetBufferMemoryRequirements2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetBufferMemoryRequirements2KHR(data);
             return;
         }
     
 
         if(command=="vkGetImageMemoryRequirements2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetImageMemoryRequirements2(data);
             return;
         }
     
 
         if(command=="vkGetImageMemoryRequirements2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetImageMemoryRequirements2KHR(data);
             return;
         }
     
 
         if(command=="vkGetImageSparseMemoryRequirements2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetImageSparseMemoryRequirements2(data);
             return;
         }
     
 
         if(command=="vkGetImageSparseMemoryRequirements2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetImageSparseMemoryRequirements2KHR(data);
             return;
         }
     
 
         if(command=="vkGetDeviceBufferMemoryRequirements"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceBufferMemoryRequirements(data);
             return;
         }
     
 
         if(command=="vkGetDeviceBufferMemoryRequirementsKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceBufferMemoryRequirementsKHR(data);
             return;
         }
     
 
         if(command=="vkGetDeviceImageMemoryRequirements"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceImageMemoryRequirements(data);
             return;
         }
     
 
         if(command=="vkGetDeviceImageMemoryRequirementsKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceImageMemoryRequirementsKHR(data);
             return;
         }
     
 
         if(command=="vkGetDeviceImageSparseMemoryRequirements"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceImageSparseMemoryRequirements(data);
             return;
         }
     
 
         if(command=="vkGetDeviceImageSparseMemoryRequirementsKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceImageSparseMemoryRequirementsKHR(data);
             return;
         }
     
 
         if(command=="vkCreateSamplerYcbcrConversion"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateSamplerYcbcrConversion(data);
             return;
         }
     
 
         if(command=="vkCreateSamplerYcbcrConversionKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateSamplerYcbcrConversionKHR(data);
             return;
         }
     
 
         if(command=="vkDestroySamplerYcbcrConversion"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroySamplerYcbcrConversion(data);
             return;
         }
     
 
         if(command=="vkDestroySamplerYcbcrConversionKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroySamplerYcbcrConversionKHR(data);
             return;
         }
     
 
         if(command=="vkGetDeviceQueue2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceQueue2(data);
             return;
         }
     
 
         if(command=="vkCreateValidationCacheEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateValidationCacheEXT(data);
             return;
         }
     
 
         if(command=="vkDestroyValidationCacheEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyValidationCacheEXT(data);
             return;
         }
     
 
         if(command=="vkGetValidationCacheDataEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetValidationCacheDataEXT(data);
             return;
         }
     
 
         if(command=="vkMergeValidationCachesEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkMergeValidationCachesEXT(data);
             return;
         }
     
 
         if(command=="vkGetDescriptorSetLayoutSupport"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDescriptorSetLayoutSupport(data);
             return;
         }
     
 
         if(command=="vkGetDescriptorSetLayoutSupportKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDescriptorSetLayoutSupportKHR(data);
             return;
         }
     
 
         if(command=="vkGetShaderInfoAMD"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetShaderInfoAMD(data);
             return;
         }
     
 
         if(command=="vkSetLocalDimmingAMD"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkSetLocalDimmingAMD(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceCalibrateableTimeDomainsEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT(data);
             return;
         }
     
 
         if(command=="vkGetCalibratedTimestampsEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetCalibratedTimestampsEXT(data);
             return;
         }
     
 
         if(command=="vkSetDebugUtilsObjectNameEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkSetDebugUtilsObjectNameEXT(data);
             return;
         }
     
 
         if(command=="vkSetDebugUtilsObjectTagEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkSetDebugUtilsObjectTagEXT(data);
             return;
         }
     
 
         if(command=="vkQueueBeginDebugUtilsLabelEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkQueueBeginDebugUtilsLabelEXT(data);
             return;
         }
     
 
         if(command=="vkQueueEndDebugUtilsLabelEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkQueueEndDebugUtilsLabelEXT(data);
             return;
         }
     
 
         if(command=="vkQueueInsertDebugUtilsLabelEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkQueueInsertDebugUtilsLabelEXT(data);
             return;
         }
     
 
         if(command=="vkCmdBeginDebugUtilsLabelEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBeginDebugUtilsLabelEXT(data);
             return;
         }
     
 
         if(command=="vkCmdEndDebugUtilsLabelEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdEndDebugUtilsLabelEXT(data);
             return;
         }
     
 
         if(command=="vkCmdInsertDebugUtilsLabelEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdInsertDebugUtilsLabelEXT(data);
             return;
         }
     
 
         if(command=="vkCreateDebugUtilsMessengerEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateDebugUtilsMessengerEXT(data);
             return;
         }
     
 
         if(command=="vkDestroyDebugUtilsMessengerEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyDebugUtilsMessengerEXT(data);
             return;
         }
     
 
         if(command=="vkSubmitDebugUtilsMessageEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkSubmitDebugUtilsMessageEXT(data);
             return;
         }
     
 
         if(command=="vkGetMemoryHostPointerPropertiesEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetMemoryHostPointerPropertiesEXT(data);
             return;
         }
     
 
         if(command=="vkCmdWriteBufferMarkerAMD"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdWriteBufferMarkerAMD(data);
             return;
         }
     
 
         if(command=="vkCreateRenderPass2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateRenderPass2(data);
             return;
         }
     
 
         if(command=="vkCreateRenderPass2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateRenderPass2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdBeginRenderPass2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBeginRenderPass2(data);
             return;
         }
     
 
         if(command=="vkCmdBeginRenderPass2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBeginRenderPass2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdNextSubpass2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdNextSubpass2(data);
             return;
         }
     
 
         if(command=="vkCmdNextSubpass2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdNextSubpass2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdEndRenderPass2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdEndRenderPass2(data);
             return;
         }
     
 
         if(command=="vkCmdEndRenderPass2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdEndRenderPass2KHR(data);
             return;
         }
     
 
         if(command=="vkGetSemaphoreCounterValue"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetSemaphoreCounterValue(data);
             return;
         }
     
 
         if(command=="vkGetSemaphoreCounterValueKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetSemaphoreCounterValueKHR(data);
             return;
         }
     
 
         if(command=="vkWaitSemaphores"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkWaitSemaphores(data);
             return;
         }
     
 
         if(command=="vkWaitSemaphoresKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkWaitSemaphoresKHR(data);
             return;
         }
     
 
         if(command=="vkSignalSemaphore"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkSignalSemaphore(data);
             return;
         }
     
 
         if(command=="vkSignalSemaphoreKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkSignalSemaphoreKHR(data);
             return;
         }
     
 
         if(command=="vkCmdDrawIndirectCount"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawIndirectCount(data);
             return;
         }
     
 
         if(command=="vkCmdDrawIndirectCountKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawIndirectCountKHR(data);
             return;
         }
     
 
         if(command=="vkCmdDrawIndirectCountAMD"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawIndirectCountAMD(data);
             return;
         }
     
 
         if(command=="vkCmdDrawIndexedIndirectCount"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawIndexedIndirectCount(data);
             return;
         }
     
 
         if(command=="vkCmdDrawIndexedIndirectCountKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawIndexedIndirectCountKHR(data);
             return;
         }
     
 
         if(command=="vkCmdDrawIndexedIndirectCountAMD"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawIndexedIndirectCountAMD(data);
             return;
         }
     
 
         if(command=="vkCmdSetCheckpointNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetCheckpointNV(data);
             return;
         }
     
 
         if(command=="vkGetQueueCheckpointDataNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetQueueCheckpointDataNV(data);
             return;
         }
     
 
         if(command=="vkCmdBindTransformFeedbackBuffersEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBindTransformFeedbackBuffersEXT(data);
             return;
         }
     
 
         if(command=="vkCmdBeginTransformFeedbackEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBeginTransformFeedbackEXT(data);
             return;
         }
     
 
         if(command=="vkCmdEndTransformFeedbackEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdEndTransformFeedbackEXT(data);
             return;
         }
     
 
         if(command=="vkCmdBeginQueryIndexedEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBeginQueryIndexedEXT(data);
             return;
         }
     
 
         if(command=="vkCmdEndQueryIndexedEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdEndQueryIndexedEXT(data);
             return;
         }
     
 
         if(command=="vkCmdDrawIndirectByteCountEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawIndirectByteCountEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetExclusiveScissorNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetExclusiveScissorNV(data);
             return;
         }
     
 
         if(command=="vkCmdSetExclusiveScissorEnableNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetExclusiveScissorEnableNV(data);
             return;
         }
     
 
         if(command=="vkCmdBindShadingRateImageNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBindShadingRateImageNV(data);
             return;
         }
     
 
         if(command=="vkCmdSetViewportShadingRatePaletteNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetViewportShadingRatePaletteNV(data);
             return;
         }
     
 
         if(command=="vkCmdSetCoarseSampleOrderNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetCoarseSampleOrderNV(data);
             return;
         }
     
 
         if(command=="vkCmdDrawMeshTasksNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawMeshTasksNV(data);
             return;
         }
     
 
         if(command=="vkCmdDrawMeshTasksIndirectNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawMeshTasksIndirectNV(data);
             return;
         }
     
 
         if(command=="vkCmdDrawMeshTasksIndirectCountNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawMeshTasksIndirectCountNV(data);
             return;
         }
     
 
         if(command=="vkCmdDrawMeshTasksEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawMeshTasksEXT(data);
             return;
         }
     
 
         if(command=="vkCmdDrawMeshTasksIndirectEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawMeshTasksIndirectEXT(data);
             return;
         }
     
 
         if(command=="vkCmdDrawMeshTasksIndirectCountEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDrawMeshTasksIndirectCountEXT(data);
             return;
         }
     
 
         if(command=="vkCompileDeferredNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCompileDeferredNV(data);
             return;
         }
     
 
         if(command=="vkCreateAccelerationStructureNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateAccelerationStructureNV(data);
             return;
         }
     
 
         if(command=="vkCmdBindInvocationMaskHUAWEI"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBindInvocationMaskHUAWEI(data);
             return;
         }
     
 
         if(command=="vkDestroyAccelerationStructureKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyAccelerationStructureKHR(data);
             return;
         }
     
 
         if(command=="vkDestroyAccelerationStructureNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyAccelerationStructureNV(data);
             return;
         }
     
 
         if(command=="vkGetAccelerationStructureMemoryRequirementsNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetAccelerationStructureMemoryRequirementsNV(data);
             return;
         }
     
 
         if(command=="vkBindAccelerationStructureMemoryNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkBindAccelerationStructureMemoryNV(data);
             return;
         }
     
 
         if(command=="vkCmdCopyAccelerationStructureNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyAccelerationStructureNV(data);
             return;
         }
     
 
         if(command=="vkCmdCopyAccelerationStructureKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyAccelerationStructureKHR(data);
             return;
         }
     
 
         if(command=="vkCopyAccelerationStructureKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCopyAccelerationStructureKHR(data);
             return;
         }
     
 
         if(command=="vkCmdCopyAccelerationStructureToMemoryKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyAccelerationStructureToMemoryKHR(data);
             return;
         }
     
 
         if(command=="vkCopyAccelerationStructureToMemoryKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCopyAccelerationStructureToMemoryKHR(data);
             return;
         }
     
 
         if(command=="vkCmdCopyMemoryToAccelerationStructureKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyMemoryToAccelerationStructureKHR(data);
             return;
         }
     
 
         if(command=="vkCopyMemoryToAccelerationStructureKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCopyMemoryToAccelerationStructureKHR(data);
             return;
         }
     
 
         if(command=="vkCmdWriteAccelerationStructuresPropertiesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdWriteAccelerationStructuresPropertiesKHR(data);
             return;
         }
     
 
         if(command=="vkCmdWriteAccelerationStructuresPropertiesNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdWriteAccelerationStructuresPropertiesNV(data);
             return;
         }
     
 
         if(command=="vkCmdBuildAccelerationStructureNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBuildAccelerationStructureNV(data);
             return;
         }
     
 
         if(command=="vkWriteAccelerationStructuresPropertiesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkWriteAccelerationStructuresPropertiesKHR(data);
             return;
         }
     
 
         if(command=="vkCmdTraceRaysKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdTraceRaysKHR(data);
             return;
         }
     
 
         if(command=="vkCmdTraceRaysNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdTraceRaysNV(data);
             return;
         }
     
 
         if(command=="vkGetRayTracingShaderGroupHandlesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetRayTracingShaderGroupHandlesKHR(data);
             return;
         }
     
 
         if(command=="vkGetRayTracingShaderGroupHandlesNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetRayTracingShaderGroupHandlesNV(data);
             return;
         }
     
 
         if(command=="vkGetRayTracingCaptureReplayShaderGroupHandlesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR(data);
             return;
         }
     
 
         if(command=="vkGetAccelerationStructureHandleNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetAccelerationStructureHandleNV(data);
             return;
         }
     
 
         if(command=="vkCreateRayTracingPipelinesNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateRayTracingPipelinesNV(data);
             return;
         }
     
 
         if(command=="vkCreateRayTracingPipelinesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateRayTracingPipelinesKHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceCooperativeMatrixPropertiesNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(data);
             return;
         }
     
 
         if(command=="vkCmdTraceRaysIndirectKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdTraceRaysIndirectKHR(data);
             return;
         }
     
 
         if(command=="vkCmdTraceRaysIndirect2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdTraceRaysIndirect2KHR(data);
             return;
         }
     
 
         if(command=="vkGetDeviceAccelerationStructureCompatibilityKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceAccelerationStructureCompatibilityKHR(data);
             return;
         }
     
 
         if(command=="vkGetRayTracingShaderGroupStackSizeKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetRayTracingShaderGroupStackSizeKHR(data);
             return;
         }
     
 
         if(command=="vkCmdSetRayTracingPipelineStackSizeKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetRayTracingPipelineStackSizeKHR(data);
             return;
         }
     
 
         if(command=="vkGetImageViewHandleNVX"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetImageViewHandleNVX(data);
             return;
         }
     
 
         if(command=="vkGetImageViewAddressNVX"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetImageViewAddressNVX(data);
             return;
         }
     
 
         if(command=="vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(data);
             return;
         }
     
 
         if(command=="vkAcquireProfilingLockKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkAcquireProfilingLockKHR(data);
             return;
         }
     
 
         if(command=="vkReleaseProfilingLockKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkReleaseProfilingLockKHR(data);
             return;
         }
     
 
         if(command=="vkGetImageDrmFormatModifierPropertiesEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetImageDrmFormatModifierPropertiesEXT(data);
             return;
         }
     
 
         if(command=="vkGetBufferOpaqueCaptureAddress"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetBufferOpaqueCaptureAddress(data);
             return;
         }
     
 
         if(command=="vkGetBufferOpaqueCaptureAddressKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetBufferOpaqueCaptureAddressKHR(data);
             return;
         }
     
 
         if(command=="vkGetBufferDeviceAddress"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetBufferDeviceAddress(data);
             return;
         }
     
 
         if(command=="vkGetBufferDeviceAddressKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetBufferDeviceAddressKHR(data);
             return;
         }
     
 
         if(command=="vkGetBufferDeviceAddressEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetBufferDeviceAddressEXT(data);
             return;
         }
     
 
         if(command=="vkCreateHeadlessSurfaceEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateHeadlessSurfaceEXT(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(data);
             return;
         }
     
 
         if(command=="vkInitializePerformanceApiINTEL"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkInitializePerformanceApiINTEL(data);
             return;
         }
     
 
         if(command=="vkUninitializePerformanceApiINTEL"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkUninitializePerformanceApiINTEL(data);
             return;
         }
     
 
         if(command=="vkCmdSetPerformanceMarkerINTEL"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetPerformanceMarkerINTEL(data);
             return;
         }
     
 
         if(command=="vkCmdSetPerformanceStreamMarkerINTEL"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetPerformanceStreamMarkerINTEL(data);
             return;
         }
     
 
         if(command=="vkCmdSetPerformanceOverrideINTEL"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetPerformanceOverrideINTEL(data);
             return;
         }
     
 
         if(command=="vkAcquirePerformanceConfigurationINTEL"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkAcquirePerformanceConfigurationINTEL(data);
             return;
         }
     
 
         if(command=="vkReleasePerformanceConfigurationINTEL"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkReleasePerformanceConfigurationINTEL(data);
             return;
         }
     
 
         if(command=="vkQueueSetPerformanceConfigurationINTEL"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkQueueSetPerformanceConfigurationINTEL(data);
             return;
         }
     
 
         if(command=="vkGetPerformanceParameterINTEL"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPerformanceParameterINTEL(data);
             return;
         }
     
 
         if(command=="vkGetDeviceMemoryOpaqueCaptureAddress"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceMemoryOpaqueCaptureAddress(data);
             return;
         }
     
 
         if(command=="vkGetDeviceMemoryOpaqueCaptureAddressKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceMemoryOpaqueCaptureAddressKHR(data);
             return;
         }
     
 
         if(command=="vkGetPipelineExecutablePropertiesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPipelineExecutablePropertiesKHR(data);
             return;
         }
     
 
         if(command=="vkGetPipelineExecutableStatisticsKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPipelineExecutableStatisticsKHR(data);
             return;
         }
     
 
         if(command=="vkGetPipelineExecutableInternalRepresentationsKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPipelineExecutableInternalRepresentationsKHR(data);
             return;
         }
     
 
         if(command=="vkCmdSetLineStippleEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetLineStippleEXT(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceToolProperties"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceToolProperties(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceToolPropertiesEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceToolPropertiesEXT(data);
             return;
         }
     
 
         if(command=="vkCreateAccelerationStructureKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateAccelerationStructureKHR(data);
             return;
         }
     
 
         if(command=="vkCmdBuildAccelerationStructuresKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBuildAccelerationStructuresKHR(data);
             return;
         }
     
 
         if(command=="vkCmdBuildAccelerationStructuresIndirectKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBuildAccelerationStructuresIndirectKHR(data);
             return;
         }
     
 
         if(command=="vkBuildAccelerationStructuresKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkBuildAccelerationStructuresKHR(data);
             return;
         }
     
 
         if(command=="vkGetAccelerationStructureDeviceAddressKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetAccelerationStructureDeviceAddressKHR(data);
             return;
         }
     
 
         if(command=="vkCreateDeferredOperationKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateDeferredOperationKHR(data);
             return;
         }
     
 
         if(command=="vkDestroyDeferredOperationKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyDeferredOperationKHR(data);
             return;
         }
     
 
         if(command=="vkGetDeferredOperationMaxConcurrencyKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeferredOperationMaxConcurrencyKHR(data);
             return;
         }
     
 
         if(command=="vkGetDeferredOperationResultKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeferredOperationResultKHR(data);
             return;
         }
     
 
         if(command=="vkDeferredOperationJoinKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDeferredOperationJoinKHR(data);
             return;
         }
     
 
         if(command=="vkGetPipelineIndirectMemoryRequirementsNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPipelineIndirectMemoryRequirementsNV(data);
             return;
         }
     
 
         if(command=="vkGetPipelineIndirectDeviceAddressNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPipelineIndirectDeviceAddressNV(data);
             return;
         }
     
 
         if(command=="vkCmdSetCullMode"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetCullMode(data);
             return;
         }
     
 
         if(command=="vkCmdSetCullModeEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetCullModeEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetFrontFace"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetFrontFace(data);
             return;
         }
     
 
         if(command=="vkCmdSetFrontFaceEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetFrontFaceEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetPrimitiveTopology"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetPrimitiveTopology(data);
             return;
         }
     
 
         if(command=="vkCmdSetPrimitiveTopologyEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetPrimitiveTopologyEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetViewportWithCount"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetViewportWithCount(data);
             return;
         }
     
 
         if(command=="vkCmdSetViewportWithCountEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetViewportWithCountEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetScissorWithCount"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetScissorWithCount(data);
             return;
         }
     
 
         if(command=="vkCmdSetScissorWithCountEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetScissorWithCountEXT(data);
             return;
         }
     
 
         if(command=="vkCmdBindIndexBuffer2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBindIndexBuffer2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdBindVertexBuffers2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBindVertexBuffers2(data);
             return;
         }
     
 
         if(command=="vkCmdBindVertexBuffers2EXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBindVertexBuffers2EXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetDepthTestEnable"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDepthTestEnable(data);
             return;
         }
     
 
         if(command=="vkCmdSetDepthTestEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDepthTestEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetDepthWriteEnable"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDepthWriteEnable(data);
             return;
         }
     
 
         if(command=="vkCmdSetDepthWriteEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDepthWriteEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetDepthCompareOp"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDepthCompareOp(data);
             return;
         }
     
 
         if(command=="vkCmdSetDepthCompareOpEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDepthCompareOpEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetDepthBoundsTestEnable"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDepthBoundsTestEnable(data);
             return;
         }
     
 
         if(command=="vkCmdSetDepthBoundsTestEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDepthBoundsTestEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetStencilTestEnable"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetStencilTestEnable(data);
             return;
         }
     
 
         if(command=="vkCmdSetStencilTestEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetStencilTestEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetStencilOp"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetStencilOp(data);
             return;
         }
     
 
         if(command=="vkCmdSetStencilOpEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetStencilOpEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetPatchControlPointsEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetPatchControlPointsEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetRasterizerDiscardEnable"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetRasterizerDiscardEnable(data);
             return;
         }
     
 
         if(command=="vkCmdSetRasterizerDiscardEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetRasterizerDiscardEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetDepthBiasEnable"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDepthBiasEnable(data);
             return;
         }
     
 
         if(command=="vkCmdSetDepthBiasEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDepthBiasEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetLogicOpEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetLogicOpEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetPrimitiveRestartEnable"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetPrimitiveRestartEnable(data);
             return;
         }
     
 
         if(command=="vkCmdSetPrimitiveRestartEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetPrimitiveRestartEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetTessellationDomainOriginEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetTessellationDomainOriginEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetDepthClampEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDepthClampEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetPolygonModeEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetPolygonModeEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetRasterizationSamplesEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetRasterizationSamplesEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetSampleMaskEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetSampleMaskEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetAlphaToCoverageEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetAlphaToCoverageEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetAlphaToOneEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetAlphaToOneEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetLogicOpEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetLogicOpEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetColorBlendEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetColorBlendEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetColorBlendEquationEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetColorBlendEquationEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetColorWriteMaskEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetColorWriteMaskEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetRasterizationStreamEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetRasterizationStreamEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetConservativeRasterizationModeEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetConservativeRasterizationModeEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetExtraPrimitiveOverestimationSizeEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetExtraPrimitiveOverestimationSizeEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetDepthClipEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDepthClipEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetSampleLocationsEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetSampleLocationsEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetColorBlendAdvancedEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetColorBlendAdvancedEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetProvokingVertexModeEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetProvokingVertexModeEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetLineRasterizationModeEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetLineRasterizationModeEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetLineStippleEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetLineStippleEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetDepthClipNegativeOneToOneEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDepthClipNegativeOneToOneEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetViewportWScalingEnableNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetViewportWScalingEnableNV(data);
             return;
         }
     
 
         if(command=="vkCmdSetViewportSwizzleNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetViewportSwizzleNV(data);
             return;
         }
     
 
         if(command=="vkCmdSetCoverageToColorEnableNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetCoverageToColorEnableNV(data);
             return;
         }
     
 
         if(command=="vkCmdSetCoverageToColorLocationNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetCoverageToColorLocationNV(data);
             return;
         }
     
 
         if(command=="vkCmdSetCoverageModulationModeNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetCoverageModulationModeNV(data);
             return;
         }
     
 
         if(command=="vkCmdSetCoverageModulationTableEnableNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetCoverageModulationTableEnableNV(data);
             return;
         }
     
 
         if(command=="vkCmdSetCoverageModulationTableNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetCoverageModulationTableNV(data);
             return;
         }
     
 
         if(command=="vkCmdSetShadingRateImageEnableNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetShadingRateImageEnableNV(data);
             return;
         }
     
 
         if(command=="vkCmdSetCoverageReductionModeNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetCoverageReductionModeNV(data);
             return;
         }
     
 
         if(command=="vkCmdSetRepresentativeFragmentTestEnableNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetRepresentativeFragmentTestEnableNV(data);
             return;
         }
     
 
         if(command=="vkCreatePrivateDataSlot"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreatePrivateDataSlot(data);
             return;
         }
     
 
         if(command=="vkCreatePrivateDataSlotEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreatePrivateDataSlotEXT(data);
             return;
         }
     
 
         if(command=="vkDestroyPrivateDataSlot"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyPrivateDataSlot(data);
             return;
         }
     
 
         if(command=="vkDestroyPrivateDataSlotEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyPrivateDataSlotEXT(data);
             return;
         }
     
 
         if(command=="vkSetPrivateData"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkSetPrivateData(data);
             return;
         }
     
 
         if(command=="vkSetPrivateDataEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkSetPrivateDataEXT(data);
             return;
         }
     
 
         if(command=="vkGetPrivateData"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPrivateData(data);
             return;
         }
     
 
         if(command=="vkGetPrivateDataEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPrivateDataEXT(data);
             return;
         }
     
 
         if(command=="vkCmdCopyBuffer2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyBuffer2(data);
             return;
         }
     
 
         if(command=="vkCmdCopyBuffer2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyBuffer2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdCopyImage2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyImage2(data);
             return;
         }
     
 
         if(command=="vkCmdCopyImage2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyImage2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdBlitImage2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBlitImage2(data);
             return;
         }
     
 
         if(command=="vkCmdBlitImage2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBlitImage2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdCopyBufferToImage2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyBufferToImage2(data);
             return;
         }
     
 
         if(command=="vkCmdCopyBufferToImage2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyBufferToImage2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdCopyImageToBuffer2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyImageToBuffer2(data);
             return;
         }
     
 
         if(command=="vkCmdCopyImageToBuffer2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyImageToBuffer2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdResolveImage2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdResolveImage2(data);
             return;
         }
     
 
         if(command=="vkCmdResolveImage2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdResolveImage2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdSetFragmentShadingRateKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetFragmentShadingRateKHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceFragmentShadingRatesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceFragmentShadingRatesKHR(data);
             return;
         }
     
 
         if(command=="vkCmdSetFragmentShadingRateEnumNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetFragmentShadingRateEnumNV(data);
             return;
         }
     
 
         if(command=="vkGetAccelerationStructureBuildSizesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetAccelerationStructureBuildSizesKHR(data);
             return;
         }
     
 
         if(command=="vkCmdSetVertexInputEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetVertexInputEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetColorWriteEnableEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetColorWriteEnableEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetEvent2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetEvent2(data);
             return;
         }
     
 
         if(command=="vkCmdSetEvent2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetEvent2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdResetEvent2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdResetEvent2(data);
             return;
         }
     
 
         if(command=="vkCmdResetEvent2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdResetEvent2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdWaitEvents2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdWaitEvents2(data);
             return;
         }
     
 
         if(command=="vkCmdWaitEvents2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdWaitEvents2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdPipelineBarrier2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdPipelineBarrier2(data);
             return;
         }
     
 
         if(command=="vkCmdPipelineBarrier2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdPipelineBarrier2KHR(data);
             return;
         }
     
 
         if(command=="vkQueueSubmit2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkQueueSubmit2(data);
             return;
         }
     
 
         if(command=="vkQueueSubmit2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkQueueSubmit2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdWriteTimestamp2"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdWriteTimestamp2(data);
             return;
         }
     
 
         if(command=="vkCmdWriteTimestamp2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdWriteTimestamp2KHR(data);
             return;
         }
     
 
         if(command=="vkCmdWriteBufferMarker2AMD"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdWriteBufferMarker2AMD(data);
             return;
         }
     
 
         if(command=="vkGetQueueCheckpointData2NV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetQueueCheckpointData2NV(data);
             return;
         }
     
 
         if(command=="vkCopyMemoryToImageEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCopyMemoryToImageEXT(data);
             return;
         }
     
 
         if(command=="vkCopyImageToMemoryEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCopyImageToMemoryEXT(data);
             return;
         }
     
 
         if(command=="vkCopyImageToImageEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCopyImageToImageEXT(data);
             return;
         }
     
 
         if(command=="vkTransitionImageLayoutEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkTransitionImageLayoutEXT(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceVideoCapabilitiesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceVideoCapabilitiesKHR(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceVideoFormatPropertiesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceVideoFormatPropertiesKHR(data);
             return;
         }
     
 
         if(command=="vkCreateVideoSessionKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateVideoSessionKHR(data);
             return;
         }
     
 
         if(command=="vkDestroyVideoSessionKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyVideoSessionKHR(data);
             return;
         }
     
 
         if(command=="vkCreateVideoSessionParametersKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateVideoSessionParametersKHR(data);
             return;
         }
     
 
         if(command=="vkUpdateVideoSessionParametersKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkUpdateVideoSessionParametersKHR(data);
             return;
         }
     
 
         if(command=="vkDestroyVideoSessionParametersKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyVideoSessionParametersKHR(data);
             return;
         }
     
 
         if(command=="vkGetVideoSessionMemoryRequirementsKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetVideoSessionMemoryRequirementsKHR(data);
             return;
         }
     
 
         if(command=="vkBindVideoSessionMemoryKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkBindVideoSessionMemoryKHR(data);
             return;
         }
     
 
         if(command=="vkCmdDecodeVideoKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDecodeVideoKHR(data);
             return;
         }
     
 
         if(command=="vkCmdBeginVideoCodingKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBeginVideoCodingKHR(data);
             return;
         }
     
 
         if(command=="vkCmdControlVideoCodingKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdControlVideoCodingKHR(data);
             return;
         }
     
 
         if(command=="vkCmdEndVideoCodingKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdEndVideoCodingKHR(data);
             return;
         }
     
 
         if(command=="vkCmdDecompressMemoryNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDecompressMemoryNV(data);
             return;
         }
     
 
         if(command=="vkCmdDecompressMemoryIndirectCountNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdDecompressMemoryIndirectCountNV(data);
             return;
         }
     
 
         if(command=="vkCreateCuModuleNVX"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateCuModuleNVX(data);
             return;
         }
     
 
         if(command=="vkCreateCuFunctionNVX"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateCuFunctionNVX(data);
             return;
         }
     
 
         if(command=="vkDestroyCuModuleNVX"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyCuModuleNVX(data);
             return;
         }
     
 
         if(command=="vkDestroyCuFunctionNVX"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyCuFunctionNVX(data);
             return;
         }
     
 
         if(command=="vkCmdCuLaunchKernelNVX"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCuLaunchKernelNVX(data);
             return;
         }
     
 
         if(command=="vkGetDescriptorSetLayoutSizeEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDescriptorSetLayoutSizeEXT(data);
             return;
         }
     
 
         if(command=="vkGetDescriptorSetLayoutBindingOffsetEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDescriptorSetLayoutBindingOffsetEXT(data);
             return;
         }
     
 
         if(command=="vkGetDescriptorEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDescriptorEXT(data);
             return;
         }
     
 
         if(command=="vkCmdBindDescriptorBuffersEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBindDescriptorBuffersEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetDescriptorBufferOffsetsEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDescriptorBufferOffsetsEXT(data);
             return;
         }
     
 
         if(command=="vkCmdBindDescriptorBufferEmbeddedSamplersEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBindDescriptorBufferEmbeddedSamplersEXT(data);
             return;
         }
     
 
         if(command=="vkGetBufferOpaqueCaptureDescriptorDataEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetBufferOpaqueCaptureDescriptorDataEXT(data);
             return;
         }
     
 
         if(command=="vkGetImageOpaqueCaptureDescriptorDataEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetImageOpaqueCaptureDescriptorDataEXT(data);
             return;
         }
     
 
         if(command=="vkGetImageViewOpaqueCaptureDescriptorDataEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetImageViewOpaqueCaptureDescriptorDataEXT(data);
             return;
         }
     
 
         if(command=="vkGetSamplerOpaqueCaptureDescriptorDataEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetSamplerOpaqueCaptureDescriptorDataEXT(data);
             return;
         }
     
 
         if(command=="vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT(data);
             return;
         }
     
 
         if(command=="vkSetDeviceMemoryPriorityEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkSetDeviceMemoryPriorityEXT(data);
             return;
         }
     
 
         if(command=="vkAcquireDrmDisplayEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkAcquireDrmDisplayEXT(data);
             return;
         }
     
 
         if(command=="vkGetDrmDisplayEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDrmDisplayEXT(data);
             return;
         }
     
 
         if(command=="vkWaitForPresentKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkWaitForPresentKHR(data);
             return;
         }
     
 
         if(command=="vkCmdBeginRendering"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBeginRendering(data);
             return;
         }
     
 
         if(command=="vkCmdBeginRenderingKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBeginRenderingKHR(data);
             return;
         }
     
 
         if(command=="vkCmdEndRendering"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdEndRendering(data);
             return;
         }
     
 
         if(command=="vkCmdEndRenderingKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdEndRenderingKHR(data);
             return;
         }
     
 
         if(command=="vkGetDescriptorSetLayoutHostMappingInfoVALVE"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDescriptorSetLayoutHostMappingInfoVALVE(data);
             return;
         }
     
 
         if(command=="vkGetDescriptorSetHostMappingVALVE"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDescriptorSetHostMappingVALVE(data);
             return;
         }
     
 
         if(command=="vkCreateMicromapEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateMicromapEXT(data);
             return;
         }
     
 
         if(command=="vkCmdBuildMicromapsEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBuildMicromapsEXT(data);
             return;
         }
     
 
         if(command=="vkBuildMicromapsEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkBuildMicromapsEXT(data);
             return;
         }
     
 
         if(command=="vkDestroyMicromapEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyMicromapEXT(data);
             return;
         }
     
 
         if(command=="vkCmdCopyMicromapEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyMicromapEXT(data);
             return;
         }
     
 
         if(command=="vkCopyMicromapEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCopyMicromapEXT(data);
             return;
         }
     
 
         if(command=="vkCmdCopyMicromapToMemoryEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyMicromapToMemoryEXT(data);
             return;
         }
     
 
         if(command=="vkCopyMicromapToMemoryEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCopyMicromapToMemoryEXT(data);
             return;
         }
     
 
         if(command=="vkCmdCopyMemoryToMicromapEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdCopyMemoryToMicromapEXT(data);
             return;
         }
     
 
         if(command=="vkCopyMemoryToMicromapEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCopyMemoryToMicromapEXT(data);
             return;
         }
     
 
         if(command=="vkCmdWriteMicromapsPropertiesEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdWriteMicromapsPropertiesEXT(data);
             return;
         }
     
 
         if(command=="vkWriteMicromapsPropertiesEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkWriteMicromapsPropertiesEXT(data);
             return;
         }
     
 
         if(command=="vkGetDeviceMicromapCompatibilityEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceMicromapCompatibilityEXT(data);
             return;
         }
     
 
         if(command=="vkGetMicromapBuildSizesEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetMicromapBuildSizesEXT(data);
             return;
         }
     
 
         if(command=="vkGetShaderModuleIdentifierEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetShaderModuleIdentifierEXT(data);
             return;
         }
     
 
         if(command=="vkGetShaderModuleCreateInfoIdentifierEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetShaderModuleCreateInfoIdentifierEXT(data);
             return;
         }
     
 
         if(command=="vkGetImageSubresourceLayout2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetImageSubresourceLayout2KHR(data);
             return;
         }
     
 
         if(command=="vkGetImageSubresourceLayout2EXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetImageSubresourceLayout2EXT(data);
             return;
         }
     
 
         if(command=="vkGetPipelinePropertiesEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPipelinePropertiesEXT(data);
             return;
         }
     
 
         if(command=="vkGetFramebufferTilePropertiesQCOM"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetFramebufferTilePropertiesQCOM(data);
             return;
         }
     
 
         if(command=="vkGetDynamicRenderingTilePropertiesQCOM"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDynamicRenderingTilePropertiesQCOM(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceOpticalFlowImageFormatsNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceOpticalFlowImageFormatsNV(data);
             return;
         }
     
 
         if(command=="vkCreateOpticalFlowSessionNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateOpticalFlowSessionNV(data);
             return;
         }
     
 
         if(command=="vkDestroyOpticalFlowSessionNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyOpticalFlowSessionNV(data);
             return;
         }
     
 
         if(command=="vkBindOpticalFlowSessionImageNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkBindOpticalFlowSessionImageNV(data);
             return;
         }
     
 
         if(command=="vkCmdOpticalFlowExecuteNV"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdOpticalFlowExecuteNV(data);
             return;
         }
     
 
         if(command=="vkGetDeviceFaultInfoEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceFaultInfoEXT(data);
             return;
         }
     
 
         if(command=="vkCmdSetDepthBias2EXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdSetDepthBias2EXT(data);
             return;
         }
     
 
         if(command=="vkReleaseSwapchainImagesEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkReleaseSwapchainImagesEXT(data);
             return;
         }
     
 
         if(command=="vkGetDeviceImageSubresourceLayoutKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetDeviceImageSubresourceLayoutKHR(data);
             return;
         }
     
 
         if(command=="vkMapMemory2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkMapMemory2KHR(data);
             return;
         }
     
 
         if(command=="vkUnmapMemory2KHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkUnmapMemory2KHR(data);
             return;
         }
     
 
         if(command=="vkCreateShadersEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCreateShadersEXT(data);
             return;
         }
     
 
         if(command=="vkDestroyShaderEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkDestroyShaderEXT(data);
             return;
         }
     
 
         if(command=="vkGetShaderBinaryDataEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetShaderBinaryDataEXT(data);
             return;
         }
     
 
         if(command=="vkCmdBindShadersEXT"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkCmdBindShadersEXT(data);
             return;
         }
     
 
         if(command=="vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR"){
+            if (command=="vkGetPhysicalDeviceProperties2"){
+            ////printf("%s\n",data.dump().c_str());
+        }
             handle_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(data);
             return;
         }
@@ -56548,18 +58363,18 @@ flags=deserialize_VkMemoryMapFlags(result["members"]["flags"]);}();
         *(ppData)=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_utcgXFU;[&]() {
 
         if (result["members"]["ppData"].contains("null")){
-        temp=NULL;
+        temp_utcgXFU=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["ppData"]["members"].size()*sizeof(char));
+    temp_utcgXFU=(char*)malloc(result["members"]["ppData"]["members"].size()*sizeof(char));
         for (int zjLTbBV=0; zjLTbBV < result["members"]["ppData"]["members"].size(); zjLTbBV++){
             [&]() {
-temp[zjLTbBV]=deserialize_char(result["members"]["ppData"]["members"][zjLTbBV]);}();;
+temp_utcgXFU[zjLTbBV]=deserialize_char(result["members"]["ppData"]["members"][zjLTbBV]);}();;
         }
-        }();*(ppData)=(void*)temp;
+        }();*(ppData)=(void*)temp_utcgXFU;
 }();
 }();
 VkResult return_value;
@@ -59493,18 +61308,18 @@ dataSize=deserialize_size_t(result["members"]["dataSize"]);}();
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_iSBIBJZ;[&]() {
 
         if (result["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_iSBIBJZ=NULL;
         return;
         }
-    temp=(char*)malloc(dataSize*sizeof(char));
+    temp_iSBIBJZ=(char*)malloc(dataSize*sizeof(char));
         for (int wlYRguN=0; wlYRguN < dataSize; wlYRguN++){
             [&]() {
-temp[wlYRguN]=deserialize_char(result["members"]["pData"]["members"][wlYRguN]);}();;
+temp_iSBIBJZ[wlYRguN]=deserialize_char(result["members"]["pData"]["members"][wlYRguN]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_iSBIBJZ;
 }();
 [&]() {
 [&]() {
@@ -61352,18 +63167,18 @@ pipelineCache=deserialize_VkPipelineCache(result["members"]["pipelineCache"]);}(
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_NiwVxun;[&]() {
 
         if (result["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_NiwVxun=NULL;
         return;
         }
-    temp=(char*)malloc(*pDataSize*sizeof(char));
+    temp_NiwVxun=(char*)malloc(*pDataSize*sizeof(char));
         for (int wPndHqQ=0; wPndHqQ < *pDataSize; wPndHqQ++){
             [&]() {
-temp[wPndHqQ]=deserialize_char(result["members"]["pData"]["members"][wPndHqQ]);}();;
+temp_NiwVxun[wPndHqQ]=deserialize_char(result["members"]["pData"]["members"][wPndHqQ]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_NiwVxun;
 }();
 VkResult return_value;
 [&]() {
@@ -77873,18 +79688,18 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         *(pAddress)=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_dwYlsmS;[&]() {
 
         if (result["members"]["pAddress"].contains("null")){
-        temp=NULL;
+        temp_dwYlsmS=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["pAddress"]["members"].size()*sizeof(char));
+    temp_dwYlsmS=(char*)malloc(result["members"]["pAddress"]["members"].size()*sizeof(char));
         for (int pCOjhwW=0; pCOjhwW < result["members"]["pAddress"]["members"].size(); pCOjhwW++){
             [&]() {
-temp[pCOjhwW]=deserialize_char(result["members"]["pAddress"]["members"][pCOjhwW]);}();;
+temp_dwYlsmS[pCOjhwW]=deserialize_char(result["members"]["pAddress"]["members"][pCOjhwW]);}();;
         }
-        }();*(pAddress)=(void*)temp;
+        }();*(pAddress)=(void*)temp_dwYlsmS;
 }();
 }();}();
 VkResult return_value;
@@ -86363,18 +88178,18 @@ validationCache=deserialize_VkValidationCacheEXT(result["members"]["validationCa
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_NiwVxun;[&]() {
 
         if (result["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_NiwVxun=NULL;
         return;
         }
-    temp=(char*)malloc(*pDataSize*sizeof(char));
+    temp_NiwVxun=(char*)malloc(*pDataSize*sizeof(char));
         for (int wPndHqQ=0; wPndHqQ < *pDataSize; wPndHqQ++){
             [&]() {
-temp[wPndHqQ]=deserialize_char(result["members"]["pData"]["members"][wPndHqQ]);}();;
+temp_NiwVxun[wPndHqQ]=deserialize_char(result["members"]["pData"]["members"][wPndHqQ]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_NiwVxun;
 }();
 VkResult return_value;
 [&]() {
@@ -86871,18 +88686,18 @@ infoType=deserialize_VkShaderInfoTypeAMD(result["members"]["infoType"]);}();
         pInfo=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_mSOrHkP;[&]() {
 
         if (result["members"]["pInfo"].contains("null")){
-        temp=NULL;
+        temp_mSOrHkP=NULL;
         return;
         }
-    temp=(char*)malloc(*pInfoSize*sizeof(char));
+    temp_mSOrHkP=(char*)malloc(*pInfoSize*sizeof(char));
         for (int YvufVzo=0; YvufVzo < *pInfoSize; YvufVzo++){
             [&]() {
-temp[YvufVzo]=deserialize_char(result["members"]["pInfo"]["members"][YvufVzo]);}();;
+temp_mSOrHkP[YvufVzo]=deserialize_char(result["members"]["pInfo"]["members"][YvufVzo]);}();;
         }
-        }();pInfo=(void*)temp;
+        }();pInfo=(void*)temp_mSOrHkP;
 }();
 VkResult return_value;
 [&]() {
@@ -94899,18 +96714,18 @@ dataSize=deserialize_size_t(result["members"]["dataSize"]);}();
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_iSBIBJZ;[&]() {
 
         if (result["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_iSBIBJZ=NULL;
         return;
         }
-    temp=(char*)malloc(dataSize*sizeof(char));
+    temp_iSBIBJZ=(char*)malloc(dataSize*sizeof(char));
         for (int wlYRguN=0; wlYRguN < dataSize; wlYRguN++){
             [&]() {
-temp[wlYRguN]=deserialize_char(result["members"]["pData"]["members"][wlYRguN]);}();;
+temp_iSBIBJZ[wlYRguN]=deserialize_char(result["members"]["pData"]["members"][wlYRguN]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_iSBIBJZ;
 }();
 [&]() {
 stride=deserialize_size_t(result["members"]["stride"]);}();
@@ -95386,18 +97201,18 @@ dataSize=deserialize_size_t(result["members"]["dataSize"]);}();
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_irsukaG;[&]() {
 
         if (result["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_irsukaG=NULL;
         return;
         }
-    temp=(char*)malloc(dataSize*sizeof(char));
+    temp_irsukaG=(char*)malloc(dataSize*sizeof(char));
         for (int AwCUhtG=0; AwCUhtG < dataSize; AwCUhtG++){
             [&]() {
-temp[AwCUhtG]=deserialize_char(result["members"]["pData"]["members"][AwCUhtG]);}();;
+temp_irsukaG[AwCUhtG]=deserialize_char(result["members"]["pData"]["members"][AwCUhtG]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_irsukaG;
 }();
 VkResult return_value;
 [&]() {
@@ -95538,18 +97353,18 @@ dataSize=deserialize_size_t(result["members"]["dataSize"]);}();
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_irsukaG;[&]() {
 
         if (result["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_irsukaG=NULL;
         return;
         }
-    temp=(char*)malloc(dataSize*sizeof(char));
+    temp_irsukaG=(char*)malloc(dataSize*sizeof(char));
         for (int AwCUhtG=0; AwCUhtG < dataSize; AwCUhtG++){
             [&]() {
-temp[AwCUhtG]=deserialize_char(result["members"]["pData"]["members"][AwCUhtG]);}();;
+temp_irsukaG[AwCUhtG]=deserialize_char(result["members"]["pData"]["members"][AwCUhtG]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_irsukaG;
 }();
 VkResult return_value;
 [&]() {
@@ -95690,18 +97505,18 @@ dataSize=deserialize_size_t(result["members"]["dataSize"]);}();
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_irsukaG;[&]() {
 
         if (result["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_irsukaG=NULL;
         return;
         }
-    temp=(char*)malloc(dataSize*sizeof(char));
+    temp_irsukaG=(char*)malloc(dataSize*sizeof(char));
         for (int AwCUhtG=0; AwCUhtG < dataSize; AwCUhtG++){
             [&]() {
-temp[AwCUhtG]=deserialize_char(result["members"]["pData"]["members"][AwCUhtG]);}();;
+temp_irsukaG[AwCUhtG]=deserialize_char(result["members"]["pData"]["members"][AwCUhtG]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_irsukaG;
 }();
 VkResult return_value;
 [&]() {
@@ -95830,18 +97645,18 @@ dataSize=deserialize_size_t(result["members"]["dataSize"]);}();
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_irsukaG;[&]() {
 
         if (result["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_irsukaG=NULL;
         return;
         }
-    temp=(char*)malloc(dataSize*sizeof(char));
+    temp_irsukaG=(char*)malloc(dataSize*sizeof(char));
         for (int AwCUhtG=0; AwCUhtG < dataSize; AwCUhtG++){
             [&]() {
-temp[AwCUhtG]=deserialize_char(result["members"]["pData"]["members"][AwCUhtG]);}();;
+temp_irsukaG[AwCUhtG]=deserialize_char(result["members"]["pData"]["members"][AwCUhtG]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_irsukaG;
 }();
 VkResult return_value;
 [&]() {
@@ -114841,18 +116656,18 @@ dataSize=deserialize_size_t(result["members"]["dataSize"]);}();
         pDescriptor=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_PabWOpv;[&]() {
 
         if (result["members"]["pDescriptor"].contains("null")){
-        temp=NULL;
+        temp_PabWOpv=NULL;
         return;
         }
-    temp=(char*)malloc(dataSize*sizeof(char));
+    temp_PabWOpv=(char*)malloc(dataSize*sizeof(char));
         for (int AbpRxUZ=0; AbpRxUZ < dataSize; AbpRxUZ++){
             [&]() {
-temp[AbpRxUZ]=deserialize_char(result["members"]["pDescriptor"]["members"][AbpRxUZ]);}();;
+temp_PabWOpv[AbpRxUZ]=deserialize_char(result["members"]["pDescriptor"]["members"][AbpRxUZ]);}();;
         }
-        }();pDescriptor=(void*)temp;
+        }();pDescriptor=(void*)temp_PabWOpv;
 }();
 }
 void vkCmdBindDescriptorBuffersEXT(
@@ -115325,18 +117140,18 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_pmQEAuH;[&]() {
 
         if (result["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_pmQEAuH=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["pData"]["members"].size()*sizeof(char));
+    temp_pmQEAuH=(char*)malloc(result["members"]["pData"]["members"].size()*sizeof(char));
         for (int MlLKgps=0; MlLKgps < result["members"]["pData"]["members"].size(); MlLKgps++){
             [&]() {
-temp[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
+temp_pmQEAuH[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_pmQEAuH;
 }();
 VkResult return_value;
 [&]() {
@@ -115466,18 +117281,18 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_pmQEAuH;[&]() {
 
         if (result["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_pmQEAuH=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["pData"]["members"].size()*sizeof(char));
+    temp_pmQEAuH=(char*)malloc(result["members"]["pData"]["members"].size()*sizeof(char));
         for (int MlLKgps=0; MlLKgps < result["members"]["pData"]["members"].size(); MlLKgps++){
             [&]() {
-temp[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
+temp_pmQEAuH[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_pmQEAuH;
 }();
 VkResult return_value;
 [&]() {
@@ -115607,18 +117422,18 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_pmQEAuH;[&]() {
 
         if (result["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_pmQEAuH=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["pData"]["members"].size()*sizeof(char));
+    temp_pmQEAuH=(char*)malloc(result["members"]["pData"]["members"].size()*sizeof(char));
         for (int MlLKgps=0; MlLKgps < result["members"]["pData"]["members"].size(); MlLKgps++){
             [&]() {
-temp[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
+temp_pmQEAuH[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_pmQEAuH;
 }();
 VkResult return_value;
 [&]() {
@@ -115748,18 +117563,18 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_pmQEAuH;[&]() {
 
         if (result["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_pmQEAuH=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["pData"]["members"].size()*sizeof(char));
+    temp_pmQEAuH=(char*)malloc(result["members"]["pData"]["members"].size()*sizeof(char));
         for (int MlLKgps=0; MlLKgps < result["members"]["pData"]["members"].size(); MlLKgps++){
             [&]() {
-temp[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
+temp_pmQEAuH[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_pmQEAuH;
 }();
 VkResult return_value;
 [&]() {
@@ -115889,18 +117704,18 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_pmQEAuH;[&]() {
 
         if (result["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_pmQEAuH=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["pData"]["members"].size()*sizeof(char));
+    temp_pmQEAuH=(char*)malloc(result["members"]["pData"]["members"].size()*sizeof(char));
         for (int MlLKgps=0; MlLKgps < result["members"]["pData"]["members"].size(); MlLKgps++){
             [&]() {
-temp[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
+temp_pmQEAuH[MlLKgps]=deserialize_char(result["members"]["pData"]["members"][MlLKgps]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_pmQEAuH;
 }();
 VkResult return_value;
 [&]() {
@@ -116895,18 +118710,18 @@ descriptorSet=deserialize_VkDescriptorSet(result["members"]["descriptorSet"]);}(
         *(ppData)=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_utcgXFU;[&]() {
 
         if (result["members"]["ppData"].contains("null")){
-        temp=NULL;
+        temp_utcgXFU=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["ppData"]["members"].size()*sizeof(char));
+    temp_utcgXFU=(char*)malloc(result["members"]["ppData"]["members"].size()*sizeof(char));
         for (int zjLTbBV=0; zjLTbBV < result["members"]["ppData"]["members"].size(); zjLTbBV++){
             [&]() {
-temp[zjLTbBV]=deserialize_char(result["members"]["ppData"]["members"][zjLTbBV]);}();;
+temp_utcgXFU[zjLTbBV]=deserialize_char(result["members"]["ppData"]["members"][zjLTbBV]);}();;
         }
-        }();*(ppData)=(void*)temp;
+        }();*(ppData)=(void*)temp_utcgXFU;
 }();
 }();
 }
@@ -118218,18 +120033,18 @@ dataSize=deserialize_size_t(result["members"]["dataSize"]);}();
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_iSBIBJZ;[&]() {
 
         if (result["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_iSBIBJZ=NULL;
         return;
         }
-    temp=(char*)malloc(dataSize*sizeof(char));
+    temp_iSBIBJZ=(char*)malloc(dataSize*sizeof(char));
         for (int wlYRguN=0; wlYRguN < dataSize; wlYRguN++){
             [&]() {
-temp[wlYRguN]=deserialize_char(result["members"]["pData"]["members"][wlYRguN]);}();;
+temp_iSBIBJZ[wlYRguN]=deserialize_char(result["members"]["pData"]["members"][wlYRguN]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_iSBIBJZ;
 }();
 [&]() {
 stride=deserialize_size_t(result["members"]["stride"]);}();
@@ -120462,18 +122277,18 @@ device=deserialize_VkDevice(result["members"]["device"]);}();
         *(ppData)=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_utcgXFU;[&]() {
 
         if (result["members"]["ppData"].contains("null")){
-        temp=NULL;
+        temp_utcgXFU=NULL;
         return;
         }
-    temp=(char*)malloc(result["members"]["ppData"]["members"].size()*sizeof(char));
+    temp_utcgXFU=(char*)malloc(result["members"]["ppData"]["members"].size()*sizeof(char));
         for (int zjLTbBV=0; zjLTbBV < result["members"]["ppData"]["members"].size(); zjLTbBV++){
             [&]() {
-temp[zjLTbBV]=deserialize_char(result["members"]["ppData"]["members"][zjLTbBV]);}();;
+temp_utcgXFU[zjLTbBV]=deserialize_char(result["members"]["ppData"]["members"][zjLTbBV]);}();;
         }
-        }();*(ppData)=(void*)temp;
+        }();*(ppData)=(void*)temp_utcgXFU;
 }();
 }();
 VkResult return_value;
@@ -120991,18 +122806,18 @@ shader=deserialize_VkShaderEXT(result["members"]["shader"]);}();
         pData=NULL;
         return;
         }
-    char* temp;[&]() {
+    char* temp_NiwVxun;[&]() {
 
         if (result["members"]["pData"].contains("null")){
-        temp=NULL;
+        temp_NiwVxun=NULL;
         return;
         }
-    temp=(char*)malloc(*pDataSize*sizeof(char));
+    temp_NiwVxun=(char*)malloc(*pDataSize*sizeof(char));
         for (int wPndHqQ=0; wPndHqQ < *pDataSize; wPndHqQ++){
             [&]() {
-temp[wPndHqQ]=deserialize_char(result["members"]["pData"]["members"][wPndHqQ]);}();;
+temp_NiwVxun[wPndHqQ]=deserialize_char(result["members"]["pData"]["members"][wPndHqQ]);}();;
         }
-        }();pData=(void*)temp;
+        }();pData=(void*)temp_NiwVxun;
 }();
 VkResult return_value;
 [&]() {
