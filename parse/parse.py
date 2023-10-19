@@ -92,6 +92,10 @@ for item in vk.findall("./types/type"):
                 
                 result["header"]=ET.tostring(member, encoding='utf8', method='text').decode()
                 
+                if type=="struct" and result["name"]=="pNext" and result["type"]=="void" and result["num_indirection"]==1:
+                    result["type"]="pNext"
+                    result["num_indirection"]=0
+                    
                 members[i]=result
             members=[_ for _ in members if _ is not None]
         structs[name]=members

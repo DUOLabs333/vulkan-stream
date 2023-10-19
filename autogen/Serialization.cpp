@@ -38405,7 +38405,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_RdGORiv=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pFjYjfs=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pApplicationName"]=[&]() {
     json return_nmjImiS=json({});
     
@@ -38458,7 +38460,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_qSwiNsk;[&]() {
+temp_qSwiNsk=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_qSwiNsk;}();
 [&]() {
 char* temp_ETNfrMs;[&]() {
 
@@ -38617,7 +38621,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_OlbDGau=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pFjYjfs=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_vBvmwCz=json({});
     return serialize_VkDeviceQueueCreateFlags(name.flags);}();
@@ -38652,7 +38658,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_qSwiNsk;[&]() {
+temp_qSwiNsk=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_qSwiNsk;}();
 [&]() {
 result.flags=deserialize_VkDeviceQueueCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -38681,7 +38689,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_yytgBRN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pFjYjfs=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_lAitDSq=json({});
     return serialize_VkDeviceCreateFlags(name.flags);}();
@@ -38796,7 +38806,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_qSwiNsk;[&]() {
+temp_qSwiNsk=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_qSwiNsk;}();
 [&]() {
 result.flags=deserialize_VkDeviceCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -38884,7 +38896,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_MMNzsuU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pFjYjfs=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_xiGaBMD=json({});
     return serialize_VkInstanceCreateFlags(name.flags);}();
@@ -38978,7 +38992,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_qSwiNsk;[&]() {
+temp_qSwiNsk=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_qSwiNsk;}();
 [&]() {
 result.flags=deserialize_VkInstanceCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -39143,7 +39159,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_BufBzae=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["allocationSize"]=[&]() {
     json return_uDjfINL=json({});
     return_uDjfINL=[&]() {
@@ -39159,7 +39177,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 [&]() {
 result.allocationSize=deserialize_uint64_t(name["members"]["allocationSize"]);}();}();
@@ -39322,7 +39342,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_vICjcOt=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["memory"]=[&]() {
     json return_kczLTFy=json({});
     return serialize_VkDeviceMemory(name.memory);}();
@@ -39343,7 +39365,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.memory=deserialize_VkDeviceMemory(name["members"]["memory"]);}();
 [&]() {
@@ -39484,7 +39508,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GysWQEg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["dstSet"]=[&]() {
     json return_hzFKAQT=json({});
     return serialize_VkDescriptorSet(name.dstSet);}();
@@ -39561,7 +39587,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.dstSet=deserialize_VkDescriptorSet(name["members"]["dstSet"]);}();
 [&]() {
@@ -39620,7 +39648,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_FYUrgZL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcSet"]=[&]() {
     json return_nshthzB=json({});
     return serialize_VkDescriptorSet(name.srcSet);}();
@@ -39649,7 +39679,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.srcSet=deserialize_VkDescriptorSet(name["members"]["srcSet"]);}();
 [&]() {
@@ -39673,7 +39705,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_aygRAqN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_fJVPDUH=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["usage"]=[&]() {
     json return_dtcDzeb=json({});
     return serialize_VkBufferUsageFlags2KHR(name.usage);}();
@@ -39684,7 +39718,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_sKVZcum;[&]() {
+temp_sKVZcum=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_sKVZcum;}();
 [&]() {
 result.usage=deserialize_VkBufferUsageFlags2KHR(name["members"]["usage"]);}();
 return result;}
@@ -39696,7 +39732,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_Tpqbbxv=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_TRkrDGa=json({});
     return serialize_VkBufferCreateFlags(name.flags);}();
@@ -39739,7 +39777,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkBufferCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -39773,7 +39813,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_rljbUXz=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_GyFAtON=json({});
     return serialize_VkBufferViewCreateFlags(name.flags);}();
@@ -39800,7 +39842,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkBufferViewCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -39915,7 +39959,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_OeDNsFh=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcAccessMask"]=[&]() {
     json return_SNLNcxb=json({});
     return serialize_VkAccessFlags(name.srcAccessMask);}();
@@ -39929,7 +39975,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.srcAccessMask=deserialize_VkAccessFlags(name["members"]["srcAccessMask"]);}();
 [&]() {
@@ -39943,7 +39991,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_aQmlDcj=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcAccessMask"]=[&]() {
     json return_SNLNcxb=json({});
     return serialize_VkAccessFlags(name.srcAccessMask);}();
@@ -39976,7 +40026,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.srcAccessMask=deserialize_VkAccessFlags(name["members"]["srcAccessMask"]);}();
 [&]() {
@@ -40002,7 +40054,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_cgpLKnX=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcAccessMask"]=[&]() {
     json return_SNLNcxb=json({});
     return serialize_VkAccessFlags(name.srcAccessMask);}();
@@ -40034,7 +40088,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.srcAccessMask=deserialize_VkAccessFlags(name["members"]["srcAccessMask"]);}();
 [&]() {
@@ -40060,7 +40116,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_sdoFSbG=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_wYOFTPg=json({});
     return serialize_VkImageCreateFlags(name.flags);}();
@@ -40122,7 +40180,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkImageCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -40220,7 +40280,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_whRpZsc=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_nRqdapb=json({});
     return serialize_VkImageViewCreateFlags(name.flags);}();
@@ -40246,7 +40308,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkImageViewCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -40548,7 +40612,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_FDqkAKo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["waitSemaphoreCount"]=[&]() {
     json return_vypJLgL=json({});
     return serialize_uint32_t(name.waitSemaphoreCount);}();
@@ -40661,7 +40727,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.waitSemaphoreCount=deserialize_uint32_t(name["members"]["waitSemaphoreCount"]);}();
 [&]() {
@@ -41002,7 +41070,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_zrmZweO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_DniweKE=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_fdTUIMH=json({});
     return serialize_VkShaderModuleCreateFlags(name.flags);}();
@@ -41034,7 +41104,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_zizPuAo;[&]() {
+temp_zizPuAo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_zizPuAo;}();
 [&]() {
 result.flags=deserialize_VkShaderModuleCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -41123,7 +41195,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_npxWwNK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_IUsdGsy=json({});
     return serialize_VkDescriptorSetLayoutCreateFlags(name.flags);}();
@@ -41155,7 +41229,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkDescriptorSetLayoutCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -41203,7 +41279,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_qRwaRDp=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_uGXArLz=json({});
     return serialize_VkDescriptorPoolCreateFlags(name.flags);}();
@@ -41238,7 +41316,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkDescriptorPoolCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -41267,7 +41347,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_sxKNZrt=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["descriptorPool"]=[&]() {
     json return_eThZbBQ=json({});
     return serialize_VkDescriptorPool(name.descriptorPool);}();
@@ -41299,7 +41381,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.descriptorPool=deserialize_VkDescriptorPool(name["members"]["descriptorPool"]);}();
 [&]() {
@@ -41449,7 +41533,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_Xbohcxe=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_kjrreNz=json({});
     return serialize_VkPipelineShaderStageCreateFlags(name.flags);}();
@@ -41495,7 +41581,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkPipelineShaderStageCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -41535,7 +41623,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KgnkIlY=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_uwRslpd=json({});
     return serialize_VkPipelineCreateFlags(name.flags);}();
@@ -41558,7 +41648,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkPipelineCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -41578,7 +41670,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ioStFBU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_TDxuxbE=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceAddress"]=[&]() {
     json return_UHBTGtH=json({});
     return_UHBTGtH=[&]() {
@@ -41601,7 +41695,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_wNPKlhZ;[&]() {
+temp_wNPKlhZ=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_wNPKlhZ;}();
 [&]() {
 [&]() {
 result.deviceAddress=deserialize_uint64_t(name["members"]["deviceAddress"]);}();}();
@@ -41620,7 +41716,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_FRDVraK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_fJVPDUH=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_ucvWVxz=json({});
     return serialize_VkPipelineCreateFlags2KHR(name.flags);}();
@@ -41631,7 +41729,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_sKVZcum;[&]() {
+temp_sKVZcum=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_sKVZcum;}();
 [&]() {
 result.flags=deserialize_VkPipelineCreateFlags2KHR(name["members"]["flags"]);}();
 return result;}
@@ -41700,7 +41800,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_OQaGfmE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_abMXTMX=json({});
     return serialize_VkPipelineVertexInputStateCreateFlags(name.flags);}();
@@ -41753,7 +41855,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkPipelineVertexInputStateCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -41795,7 +41899,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_YcNLIZD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_VsWcAsF=json({});
     return serialize_VkPipelineInputAssemblyStateCreateFlags(name.flags);}();
@@ -41814,7 +41920,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkPipelineInputAssemblyStateCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -41831,7 +41939,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_vpMtFNp=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_UcDKDzL=json({});
     return serialize_VkPipelineTessellationStateCreateFlags(name.flags);}();
@@ -41845,7 +41955,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkPipelineTessellationStateCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -41859,7 +41971,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_zrvoiTa=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_MDtcAEh=json({});
     return serialize_VkPipelineViewportStateCreateFlags(name.flags);}();
@@ -41912,7 +42026,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkPipelineViewportStateCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -41954,7 +42070,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_qByoPnS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_UUaEcQd=json({});
     return serialize_VkPipelineRasterizationStateCreateFlags(name.flags);}();
@@ -42001,7 +42119,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.flags=deserialize_VkPipelineRasterizationStateCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -42036,7 +42156,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ofRgphU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_VtzhIqf=json({});
     return serialize_VkPipelineMultisampleStateCreateFlags(name.flags);}();
@@ -42088,7 +42210,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkPipelineMultisampleStateCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -42186,7 +42310,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_amROKCV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_DipEhaR=json({});
     return serialize_VkPipelineColorBlendStateCreateFlags(name.flags);}();
@@ -42239,7 +42365,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkPipelineColorBlendStateCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -42278,7 +42406,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fOVynNb=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_zPdRSRb=json({});
     return serialize_VkPipelineDynamicStateCreateFlags(name.flags);}();
@@ -42310,7 +42440,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkPipelineDynamicStateCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -42383,7 +42515,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lorTkBn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_YonQBqz=json({});
     return serialize_VkPipelineDepthStencilStateCreateFlags(name.flags);}();
@@ -42429,7 +42563,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkPipelineDepthStencilStateCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -42463,7 +42599,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_TPpoacX=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_uwRslpd=json({});
     return serialize_VkPipelineCreateFlags(name.flags);}();
@@ -42609,7 +42747,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkPipelineCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -42745,7 +42885,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AgyPRzg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_jGegdnI=json({});
     return serialize_VkPipelineCacheCreateFlags(name.flags);}();
@@ -42784,7 +42926,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkPipelineCacheCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -42895,7 +43039,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oRzZWUL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_NRecIKC=json({});
     return serialize_VkPipelineLayoutCreateFlags(name.flags);}();
@@ -42948,7 +43094,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkPipelineLayoutCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -42990,7 +43138,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_XKccXsU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_TFhmdmh=json({});
     return serialize_VkSamplerCreateFlags(name.flags);}();
@@ -43052,7 +43202,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkSamplerCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -43097,7 +43249,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_bUcMTLo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_XKXEXXA=json({});
     return serialize_VkCommandPoolCreateFlags(name.flags);}();
@@ -43111,7 +43265,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkCommandPoolCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -43125,7 +43281,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_HDqFnXI=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["commandPool"]=[&]() {
     json return_dJNiPNB=json({});
     return serialize_VkCommandPool(name.commandPool);}();
@@ -43142,7 +43300,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.commandPool=deserialize_VkCommandPool(name["members"]["commandPool"]);}();
 [&]() {
@@ -43158,7 +43318,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_MMUSFJq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["renderPass"]=[&]() {
     json return_XiEaxOh=json({});
     return serialize_VkRenderPass(name.renderPass);}();
@@ -43186,7 +43348,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.renderPass=deserialize_VkRenderPass(name["members"]["renderPass"]);}();
 [&]() {
@@ -43209,7 +43373,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_qLdGwxS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_xSgGGpw=json({});
     return serialize_VkCommandBufferUsageFlags(name.flags);}();
@@ -43231,7 +43397,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkCommandBufferUsageFlags(name["members"]["flags"]);}();
 [&]() {
@@ -43254,7 +43422,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_XiAebxy=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["renderPass"]=[&]() {
     json return_KtIQXAp=json({});
     return serialize_VkRenderPass(name.renderPass);}();
@@ -43292,7 +43462,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.renderPass=deserialize_VkRenderPass(name["members"]["renderPass"]);}();
 [&]() {
@@ -43767,7 +43939,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_VPSOQXi=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_oCKlbej=json({});
     return serialize_VkRenderPassCreateFlags(name.flags);}();
@@ -43841,7 +44015,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkRenderPassCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -43898,7 +44074,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pAmfnVe=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_eavUKxc=json({});
     return serialize_VkEventCreateFlags(name.flags);}();
@@ -43909,7 +44087,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkEventCreateFlags(name["members"]["flags"]);}();
 return result;}
@@ -43921,7 +44101,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oTTDueq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_pZbmbWd=json({});
     return serialize_VkFenceCreateFlags(name.flags);}();
@@ -43932,7 +44114,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkFenceCreateFlags(name["members"]["flags"]);}();
 return result;}
@@ -45114,7 +45298,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_CZxixGH=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_xpzRQpY=json({});
     return serialize_VkSemaphoreCreateFlags(name.flags);}();
@@ -45125,7 +45311,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkSemaphoreCreateFlags(name["members"]["flags"]);}();
 return result;}
@@ -45137,7 +45325,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_EduYvse=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_dsOhOLf=json({});
     return serialize_VkQueryPoolCreateFlags(name.flags);}();
@@ -45157,7 +45347,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkQueryPoolCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -45175,7 +45367,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ZxcNhHV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_PzyNHUO=json({});
     return serialize_VkFramebufferCreateFlags(name.flags);}();
@@ -45219,7 +45413,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkFramebufferCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -45394,7 +45590,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_WaUWNhg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["waitSemaphoreCount"]=[&]() {
     json return_taACTFE=json({});
     return serialize_uint32_t(name.waitSemaphoreCount);}();
@@ -45483,7 +45681,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.waitSemaphoreCount=deserialize_uint32_t(name["members"]["waitSemaphoreCount"]);}();
 [&]() {
@@ -45692,7 +45892,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_qKpaHpk=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_kNHNBar=json({});
     return serialize_VkDisplayModeCreateFlagsKHR(name.flags);}();
@@ -45706,7 +45908,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.flags=deserialize_VkDisplayModeCreateFlagsKHR(name["members"]["flags"]);}();
 [&]() {
@@ -45776,7 +45980,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_JBdWbKr=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_YMsnIZc=json({});
     return serialize_VkDisplaySurfaceCreateFlagsKHR(name.flags);}();
@@ -45808,7 +46014,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.flags=deserialize_VkDisplaySurfaceCreateFlagsKHR(name["members"]["flags"]);}();
 [&]() {
@@ -45834,7 +46042,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_OmucjQL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcRect"]=[&]() {
     json return_VjPWRbT=json({});
     return serialize_VkRect2D(name.srcRect);}();
@@ -45853,7 +46063,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.srcRect=deserialize_VkRect2D(name["members"]["srcRect"]);}();
 [&]() {
@@ -45931,7 +46143,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_yMXhpoZ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_IIeIpWO=json({});
     return serialize_VkXlibSurfaceCreateFlagsKHR(name.flags);}();
@@ -45955,7 +46169,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.flags=deserialize_VkXlibSurfaceCreateFlagsKHR(name["members"]["flags"]);}();
 [&]() {
@@ -45978,7 +46194,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_bPZEwBX=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_fPJXPbA=json({});
     return serialize_VkXcbSurfaceCreateFlagsKHR(name.flags);}();
@@ -46002,7 +46220,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.flags=deserialize_VkXcbSurfaceCreateFlagsKHR(name["members"]["flags"]);}();
 [&]() {
@@ -46046,7 +46266,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_hqCGfPG=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_jzSKniA=json({});
     return serialize_VkSwapchainCreateFlagsKHR(name.flags);}();
@@ -46119,7 +46341,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.flags=deserialize_VkSwapchainCreateFlagsKHR(name["members"]["flags"]);}();
 [&]() {
@@ -46173,7 +46397,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_kahreBS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_ezEOKPE=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["waitSemaphoreCount"]=[&]() {
     json return_UhEvfPJ=json({});
     return serialize_uint32_t(name.waitSemaphoreCount);}();
@@ -46259,7 +46485,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_YdXSoFF;[&]() {
+temp_YdXSoFF=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_YdXSoFF;}();
 [&]() {
 result.waitSemaphoreCount=deserialize_uint32_t(name["members"]["waitSemaphoreCount"]);}();
 [&]() {
@@ -46324,7 +46552,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_thZjshw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_AttBlnM=json({});
     return serialize_VkDebugReportFlagsEXT(name.flags);}();
@@ -46359,7 +46589,7 @@ result["members"]["pUserData"]=[&]() {
 return result;}
 typedef struct {
 uintptr_t VkStructureType_id;
-uintptr_t void_id;
+uintptr_t pNext_id;
 uintptr_t VkDebugReportFlagsEXT_id;
 uintptr_t PFN_vkDebugReportCallbackEXT_id;
 void* pUserData;
@@ -46371,7 +46601,9 @@ void* pUserData;
 auto _struct = new VkDebugReportCallbackCreateInfoEXT_struct;
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.flags=deserialize_VkDebugReportFlagsEXT(name["members"]["flags"]);}();
 [&]() {
@@ -46412,7 +46644,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KCGXwBs=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["disabledValidationCheckCount"]=[&]() {
     json return_JfqUUND=json({});
     return serialize_uint32_t(name.disabledValidationCheckCount);}();
@@ -46441,7 +46675,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.disabledValidationCheckCount=deserialize_uint32_t(name["members"]["disabledValidationCheckCount"]);}();
 [&]() {
@@ -46466,7 +46702,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_sLmolvI=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["enabledValidationFeatureCount"]=[&]() {
     json return_TItHjQV=json({});
     return serialize_uint32_t(name.enabledValidationFeatureCount);}();
@@ -46516,7 +46754,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.enabledValidationFeatureCount=deserialize_uint32_t(name["members"]["enabledValidationFeatureCount"]);}();
 [&]() {
@@ -46556,7 +46796,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_vRsyQkW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["rasterizationOrder"]=[&]() {
     json return_rTXhppO=json({});
     return serialize_VkRasterizationOrderAMD(name.rasterizationOrder);}();
@@ -46567,7 +46809,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.rasterizationOrder=deserialize_VkRasterizationOrderAMD(name["members"]["rasterizationOrder"]);}();
 return result;}
@@ -46579,7 +46823,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_hXaUVtD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["objectType"]=[&]() {
     json return_EoiXmBl=json({});
     return serialize_VkDebugReportObjectTypeEXT(name.objectType);}();
@@ -46611,7 +46857,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.objectType=deserialize_VkDebugReportObjectTypeEXT(name["members"]["objectType"]);}();
 [&]() {
@@ -46638,7 +46886,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LqMKdBy=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["objectType"]=[&]() {
     json return_EoiXmBl=json({});
     return serialize_VkDebugReportObjectTypeEXT(name.objectType);}();
@@ -46683,7 +46933,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.objectType=deserialize_VkDebugReportObjectTypeEXT(name["members"]["objectType"]);}();
 [&]() {
@@ -46721,7 +46973,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_zYNOvAy=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pMarkerName"]=[&]() {
     json return_JpGaqrq=json({});
     
@@ -46760,7 +47014,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 char* temp_xjyNRYt;[&]() {
 
@@ -46790,7 +47046,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_UekGPLx=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["dedicatedAllocation"]=[&]() {
     json return_JEcjuOq=json({});
     return_JEcjuOq=[&]() {
@@ -46803,7 +47061,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 [&]() {
 result.dedicatedAllocation=deserialize_uint32_t(name["members"]["dedicatedAllocation"]);}();}();
@@ -46816,7 +47076,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_UwHofyq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["dedicatedAllocation"]=[&]() {
     json return_FdxMFAM=json({});
     return_FdxMFAM=[&]() {
@@ -46829,7 +47091,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 [&]() {
 result.dedicatedAllocation=deserialize_uint32_t(name["members"]["dedicatedAllocation"]);}();}();
@@ -46842,7 +47106,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_goUBjgx=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["image"]=[&]() {
     json return_hcdoCuf=json({});
     return serialize_VkImage(name.image);}();
@@ -46856,7 +47122,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.image=deserialize_VkImage(name["members"]["image"]);}();
 [&]() {
@@ -46901,7 +47169,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_aFZsjvx=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleTypes"]=[&]() {
     json return_LZihjUd=json({});
     return serialize_VkExternalMemoryHandleTypeFlagsNV(name.handleTypes);}();
@@ -46912,7 +47182,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleTypes=deserialize_VkExternalMemoryHandleTypeFlagsNV(name["members"]["handleTypes"]);}();
 return result;}
@@ -46924,7 +47196,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oUgDhBB=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleTypes"]=[&]() {
     json return_LZihjUd=json({});
     return serialize_VkExternalMemoryHandleTypeFlagsNV(name.handleTypes);}();
@@ -46935,7 +47209,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleTypes=deserialize_VkExternalMemoryHandleTypeFlagsNV(name["members"]["handleTypes"]);}();
 return result;}
@@ -46947,7 +47223,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_FeqTFbz=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceGeneratedCommands"]=[&]() {
     json return_GCCaqCL=json({});
     return_GCCaqCL=[&]() {
@@ -46960,7 +47238,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.deviceGeneratedCommands=deserialize_uint32_t(name["members"]["deviceGeneratedCommands"]);}();}();
@@ -46973,7 +47252,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_WumVhAh=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_JxLibiQ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceGeneratedCompute"]=[&]() {
     json return_qSifEvF=json({});
     return_qSifEvF=[&]() {
@@ -46996,7 +47277,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.deviceGeneratedCompute=deserialize_uint32_t(name["members"]["deviceGeneratedCompute"]);}();}();
@@ -47015,7 +47297,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_EFZojyd=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["privateDataSlotRequestCount"]=[&]() {
     json return_MmmcwbP=json({});
     return serialize_uint32_t(name.privateDataSlotRequestCount);}();
@@ -47026,7 +47310,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.privateDataSlotRequestCount=deserialize_uint32_t(name["members"]["privateDataSlotRequestCount"]);}();
 return result;}
@@ -47038,7 +47324,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_EFZojyd=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["privateDataSlotRequestCount"]=[&]() {
     json return_MmmcwbP=json({});
     return serialize_uint32_t(name.privateDataSlotRequestCount);}();
@@ -47049,7 +47337,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.privateDataSlotRequestCount=deserialize_uint32_t(name["members"]["privateDataSlotRequestCount"]);}();
 return result;}
@@ -47061,7 +47351,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_NFCgGdY=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_XEILlZn=json({});
     return serialize_VkPrivateDataSlotCreateFlags(name.flags);}();
@@ -47072,7 +47364,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.flags=deserialize_VkPrivateDataSlotCreateFlags(name["members"]["flags"]);}();
 return result;}
@@ -47084,7 +47378,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_NFCgGdY=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_XEILlZn=json({});
     return serialize_VkPrivateDataSlotCreateFlags(name.flags);}();
@@ -47095,7 +47391,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.flags=deserialize_VkPrivateDataSlotCreateFlags(name["members"]["flags"]);}();
 return result;}
@@ -47107,7 +47405,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AMwnzXa=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_cLMbQUP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["privateData"]=[&]() {
     json return_VMwhFcE=json({});
     return_VMwhFcE=[&]() {
@@ -47120,7 +47420,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.privateData=deserialize_uint32_t(name["members"]["privateData"]);}();}();
@@ -47133,7 +47434,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AMwnzXa=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_cLMbQUP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["privateData"]=[&]() {
     json return_VMwhFcE=json({});
     return_VMwhFcE=[&]() {
@@ -47146,7 +47449,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.privateData=deserialize_uint32_t(name["members"]["privateData"]);}();}();
@@ -47159,7 +47463,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_raTDrhV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxGraphicsShaderGroupCount"]=[&]() {
     json return_uWcEiha=json({});
     return serialize_uint32_t(name.maxGraphicsShaderGroupCount);}();
@@ -47194,7 +47500,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxGraphicsShaderGroupCount=deserialize_uint32_t(name["members"]["maxGraphicsShaderGroupCount"]);}();
 [&]() {
@@ -47222,7 +47529,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_obfHouF=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxMultiDrawCount"]=[&]() {
     json return_RbKfbhB=json({});
     return serialize_uint32_t(name.maxMultiDrawCount);}();
@@ -47233,7 +47542,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxMultiDrawCount=deserialize_uint32_t(name["members"]["maxMultiDrawCount"]);}();
 return result;}
@@ -47245,7 +47555,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_NSeRTqQ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_UfFngYT=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["stageCount"]=[&]() {
     json return_eMmDMVt=json({});
     return serialize_uint32_t(name.stageCount);}();
@@ -47296,7 +47608,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_unNbVLC;[&]() {
+temp_unNbVLC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_unNbVLC;}();
 [&]() {
 result.stageCount=deserialize_uint32_t(name["members"]["stageCount"]);}();
 [&]() {
@@ -47343,7 +47657,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_YFBjllv=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_nNniLrj=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["groupCount"]=[&]() {
     json return_MVYsZnn=json({});
     return serialize_uint32_t(name.groupCount);}();
@@ -47393,7 +47709,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_eJPiWGi;[&]() {
+temp_eJPiWGi=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_eJPiWGi;}();
 [&]() {
 result.groupCount=deserialize_uint32_t(name["members"]["groupCount"]);}();
 [&]() {
@@ -47547,7 +47865,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_APepgDS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_nQmQJXc=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["tokenType"]=[&]() {
     json return_ezbmccp=json({});
     return serialize_VkIndirectCommandsTokenTypeNV(name.tokenType);}();
@@ -47626,7 +47946,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_AKhkPTS;[&]() {
+temp_AKhkPTS=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_AKhkPTS;}();
 [&]() {
 result.tokenType=deserialize_VkIndirectCommandsTokenTypeNV(name["members"]["tokenType"]);}();
 [&]() {
@@ -47685,7 +48007,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_bFwsiez=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jjpEuVo=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_MfefrwG=json({});
     return serialize_VkIndirectCommandsLayoutUsageFlagsNV(name.flags);}();
@@ -47741,7 +48065,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_MTVHsNm;[&]() {
+temp_MTVHsNm=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_MTVHsNm;}();
 [&]() {
 result.flags=deserialize_VkIndirectCommandsLayoutUsageFlagsNV(name["members"]["flags"]);}();
 [&]() {
@@ -47785,7 +48111,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_CELMiEc=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_dlkPATN=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pipelineBindPoint"]=[&]() {
     json return_sucepRy=json({});
     return serialize_VkPipelineBindPoint(name.pipelineBindPoint);}();
@@ -47855,7 +48183,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_GmCEwHf;[&]() {
+temp_GmCEwHf=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_GmCEwHf;}();
 [&]() {
 result.pipelineBindPoint=deserialize_VkPipelineBindPoint(name["members"]["pipelineBindPoint"]);}();
 [&]() {
@@ -47906,7 +48236,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_mqbUnCb=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_KlESVpD=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pipelineBindPoint"]=[&]() {
     json return_qUKrtUP=json({});
     return serialize_VkPipelineBindPoint(name.pipelineBindPoint);}();
@@ -47926,7 +48258,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XeEuUtf;[&]() {
+temp_XeEuUtf=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XeEuUtf;}();
 [&]() {
 result.pipelineBindPoint=deserialize_VkPipelineBindPoint(name["members"]["pipelineBindPoint"]);}();
 [&]() {
@@ -47944,7 +48278,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_yoRBwhD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_TDxuxbE=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pipelineBindPoint"]=[&]() {
     json return_SMzwiJZ=json({});
     return serialize_VkPipelineBindPoint(name.pipelineBindPoint);}();
@@ -47958,7 +48294,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_wNPKlhZ;[&]() {
+temp_wNPKlhZ=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_wNPKlhZ;}();
 [&]() {
 result.pipelineBindPoint=deserialize_VkPipelineBindPoint(name["members"]["pipelineBindPoint"]);}();
 [&]() {
@@ -47991,7 +48329,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_Symfkoj=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["features"]=[&]() {
     json return_TgVftPL=json({});
     return serialize_VkPhysicalDeviceFeatures(name.features);}();
@@ -48002,7 +48342,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.features=deserialize_VkPhysicalDeviceFeatures(name["members"]["features"]);}();
 return result;}
@@ -48014,7 +48355,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_Symfkoj=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["features"]=[&]() {
     json return_TgVftPL=json({});
     return serialize_VkPhysicalDeviceFeatures(name.features);}();
@@ -48025,7 +48368,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.features=deserialize_VkPhysicalDeviceFeatures(name["members"]["features"]);}();
 return result;}
@@ -48037,7 +48381,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_UDtAjFA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["properties"]=[&]() {
     json return_eGVkQUU=json({});
     return serialize_VkPhysicalDeviceProperties(name.properties);}();
@@ -48048,7 +48394,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.properties=deserialize_VkPhysicalDeviceProperties(name["members"]["properties"]);}();
 return result;}
@@ -48060,7 +48407,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_UDtAjFA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["properties"]=[&]() {
     json return_eGVkQUU=json({});
     return serialize_VkPhysicalDeviceProperties(name.properties);}();
@@ -48071,7 +48420,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.properties=deserialize_VkPhysicalDeviceProperties(name["members"]["properties"]);}();
 return result;}
@@ -48083,7 +48433,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QSuhiGe=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["formatProperties"]=[&]() {
     json return_dTZIRWi=json({});
     return serialize_VkFormatProperties(name.formatProperties);}();
@@ -48094,7 +48446,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.formatProperties=deserialize_VkFormatProperties(name["members"]["formatProperties"]);}();
 return result;}
@@ -48106,7 +48459,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QSuhiGe=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["formatProperties"]=[&]() {
     json return_dTZIRWi=json({});
     return serialize_VkFormatProperties(name.formatProperties);}();
@@ -48117,7 +48472,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.formatProperties=deserialize_VkFormatProperties(name["members"]["formatProperties"]);}();
 return result;}
@@ -48129,7 +48485,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_yIriuwr=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imageFormatProperties"]=[&]() {
     json return_ezHumci=json({});
     return serialize_VkImageFormatProperties(name.imageFormatProperties);}();
@@ -48140,7 +48498,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.imageFormatProperties=deserialize_VkImageFormatProperties(name["members"]["imageFormatProperties"]);}();
 return result;}
@@ -48152,7 +48511,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_yIriuwr=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imageFormatProperties"]=[&]() {
     json return_ezHumci=json({});
     return serialize_VkImageFormatProperties(name.imageFormatProperties);}();
@@ -48163,7 +48524,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.imageFormatProperties=deserialize_VkImageFormatProperties(name["members"]["imageFormatProperties"]);}();
 return result;}
@@ -48175,7 +48537,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_aKGXsHw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["format"]=[&]() {
     json return_IHIorIF=json({});
     return serialize_VkFormat(name.format);}();
@@ -48198,7 +48562,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.format=deserialize_VkFormat(name["members"]["format"]);}();
 [&]() {
@@ -48218,7 +48584,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_aKGXsHw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["format"]=[&]() {
     json return_IHIorIF=json({});
     return serialize_VkFormat(name.format);}();
@@ -48241,7 +48609,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.format=deserialize_VkFormat(name["members"]["format"]);}();
 [&]() {
@@ -48261,7 +48631,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fiGjzXz=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["queueFamilyProperties"]=[&]() {
     json return_dmqdrhD=json({});
     return serialize_VkQueueFamilyProperties(name.queueFamilyProperties);}();
@@ -48272,7 +48644,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.queueFamilyProperties=deserialize_VkQueueFamilyProperties(name["members"]["queueFamilyProperties"]);}();
 return result;}
@@ -48284,7 +48657,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fiGjzXz=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["queueFamilyProperties"]=[&]() {
     json return_dmqdrhD=json({});
     return serialize_VkQueueFamilyProperties(name.queueFamilyProperties);}();
@@ -48295,7 +48670,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.queueFamilyProperties=deserialize_VkQueueFamilyProperties(name["members"]["queueFamilyProperties"]);}();
 return result;}
@@ -48307,7 +48683,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_PWfbVIu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["memoryProperties"]=[&]() {
     json return_PFMnPuT=json({});
     return serialize_VkPhysicalDeviceMemoryProperties(name.memoryProperties);}();
@@ -48318,7 +48696,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.memoryProperties=deserialize_VkPhysicalDeviceMemoryProperties(name["members"]["memoryProperties"]);}();
 return result;}
@@ -48330,7 +48709,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_PWfbVIu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["memoryProperties"]=[&]() {
     json return_PFMnPuT=json({});
     return serialize_VkPhysicalDeviceMemoryProperties(name.memoryProperties);}();
@@ -48341,7 +48722,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.memoryProperties=deserialize_VkPhysicalDeviceMemoryProperties(name["members"]["memoryProperties"]);}();
 return result;}
@@ -48353,7 +48735,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_xURPIVm=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["properties"]=[&]() {
     json return_FLMAjlU=json({});
     return serialize_VkSparseImageFormatProperties(name.properties);}();
@@ -48364,7 +48748,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.properties=deserialize_VkSparseImageFormatProperties(name["members"]["properties"]);}();
 return result;}
@@ -48376,7 +48761,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_xURPIVm=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["properties"]=[&]() {
     json return_FLMAjlU=json({});
     return serialize_VkSparseImageFormatProperties(name.properties);}();
@@ -48387,7 +48774,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.properties=deserialize_VkSparseImageFormatProperties(name["members"]["properties"]);}();
 return result;}
@@ -48399,7 +48787,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pPsXtbD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["format"]=[&]() {
     json return_IHIorIF=json({});
     return serialize_VkFormat(name.format);}();
@@ -48422,7 +48812,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.format=deserialize_VkFormat(name["members"]["format"]);}();
 [&]() {
@@ -48442,7 +48834,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pPsXtbD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["format"]=[&]() {
     json return_IHIorIF=json({});
     return serialize_VkFormat(name.format);}();
@@ -48465,7 +48859,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.format=deserialize_VkFormat(name["members"]["format"]);}();
 [&]() {
@@ -48485,7 +48881,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_kAsoJHn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxPushDescriptors"]=[&]() {
     json return_spTTgJg=json({});
     return serialize_uint32_t(name.maxPushDescriptors);}();
@@ -48496,7 +48894,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxPushDescriptors=deserialize_uint32_t(name["members"]["maxPushDescriptors"]);}();
 return result;}
@@ -48570,7 +48969,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LKJCiRo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["driverID"]=[&]() {
     json return_kNPTflK=json({});
     return serialize_VkDriverId(name.driverID);}();
@@ -48610,7 +49011,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.driverID=deserialize_VkDriverId(name["members"]["driverID"]);}();
 [&]() {
@@ -48638,7 +49040,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LKJCiRo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["driverID"]=[&]() {
     json return_kNPTflK=json({});
     return serialize_VkDriverId(name.driverID);}();
@@ -48678,7 +49082,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.driverID=deserialize_VkDriverId(name["members"]["driverID"]);}();
 [&]() {
@@ -48706,7 +49111,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_YgsHACD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["swapchainCount"]=[&]() {
     json return_sIvDKaZ=json({});
     return serialize_uint32_t(name.swapchainCount);}();
@@ -48735,7 +49142,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.swapchainCount=deserialize_uint32_t(name["members"]["swapchainCount"]);}();
 [&]() {
@@ -48833,7 +49242,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_cJoufWC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["variablePointersStorageBuffer"]=[&]() {
     json return_bvmSoek=json({});
     return_bvmSoek=[&]() {
@@ -48851,7 +49262,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.variablePointersStorageBuffer=deserialize_uint32_t(name["members"]["variablePointersStorageBuffer"]);}();}();
@@ -48867,7 +49279,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_cJoufWC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["variablePointersStorageBuffer"]=[&]() {
     json return_bvmSoek=json({});
     return_bvmSoek=[&]() {
@@ -48885,7 +49299,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.variablePointersStorageBuffer=deserialize_uint32_t(name["members"]["variablePointersStorageBuffer"]);}();}();
@@ -48901,7 +49316,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_cJoufWC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["variablePointersStorageBuffer"]=[&]() {
     json return_bvmSoek=json({});
     return_bvmSoek=[&]() {
@@ -48919,7 +49336,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.variablePointersStorageBuffer=deserialize_uint32_t(name["members"]["variablePointersStorageBuffer"]);}();}();
@@ -48935,7 +49353,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_cJoufWC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["variablePointersStorageBuffer"]=[&]() {
     json return_bvmSoek=json({});
     return_bvmSoek=[&]() {
@@ -48953,7 +49373,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.variablePointersStorageBuffer=deserialize_uint32_t(name["members"]["variablePointersStorageBuffer"]);}();}();
@@ -49021,7 +49442,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pWsMhQi=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleType"]=[&]() {
     json return_oXWuimY=json({});
     return serialize_VkExternalMemoryHandleTypeFlagBits(name.handleType);}();
@@ -49032,7 +49455,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleType=deserialize_VkExternalMemoryHandleTypeFlagBits(name["members"]["handleType"]);}();
 return result;}
@@ -49044,7 +49469,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pWsMhQi=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleType"]=[&]() {
     json return_oXWuimY=json({});
     return serialize_VkExternalMemoryHandleTypeFlagBits(name.handleType);}();
@@ -49055,7 +49482,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleType=deserialize_VkExternalMemoryHandleTypeFlagBits(name["members"]["handleType"]);}();
 return result;}
@@ -49067,7 +49496,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ddMOObT=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["externalMemoryProperties"]=[&]() {
     json return_CAgCKFV=json({});
     return serialize_VkExternalMemoryProperties(name.externalMemoryProperties);}();
@@ -49078,7 +49509,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.externalMemoryProperties=deserialize_VkExternalMemoryProperties(name["members"]["externalMemoryProperties"]);}();
 return result;}
@@ -49090,7 +49522,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ddMOObT=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["externalMemoryProperties"]=[&]() {
     json return_CAgCKFV=json({});
     return serialize_VkExternalMemoryProperties(name.externalMemoryProperties);}();
@@ -49101,7 +49535,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.externalMemoryProperties=deserialize_VkExternalMemoryProperties(name["members"]["externalMemoryProperties"]);}();
 return result;}
@@ -49113,7 +49548,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pZVnBxM=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_FCsoNoH=json({});
     return serialize_VkBufferCreateFlags(name.flags);}();
@@ -49130,7 +49567,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.flags=deserialize_VkBufferCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -49146,7 +49585,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pZVnBxM=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_FCsoNoH=json({});
     return serialize_VkBufferCreateFlags(name.flags);}();
@@ -49163,7 +49604,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.flags=deserialize_VkBufferCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -49179,7 +49622,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_IqJStCn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["externalMemoryProperties"]=[&]() {
     json return_FUKSByO=json({});
     return serialize_VkExternalMemoryProperties(name.externalMemoryProperties);}();
@@ -49190,7 +49635,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.externalMemoryProperties=deserialize_VkExternalMemoryProperties(name["members"]["externalMemoryProperties"]);}();
 return result;}
@@ -49202,7 +49648,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_IqJStCn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["externalMemoryProperties"]=[&]() {
     json return_FUKSByO=json({});
     return serialize_VkExternalMemoryProperties(name.externalMemoryProperties);}();
@@ -49213,7 +49661,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.externalMemoryProperties=deserialize_VkExternalMemoryProperties(name["members"]["externalMemoryProperties"]);}();
 return result;}
@@ -49225,7 +49674,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_wrgkyLY=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceUUID"]=[&]() {
     json return_viysSkX=json({});
     
@@ -49280,7 +49731,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 
         for (int ENYozjA=0; ENYozjA < VK_UUID_SIZE; ENYozjA++){
@@ -49316,7 +49768,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_wrgkyLY=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceUUID"]=[&]() {
     json return_viysSkX=json({});
     
@@ -49371,7 +49825,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 
         for (int ENYozjA=0; ENYozjA < VK_UUID_SIZE; ENYozjA++){
@@ -49407,7 +49862,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_wIqPfGK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleTypes"]=[&]() {
     json return_zdnLSDh=json({});
     return serialize_VkExternalMemoryHandleTypeFlags(name.handleTypes);}();
@@ -49418,7 +49875,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleTypes=deserialize_VkExternalMemoryHandleTypeFlags(name["members"]["handleTypes"]);}();
 return result;}
@@ -49430,7 +49889,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_wIqPfGK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleTypes"]=[&]() {
     json return_zdnLSDh=json({});
     return serialize_VkExternalMemoryHandleTypeFlags(name.handleTypes);}();
@@ -49441,7 +49902,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleTypes=deserialize_VkExternalMemoryHandleTypeFlags(name["members"]["handleTypes"]);}();
 return result;}
@@ -49453,7 +49916,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ClgITkK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleTypes"]=[&]() {
     json return_zdnLSDh=json({});
     return serialize_VkExternalMemoryHandleTypeFlags(name.handleTypes);}();
@@ -49464,7 +49929,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleTypes=deserialize_VkExternalMemoryHandleTypeFlags(name["members"]["handleTypes"]);}();
 return result;}
@@ -49476,7 +49943,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ClgITkK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleTypes"]=[&]() {
     json return_zdnLSDh=json({});
     return serialize_VkExternalMemoryHandleTypeFlags(name.handleTypes);}();
@@ -49487,7 +49956,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleTypes=deserialize_VkExternalMemoryHandleTypeFlags(name["members"]["handleTypes"]);}();
 return result;}
@@ -49499,7 +49970,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ZksHNdH=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleTypes"]=[&]() {
     json return_zdnLSDh=json({});
     return serialize_VkExternalMemoryHandleTypeFlags(name.handleTypes);}();
@@ -49510,7 +49983,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleTypes=deserialize_VkExternalMemoryHandleTypeFlags(name["members"]["handleTypes"]);}();
 return result;}
@@ -49522,7 +49997,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ZksHNdH=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleTypes"]=[&]() {
     json return_zdnLSDh=json({});
     return serialize_VkExternalMemoryHandleTypeFlags(name.handleTypes);}();
@@ -49533,7 +50010,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleTypes=deserialize_VkExternalMemoryHandleTypeFlags(name["members"]["handleTypes"]);}();
 return result;}
@@ -49545,7 +50024,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_UfAGfXA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleType"]=[&]() {
     json return_cIXUqaP=json({});
     return serialize_VkExternalMemoryHandleTypeFlagBits(name.handleType);}();
@@ -49559,7 +50040,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleType=deserialize_VkExternalMemoryHandleTypeFlagBits(name["members"]["handleType"]);}();
 [&]() {
@@ -49573,7 +50056,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fcIzZQY=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["memoryTypeBits"]=[&]() {
     json return_Xxxohgu=json({});
     return serialize_uint32_t(name.memoryTypeBits);}();
@@ -49584,7 +50069,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.memoryTypeBits=deserialize_uint32_t(name["members"]["memoryTypeBits"]);}();
 return result;}
@@ -49596,7 +50082,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_nliyzdO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["memory"]=[&]() {
     json return_ldnsFBJ=json({});
     return serialize_VkDeviceMemory(name.memory);}();
@@ -49610,7 +50098,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.memory=deserialize_VkDeviceMemory(name["members"]["memory"]);}();
 [&]() {
@@ -49624,7 +50114,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_uLZEOPk=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleType"]=[&]() {
     json return_DyumgmZ=json({});
     return serialize_VkExternalSemaphoreHandleTypeFlagBits(name.handleType);}();
@@ -49635,7 +50127,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleType=deserialize_VkExternalSemaphoreHandleTypeFlagBits(name["members"]["handleType"]);}();
 return result;}
@@ -49647,7 +50141,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_uLZEOPk=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleType"]=[&]() {
     json return_DyumgmZ=json({});
     return serialize_VkExternalSemaphoreHandleTypeFlagBits(name.handleType);}();
@@ -49658,7 +50154,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleType=deserialize_VkExternalSemaphoreHandleTypeFlagBits(name["members"]["handleType"]);}();
 return result;}
@@ -49670,7 +50168,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AjAmyLT=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["exportFromImportedHandleTypes"]=[&]() {
     json return_ejpHrVf=json({});
     return serialize_VkExternalSemaphoreHandleTypeFlags(name.exportFromImportedHandleTypes);}();
@@ -49687,7 +50187,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.exportFromImportedHandleTypes=deserialize_VkExternalSemaphoreHandleTypeFlags(name["members"]["exportFromImportedHandleTypes"]);}();
 [&]() {
@@ -49703,7 +50204,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AjAmyLT=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["exportFromImportedHandleTypes"]=[&]() {
     json return_ejpHrVf=json({});
     return serialize_VkExternalSemaphoreHandleTypeFlags(name.exportFromImportedHandleTypes);}();
@@ -49720,7 +50223,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.exportFromImportedHandleTypes=deserialize_VkExternalSemaphoreHandleTypeFlags(name["members"]["exportFromImportedHandleTypes"]);}();
 [&]() {
@@ -49736,7 +50240,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fkQRFbo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleTypes"]=[&]() {
     json return_WbTihFl=json({});
     return serialize_VkExternalSemaphoreHandleTypeFlags(name.handleTypes);}();
@@ -49747,7 +50253,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleTypes=deserialize_VkExternalSemaphoreHandleTypeFlags(name["members"]["handleTypes"]);}();
 return result;}
@@ -49759,7 +50267,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fkQRFbo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleTypes"]=[&]() {
     json return_WbTihFl=json({});
     return serialize_VkExternalSemaphoreHandleTypeFlags(name.handleTypes);}();
@@ -49770,7 +50280,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleTypes=deserialize_VkExternalSemaphoreHandleTypeFlags(name["members"]["handleTypes"]);}();
 return result;}
@@ -49782,7 +50294,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GcVRSlN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["semaphore"]=[&]() {
     json return_zchfdNy=json({});
     return serialize_VkSemaphore(name.semaphore);}();
@@ -49802,7 +50316,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.semaphore=deserialize_VkSemaphore(name["members"]["semaphore"]);}();
 [&]() {
@@ -49820,7 +50336,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_sfKpfSS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["semaphore"]=[&]() {
     json return_WJSNMBb=json({});
     return serialize_VkSemaphore(name.semaphore);}();
@@ -49834,7 +50352,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.semaphore=deserialize_VkSemaphore(name["members"]["semaphore"]);}();
 [&]() {
@@ -49848,7 +50368,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_hxzIeCq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleType"]=[&]() {
     json return_bcslVpl=json({});
     return serialize_VkExternalFenceHandleTypeFlagBits(name.handleType);}();
@@ -49859,7 +50381,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleType=deserialize_VkExternalFenceHandleTypeFlagBits(name["members"]["handleType"]);}();
 return result;}
@@ -49871,7 +50395,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_hxzIeCq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleType"]=[&]() {
     json return_bcslVpl=json({});
     return serialize_VkExternalFenceHandleTypeFlagBits(name.handleType);}();
@@ -49882,7 +50408,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleType=deserialize_VkExternalFenceHandleTypeFlagBits(name["members"]["handleType"]);}();
 return result;}
@@ -49894,7 +50422,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_UDBanId=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["exportFromImportedHandleTypes"]=[&]() {
     json return_cZqHaNS=json({});
     return serialize_VkExternalFenceHandleTypeFlags(name.exportFromImportedHandleTypes);}();
@@ -49911,7 +50441,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.exportFromImportedHandleTypes=deserialize_VkExternalFenceHandleTypeFlags(name["members"]["exportFromImportedHandleTypes"]);}();
 [&]() {
@@ -49927,7 +50458,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_UDBanId=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["exportFromImportedHandleTypes"]=[&]() {
     json return_cZqHaNS=json({});
     return serialize_VkExternalFenceHandleTypeFlags(name.exportFromImportedHandleTypes);}();
@@ -49944,7 +50477,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.exportFromImportedHandleTypes=deserialize_VkExternalFenceHandleTypeFlags(name["members"]["exportFromImportedHandleTypes"]);}();
 [&]() {
@@ -49960,7 +50494,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GlNkeRQ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleTypes"]=[&]() {
     json return_uGMREeY=json({});
     return serialize_VkExternalFenceHandleTypeFlags(name.handleTypes);}();
@@ -49971,7 +50507,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleTypes=deserialize_VkExternalFenceHandleTypeFlags(name["members"]["handleTypes"]);}();
 return result;}
@@ -49983,7 +50521,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GlNkeRQ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleTypes"]=[&]() {
     json return_uGMREeY=json({});
     return serialize_VkExternalFenceHandleTypeFlags(name.handleTypes);}();
@@ -49994,7 +50534,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.handleTypes=deserialize_VkExternalFenceHandleTypeFlags(name["members"]["handleTypes"]);}();
 return result;}
@@ -50006,7 +50548,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GXYmrvP=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["fence"]=[&]() {
     json return_abRQHis=json({});
     return serialize_VkFence(name.fence);}();
@@ -50026,7 +50570,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.fence=deserialize_VkFence(name["members"]["fence"]);}();
 [&]() {
@@ -50044,7 +50590,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_BQeSeOU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["fence"]=[&]() {
     json return_AjZCrhF=json({});
     return serialize_VkFence(name.fence);}();
@@ -50058,7 +50606,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.fence=deserialize_VkFence(name["members"]["fence"]);}();
 [&]() {
@@ -50072,7 +50622,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_rrSCtQt=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["multiview"]=[&]() {
     json return_FTdoSpQ=json({});
     return_FTdoSpQ=[&]() {
@@ -50095,7 +50647,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.multiview=deserialize_uint32_t(name["members"]["multiview"]);}();}();
@@ -50114,7 +50667,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_rrSCtQt=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["multiview"]=[&]() {
     json return_FTdoSpQ=json({});
     return_FTdoSpQ=[&]() {
@@ -50137,7 +50692,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.multiview=deserialize_uint32_t(name["members"]["multiview"]);}();}();
@@ -50156,7 +50712,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_uPRvsBD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxMultiviewViewCount"]=[&]() {
     json return_fQNZzSG=json({});
     return serialize_uint32_t(name.maxMultiviewViewCount);}();
@@ -50170,7 +50728,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxMultiviewViewCount=deserialize_uint32_t(name["members"]["maxMultiviewViewCount"]);}();
 [&]() {
@@ -50184,7 +50743,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_uPRvsBD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxMultiviewViewCount"]=[&]() {
     json return_fQNZzSG=json({});
     return serialize_uint32_t(name.maxMultiviewViewCount);}();
@@ -50198,7 +50759,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxMultiviewViewCount=deserialize_uint32_t(name["members"]["maxMultiviewViewCount"]);}();
 [&]() {
@@ -50212,7 +50774,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_nJWnjyc=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["subpassCount"]=[&]() {
     json return_sqKYbrW=json({});
     return serialize_uint32_t(name.subpassCount);}();
@@ -50283,7 +50847,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.subpassCount=deserialize_uint32_t(name["members"]["subpassCount"]);}();
 [&]() {
@@ -50338,7 +50904,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_nJWnjyc=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["subpassCount"]=[&]() {
     json return_sqKYbrW=json({});
     return serialize_uint32_t(name.subpassCount);}();
@@ -50409,7 +50977,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.subpassCount=deserialize_uint32_t(name["members"]["subpassCount"]);}();
 [&]() {
@@ -50464,7 +51034,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_kRNgbWH=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["minImageCount"]=[&]() {
     json return_vIQmfsU=json({});
     return serialize_uint32_t(name.minImageCount);}();
@@ -50505,7 +51077,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.minImageCount=deserialize_uint32_t(name["members"]["minImageCount"]);}();
 [&]() {
@@ -50537,7 +51110,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_vbwyBXj=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["powerState"]=[&]() {
     json return_pgXnuFE=json({});
     return serialize_VkDisplayPowerStateEXT(name.powerState);}();
@@ -50548,7 +51123,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.powerState=deserialize_VkDisplayPowerStateEXT(name["members"]["powerState"]);}();
 return result;}
@@ -50560,7 +51137,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_VYYIsjN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceEvent"]=[&]() {
     json return_UyvBpKV=json({});
     return serialize_VkDeviceEventTypeEXT(name.deviceEvent);}();
@@ -50571,7 +51150,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.deviceEvent=deserialize_VkDeviceEventTypeEXT(name["members"]["deviceEvent"]);}();
 return result;}
@@ -50583,7 +51164,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ukdChgS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["displayEvent"]=[&]() {
     json return_HGHWmqf=json({});
     return serialize_VkDisplayEventTypeEXT(name.displayEvent);}();
@@ -50594,7 +51177,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.displayEvent=deserialize_VkDisplayEventTypeEXT(name["members"]["displayEvent"]);}();
 return result;}
@@ -50606,7 +51191,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oHBfNjD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["surfaceCounters"]=[&]() {
     json return_nGcODbY=json({});
     return serialize_VkSurfaceCounterFlagsEXT(name.surfaceCounters);}();
@@ -50617,7 +51204,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.surfaceCounters=deserialize_VkSurfaceCounterFlagsEXT(name["members"]["surfaceCounters"]);}();
 return result;}
@@ -50629,7 +51218,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_SxZCIDY=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["physicalDeviceCount"]=[&]() {
     json return_fgXekeE=json({});
     return serialize_uint32_t(name.physicalDeviceCount);}();
@@ -50658,7 +51249,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.physicalDeviceCount=deserialize_uint32_t(name["members"]["physicalDeviceCount"]);}();
 [&]() {
@@ -50680,7 +51272,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_SxZCIDY=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["physicalDeviceCount"]=[&]() {
     json return_fgXekeE=json({});
     return serialize_uint32_t(name.physicalDeviceCount);}();
@@ -50709,7 +51303,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.physicalDeviceCount=deserialize_uint32_t(name["members"]["physicalDeviceCount"]);}();
 [&]() {
@@ -50731,7 +51326,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QrzrBOx=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_BcroyFF=json({});
     return serialize_VkMemoryAllocateFlags(name.flags);}();
@@ -50745,7 +51342,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.flags=deserialize_VkMemoryAllocateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -50759,7 +51358,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QrzrBOx=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_BcroyFF=json({});
     return serialize_VkMemoryAllocateFlags(name.flags);}();
@@ -50773,7 +51374,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.flags=deserialize_VkMemoryAllocateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -50787,7 +51390,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_spXWbmO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["buffer"]=[&]() {
     json return_sJJwyuR=json({});
     return serialize_VkBuffer(name.buffer);}();
@@ -50806,7 +51411,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.buffer=deserialize_VkBuffer(name["members"]["buffer"]);}();
 [&]() {
@@ -50823,7 +51430,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_spXWbmO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["buffer"]=[&]() {
     json return_sJJwyuR=json({});
     return serialize_VkBuffer(name.buffer);}();
@@ -50842,7 +51451,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.buffer=deserialize_VkBuffer(name["members"]["buffer"]);}();
 [&]() {
@@ -50859,7 +51470,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_dypOrCz=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceIndexCount"]=[&]() {
     json return_DHTxeQK=json({});
     return serialize_uint32_t(name.deviceIndexCount);}();
@@ -50888,7 +51501,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.deviceIndexCount=deserialize_uint32_t(name["members"]["deviceIndexCount"]);}();
 [&]() {
@@ -50913,7 +51528,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_dypOrCz=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceIndexCount"]=[&]() {
     json return_DHTxeQK=json({});
     return serialize_uint32_t(name.deviceIndexCount);}();
@@ -50942,7 +51559,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.deviceIndexCount=deserialize_uint32_t(name["members"]["deviceIndexCount"]);}();
 [&]() {
@@ -50967,7 +51586,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_zoIqzwG=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["image"]=[&]() {
     json return_YhDteyK=json({});
     return serialize_VkImage(name.image);}();
@@ -50986,7 +51607,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.image=deserialize_VkImage(name["members"]["image"]);}();
 [&]() {
@@ -51003,7 +51626,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_zoIqzwG=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["image"]=[&]() {
     json return_YhDteyK=json({});
     return serialize_VkImage(name.image);}();
@@ -51022,7 +51647,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.image=deserialize_VkImage(name["members"]["image"]);}();
 [&]() {
@@ -51039,7 +51666,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_DXSjcTf=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceIndexCount"]=[&]() {
     json return_DHTxeQK=json({});
     return serialize_uint32_t(name.deviceIndexCount);}();
@@ -51089,7 +51718,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.deviceIndexCount=deserialize_uint32_t(name["members"]["deviceIndexCount"]);}();
 [&]() {
@@ -51129,7 +51760,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_DXSjcTf=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceIndexCount"]=[&]() {
     json return_DHTxeQK=json({});
     return serialize_uint32_t(name.deviceIndexCount);}();
@@ -51179,7 +51812,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.deviceIndexCount=deserialize_uint32_t(name["members"]["deviceIndexCount"]);}();
 [&]() {
@@ -51219,7 +51854,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tveFYBJ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceMask"]=[&]() {
     json return_dBGMNsc=json({});
     return serialize_uint32_t(name.deviceMask);}();
@@ -51251,7 +51888,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.deviceMask=deserialize_uint32_t(name["members"]["deviceMask"]);}();
 [&]() {
@@ -51278,7 +51917,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tveFYBJ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceMask"]=[&]() {
     json return_dBGMNsc=json({});
     return serialize_uint32_t(name.deviceMask);}();
@@ -51310,7 +51951,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.deviceMask=deserialize_uint32_t(name["members"]["deviceMask"]);}();
 [&]() {
@@ -51337,7 +51980,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_DLQPkUu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceMask"]=[&]() {
     json return_GluKPNf=json({});
     return serialize_uint32_t(name.deviceMask);}();
@@ -51348,7 +51993,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.deviceMask=deserialize_uint32_t(name["members"]["deviceMask"]);}();
 return result;}
@@ -51360,7 +52007,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_DLQPkUu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceMask"]=[&]() {
     json return_GluKPNf=json({});
     return serialize_uint32_t(name.deviceMask);}();
@@ -51371,7 +52020,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.deviceMask=deserialize_uint32_t(name["members"]["deviceMask"]);}();
 return result;}
@@ -51383,7 +52034,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_SIsNZSA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["waitSemaphoreCount"]=[&]() {
     json return_PKhhcsL=json({});
     return serialize_uint32_t(name.waitSemaphoreCount);}();
@@ -51454,7 +52107,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.waitSemaphoreCount=deserialize_uint32_t(name["members"]["waitSemaphoreCount"]);}();
 [&]() {
@@ -51509,7 +52164,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_SIsNZSA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["waitSemaphoreCount"]=[&]() {
     json return_PKhhcsL=json({});
     return serialize_uint32_t(name.waitSemaphoreCount);}();
@@ -51580,7 +52237,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.waitSemaphoreCount=deserialize_uint32_t(name["members"]["waitSemaphoreCount"]);}();
 [&]() {
@@ -51635,7 +52294,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_WKzGlbE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["resourceDeviceIndex"]=[&]() {
     json return_ZbLFsqr=json({});
     return serialize_uint32_t(name.resourceDeviceIndex);}();
@@ -51649,7 +52310,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.resourceDeviceIndex=deserialize_uint32_t(name["members"]["resourceDeviceIndex"]);}();
 [&]() {
@@ -51663,7 +52326,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_WKzGlbE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["resourceDeviceIndex"]=[&]() {
     json return_ZbLFsqr=json({});
     return serialize_uint32_t(name.resourceDeviceIndex);}();
@@ -51677,7 +52342,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.resourceDeviceIndex=deserialize_uint32_t(name["members"]["resourceDeviceIndex"]);}();
 [&]() {
@@ -51691,7 +52358,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oUVXFAK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["presentMask"]=[&]() {
     json return_wFVFWll=json({});
     
@@ -51715,7 +52384,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 
         for (int bjclqGH=0; bjclqGH < VK_MAX_DEVICE_GROUP_SIZE; bjclqGH++){
@@ -51734,7 +52404,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QhPHeEU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["swapchain"]=[&]() {
     json return_mujrGOi=json({});
     return serialize_VkSwapchainKHR(name.swapchain);}();
@@ -51745,7 +52417,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.swapchain=deserialize_VkSwapchainKHR(name["members"]["swapchain"]);}();
 return result;}
@@ -51757,7 +52431,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_MLlPYjQ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["swapchain"]=[&]() {
     json return_fGQSfib=json({});
     return serialize_VkSwapchainKHR(name.swapchain);}();
@@ -51771,7 +52447,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.swapchain=deserialize_VkSwapchainKHR(name["members"]["swapchain"]);}();
 [&]() {
@@ -51785,7 +52463,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_utAfFaI=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["swapchain"]=[&]() {
     json return_fGQSfib=json({});
     return serialize_VkSwapchainKHR(name.swapchain);}();
@@ -51808,7 +52488,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.swapchain=deserialize_VkSwapchainKHR(name["members"]["swapchain"]);}();
 [&]() {
@@ -51828,7 +52510,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_OAqEvEK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["swapchainCount"]=[&]() {
     json return_ovllgyB=json({});
     return serialize_uint32_t(name.swapchainCount);}();
@@ -51860,7 +52544,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.swapchainCount=deserialize_uint32_t(name["members"]["swapchainCount"]);}();
 [&]() {
@@ -51887,7 +52573,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_TzxsSyo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["physicalDeviceCount"]=[&]() {
     json return_fgXekeE=json({});
     return serialize_uint32_t(name.physicalDeviceCount);}();
@@ -51916,7 +52604,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.physicalDeviceCount=deserialize_uint32_t(name["members"]["physicalDeviceCount"]);}();
 [&]() {
@@ -51941,7 +52631,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_TzxsSyo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["physicalDeviceCount"]=[&]() {
     json return_fgXekeE=json({});
     return serialize_uint32_t(name.physicalDeviceCount);}();
@@ -51970,7 +52662,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.physicalDeviceCount=deserialize_uint32_t(name["members"]["physicalDeviceCount"]);}();
 [&]() {
@@ -51995,7 +52689,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_jwzVeSL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["modes"]=[&]() {
     json return_SJqSJEL=json({});
     return serialize_VkDeviceGroupPresentModeFlagsKHR(name.modes);}();
@@ -52006,7 +52702,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.modes=deserialize_VkDeviceGroupPresentModeFlagsKHR(name["members"]["modes"]);}();
 return result;}
@@ -52100,7 +52798,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fDBrBpu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_gJSWMCd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_SmpdhhK=json({});
     return serialize_VkDescriptorUpdateTemplateCreateFlags(name.flags);}();
@@ -52147,7 +52847,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_cwnyweD;[&]() {
+temp_cwnyweD=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_cwnyweD;}();
 [&]() {
 result.flags=deserialize_VkDescriptorUpdateTemplateCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -52184,7 +52886,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fDBrBpu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_gJSWMCd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_SmpdhhK=json({});
     return serialize_VkDescriptorUpdateTemplateCreateFlags(name.flags);}();
@@ -52231,7 +52935,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_cwnyweD;[&]() {
+temp_cwnyweD=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_cwnyweD;}();
 [&]() {
 result.flags=deserialize_VkDescriptorUpdateTemplateCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -52289,7 +52995,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_RllUeFs=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["presentId"]=[&]() {
     json return_kKUDdAk=json({});
     return_kKUDdAk=[&]() {
@@ -52302,7 +53010,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.presentId=deserialize_uint32_t(name["members"]["presentId"]);}();}();
@@ -52315,7 +53024,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_sJALYUj=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["swapchainCount"]=[&]() {
     json return_sIvDKaZ=json({});
     return serialize_uint32_t(name.swapchainCount);}();
@@ -52344,7 +53055,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.swapchainCount=deserialize_uint32_t(name["members"]["swapchainCount"]);}();
 [&]() {
@@ -52369,7 +53082,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_PdQUjSI=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["presentWait"]=[&]() {
     json return_jenarfv=json({});
     return_jenarfv=[&]() {
@@ -52382,7 +53097,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.presentWait=deserialize_uint32_t(name["members"]["presentWait"]);}();}();
@@ -52395,7 +53111,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_udVvGTB=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_yzGVqQV=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["displayPrimaryRed"]=[&]() {
     json return_nICBSFa=json({});
     return serialize_VkXYColorEXT(name.displayPrimaryRed);}();
@@ -52427,7 +53145,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_iXBUGzC;[&]() {
+temp_iXBUGzC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_iXBUGzC;}();
 [&]() {
 result.displayPrimaryRed=deserialize_VkXYColorEXT(name["members"]["displayPrimaryRed"]);}();
 [&]() {
@@ -52453,7 +53173,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_UwHJwBz=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_JxLibiQ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["localDimmingSupport"]=[&]() {
     json return_HxMyNZd=json({});
     return_HxMyNZd=[&]() {
@@ -52466,7 +53188,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.localDimmingSupport=deserialize_uint32_t(name["members"]["localDimmingSupport"]);}();}();
@@ -52479,7 +53202,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_IISoboe=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_fJVPDUH=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["localDimmingEnable"]=[&]() {
     json return_ZycAkRz=json({});
     return_ZycAkRz=[&]() {
@@ -52492,7 +53217,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_sKVZcum;[&]() {
+temp_sKVZcum=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_sKVZcum;}();
 [&]() {
 [&]() {
 result.localDimmingEnable=deserialize_uint32_t(name["members"]["localDimmingEnable"]);}();}();
@@ -52557,7 +53284,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_rTQZLRx=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["swapchainCount"]=[&]() {
     json return_sIvDKaZ=json({});
     return serialize_uint32_t(name.swapchainCount);}();
@@ -52586,7 +53315,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.swapchainCount=deserialize_uint32_t(name["members"]["swapchainCount"]);}();
 [&]() {
@@ -52653,7 +53384,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_wpKvccE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["viewportWScalingEnable"]=[&]() {
     json return_pGjzPyC=json({});
     return_pGjzPyC=[&]() {
@@ -52687,7 +53420,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 [&]() {
 result.viewportWScalingEnable=deserialize_uint32_t(name["members"]["viewportWScalingEnable"]);}();}();
@@ -52746,7 +53481,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_FJYfAEg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_HEVORQI=json({});
     return serialize_VkPipelineViewportSwizzleStateCreateFlagsNV(name.flags);}();
@@ -52778,7 +53515,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkPipelineViewportSwizzleStateCreateFlagsNV(name["members"]["flags"]);}();
 [&]() {
@@ -52805,7 +53544,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_MzFdZJs=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxDiscardRectangles"]=[&]() {
     json return_XWmKsoQ=json({});
     return serialize_uint32_t(name.maxDiscardRectangles);}();
@@ -52816,7 +53557,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxDiscardRectangles=deserialize_uint32_t(name["members"]["maxDiscardRectangles"]);}();
 return result;}
@@ -52828,7 +53570,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_rsKGfNl=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_DTnQGEG=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_JCzniMc=json({});
     return serialize_VkPipelineDiscardRectangleStateCreateFlagsEXT(name.flags);}();
@@ -52863,7 +53607,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_PnRMIUw;[&]() {
+temp_PnRMIUw=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_PnRMIUw;}();
 [&]() {
 result.flags=deserialize_VkPipelineDiscardRectangleStateCreateFlagsEXT(name["members"]["flags"]);}();
 [&]() {
@@ -52892,7 +53638,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tJKGKeU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["perViewPositionAllComponents"]=[&]() {
     json return_mVKlrUi=json({});
     return_mVKlrUi=[&]() {
@@ -52905,7 +53653,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.perViewPositionAllComponents=deserialize_uint32_t(name["members"]["perViewPositionAllComponents"]);}();}();
@@ -52970,7 +53719,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gRdEmWA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pvtWzSO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["aspectReferenceCount"]=[&]() {
     json return_TDTTpbd=json({});
     return serialize_uint32_t(name.aspectReferenceCount);}();
@@ -52999,7 +53750,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_oruVcEA;[&]() {
+temp_oruVcEA=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_oruVcEA;}();
 [&]() {
 result.aspectReferenceCount=deserialize_uint32_t(name["members"]["aspectReferenceCount"]);}();
 [&]() {
@@ -53024,7 +53777,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gRdEmWA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pvtWzSO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["aspectReferenceCount"]=[&]() {
     json return_TDTTpbd=json({});
     return serialize_uint32_t(name.aspectReferenceCount);}();
@@ -53053,7 +53808,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_oruVcEA;[&]() {
+temp_oruVcEA=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_oruVcEA;}();
 [&]() {
 result.aspectReferenceCount=deserialize_uint32_t(name["members"]["aspectReferenceCount"]);}();
 [&]() {
@@ -53078,7 +53835,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_DvbbjXX=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["surface"]=[&]() {
     json return_RJGlfLN=json({});
     return serialize_VkSurfaceKHR(name.surface);}();
@@ -53089,7 +53848,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.surface=deserialize_VkSurfaceKHR(name["members"]["surface"]);}();
 return result;}
@@ -53101,7 +53862,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_qLKBsvU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_MEEdpgl=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["surfaceCapabilities"]=[&]() {
     json return_VJhMIxZ=json({});
     return serialize_VkSurfaceCapabilitiesKHR(name.surfaceCapabilities);}();
@@ -53112,7 +53875,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.surfaceCapabilities=deserialize_VkSurfaceCapabilitiesKHR(name["members"]["surfaceCapabilities"]);}();
 return result;}
@@ -53124,7 +53888,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_UnjFidS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["surfaceFormat"]=[&]() {
     json return_asGTtGT=json({});
     return serialize_VkSurfaceFormatKHR(name.surfaceFormat);}();
@@ -53135,7 +53901,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.surfaceFormat=deserialize_VkSurfaceFormatKHR(name["members"]["surfaceFormat"]);}();
 return result;}
@@ -53147,7 +53914,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_EBaPpek=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["displayProperties"]=[&]() {
     json return_XpHWYmX=json({});
     return serialize_VkDisplayPropertiesKHR(name.displayProperties);}();
@@ -53158,7 +53927,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.displayProperties=deserialize_VkDisplayPropertiesKHR(name["members"]["displayProperties"]);}();
 return result;}
@@ -53170,7 +53940,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ersFxLD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["displayPlaneProperties"]=[&]() {
     json return_cYZMyur=json({});
     return serialize_VkDisplayPlanePropertiesKHR(name.displayPlaneProperties);}();
@@ -53181,7 +53953,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.displayPlaneProperties=deserialize_VkDisplayPlanePropertiesKHR(name["members"]["displayPlaneProperties"]);}();
 return result;}
@@ -53193,7 +53966,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gpLxwVm=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["displayModeProperties"]=[&]() {
     json return_iGtXixS=json({});
     return serialize_VkDisplayModePropertiesKHR(name.displayModeProperties);}();
@@ -53204,7 +53979,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.displayModeProperties=deserialize_VkDisplayModePropertiesKHR(name["members"]["displayModeProperties"]);}();
 return result;}
@@ -53216,7 +53992,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_whEICuL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["mode"]=[&]() {
     json return_IOmMECO=json({});
     return serialize_VkDisplayModeKHR(name.mode);}();
@@ -53230,7 +54008,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.mode=deserialize_VkDisplayModeKHR(name["members"]["mode"]);}();
 [&]() {
@@ -53244,7 +54024,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oAevvMs=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["capabilities"]=[&]() {
     json return_EylOEVh=json({});
     return serialize_VkDisplayPlaneCapabilitiesKHR(name.capabilities);}();
@@ -53255,7 +54037,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.capabilities=deserialize_VkDisplayPlaneCapabilitiesKHR(name["members"]["capabilities"]);}();
 return result;}
@@ -53267,7 +54050,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_jezUtxS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["sharedPresentSupportedUsageFlags"]=[&]() {
     json return_waJhPhZ=json({});
     return serialize_VkImageUsageFlags(name.sharedPresentSupportedUsageFlags);}();
@@ -53278,7 +54063,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.sharedPresentSupportedUsageFlags=deserialize_VkImageUsageFlags(name["members"]["sharedPresentSupportedUsageFlags"]);}();
 return result;}
@@ -53290,7 +54076,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_bhYmPRP=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["storageBuffer16BitAccess"]=[&]() {
     json return_MiRrbTk=json({});
     return_MiRrbTk=[&]() {
@@ -53318,7 +54106,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.storageBuffer16BitAccess=deserialize_uint32_t(name["members"]["storageBuffer16BitAccess"]);}();}();
@@ -53340,7 +54129,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_bhYmPRP=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["storageBuffer16BitAccess"]=[&]() {
     json return_MiRrbTk=json({});
     return_MiRrbTk=[&]() {
@@ -53368,7 +54159,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.storageBuffer16BitAccess=deserialize_uint32_t(name["members"]["storageBuffer16BitAccess"]);}();}();
@@ -53390,7 +54182,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lVAbvxD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_QXLilEx=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["subgroupSize"]=[&]() {
     json return_MRXKNPp=json({});
     return serialize_uint32_t(name.subgroupSize);}();
@@ -53412,7 +54206,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.subgroupSize=deserialize_uint32_t(name["members"]["subgroupSize"]);}();
 [&]() {
@@ -53431,7 +54226,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_FqZdvOD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RfTbzLx=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderSubgroupExtendedTypes"]=[&]() {
     json return_LbbXOIF=json({});
     return_LbbXOIF=[&]() {
@@ -53444,7 +54241,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderSubgroupExtendedTypes=deserialize_uint32_t(name["members"]["shaderSubgroupExtendedTypes"]);}();}();
@@ -53457,7 +54255,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_FqZdvOD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RfTbzLx=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderSubgroupExtendedTypes"]=[&]() {
     json return_LbbXOIF=json({});
     return_LbbXOIF=[&]() {
@@ -53470,7 +54270,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderSubgroupExtendedTypes=deserialize_uint32_t(name["members"]["shaderSubgroupExtendedTypes"]);}();}();
@@ -53483,7 +54284,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_NeJQLUl=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_fZPLIJJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["buffer"]=[&]() {
     json return_ddmkUje=json({});
     return serialize_VkBuffer(name.buffer);}();
@@ -53494,7 +54297,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_kypMQGU;[&]() {
+temp_kypMQGU=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_kypMQGU;}();
 [&]() {
 result.buffer=deserialize_VkBuffer(name["members"]["buffer"]);}();
 return result;}
@@ -53506,7 +54311,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_NeJQLUl=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_fZPLIJJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["buffer"]=[&]() {
     json return_ddmkUje=json({});
     return serialize_VkBuffer(name.buffer);}();
@@ -53517,7 +54324,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_kypMQGU;[&]() {
+temp_kypMQGU=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_kypMQGU;}();
 [&]() {
 result.buffer=deserialize_VkBuffer(name["members"]["buffer"]);}();
 return result;}
@@ -53529,7 +54338,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QdwJSze=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_LOwGhuS=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pCreateInfo"]=[&]() {
     json return_HQPEonY=json({});
     
@@ -53548,7 +54359,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_qHEAwzl;[&]() {
+temp_qHEAwzl=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_qHEAwzl;}();
 [&]() {
 VkBufferCreateInfo* temp_HHqtMkr;[&]() {
 
@@ -53569,7 +54382,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QdwJSze=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_LOwGhuS=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pCreateInfo"]=[&]() {
     json return_HQPEonY=json({});
     
@@ -53588,7 +54403,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_qHEAwzl;[&]() {
+temp_qHEAwzl=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_qHEAwzl;}();
 [&]() {
 VkBufferCreateInfo* temp_HHqtMkr;[&]() {
 
@@ -53609,7 +54426,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_NSgtGDg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_fZPLIJJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["image"]=[&]() {
     json return_HPSfeSt=json({});
     return serialize_VkImage(name.image);}();
@@ -53620,7 +54439,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_kypMQGU;[&]() {
+temp_kypMQGU=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_kypMQGU;}();
 [&]() {
 result.image=deserialize_VkImage(name["members"]["image"]);}();
 return result;}
@@ -53632,7 +54453,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_NSgtGDg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_fZPLIJJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["image"]=[&]() {
     json return_HPSfeSt=json({});
     return serialize_VkImage(name.image);}();
@@ -53643,7 +54466,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_kypMQGU;[&]() {
+temp_kypMQGU=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_kypMQGU;}();
 [&]() {
 result.image=deserialize_VkImage(name["members"]["image"]);}();
 return result;}
@@ -53655,7 +54480,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_VpbErvG=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_fZPLIJJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["image"]=[&]() {
     json return_HPSfeSt=json({});
     return serialize_VkImage(name.image);}();
@@ -53666,7 +54493,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_kypMQGU;[&]() {
+temp_kypMQGU=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_kypMQGU;}();
 [&]() {
 result.image=deserialize_VkImage(name["members"]["image"]);}();
 return result;}
@@ -53678,7 +54507,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_VpbErvG=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_fZPLIJJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["image"]=[&]() {
     json return_HPSfeSt=json({});
     return serialize_VkImage(name.image);}();
@@ -53689,7 +54520,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_kypMQGU;[&]() {
+temp_kypMQGU=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_kypMQGU;}();
 [&]() {
 result.image=deserialize_VkImage(name["members"]["image"]);}();
 return result;}
@@ -53701,7 +54534,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_UjEjGwF=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_fZPLIJJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pCreateInfo"]=[&]() {
     json return_FqxuLGV=json({});
     
@@ -53723,7 +54558,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_kypMQGU;[&]() {
+temp_kypMQGU=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_kypMQGU;}();
 [&]() {
 VkImageCreateInfo* temp_XtGjUer;[&]() {
 
@@ -53746,7 +54583,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_UjEjGwF=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_fZPLIJJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pCreateInfo"]=[&]() {
     json return_FqxuLGV=json({});
     
@@ -53768,7 +54607,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_kypMQGU;[&]() {
+temp_kypMQGU=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_kypMQGU;}();
 [&]() {
 VkImageCreateInfo* temp_XtGjUer;[&]() {
 
@@ -53791,7 +54632,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_dxRDrlz=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["memoryRequirements"]=[&]() {
     json return_FpCoMif=json({});
     return serialize_VkMemoryRequirements(name.memoryRequirements);}();
@@ -53802,7 +54645,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.memoryRequirements=deserialize_VkMemoryRequirements(name["members"]["memoryRequirements"]);}();
 return result;}
@@ -53814,7 +54658,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_dxRDrlz=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["memoryRequirements"]=[&]() {
     json return_FpCoMif=json({});
     return serialize_VkMemoryRequirements(name.memoryRequirements);}();
@@ -53825,7 +54671,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.memoryRequirements=deserialize_VkMemoryRequirements(name["members"]["memoryRequirements"]);}();
 return result;}
@@ -53837,7 +54684,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_CLGYUlA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_CzGilQV=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["memoryRequirements"]=[&]() {
     json return_fCJXRvE=json({});
     return serialize_VkSparseImageMemoryRequirements(name.memoryRequirements);}();
@@ -53848,7 +54697,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.memoryRequirements=deserialize_VkSparseImageMemoryRequirements(name["members"]["memoryRequirements"]);}();
 return result;}
@@ -53860,7 +54710,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_CLGYUlA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_CzGilQV=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["memoryRequirements"]=[&]() {
     json return_fCJXRvE=json({});
     return serialize_VkSparseImageMemoryRequirements(name.memoryRequirements);}();
@@ -53871,7 +54723,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.memoryRequirements=deserialize_VkSparseImageMemoryRequirements(name["members"]["memoryRequirements"]);}();
 return result;}
@@ -53883,7 +54736,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_JhHbPOK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pointClippingBehavior"]=[&]() {
     json return_nxgluDe=json({});
     return serialize_VkPointClippingBehavior(name.pointClippingBehavior);}();
@@ -53894,7 +54749,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.pointClippingBehavior=deserialize_VkPointClippingBehavior(name["members"]["pointClippingBehavior"]);}();
 return result;}
@@ -53906,7 +54762,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_JhHbPOK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pointClippingBehavior"]=[&]() {
     json return_nxgluDe=json({});
     return serialize_VkPointClippingBehavior(name.pointClippingBehavior);}();
@@ -53917,7 +54775,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.pointClippingBehavior=deserialize_VkPointClippingBehavior(name["members"]["pointClippingBehavior"]);}();
 return result;}
@@ -53929,7 +54788,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KgvEdzh=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["prefersDedicatedAllocation"]=[&]() {
     json return_lJzzMYB=json({});
     return_lJzzMYB=[&]() {
@@ -53947,7 +54808,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.prefersDedicatedAllocation=deserialize_uint32_t(name["members"]["prefersDedicatedAllocation"]);}();}();
@@ -53963,7 +54825,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KgvEdzh=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["prefersDedicatedAllocation"]=[&]() {
     json return_lJzzMYB=json({});
     return_lJzzMYB=[&]() {
@@ -53981,7 +54845,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.prefersDedicatedAllocation=deserialize_uint32_t(name["members"]["prefersDedicatedAllocation"]);}();}();
@@ -53997,7 +54862,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_PhbGtwL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["image"]=[&]() {
     json return_hcdoCuf=json({});
     return serialize_VkImage(name.image);}();
@@ -54011,7 +54878,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.image=deserialize_VkImage(name["members"]["image"]);}();
 [&]() {
@@ -54025,7 +54894,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_PhbGtwL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["image"]=[&]() {
     json return_hcdoCuf=json({});
     return serialize_VkImage(name.image);}();
@@ -54039,7 +54910,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.image=deserialize_VkImage(name["members"]["image"]);}();
 [&]() {
@@ -54053,7 +54926,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AgKElmS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["usage"]=[&]() {
     json return_IBJUCIc=json({});
     return serialize_VkImageUsageFlags(name.usage);}();
@@ -54064,7 +54939,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.usage=deserialize_VkImageUsageFlags(name["members"]["usage"]);}();
 return result;}
@@ -54076,7 +54953,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ZfTGVuX=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["sliceOffset"]=[&]() {
     json return_VpLAwDV=json({});
     return serialize_uint32_t(name.sliceOffset);}();
@@ -54090,7 +54969,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.sliceOffset=deserialize_uint32_t(name["members"]["sliceOffset"]);}();
 [&]() {
@@ -54104,7 +54985,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AgKElmS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["usage"]=[&]() {
     json return_IBJUCIc=json({});
     return serialize_VkImageUsageFlags(name.usage);}();
@@ -54115,7 +54998,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.usage=deserialize_VkImageUsageFlags(name["members"]["usage"]);}();
 return result;}
@@ -54127,7 +55012,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_uJguRjz=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["domainOrigin"]=[&]() {
     json return_NULGinc=json({});
     return serialize_VkTessellationDomainOrigin(name.domainOrigin);}();
@@ -54138,7 +55025,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.domainOrigin=deserialize_VkTessellationDomainOrigin(name["members"]["domainOrigin"]);}();
 return result;}
@@ -54150,7 +55039,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_uJguRjz=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["domainOrigin"]=[&]() {
     json return_NULGinc=json({});
     return serialize_VkTessellationDomainOrigin(name.domainOrigin);}();
@@ -54161,7 +55052,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.domainOrigin=deserialize_VkTessellationDomainOrigin(name["members"]["domainOrigin"]);}();
 return result;}
@@ -54173,7 +55066,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_nOosnDK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["conversion"]=[&]() {
     json return_DOMwZve=json({});
     return serialize_VkSamplerYcbcrConversion(name.conversion);}();
@@ -54184,7 +55079,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.conversion=deserialize_VkSamplerYcbcrConversion(name["members"]["conversion"]);}();
 return result;}
@@ -54196,7 +55093,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_nOosnDK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["conversion"]=[&]() {
     json return_DOMwZve=json({});
     return serialize_VkSamplerYcbcrConversion(name.conversion);}();
@@ -54207,7 +55106,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.conversion=deserialize_VkSamplerYcbcrConversion(name["members"]["conversion"]);}();
 return result;}
@@ -54219,7 +55120,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_yufTkpW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["format"]=[&]() {
     json return_IHIorIF=json({});
     return serialize_VkFormat(name.format);}();
@@ -54253,7 +55156,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.format=deserialize_VkFormat(name["members"]["format"]);}();
 [&]() {
@@ -54280,7 +55185,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_yufTkpW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["format"]=[&]() {
     json return_IHIorIF=json({});
     return serialize_VkFormat(name.format);}();
@@ -54314,7 +55221,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.format=deserialize_VkFormat(name["members"]["format"]);}();
 [&]() {
@@ -54341,7 +55250,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_uItXmRV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["planeAspect"]=[&]() {
     json return_izWkSlQ=json({});
     return serialize_VkImageAspectFlagBits(name.planeAspect);}();
@@ -54352,7 +55263,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.planeAspect=deserialize_VkImageAspectFlagBits(name["members"]["planeAspect"]);}();
 return result;}
@@ -54364,7 +55277,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_uItXmRV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["planeAspect"]=[&]() {
     json return_izWkSlQ=json({});
     return serialize_VkImageAspectFlagBits(name.planeAspect);}();
@@ -54375,7 +55290,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.planeAspect=deserialize_VkImageAspectFlagBits(name["members"]["planeAspect"]);}();
 return result;}
@@ -54387,7 +55304,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_VucVpoB=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["planeAspect"]=[&]() {
     json return_izWkSlQ=json({});
     return serialize_VkImageAspectFlagBits(name.planeAspect);}();
@@ -54398,7 +55317,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.planeAspect=deserialize_VkImageAspectFlagBits(name["members"]["planeAspect"]);}();
 return result;}
@@ -54410,7 +55331,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_VucVpoB=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["planeAspect"]=[&]() {
     json return_izWkSlQ=json({});
     return serialize_VkImageAspectFlagBits(name.planeAspect);}();
@@ -54421,7 +55344,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.planeAspect=deserialize_VkImageAspectFlagBits(name["members"]["planeAspect"]);}();
 return result;}
@@ -54433,7 +55358,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pOXlMGV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["samplerYcbcrConversion"]=[&]() {
     json return_HhFsJWS=json({});
     return_HhFsJWS=[&]() {
@@ -54446,7 +55373,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.samplerYcbcrConversion=deserialize_uint32_t(name["members"]["samplerYcbcrConversion"]);}();}();
@@ -54459,7 +55387,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pOXlMGV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["samplerYcbcrConversion"]=[&]() {
     json return_HhFsJWS=json({});
     return_HhFsJWS=[&]() {
@@ -54472,7 +55402,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.samplerYcbcrConversion=deserialize_uint32_t(name["members"]["samplerYcbcrConversion"]);}();}();
@@ -54485,7 +55416,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_JhvzAaz=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["combinedImageSamplerDescriptorCount"]=[&]() {
     json return_EClYyne=json({});
     return serialize_uint32_t(name.combinedImageSamplerDescriptorCount);}();
@@ -54496,7 +55429,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.combinedImageSamplerDescriptorCount=deserialize_uint32_t(name["members"]["combinedImageSamplerDescriptorCount"]);}();
 return result;}
@@ -54508,7 +55442,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_JhvzAaz=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["combinedImageSamplerDescriptorCount"]=[&]() {
     json return_EClYyne=json({});
     return serialize_uint32_t(name.combinedImageSamplerDescriptorCount);}();
@@ -54519,7 +55455,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.combinedImageSamplerDescriptorCount=deserialize_uint32_t(name["members"]["combinedImageSamplerDescriptorCount"]);}();
 return result;}
@@ -54531,7 +55468,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_bANBEDu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["supportsTextureGatherLODBiasAMD"]=[&]() {
     json return_VJmJUwG=json({});
     return_VJmJUwG=[&]() {
@@ -54544,7 +55483,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.supportsTextureGatherLODBiasAMD=deserialize_uint32_t(name["members"]["supportsTextureGatherLODBiasAMD"]);}();}();
@@ -54557,7 +55497,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_uCADbYv=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["buffer"]=[&]() {
     json return_sJJwyuR=json({});
     return serialize_VkBuffer(name.buffer);}();
@@ -54576,7 +55518,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.buffer=deserialize_VkBuffer(name["members"]["buffer"]);}();
 [&]() {
@@ -54593,7 +55537,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_CfXjqxT=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pvtWzSO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["protectedSubmit"]=[&]() {
     json return_zgDGpug=json({});
     return_zgDGpug=[&]() {
@@ -54606,7 +55552,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_oruVcEA;[&]() {
+temp_oruVcEA=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_oruVcEA;}();
 [&]() {
 [&]() {
 result.protectedSubmit=deserialize_uint32_t(name["members"]["protectedSubmit"]);}();}();
@@ -54619,7 +55567,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lbamuBr=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["protectedMemory"]=[&]() {
     json return_YfskAmc=json({});
     return_YfskAmc=[&]() {
@@ -54632,7 +55582,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.protectedMemory=deserialize_uint32_t(name["members"]["protectedMemory"]);}();}();
@@ -54645,7 +55596,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oeeYsBR=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["protectedNoFault"]=[&]() {
     json return_XztYSKh=json({});
     return_XztYSKh=[&]() {
@@ -54658,7 +55611,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.protectedNoFault=deserialize_uint32_t(name["members"]["protectedNoFault"]);}();}();
@@ -54671,7 +55625,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ZKmBFiJ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_bnetmFd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_DtPPWtT=json({});
     return serialize_VkDeviceQueueCreateFlags(name.flags);}();
@@ -54688,7 +55644,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_IBPxHNE;[&]() {
+temp_IBPxHNE=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_IBPxHNE;}();
 [&]() {
 result.flags=deserialize_VkDeviceQueueCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -54704,7 +55662,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_iBjQXMU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_TgCGsKC=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_BRhDAol=json({});
     return serialize_VkPipelineCoverageToColorStateCreateFlagsNV(name.flags);}();
@@ -54723,7 +55683,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_HNMuFVl;[&]() {
+temp_HNMuFVl=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_HNMuFVl;}();
 [&]() {
 result.flags=deserialize_VkPipelineCoverageToColorStateCreateFlagsNV(name["members"]["flags"]);}();
 [&]() {
@@ -54740,7 +55702,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ScoRqBE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["filterMinmaxSingleComponentFormats"]=[&]() {
     json return_vbhaWxf=json({});
     return_vbhaWxf=[&]() {
@@ -54758,7 +55722,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.filterMinmaxSingleComponentFormats=deserialize_uint32_t(name["members"]["filterMinmaxSingleComponentFormats"]);}();}();
@@ -54774,7 +55739,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ScoRqBE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["filterMinmaxSingleComponentFormats"]=[&]() {
     json return_vbhaWxf=json({});
     return_vbhaWxf=[&]() {
@@ -54792,7 +55759,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.filterMinmaxSingleComponentFormats=deserialize_uint32_t(name["members"]["filterMinmaxSingleComponentFormats"]);}();}();
@@ -54829,7 +55797,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gCdDQsp=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["sampleLocationsPerPixel"]=[&]() {
     json return_ksjsZTb=json({});
     return serialize_VkSampleCountFlagBits(name.sampleLocationsPerPixel);}();
@@ -54864,7 +55834,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.sampleLocationsPerPixel=deserialize_VkSampleCountFlagBits(name["members"]["sampleLocationsPerPixel"]);}();
 [&]() {
@@ -54935,7 +55907,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_zmudOlh=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["attachmentInitialSampleLocationsCount"]=[&]() {
     json return_MnRUOJy=json({});
     return serialize_uint32_t(name.attachmentInitialSampleLocationsCount);}();
@@ -54985,7 +55959,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.attachmentInitialSampleLocationsCount=deserialize_uint32_t(name["members"]["attachmentInitialSampleLocationsCount"]);}();
 [&]() {
@@ -55025,7 +56001,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_uBHDdok=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["sampleLocationsEnable"]=[&]() {
     json return_lEeelAt=json({});
     return_lEeelAt=[&]() {
@@ -55041,7 +56019,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 [&]() {
 result.sampleLocationsEnable=deserialize_uint32_t(name["members"]["sampleLocationsEnable"]);}();}();
@@ -55056,7 +56036,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_TLkoTYO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["sampleLocationSampleCounts"]=[&]() {
     json return_JloDwUh=json({});
     return serialize_VkSampleCountFlags(name.sampleLocationSampleCounts);}();
@@ -55091,7 +56073,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.sampleLocationSampleCounts=deserialize_VkSampleCountFlags(name["members"]["sampleLocationSampleCounts"]);}();
 [&]() {
@@ -55117,7 +56100,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_yKiULEo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxSampleLocationGridSize"]=[&]() {
     json return_BqoJoew=json({});
     return serialize_VkExtent2D(name.maxSampleLocationGridSize);}();
@@ -55128,7 +56113,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxSampleLocationGridSize=deserialize_VkExtent2D(name["members"]["maxSampleLocationGridSize"]);}();
 return result;}
@@ -55140,7 +56126,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_wlVecTn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["reductionMode"]=[&]() {
     json return_pKsnmXq=json({});
     return serialize_VkSamplerReductionMode(name.reductionMode);}();
@@ -55151,7 +56139,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.reductionMode=deserialize_VkSamplerReductionMode(name["members"]["reductionMode"]);}();
 return result;}
@@ -55163,7 +56153,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_wlVecTn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["reductionMode"]=[&]() {
     json return_pKsnmXq=json({});
     return serialize_VkSamplerReductionMode(name.reductionMode);}();
@@ -55174,7 +56166,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.reductionMode=deserialize_VkSamplerReductionMode(name["members"]["reductionMode"]);}();
 return result;}
@@ -55186,7 +56180,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_DrbcVNH=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["advancedBlendCoherentOperations"]=[&]() {
     json return_gRotXre=json({});
     return_gRotXre=[&]() {
@@ -55199,7 +56195,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.advancedBlendCoherentOperations=deserialize_uint32_t(name["members"]["advancedBlendCoherentOperations"]);}();}();
@@ -55212,7 +56209,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pcgufmF=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_UHmLNOs=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["multiDraw"]=[&]() {
     json return_tcLjvQm=json({});
     return_tcLjvQm=[&]() {
@@ -55225,7 +56224,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.multiDraw=deserialize_uint32_t(name["members"]["multiDraw"]);}();}();
@@ -55238,7 +56238,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pycNrPY=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["advancedBlendMaxColorAttachments"]=[&]() {
     json return_VPNqLsY=json({});
     return serialize_uint32_t(name.advancedBlendMaxColorAttachments);}();
@@ -55274,7 +56276,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.advancedBlendMaxColorAttachments=deserialize_uint32_t(name["members"]["advancedBlendMaxColorAttachments"]);}();
 [&]() {
@@ -55301,7 +56304,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_miUupRQ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcPremultiplied"]=[&]() {
     json return_spjQKan=json({});
     return_spjQKan=[&]() {
@@ -55322,7 +56327,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 [&]() {
 result.srcPremultiplied=deserialize_uint32_t(name["members"]["srcPremultiplied"]);}();}();
@@ -55340,7 +56347,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_EVkFbAq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RUxrfVn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["inlineUniformBlock"]=[&]() {
     json return_cfHDTdW=json({});
     return_cfHDTdW=[&]() {
@@ -55358,7 +56367,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.inlineUniformBlock=deserialize_uint32_t(name["members"]["inlineUniformBlock"]);}();}();
@@ -55374,7 +56384,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_EVkFbAq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RUxrfVn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["inlineUniformBlock"]=[&]() {
     json return_cfHDTdW=json({});
     return_cfHDTdW=[&]() {
@@ -55392,7 +56404,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.inlineUniformBlock=deserialize_uint32_t(name["members"]["inlineUniformBlock"]);}();}();
@@ -55408,7 +56421,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_HzUlPTu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxInlineUniformBlockSize"]=[&]() {
     json return_yIAejXz=json({});
     return serialize_uint32_t(name.maxInlineUniformBlockSize);}();
@@ -55431,7 +56446,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxInlineUniformBlockSize=deserialize_uint32_t(name["members"]["maxInlineUniformBlockSize"]);}();
 [&]() {
@@ -55451,7 +56467,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_HzUlPTu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxInlineUniformBlockSize"]=[&]() {
     json return_yIAejXz=json({});
     return serialize_uint32_t(name.maxInlineUniformBlockSize);}();
@@ -55474,7 +56492,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxInlineUniformBlockSize=deserialize_uint32_t(name["members"]["maxInlineUniformBlockSize"]);}();
 [&]() {
@@ -55494,7 +56513,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_TYxGZaF=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["dataSize"]=[&]() {
     json return_JuYRfUh=json({});
     return serialize_uint32_t(name.dataSize);}();
@@ -55530,7 +56551,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.dataSize=deserialize_uint32_t(name["members"]["dataSize"]);}();
 [&]() {
@@ -55562,7 +56585,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_TYxGZaF=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["dataSize"]=[&]() {
     json return_JuYRfUh=json({});
     return serialize_uint32_t(name.dataSize);}();
@@ -55598,7 +56623,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.dataSize=deserialize_uint32_t(name["members"]["dataSize"]);}();
 [&]() {
@@ -55630,7 +56657,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_JbfyYEy=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxInlineUniformBlockBindings"]=[&]() {
     json return_HpQdqNF=json({});
     return serialize_uint32_t(name.maxInlineUniformBlockBindings);}();
@@ -55641,7 +56670,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.maxInlineUniformBlockBindings=deserialize_uint32_t(name["members"]["maxInlineUniformBlockBindings"]);}();
 return result;}
@@ -55653,7 +56684,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_JbfyYEy=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxInlineUniformBlockBindings"]=[&]() {
     json return_HpQdqNF=json({});
     return serialize_uint32_t(name.maxInlineUniformBlockBindings);}();
@@ -55664,7 +56697,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.maxInlineUniformBlockBindings=deserialize_uint32_t(name["members"]["maxInlineUniformBlockBindings"]);}();
 return result;}
@@ -55676,7 +56711,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_nDZVWAV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_TgCGsKC=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_YAkSwPn=json({});
     return serialize_VkPipelineCoverageModulationStateCreateFlagsNV(name.flags);}();
@@ -55716,7 +56753,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_HNMuFVl;[&]() {
+temp_HNMuFVl=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_HNMuFVl;}();
 [&]() {
 result.flags=deserialize_VkPipelineCoverageModulationStateCreateFlagsNV(name["members"]["flags"]);}();
 [&]() {
@@ -55748,7 +56787,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tPRGmQh=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["viewFormatCount"]=[&]() {
     json return_pyqRflC=json({});
     return serialize_uint32_t(name.viewFormatCount);}();
@@ -55777,7 +56818,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.viewFormatCount=deserialize_uint32_t(name["members"]["viewFormatCount"]);}();
 [&]() {
@@ -55802,7 +56845,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tPRGmQh=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["viewFormatCount"]=[&]() {
     json return_pyqRflC=json({});
     return serialize_uint32_t(name.viewFormatCount);}();
@@ -55831,7 +56876,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.viewFormatCount=deserialize_uint32_t(name["members"]["viewFormatCount"]);}();
 [&]() {
@@ -55856,7 +56903,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_MyvuoSL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_CIsIPfb=json({});
     return serialize_VkValidationCacheCreateFlagsEXT(name.flags);}();
@@ -55895,7 +56944,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkValidationCacheCreateFlagsEXT(name["members"]["flags"]);}();
 [&]() {
@@ -55929,7 +56980,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ePODxLV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["validationCache"]=[&]() {
     json return_KsyEspW=json({});
     return serialize_VkValidationCacheEXT(name.validationCache);}();
@@ -55940,7 +56993,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.validationCache=deserialize_VkValidationCacheEXT(name["members"]["validationCache"]);}();
 return result;}
@@ -55952,7 +57007,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gGqKcHo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxPerSetDescriptors"]=[&]() {
     json return_rVuszBf=json({});
     return serialize_uint32_t(name.maxPerSetDescriptors);}();
@@ -55968,7 +57025,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxPerSetDescriptors=deserialize_uint32_t(name["members"]["maxPerSetDescriptors"]);}();
 [&]() {
@@ -55983,7 +57041,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gGqKcHo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxPerSetDescriptors"]=[&]() {
     json return_rVuszBf=json({});
     return serialize_uint32_t(name.maxPerSetDescriptors);}();
@@ -55999,7 +57059,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxPerSetDescriptors=deserialize_uint32_t(name["members"]["maxPerSetDescriptors"]);}();
 [&]() {
@@ -56014,7 +57075,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LNOFXRH=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maintenance4"]=[&]() {
     json return_wosqpRH=json({});
     return_wosqpRH=[&]() {
@@ -56027,7 +57090,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.maintenance4=deserialize_uint32_t(name["members"]["maintenance4"]);}();}();
@@ -56040,7 +57104,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LNOFXRH=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maintenance4"]=[&]() {
     json return_wosqpRH=json({});
     return_wosqpRH=[&]() {
@@ -56053,7 +57119,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.maintenance4=deserialize_uint32_t(name["members"]["maintenance4"]);}();}();
@@ -56066,7 +57133,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_WSoSKea=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxBufferSize"]=[&]() {
     json return_JBSERWS=json({});
     return_JBSERWS=[&]() {
@@ -56079,7 +57148,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.maxBufferSize=deserialize_uint64_t(name["members"]["maxBufferSize"]);}();}();
@@ -56092,7 +57162,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_WSoSKea=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxBufferSize"]=[&]() {
     json return_JBSERWS=json({});
     return_JBSERWS=[&]() {
@@ -56105,7 +57177,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.maxBufferSize=deserialize_uint64_t(name["members"]["maxBufferSize"]);}();}();
@@ -56118,7 +57191,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_qMNOiPZ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maintenance5"]=[&]() {
     json return_SRwOEhF=json({});
     return_SRwOEhF=[&]() {
@@ -56131,7 +57206,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.maintenance5=deserialize_uint32_t(name["members"]["maintenance5"]);}();}();
@@ -56144,7 +57220,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_qwFADyU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["earlyFragmentMultisampleCoverageAfterSampleCounting"]=[&]() {
     json return_rpLWhbk=json({});
     return_rpLWhbk=[&]() {
@@ -56182,7 +57260,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.earlyFragmentMultisampleCoverageAfterSampleCounting=deserialize_uint32_t(name["members"]["earlyFragmentMultisampleCoverageAfterSampleCounting"]);}();}();
@@ -56210,7 +57289,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_VSVJPwg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_UfFngYT=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["viewMask"]=[&]() {
     json return_DcMPGJc=json({});
     return serialize_uint32_t(name.viewMask);}();
@@ -56248,7 +57329,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_unNbVLC;[&]() {
+temp_unNbVLC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_unNbVLC;}();
 [&]() {
 result.viewMask=deserialize_uint32_t(name["members"]["viewMask"]);}();
 [&]() {
@@ -56279,7 +57362,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KfVQFMW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["supported"]=[&]() {
     json return_rEDpfAq=json({});
     return_rEDpfAq=[&]() {
@@ -56292,7 +57377,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.supported=deserialize_uint32_t(name["members"]["supported"]);}();}();
@@ -56305,7 +57391,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KfVQFMW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["supported"]=[&]() {
     json return_rEDpfAq=json({});
     return_rEDpfAq=[&]() {
@@ -56318,7 +57406,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.supported=deserialize_uint32_t(name["members"]["supported"]);}();}();
@@ -56331,7 +57420,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_cnxjMdg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderDrawParameters"]=[&]() {
     json return_uCXwiGC=json({});
     return_uCXwiGC=[&]() {
@@ -56344,7 +57435,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderDrawParameters=deserialize_uint32_t(name["members"]["shaderDrawParameters"]);}();}();
@@ -56357,7 +57449,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_cnxjMdg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderDrawParameters"]=[&]() {
     json return_uCXwiGC=json({});
     return_uCXwiGC=[&]() {
@@ -56370,7 +57464,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderDrawParameters=deserialize_uint32_t(name["members"]["shaderDrawParameters"]);}();}();
@@ -56383,7 +57478,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_cwdmlGN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderFloat16"]=[&]() {
     json return_KNhKiAn=json({});
     return_KNhKiAn=[&]() {
@@ -56401,7 +57498,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderFloat16=deserialize_uint32_t(name["members"]["shaderFloat16"]);}();}();
@@ -56417,7 +57515,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_cwdmlGN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderFloat16"]=[&]() {
     json return_KNhKiAn=json({});
     return_KNhKiAn=[&]() {
@@ -56435,7 +57535,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderFloat16=deserialize_uint32_t(name["members"]["shaderFloat16"]);}();}();
@@ -56451,7 +57552,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_cwdmlGN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderFloat16"]=[&]() {
     json return_KNhKiAn=json({});
     return_KNhKiAn=[&]() {
@@ -56469,7 +57572,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderFloat16=deserialize_uint32_t(name["members"]["shaderFloat16"]);}();}();
@@ -56485,7 +57589,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fZtuNSO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["denormBehaviorIndependence"]=[&]() {
     json return_xHGBjki=json({});
     return serialize_VkShaderFloatControlsIndependence(name.denormBehaviorIndependence);}();
@@ -56574,7 +57680,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.denormBehaviorIndependence=deserialize_VkShaderFloatControlsIndependence(name["members"]["denormBehaviorIndependence"]);}();
 [&]() {
@@ -56633,7 +57740,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fZtuNSO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["denormBehaviorIndependence"]=[&]() {
     json return_xHGBjki=json({});
     return serialize_VkShaderFloatControlsIndependence(name.denormBehaviorIndependence);}();
@@ -56722,7 +57831,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.denormBehaviorIndependence=deserialize_VkShaderFloatControlsIndependence(name["members"]["denormBehaviorIndependence"]);}();
 [&]() {
@@ -56781,7 +57891,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tmClRgC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["hostQueryReset"]=[&]() {
     json return_jUhgCGJ=json({});
     return_jUhgCGJ=[&]() {
@@ -56794,7 +57906,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.hostQueryReset=deserialize_uint32_t(name["members"]["hostQueryReset"]);}();}();
@@ -56807,7 +57920,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tmClRgC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["hostQueryReset"]=[&]() {
     json return_jUhgCGJ=json({});
     return_jUhgCGJ=[&]() {
@@ -56820,7 +57935,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.hostQueryReset=deserialize_uint32_t(name["members"]["hostQueryReset"]);}();}();
@@ -56930,7 +58046,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_bHRZrGC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_nQmQJXc=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["globalPriority"]=[&]() {
     json return_tZWDWja=json({});
     return serialize_VkQueueGlobalPriorityKHR(name.globalPriority);}();
@@ -56941,7 +58059,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_AKhkPTS;[&]() {
+temp_AKhkPTS=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_AKhkPTS;}();
 [&]() {
 result.globalPriority=deserialize_VkQueueGlobalPriorityKHR(name["members"]["globalPriority"]);}();
 return result;}
@@ -56953,7 +58073,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_bHRZrGC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_nQmQJXc=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["globalPriority"]=[&]() {
     json return_tZWDWja=json({});
     return serialize_VkQueueGlobalPriorityKHR(name.globalPriority);}();
@@ -56964,7 +58086,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_AKhkPTS;[&]() {
+temp_AKhkPTS=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_AKhkPTS;}();
 [&]() {
 result.globalPriority=deserialize_VkQueueGlobalPriorityKHR(name["members"]["globalPriority"]);}();
 return result;}
@@ -56976,7 +58100,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_kzSidWe=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["globalPriorityQuery"]=[&]() {
     json return_hKiWLlX=json({});
     return_hKiWLlX=[&]() {
@@ -56989,7 +58115,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.globalPriorityQuery=deserialize_uint32_t(name["members"]["globalPriorityQuery"]);}();}();
@@ -57002,7 +58129,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_kzSidWe=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["globalPriorityQuery"]=[&]() {
     json return_hKiWLlX=json({});
     return_hKiWLlX=[&]() {
@@ -57015,7 +58144,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.globalPriorityQuery=deserialize_uint32_t(name["members"]["globalPriorityQuery"]);}();}();
@@ -57028,7 +58158,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lsydkzq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["priorityCount"]=[&]() {
     json return_fYjsvZR=json({});
     return serialize_uint32_t(name.priorityCount);}();
@@ -57052,7 +58184,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.priorityCount=deserialize_uint32_t(name["members"]["priorityCount"]);}();
 [&]() {
@@ -57071,7 +58204,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lsydkzq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["priorityCount"]=[&]() {
     json return_fYjsvZR=json({});
     return serialize_uint32_t(name.priorityCount);}();
@@ -57095,7 +58230,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.priorityCount=deserialize_uint32_t(name["members"]["priorityCount"]);}();
 [&]() {
@@ -57114,7 +58250,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_xvsBpDg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vpbjHLW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["objectType"]=[&]() {
     json return_GJDvHOl=json({});
     return serialize_VkObjectType(name.objectType);}();
@@ -57146,7 +58284,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_SEMIEti;[&]() {
+temp_SEMIEti=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_SEMIEti;}();
 [&]() {
 result.objectType=deserialize_VkObjectType(name["members"]["objectType"]);}();
 [&]() {
@@ -57173,7 +58313,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_sUvFIkF=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["objectType"]=[&]() {
     json return_CuFghVM=json({});
     return serialize_VkObjectType(name.objectType);}();
@@ -57218,7 +58360,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.objectType=deserialize_VkObjectType(name["members"]["objectType"]);}();
 [&]() {
@@ -57256,7 +58400,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_wEPmVuF=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pLabelName"]=[&]() {
     json return_KXErnIw=json({});
     
@@ -57295,7 +58441,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 char* temp_Sxgtmpy;[&]() {
 
@@ -57325,7 +58473,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_WmXWajl=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_hPKeCRS=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_UNsHTwl=json({});
     return serialize_VkDebugUtilsMessengerCreateFlagsEXT(name.flags);}();
@@ -57366,7 +58516,7 @@ result["members"]["pUserData"]=[&]() {
 return result;}
 typedef struct {
 uintptr_t VkStructureType_id;
-uintptr_t void_id;
+uintptr_t pNext_id;
 uintptr_t VkDebugUtilsMessengerCreateFlagsEXT_id;
 uintptr_t VkDebugUtilsMessageSeverityFlagsEXT_id;
 uintptr_t VkDebugUtilsMessageTypeFlagsEXT_id;
@@ -57380,7 +58530,9 @@ void* pUserData;
 auto _struct = new VkDebugUtilsMessengerCreateInfoEXT_struct;
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_dVgsNPh;[&]() {
+temp_dVgsNPh=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_dVgsNPh;}();
 [&]() {
 result.flags=deserialize_VkDebugUtilsMessengerCreateFlagsEXT(name["members"]["flags"]);}();
 [&]() {
@@ -57425,7 +58577,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_NAKXMqW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_HnciAlv=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_VZMvJpO=json({});
     return serialize_VkDebugUtilsMessengerCallbackDataFlagsEXT(name.flags);}();
@@ -57538,7 +58692,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_vXGbmYO;[&]() {
+temp_vXGbmYO=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_vXGbmYO;}();
 [&]() {
 result.flags=deserialize_VkDebugUtilsMessengerCallbackDataFlagsEXT(name["members"]["flags"]);}();
 [&]() {
@@ -57623,7 +58779,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fWBbztV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceMemoryReport"]=[&]() {
     json return_bauLEPT=json({});
     return_bauLEPT=[&]() {
@@ -57636,7 +58794,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.deviceMemoryReport=deserialize_uint32_t(name["members"]["deviceMemoryReport"]);}();}();
@@ -57649,7 +58808,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AAjdijG=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_VrWNwlX=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_LPakIjk=json({});
     return serialize_VkDeviceMemoryReportFlagsEXT(name.flags);}();
@@ -57684,7 +58845,7 @@ result["members"]["pUserData"]=[&]() {
 return result;}
 typedef struct {
 uintptr_t VkStructureType_id;
-uintptr_t void_id;
+uintptr_t pNext_id;
 uintptr_t VkDeviceMemoryReportFlagsEXT_id;
 uintptr_t PFN_vkDeviceMemoryReportCallbackEXT_id;
 void* pUserData;
@@ -57696,7 +58857,9 @@ void* pUserData;
 auto _struct = new VkDeviceDeviceMemoryReportCreateInfoEXT_struct;
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_xqzHWhH;[&]() {
+temp_xqzHWhH=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_xqzHWhH;}();
 [&]() {
 result.flags=deserialize_VkDeviceMemoryReportFlagsEXT(name["members"]["flags"]);}();
 [&]() {
@@ -57737,7 +58900,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LZRVHDf=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_jNXRluM=json({});
     return serialize_VkDeviceMemoryReportFlagsEXT(name.flags);}();
@@ -57768,7 +58933,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.flags=deserialize_VkDeviceMemoryReportFlagsEXT(name["members"]["flags"]);}();
 [&]() {
@@ -57793,7 +58959,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_OgPYgeF=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["handleType"]=[&]() {
     json return_cIXUqaP=json({});
     return serialize_VkExternalMemoryHandleTypeFlagBits(name.handleType);}();
@@ -57829,7 +58997,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.handleType=deserialize_VkExternalMemoryHandleTypeFlagBits(name["members"]["handleType"]);}();
 [&]() {
@@ -57860,7 +59030,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_IZlXxuD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["memoryTypeBits"]=[&]() {
     json return_nnqgEZI=json({});
     return serialize_uint32_t(name.memoryTypeBits);}();
@@ -57871,7 +59043,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.memoryTypeBits=deserialize_uint32_t(name["members"]["memoryTypeBits"]);}();
 return result;}
@@ -57883,7 +59056,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_UPXeJDI=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["minImportedHostPointerAlignment"]=[&]() {
     json return_KbFRROe=json({});
     return_KbFRROe=[&]() {
@@ -57896,7 +59071,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.minImportedHostPointerAlignment=deserialize_uint64_t(name["members"]["minImportedHostPointerAlignment"]);}();}();
@@ -57909,7 +59085,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fbOkPAy=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["primitiveOverestimationSize"]=[&]() {
     json return_jaxkBXC=json({});
     return serialize_float(name.primitiveOverestimationSize);}();
@@ -57956,7 +59134,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.primitiveOverestimationSize=deserialize_float(name["members"]["primitiveOverestimationSize"]);}();
 [&]() {
@@ -57990,7 +59169,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_OlbhxbL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["timeDomain"]=[&]() {
     json return_vOYYsfN=json({});
     return serialize_VkTimeDomainEXT(name.timeDomain);}();
@@ -58001,7 +59182,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.timeDomain=deserialize_VkTimeDomainEXT(name["members"]["timeDomain"]);}();
 return result;}
@@ -58013,7 +59196,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_NXSCZbh=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderEngineCount"]=[&]() {
     json return_FOTyReK=json({});
     return serialize_uint32_t(name.shaderEngineCount);}();
@@ -58063,7 +59248,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.shaderEngineCount=deserialize_uint32_t(name["members"]["shaderEngineCount"]);}();
 [&]() {
@@ -58101,7 +59287,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lFXcweg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_HEhtEkb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderCoreFeatures"]=[&]() {
     json return_zuPhONN=json({});
     return serialize_VkShaderCorePropertiesFlagsAMD(name.shaderCoreFeatures);}();
@@ -58115,7 +59303,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.shaderCoreFeatures=deserialize_VkShaderCorePropertiesFlagsAMD(name["members"]["shaderCoreFeatures"]);}();
 [&]() {
@@ -58129,7 +59318,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_FcRXvRG=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_TgCGsKC=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_PrzfiCm=json({});
     return serialize_VkPipelineRasterizationConservativeStateCreateFlagsEXT(name.flags);}();
@@ -58146,7 +59337,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_HNMuFVl;[&]() {
+temp_HNMuFVl=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_HNMuFVl;}();
 [&]() {
 result.flags=deserialize_VkPipelineRasterizationConservativeStateCreateFlagsEXT(name["members"]["flags"]);}();
 [&]() {
@@ -58162,7 +59355,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_VgiiVJi=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderInputAttachmentArrayDynamicIndexing"]=[&]() {
     json return_olhPHmq=json({});
     return_olhPHmq=[&]() {
@@ -58270,7 +59465,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderInputAttachmentArrayDynamicIndexing=deserialize_uint32_t(name["members"]["shaderInputAttachmentArrayDynamicIndexing"]);}();}();
@@ -58340,7 +59536,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_VgiiVJi=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderInputAttachmentArrayDynamicIndexing"]=[&]() {
     json return_olhPHmq=json({});
     return_olhPHmq=[&]() {
@@ -58448,7 +59646,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderInputAttachmentArrayDynamicIndexing=deserialize_uint32_t(name["members"]["shaderInputAttachmentArrayDynamicIndexing"]);}();}();
@@ -58518,7 +59717,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AnubBnv=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxUpdateAfterBindDescriptorsInAllPools"]=[&]() {
     json return_DCTwjXY=json({});
     return serialize_uint32_t(name.maxUpdateAfterBindDescriptorsInAllPools);}();
@@ -58609,7 +59810,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxUpdateAfterBindDescriptorsInAllPools=deserialize_uint32_t(name["members"]["maxUpdateAfterBindDescriptorsInAllPools"]);}();
 [&]() {
@@ -58672,7 +59874,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AnubBnv=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxUpdateAfterBindDescriptorsInAllPools"]=[&]() {
     json return_DCTwjXY=json({});
     return serialize_uint32_t(name.maxUpdateAfterBindDescriptorsInAllPools);}();
@@ -58763,7 +59967,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxUpdateAfterBindDescriptorsInAllPools=deserialize_uint32_t(name["members"]["maxUpdateAfterBindDescriptorsInAllPools"]);}();
 [&]() {
@@ -58826,7 +60031,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_SWMLpHc=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_HnciAlv=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["bindingCount"]=[&]() {
     json return_WlAfyvY=json({});
     return serialize_uint32_t(name.bindingCount);}();
@@ -58855,7 +60062,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_vXGbmYO;[&]() {
+temp_vXGbmYO=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_vXGbmYO;}();
 [&]() {
 result.bindingCount=deserialize_uint32_t(name["members"]["bindingCount"]);}();
 [&]() {
@@ -58880,7 +60089,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_SWMLpHc=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_HnciAlv=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["bindingCount"]=[&]() {
     json return_WlAfyvY=json({});
     return serialize_uint32_t(name.bindingCount);}();
@@ -58909,7 +60120,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_vXGbmYO;[&]() {
+temp_vXGbmYO=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_vXGbmYO;}();
 [&]() {
 result.bindingCount=deserialize_uint32_t(name["members"]["bindingCount"]);}();
 [&]() {
@@ -58934,7 +60147,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_HjDsVEv=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["descriptorSetCount"]=[&]() {
     json return_BSDRnKX=json({});
     return serialize_uint32_t(name.descriptorSetCount);}();
@@ -58963,7 +60178,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.descriptorSetCount=deserialize_uint32_t(name["members"]["descriptorSetCount"]);}();
 [&]() {
@@ -58988,7 +60205,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_HjDsVEv=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["descriptorSetCount"]=[&]() {
     json return_BSDRnKX=json({});
     return serialize_uint32_t(name.descriptorSetCount);}();
@@ -59017,7 +60236,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.descriptorSetCount=deserialize_uint32_t(name["members"]["descriptorSetCount"]);}();
 [&]() {
@@ -59042,7 +60263,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ByHMPwC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxVariableDescriptorCount"]=[&]() {
     json return_eZyOYGa=json({});
     return serialize_uint32_t(name.maxVariableDescriptorCount);}();
@@ -59053,7 +60276,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxVariableDescriptorCount=deserialize_uint32_t(name["members"]["maxVariableDescriptorCount"]);}();
 return result;}
@@ -59065,7 +60289,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ByHMPwC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxVariableDescriptorCount"]=[&]() {
     json return_eZyOYGa=json({});
     return serialize_uint32_t(name.maxVariableDescriptorCount);}();
@@ -59076,7 +60302,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxVariableDescriptorCount=deserialize_uint32_t(name["members"]["maxVariableDescriptorCount"]);}();
 return result;}
@@ -59088,7 +60315,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ZqwnQBZ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_PtwCfAW=json({});
     return serialize_VkAttachmentDescriptionFlags(name.flags);}();
@@ -59123,7 +60352,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkAttachmentDescriptionFlags(name["members"]["flags"]);}();
 [&]() {
@@ -59151,7 +60382,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ZqwnQBZ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_PtwCfAW=json({});
     return serialize_VkAttachmentDescriptionFlags(name.flags);}();
@@ -59186,7 +60419,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkAttachmentDescriptionFlags(name["members"]["flags"]);}();
 [&]() {
@@ -59214,7 +60449,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KrQeWqW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["attachment"]=[&]() {
     json return_dILHxIa=json({});
     return serialize_uint32_t(name.attachment);}();
@@ -59231,7 +60468,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.attachment=deserialize_uint32_t(name["members"]["attachment"]);}();
 [&]() {
@@ -59247,7 +60486,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KrQeWqW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["attachment"]=[&]() {
     json return_dILHxIa=json({});
     return serialize_uint32_t(name.attachment);}();
@@ -59264,7 +60505,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.attachment=deserialize_uint32_t(name["members"]["attachment"]);}();
 [&]() {
@@ -59280,7 +60523,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_mTWVaga=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_eGMnHSi=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_JXrhXLw=json({});
     return serialize_VkSubpassDescriptionFlags(name.flags);}();
@@ -59389,7 +60634,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_OsQmrId;[&]() {
+temp_OsQmrId=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_OsQmrId;}();
 [&]() {
 result.flags=deserialize_VkSubpassDescriptionFlags(name["members"]["flags"]);}();
 [&]() {
@@ -59474,7 +60721,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_mTWVaga=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_eGMnHSi=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_JXrhXLw=json({});
     return serialize_VkSubpassDescriptionFlags(name.flags);}();
@@ -59583,7 +60832,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_OsQmrId;[&]() {
+temp_OsQmrId=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_OsQmrId;}();
 [&]() {
 result.flags=deserialize_VkSubpassDescriptionFlags(name["members"]["flags"]);}();
 [&]() {
@@ -59668,7 +60919,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_TNFbKyN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcSubpass"]=[&]() {
     json return_lskwgBS=json({});
     return serialize_uint32_t(name.srcSubpass);}();
@@ -59700,7 +60953,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.srcSubpass=deserialize_uint32_t(name["members"]["srcSubpass"]);}();
 [&]() {
@@ -59726,7 +60981,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_TNFbKyN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcSubpass"]=[&]() {
     json return_lskwgBS=json({});
     return serialize_uint32_t(name.srcSubpass);}();
@@ -59758,7 +61015,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.srcSubpass=deserialize_uint32_t(name["members"]["srcSubpass"]);}();
 [&]() {
@@ -59784,7 +61043,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_HNUAbGk=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_JVbFNCe=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_ohUQBIc=json({});
     return serialize_VkRenderPassCreateFlags(name.flags);}();
@@ -59879,7 +61140,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_tOlEGmq;[&]() {
+temp_tOlEGmq=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_tOlEGmq;}();
 [&]() {
 result.flags=deserialize_VkRenderPassCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -59951,7 +61214,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_HNUAbGk=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_JVbFNCe=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_ohUQBIc=json({});
     return serialize_VkRenderPassCreateFlags(name.flags);}();
@@ -60046,7 +61311,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_tOlEGmq;[&]() {
+temp_tOlEGmq=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_tOlEGmq;}();
 [&]() {
 result.flags=deserialize_VkRenderPassCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -60118,7 +61385,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_XxqESDB=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["contents"]=[&]() {
     json return_qTtIblk=json({});
     return serialize_VkSubpassContents(name.contents);}();
@@ -60129,7 +61398,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.contents=deserialize_VkSubpassContents(name["members"]["contents"]);}();
 return result;}
@@ -60141,7 +61412,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_XxqESDB=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["contents"]=[&]() {
     json return_qTtIblk=json({});
     return serialize_VkSubpassContents(name.contents);}();
@@ -60152,7 +61425,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.contents=deserialize_VkSubpassContents(name["members"]["contents"]);}();
 return result;}
@@ -60164,7 +61439,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_MYCfnXr=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vEHjbMf=json({});
+    return serialize_pNext(name.pNext);}();
 return result;}
 
     VkSubpassEndInfo deserialize_VkSubpassEndInfo(json &name){
@@ -60172,7 +61449,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_pVrFUtP;[&]() {
+temp_pVrFUtP=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_pVrFUtP;}();
 return result;}
 
     json serialize_VkSubpassEndInfoKHR(VkSubpassEndInfoKHR name){
@@ -60182,7 +61461,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_MYCfnXr=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vEHjbMf=json({});
+    return serialize_pNext(name.pNext);}();
 return result;}
 
     VkSubpassEndInfoKHR deserialize_VkSubpassEndInfoKHR(json &name){
@@ -60190,7 +61471,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_pVrFUtP;[&]() {
+temp_pVrFUtP=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_pVrFUtP;}();
 return result;}
 
     json serialize_VkPhysicalDeviceTimelineSemaphoreFeatures(VkPhysicalDeviceTimelineSemaphoreFeatures name){
@@ -60200,7 +61483,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_YPNTQEA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["timelineSemaphore"]=[&]() {
     json return_rdpkFPH=json({});
     return_rdpkFPH=[&]() {
@@ -60213,7 +61498,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.timelineSemaphore=deserialize_uint32_t(name["members"]["timelineSemaphore"]);}();}();
@@ -60226,7 +61512,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_YPNTQEA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["timelineSemaphore"]=[&]() {
     json return_rdpkFPH=json({});
     return_rdpkFPH=[&]() {
@@ -60239,7 +61527,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.timelineSemaphore=deserialize_uint32_t(name["members"]["timelineSemaphore"]);}();}();
@@ -60252,7 +61541,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ixoNxgJ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxTimelineSemaphoreValueDifference"]=[&]() {
     json return_zHYyuwY=json({});
     return serialize_uint64_t(name.maxTimelineSemaphoreValueDifference);}();
@@ -60263,7 +61554,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxTimelineSemaphoreValueDifference=deserialize_uint64_t(name["members"]["maxTimelineSemaphoreValueDifference"]);}();
 return result;}
@@ -60275,7 +61567,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ixoNxgJ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxTimelineSemaphoreValueDifference"]=[&]() {
     json return_zHYyuwY=json({});
     return serialize_uint64_t(name.maxTimelineSemaphoreValueDifference);}();
@@ -60286,7 +61580,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxTimelineSemaphoreValueDifference=deserialize_uint64_t(name["members"]["maxTimelineSemaphoreValueDifference"]);}();
 return result;}
@@ -60298,7 +61593,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KjJfVhT=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["semaphoreType"]=[&]() {
     json return_FtjTXuX=json({});
     return serialize_VkSemaphoreType(name.semaphoreType);}();
@@ -60312,7 +61609,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.semaphoreType=deserialize_VkSemaphoreType(name["members"]["semaphoreType"]);}();
 [&]() {
@@ -60326,7 +61625,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KjJfVhT=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["semaphoreType"]=[&]() {
     json return_FtjTXuX=json({});
     return serialize_VkSemaphoreType(name.semaphoreType);}();
@@ -60340,7 +61641,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.semaphoreType=deserialize_VkSemaphoreType(name["members"]["semaphoreType"]);}();
 [&]() {
@@ -60354,7 +61657,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GHjdyeR=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["waitSemaphoreValueCount"]=[&]() {
     json return_hzLrlfg=json({});
     return serialize_uint32_t(name.waitSemaphoreValueCount);}();
@@ -60404,7 +61709,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.waitSemaphoreValueCount=deserialize_uint32_t(name["members"]["waitSemaphoreValueCount"]);}();
 [&]() {
@@ -60444,7 +61751,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GHjdyeR=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["waitSemaphoreValueCount"]=[&]() {
     json return_hzLrlfg=json({});
     return serialize_uint32_t(name.waitSemaphoreValueCount);}();
@@ -60494,7 +61803,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.waitSemaphoreValueCount=deserialize_uint32_t(name["members"]["waitSemaphoreValueCount"]);}();
 [&]() {
@@ -60534,7 +61845,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LwjtKYG=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_pLSuUYG=json({});
     return serialize_VkSemaphoreWaitFlags(name.flags);}();
@@ -60584,7 +61897,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkSemaphoreWaitFlags(name["members"]["flags"]);}();
 [&]() {
@@ -60624,7 +61939,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LwjtKYG=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_pLSuUYG=json({});
     return serialize_VkSemaphoreWaitFlags(name.flags);}();
@@ -60674,7 +61991,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkSemaphoreWaitFlags(name["members"]["flags"]);}();
 [&]() {
@@ -60714,7 +62033,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_IMkqEvB=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["semaphore"]=[&]() {
     json return_URGYDSC=json({});
     return serialize_VkSemaphore(name.semaphore);}();
@@ -60728,7 +62049,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.semaphore=deserialize_VkSemaphore(name["members"]["semaphore"]);}();
 [&]() {
@@ -60742,7 +62065,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_IMkqEvB=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["semaphore"]=[&]() {
     json return_URGYDSC=json({});
     return serialize_VkSemaphore(name.semaphore);}();
@@ -60756,7 +62081,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.semaphore=deserialize_VkSemaphore(name["members"]["semaphore"]);}();
 [&]() {
@@ -60791,7 +62118,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AVoaXSh=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_bnetmFd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["vertexBindingDivisorCount"]=[&]() {
     json return_uyBkmpX=json({});
     return serialize_uint32_t(name.vertexBindingDivisorCount);}();
@@ -60820,7 +62149,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_IBPxHNE;[&]() {
+temp_IBPxHNE=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_IBPxHNE;}();
 [&]() {
 result.vertexBindingDivisorCount=deserialize_uint32_t(name["members"]["vertexBindingDivisorCount"]);}();
 [&]() {
@@ -60845,7 +62176,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_WLyTnRs=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxVertexAttribDivisor"]=[&]() {
     json return_YfuFstJ=json({});
     return serialize_uint32_t(name.maxVertexAttribDivisor);}();
@@ -60856,7 +62189,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxVertexAttribDivisor=deserialize_uint32_t(name["members"]["maxVertexAttribDivisor"]);}();
 return result;}
@@ -60868,7 +62202,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ezPqvmg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pciDomain"]=[&]() {
     json return_BwIwUVK=json({});
     return serialize_uint32_t(name.pciDomain);}();
@@ -60888,7 +62224,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.pciDomain=deserialize_uint32_t(name["members"]["pciDomain"]);}();
 [&]() {
@@ -60906,7 +62243,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_jYNDmwW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_bnetmFd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["conditionalRenderingEnable"]=[&]() {
     json return_vDtjDDW=json({});
     return_vDtjDDW=[&]() {
@@ -60919,7 +62258,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_IBPxHNE;[&]() {
+temp_IBPxHNE=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_IBPxHNE;}();
 [&]() {
 [&]() {
 result.conditionalRenderingEnable=deserialize_uint32_t(name["members"]["conditionalRenderingEnable"]);}();}();
@@ -60932,7 +62273,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_bGqRaGM=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["storageBuffer8BitAccess"]=[&]() {
     json return_eqSgfTP=json({});
     return_eqSgfTP=[&]() {
@@ -60955,7 +62298,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.storageBuffer8BitAccess=deserialize_uint32_t(name["members"]["storageBuffer8BitAccess"]);}();}();
@@ -60974,7 +62318,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_bGqRaGM=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["storageBuffer8BitAccess"]=[&]() {
     json return_eqSgfTP=json({});
     return_eqSgfTP=[&]() {
@@ -60997,7 +62343,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.storageBuffer8BitAccess=deserialize_uint32_t(name["members"]["storageBuffer8BitAccess"]);}();}();
@@ -61016,7 +62363,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_RzGgLmU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["conditionalRendering"]=[&]() {
     json return_oLsqXmK=json({});
     return_oLsqXmK=[&]() {
@@ -61034,7 +62383,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.conditionalRendering=deserialize_uint32_t(name["members"]["conditionalRendering"]);}();}();
@@ -61050,7 +62400,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gwmWuWc=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["vulkanMemoryModel"]=[&]() {
     json return_BdUhIzR=json({});
     return_BdUhIzR=[&]() {
@@ -61073,7 +62425,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.vulkanMemoryModel=deserialize_uint32_t(name["members"]["vulkanMemoryModel"]);}();}();
@@ -61092,7 +62445,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gwmWuWc=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["vulkanMemoryModel"]=[&]() {
     json return_BdUhIzR=json({});
     return_BdUhIzR=[&]() {
@@ -61115,7 +62470,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.vulkanMemoryModel=deserialize_uint32_t(name["members"]["vulkanMemoryModel"]);}();}();
@@ -61134,7 +62490,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_TPvyBHZ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderBufferInt64Atomics"]=[&]() {
     json return_TWuPpIR=json({});
     return_TWuPpIR=[&]() {
@@ -61152,7 +62510,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderBufferInt64Atomics=deserialize_uint32_t(name["members"]["shaderBufferInt64Atomics"]);}();}();
@@ -61168,7 +62527,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_TPvyBHZ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderBufferInt64Atomics"]=[&]() {
     json return_TWuPpIR=json({});
     return_TWuPpIR=[&]() {
@@ -61186,7 +62547,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderBufferInt64Atomics=deserialize_uint32_t(name["members"]["shaderBufferInt64Atomics"]);}();}();
@@ -61202,7 +62564,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_dAqcnZg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderBufferFloat32Atomics"]=[&]() {
     json return_XuqQIOA=json({});
     return_XuqQIOA=[&]() {
@@ -61270,7 +62634,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderBufferFloat32Atomics=deserialize_uint32_t(name["members"]["shaderBufferFloat32Atomics"]);}();}();
@@ -61316,7 +62681,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_glYcbaT=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderBufferFloat16Atomics"]=[&]() {
     json return_AKvEVUK=json({});
     return_AKvEVUK=[&]() {
@@ -61384,7 +62751,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderBufferFloat16Atomics=deserialize_uint32_t(name["members"]["shaderBufferFloat16Atomics"]);}();}();
@@ -61430,7 +62798,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_WUcBRrU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["vertexAttributeInstanceRateDivisor"]=[&]() {
     json return_jOvCVwm=json({});
     return_jOvCVwm=[&]() {
@@ -61448,7 +62818,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.vertexAttributeInstanceRateDivisor=deserialize_uint32_t(name["members"]["vertexAttributeInstanceRateDivisor"]);}();}();
@@ -61464,7 +62835,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KmoOIRb=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RROZwuA=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["checkpointExecutionStageMask"]=[&]() {
     json return_hgYDVAC=json({});
     return serialize_VkPipelineStageFlags(name.checkpointExecutionStageMask);}();
@@ -61475,7 +62848,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.checkpointExecutionStageMask=deserialize_VkPipelineStageFlags(name["members"]["checkpointExecutionStageMask"]);}();
 return result;}
@@ -61487,7 +62861,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AUSEQqB=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["stage"]=[&]() {
     json return_cCdYdpC=json({});
     return serialize_VkPipelineStageFlagBits(name.stage);}();
@@ -61523,7 +62899,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.stage=deserialize_VkPipelineStageFlagBits(name["members"]["stage"]);}();
 [&]() {
@@ -61554,7 +62931,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_cxmZWAO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uSHLIBr=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["supportedDepthResolveModes"]=[&]() {
     json return_ZICnWJu=json({});
     return serialize_VkResolveModeFlags(name.supportedDepthResolveModes);}();
@@ -61578,7 +62957,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.supportedDepthResolveModes=deserialize_VkResolveModeFlags(name["members"]["supportedDepthResolveModes"]);}();
 [&]() {
@@ -61598,7 +62978,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_cxmZWAO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uSHLIBr=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["supportedDepthResolveModes"]=[&]() {
     json return_ZICnWJu=json({});
     return serialize_VkResolveModeFlags(name.supportedDepthResolveModes);}();
@@ -61622,7 +63004,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.supportedDepthResolveModes=deserialize_VkResolveModeFlags(name["members"]["supportedDepthResolveModes"]);}();
 [&]() {
@@ -61642,7 +63025,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_aEcRydM=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PMbgTun=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["depthResolveMode"]=[&]() {
     json return_voKyCGS=json({});
     return serialize_VkResolveModeFlagBits(name.depthResolveMode);}();
@@ -61667,7 +63052,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_FGDQdoW;[&]() {
+temp_FGDQdoW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_FGDQdoW;}();
 [&]() {
 result.depthResolveMode=deserialize_VkResolveModeFlagBits(name["members"]["depthResolveMode"]);}();
 [&]() {
@@ -61692,7 +63079,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_aEcRydM=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PMbgTun=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["depthResolveMode"]=[&]() {
     json return_voKyCGS=json({});
     return serialize_VkResolveModeFlagBits(name.depthResolveMode);}();
@@ -61717,7 +63106,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_FGDQdoW;[&]() {
+temp_FGDQdoW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_FGDQdoW;}();
 [&]() {
 result.depthResolveMode=deserialize_VkResolveModeFlagBits(name["members"]["depthResolveMode"]);}();
 [&]() {
@@ -61742,7 +63133,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_EwpZekA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["decodeMode"]=[&]() {
     json return_MbJHWgc=json({});
     return serialize_VkFormat(name.decodeMode);}();
@@ -61753,7 +63146,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.decodeMode=deserialize_VkFormat(name["members"]["decodeMode"]);}();
 return result;}
@@ -61765,7 +63160,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_MXdyzMs=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["decodeModeSharedExponent"]=[&]() {
     json return_MVZXsUN=json({});
     return_MVZXsUN=[&]() {
@@ -61778,7 +63175,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.decodeModeSharedExponent=deserialize_uint32_t(name["members"]["decodeModeSharedExponent"]);}();}();
@@ -61791,7 +63189,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_xWQuTug=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["transformFeedback"]=[&]() {
     json return_LelHcsK=json({});
     return_LelHcsK=[&]() {
@@ -61809,7 +63209,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.transformFeedback=deserialize_uint32_t(name["members"]["transformFeedback"]);}();}();
@@ -61825,7 +63226,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AWXGjLN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxTransformFeedbackStreams"]=[&]() {
     json return_mFAARoD=json({});
     return serialize_uint32_t(name.maxTransformFeedbackStreams);}();
@@ -61873,7 +63276,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxTransformFeedbackStreams=deserialize_uint32_t(name["members"]["maxTransformFeedbackStreams"]);}();
 [&]() {
@@ -61908,7 +63312,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GhUpxXK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_TgCGsKC=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_KiFhyuS=json({});
     return serialize_VkPipelineRasterizationStateStreamCreateFlagsEXT(name.flags);}();
@@ -61922,7 +63328,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_HNMuFVl;[&]() {
+temp_HNMuFVl=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_HNMuFVl;}();
 [&]() {
 result.flags=deserialize_VkPipelineRasterizationStateStreamCreateFlagsEXT(name["members"]["flags"]);}();
 [&]() {
@@ -61936,7 +63344,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_BpraUMS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["representativeFragmentTest"]=[&]() {
     json return_APpCBOq=json({});
     return_APpCBOq=[&]() {
@@ -61949,7 +63359,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.representativeFragmentTest=deserialize_uint32_t(name["members"]["representativeFragmentTest"]);}();}();
@@ -61962,7 +63373,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_DNjkkfm=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_fJVPDUH=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["representativeFragmentTestEnable"]=[&]() {
     json return_GcGayrd=json({});
     return_GcGayrd=[&]() {
@@ -61975,7 +63388,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_sKVZcum;[&]() {
+temp_sKVZcum=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_sKVZcum;}();
 [&]() {
 [&]() {
 result.representativeFragmentTestEnable=deserialize_uint32_t(name["members"]["representativeFragmentTestEnable"]);}();}();
@@ -61988,7 +63403,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_kdzjqjw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["exclusiveScissor"]=[&]() {
     json return_JWQDbWr=json({});
     return_JWQDbWr=[&]() {
@@ -62001,7 +63418,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.exclusiveScissor=deserialize_uint32_t(name["members"]["exclusiveScissor"]);}();}();
@@ -62014,7 +63432,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_xhkAXCx=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_DTnQGEG=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["exclusiveScissorCount"]=[&]() {
     json return_NPVHQcZ=json({});
     return serialize_uint32_t(name.exclusiveScissorCount);}();
@@ -62043,7 +63463,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_PnRMIUw;[&]() {
+temp_PnRMIUw=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_PnRMIUw;}();
 [&]() {
 result.exclusiveScissorCount=deserialize_uint32_t(name["members"]["exclusiveScissorCount"]);}();
 [&]() {
@@ -62068,7 +63490,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_DEGMPIQ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_CAZMHOp=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["cornerSampledImage"]=[&]() {
     json return_mxqrHns=json({});
     return_mxqrHns=[&]() {
@@ -62081,7 +63505,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.cornerSampledImage=deserialize_uint32_t(name["members"]["cornerSampledImage"]);}();}();
@@ -62094,7 +63519,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_mebuLGy=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["computeDerivativeGroupQuads"]=[&]() {
     json return_AOuuOAv=json({});
     return_AOuuOAv=[&]() {
@@ -62112,7 +63539,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.computeDerivativeGroupQuads=deserialize_uint32_t(name["members"]["computeDerivativeGroupQuads"]);}();}();
@@ -62128,7 +63556,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_iVvTGkL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_CAZMHOp=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imageFootprint"]=[&]() {
     json return_sLUxYKF=json({});
     return_sLUxYKF=[&]() {
@@ -62141,7 +63571,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.imageFootprint=deserialize_uint32_t(name["members"]["imageFootprint"]);}();}();
@@ -62154,7 +63585,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_YzzTYPa=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["dedicatedAllocationImageAliasing"]=[&]() {
     json return_JRMdZhc=json({});
     return_JRMdZhc=[&]() {
@@ -62167,7 +63600,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.dedicatedAllocationImageAliasing=deserialize_uint32_t(name["members"]["dedicatedAllocationImageAliasing"]);}();}();
@@ -62180,7 +63614,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_hNoffXs=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["indirectCopy"]=[&]() {
     json return_FHSMzEX=json({});
     return_FHSMzEX=[&]() {
@@ -62193,7 +63629,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.indirectCopy=deserialize_uint32_t(name["members"]["indirectCopy"]);}();}();
@@ -62206,7 +63643,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lQPSjMs=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_MEGcYDw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["supportedQueues"]=[&]() {
     json return_TvBgSkJ=json({});
     return serialize_VkQueueFlags(name.supportedQueues);}();
@@ -62217,7 +63656,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.supportedQueues=deserialize_VkQueueFlags(name["members"]["supportedQueues"]);}();
 return result;}
@@ -62229,7 +63669,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_uFaHHbo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vDMHxGJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["memoryDecompression"]=[&]() {
     json return_VoBiLdx=json({});
     return_VoBiLdx=[&]() {
@@ -62242,7 +63684,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.memoryDecompression=deserialize_uint32_t(name["members"]["memoryDecompression"]);}();}();
@@ -62255,7 +63698,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_BUbZQZG=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_MEGcYDw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["decompressionMethods"]=[&]() {
     json return_YPnHhvh=json({});
     return serialize_VkMemoryDecompressionMethodFlagsNV(name.decompressionMethods);}();
@@ -62269,7 +63714,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.decompressionMethods=deserialize_VkMemoryDecompressionMethodFlagsNV(name["members"]["decompressionMethods"]);}();
 [&]() {
@@ -62330,7 +63776,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_JsAWfbq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_diZkYcK=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shadingRateImageEnable"]=[&]() {
     json return_buMFrXt=json({});
     return_buMFrXt=[&]() {
@@ -62364,7 +63812,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_VrVGIll;[&]() {
+temp_VrVGIll=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_VrVGIll;}();
 [&]() {
 [&]() {
 result.shadingRateImageEnable=deserialize_uint32_t(name["members"]["shadingRateImageEnable"]);}();}();
@@ -62392,7 +63842,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_TYrESBe=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shadingRateImage"]=[&]() {
     json return_ZdvBzLV=json({});
     return_ZdvBzLV=[&]() {
@@ -62410,7 +63862,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shadingRateImage=deserialize_uint32_t(name["members"]["shadingRateImage"]);}();}();
@@ -62426,7 +63879,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_zLZfsBt=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shadingRateTexelSize"]=[&]() {
     json return_KlGdQTp=json({});
     return serialize_VkExtent2D(name.shadingRateTexelSize);}();
@@ -62443,7 +63898,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.shadingRateTexelSize=deserialize_VkExtent2D(name["members"]["shadingRateTexelSize"]);}();
 [&]() {
@@ -62459,7 +63915,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pqvCwdm=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["invocationMask"]=[&]() {
     json return_IGoHwwa=json({});
     return_IGoHwwa=[&]() {
@@ -62472,7 +63930,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.invocationMask=deserialize_uint32_t(name["members"]["invocationMask"]);}();}();
@@ -62568,7 +64027,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ktnDjvU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_ohxmbve=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["sampleOrderType"]=[&]() {
     json return_GATNYrm=json({});
     return serialize_VkCoarseSampleOrderTypeNV(name.sampleOrderType);}();
@@ -62600,7 +64061,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_aNvSBRD;[&]() {
+temp_aNvSBRD=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_aNvSBRD;}();
 [&]() {
 result.sampleOrderType=deserialize_VkCoarseSampleOrderTypeNV(name["members"]["sampleOrderType"]);}();
 [&]() {
@@ -62627,7 +64090,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_WgzWDDy=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["taskShader"]=[&]() {
     json return_WczyQHG=json({});
     return_WczyQHG=[&]() {
@@ -62645,7 +64110,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.taskShader=deserialize_uint32_t(name["members"]["taskShader"]);}();}();
@@ -62661,7 +64127,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ltJyqVP=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxDrawMeshTasksCount"]=[&]() {
     json return_VdkJWXd=json({});
     return serialize_uint32_t(name.maxDrawMeshTasksCount);}();
@@ -62728,7 +64196,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxDrawMeshTasksCount=deserialize_uint32_t(name["members"]["maxDrawMeshTasksCount"]);}();
 [&]() {
@@ -62795,7 +64264,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gOugEdm=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["taskShader"]=[&]() {
     json return_WczyQHG=json({});
     return_WczyQHG=[&]() {
@@ -62828,7 +64299,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.taskShader=deserialize_uint32_t(name["members"]["taskShader"]);}();}();
@@ -62853,7 +64325,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GTmJZpe=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxTaskWorkGroupTotalCount"]=[&]() {
     json return_pUpjFeX=json({});
     return serialize_uint32_t(name.maxTaskWorkGroupTotalCount);}();
@@ -62993,7 +64467,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxTaskWorkGroupTotalCount=deserialize_uint32_t(name["members"]["maxTaskWorkGroupTotalCount"]);}();
 [&]() {
@@ -63109,7 +64584,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_EPoAXkQ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["type"]=[&]() {
     json return_AHuoGdH=json({});
     return serialize_VkRayTracingShaderGroupTypeKHR(name.type);}();
@@ -63132,7 +64609,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.type=deserialize_VkRayTracingShaderGroupTypeKHR(name["members"]["type"]);}();
 [&]() {
@@ -63152,7 +64631,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AVLCSpc=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["type"]=[&]() {
     json return_AHuoGdH=json({});
     return serialize_VkRayTracingShaderGroupTypeKHR(name.type);}();
@@ -63200,7 +64681,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.type=deserialize_VkRayTracingShaderGroupTypeKHR(name["members"]["type"]);}();
 [&]() {
@@ -63240,7 +64723,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LyygrrH=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_uwRslpd=json({});
     return serialize_VkPipelineCreateFlags(name.flags);}();
@@ -63305,7 +64790,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkPipelineCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -63355,7 +64842,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ebRIRiY=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_uwRslpd=json({});
     return serialize_VkPipelineCreateFlags(name.flags);}();
@@ -63453,7 +64942,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkPipelineCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -63536,7 +65027,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_DmvjPFt=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pBGwEnt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["vertexData"]=[&]() {
     json return_EbDuUry=json({});
     return serialize_VkBuffer(name.vertexData);}();
@@ -63585,7 +65078,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mKKnJpW;[&]() {
+temp_mKKnJpW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mKKnJpW;}();
 [&]() {
 result.vertexData=deserialize_VkBuffer(name["members"]["vertexData"]);}();
 [&]() {
@@ -63621,7 +65116,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_YYidydS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pBGwEnt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["aabbData"]=[&]() {
     json return_cAZgvkM=json({});
     return serialize_VkBuffer(name.aabbData);}();
@@ -63643,7 +65140,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mKKnJpW;[&]() {
+temp_mKKnJpW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mKKnJpW;}();
 [&]() {
 result.aabbData=deserialize_VkBuffer(name["members"]["aabbData"]);}();
 [&]() {
@@ -63683,7 +65182,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_BweVIqH=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_aKTpvlZ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["geometryType"]=[&]() {
     json return_poxlpHb=json({});
     return serialize_VkGeometryTypeKHR(name.geometryType);}();
@@ -63700,7 +65201,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_veugGRF;[&]() {
+temp_veugGRF=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_veugGRF;}();
 [&]() {
 result.geometryType=deserialize_VkGeometryTypeKHR(name["members"]["geometryType"]);}();
 [&]() {
@@ -63716,7 +65219,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AvYIEoQ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["type"]=[&]() {
     json return_OnjvvNS=json({});
     return serialize_VkAccelerationStructureTypeNV(name.type);}();
@@ -63754,7 +65259,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.type=deserialize_VkAccelerationStructureTypeNV(name["members"]["type"]);}();
 [&]() {
@@ -63785,7 +65292,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_sdseYfh=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["compactedSize"]=[&]() {
     json return_JWbgNLb=json({});
     return_JWbgNLb=[&]() {
@@ -63801,7 +65310,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 [&]() {
 result.compactedSize=deserialize_uint64_t(name["members"]["compactedSize"]);}();}();
@@ -63816,7 +65327,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_NeJgSzo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pFjYjfs=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["accelerationStructure"]=[&]() {
     json return_LovqTrl=json({});
     return serialize_VkAccelerationStructureNV(name.accelerationStructure);}();
@@ -63856,7 +65369,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_qSwiNsk;[&]() {
+temp_qSwiNsk=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_qSwiNsk;}();
 [&]() {
 result.accelerationStructure=deserialize_VkAccelerationStructureNV(name["members"]["accelerationStructure"]);}();
 [&]() {
@@ -63888,7 +65403,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ZPzBOWj=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["accelerationStructureCount"]=[&]() {
     json return_CgtUfCB=json({});
     return serialize_uint32_t(name.accelerationStructureCount);}();
@@ -63917,7 +65434,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.accelerationStructureCount=deserialize_uint32_t(name["members"]["accelerationStructureCount"]);}();
 [&]() {
@@ -63942,7 +65461,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_OCFORxb=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_DikCbxz=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["accelerationStructureCount"]=[&]() {
     json return_CgtUfCB=json({});
     return serialize_uint32_t(name.accelerationStructureCount);}();
@@ -63971,7 +65492,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_Rfdumjd;[&]() {
+temp_Rfdumjd=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_Rfdumjd;}();
 [&]() {
 result.accelerationStructureCount=deserialize_uint32_t(name["members"]["accelerationStructureCount"]);}();
 [&]() {
@@ -63996,7 +65519,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_wsSxbtB=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_fZPLIJJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["type"]=[&]() {
     json return_SyplJpA=json({});
     return serialize_VkAccelerationStructureMemoryRequirementsTypeNV(name.type);}();
@@ -64010,7 +65535,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_kypMQGU;[&]() {
+temp_kypMQGU=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_kypMQGU;}();
 [&]() {
 result.type=deserialize_VkAccelerationStructureMemoryRequirementsTypeNV(name["members"]["type"]);}();
 [&]() {
@@ -64024,7 +65551,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_DQiuEXT=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["accelerationStructure"]=[&]() {
     json return_iPKrarp=json({});
     return_iPKrarp=[&]() {
@@ -64057,7 +65586,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.accelerationStructure=deserialize_uint32_t(name["members"]["accelerationStructure"]);}();}();
@@ -64082,7 +65612,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lGmnPjo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["rayTracingPipeline"]=[&]() {
     json return_NSsbFGs=json({});
     return_NSsbFGs=[&]() {
@@ -64115,7 +65647,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.rayTracingPipeline=deserialize_uint32_t(name["members"]["rayTracingPipeline"]);}();}();
@@ -64140,7 +65673,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_FXsvbqb=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["rayQuery"]=[&]() {
     json return_iXGWNDt=json({});
     return_iXGWNDt=[&]() {
@@ -64153,7 +65688,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.rayQuery=deserialize_uint32_t(name["members"]["rayQuery"]);}();}();
@@ -64166,7 +65702,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_DMtSfJm=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxGeometryCount"]=[&]() {
     json return_KjqADDT=json({});
     return serialize_uint64_t(name.maxGeometryCount);}();
@@ -64198,7 +65736,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxGeometryCount=deserialize_uint64_t(name["members"]["maxGeometryCount"]);}();
 [&]() {
@@ -64224,7 +65763,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QrmvAqC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderGroupHandleSize"]=[&]() {
     json return_AGTYVwL=json({});
     return serialize_uint32_t(name.shaderGroupHandleSize);}();
@@ -64256,7 +65797,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.shaderGroupHandleSize=deserialize_uint32_t(name["members"]["shaderGroupHandleSize"]);}();
 [&]() {
@@ -64282,7 +65824,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_IuLDbTA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderGroupHandleSize"]=[&]() {
     json return_AGTYVwL=json({});
     return serialize_uint32_t(name.shaderGroupHandleSize);}();
@@ -64314,7 +65858,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.shaderGroupHandleSize=deserialize_uint32_t(name["members"]["shaderGroupHandleSize"]);}();
 [&]() {
@@ -64515,7 +66060,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_kzlfkFj=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["rayTracingMaintenance1"]=[&]() {
     json return_WQgCFZY=json({});
     return_WQgCFZY=[&]() {
@@ -64533,7 +66080,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.rayTracingMaintenance1=deserialize_uint32_t(name["members"]["rayTracingMaintenance1"]);}();}();
@@ -64549,7 +66097,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_SGxabVE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["drmFormatModifierCount"]=[&]() {
     json return_KtRQVzW=json({});
     return serialize_uint32_t(name.drmFormatModifierCount);}();
@@ -64578,7 +66128,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.drmFormatModifierCount=deserialize_uint32_t(name["members"]["drmFormatModifierCount"]);}();
 [&]() {
@@ -64628,7 +66179,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_vAazpwg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["drmFormatModifier"]=[&]() {
     json return_SPojzaJ=json({});
     return serialize_uint64_t(name.drmFormatModifier);}();
@@ -64663,7 +66216,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.drmFormatModifier=deserialize_uint64_t(name["members"]["drmFormatModifier"]);}();
 [&]() {
@@ -64692,7 +66247,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_Hurbhrr=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["drmFormatModifierCount"]=[&]() {
     json return_KtRQVzW=json({});
     return serialize_uint32_t(name.drmFormatModifierCount);}();
@@ -64721,7 +66278,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.drmFormatModifierCount=deserialize_uint32_t(name["members"]["drmFormatModifierCount"]);}();
 [&]() {
@@ -64746,7 +66305,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_FQCIJUo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["drmFormatModifier"]=[&]() {
     json return_SPojzaJ=json({});
     return serialize_uint64_t(name.drmFormatModifier);}();
@@ -64778,7 +66339,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.drmFormatModifier=deserialize_uint64_t(name["members"]["drmFormatModifier"]);}();
 [&]() {
@@ -64805,7 +66368,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_awuClsH=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["drmFormatModifier"]=[&]() {
     json return_ThEzENI=json({});
     return serialize_uint64_t(name.drmFormatModifier);}();
@@ -64816,7 +66381,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.drmFormatModifier=deserialize_uint64_t(name["members"]["drmFormatModifier"]);}();
 return result;}
@@ -64828,7 +66394,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_HVcKkrw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["stencilUsage"]=[&]() {
     json return_nqwoVWQ=json({});
     return serialize_VkImageUsageFlags(name.stencilUsage);}();
@@ -64839,7 +66407,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.stencilUsage=deserialize_VkImageUsageFlags(name["members"]["stencilUsage"]);}();
 return result;}
@@ -64851,7 +66421,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_HVcKkrw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["stencilUsage"]=[&]() {
     json return_nqwoVWQ=json({});
     return serialize_VkImageUsageFlags(name.stencilUsage);}();
@@ -64862,7 +66434,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.stencilUsage=deserialize_VkImageUsageFlags(name["members"]["stencilUsage"]);}();
 return result;}
@@ -64874,7 +66448,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QvcuZge=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["overallocationBehavior"]=[&]() {
     json return_lahsrcl=json({});
     return serialize_VkMemoryOverallocationBehaviorAMD(name.overallocationBehavior);}();
@@ -64885,7 +66461,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.overallocationBehavior=deserialize_VkMemoryOverallocationBehaviorAMD(name["members"]["overallocationBehavior"]);}();
 return result;}
@@ -64897,7 +66475,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pvBzFRX=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["fragmentDensityMap"]=[&]() {
     json return_WkFoKcf=json({});
     return_WkFoKcf=[&]() {
@@ -64920,7 +66500,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.fragmentDensityMap=deserialize_uint32_t(name["members"]["fragmentDensityMap"]);}();}();
@@ -64939,7 +66520,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_XQqOJNf=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["fragmentDensityMapDeferred"]=[&]() {
     json return_ImqKKSC=json({});
     return_ImqKKSC=[&]() {
@@ -64952,7 +66535,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.fragmentDensityMapDeferred=deserialize_uint32_t(name["members"]["fragmentDensityMapDeferred"]);}();}();
@@ -64965,7 +66549,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GAaWPxR=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["fragmentDensityMapOffset"]=[&]() {
     json return_OPnnaDl=json({});
     return_OPnnaDl=[&]() {
@@ -64978,7 +66564,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.fragmentDensityMapOffset=deserialize_uint32_t(name["members"]["fragmentDensityMapOffset"]);}();}();
@@ -64991,7 +66578,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_XxNykbV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["minFragmentDensityTexelSize"]=[&]() {
     json return_UtfhhsP=json({});
     return serialize_VkExtent2D(name.minFragmentDensityTexelSize);}();
@@ -65010,7 +66599,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.minFragmentDensityTexelSize=deserialize_VkExtent2D(name["members"]["minFragmentDensityTexelSize"]);}();
 [&]() {
@@ -65027,7 +66617,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GboMejB=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RfTbzLx=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["subsampledLoads"]=[&]() {
     json return_uNIJTXB=json({});
     return_uNIJTXB=[&]() {
@@ -65051,7 +66643,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.subsampledLoads=deserialize_uint32_t(name["members"]["subsampledLoads"]);}();}();
@@ -65071,7 +66664,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KAOTNty=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["fragmentDensityOffsetGranularity"]=[&]() {
     json return_MnaukiA=json({});
     return serialize_VkExtent2D(name.fragmentDensityOffsetGranularity);}();
@@ -65082,7 +66677,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.fragmentDensityOffsetGranularity=deserialize_VkExtent2D(name["members"]["fragmentDensityOffsetGranularity"]);}();
 return result;}
@@ -65094,7 +66690,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oRYsNDI=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["fragmentDensityMapAttachment"]=[&]() {
     json return_MmuJrZY=json({});
     return serialize_VkAttachmentReference(name.fragmentDensityMapAttachment);}();
@@ -65105,7 +66703,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.fragmentDensityMapAttachment=deserialize_VkAttachmentReference(name["members"]["fragmentDensityMapAttachment"]);}();
 return result;}
@@ -65117,7 +66717,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_yBmAtKO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_dlkPATN=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["fragmentDensityOffsetCount"]=[&]() {
     json return_NdGvKzZ=json({});
     return serialize_uint32_t(name.fragmentDensityOffsetCount);}();
@@ -65146,7 +66748,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_GmCEwHf;[&]() {
+temp_GmCEwHf=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_GmCEwHf;}();
 [&]() {
 result.fragmentDensityOffsetCount=deserialize_uint32_t(name["members"]["fragmentDensityOffsetCount"]);}();
 [&]() {
@@ -65171,7 +66775,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_VPnOaLw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["scalarBlockLayout"]=[&]() {
     json return_LjIsEPr=json({});
     return_LjIsEPr=[&]() {
@@ -65184,7 +66790,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.scalarBlockLayout=deserialize_uint32_t(name["members"]["scalarBlockLayout"]);}();}();
@@ -65197,7 +66804,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_VPnOaLw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["scalarBlockLayout"]=[&]() {
     json return_LjIsEPr=json({});
     return_LjIsEPr=[&]() {
@@ -65210,7 +66819,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.scalarBlockLayout=deserialize_uint32_t(name["members"]["scalarBlockLayout"]);}();}();
@@ -65223,7 +66833,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gOnfHUA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["supportsProtected"]=[&]() {
     json return_XiFpwUS=json({});
     return_XiFpwUS=[&]() {
@@ -65236,7 +66848,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 [&]() {
 result.supportsProtected=deserialize_uint32_t(name["members"]["supportsProtected"]);}();}();
@@ -65249,7 +66863,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KWvvApN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["uniformBufferStandardLayout"]=[&]() {
     json return_AjAcPei=json({});
     return_AjAcPei=[&]() {
@@ -65262,7 +66878,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.uniformBufferStandardLayout=deserialize_uint32_t(name["members"]["uniformBufferStandardLayout"]);}();}();
@@ -65275,7 +66892,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KWvvApN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["uniformBufferStandardLayout"]=[&]() {
     json return_AjAcPei=json({});
     return_AjAcPei=[&]() {
@@ -65288,7 +66907,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.uniformBufferStandardLayout=deserialize_uint32_t(name["members"]["uniformBufferStandardLayout"]);}();}();
@@ -65301,7 +66921,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_MMWxszo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["depthClipEnable"]=[&]() {
     json return_WoDGbTl=json({});
     return_WoDGbTl=[&]() {
@@ -65314,7 +66936,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.depthClipEnable=deserialize_uint32_t(name["members"]["depthClipEnable"]);}();}();
@@ -65327,7 +66950,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GsqsIYE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_zzMCWOP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_gQypWMK=json({});
     return serialize_VkPipelineRasterizationDepthClipStateCreateFlagsEXT(name.flags);}();
@@ -65343,7 +66968,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_YGCZsOQ;[&]() {
+temp_YGCZsOQ=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_YGCZsOQ;}();
 [&]() {
 result.flags=deserialize_VkPipelineRasterizationDepthClipStateCreateFlagsEXT(name["members"]["flags"]);}();
 [&]() {
@@ -65358,7 +66985,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_BBTDDWO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["heapBudget"]=[&]() {
     json return_bSTBDMj=json({});
     
@@ -65396,7 +67025,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 
@@ -65422,7 +67052,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_EFDplIk=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["memoryPriority"]=[&]() {
     json return_zIJfkNg=json({});
     return_zIJfkNg=[&]() {
@@ -65435,7 +67067,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.memoryPriority=deserialize_uint32_t(name["members"]["memoryPriority"]);}();}();
@@ -65448,7 +67081,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_uNUbPEs=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_dlkPATN=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["priority"]=[&]() {
     json return_CLfHGMB=json({});
     return serialize_float(name.priority);}();
@@ -65459,7 +67094,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_GmCEwHf;[&]() {
+temp_GmCEwHf=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_GmCEwHf;}();
 [&]() {
 result.priority=deserialize_float(name["members"]["priority"]);}();
 return result;}
@@ -65471,7 +67108,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_bnMyLdL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pageableDeviceLocalMemory"]=[&]() {
     json return_EcrCEcE=json({});
     return_EcrCEcE=[&]() {
@@ -65484,7 +67123,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.pageableDeviceLocalMemory=deserialize_uint32_t(name["members"]["pageableDeviceLocalMemory"]);}();}();
@@ -65497,7 +67137,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_zKkseIq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["bufferDeviceAddress"]=[&]() {
     json return_dVTNgIC=json({});
     return_dVTNgIC=[&]() {
@@ -65520,7 +67162,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.bufferDeviceAddress=deserialize_uint32_t(name["members"]["bufferDeviceAddress"]);}();}();
@@ -65539,7 +67182,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_zKkseIq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["bufferDeviceAddress"]=[&]() {
     json return_dVTNgIC=json({});
     return_dVTNgIC=[&]() {
@@ -65562,7 +67207,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.bufferDeviceAddress=deserialize_uint32_t(name["members"]["bufferDeviceAddress"]);}();}();
@@ -65581,7 +67227,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_aFoFpnw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["bufferDeviceAddress"]=[&]() {
     json return_dVTNgIC=json({});
     return_dVTNgIC=[&]() {
@@ -65604,7 +67252,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.bufferDeviceAddress=deserialize_uint32_t(name["members"]["bufferDeviceAddress"]);}();}();
@@ -65623,7 +67272,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_aFoFpnw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["bufferDeviceAddress"]=[&]() {
     json return_dVTNgIC=json({});
     return_dVTNgIC=[&]() {
@@ -65646,7 +67297,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.bufferDeviceAddress=deserialize_uint32_t(name["members"]["bufferDeviceAddress"]);}();}();
@@ -65665,7 +67317,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_rsANitc=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vpbjHLW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["buffer"]=[&]() {
     json return_AHRfiiy=json({});
     return serialize_VkBuffer(name.buffer);}();
@@ -65676,7 +67330,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_SEMIEti;[&]() {
+temp_SEMIEti=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_SEMIEti;}();
 [&]() {
 result.buffer=deserialize_VkBuffer(name["members"]["buffer"]);}();
 return result;}
@@ -65688,7 +67344,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_rsANitc=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vpbjHLW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["buffer"]=[&]() {
     json return_AHRfiiy=json({});
     return serialize_VkBuffer(name.buffer);}();
@@ -65699,7 +67357,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_SEMIEti;[&]() {
+temp_SEMIEti=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_SEMIEti;}();
 [&]() {
 result.buffer=deserialize_VkBuffer(name["members"]["buffer"]);}();
 return result;}
@@ -65711,7 +67371,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_rsANitc=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vpbjHLW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["buffer"]=[&]() {
     json return_AHRfiiy=json({});
     return serialize_VkBuffer(name.buffer);}();
@@ -65722,7 +67384,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_SEMIEti;[&]() {
+temp_SEMIEti=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_SEMIEti;}();
 [&]() {
 result.buffer=deserialize_VkBuffer(name["members"]["buffer"]);}();
 return result;}
@@ -65734,7 +67398,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_Qxamcnw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["opaqueCaptureAddress"]=[&]() {
     json return_tACRNPO=json({});
     return serialize_uint64_t(name.opaqueCaptureAddress);}();
@@ -65745,7 +67411,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.opaqueCaptureAddress=deserialize_uint64_t(name["members"]["opaqueCaptureAddress"]);}();
 return result;}
@@ -65757,7 +67425,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_Qxamcnw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["opaqueCaptureAddress"]=[&]() {
     json return_tACRNPO=json({});
     return serialize_uint64_t(name.opaqueCaptureAddress);}();
@@ -65768,7 +67438,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.opaqueCaptureAddress=deserialize_uint64_t(name["members"]["opaqueCaptureAddress"]);}();
 return result;}
@@ -65780,7 +67452,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_BUlZWKs=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceAddress"]=[&]() {
     json return_KxxOxHS=json({});
     return_KxxOxHS=[&]() {
@@ -65793,7 +67467,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 [&]() {
 result.deviceAddress=deserialize_uint64_t(name["members"]["deviceAddress"]);}();}();
@@ -65806,7 +67482,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_wQnuntJ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imageViewType"]=[&]() {
     json return_FMwBxvw=json({});
     return serialize_VkImageViewType(name.imageViewType);}();
@@ -65817,7 +67495,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.imageViewType=deserialize_VkImageViewType(name["members"]["imageViewType"]);}();
 return result;}
@@ -65829,7 +67508,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_zjGAllo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["filterCubic"]=[&]() {
     json return_lolqEtr=json({});
     return_lolqEtr=[&]() {
@@ -65847,7 +67528,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.filterCubic=deserialize_uint32_t(name["members"]["filterCubic"]);}();}();
@@ -65863,7 +67545,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_vVuIWHZ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_xKlslqu=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imagelessFramebuffer"]=[&]() {
     json return_ktMZpwp=json({});
     return_ktMZpwp=[&]() {
@@ -65876,7 +67560,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.imagelessFramebuffer=deserialize_uint32_t(name["members"]["imagelessFramebuffer"]);}();}();
@@ -65889,7 +67574,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_vVuIWHZ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_xKlslqu=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imagelessFramebuffer"]=[&]() {
     json return_ktMZpwp=json({});
     return_ktMZpwp=[&]() {
@@ -65902,7 +67589,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.imagelessFramebuffer=deserialize_uint32_t(name["members"]["imagelessFramebuffer"]);}();}();
@@ -65915,7 +67603,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_cEZIAta=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PMbgTun=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["attachmentImageInfoCount"]=[&]() {
     json return_zXSkOBx=json({});
     return serialize_uint32_t(name.attachmentImageInfoCount);}();
@@ -65944,7 +67634,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_FGDQdoW;[&]() {
+temp_FGDQdoW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_FGDQdoW;}();
 [&]() {
 result.attachmentImageInfoCount=deserialize_uint32_t(name["members"]["attachmentImageInfoCount"]);}();
 [&]() {
@@ -65969,7 +67661,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_cEZIAta=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PMbgTun=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["attachmentImageInfoCount"]=[&]() {
     json return_zXSkOBx=json({});
     return serialize_uint32_t(name.attachmentImageInfoCount);}();
@@ -65998,7 +67692,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_FGDQdoW;[&]() {
+temp_FGDQdoW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_FGDQdoW;}();
 [&]() {
 result.attachmentImageInfoCount=deserialize_uint32_t(name["members"]["attachmentImageInfoCount"]);}();
 [&]() {
@@ -66023,7 +67719,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tnTVOXq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PMbgTun=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_btglsjt=json({});
     return serialize_VkImageCreateFlags(name.flags);}();
@@ -66067,7 +67765,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_FGDQdoW;[&]() {
+temp_FGDQdoW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_FGDQdoW;}();
 [&]() {
 result.flags=deserialize_VkImageCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -66102,7 +67802,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tnTVOXq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PMbgTun=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_btglsjt=json({});
     return serialize_VkImageCreateFlags(name.flags);}();
@@ -66146,7 +67848,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_FGDQdoW;[&]() {
+temp_FGDQdoW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_FGDQdoW;}();
 [&]() {
 result.flags=deserialize_VkImageCreateFlags(name["members"]["flags"]);}();
 [&]() {
@@ -66181,7 +67885,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ubImcFU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PMbgTun=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["attachmentCount"]=[&]() {
     json return_crvhOdR=json({});
     return serialize_uint32_t(name.attachmentCount);}();
@@ -66210,7 +67916,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_FGDQdoW;[&]() {
+temp_FGDQdoW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_FGDQdoW;}();
 [&]() {
 result.attachmentCount=deserialize_uint32_t(name["members"]["attachmentCount"]);}();
 [&]() {
@@ -66235,7 +67943,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ubImcFU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PMbgTun=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["attachmentCount"]=[&]() {
     json return_crvhOdR=json({});
     return serialize_uint32_t(name.attachmentCount);}();
@@ -66264,7 +67974,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_FGDQdoW;[&]() {
+temp_FGDQdoW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_FGDQdoW;}();
 [&]() {
 result.attachmentCount=deserialize_uint32_t(name["members"]["attachmentCount"]);}();
 [&]() {
@@ -66289,7 +68001,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_jeRiOoL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RUxrfVn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["textureCompressionASTC_HDR"]=[&]() {
     json return_kBxGSWK=json({});
     return_kBxGSWK=[&]() {
@@ -66302,7 +68016,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.textureCompressionASTC_HDR=deserialize_uint32_t(name["members"]["textureCompressionASTC_HDR"]);}();}();
@@ -66315,7 +68030,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_jeRiOoL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RUxrfVn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["textureCompressionASTC_HDR"]=[&]() {
     json return_kBxGSWK=json({});
     return_kBxGSWK=[&]() {
@@ -66328,7 +68045,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.textureCompressionASTC_HDR=deserialize_uint32_t(name["members"]["textureCompressionASTC_HDR"]);}();}();
@@ -66341,7 +68059,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_bUKrNUR=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["cooperativeMatrix"]=[&]() {
     json return_AVgOFEj=json({});
     return_AVgOFEj=[&]() {
@@ -66359,7 +68079,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.cooperativeMatrix=deserialize_uint32_t(name["members"]["cooperativeMatrix"]);}();}();
@@ -66375,7 +68096,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_eJWflXK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["cooperativeMatrixSupportedStages"]=[&]() {
     json return_pidCsSS=json({});
     return serialize_VkShaderStageFlags(name.cooperativeMatrixSupportedStages);}();
@@ -66386,7 +68109,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.cooperativeMatrixSupportedStages=deserialize_VkShaderStageFlags(name["members"]["cooperativeMatrixSupportedStages"]);}();
 return result;}
@@ -66398,7 +68122,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_yYyLEma=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["MSize"]=[&]() {
     json return_qSkxFdv=json({});
     return serialize_uint32_t(name.MSize);}();
@@ -66430,7 +68156,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.MSize=deserialize_uint32_t(name["members"]["MSize"]);}();
 [&]() {
@@ -66456,7 +68183,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AICQSmU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["ycbcrImageArrays"]=[&]() {
     json return_eBgikKi=json({});
     return_eBgikKi=[&]() {
@@ -66469,7 +68198,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.ycbcrImageArrays=deserialize_uint32_t(name["members"]["ycbcrImageArrays"]);}();}();
@@ -66482,7 +68212,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_xMIOcGM=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imageView"]=[&]() {
     json return_NiAeslm=json({});
     return serialize_VkImageView(name.imageView);}();
@@ -66499,7 +68231,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.imageView=deserialize_VkImageView(name["members"]["imageView"]);}();
 [&]() {
@@ -66515,7 +68249,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pOAOzKN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceAddress"]=[&]() {
     json return_VoXDFcY=json({});
     return_VoXDFcY=[&]() {
@@ -66533,7 +68269,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.deviceAddress=deserialize_uint64_t(name["members"]["deviceAddress"]);}();}();
@@ -66591,7 +68328,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_JAktWwi=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_VrWNwlX=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pPipelineCreationFeedback"]=[&]() {
     json return_CHuuNMU=json({});
     
@@ -66631,7 +68370,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_xqzHWhH;[&]() {
+temp_xqzHWhH=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_xqzHWhH;}();
 [&]() {
 
         if (name["members"]["pPipelineCreationFeedback"].contains("null")){
@@ -66665,7 +68406,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_JAktWwi=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_VrWNwlX=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pPipelineCreationFeedback"]=[&]() {
     json return_CHuuNMU=json({});
     
@@ -66705,7 +68448,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_xqzHWhH;[&]() {
+temp_xqzHWhH=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_xqzHWhH;}();
 [&]() {
 
         if (name["members"]["pPipelineCreationFeedback"].contains("null")){
@@ -66739,7 +68484,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_rImxncW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SNVItUV=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["presentBarrier"]=[&]() {
     json return_ZCapfsS=json({});
     return_ZCapfsS=[&]() {
@@ -66752,7 +68499,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.presentBarrier=deserialize_uint32_t(name["members"]["presentBarrier"]);}();}();
@@ -66765,7 +68513,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_YGMotEX=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["presentBarrierSupported"]=[&]() {
     json return_SGIEQvg=json({});
     return_SGIEQvg=[&]() {
@@ -66778,7 +68528,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.presentBarrierSupported=deserialize_uint32_t(name["members"]["presentBarrierSupported"]);}();}();
@@ -66791,7 +68542,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_CgqPpjn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["presentBarrierEnable"]=[&]() {
     json return_BzTdhct=json({});
     return_BzTdhct=[&]() {
@@ -66804,7 +68557,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.presentBarrierEnable=deserialize_uint32_t(name["members"]["presentBarrierEnable"]);}();}();
@@ -66817,7 +68571,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ooRtjoJ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["performanceCounterQueryPools"]=[&]() {
     json return_wdkqiXH=json({});
     return_wdkqiXH=[&]() {
@@ -66835,7 +68591,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.performanceCounterQueryPools=deserialize_uint32_t(name["members"]["performanceCounterQueryPools"]);}();}();
@@ -66851,7 +68608,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_Yvfywqy=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["allowCommandBufferQueryCopies"]=[&]() {
     json return_aYgcMuA=json({});
     return_aYgcMuA=[&]() {
@@ -66864,7 +68623,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.allowCommandBufferQueryCopies=deserialize_uint32_t(name["members"]["allowCommandBufferQueryCopies"]);}();}();
@@ -66877,7 +68637,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_UMvwnNO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["unit"]=[&]() {
     json return_jRfXQFL=json({});
     return serialize_VkPerformanceCounterUnitKHR(name.unit);}();
@@ -66907,7 +68669,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.unit=deserialize_VkPerformanceCounterUnitKHR(name["members"]["unit"]);}();
 [&]() {
@@ -66930,7 +68693,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_nONiXdI=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_QXLilEx=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_AvGHapG=json({});
     return serialize_VkPerformanceCounterDescriptionFlagsKHR(name.flags);}();
@@ -66980,7 +68745,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.flags=deserialize_VkPerformanceCounterDescriptionFlagsKHR(name["members"]["flags"]);}();
 [&]() {
@@ -67013,7 +68779,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_SCCuSCi=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jjpEuVo=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["queueFamilyIndex"]=[&]() {
     json return_owydRKm=json({});
     return serialize_uint32_t(name.queueFamilyIndex);}();
@@ -67045,7 +68813,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_MTVHsNm;[&]() {
+temp_MTVHsNm=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_MTVHsNm;}();
 [&]() {
 result.queueFamilyIndex=deserialize_uint32_t(name["members"]["queueFamilyIndex"]);}();
 [&]() {
@@ -67113,7 +68883,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gsLAxXL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_jBMVTpv=json({});
     return serialize_VkAcquireProfilingLockFlagsKHR(name.flags);}();
@@ -67127,7 +68899,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkAcquireProfilingLockFlagsKHR(name["members"]["flags"]);}();
 [&]() {
@@ -67141,7 +68915,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AdAfdCN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_VrWNwlX=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["counterPassIndex"]=[&]() {
     json return_HvqFYzV=json({});
     return serialize_uint32_t(name.counterPassIndex);}();
@@ -67152,7 +68928,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_xqzHWhH;[&]() {
+temp_xqzHWhH=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_xqzHWhH;}();
 [&]() {
 result.counterPassIndex=deserialize_uint32_t(name["members"]["counterPassIndex"]);}();
 return result;}
@@ -67164,7 +68942,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LMKMYjN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_BJauXOb=json({});
     return serialize_VkHeadlessSurfaceCreateFlagsEXT(name.flags);}();
@@ -67175,7 +68955,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkHeadlessSurfaceCreateFlagsEXT(name["members"]["flags"]);}();
 return result;}
@@ -67187,7 +68969,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_npTgYDf=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["coverageReductionMode"]=[&]() {
     json return_tNHiacg=json({});
     return_tNHiacg=[&]() {
@@ -67200,7 +68984,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.coverageReductionMode=deserialize_uint32_t(name["members"]["coverageReductionMode"]);}();}();
@@ -67213,7 +68998,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ELqVHDf=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_HnciAlv=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_FVosFPc=json({});
     return serialize_VkPipelineCoverageReductionStateCreateFlagsNV(name.flags);}();
@@ -67227,7 +69014,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_vXGbmYO;[&]() {
+temp_vXGbmYO=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_vXGbmYO;}();
 [&]() {
 result.flags=deserialize_VkPipelineCoverageReductionStateCreateFlagsNV(name["members"]["flags"]);}();
 [&]() {
@@ -67241,7 +69030,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_rEOXZvl=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_NqIaRtH=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["coverageReductionMode"]=[&]() {
     json return_DmCXvVB=json({});
     return serialize_VkCoverageReductionModeNV(name.coverageReductionMode);}();
@@ -67261,7 +69052,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.coverageReductionMode=deserialize_VkCoverageReductionModeNV(name["members"]["coverageReductionMode"]);}();
 [&]() {
@@ -67279,7 +69071,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pWahfvM=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderIntegerFunctions2"]=[&]() {
     json return_yIlkHca=json({});
     return_yIlkHca=[&]() {
@@ -67292,7 +69086,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderIntegerFunctions2=deserialize_uint32_t(name["members"]["shaderIntegerFunctions2"]);}();}();
@@ -67391,7 +69186,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_YZuMqKa=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_bnetmFd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pUserData"]=[&]() {
     json return_LqMHmAY=json({});
     
@@ -67424,7 +69221,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_IBPxHNE;[&]() {
+temp_IBPxHNE=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_IBPxHNE;}();
 [&]() {
 
         if (name["members"]["pUserData"].contains("null")){
@@ -67453,7 +69252,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ZrZzmcl=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_bnetmFd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["performanceCountersSampling"]=[&]() {
     json return_aoGyfwf=json({});
     return serialize_VkQueryPoolSamplingModeINTEL(name.performanceCountersSampling);}();
@@ -67464,7 +69265,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_IBPxHNE;[&]() {
+temp_IBPxHNE=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_IBPxHNE;}();
 [&]() {
 result.performanceCountersSampling=deserialize_VkQueryPoolSamplingModeINTEL(name["members"]["performanceCountersSampling"]);}();
 return result;}
@@ -67476,7 +69279,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ZrZzmcl=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_bnetmFd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["performanceCountersSampling"]=[&]() {
     json return_aoGyfwf=json({});
     return serialize_VkQueryPoolSamplingModeINTEL(name.performanceCountersSampling);}();
@@ -67487,7 +69292,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_IBPxHNE;[&]() {
+temp_IBPxHNE=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_IBPxHNE;}();
 [&]() {
 result.performanceCountersSampling=deserialize_VkQueryPoolSamplingModeINTEL(name["members"]["performanceCountersSampling"]);}();
 return result;}
@@ -67499,7 +69306,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oVNyzLI=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_bnetmFd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["marker"]=[&]() {
     json return_GbVrzAs=json({});
     return serialize_uint64_t(name.marker);}();
@@ -67510,7 +69319,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_IBPxHNE;[&]() {
+temp_IBPxHNE=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_IBPxHNE;}();
 [&]() {
 result.marker=deserialize_uint64_t(name["members"]["marker"]);}();
 return result;}
@@ -67522,7 +69333,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_YcbOoNA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_bnetmFd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["marker"]=[&]() {
     json return_ITBMpDE=json({});
     return serialize_uint32_t(name.marker);}();
@@ -67533,7 +69346,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_IBPxHNE;[&]() {
+temp_IBPxHNE=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_IBPxHNE;}();
 [&]() {
 result.marker=deserialize_uint32_t(name["members"]["marker"]);}();
 return result;}
@@ -67545,7 +69360,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tqlrbMR=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_bnetmFd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["type"]=[&]() {
     json return_snnwVRP=json({});
     return serialize_VkPerformanceOverrideTypeINTEL(name.type);}();
@@ -67564,7 +69381,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_IBPxHNE;[&]() {
+temp_IBPxHNE=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_IBPxHNE;}();
 [&]() {
 result.type=deserialize_VkPerformanceOverrideTypeINTEL(name["members"]["type"]);}();
 [&]() {
@@ -67581,7 +69400,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_BkmqybA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_bnetmFd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["type"]=[&]() {
     json return_BykysQY=json({});
     return serialize_VkPerformanceConfigurationTypeINTEL(name.type);}();
@@ -67592,7 +69413,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_IBPxHNE;[&]() {
+temp_IBPxHNE=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_IBPxHNE;}();
 [&]() {
 result.type=deserialize_VkPerformanceConfigurationTypeINTEL(name["members"]["type"]);}();
 return result;}
@@ -67604,7 +69427,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gifDvwh=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderSubgroupClock"]=[&]() {
     json return_nDPrKGL=json({});
     return_nDPrKGL=[&]() {
@@ -67622,7 +69447,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderSubgroupClock=deserialize_uint32_t(name["members"]["shaderSubgroupClock"]);}();}();
@@ -67638,7 +69464,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_JezVDGd=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["indexTypeUint8"]=[&]() {
     json return_Dwrkjiw=json({});
     return_Dwrkjiw=[&]() {
@@ -67651,7 +69479,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.indexTypeUint8=deserialize_uint32_t(name["members"]["indexTypeUint8"]);}();}();
@@ -67664,7 +69493,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_NqUOOYE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RfTbzLx=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderSMCount"]=[&]() {
     json return_wNsiJag=json({});
     return serialize_uint32_t(name.shaderSMCount);}();
@@ -67678,7 +69509,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.shaderSMCount=deserialize_uint32_t(name["members"]["shaderSMCount"]);}();
 [&]() {
@@ -67692,7 +69524,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_IcQVWWJ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderSMBuiltins"]=[&]() {
     json return_WPPlGkY=json({});
     return_WPPlGkY=[&]() {
@@ -67705,7 +69539,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderSMBuiltins=deserialize_uint32_t(name["members"]["shaderSMBuiltins"]);}();}();
@@ -67718,7 +69553,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_zbtRtfF=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_UISDpBT=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["fragmentShaderSampleInterlock"]=[&]() {
     json return_DdyVrdJ=json({});
     return_DdyVrdJ=[&]() {
@@ -67741,7 +69578,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.fragmentShaderSampleInterlock=deserialize_uint32_t(name["members"]["fragmentShaderSampleInterlock"]);}();}();
@@ -67760,7 +69598,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_RdMKnpn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["separateDepthStencilLayouts"]=[&]() {
     json return_lZjtKkD=json({});
     return_lZjtKkD=[&]() {
@@ -67773,7 +69613,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.separateDepthStencilLayouts=deserialize_uint32_t(name["members"]["separateDepthStencilLayouts"]);}();}();
@@ -67786,7 +69627,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_RdMKnpn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["separateDepthStencilLayouts"]=[&]() {
     json return_lZjtKkD=json({});
     return_lZjtKkD=[&]() {
@@ -67799,7 +69642,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.separateDepthStencilLayouts=deserialize_uint32_t(name["members"]["separateDepthStencilLayouts"]);}();}();
@@ -67812,7 +69656,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lEEEdUk=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["stencilLayout"]=[&]() {
     json return_dZVKXod=json({});
     return serialize_VkImageLayout(name.stencilLayout);}();
@@ -67823,7 +69669,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.stencilLayout=deserialize_VkImageLayout(name["members"]["stencilLayout"]);}();
 return result;}
@@ -67835,7 +69682,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QMfGGgv=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["primitiveTopologyListRestart"]=[&]() {
     json return_JcsqWEM=json({});
     return_JcsqWEM=[&]() {
@@ -67853,7 +69702,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.primitiveTopologyListRestart=deserialize_uint32_t(name["members"]["primitiveTopologyListRestart"]);}();}();
@@ -67869,7 +69719,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lEEEdUk=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["stencilLayout"]=[&]() {
     json return_dZVKXod=json({});
     return serialize_VkImageLayout(name.stencilLayout);}();
@@ -67880,7 +69732,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.stencilLayout=deserialize_VkImageLayout(name["members"]["stencilLayout"]);}();
 return result;}
@@ -67892,7 +69745,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_MOmecNu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["stencilInitialLayout"]=[&]() {
     json return_smobkAG=json({});
     return serialize_VkImageLayout(name.stencilInitialLayout);}();
@@ -67906,7 +69761,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.stencilInitialLayout=deserialize_VkImageLayout(name["members"]["stencilInitialLayout"]);}();
 [&]() {
@@ -67920,7 +69776,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_MOmecNu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["stencilInitialLayout"]=[&]() {
     json return_smobkAG=json({});
     return serialize_VkImageLayout(name.stencilInitialLayout);}();
@@ -67934,7 +69792,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.stencilInitialLayout=deserialize_VkImageLayout(name["members"]["stencilInitialLayout"]);}();
 [&]() {
@@ -67948,7 +69807,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_CGQkDIy=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pipelineExecutableInfo"]=[&]() {
     json return_KyPQbMO=json({});
     return_KyPQbMO=[&]() {
@@ -67961,7 +69822,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.pipelineExecutableInfo=deserialize_uint32_t(name["members"]["pipelineExecutableInfo"]);}();}();
@@ -67974,7 +69836,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_uyPGtgC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pipeline"]=[&]() {
     json return_IQjhRnH=json({});
     return serialize_VkPipeline(name.pipeline);}();
@@ -67985,7 +69849,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.pipeline=deserialize_VkPipeline(name["members"]["pipeline"]);}();
 return result;}
@@ -67997,7 +69863,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_uyPGtgC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pipeline"]=[&]() {
     json return_IQjhRnH=json({});
     return serialize_VkPipeline(name.pipeline);}();
@@ -68008,7 +69876,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.pipeline=deserialize_VkPipeline(name["members"]["pipeline"]);}();
 return result;}
@@ -68020,7 +69890,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_msJCRHp=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["stages"]=[&]() {
     json return_FiREsGJ=json({});
     return serialize_VkShaderStageFlags(name.stages);}();
@@ -68060,7 +69932,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.stages=deserialize_VkShaderStageFlags(name["members"]["stages"]);}();
 [&]() {
@@ -68088,7 +69961,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gBqVhxW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pipeline"]=[&]() {
     json return_wmmSraJ=json({});
     return serialize_VkPipeline(name.pipeline);}();
@@ -68102,7 +69977,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.pipeline=deserialize_VkPipeline(name["members"]["pipeline"]);}();
 [&]() {
@@ -68150,7 +70027,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_wkBKCPC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["name"]=[&]() {
     json return_AvExeUV=json({});
     
@@ -68190,7 +70069,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 
         for (int ViCKKet=0; ViCKKet < VK_MAX_DESCRIPTION_SIZE; ViCKKet++){
@@ -68218,7 +70098,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_Nsjrnkw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["name"]=[&]() {
     json return_AvExeUV=json({});
     
@@ -68285,7 +70167,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 
         for (int ViCKKet=0; ViCKKet < VK_MAX_DESCRIPTION_SIZE; ViCKKet++){
@@ -68333,7 +70216,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fQVJvjL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderDemoteToHelperInvocation"]=[&]() {
     json return_nVxGDjo=json({});
     return_nVxGDjo=[&]() {
@@ -68346,7 +70231,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderDemoteToHelperInvocation=deserialize_uint32_t(name["members"]["shaderDemoteToHelperInvocation"]);}();}();
@@ -68359,7 +70245,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fQVJvjL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderDemoteToHelperInvocation"]=[&]() {
     json return_nVxGDjo=json({});
     return_nVxGDjo=[&]() {
@@ -68372,7 +70260,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderDemoteToHelperInvocation=deserialize_uint32_t(name["members"]["shaderDemoteToHelperInvocation"]);}();}();
@@ -68385,7 +70274,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_psGPwzV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["texelBufferAlignment"]=[&]() {
     json return_ojftLiG=json({});
     return_ojftLiG=[&]() {
@@ -68398,7 +70289,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.texelBufferAlignment=deserialize_uint32_t(name["members"]["texelBufferAlignment"]);}();}();
@@ -68411,7 +70303,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GHHkvjE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["storageTexelBufferOffsetAlignmentBytes"]=[&]() {
     json return_LACkYAD=json({});
     return_LACkYAD=[&]() {
@@ -68439,7 +70333,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.storageTexelBufferOffsetAlignmentBytes=deserialize_uint64_t(name["members"]["storageTexelBufferOffsetAlignmentBytes"]);}();}();
@@ -68461,7 +70356,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GHHkvjE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["storageTexelBufferOffsetAlignmentBytes"]=[&]() {
     json return_LACkYAD=json({});
     return_LACkYAD=[&]() {
@@ -68489,7 +70386,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.storageTexelBufferOffsetAlignmentBytes=deserialize_uint64_t(name["members"]["storageTexelBufferOffsetAlignmentBytes"]);}();}();
@@ -68511,7 +70409,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_seruhwS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RUxrfVn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["subgroupSizeControl"]=[&]() {
     json return_TuXnKhO=json({});
     return_TuXnKhO=[&]() {
@@ -68529,7 +70429,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.subgroupSizeControl=deserialize_uint32_t(name["members"]["subgroupSizeControl"]);}();}();
@@ -68545,7 +70446,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_seruhwS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RUxrfVn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["subgroupSizeControl"]=[&]() {
     json return_TuXnKhO=json({});
     return_TuXnKhO=[&]() {
@@ -68563,7 +70466,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.subgroupSizeControl=deserialize_uint32_t(name["members"]["subgroupSizeControl"]);}();}();
@@ -68579,7 +70483,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_DnqPTys=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RfTbzLx=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["minSubgroupSize"]=[&]() {
     json return_qLSZcWB=json({});
     return serialize_uint32_t(name.minSubgroupSize);}();
@@ -68599,7 +70505,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.minSubgroupSize=deserialize_uint32_t(name["members"]["minSubgroupSize"]);}();
 [&]() {
@@ -68617,7 +70524,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_DnqPTys=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RfTbzLx=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["minSubgroupSize"]=[&]() {
     json return_qLSZcWB=json({});
     return serialize_uint32_t(name.minSubgroupSize);}();
@@ -68637,7 +70546,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.minSubgroupSize=deserialize_uint32_t(name["members"]["minSubgroupSize"]);}();
 [&]() {
@@ -68655,7 +70565,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oZoltvE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RUxrfVn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["requiredSubgroupSize"]=[&]() {
     json return_qPDRUdy=json({});
     return serialize_uint32_t(name.requiredSubgroupSize);}();
@@ -68666,7 +70578,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.requiredSubgroupSize=deserialize_uint32_t(name["members"]["requiredSubgroupSize"]);}();
 return result;}
@@ -68678,7 +70591,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oZoltvE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RUxrfVn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["requiredSubgroupSize"]=[&]() {
     json return_qPDRUdy=json({});
     return serialize_uint32_t(name.requiredSubgroupSize);}();
@@ -68689,7 +70604,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.requiredSubgroupSize=deserialize_uint32_t(name["members"]["requiredSubgroupSize"]);}();
 return result;}
@@ -68701,7 +70617,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oZoltvE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RUxrfVn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["requiredSubgroupSize"]=[&]() {
     json return_qPDRUdy=json({});
     return serialize_uint32_t(name.requiredSubgroupSize);}();
@@ -68712,7 +70630,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.requiredSubgroupSize=deserialize_uint32_t(name["members"]["requiredSubgroupSize"]);}();
 return result;}
@@ -68724,7 +70643,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_zWmHbjs=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["renderPass"]=[&]() {
     json return_KtIQXAp=json({});
     return serialize_VkRenderPass(name.renderPass);}();
@@ -68738,7 +70659,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.renderPass=deserialize_VkRenderPass(name["members"]["renderPass"]);}();
 [&]() {
@@ -68752,7 +70674,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_dcaBqhb=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxSubpassShadingWorkgroupSizeAspectRatio"]=[&]() {
     json return_DuKWYaI=json({});
     return serialize_uint32_t(name.maxSubpassShadingWorkgroupSizeAspectRatio);}();
@@ -68763,7 +70687,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxSubpassShadingWorkgroupSizeAspectRatio=deserialize_uint32_t(name["members"]["maxSubpassShadingWorkgroupSizeAspectRatio"]);}();
 return result;}
@@ -68775,7 +70700,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_jCXCGjD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxWorkGroupCount"]=[&]() {
     json return_leKhpbL=json({});
     
@@ -68817,7 +70744,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 
         for (int ejzwOCk=0; ejzwOCk < 3; ejzwOCk++){
@@ -68846,7 +70774,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_jODYmsg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_DXfRYCc=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["opaqueCaptureAddress"]=[&]() {
     json return_WhEbFIn=json({});
     return serialize_uint64_t(name.opaqueCaptureAddress);}();
@@ -68857,7 +70787,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_KmUErOG;[&]() {
+temp_KmUErOG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_KmUErOG;}();
 [&]() {
 result.opaqueCaptureAddress=deserialize_uint64_t(name["members"]["opaqueCaptureAddress"]);}();
 return result;}
@@ -68869,7 +70801,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_jODYmsg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_DXfRYCc=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["opaqueCaptureAddress"]=[&]() {
     json return_WhEbFIn=json({});
     return serialize_uint64_t(name.opaqueCaptureAddress);}();
@@ -68880,7 +70814,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_KmUErOG;[&]() {
+temp_KmUErOG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_KmUErOG;}();
 [&]() {
 result.opaqueCaptureAddress=deserialize_uint64_t(name["members"]["opaqueCaptureAddress"]);}();
 return result;}
@@ -68892,7 +70828,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_vzpczDi=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["memory"]=[&]() {
     json return_nfcCaEf=json({});
     return serialize_VkDeviceMemory(name.memory);}();
@@ -68903,7 +70841,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.memory=deserialize_VkDeviceMemory(name["members"]["memory"]);}();
 return result;}
@@ -68915,7 +70855,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_vzpczDi=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["memory"]=[&]() {
     json return_nfcCaEf=json({});
     return serialize_VkDeviceMemory(name.memory);}();
@@ -68926,7 +70868,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.memory=deserialize_VkDeviceMemory(name["members"]["memory"]);}();
 return result;}
@@ -68938,7 +70882,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LqwkHCJ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["rectangularLines"]=[&]() {
     json return_sFwYOaC=json({});
     return_sFwYOaC=[&]() {
@@ -68976,7 +70922,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.rectangularLines=deserialize_uint32_t(name["members"]["rectangularLines"]);}();}();
@@ -69004,7 +70951,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_zDNMEmy=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["lineSubPixelPrecisionBits"]=[&]() {
     json return_dGTSBcX=json({});
     return serialize_uint32_t(name.lineSubPixelPrecisionBits);}();
@@ -69015,7 +70964,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.lineSubPixelPrecisionBits=deserialize_uint32_t(name["members"]["lineSubPixelPrecisionBits"]);}();
 return result;}
@@ -69027,7 +70977,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_FQHiotF=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_mHZCliN=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["lineRasterizationMode"]=[&]() {
     json return_KiGkpFH=json({});
     return serialize_VkLineRasterizationModeEXT(name.lineRasterizationMode);}();
@@ -69049,7 +71001,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_KcgwZpm;[&]() {
+temp_KcgwZpm=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_KcgwZpm;}();
 [&]() {
 result.lineRasterizationMode=deserialize_VkLineRasterizationModeEXT(name["members"]["lineRasterizationMode"]);}();
 [&]() {
@@ -69068,7 +71022,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_afpQDKA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pipelineCreationCacheControl"]=[&]() {
     json return_kCjvOos=json({});
     return_kCjvOos=[&]() {
@@ -69081,7 +71037,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.pipelineCreationCacheControl=deserialize_uint32_t(name["members"]["pipelineCreationCacheControl"]);}();}();
@@ -69094,7 +71051,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_afpQDKA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pipelineCreationCacheControl"]=[&]() {
     json return_kCjvOos=json({});
     return_kCjvOos=[&]() {
@@ -69107,7 +71066,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.pipelineCreationCacheControl=deserialize_uint32_t(name["members"]["pipelineCreationCacheControl"]);}();}();
@@ -69120,7 +71080,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lXmIUnT=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["storageBuffer16BitAccess"]=[&]() {
     json return_MiRrbTk=json({});
     return_MiRrbTk=[&]() {
@@ -69188,7 +71150,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.storageBuffer16BitAccess=deserialize_uint32_t(name["members"]["storageBuffer16BitAccess"]);}();}();
@@ -69234,7 +71197,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_cdxMgQw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SzYcFOJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceUUID"]=[&]() {
     json return_eGVvlGo=json({});
     
@@ -69325,7 +71290,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 
         for (int fcTvwWf=0; fcTvwWf < VK_UUID_SIZE; fcTvwWf++){
@@ -69384,7 +71350,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_TzWyutu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["samplerMirrorClampToEdge"]=[&]() {
     json return_APDOoHP=json({});
     return_APDOoHP=[&]() {
@@ -69627,7 +71595,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.samplerMirrorClampToEdge=deserialize_uint32_t(name["members"]["samplerMirrorClampToEdge"]);}();}();
@@ -69778,7 +71747,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_whEamQe=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["driverID"]=[&]() {
     json return_uRgLiew=json({});
     return serialize_VkDriverId(name.driverID);}();
@@ -70014,7 +71985,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.driverID=deserialize_VkDriverId(name["members"]["driverID"]);}();
 [&]() {
@@ -70164,7 +72136,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_wkqBRdD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["robustImageAccess"]=[&]() {
     json return_DYjYLDk=json({});
     return_DYjYLDk=[&]() {
@@ -70247,7 +72221,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.robustImageAccess=deserialize_uint32_t(name["members"]["robustImageAccess"]);}();}();
@@ -70302,7 +72277,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_rhlbeDT=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RfTbzLx=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["minSubgroupSize"]=[&]() {
     json return_qLSZcWB=json({});
     return serialize_uint32_t(name.minSubgroupSize);}();
@@ -70515,7 +72492,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.minSubgroupSize=deserialize_uint32_t(name["members"]["minSubgroupSize"]);}();
 [&]() {
@@ -70650,7 +72628,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_uUTannR=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_HNgufGI=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["compilerControlFlags"]=[&]() {
     json return_ZhpPTpH=json({});
     return serialize_VkPipelineCompilerControlFlagsAMD(name.compilerControlFlags);}();
@@ -70661,7 +72641,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XaIYLSw;[&]() {
+temp_XaIYLSw=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XaIYLSw;}();
 [&]() {
 result.compilerControlFlags=deserialize_VkPipelineCompilerControlFlagsAMD(name["members"]["compilerControlFlags"]);}();
 return result;}
@@ -70673,7 +72655,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_EpRCVgy=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceCoherentMemory"]=[&]() {
     json return_HbBqbUq=json({});
     return_HbBqbUq=[&]() {
@@ -70686,7 +72670,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.deviceCoherentMemory=deserialize_uint32_t(name["members"]["deviceCoherentMemory"]);}();}();
@@ -70699,7 +72684,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_TIuzMmA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["name"]=[&]() {
     json return_iRbYNpa=json({});
     
@@ -70762,7 +72749,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 
         for (int tSgnOro=0; tSgnOro < VK_MAX_EXTENSION_NAME_SIZE; tSgnOro++){
@@ -70802,7 +72790,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_TIuzMmA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["name"]=[&]() {
     json return_iRbYNpa=json({});
     
@@ -70865,7 +72855,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 
         for (int tSgnOro=0; tSgnOro < VK_MAX_EXTENSION_NAME_SIZE; tSgnOro++){
@@ -70905,7 +72896,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_BiqXbBx=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_HNgufGI=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["customBorderColor"]=[&]() {
     json return_cGisNIi=json({});
     return serialize_VkClearColorValue(name.customBorderColor);}();
@@ -70919,7 +72912,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XaIYLSw;[&]() {
+temp_XaIYLSw=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XaIYLSw;}();
 [&]() {
 result.customBorderColor=deserialize_VkClearColorValue(name["members"]["customBorderColor"]);}();
 [&]() {
@@ -70933,7 +72928,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_iZSmuSW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_nFqGBBD=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxCustomBorderColorSamplers"]=[&]() {
     json return_axQRGET=json({});
     return serialize_uint32_t(name.maxCustomBorderColorSamplers);}();
@@ -70944,7 +72941,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxCustomBorderColorSamplers=deserialize_uint32_t(name["members"]["maxCustomBorderColorSamplers"]);}();
 return result;}
@@ -70956,7 +72954,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_SKWYiHe=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["customBorderColors"]=[&]() {
     json return_SEwwwFT=json({});
     return_SEwwwFT=[&]() {
@@ -70974,7 +72974,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.customBorderColors=deserialize_uint32_t(name["members"]["customBorderColors"]);}();}();
@@ -70990,7 +72991,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_iHFfofO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vQRphHP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["components"]=[&]() {
     json return_foyDUSb=json({});
     return serialize_VkComponentMapping(name.components);}();
@@ -71006,7 +73009,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_CBFrWIu;[&]() {
+temp_CBFrWIu=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_CBFrWIu;}();
 [&]() {
 result.components=deserialize_VkComponentMapping(name["members"]["components"]);}();
 [&]() {
@@ -71021,7 +73026,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_CXchSiz=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["borderColorSwizzle"]=[&]() {
     json return_FXOCZcj=json({});
     return_FXOCZcj=[&]() {
@@ -71039,7 +73046,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.borderColorSwizzle=deserialize_uint32_t(name["members"]["borderColorSwizzle"]);}();}();
@@ -71182,7 +73190,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_eEJNHLd=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_DXfRYCc=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["vertexFormat"]=[&]() {
     json return_KQLlYQB=json({});
     return serialize_VkFormat(name.vertexFormat);}();
@@ -71213,7 +73223,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_KmUErOG;[&]() {
+temp_KmUErOG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_KmUErOG;}();
 [&]() {
 result.vertexFormat=deserialize_VkFormat(name["members"]["vertexFormat"]);}();
 [&]() {
@@ -71238,7 +73250,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_RhlUXyO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_eGMnHSi=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["data"]=[&]() {
     json return_vcMYXIc=json({});
     return serialize_VkDeviceOrHostAddressConstKHR(name.data);}();
@@ -71254,7 +73268,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_OsQmrId;[&]() {
+temp_OsQmrId=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_OsQmrId;}();
 [&]() {
 result.data=deserialize_VkDeviceOrHostAddressConstKHR(name["members"]["data"]);}();
 [&]() {
@@ -71269,7 +73285,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_vuKllTL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_eGMnHSi=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["arrayOfPointers"]=[&]() {
     json return_uuZSPDd=json({});
     return_uuZSPDd=[&]() {
@@ -71285,7 +73303,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_OsQmrId;[&]() {
+temp_OsQmrId=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_OsQmrId;}();
 [&]() {
 [&]() {
 result.arrayOfPointers=deserialize_uint32_t(name["members"]["arrayOfPointers"]);}();}();
@@ -71326,7 +73346,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ZpOFAZg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["geometryType"]=[&]() {
     json return_CcUpWba=json({});
     return serialize_VkGeometryTypeKHR(name.geometryType);}();
@@ -71343,7 +73365,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.geometryType=deserialize_VkGeometryTypeKHR(name["members"]["geometryType"]);}();
 [&]() {
@@ -71359,7 +73383,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_clgXmra=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_HnciAlv=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["type"]=[&]() {
     json return_nSQuxHv=json({});
     return serialize_VkAccelerationStructureTypeKHR(name.type);}();
@@ -71439,7 +73465,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_vXGbmYO;[&]() {
+temp_vXGbmYO=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_vXGbmYO;}();
 [&]() {
 result.type=deserialize_VkAccelerationStructureTypeKHR(name["members"]["type"]);}();
 [&]() {
@@ -71530,7 +73558,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lexXUPA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jjpEuVo=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["createFlags"]=[&]() {
     json return_oxHSoNX=json({});
     return serialize_VkAccelerationStructureCreateFlagsKHR(name.createFlags);}();
@@ -71562,7 +73592,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_MTVHsNm;[&]() {
+temp_MTVHsNm=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_MTVHsNm;}();
 [&]() {
 result.createFlags=deserialize_VkAccelerationStructureCreateFlagsKHR(name["members"]["createFlags"]);}();
 [&]() {
@@ -71843,7 +73875,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lsNtgFp=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vpbjHLW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["accelerationStructure"]=[&]() {
     json return_dinWdgc=json({});
     return serialize_VkAccelerationStructureKHR(name.accelerationStructure);}();
@@ -71854,7 +73888,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_SEMIEti;[&]() {
+temp_SEMIEti=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_SEMIEti;}();
 [&]() {
 result.accelerationStructure=deserialize_VkAccelerationStructureKHR(name["members"]["accelerationStructure"]);}();
 return result;}
@@ -71866,7 +73902,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_SvLZDGo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vpbjHLW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pVersionData"]=[&]() {
     json return_ZbnrSCj=json({});
     
@@ -71892,7 +73930,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_SEMIEti;[&]() {
+temp_SEMIEti=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_SEMIEti;}();
 [&]() {
 uint8_t* temp_DRfYnZn;[&]() {
 
@@ -71915,7 +73955,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_JwXGIps=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vpbjHLW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["src"]=[&]() {
     json return_CqVWNDv=json({});
     return serialize_VkAccelerationStructureKHR(name.src);}();
@@ -71932,7 +73974,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_SEMIEti;[&]() {
+temp_SEMIEti=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_SEMIEti;}();
 [&]() {
 result.src=deserialize_VkAccelerationStructureKHR(name["members"]["src"]);}();
 [&]() {
@@ -71948,7 +73992,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pzGBeWW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vpbjHLW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["src"]=[&]() {
     json return_CqVWNDv=json({});
     return serialize_VkAccelerationStructureKHR(name.src);}();
@@ -71965,7 +74011,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_SEMIEti;[&]() {
+temp_SEMIEti=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_SEMIEti;}();
 [&]() {
 result.src=deserialize_VkAccelerationStructureKHR(name["members"]["src"]);}();
 [&]() {
@@ -71981,7 +74029,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_qQahIcD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vpbjHLW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["src"]=[&]() {
     json return_rKsEtaC=json({});
     return serialize_VkDeviceOrHostAddressConstKHR(name.src);}();
@@ -71998,7 +74048,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_SEMIEti;[&]() {
+temp_SEMIEti=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_SEMIEti;}();
 [&]() {
 result.src=deserialize_VkDeviceOrHostAddressConstKHR(name["members"]["src"]);}();
 [&]() {
@@ -72014,7 +74066,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_mfOHoFX=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxPipelineRayPayloadSize"]=[&]() {
     json return_wGoaLQC=json({});
     return serialize_uint32_t(name.maxPipelineRayPayloadSize);}();
@@ -72028,7 +74082,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.maxPipelineRayPayloadSize=deserialize_uint32_t(name["members"]["maxPipelineRayPayloadSize"]);}();
 [&]() {
@@ -72042,7 +74098,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_WzfhkWM=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vpbjHLW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["libraryCount"]=[&]() {
     json return_HPKJnIR=json({});
     return serialize_uint32_t(name.libraryCount);}();
@@ -72071,7 +74129,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_SEMIEti;[&]() {
+temp_SEMIEti=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_SEMIEti;}();
 [&]() {
 result.libraryCount=deserialize_uint32_t(name["members"]["libraryCount"]);}();
 [&]() {
@@ -72096,7 +74156,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_OXOjMIx=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["extendedDynamicState"]=[&]() {
     json return_CSDwzBf=json({});
     return_CSDwzBf=[&]() {
@@ -72109,7 +74171,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.extendedDynamicState=deserialize_uint32_t(name["members"]["extendedDynamicState"]);}();}();
@@ -72122,7 +74185,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_DsqeAor=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["extendedDynamicState2"]=[&]() {
     json return_kStqiVB=json({});
     return_kStqiVB=[&]() {
@@ -72145,7 +74210,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.extendedDynamicState2=deserialize_uint32_t(name["members"]["extendedDynamicState2"]);}();}();
@@ -72164,7 +74230,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pOUFNKn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["extendedDynamicState3TessellationDomainOrigin"]=[&]() {
     json return_HMEYhVJ=json({});
     return_HMEYhVJ=[&]() {
@@ -72327,7 +74395,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.extendedDynamicState3TessellationDomainOrigin=deserialize_uint32_t(name["members"]["extendedDynamicState3TessellationDomainOrigin"]);}();}();
@@ -72430,7 +74499,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gOcScEa=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["dynamicPrimitiveTopologyUnrestricted"]=[&]() {
     json return_caAkFHR=json({});
     return_caAkFHR=[&]() {
@@ -72443,7 +74514,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.dynamicPrimitiveTopologyUnrestricted=deserialize_uint32_t(name["members"]["dynamicPrimitiveTopologyUnrestricted"]);}();}();
@@ -72542,7 +74614,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_jGiHoBC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_mftRpCu=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["transform"]=[&]() {
     json return_kCSLsgL=json({});
     return serialize_VkSurfaceTransformFlagBitsKHR(name.transform);}();
@@ -72553,7 +74627,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.transform=deserialize_VkSurfaceTransformFlagBitsKHR(name["members"]["transform"]);}();
 return result;}
@@ -72565,7 +74640,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_iSCZtTw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pFjYjfs=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["transform"]=[&]() {
     json return_kCSLsgL=json({});
     return serialize_VkSurfaceTransformFlagBitsKHR(name.transform);}();
@@ -72576,7 +74653,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_qSwiNsk;[&]() {
+temp_qSwiNsk=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_qSwiNsk;}();
 [&]() {
 result.transform=deserialize_VkSurfaceTransformFlagBitsKHR(name["members"]["transform"]);}();
 return result;}
@@ -72588,7 +74667,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pDFMsmF=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_mftRpCu=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["transform"]=[&]() {
     json return_jSoLZaA=json({});
     return serialize_VkSurfaceTransformFlagBitsKHR(name.transform);}();
@@ -72602,7 +74683,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.transform=deserialize_VkSurfaceTransformFlagBitsKHR(name["members"]["transform"]);}();
 [&]() {
@@ -72616,7 +74698,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_aXUXVnH=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["diagnosticsConfig"]=[&]() {
     json return_BDvmsIT=json({});
     return_BDvmsIT=[&]() {
@@ -72629,7 +74713,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.diagnosticsConfig=deserialize_uint32_t(name["members"]["diagnosticsConfig"]);}();}();
@@ -72642,7 +74727,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_wTNFoYM=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_oYHhBXK=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_SFMdvfU=json({});
     return serialize_VkDeviceDiagnosticsConfigFlagsNV(name.flags);}();
@@ -72653,7 +74740,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_CdrwuGZ;[&]() {
+temp_CdrwuGZ=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_CdrwuGZ;}();
 [&]() {
 result.flags=deserialize_VkDeviceDiagnosticsConfigFlagsNV(name["members"]["flags"]);}();
 return result;}
@@ -72665,7 +74754,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_rMBtosm=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_JxLibiQ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderZeroInitializeWorkgroupMemory"]=[&]() {
     json return_JSIWcmX=json({});
     return_JSIWcmX=[&]() {
@@ -72678,7 +74769,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderZeroInitializeWorkgroupMemory=deserialize_uint32_t(name["members"]["shaderZeroInitializeWorkgroupMemory"]);}();}();
@@ -72691,7 +74783,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_rMBtosm=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_JxLibiQ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderZeroInitializeWorkgroupMemory"]=[&]() {
     json return_JSIWcmX=json({});
     return_JSIWcmX=[&]() {
@@ -72704,7 +74798,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderZeroInitializeWorkgroupMemory=deserialize_uint32_t(name["members"]["shaderZeroInitializeWorkgroupMemory"]);}();}();
@@ -72717,7 +74812,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_XSeUFjY=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderSubgroupUniformControlFlow"]=[&]() {
     json return_HgNDtNf=json({});
     return_HgNDtNf=[&]() {
@@ -72730,7 +74827,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderSubgroupUniformControlFlow=deserialize_uint32_t(name["members"]["shaderSubgroupUniformControlFlow"]);}();}();
@@ -72743,7 +74841,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gQMlOvJ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["robustBufferAccess2"]=[&]() {
     json return_NUhjDXM=json({});
     return_NUhjDXM=[&]() {
@@ -72766,7 +74866,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.robustBufferAccess2=deserialize_uint32_t(name["members"]["robustBufferAccess2"]);}();}();
@@ -72785,7 +74886,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_wyxifUA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["robustStorageBufferAccessSizeAlignment"]=[&]() {
     json return_yXXvzjn=json({});
     return_yXXvzjn=[&]() {
@@ -72803,7 +74906,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.robustStorageBufferAccessSizeAlignment=deserialize_uint64_t(name["members"]["robustStorageBufferAccessSizeAlignment"]);}();}();
@@ -72819,7 +74923,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tlRYOuh=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["robustImageAccess"]=[&]() {
     json return_SlXgVbu=json({});
     return_SlXgVbu=[&]() {
@@ -72832,7 +74938,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.robustImageAccess=deserialize_uint32_t(name["members"]["robustImageAccess"]);}();}();
@@ -72845,7 +74952,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tlRYOuh=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["robustImageAccess"]=[&]() {
     json return_SlXgVbu=json({});
     return_SlXgVbu=[&]() {
@@ -72858,7 +74967,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.robustImageAccess=deserialize_uint32_t(name["members"]["robustImageAccess"]);}();}();
@@ -72871,7 +74981,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_sWqMDsn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["workgroupMemoryExplicitLayout"]=[&]() {
     json return_ybTwwPM=json({});
     return_ybTwwPM=[&]() {
@@ -72899,7 +75011,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.workgroupMemoryExplicitLayout=deserialize_uint32_t(name["members"]["workgroupMemoryExplicitLayout"]);}();}();
@@ -72921,7 +75034,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_peyqlxE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["formatA4R4G4B4"]=[&]() {
     json return_dpOstEQ=json({});
     return_dpOstEQ=[&]() {
@@ -72939,7 +75054,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.formatA4R4G4B4=deserialize_uint32_t(name["members"]["formatA4R4G4B4"]);}();}();
@@ -72955,7 +75071,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_UFcGwtC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["subpassShading"]=[&]() {
     json return_jnwQbib=json({});
     return_jnwQbib=[&]() {
@@ -72968,7 +75086,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.subpassShading=deserialize_uint32_t(name["members"]["subpassShading"]);}();}();
@@ -72981,7 +75100,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_xHHneBV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jddtSSC=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["clustercullingShader"]=[&]() {
     json return_skhKktZ=json({});
     return_skhKktZ=[&]() {
@@ -72999,7 +75120,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.clustercullingShader=deserialize_uint32_t(name["members"]["clustercullingShader"]);}();}();
@@ -73015,7 +75137,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_YobMemd=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcOffset"]=[&]() {
     json return_IeEdxuW=json({});
     return_IeEdxuW=[&]() {
@@ -73038,7 +75162,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 [&]() {
 result.srcOffset=deserialize_uint64_t(name["members"]["srcOffset"]);}();}();
@@ -73057,7 +75183,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_YobMemd=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcOffset"]=[&]() {
     json return_IeEdxuW=json({});
     return_IeEdxuW=[&]() {
@@ -73080,7 +75208,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 [&]() {
 result.srcOffset=deserialize_uint64_t(name["members"]["srcOffset"]);}();}();
@@ -73099,7 +75229,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ZKCRheR=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcSubresource"]=[&]() {
     json return_WrOnZkt=json({});
     return serialize_VkImageSubresourceLayers(name.srcSubresource);}();
@@ -73122,7 +75254,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.srcSubresource=deserialize_VkImageSubresourceLayers(name["members"]["srcSubresource"]);}();
 [&]() {
@@ -73142,7 +75276,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ZKCRheR=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcSubresource"]=[&]() {
     json return_WrOnZkt=json({});
     return serialize_VkImageSubresourceLayers(name.srcSubresource);}();
@@ -73165,7 +75301,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.srcSubresource=deserialize_VkImageSubresourceLayers(name["members"]["srcSubresource"]);}();
 [&]() {
@@ -73185,7 +75323,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LyrvBCp=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcSubresource"]=[&]() {
     json return_WrOnZkt=json({});
     return serialize_VkImageSubresourceLayers(name.srcSubresource);}();
@@ -73225,7 +75365,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.srcSubresource=deserialize_VkImageSubresourceLayers(name["members"]["srcSubresource"]);}();
 [&]() {
@@ -73253,7 +75395,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LyrvBCp=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcSubresource"]=[&]() {
     json return_WrOnZkt=json({});
     return serialize_VkImageSubresourceLayers(name.srcSubresource);}();
@@ -73293,7 +75437,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.srcSubresource=deserialize_VkImageSubresourceLayers(name["members"]["srcSubresource"]);}();
 [&]() {
@@ -73321,7 +75467,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tqtAwni=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["bufferOffset"]=[&]() {
     json return_sOZAYpN=json({});
     return_sOZAYpN=[&]() {
@@ -73349,7 +75497,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 [&]() {
 result.bufferOffset=deserialize_uint64_t(name["members"]["bufferOffset"]);}();}();
@@ -73372,7 +75522,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tqtAwni=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["bufferOffset"]=[&]() {
     json return_sOZAYpN=json({});
     return_sOZAYpN=[&]() {
@@ -73400,7 +75552,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 [&]() {
 result.bufferOffset=deserialize_uint64_t(name["members"]["bufferOffset"]);}();}();
@@ -73423,7 +75577,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_HDBxvyK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcSubresource"]=[&]() {
     json return_WrOnZkt=json({});
     return serialize_VkImageSubresourceLayers(name.srcSubresource);}();
@@ -73446,7 +75602,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.srcSubresource=deserialize_VkImageSubresourceLayers(name["members"]["srcSubresource"]);}();
 [&]() {
@@ -73466,7 +75624,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_HDBxvyK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcSubresource"]=[&]() {
     json return_WrOnZkt=json({});
     return serialize_VkImageSubresourceLayers(name.srcSubresource);}();
@@ -73489,7 +75649,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.srcSubresource=deserialize_VkImageSubresourceLayers(name["members"]["srcSubresource"]);}();
 [&]() {
@@ -73509,7 +75671,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QFeeUYe=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcBuffer"]=[&]() {
     json return_tWXAtpw=json({});
     return serialize_VkBuffer(name.srcBuffer);}();
@@ -73544,7 +75708,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.srcBuffer=deserialize_VkBuffer(name["members"]["srcBuffer"]);}();
 [&]() {
@@ -73573,7 +75739,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QFeeUYe=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcBuffer"]=[&]() {
     json return_tWXAtpw=json({});
     return serialize_VkBuffer(name.srcBuffer);}();
@@ -73608,7 +75776,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.srcBuffer=deserialize_VkBuffer(name["members"]["srcBuffer"]);}();
 [&]() {
@@ -73637,7 +75807,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_dAAnsXi=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcImage"]=[&]() {
     json return_vwgjqgS=json({});
     return serialize_VkImage(name.srcImage);}();
@@ -73678,7 +75850,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.srcImage=deserialize_VkImage(name["members"]["srcImage"]);}();
 [&]() {
@@ -73711,7 +75885,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_dAAnsXi=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcImage"]=[&]() {
     json return_vwgjqgS=json({});
     return serialize_VkImage(name.srcImage);}();
@@ -73752,7 +75928,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.srcImage=deserialize_VkImage(name["members"]["srcImage"]);}();
 [&]() {
@@ -73785,7 +75963,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GxFpUOe=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcImage"]=[&]() {
     json return_lnMcTsk=json({});
     return serialize_VkImage(name.srcImage);}();
@@ -73829,7 +76009,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.srcImage=deserialize_VkImage(name["members"]["srcImage"]);}();
 [&]() {
@@ -73864,7 +76046,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GxFpUOe=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcImage"]=[&]() {
     json return_lnMcTsk=json({});
     return serialize_VkImage(name.srcImage);}();
@@ -73908,7 +76092,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.srcImage=deserialize_VkImage(name["members"]["srcImage"]);}();
 [&]() {
@@ -73943,7 +76129,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LDRhUPq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_KlESVpD=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcBuffer"]=[&]() {
     json return_aCUxdCv=json({});
     return serialize_VkBuffer(name.srcBuffer);}();
@@ -73981,7 +76169,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XeEuUtf;[&]() {
+temp_XeEuUtf=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XeEuUtf;}();
 [&]() {
 result.srcBuffer=deserialize_VkBuffer(name["members"]["srcBuffer"]);}();
 [&]() {
@@ -74012,7 +76202,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LDRhUPq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_KlESVpD=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcBuffer"]=[&]() {
     json return_aCUxdCv=json({});
     return serialize_VkBuffer(name.srcBuffer);}();
@@ -74050,7 +76242,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XeEuUtf;[&]() {
+temp_XeEuUtf=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XeEuUtf;}();
 [&]() {
 result.srcBuffer=deserialize_VkBuffer(name["members"]["srcBuffer"]);}();
 [&]() {
@@ -74081,7 +76275,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_koWomYv=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_DXfRYCc=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcImage"]=[&]() {
     json return_YLmCOFo=json({});
     return serialize_VkImage(name.srcImage);}();
@@ -74119,7 +76315,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_KmUErOG;[&]() {
+temp_KmUErOG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_KmUErOG;}();
 [&]() {
 result.srcImage=deserialize_VkImage(name["members"]["srcImage"]);}();
 [&]() {
@@ -74150,7 +76348,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_koWomYv=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_DXfRYCc=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcImage"]=[&]() {
     json return_YLmCOFo=json({});
     return serialize_VkImage(name.srcImage);}();
@@ -74188,7 +76388,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_KmUErOG;[&]() {
+temp_KmUErOG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_KmUErOG;}();
 [&]() {
 result.srcImage=deserialize_VkImage(name["members"]["srcImage"]);}();
 [&]() {
@@ -74219,7 +76421,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_mjDKbya=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pBGwEnt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcImage"]=[&]() {
     json return_xQaGXaH=json({});
     return serialize_VkImage(name.srcImage);}();
@@ -74260,7 +76464,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mKKnJpW;[&]() {
+temp_mKKnJpW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mKKnJpW;}();
 [&]() {
 result.srcImage=deserialize_VkImage(name["members"]["srcImage"]);}();
 [&]() {
@@ -74293,7 +76499,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_mjDKbya=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pBGwEnt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcImage"]=[&]() {
     json return_xQaGXaH=json({});
     return serialize_VkImage(name.srcImage);}();
@@ -74334,7 +76542,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mKKnJpW;[&]() {
+temp_mKKnJpW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mKKnJpW;}();
 [&]() {
 result.srcImage=deserialize_VkImage(name["members"]["srcImage"]);}();
 [&]() {
@@ -74367,7 +76577,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pVBhOCt=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderImageInt64Atomics"]=[&]() {
     json return_EWtnDXA=json({});
     return_EWtnDXA=[&]() {
@@ -74385,7 +76597,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderImageInt64Atomics=deserialize_uint32_t(name["members"]["shaderImageInt64Atomics"]);}();}();
@@ -74401,7 +76614,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_EhxCXYg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pBGwEnt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pFragmentShadingRateAttachment"]=[&]() {
     json return_LIrhjWi=json({});
     
@@ -74423,7 +76638,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mKKnJpW;[&]() {
+temp_mKKnJpW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mKKnJpW;}();
 [&]() {
 VkAttachmentReference2* temp_ddwcqsS;[&]() {
 
@@ -74446,7 +76663,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QiRQzTo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_nNniLrj=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["fragmentSize"]=[&]() {
     json return_yixmmsJ=json({});
     return serialize_VkExtent2D(name.fragmentSize);}();
@@ -74470,7 +76689,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_eJPiWGi;[&]() {
+temp_eJPiWGi=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_eJPiWGi;}();
 [&]() {
 result.fragmentSize=deserialize_VkExtent2D(name["members"]["fragmentSize"]);}();
 [&]() {
@@ -74489,7 +76710,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_CndPdUt=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pipelineFragmentShadingRate"]=[&]() {
     json return_awqzZUO=json({});
     return_awqzZUO=[&]() {
@@ -74512,7 +76735,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.pipelineFragmentShadingRate=deserialize_uint32_t(name["members"]["pipelineFragmentShadingRate"]);}();}();
@@ -74531,7 +76755,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_EphHQCV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["minFragmentShadingRateAttachmentTexelSize"]=[&]() {
     json return_DPdBLcY=json({});
     return serialize_VkExtent2D(name.minFragmentShadingRateAttachmentTexelSize);}();
@@ -74610,7 +76836,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.minFragmentShadingRateAttachmentTexelSize=deserialize_VkExtent2D(name["members"]["minFragmentShadingRateAttachmentTexelSize"]);}();
 [&]() {
@@ -74664,7 +76891,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_PnjVNzQ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["sampleCounts"]=[&]() {
     json return_XSGVPZF=json({});
     return serialize_VkSampleCountFlags(name.sampleCounts);}();
@@ -74678,7 +76907,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.sampleCounts=deserialize_VkSampleCountFlags(name["members"]["sampleCounts"]);}();
 [&]() {
@@ -74692,7 +76922,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_HBRPPKv=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderTerminateInvocation"]=[&]() {
     json return_NfOMkpd=json({});
     return_NfOMkpd=[&]() {
@@ -74705,7 +76937,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderTerminateInvocation=deserialize_uint32_t(name["members"]["shaderTerminateInvocation"]);}();}();
@@ -74718,7 +76951,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_HBRPPKv=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderTerminateInvocation"]=[&]() {
     json return_NfOMkpd=json({});
     return_NfOMkpd=[&]() {
@@ -74731,7 +76966,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderTerminateInvocation=deserialize_uint32_t(name["members"]["shaderTerminateInvocation"]);}();}();
@@ -74744,7 +76980,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QJqBloZ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["fragmentShadingRateEnums"]=[&]() {
     json return_fNeLxXE=json({});
     return_fNeLxXE=[&]() {
@@ -74767,7 +77005,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.fragmentShadingRateEnums=deserialize_uint32_t(name["members"]["fragmentShadingRateEnums"]);}();}();
@@ -74786,7 +77025,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_sZScKFX=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_CAZMHOp=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxFragmentShadingRateInvocationCount"]=[&]() {
     json return_yRPewgb=json({});
     return serialize_VkSampleCountFlagBits(name.maxFragmentShadingRateInvocationCount);}();
@@ -74797,7 +77038,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxFragmentShadingRateInvocationCount=deserialize_VkSampleCountFlagBits(name["members"]["maxFragmentShadingRateInvocationCount"]);}();
 return result;}
@@ -74809,7 +77051,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_FhtoMoW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_dlkPATN=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shadingRateType"]=[&]() {
     json return_dDuUFoH=json({});
     return serialize_VkFragmentShadingRateTypeNV(name.shadingRateType);}();
@@ -74836,7 +77080,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_GmCEwHf;[&]() {
+temp_GmCEwHf=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_GmCEwHf;}();
 [&]() {
 result.shadingRateType=deserialize_VkFragmentShadingRateTypeNV(name["members"]["shadingRateType"]);}();
 [&]() {
@@ -74857,7 +77103,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_rsZPVVD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["accelerationStructureSize"]=[&]() {
     json return_kJOovWS=json({});
     return_kJOovWS=[&]() {
@@ -74880,7 +77128,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 [&]() {
 result.accelerationStructureSize=deserialize_uint64_t(name["members"]["accelerationStructureSize"]);}();}();
@@ -74899,7 +77149,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_UpZPgIK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_UHmLNOs=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["image2DViewOf3D"]=[&]() {
     json return_XxzrTia=json({});
     return_XxzrTia=[&]() {
@@ -74917,7 +77169,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.image2DViewOf3D=deserialize_uint32_t(name["members"]["image2DViewOf3D"]);}();}();
@@ -74933,7 +77186,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_glMfyqx=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_UHmLNOs=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imageSlicedViewOf3D"]=[&]() {
     json return_iazVKOz=json({});
     return_iazVKOz=[&]() {
@@ -74946,7 +77201,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.imageSlicedViewOf3D=deserialize_uint32_t(name["members"]["imageSlicedViewOf3D"]);}();}();
@@ -74959,7 +77215,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_xjIxhxR=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_MEGcYDw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["attachmentFeedbackLoopDynamicState"]=[&]() {
     json return_ACbrPLV=json({});
     return_ACbrPLV=[&]() {
@@ -74972,7 +77230,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.attachmentFeedbackLoopDynamicState=deserialize_uint32_t(name["members"]["attachmentFeedbackLoopDynamicState"]);}();}();
@@ -74985,7 +77244,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QfVSfJr=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_MEGcYDw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["mutableDescriptorType"]=[&]() {
     json return_EiYXsXm=json({});
     return_EiYXsXm=[&]() {
@@ -74998,7 +77259,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.mutableDescriptorType=deserialize_uint32_t(name["members"]["mutableDescriptorType"]);}();}();
@@ -75011,7 +77273,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QfVSfJr=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_MEGcYDw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["mutableDescriptorType"]=[&]() {
     json return_EiYXsXm=json({});
     return_EiYXsXm=[&]() {
@@ -75024,7 +77288,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.mutableDescriptorType=deserialize_uint32_t(name["members"]["mutableDescriptorType"]);}();}();
@@ -75131,7 +77396,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GBnkSYd=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_JUpBydP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["mutableDescriptorTypeListCount"]=[&]() {
     json return_mDAyaUY=json({});
     return serialize_uint32_t(name.mutableDescriptorTypeListCount);}();
@@ -75160,7 +77427,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_AjlpQsS;[&]() {
+temp_AjlpQsS=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_AjlpQsS;}();
 [&]() {
 result.mutableDescriptorTypeListCount=deserialize_uint32_t(name["members"]["mutableDescriptorTypeListCount"]);}();
 [&]() {
@@ -75185,7 +77454,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GBnkSYd=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_JUpBydP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["mutableDescriptorTypeListCount"]=[&]() {
     json return_mDAyaUY=json({});
     return serialize_uint32_t(name.mutableDescriptorTypeListCount);}();
@@ -75214,7 +77485,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_AjlpQsS;[&]() {
+temp_AjlpQsS=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_AjlpQsS;}();
 [&]() {
 result.mutableDescriptorTypeListCount=deserialize_uint32_t(name["members"]["mutableDescriptorTypeListCount"]);}();
 [&]() {
@@ -75239,7 +77512,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_sHGmOkk=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["depthClipControl"]=[&]() {
     json return_ZEOfzxG=json({});
     return_ZEOfzxG=[&]() {
@@ -75252,7 +77527,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.depthClipControl=deserialize_uint32_t(name["members"]["depthClipControl"]);}();}();
@@ -75265,7 +77541,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AGDAvkS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["negativeOneToOne"]=[&]() {
     json return_uNwLLEj=json({});
     return_uNwLLEj=[&]() {
@@ -75278,7 +77556,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 [&]() {
 result.negativeOneToOne=deserialize_uint32_t(name["members"]["negativeOneToOne"]);}();}();
@@ -75291,7 +77571,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_WskUZeg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["vertexInputDynamicState"]=[&]() {
     json return_kmiqeiM=json({});
     return_kmiqeiM=[&]() {
@@ -75304,7 +77586,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.vertexInputDynamicState=deserialize_uint32_t(name["members"]["vertexInputDynamicState"]);}();}();
@@ -75317,7 +77600,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tJUgzvP=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["externalMemoryRDMA"]=[&]() {
     json return_JGJpjXc=json({});
     return_JGJpjXc=[&]() {
@@ -75330,7 +77615,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.externalMemoryRDMA=deserialize_uint32_t(name["members"]["externalMemoryRDMA"]);}();}();
@@ -75343,7 +77629,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KpEWmAV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["binding"]=[&]() {
     json return_jCUgARQ=json({});
     return serialize_uint32_t(name.binding);}();
@@ -75363,7 +77651,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.binding=deserialize_uint32_t(name["members"]["binding"]);}();
 [&]() {
@@ -75381,7 +77670,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LipXueV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["location"]=[&]() {
     json return_xjWwsOO=json({});
     return serialize_uint32_t(name.location);}();
@@ -75401,7 +77692,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.location=deserialize_uint32_t(name["members"]["location"]);}();
 [&]() {
@@ -75419,7 +77711,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_iWfaKSK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["colorWriteEnable"]=[&]() {
     json return_vzGZNpj=json({});
     return_vzGZNpj=[&]() {
@@ -75432,7 +77726,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.colorWriteEnable=deserialize_uint32_t(name["members"]["colorWriteEnable"]);}();}();
@@ -75445,7 +77740,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_vKeiixN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["attachmentCount"]=[&]() {
     json return_oYRYbKy=json({});
     return serialize_uint32_t(name.attachmentCount);}();
@@ -75476,7 +77773,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.attachmentCount=deserialize_uint32_t(name["members"]["attachmentCount"]);}();
 [&]() {
@@ -75507,7 +77806,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ogpaGul=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcStageMask"]=[&]() {
     json return_lybgZss=json({});
     return serialize_VkPipelineStageFlags2(name.srcStageMask);}();
@@ -75527,7 +77828,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.srcStageMask=deserialize_VkPipelineStageFlags2(name["members"]["srcStageMask"]);}();
 [&]() {
@@ -75545,7 +77848,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ogpaGul=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcStageMask"]=[&]() {
     json return_lybgZss=json({});
     return serialize_VkPipelineStageFlags2(name.srcStageMask);}();
@@ -75565,7 +77870,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.srcStageMask=deserialize_VkPipelineStageFlags2(name["members"]["srcStageMask"]);}();
 [&]() {
@@ -75583,7 +77890,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KNCIZTZ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcStageMask"]=[&]() {
     json return_lybgZss=json({});
     return serialize_VkPipelineStageFlags2(name.srcStageMask);}();
@@ -75621,7 +77930,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.srcStageMask=deserialize_VkPipelineStageFlags2(name["members"]["srcStageMask"]);}();
 [&]() {
@@ -75651,7 +77962,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KNCIZTZ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcStageMask"]=[&]() {
     json return_lybgZss=json({});
     return serialize_VkPipelineStageFlags2(name.srcStageMask);}();
@@ -75689,7 +78002,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.srcStageMask=deserialize_VkPipelineStageFlags2(name["members"]["srcStageMask"]);}();
 [&]() {
@@ -75719,7 +78034,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_eumPWNM=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcStageMask"]=[&]() {
     json return_lybgZss=json({});
     return serialize_VkPipelineStageFlags2(name.srcStageMask);}();
@@ -75758,7 +78075,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.srcStageMask=deserialize_VkPipelineStageFlags2(name["members"]["srcStageMask"]);}();
 [&]() {
@@ -75788,7 +78107,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_eumPWNM=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["srcStageMask"]=[&]() {
     json return_lybgZss=json({});
     return serialize_VkPipelineStageFlags2(name.srcStageMask);}();
@@ -75827,7 +78148,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.srcStageMask=deserialize_VkPipelineStageFlags2(name["members"]["srcStageMask"]);}();
 [&]() {
@@ -75857,7 +78180,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ybowYsA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_TNgMvJi=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["dependencyFlags"]=[&]() {
     json return_txpjOxf=json({});
     return serialize_VkDependencyFlags(name.dependencyFlags);}();
@@ -75931,7 +78256,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_OfQjHFU;[&]() {
+temp_OfQjHFU=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_OfQjHFU;}();
 [&]() {
 result.dependencyFlags=deserialize_VkDependencyFlags(name["members"]["dependencyFlags"]);}();
 [&]() {
@@ -75988,7 +78315,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ybowYsA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_TNgMvJi=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["dependencyFlags"]=[&]() {
     json return_txpjOxf=json({});
     return serialize_VkDependencyFlags(name.dependencyFlags);}();
@@ -76062,7 +78391,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_OfQjHFU;[&]() {
+temp_OfQjHFU=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_OfQjHFU;}();
 [&]() {
 result.dependencyFlags=deserialize_VkDependencyFlags(name["members"]["dependencyFlags"]);}();
 [&]() {
@@ -76119,7 +78450,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_eataaUl=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PYLChnf=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["semaphore"]=[&]() {
     json return_tQPwKpo=json({});
     return serialize_VkSemaphore(name.semaphore);}();
@@ -76139,7 +78472,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_KzkfhPw;[&]() {
+temp_KzkfhPw=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_KzkfhPw;}();
 [&]() {
 result.semaphore=deserialize_VkSemaphore(name["members"]["semaphore"]);}();
 [&]() {
@@ -76157,7 +78492,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_eataaUl=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PYLChnf=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["semaphore"]=[&]() {
     json return_tQPwKpo=json({});
     return serialize_VkSemaphore(name.semaphore);}();
@@ -76177,7 +78514,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_KzkfhPw;[&]() {
+temp_KzkfhPw=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_KzkfhPw;}();
 [&]() {
 result.semaphore=deserialize_VkSemaphore(name["members"]["semaphore"]);}();
 [&]() {
@@ -76195,7 +78534,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_YSIRfTP=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PYLChnf=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["commandBuffer"]=[&]() {
     json return_YqImDaw=json({});
     return serialize_VkCommandBuffer(name.commandBuffer);}();
@@ -76209,7 +78550,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_KzkfhPw;[&]() {
+temp_KzkfhPw=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_KzkfhPw;}();
 [&]() {
 result.commandBuffer=deserialize_VkCommandBuffer(name["members"]["commandBuffer"]);}();
 [&]() {
@@ -76223,7 +78566,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_YSIRfTP=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PYLChnf=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["commandBuffer"]=[&]() {
     json return_YqImDaw=json({});
     return serialize_VkCommandBuffer(name.commandBuffer);}();
@@ -76237,7 +78582,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_KzkfhPw;[&]() {
+temp_KzkfhPw=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_KzkfhPw;}();
 [&]() {
 result.commandBuffer=deserialize_VkCommandBuffer(name["members"]["commandBuffer"]);}();
 [&]() {
@@ -76251,7 +78598,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ykGouKz=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PYLChnf=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_gQczCbt=json({});
     return serialize_VkSubmitFlags(name.flags);}();
@@ -76325,7 +78674,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_KzkfhPw;[&]() {
+temp_KzkfhPw=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_KzkfhPw;}();
 [&]() {
 result.flags=deserialize_VkSubmitFlags(name["members"]["flags"]);}();
 [&]() {
@@ -76382,7 +78733,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ykGouKz=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PYLChnf=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_gQczCbt=json({});
     return serialize_VkSubmitFlags(name.flags);}();
@@ -76456,7 +78809,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_KzkfhPw;[&]() {
+temp_KzkfhPw=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_KzkfhPw;}();
 [&]() {
 result.flags=deserialize_VkSubmitFlags(name["members"]["flags"]);}();
 [&]() {
@@ -76513,7 +78868,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_qKQwVvb=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RROZwuA=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["checkpointExecutionStageMask"]=[&]() {
     json return_AxScInu=json({});
     return serialize_VkPipelineStageFlags2(name.checkpointExecutionStageMask);}();
@@ -76524,7 +78881,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.checkpointExecutionStageMask=deserialize_VkPipelineStageFlags2(name["members"]["checkpointExecutionStageMask"]);}();
 return result;}
@@ -76536,7 +78894,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_JynTLIj=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["stage"]=[&]() {
     json return_EFJdKDS=json({});
     return serialize_VkPipelineStageFlags2(name.stage);}();
@@ -76572,7 +78932,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.stage=deserialize_VkPipelineStageFlags2(name["members"]["stage"]);}();
 [&]() {
@@ -76603,7 +78964,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_eabrWmG=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["synchronization2"]=[&]() {
     json return_SHyXnKT=json({});
     return_SHyXnKT=[&]() {
@@ -76616,7 +78979,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.synchronization2=deserialize_uint32_t(name["members"]["synchronization2"]);}();}();
@@ -76629,7 +78993,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_eabrWmG=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["synchronization2"]=[&]() {
     json return_SHyXnKT=json({});
     return_SHyXnKT=[&]() {
@@ -76642,7 +79008,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.synchronization2=deserialize_uint32_t(name["members"]["synchronization2"]);}();}();
@@ -76655,7 +79022,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_RNUCKUM=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["hostImageCopy"]=[&]() {
     json return_npIUVms=json({});
     return_npIUVms=[&]() {
@@ -76668,7 +79037,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.hostImageCopy=deserialize_uint32_t(name["members"]["hostImageCopy"]);}();}();
@@ -76681,7 +79051,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_kDAzvJU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_nuzvOmI=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["copySrcLayoutCount"]=[&]() {
     json return_eSIWgOs=json({});
     return serialize_uint32_t(name.copySrcLayoutCount);}();
@@ -76749,7 +79121,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.copySrcLayoutCount=deserialize_uint32_t(name["members"]["copySrcLayoutCount"]);}();
 [&]() {
@@ -76797,7 +79170,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AbAgjnV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_nQmQJXc=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pHostPointer"]=[&]() {
     json return_XWJCdrF=json({});
     
@@ -76845,7 +79220,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_AKhkPTS;[&]() {
+temp_AKhkPTS=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_AKhkPTS;}();
 [&]() {
 void* temp_dbbxIie;[&]() {
 
@@ -76885,7 +79262,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_NrjDNGx=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_nQmQJXc=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pHostPointer"]=[&]() {
     json return_NpGnkXW=json({});
     
@@ -76933,7 +79312,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_AKhkPTS;[&]() {
+temp_AKhkPTS=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_AKhkPTS;}();
 [&]() {
 
         if (name["members"]["pHostPointer"].contains("null")){
@@ -76972,7 +79353,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_YWJgbAP=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pBGwEnt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_fWCIypp=json({});
     return serialize_VkHostImageCopyFlagsEXT(name.flags);}();
@@ -77010,7 +79393,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mKKnJpW;[&]() {
+temp_mKKnJpW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mKKnJpW;}();
 [&]() {
 result.flags=deserialize_VkHostImageCopyFlagsEXT(name["members"]["flags"]);}();
 [&]() {
@@ -77041,7 +79426,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ZKPNCbE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pBGwEnt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_fWCIypp=json({});
     return serialize_VkHostImageCopyFlagsEXT(name.flags);}();
@@ -77079,7 +79466,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mKKnJpW;[&]() {
+temp_mKKnJpW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mKKnJpW;}();
 [&]() {
 result.flags=deserialize_VkHostImageCopyFlagsEXT(name["members"]["flags"]);}();
 [&]() {
@@ -77110,7 +79499,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_xfdSdzg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pBGwEnt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_fWCIypp=json({});
     return serialize_VkHostImageCopyFlagsEXT(name.flags);}();
@@ -77154,7 +79545,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mKKnJpW;[&]() {
+temp_mKKnJpW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mKKnJpW;}();
 [&]() {
 result.flags=deserialize_VkHostImageCopyFlagsEXT(name["members"]["flags"]);}();
 [&]() {
@@ -77189,7 +79582,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_PZiSAVa=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_ezEOKPE=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["image"]=[&]() {
     json return_gPNEfRm=json({});
     return serialize_VkImage(name.image);}();
@@ -77209,7 +79604,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_YdXSoFF;[&]() {
+temp_YdXSoFF=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_YdXSoFF;}();
 [&]() {
 result.image=deserialize_VkImage(name["members"]["image"]);}();
 [&]() {
@@ -77227,7 +79624,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_sNAbfKI=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["size"]=[&]() {
     json return_kZOaYOD=json({});
     return_kZOaYOD=[&]() {
@@ -77240,7 +79639,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.size=deserialize_uint64_t(name["members"]["size"]);}();}();
@@ -77253,7 +79653,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fUCHtAK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["optimalDeviceAccess"]=[&]() {
     json return_tOXFuru=json({});
     return_tOXFuru=[&]() {
@@ -77271,7 +79673,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.optimalDeviceAccess=deserialize_uint32_t(name["members"]["optimalDeviceAccess"]);}();}();
@@ -77287,7 +79690,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KYrNuTp=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["primitivesGeneratedQuery"]=[&]() {
     json return_YXtmTVc=json({});
     return_YXtmTVc=[&]() {
@@ -77310,7 +79715,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.primitivesGeneratedQuery=deserialize_uint32_t(name["members"]["primitivesGeneratedQuery"]);}();}();
@@ -77329,7 +79735,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_JJePyQL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BCWmZRO=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["legacyDithering"]=[&]() {
     json return_ZfWrWjz=json({});
     return_ZfWrWjz=[&]() {
@@ -77342,7 +79750,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.legacyDithering=deserialize_uint32_t(name["members"]["legacyDithering"]);}();}();
@@ -77355,7 +79764,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_zSQnNxi=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_MEEdpgl=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["multisampledRenderToSingleSampled"]=[&]() {
     json return_lAIMghn=json({});
     return_lAIMghn=[&]() {
@@ -77368,7 +79779,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.multisampledRenderToSingleSampled=deserialize_uint32_t(name["members"]["multisampledRenderToSingleSampled"]);}();}();
@@ -77381,7 +79793,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_yDUPjGn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["optimal"]=[&]() {
     json return_RXjlzJH=json({});
     return_RXjlzJH=[&]() {
@@ -77394,7 +79808,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.optimal=deserialize_uint32_t(name["members"]["optimal"]);}();}();
@@ -77407,7 +79822,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_bSJUBfK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_TDxuxbE=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["multisampledRenderToSingleSampledEnable"]=[&]() {
     json return_vckLfRQ=json({});
     return_vckLfRQ=[&]() {
@@ -77423,7 +79840,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_wNPKlhZ;[&]() {
+temp_wNPKlhZ=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_wNPKlhZ;}();
 [&]() {
 [&]() {
 result.multisampledRenderToSingleSampledEnable=deserialize_uint32_t(name["members"]["multisampledRenderToSingleSampledEnable"]);}();}();
@@ -77438,7 +79857,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_jVGQslD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RUxrfVn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pipelineProtectedAccess"]=[&]() {
     json return_GtgWTtJ=json({});
     return_GtgWTtJ=[&]() {
@@ -77451,7 +79872,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.pipelineProtectedAccess=deserialize_uint32_t(name["members"]["pipelineProtectedAccess"]);}();}();
@@ -77464,7 +79886,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_hMKTyGa=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_CAZMHOp=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["videoCodecOperations"]=[&]() {
     json return_ramnCkz=json({});
     return serialize_VkVideoCodecOperationFlagsKHR(name.videoCodecOperations);}();
@@ -77475,7 +79899,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.videoCodecOperations=deserialize_VkVideoCodecOperationFlagsKHR(name["members"]["videoCodecOperations"]);}();
 return result;}
@@ -77487,7 +79912,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_XSSDhiQ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_CAZMHOp=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["queryResultStatusSupport"]=[&]() {
     json return_KmyVySI=json({});
     return_KmyVySI=[&]() {
@@ -77500,7 +79927,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.queryResultStatusSupport=deserialize_uint32_t(name["members"]["queryResultStatusSupport"]);}();}();
@@ -77513,7 +79941,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oMEPYwf=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_aKTpvlZ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["profileCount"]=[&]() {
     json return_qXhWAMG=json({});
     return serialize_uint32_t(name.profileCount);}();
@@ -77542,7 +79972,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_veugGRF;[&]() {
+temp_veugGRF=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_veugGRF;}();
 [&]() {
 result.profileCount=deserialize_uint32_t(name["members"]["profileCount"]);}();
 [&]() {
@@ -77567,7 +79999,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_snBeDQu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_tGGNeUr=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imageUsage"]=[&]() {
     json return_dSQYKYy=json({});
     return serialize_VkImageUsageFlags(name.imageUsage);}();
@@ -77578,7 +80012,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_nnwcgpP;[&]() {
+temp_nnwcgpP=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_nnwcgpP;}();
 [&]() {
 result.imageUsage=deserialize_VkImageUsageFlags(name["members"]["imageUsage"]);}();
 return result;}
@@ -77590,7 +80026,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fofvjuW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_fYGlFhR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["format"]=[&]() {
     json return_ZkKDnaX=json({});
     return serialize_VkFormat(name.format);}();
@@ -77616,7 +80054,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.format=deserialize_VkFormat(name["members"]["format"]);}();
 [&]() {
@@ -77638,7 +80077,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_edjuGjB=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["videoCodecOperation"]=[&]() {
     json return_XyRaBxg=json({});
     return serialize_VkVideoCodecOperationFlagBitsKHR(name.videoCodecOperation);}();
@@ -77658,7 +80099,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.videoCodecOperation=deserialize_VkVideoCodecOperationFlagBitsKHR(name["members"]["videoCodecOperation"]);}();
 [&]() {
@@ -77676,7 +80119,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_xYUFySm=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_cfYCbVf=json({});
     return serialize_VkVideoCapabilityFlagsKHR(name.flags);}();
@@ -77715,7 +80160,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.flags=deserialize_VkVideoCapabilityFlagsKHR(name["members"]["flags"]);}();
 [&]() {
@@ -77745,7 +80191,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_WYowRTB=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_VLNQsNj=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["memoryBindIndex"]=[&]() {
     json return_JteVDwv=json({});
     return serialize_uint32_t(name.memoryBindIndex);}();
@@ -77759,7 +80207,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.memoryBindIndex=deserialize_uint32_t(name["members"]["memoryBindIndex"]);}();
 [&]() {
@@ -77773,7 +80222,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lSaYaDt=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_mAFOLKf=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["memoryBindIndex"]=[&]() {
     json return_JteVDwv=json({});
     return serialize_uint32_t(name.memoryBindIndex);}();
@@ -77797,7 +80248,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_LthbfsD;[&]() {
+temp_LthbfsD=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_LthbfsD;}();
 [&]() {
 result.memoryBindIndex=deserialize_uint32_t(name["members"]["memoryBindIndex"]);}();
 [&]() {
@@ -77817,7 +80270,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_srtmBao=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["codedOffset"]=[&]() {
     json return_uVyZUqK=json({});
     return serialize_VkOffset2D(name.codedOffset);}();
@@ -77837,7 +80292,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.codedOffset=deserialize_VkOffset2D(name["members"]["codedOffset"]);}();
 [&]() {
@@ -77855,7 +80312,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GoNhNie=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["slotIndex"]=[&]() {
     json return_sgZCNaI=json({});
     return serialize_int32_t(name.slotIndex);}();
@@ -77877,7 +80336,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.slotIndex=deserialize_int32_t(name["members"]["slotIndex"]);}();
 [&]() {
@@ -77900,7 +80361,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_seHTqjX=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_IzdsmHW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_RPbvaaa=json({});
     return serialize_VkVideoDecodeCapabilityFlagsKHR(name.flags);}();
@@ -77911,7 +80374,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.flags=deserialize_VkVideoDecodeCapabilityFlagsKHR(name["members"]["flags"]);}();
 return result;}
@@ -77923,7 +80387,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LHzwGoJ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pBGwEnt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["videoUsageHints"]=[&]() {
     json return_tohmvvx=json({});
     return serialize_VkVideoDecodeUsageFlagsKHR(name.videoUsageHints);}();
@@ -77934,7 +80400,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mKKnJpW;[&]() {
+temp_mKKnJpW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mKKnJpW;}();
 [&]() {
 result.videoUsageHints=deserialize_VkVideoDecodeUsageFlagsKHR(name["members"]["videoUsageHints"]);}();
 return result;}
@@ -77946,7 +80414,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_hvHlkKw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_JJNwjyP=json({});
     return serialize_VkVideoDecodeFlagsKHR(name.flags);}();
@@ -78005,7 +80475,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.flags=deserialize_VkVideoDecodeFlagsKHR(name["members"]["flags"]);}();
 [&]() {
@@ -78053,7 +80525,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_NKjnamo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_dCmxjvR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["stdProfileIdc"]=[&]() {
     json return_ibweCSd=json({});
     return serialize_StdVideoH264ProfileIdc(name.stdProfileIdc);
@@ -78068,7 +80542,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mhluzVf;[&]() {
+temp_mhluzVf=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mhluzVf;}();
 [&]() {
 result.stdProfileIdc=deserialize_StdVideoH264ProfileIdc(name["members"]["stdProfileIdc"]);
 }();
@@ -78083,7 +80559,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_yZgIrNV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxLevelIdc"]=[&]() {
     json return_ucaLbjK=json({});
     return serialize_StdVideoH264LevelIdc(name.maxLevelIdc);
@@ -78098,7 +80576,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxLevelIdc=deserialize_StdVideoH264LevelIdc(name["members"]["maxLevelIdc"]);
 }();
@@ -78113,7 +80592,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_yflHcZC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PxmaseH=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["stdSPSCount"]=[&]() {
     json return_AfDtQdg=json({});
     return serialize_uint32_t(name.stdSPSCount);}();
@@ -78145,7 +80626,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_AXgGTyX;[&]() {
+temp_AXgGTyX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_AXgGTyX;}();
 [&]() {
 result.stdSPSCount=deserialize_uint32_t(name["members"]["stdSPSCount"]);}();
 [&]() {
@@ -78177,7 +80660,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tPuQrHC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_ngrxQZw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxStdSPSCount"]=[&]() {
     json return_psAWJLP=json({});
     return serialize_uint32_t(name.maxStdSPSCount);}();
@@ -78202,7 +80687,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_qRPBhxj;[&]() {
+temp_qRPBhxj=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_qRPBhxj;}();
 [&]() {
 result.maxStdSPSCount=deserialize_uint32_t(name["members"]["maxStdSPSCount"]);}();
 [&]() {
@@ -78227,7 +80714,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_qjZLBap=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_sUafluA=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pStdPictureInfo"]=[&]() {
     json return_fEBZnGr=json({});
     
@@ -78265,7 +80754,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_DiJawez;[&]() {
+temp_DiJawez=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_DiJawez;}();
 [&]() {
 StdVideoDecodeH264PictureInfo* temp_wQRPpae;[&]() {
 
@@ -78299,7 +80790,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_IDGLspj=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pStdReferenceInfo"]=[&]() {
     json return_rxkzYsN=json({});
     
@@ -78316,7 +80809,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 StdVideoDecodeH264ReferenceInfo* temp_FKXMzmu;[&]() {
 
@@ -78335,7 +80830,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tKGzzDZ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_nQmQJXc=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["stdProfileIdc"]=[&]() {
     json return_KBuknbS=json({});
     return serialize_StdVideoH265ProfileIdc(name.stdProfileIdc);
@@ -78347,7 +80844,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_AKhkPTS;[&]() {
+temp_AKhkPTS=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_AKhkPTS;}();
 [&]() {
 result.stdProfileIdc=deserialize_StdVideoH265ProfileIdc(name["members"]["stdProfileIdc"]);
 }();
@@ -78360,7 +80859,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_SERBVjE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxLevelIdc"]=[&]() {
     json return_HLlVyLs=json({});
     return serialize_StdVideoH265LevelIdc(name.maxLevelIdc);
@@ -78372,7 +80873,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxLevelIdc=deserialize_StdVideoH265LevelIdc(name["members"]["maxLevelIdc"]);
 }();
@@ -78385,7 +80887,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_dnbyaEW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_nNniLrj=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["stdVPSCount"]=[&]() {
     json return_icbvWiO=json({});
     return serialize_uint32_t(name.stdVPSCount);}();
@@ -78429,7 +80933,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_eJPiWGi;[&]() {
+temp_eJPiWGi=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_eJPiWGi;}();
 [&]() {
 result.stdVPSCount=deserialize_uint32_t(name["members"]["stdVPSCount"]);}();
 [&]() {
@@ -78472,7 +80978,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LJzahnd=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_oYHhBXK=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxStdVPSCount"]=[&]() {
     json return_poqvDMD=json({});
     return serialize_uint32_t(name.maxStdVPSCount);}();
@@ -78500,7 +81008,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_CdrwuGZ;[&]() {
+temp_CdrwuGZ=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_CdrwuGZ;}();
 [&]() {
 result.maxStdVPSCount=deserialize_uint32_t(name["members"]["maxStdVPSCount"]);}();
 [&]() {
@@ -78527,7 +81037,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_HOVeAIq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_pBGwEnt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pStdPictureInfo"]=[&]() {
     json return_TeGvdkb=json({});
     
@@ -78565,7 +81077,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mKKnJpW;[&]() {
+temp_mKKnJpW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mKKnJpW;}();
 [&]() {
 StdVideoDecodeH265PictureInfo* temp_FtSbRZy;[&]() {
 
@@ -78599,7 +81113,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_MZBKiHT=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_YcYGsMR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pStdReferenceInfo"]=[&]() {
     json return_SgzWCnF=json({});
     
@@ -78616,7 +81132,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_GpskzIE;[&]() {
+temp_GpskzIE=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_GpskzIE;}();
 [&]() {
 StdVideoDecodeH265ReferenceInfo* temp_mgpvlPd;[&]() {
 
@@ -78635,7 +81153,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_BGnUYPl=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_DXfRYCc=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["queueFamilyIndex"]=[&]() {
     json return_lULaezK=json({});
     return serialize_uint32_t(name.queueFamilyIndex);}();
@@ -78686,7 +81206,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_KmUErOG;[&]() {
+temp_KmUErOG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_KmUErOG;}();
 [&]() {
 result.queueFamilyIndex=deserialize_uint32_t(name["members"]["queueFamilyIndex"]);}();
 [&]() {
@@ -78732,7 +81254,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GEZclSW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OoFEgrd=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_yRcSsYH=json({});
     return serialize_VkVideoSessionParametersCreateFlagsKHR(name.flags);}();
@@ -78749,7 +81273,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_fPDPbDo;[&]() {
+temp_fPDPbDo=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_fPDPbDo;}();
 [&]() {
 result.flags=deserialize_VkVideoSessionParametersCreateFlagsKHR(name["members"]["flags"]);}();
 [&]() {
@@ -78765,7 +81291,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_dfqhlMo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vpbjHLW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["updateSequenceCount"]=[&]() {
     json return_qBWdHEv=json({});
     return serialize_uint32_t(name.updateSequenceCount);}();
@@ -78776,7 +81304,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_SEMIEti;[&]() {
+temp_SEMIEti=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_SEMIEti;}();
 [&]() {
 result.updateSequenceCount=deserialize_uint32_t(name["members"]["updateSequenceCount"]);}();
 return result;}
@@ -78788,7 +81318,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_erwKzmd=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_dqFtZzB=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_xwHPntN=json({});
     return serialize_VkVideoBeginCodingFlagsKHR(name.flags);}();
@@ -78826,7 +81358,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_COstZkd;[&]() {
+temp_COstZkd=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_COstZkd;}();
 [&]() {
 result.flags=deserialize_VkVideoBeginCodingFlagsKHR(name["members"]["flags"]);}();
 [&]() {
@@ -78857,7 +81391,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pEjHUCe=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PMbgTun=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_paQVZbJ=json({});
     return serialize_VkVideoEndCodingFlagsKHR(name.flags);}();
@@ -78868,7 +81404,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_FGDQdoW;[&]() {
+temp_FGDQdoW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_FGDQdoW;}();
 [&]() {
 result.flags=deserialize_VkVideoEndCodingFlagsKHR(name["members"]["flags"]);}();
 return result;}
@@ -78880,7 +81418,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_rqJAZBt=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_nQmQJXc=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_FfzCJEx=json({});
     return serialize_VkVideoCodingControlFlagsKHR(name.flags);}();
@@ -78891,7 +81431,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_AKhkPTS;[&]() {
+temp_AKhkPTS=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_AKhkPTS;}();
 [&]() {
 result.flags=deserialize_VkVideoCodingControlFlagsKHR(name["members"]["flags"]);}();
 return result;}
@@ -78903,7 +81445,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_nhxDMOW=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["inheritedViewportScissor2D"]=[&]() {
     json return_HBfNTXD=json({});
     return_HBfNTXD=[&]() {
@@ -78916,7 +81460,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.inheritedViewportScissor2D=deserialize_uint32_t(name["members"]["inheritedViewportScissor2D"]);}();}();
@@ -78929,7 +81474,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_meccfpS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PxmaseH=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["viewportScissor2D"]=[&]() {
     json return_RnyAFWE=json({});
     return_RnyAFWE=[&]() {
@@ -78956,7 +81503,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_AXgGTyX;[&]() {
+temp_AXgGTyX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_AXgGTyX;}();
 [&]() {
 [&]() {
 result.viewportScissor2D=deserialize_uint32_t(name["members"]["viewportScissor2D"]);}();}();
@@ -78982,7 +81531,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_jYQAyoU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["ycbcr2plane444Formats"]=[&]() {
     json return_TfYefij=json({});
     return_TfYefij=[&]() {
@@ -78995,7 +81546,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.ycbcr2plane444Formats=deserialize_uint32_t(name["members"]["ycbcr2plane444Formats"]);}();}();
@@ -79008,7 +81560,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_sGcHegI=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["provokingVertexLast"]=[&]() {
     json return_cMrBfPv=json({});
     return_cMrBfPv=[&]() {
@@ -79026,7 +81580,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.provokingVertexLast=deserialize_uint32_t(name["members"]["provokingVertexLast"]);}();}();
@@ -79042,7 +81597,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_weKoFiR=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["provokingVertexModePerPipeline"]=[&]() {
     json return_PyQZJie=json({});
     return_PyQZJie=[&]() {
@@ -79060,7 +81617,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.provokingVertexModePerPipeline=deserialize_uint32_t(name["members"]["provokingVertexModePerPipeline"]);}();}();
@@ -79076,7 +81634,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_HSeuoHk=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_dlkPATN=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["provokingVertexMode"]=[&]() {
     json return_RmNAWqr=json({});
     return serialize_VkProvokingVertexModeEXT(name.provokingVertexMode);}();
@@ -79087,7 +81647,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_GmCEwHf;[&]() {
+temp_GmCEwHf=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_GmCEwHf;}();
 [&]() {
 result.provokingVertexMode=deserialize_VkProvokingVertexModeEXT(name["members"]["provokingVertexMode"]);}();
 return result;}
@@ -79099,7 +81661,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_VIZUfYs=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["dataSize"]=[&]() {
     json return_oCvJTOo=json({});
     return serialize_size_t(name.dataSize);}();
@@ -79135,7 +81699,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.dataSize=deserialize_size_t(name["members"]["dataSize"]);}();
 [&]() {
@@ -79167,7 +81733,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ZNMaOSi=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_dlkPATN=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["module"]=[&]() {
     json return_ZhPWipr=json({});
     return serialize_VkCuModuleNVX(name.module);}();
@@ -79196,7 +81764,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_GmCEwHf;[&]() {
+temp_GmCEwHf=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_GmCEwHf;}();
 [&]() {
 result.module=deserialize_VkCuModuleNVX(name["members"]["module"]);}();
 [&]() {
@@ -79221,7 +81791,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_XeMKPll=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["function"]=[&]() {
     json return_ZilQbRF=json({});
     return serialize_VkCuFunctionNVX(name.function);}();
@@ -79339,7 +81911,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.function=deserialize_VkCuFunctionNVX(name["members"]["function"]);}();
 [&]() {
@@ -79429,7 +82003,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_kNsRydx=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["descriptorBuffer"]=[&]() {
     json return_hRpgCqS=json({});
     return_hRpgCqS=[&]() {
@@ -79457,7 +82033,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.descriptorBuffer=deserialize_uint32_t(name["members"]["descriptorBuffer"]);}();}();
@@ -79479,7 +82056,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tdoIOCx=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["combinedImageSamplerDescriptorSingleArray"]=[&]() {
     json return_YJqNFGQ=json({});
     return_YJqNFGQ=[&]() {
@@ -79604,7 +82183,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.combinedImageSamplerDescriptorSingleArray=deserialize_uint32_t(name["members"]["combinedImageSamplerDescriptorSingleArray"]);}();}();
@@ -79689,7 +82269,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_RUOKHUa=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["combinedImageSamplerDensityMapDescriptorSize"]=[&]() {
     json return_tsRZSww=json({});
     return serialize_size_t(name.combinedImageSamplerDensityMapDescriptorSize);}();
@@ -79700,7 +82282,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.combinedImageSamplerDensityMapDescriptorSize=deserialize_size_t(name["members"]["combinedImageSamplerDensityMapDescriptorSize"]);}();
 return result;}
@@ -79712,7 +82295,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_YHqZNUX=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_QXLilEx=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["address"]=[&]() {
     json return_kbSAJYq=json({});
     return_kbSAJYq=[&]() {
@@ -79733,7 +82318,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.address=deserialize_uint64_t(name["members"]["address"]);}();}();
@@ -79751,7 +82337,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ohSGKfO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_QXLilEx=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["address"]=[&]() {
     json return_kbSAJYq=json({});
     return_kbSAJYq=[&]() {
@@ -79767,7 +82355,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.address=deserialize_uint64_t(name["members"]["address"]);}();}();
@@ -79782,7 +82371,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_IdhLEel=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_QXLilEx=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["buffer"]=[&]() {
     json return_PRQEgFy=json({});
     return serialize_VkBuffer(name.buffer);}();
@@ -79793,7 +82384,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.buffer=deserialize_VkBuffer(name["members"]["buffer"]);}();
 return result;}
@@ -80022,7 +82614,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_sESLLOu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["type"]=[&]() {
     json return_WNKGRaa=json({});
     return serialize_VkDescriptorType(name.type);}();
@@ -80036,7 +82630,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.type=deserialize_VkDescriptorType(name["members"]["type"]);}();
 [&]() {
@@ -80050,7 +82646,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_SZTqPLX=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["buffer"]=[&]() {
     json return_QohYNmk=json({});
     return serialize_VkBuffer(name.buffer);}();
@@ -80061,7 +82659,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.buffer=deserialize_VkBuffer(name["members"]["buffer"]);}();
 return result;}
@@ -80073,7 +82673,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_wWqFBDq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["image"]=[&]() {
     json return_HYfgJRB=json({});
     return serialize_VkImage(name.image);}();
@@ -80084,7 +82686,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.image=deserialize_VkImage(name["members"]["image"]);}();
 return result;}
@@ -80096,7 +82700,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_eZPHiwN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imageView"]=[&]() {
     json return_zEDFaqS=json({});
     return serialize_VkImageView(name.imageView);}();
@@ -80107,7 +82713,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.imageView=deserialize_VkImageView(name["members"]["imageView"]);}();
 return result;}
@@ -80119,7 +82727,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ABJVsWN=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["sampler"]=[&]() {
     json return_tJtePLP=json({});
     return serialize_VkSampler(name.sampler);}();
@@ -80130,7 +82740,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.sampler=deserialize_VkSampler(name["members"]["sampler"]);}();
 return result;}
@@ -80142,7 +82754,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_XPaVziP=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["accelerationStructure"]=[&]() {
     json return_aksZTsK=json({});
     return serialize_VkAccelerationStructureKHR(name.accelerationStructure);}();
@@ -80156,7 +82770,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.accelerationStructure=deserialize_VkAccelerationStructureKHR(name["members"]["accelerationStructure"]);}();
 [&]() {
@@ -80170,7 +82786,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_aiaGoXm=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["opaqueCaptureDescriptorData"]=[&]() {
     json return_GbLhljT=json({});
     
@@ -80203,7 +82821,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 void* temp_pcADTCm;[&]() {
 
@@ -80233,7 +82853,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gALuSgw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SNVItUV=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderIntegerDotProduct"]=[&]() {
     json return_UEbJzlq=json({});
     return_UEbJzlq=[&]() {
@@ -80246,7 +82868,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderIntegerDotProduct=deserialize_uint32_t(name["members"]["shaderIntegerDotProduct"]);}();}();
@@ -80259,7 +82882,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gALuSgw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SNVItUV=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderIntegerDotProduct"]=[&]() {
     json return_UEbJzlq=json({});
     return_UEbJzlq=[&]() {
@@ -80272,7 +82897,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderIntegerDotProduct=deserialize_uint32_t(name["members"]["shaderIntegerDotProduct"]);}();}();
@@ -80285,7 +82911,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KMTcNcy=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SNVItUV=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["integerDotProduct8BitUnsignedAccelerated"]=[&]() {
     json return_hJEalvF=json({});
     return_hJEalvF=[&]() {
@@ -80443,7 +83071,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.integerDotProduct8BitUnsignedAccelerated=deserialize_uint32_t(name["members"]["integerDotProduct8BitUnsignedAccelerated"]);}();}();
@@ -80543,7 +83172,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_KMTcNcy=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SNVItUV=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["integerDotProduct8BitUnsignedAccelerated"]=[&]() {
     json return_hJEalvF=json({});
     return_hJEalvF=[&]() {
@@ -80701,7 +83332,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.integerDotProduct8BitUnsignedAccelerated=deserialize_uint32_t(name["members"]["integerDotProduct8BitUnsignedAccelerated"]);}();}();
@@ -80801,7 +83433,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_CMxthOS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["hasPrimary"]=[&]() {
     json return_ntNzlEy=json({});
     return_ntNzlEy=[&]() {
@@ -80831,7 +83465,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.hasPrimary=deserialize_uint32_t(name["members"]["hasPrimary"]);}();}();
@@ -80855,7 +83490,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ckFjydu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RUxrfVn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["fragmentShaderBarycentric"]=[&]() {
     json return_jHTpPme=json({});
     return_jHTpPme=[&]() {
@@ -80868,7 +83505,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.fragmentShaderBarycentric=deserialize_uint32_t(name["members"]["fragmentShaderBarycentric"]);}();}();
@@ -80881,7 +83519,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ckFjydu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RUxrfVn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["fragmentShaderBarycentric"]=[&]() {
     json return_jHTpPme=json({});
     return_jHTpPme=[&]() {
@@ -80894,7 +83534,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.fragmentShaderBarycentric=deserialize_uint32_t(name["members"]["fragmentShaderBarycentric"]);}();}();
@@ -80907,7 +83548,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_VIIOwSv=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RUxrfVn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["triStripVertexOrderIndependentOfProvokingVertex"]=[&]() {
     json return_cBXCOWm=json({});
     return_cBXCOWm=[&]() {
@@ -80920,7 +83563,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.triStripVertexOrderIndependentOfProvokingVertex=deserialize_uint32_t(name["members"]["triStripVertexOrderIndependentOfProvokingVertex"]);}();}();
@@ -80933,7 +83577,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ayPQXyR=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["rayTracingMotionBlur"]=[&]() {
     json return_geUwgUA=json({});
     return_geUwgUA=[&]() {
@@ -80951,7 +83597,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.rayTracingMotionBlur=deserialize_uint32_t(name["members"]["rayTracingMotionBlur"]);}();}();
@@ -80967,7 +83614,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_SvuntKw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_DXfRYCc=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["vertexData"]=[&]() {
     json return_zbXqbMs=json({});
     return serialize_VkDeviceOrHostAddressConstKHR(name.vertexData);}();
@@ -80978,7 +83627,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_KmUErOG;[&]() {
+temp_KmUErOG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_KmUErOG;}();
 [&]() {
 result.vertexData=deserialize_VkDeviceOrHostAddressConstKHR(name["members"]["vertexData"]);}();
 return result;}
@@ -80990,7 +83641,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_TOrHDiS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_nQmQJXc=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxInstances"]=[&]() {
     json return_VqAHvgC=json({});
     return serialize_uint32_t(name.maxInstances);}();
@@ -81004,7 +83657,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_AKhkPTS;[&]() {
+temp_AKhkPTS=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_AKhkPTS;}();
 [&]() {
 result.maxInstances=deserialize_uint32_t(name["members"]["maxInstances"]);}();
 [&]() {
@@ -81253,7 +83908,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QCljFkC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["memory"]=[&]() {
     json return_YTWTGBr=json({});
     return serialize_VkDeviceMemory(name.memory);}();
@@ -81267,7 +83924,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.memory=deserialize_VkDeviceMemory(name["members"]["memory"]);}();
 [&]() {
@@ -81281,7 +83940,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_RufMguh=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["formatRgba10x6WithoutYCbCrSampler"]=[&]() {
     json return_yqPZvdO=json({});
     return_yqPZvdO=[&]() {
@@ -81294,7 +83955,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.formatRgba10x6WithoutYCbCrSampler=deserialize_uint32_t(name["members"]["formatRgba10x6WithoutYCbCrSampler"]);}();}();
@@ -81307,7 +83969,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LGdFiQo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["linearTilingFeatures"]=[&]() {
     json return_RwWTMHQ=json({});
     return serialize_VkFormatFeatureFlags2(name.linearTilingFeatures);}();
@@ -81324,7 +83988,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.linearTilingFeatures=deserialize_VkFormatFeatureFlags2(name["members"]["linearTilingFeatures"]);}();
 [&]() {
@@ -81340,7 +84005,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LGdFiQo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["linearTilingFeatures"]=[&]() {
     json return_RwWTMHQ=json({});
     return serialize_VkFormatFeatureFlags2(name.linearTilingFeatures);}();
@@ -81357,7 +84024,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.linearTilingFeatures=deserialize_VkFormatFeatureFlags2(name["members"]["linearTilingFeatures"]);}();
 [&]() {
@@ -81373,7 +84041,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_qwicGVk=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["drmFormatModifierCount"]=[&]() {
     json return_KtRQVzW=json({});
     return serialize_uint32_t(name.drmFormatModifierCount);}();
@@ -81402,7 +84072,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.drmFormatModifierCount=deserialize_uint32_t(name["members"]["drmFormatModifierCount"]);}();
 [&]() {
@@ -81452,7 +84123,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_MNvLpza=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_UfFngYT=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["viewMask"]=[&]() {
     json return_DcMPGJc=json({});
     return serialize_uint32_t(name.viewMask);}();
@@ -81490,7 +84163,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_unNbVLC;[&]() {
+temp_unNbVLC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_unNbVLC;}();
 [&]() {
 result.viewMask=deserialize_uint32_t(name["members"]["viewMask"]);}();
 [&]() {
@@ -81521,7 +84196,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_MNvLpza=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_UfFngYT=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["viewMask"]=[&]() {
     json return_DcMPGJc=json({});
     return serialize_uint32_t(name.viewMask);}();
@@ -81559,7 +84236,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_unNbVLC;[&]() {
+temp_unNbVLC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_unNbVLC;}();
 [&]() {
 result.viewMask=deserialize_uint32_t(name["members"]["viewMask"]);}();
 [&]() {
@@ -81590,7 +84269,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oRAhAtr=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_UfFngYT=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_bwZpgsJ=json({});
     return serialize_VkRenderingFlags(name.flags);}();
@@ -81653,7 +84334,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_unNbVLC;[&]() {
+temp_unNbVLC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_unNbVLC;}();
 [&]() {
 result.flags=deserialize_VkRenderingFlags(name["members"]["flags"]);}();
 [&]() {
@@ -81708,7 +84391,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oRAhAtr=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_UfFngYT=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_bwZpgsJ=json({});
     return serialize_VkRenderingFlags(name.flags);}();
@@ -81771,7 +84456,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_unNbVLC;[&]() {
+temp_unNbVLC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_unNbVLC;}();
 [&]() {
 result.flags=deserialize_VkRenderingFlags(name["members"]["flags"]);}();
 [&]() {
@@ -81826,7 +84513,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lMnHQyl=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_UfFngYT=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imageView"]=[&]() {
     json return_bMOcSQG=json({});
     return serialize_VkImageView(name.imageView);}();
@@ -81858,7 +84547,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_unNbVLC;[&]() {
+temp_unNbVLC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_unNbVLC;}();
 [&]() {
 result.imageView=deserialize_VkImageView(name["members"]["imageView"]);}();
 [&]() {
@@ -81884,7 +84575,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lMnHQyl=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_UfFngYT=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imageView"]=[&]() {
     json return_bMOcSQG=json({});
     return serialize_VkImageView(name.imageView);}();
@@ -81916,7 +84609,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_unNbVLC;[&]() {
+temp_unNbVLC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_unNbVLC;}();
 [&]() {
 result.imageView=deserialize_VkImageView(name["members"]["imageView"]);}();
 [&]() {
@@ -81942,7 +84637,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_vaNiKje=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_ngrxQZw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imageView"]=[&]() {
     json return_bMOcSQG=json({});
     return serialize_VkImageView(name.imageView);}();
@@ -81959,7 +84656,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_qRPBhxj;[&]() {
+temp_qRPBhxj=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_qRPBhxj;}();
 [&]() {
 result.imageView=deserialize_VkImageView(name["members"]["imageView"]);}();
 [&]() {
@@ -81975,7 +84674,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lnivZiP=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_UfFngYT=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imageView"]=[&]() {
     json return_DpZNsVl=json({});
     return serialize_VkImageView(name.imageView);}();
@@ -81989,7 +84690,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_unNbVLC;[&]() {
+temp_unNbVLC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_unNbVLC;}();
 [&]() {
 result.imageView=deserialize_VkImageView(name["members"]["imageView"]);}();
 [&]() {
@@ -82003,7 +84706,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oOtRRto=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uSHLIBr=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["dynamicRendering"]=[&]() {
     json return_SoGiZOQ=json({});
     return_SoGiZOQ=[&]() {
@@ -82016,7 +84721,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.dynamicRendering=deserialize_uint32_t(name["members"]["dynamicRendering"]);}();}();
@@ -82029,7 +84735,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oOtRRto=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uSHLIBr=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["dynamicRendering"]=[&]() {
     json return_SoGiZOQ=json({});
     return_SoGiZOQ=[&]() {
@@ -82042,7 +84750,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.dynamicRendering=deserialize_uint32_t(name["members"]["dynamicRendering"]);}();}();
@@ -82055,7 +84764,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_qFVwZgJ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_UfFngYT=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_bwZpgsJ=json({});
     return serialize_VkRenderingFlags(name.flags);}();
@@ -82099,7 +84810,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_unNbVLC;[&]() {
+temp_unNbVLC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_unNbVLC;}();
 [&]() {
 result.flags=deserialize_VkRenderingFlags(name["members"]["flags"]);}();
 [&]() {
@@ -82134,7 +84847,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_qFVwZgJ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_UfFngYT=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_bwZpgsJ=json({});
     return serialize_VkRenderingFlags(name.flags);}();
@@ -82178,7 +84893,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_unNbVLC;[&]() {
+temp_unNbVLC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_unNbVLC;}();
 [&]() {
 result.flags=deserialize_VkRenderingFlags(name["members"]["flags"]);}();
 [&]() {
@@ -82213,7 +84930,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LWSTDXt=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_UfFngYT=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["colorAttachmentCount"]=[&]() {
     json return_HrPhXdI=json({});
     return serialize_uint32_t(name.colorAttachmentCount);}();
@@ -82245,7 +84964,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_unNbVLC;[&]() {
+temp_unNbVLC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_unNbVLC;}();
 [&]() {
 result.colorAttachmentCount=deserialize_uint32_t(name["members"]["colorAttachmentCount"]);}();
 [&]() {
@@ -82272,7 +84993,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LWSTDXt=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_UfFngYT=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["colorAttachmentCount"]=[&]() {
     json return_HrPhXdI=json({});
     return serialize_uint32_t(name.colorAttachmentCount);}();
@@ -82304,7 +85027,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_unNbVLC;[&]() {
+temp_unNbVLC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_unNbVLC;}();
 [&]() {
 result.colorAttachmentCount=deserialize_uint32_t(name["members"]["colorAttachmentCount"]);}();
 [&]() {
@@ -82331,7 +85056,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_uvNYdMn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["perViewAttributes"]=[&]() {
     json return_jjbvDdt=json({});
     return_jjbvDdt=[&]() {
@@ -82349,7 +85076,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 [&]() {
 result.perViewAttributes=deserialize_uint32_t(name["members"]["perViewAttributes"]);}();}();
@@ -82365,7 +85094,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lHnOSDk=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_MEGcYDw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["minLod"]=[&]() {
     json return_HTHnqNq=json({});
     return_HTHnqNq=[&]() {
@@ -82378,7 +85109,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.minLod=deserialize_uint32_t(name["members"]["minLod"]);}();}();
@@ -82391,7 +85123,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_MFCOCyE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["minLod"]=[&]() {
     json return_vlgcGzr=json({});
     return serialize_float(name.minLod);}();
@@ -82402,7 +85136,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 result.minLod=deserialize_float(name["members"]["minLod"]);}();
 return result;}
@@ -82414,7 +85150,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_qRBeRJs=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["rasterizationOrderColorAttachmentAccess"]=[&]() {
     json return_iWtTQFr=json({});
     return_iWtTQFr=[&]() {
@@ -82437,7 +85175,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.rasterizationOrderColorAttachmentAccess=deserialize_uint32_t(name["members"]["rasterizationOrderColorAttachmentAccess"]);}();}();
@@ -82456,7 +85195,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_qRBeRJs=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["rasterizationOrderColorAttachmentAccess"]=[&]() {
     json return_iWtTQFr=json({});
     return_iWtTQFr=[&]() {
@@ -82479,7 +85220,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.rasterizationOrderColorAttachmentAccess=deserialize_uint32_t(name["members"]["rasterizationOrderColorAttachmentAccess"]);}();}();
@@ -82498,7 +85240,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_YzuIxXg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_MEGcYDw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["linearColorAttachment"]=[&]() {
     json return_QlGikma=json({});
     return_QlGikma=[&]() {
@@ -82511,7 +85255,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.linearColorAttachment=deserialize_uint32_t(name["members"]["linearColorAttachment"]);}();}();
@@ -82524,7 +85269,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fGdFOVO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["graphicsPipelineLibrary"]=[&]() {
     json return_PUWIHMn=json({});
     return_PUWIHMn=[&]() {
@@ -82537,7 +85284,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.graphicsPipelineLibrary=deserialize_uint32_t(name["members"]["graphicsPipelineLibrary"]);}();}();
@@ -82550,7 +85298,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_BccMuoF=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["graphicsPipelineLibraryFastLinking"]=[&]() {
     json return_ScqegEd=json({});
     return_ScqegEd=[&]() {
@@ -82568,7 +85318,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.graphicsPipelineLibraryFastLinking=deserialize_uint32_t(name["members"]["graphicsPipelineLibraryFastLinking"]);}();}();
@@ -82584,7 +85335,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_fuZvBHu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_mAFOLKf=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_MHqxpHl=json({});
     return serialize_VkGraphicsPipelineLibraryFlagsEXT(name.flags);}();
@@ -82595,7 +85348,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_LthbfsD;[&]() {
+temp_LthbfsD=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_LthbfsD;}();
 [&]() {
 result.flags=deserialize_VkGraphicsPipelineLibraryFlagsEXT(name["members"]["flags"]);}();
 return result;}
@@ -82607,7 +85362,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ibyojPl=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_saXKkvN=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["descriptorSetHostMapping"]=[&]() {
     json return_wzcDZih=json({});
     return_wzcDZih=[&]() {
@@ -82620,7 +85377,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.descriptorSetHostMapping=deserialize_uint32_t(name["members"]["descriptorSetHostMapping"]);}();}();
@@ -82633,7 +85391,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_BYjlfmg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_DTnQGEG=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["descriptorSetLayout"]=[&]() {
     json return_jRaRDjO=json({});
     return serialize_VkDescriptorSetLayout(name.descriptorSetLayout);}();
@@ -82647,7 +85407,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_PnRMIUw;[&]() {
+temp_PnRMIUw=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_PnRMIUw;}();
 [&]() {
 result.descriptorSetLayout=deserialize_VkDescriptorSetLayout(name["members"]["descriptorSetLayout"]);}();
 [&]() {
@@ -82661,7 +85423,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lsLcwjm=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rmsApSw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["descriptorOffset"]=[&]() {
     json return_ARLDLjL=json({});
     return serialize_size_t(name.descriptorOffset);}();
@@ -82675,7 +85439,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.descriptorOffset=deserialize_size_t(name["members"]["descriptorOffset"]);}();
 [&]() {
@@ -82689,7 +85454,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_OkAaqxy=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_ZxpTQOn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderModuleIdentifier"]=[&]() {
     json return_FkEYJHS=json({});
     return_FkEYJHS=[&]() {
@@ -82702,7 +85469,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderModuleIdentifier=deserialize_uint32_t(name["members"]["shaderModuleIdentifier"]);}();}();
@@ -82715,7 +85483,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_CgmteEM=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderModuleIdentifierAlgorithmUUID"]=[&]() {
     json return_hWOfHXe=json({});
     
@@ -82736,7 +85506,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 
         for (int uJohGtP=0; uJohGtP < VK_UUID_SIZE; uJohGtP++){
@@ -82753,7 +85524,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_vJrTHNU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_VrWNwlX=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["identifierSize"]=[&]() {
     json return_QbxcJoG=json({});
     return serialize_uint32_t(name.identifierSize);}();
@@ -82782,7 +85555,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_xqzHWhH;[&]() {
+temp_xqzHWhH=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_xqzHWhH;}();
 [&]() {
 result.identifierSize=deserialize_uint32_t(name["members"]["identifierSize"]);}();
 [&]() {
@@ -82807,7 +85582,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_glnzqUK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_JxLibiQ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["identifierSize"]=[&]() {
     json return_gKuEDnP=json({});
     return serialize_uint32_t(name.identifierSize);}();
@@ -82831,7 +85608,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.identifierSize=deserialize_uint32_t(name["members"]["identifierSize"]);}();
 [&]() {
@@ -82850,7 +85628,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_yyaGOtY=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_dlkPATN=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_IDMaHUx=json({});
     return serialize_VkImageCompressionFlagsEXT(name.flags);}();
@@ -82882,7 +85662,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_GmCEwHf;[&]() {
+temp_GmCEwHf=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_GmCEwHf;}();
 [&]() {
 result.flags=deserialize_VkImageCompressionFlagsEXT(name["members"]["flags"]);}();
 [&]() {
@@ -82908,7 +85690,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_HZvGtdT=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imageCompressionControl"]=[&]() {
     json return_mGubsVF=json({});
     return_mGubsVF=[&]() {
@@ -82921,7 +85705,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.imageCompressionControl=deserialize_uint32_t(name["members"]["imageCompressionControl"]);}();}();
@@ -82934,7 +85719,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_opBUXko=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_oGlMzHW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imageCompressionFlags"]=[&]() {
     json return_DTXnGbU=json({});
     return serialize_VkImageCompressionFlagsEXT(name.imageCompressionFlags);}();
@@ -82948,7 +85735,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.imageCompressionFlags=deserialize_VkImageCompressionFlagsEXT(name["members"]["imageCompressionFlags"]);}();
 [&]() {
@@ -82962,7 +85750,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_XUzOHQl=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imageCompressionControlSwapchain"]=[&]() {
     json return_KmIxgzd=json({});
     return_KmIxgzd=[&]() {
@@ -82975,7 +85765,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.imageCompressionControlSwapchain=deserialize_uint32_t(name["members"]["imageCompressionControlSwapchain"]);}();}();
@@ -82988,7 +85779,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_WqtzgBo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RUxrfVn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imageSubresource"]=[&]() {
     json return_qWOOnZw=json({});
     return serialize_VkImageSubresource(name.imageSubresource);}();
@@ -82999,7 +85792,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.imageSubresource=deserialize_VkImageSubresource(name["members"]["imageSubresource"]);}();
 return result;}
@@ -83011,7 +85805,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_WqtzgBo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RUxrfVn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["imageSubresource"]=[&]() {
     json return_qWOOnZw=json({});
     return serialize_VkImageSubresource(name.imageSubresource);}();
@@ -83022,7 +85818,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.imageSubresource=deserialize_VkImageSubresource(name["members"]["imageSubresource"]);}();
 return result;}
@@ -83034,7 +85831,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_yjiGFWn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RUxrfVn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["subresourceLayout"]=[&]() {
     json return_wnypqdE=json({});
     return serialize_VkSubresourceLayout(name.subresourceLayout);}();
@@ -83045,7 +85844,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.subresourceLayout=deserialize_VkSubresourceLayout(name["members"]["subresourceLayout"]);}();
 return result;}
@@ -83057,7 +85857,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_yjiGFWn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RUxrfVn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["subresourceLayout"]=[&]() {
     json return_wnypqdE=json({});
     return serialize_VkSubresourceLayout(name.subresourceLayout);}();
@@ -83068,7 +85870,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.subresourceLayout=deserialize_VkSubresourceLayout(name["members"]["subresourceLayout"]);}();
 return result;}
@@ -83080,7 +85883,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_buZeDkP=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_apkwzTX=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["disallowMerging"]=[&]() {
     json return_ymFZJKY=json({});
     return_ymFZJKY=[&]() {
@@ -83093,7 +85898,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_zuLQiLL;[&]() {
+temp_zuLQiLL=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_zuLQiLL;}();
 [&]() {
 [&]() {
 result.disallowMerging=deserialize_uint32_t(name["members"]["disallowMerging"]);}();}();
@@ -83122,7 +85929,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lXXwUHi=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_zqldZgo=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pRenderPassFeedback"]=[&]() {
     json return_pyWpUhk=json({});
     
@@ -83141,7 +85950,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_SGMcpZN;[&]() {
+temp_SGMcpZN=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_SGMcpZN;}();
 [&]() {
 
         if (name["members"]["pRenderPassFeedback"].contains("null")){
@@ -83202,7 +86013,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_blirbLc=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_zzMCWOP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pSubpassFeedback"]=[&]() {
     json return_oLADpjv=json({});
     
@@ -83221,7 +86034,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_YGCZsOQ;[&]() {
+temp_YGCZsOQ=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_YGCZsOQ;}();
 [&]() {
 
         if (name["members"]["pSubpassFeedback"].contains("null")){
@@ -83241,7 +86056,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_qhyAHWl=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OvgoGuB=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["subpassMergeFeedback"]=[&]() {
     json return_OBdafrd=json({});
     return_OBdafrd=[&]() {
@@ -83254,7 +86071,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.subpassMergeFeedback=deserialize_uint32_t(name["members"]["subpassMergeFeedback"]);}();}();
@@ -83267,7 +86085,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ftSmEVb=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_HnciAlv=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["type"]=[&]() {
     json return_TsYOnem=json({});
     return serialize_VkMicromapTypeEXT(name.type);}();
@@ -83355,7 +86175,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_vXGbmYO;[&]() {
+temp_vXGbmYO=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_vXGbmYO;}();
 [&]() {
 result.type=deserialize_VkMicromapTypeEXT(name["members"]["type"]);}();
 [&]() {
@@ -83420,7 +86242,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_BNfePDa=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jjpEuVo=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["createFlags"]=[&]() {
     json return_runeoeN=json({});
     return serialize_VkMicromapCreateFlagsEXT(name.createFlags);}();
@@ -83452,7 +86276,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_MTVHsNm;[&]() {
+temp_MTVHsNm=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_MTVHsNm;}();
 [&]() {
 result.createFlags=deserialize_VkMicromapCreateFlagsEXT(name["members"]["createFlags"]);}();
 [&]() {
@@ -83477,7 +86303,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_PpYPPPx=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vpbjHLW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pVersionData"]=[&]() {
     json return_ZbnrSCj=json({});
     
@@ -83503,7 +86331,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_SEMIEti;[&]() {
+temp_SEMIEti=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_SEMIEti;}();
 [&]() {
 uint8_t* temp_DRfYnZn;[&]() {
 
@@ -83526,7 +86356,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gUdDgEd=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vpbjHLW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["src"]=[&]() {
     json return_HGuSADH=json({});
     return serialize_VkMicromapEXT(name.src);}();
@@ -83543,7 +86375,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_SEMIEti;[&]() {
+temp_SEMIEti=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_SEMIEti;}();
 [&]() {
 result.src=deserialize_VkMicromapEXT(name["members"]["src"]);}();
 [&]() {
@@ -83559,7 +86393,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_zhimksY=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vpbjHLW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["src"]=[&]() {
     json return_HGuSADH=json({});
     return serialize_VkMicromapEXT(name.src);}();
@@ -83576,7 +86412,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_SEMIEti;[&]() {
+temp_SEMIEti=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_SEMIEti;}();
 [&]() {
 result.src=deserialize_VkMicromapEXT(name["members"]["src"]);}();
 [&]() {
@@ -83592,7 +86430,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GhYUGJp=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_vpbjHLW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["src"]=[&]() {
     json return_rKsEtaC=json({});
     return serialize_VkDeviceOrHostAddressConstKHR(name.src);}();
@@ -83609,7 +86449,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_SEMIEti;[&]() {
+temp_SEMIEti=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_SEMIEti;}();
 [&]() {
 result.src=deserialize_VkDeviceOrHostAddressConstKHR(name["members"]["src"]);}();
 [&]() {
@@ -83625,7 +86467,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AQXBlos=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["micromapSize"]=[&]() {
     json return_OCfxaUb=json({});
     return_OCfxaUb=[&]() {
@@ -83648,7 +86492,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 [&]() {
 result.micromapSize=deserialize_uint64_t(name["members"]["micromapSize"]);}();}();
@@ -83719,7 +86565,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_bHKUcaU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["micromap"]=[&]() {
     json return_eWTlnfL=json({});
     return_eWTlnfL=[&]() {
@@ -83742,7 +86590,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.micromap=deserialize_uint32_t(name["members"]["micromap"]);}();}();
@@ -83761,7 +86610,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_CswpKZq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxOpacity2StateSubdivisionLevel"]=[&]() {
     json return_oZvWZDB=json({});
     return serialize_uint32_t(name.maxOpacity2StateSubdivisionLevel);}();
@@ -83775,7 +86626,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxOpacity2StateSubdivisionLevel=deserialize_uint32_t(name["members"]["maxOpacity2StateSubdivisionLevel"]);}();
 [&]() {
@@ -83789,7 +86641,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_SqrTreH=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_cLMbQUP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["indexType"]=[&]() {
     json return_WiiaGVU=json({});
     return serialize_VkIndexType(name.indexType);}();
@@ -83868,7 +86722,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.indexType=deserialize_VkIndexType(name["members"]["indexType"]);}();
 [&]() {
@@ -83927,7 +86782,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_imOPKCz=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pipelineIdentifier"]=[&]() {
     json return_KnLiOOb=json({});
     
@@ -83948,7 +86805,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 
         for (int dCabYOu=0; dCabYOu < VK_UUID_SIZE; dCabYOu++){
@@ -83965,7 +86823,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_FWwQVuq=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pipelinePropertiesIdentifier"]=[&]() {
     json return_yFrjMNz=json({});
     return_yFrjMNz=[&]() {
@@ -83978,7 +86838,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.pipelinePropertiesIdentifier=deserialize_uint32_t(name["members"]["pipelinePropertiesIdentifier"]);}();}();
@@ -83991,7 +86852,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_JXObuoE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderEarlyAndLateFragmentTests"]=[&]() {
     json return_tsKjTeX=json({});
     return_tsKjTeX=[&]() {
@@ -84004,7 +86867,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderEarlyAndLateFragmentTests=deserialize_uint32_t(name["members"]["shaderEarlyAndLateFragmentTests"]);}();}();
@@ -84017,7 +86881,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_mGwbzgp=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_fJVPDUH=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["acquireUnmodifiedMemory"]=[&]() {
     json return_KgMLPiR=json({});
     return_KgMLPiR=[&]() {
@@ -84030,7 +86896,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_sKVZcum;[&]() {
+temp_sKVZcum=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_sKVZcum;}();
 [&]() {
 [&]() {
 result.acquireUnmodifiedMemory=deserialize_uint32_t(name["members"]["acquireUnmodifiedMemory"]);}();}();
@@ -84043,7 +86911,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ojNxyQB=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_iVWinnb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["nonSeamlessCubeMap"]=[&]() {
     json return_TRUWyOW=json({});
     return_TRUWyOW=[&]() {
@@ -84056,7 +86926,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.nonSeamlessCubeMap=deserialize_uint32_t(name["members"]["nonSeamlessCubeMap"]);}();}();
@@ -84069,7 +86940,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_TLRAzJS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pipelineRobustness"]=[&]() {
     json return_zKqltnh=json({});
     return_zKqltnh=[&]() {
@@ -84082,7 +86955,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.pipelineRobustness=deserialize_uint32_t(name["members"]["pipelineRobustness"]);}();}();
@@ -84095,7 +86969,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_heyFKaE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_DikCbxz=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["storageBuffers"]=[&]() {
     json return_ExdYrOb=json({});
     return serialize_VkPipelineRobustnessBufferBehaviorEXT(name.storageBuffers);}();
@@ -84115,7 +86991,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_Rfdumjd;[&]() {
+temp_Rfdumjd=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_Rfdumjd;}();
 [&]() {
 result.storageBuffers=deserialize_VkPipelineRobustnessBufferBehaviorEXT(name["members"]["storageBuffers"]);}();
 [&]() {
@@ -84133,7 +87011,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_qhETSee=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["defaultRobustnessStorageBuffers"]=[&]() {
     json return_yBUBzYm=json({});
     return serialize_VkPipelineRobustnessBufferBehaviorEXT(name.defaultRobustnessStorageBuffers);}();
@@ -84153,7 +87033,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.defaultRobustnessStorageBuffers=deserialize_VkPipelineRobustnessBufferBehaviorEXT(name["members"]["defaultRobustnessStorageBuffers"]);}();
 [&]() {
@@ -84171,7 +87052,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_wCHwcyn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_mAFOLKf=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["filterCenter"]=[&]() {
     json return_epKdyKi=json({});
     return serialize_VkOffset2D(name.filterCenter);}();
@@ -84188,7 +87071,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_LthbfsD;[&]() {
+temp_LthbfsD=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_LthbfsD;}();
 [&]() {
 result.filterCenter=deserialize_VkOffset2D(name["members"]["filterCenter"]);}();
 [&]() {
@@ -84204,7 +87089,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_nbYGjBU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["textureSampleWeighted"]=[&]() {
     json return_xGMpRGB=json({});
     return_xGMpRGB=[&]() {
@@ -84227,7 +87114,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.textureSampleWeighted=deserialize_uint32_t(name["members"]["textureSampleWeighted"]);}();}();
@@ -84246,7 +87134,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_aLiVgcg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_twilBNM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxWeightFilterPhases"]=[&]() {
     json return_dwldppO=json({});
     return serialize_uint32_t(name.maxWeightFilterPhases);}();
@@ -84266,7 +87156,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxWeightFilterPhases=deserialize_uint32_t(name["members"]["maxWeightFilterPhases"]);}();
 [&]() {
@@ -84284,7 +87175,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_GoSEjWk=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["tileProperties"]=[&]() {
     json return_LlcKYRl=json({});
     return_LlcKYRl=[&]() {
@@ -84297,7 +87190,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.tileProperties=deserialize_uint32_t(name["members"]["tileProperties"]);}();}();
@@ -84310,7 +87204,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_iTGdrUF=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["tileSize"]=[&]() {
     json return_czjYmXX=json({});
     return serialize_VkExtent3D(name.tileSize);}();
@@ -84327,7 +87223,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.tileSize=deserialize_VkExtent3D(name["members"]["tileSize"]);}();
 [&]() {
@@ -84343,7 +87240,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_rjwquTK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["amigoProfiling"]=[&]() {
     json return_mRLpdSo=json({});
     return_mRLpdSo=[&]() {
@@ -84356,7 +87255,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.amigoProfiling=deserialize_uint32_t(name["members"]["amigoProfiling"]);}();}();
@@ -84369,7 +87269,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pDsHTco=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_DikCbxz=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["firstDrawTimestamp"]=[&]() {
     json return_jpYNYNd=json({});
     return serialize_uint64_t(name.firstDrawTimestamp);}();
@@ -84383,7 +87285,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_Rfdumjd;[&]() {
+temp_Rfdumjd=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_Rfdumjd;}();
 [&]() {
 result.firstDrawTimestamp=deserialize_uint64_t(name["members"]["firstDrawTimestamp"]);}();
 [&]() {
@@ -84397,7 +87301,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_QLKQwjx=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["attachmentFeedbackLoopLayout"]=[&]() {
     json return_kbFgWdZ=json({});
     return_kbFgWdZ=[&]() {
@@ -84410,7 +87316,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.attachmentFeedbackLoopLayout=deserialize_uint32_t(name["members"]["attachmentFeedbackLoopLayout"]);}();}();
@@ -84423,7 +87330,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ysPtfGC=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["depthClampZeroOne"]=[&]() {
     json return_opKmTRi=json({});
     return_opKmTRi=[&]() {
@@ -84436,7 +87345,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.depthClampZeroOne=deserialize_uint32_t(name["members"]["depthClampZeroOne"]);}();}();
@@ -84449,7 +87359,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_InLGawX=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["reportAddressBinding"]=[&]() {
     json return_BfCSrOB=json({});
     return_BfCSrOB=[&]() {
@@ -84462,7 +87374,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.reportAddressBinding=deserialize_uint32_t(name["members"]["reportAddressBinding"]);}();}();
@@ -84475,7 +87388,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_rMKpIhr=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_CZqtXbH=json({});
     return serialize_VkDeviceAddressBindingFlagsEXT(name.flags);}();
@@ -84499,7 +87414,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.flags=deserialize_VkDeviceAddressBindingFlagsEXT(name["members"]["flags"]);}();
 [&]() {
@@ -84519,7 +87435,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_pqTPMVU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["opticalFlow"]=[&]() {
     json return_dPswBxM=json({});
     return_dPswBxM=[&]() {
@@ -84532,7 +87450,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.opticalFlow=deserialize_uint32_t(name["members"]["opticalFlow"]);}();}();
@@ -84545,7 +87464,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_EkwytBm=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["supportedOutputGridSizes"]=[&]() {
     json return_xFOkHaC=json({});
     return serialize_VkOpticalFlowGridSizeFlagsNV(name.supportedOutputGridSizes);}();
@@ -84594,7 +87515,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.supportedOutputGridSizes=deserialize_VkOpticalFlowGridSizeFlagsNV(name["members"]["supportedOutputGridSizes"]);}();
 [&]() {
@@ -84630,7 +87552,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_RGNTlat=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_ezEOKPE=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["usage"]=[&]() {
     json return_bBebhlC=json({});
     return serialize_VkOpticalFlowUsageFlagsNV(name.usage);}();
@@ -84641,7 +87565,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_YdXSoFF;[&]() {
+temp_YdXSoFF=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_YdXSoFF;}();
 [&]() {
 result.usage=deserialize_VkOpticalFlowUsageFlagsNV(name["members"]["usage"]);}();
 return result;}
@@ -84653,7 +87579,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_vehSlXs=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_ezEOKPE=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["format"]=[&]() {
     json return_nLVDJsO=json({});
     return serialize_VkFormat(name.format);}();
@@ -84664,7 +87592,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_YdXSoFF;[&]() {
+temp_YdXSoFF=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_YdXSoFF;}();
 [&]() {
 result.format=deserialize_VkFormat(name["members"]["format"]);}();
 return result;}
@@ -84676,7 +87606,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tqjvvlK=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Vuehjae=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["width"]=[&]() {
     json return_bTnoRay=json({});
     return serialize_uint32_t(name.width);}();
@@ -84711,7 +87643,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.width=deserialize_uint32_t(name["members"]["width"]);}();
 [&]() {
@@ -84739,7 +87672,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AkpBmcr=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Vuehjae=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["id"]=[&]() {
     json return_FaJnaKT=json({});
     return serialize_uint32_t(name.id);}();
@@ -84778,7 +87713,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.id=deserialize_uint32_t(name["members"]["id"]);}();
 [&]() {
@@ -84812,7 +87748,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_NFKofmc=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_cbGgNYF=json({});
     return serialize_VkOpticalFlowExecuteFlagsNV(name.flags);}();
@@ -84844,7 +87782,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.flags=deserialize_VkOpticalFlowExecuteFlagsNV(name["members"]["flags"]);}();
 [&]() {
@@ -84871,7 +87810,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_XDJHMQt=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SNVItUV=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["deviceFault"]=[&]() {
     json return_LpTgoMt=json({});
     return_LpTgoMt=[&]() {
@@ -84889,7 +87830,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.deviceFault=deserialize_uint32_t(name["members"]["deviceFault"]);}();}();
@@ -84978,7 +87920,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_BClVfYv=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SNVItUV=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["addressInfoCount"]=[&]() {
     json return_ABRLkXc=json({});
     return serialize_uint32_t(name.addressInfoCount);}();
@@ -84997,7 +87941,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.addressInfoCount=deserialize_uint32_t(name["members"]["addressInfoCount"]);}();
 [&]() {
@@ -85014,7 +87959,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gkopDTy=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SNVItUV=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["description"]=[&]() {
     json return_GmLcllU=json({});
     
@@ -85082,7 +88029,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 
         for (int GHDwLta=0; GHDwLta < VK_MAX_DESCRIPTION_SIZE; GHDwLta++){
@@ -85219,7 +88167,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_TOISYBf=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_ydOnyeU=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pipelineLibraryGroupHandles"]=[&]() {
     json return_xbuEbGS=json({});
     return_xbuEbGS=[&]() {
@@ -85232,7 +88182,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.pipelineLibraryGroupHandles=deserialize_uint32_t(name["members"]["pipelineLibraryGroupHandles"]);}();}();
@@ -85245,7 +88196,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_kzzERnA=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["depthBiasConstantFactor"]=[&]() {
     json return_RsJAJRu=json({});
     return serialize_float(name.depthBiasConstantFactor);}();
@@ -85262,7 +88215,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.depthBiasConstantFactor=deserialize_float(name["members"]["depthBiasConstantFactor"]);}();
 [&]() {
@@ -85278,7 +88233,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_MLMmByO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_XfZOnDM=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["depthBiasRepresentation"]=[&]() {
     json return_NotaQXp=json({});
     return serialize_VkDepthBiasRepresentationEXT(name.depthBiasRepresentation);}();
@@ -85294,7 +88251,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_erbmnaX;[&]() {
+temp_erbmnaX=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_erbmnaX;}();
 [&]() {
 result.depthBiasRepresentation=deserialize_VkDepthBiasRepresentationEXT(name["members"]["depthBiasRepresentation"]);}();
 [&]() {
@@ -85357,7 +88316,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ZqTIRaf=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RfTbzLx=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderCoreMask"]=[&]() {
     json return_VTmrhEo=json({});
     return serialize_uint64_t(name.shaderCoreMask);}();
@@ -85374,7 +88335,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.shaderCoreMask=deserialize_uint64_t(name["members"]["shaderCoreMask"]);}();
 [&]() {
@@ -85390,7 +88352,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_URoKjnS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderCoreBuiltins"]=[&]() {
     json return_HBVOPns=json({});
     return_HBVOPns=[&]() {
@@ -85403,7 +88367,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderCoreBuiltins=deserialize_uint32_t(name["members"]["shaderCoreBuiltins"]);}();}();
@@ -85416,7 +88381,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_uhUixqS=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_dlkPATN=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_tePBdRq=json({});
     return serialize_VkFrameBoundaryFlagsEXT(name.flags);}();
@@ -85503,7 +88470,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_GmCEwHf;[&]() {
+temp_GmCEwHf=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_GmCEwHf;}();
 [&]() {
 result.flags=deserialize_VkFrameBoundaryFlagsEXT(name["members"]["flags"]);}();
 [&]() {
@@ -85571,7 +88540,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_DlFpOWB=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["frameBoundary"]=[&]() {
     json return_mPfOwDE=json({});
     return_mPfOwDE=[&]() {
@@ -85584,7 +88555,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.frameBoundary=deserialize_uint32_t(name["members"]["frameBoundary"]);}();}();
@@ -85597,7 +88569,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_VhbIdRi=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_Eanongt=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["dynamicRenderingUnusedAttachments"]=[&]() {
     json return_gyMNUSl=json({});
     return_gyMNUSl=[&]() {
@@ -85610,7 +88584,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.dynamicRenderingUnusedAttachments=deserialize_uint32_t(name["members"]["dynamicRenderingUnusedAttachments"]);}();}();
@@ -85623,7 +88598,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_HSlcvJx=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SNVItUV=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["presentMode"]=[&]() {
     json return_wmRGJCL=json({});
     return serialize_VkPresentModeKHR(name.presentMode);}();
@@ -85634,7 +88611,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.presentMode=deserialize_VkPresentModeKHR(name["members"]["presentMode"]);}();
 return result;}
@@ -85646,7 +88624,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_Zqixqeo=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_PuLiXGJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["supportedPresentScaling"]=[&]() {
     json return_bXTteht=json({});
     return serialize_VkPresentScalingFlagsEXT(name.supportedPresentScaling);}();
@@ -85669,7 +88649,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.supportedPresentScaling=deserialize_VkPresentScalingFlagsEXT(name["members"]["supportedPresentScaling"]);}();
 [&]() {
@@ -85689,7 +88670,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_VmVLySX=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_xKlslqu=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["presentModeCount"]=[&]() {
     json return_WPrqWiB=json({});
     return serialize_uint32_t(name.presentModeCount);}();
@@ -85718,7 +88701,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.presentModeCount=deserialize_uint32_t(name["members"]["presentModeCount"]);}();
 [&]() {
@@ -85742,7 +88726,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_XzkZfiD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SNVItUV=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["swapchainMaintenance1"]=[&]() {
     json return_liZtrJS=json({});
     return_liZtrJS=[&]() {
@@ -85755,7 +88741,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.swapchainMaintenance1=deserialize_uint32_t(name["members"]["swapchainMaintenance1"]);}();}();
@@ -85768,7 +88755,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_efRPDJZ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_VrWNwlX=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["swapchainCount"]=[&]() {
     json return_tkQMEnu=json({});
     return serialize_uint32_t(name.swapchainCount);}();
@@ -85797,7 +88786,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_xqzHWhH;[&]() {
+temp_xqzHWhH=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_xqzHWhH;}();
 [&]() {
 result.swapchainCount=deserialize_uint32_t(name["members"]["swapchainCount"]);}();
 [&]() {
@@ -85822,7 +88813,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_wjHTGKa=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_VrWNwlX=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["presentModeCount"]=[&]() {
     json return_VKygVtR=json({});
     return serialize_uint32_t(name.presentModeCount);}();
@@ -85851,7 +88844,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_xqzHWhH;[&]() {
+temp_xqzHWhH=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_xqzHWhH;}();
 [&]() {
 result.presentModeCount=deserialize_uint32_t(name["members"]["presentModeCount"]);}();
 [&]() {
@@ -85876,7 +88871,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_vxeqoFY=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_VrWNwlX=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["swapchainCount"]=[&]() {
     json return_tkQMEnu=json({});
     return serialize_uint32_t(name.swapchainCount);}();
@@ -85905,7 +88902,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_xqzHWhH;[&]() {
+temp_xqzHWhH=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_xqzHWhH;}();
 [&]() {
 result.swapchainCount=deserialize_uint32_t(name["members"]["swapchainCount"]);}();
 [&]() {
@@ -85930,7 +88929,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_mEeSzaD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_KlESVpD=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["scalingBehavior"]=[&]() {
     json return_iHPqQbC=json({});
     return serialize_VkPresentScalingFlagsEXT(name.scalingBehavior);}();
@@ -85947,7 +88948,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XeEuUtf;[&]() {
+temp_XeEuUtf=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XeEuUtf;}();
 [&]() {
 result.scalingBehavior=deserialize_VkPresentScalingFlagsEXT(name["members"]["scalingBehavior"]);}();
 [&]() {
@@ -85963,7 +88966,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ziCXYqb=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_KlESVpD=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["swapchain"]=[&]() {
     json return_WEJYaMi=json({});
     return serialize_VkSwapchainKHR(name.swapchain);}();
@@ -85995,7 +89000,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XeEuUtf;[&]() {
+temp_XeEuUtf=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XeEuUtf;}();
 [&]() {
 result.swapchain=deserialize_VkSwapchainKHR(name["members"]["swapchain"]);}();
 [&]() {
@@ -86022,7 +89029,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LAEEpld=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["depthBiasControl"]=[&]() {
     json return_nJwcGSV=json({});
     return_nJwcGSV=[&]() {
@@ -86050,7 +89059,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.depthBiasControl=deserialize_uint32_t(name["members"]["depthBiasControl"]);}();}();
@@ -86072,7 +89082,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_yJULVNB=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_ZxpTQOn=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["rayTracingInvocationReorder"]=[&]() {
     json return_eTMptkq=json({});
     return_eTMptkq=[&]() {
@@ -86085,7 +89097,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.rayTracingInvocationReorder=deserialize_uint32_t(name["members"]["rayTracingInvocationReorder"]);}();}();
@@ -86098,7 +89111,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_BvqMLdn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rnuQYIR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["rayTracingInvocationReorderReorderingHint"]=[&]() {
     json return_TaCgtbd=json({});
     return serialize_VkRayTracingInvocationReorderModeNV(name.rayTracingInvocationReorderReorderingHint);}();
@@ -86109,7 +89124,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.rayTracingInvocationReorderReorderingHint=deserialize_VkRayTracingInvocationReorderModeNV(name["members"]["rayTracingInvocationReorderReorderingHint"]);}();
 return result;}
@@ -86121,7 +89137,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_JqKkcrE=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_cLMbQUP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_NLNzmkO=json({});
     return serialize_VkDirectDriverLoadingFlagsLUNARG(name.flags);}();
@@ -86135,7 +89153,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.flags=deserialize_VkDirectDriverLoadingFlagsLUNARG(name["members"]["flags"]);}();
 [&]() {
@@ -86153,7 +89172,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_kPcUkAg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_KLmDGaW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["mode"]=[&]() {
     json return_nLxAykJ=json({});
     return serialize_VkDirectDriverLoadingModeLUNARG(name.mode);}();
@@ -86185,7 +89206,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.mode=deserialize_VkDirectDriverLoadingModeLUNARG(name["members"]["mode"]);}();
 [&]() {
@@ -86212,7 +89234,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_NxymtQh=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["multiviewPerViewViewports"]=[&]() {
     json return_XBwYzsr=json({});
     return_XBwYzsr=[&]() {
@@ -86225,7 +89249,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.multiviewPerViewViewports=deserialize_uint32_t(name["members"]["multiviewPerViewViewports"]);}();}();
@@ -86238,7 +89263,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_kLBYPqJ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["rayTracingPositionFetch"]=[&]() {
     json return_luSbWCX=json({});
     return_luSbWCX=[&]() {
@@ -86251,7 +89278,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.rayTracingPositionFetch=deserialize_uint32_t(name["members"]["rayTracingPositionFetch"]);}();}();
@@ -86264,7 +89292,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_DlJSmfT=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_JVbFNCe=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pCreateInfo"]=[&]() {
     json return_xVuKRfQ=json({});
     
@@ -86294,7 +89324,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_tOlEGmq;[&]() {
+temp_tOlEGmq=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_tOlEGmq;}();
 [&]() {
 VkImageCreateInfo* temp_hnNkVdw;[&]() {
 
@@ -86326,7 +89358,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_xBCVZnB=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_RfTbzLx=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pixelRate"]=[&]() {
     json return_TkhyqyM=json({});
     return serialize_uint32_t(name.pixelRate);}();
@@ -86343,7 +89377,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.pixelRate=deserialize_uint32_t(name["members"]["pixelRate"]);}();
 [&]() {
@@ -86359,7 +89394,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_dPNebWu=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["multiviewPerViewRenderAreas"]=[&]() {
     json return_VEHTZEc=json({});
     return_VEHTZEc=[&]() {
@@ -86372,7 +89409,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.multiviewPerViewRenderAreas=deserialize_uint32_t(name["members"]["multiviewPerViewRenderAreas"]);}();}();
@@ -86385,7 +89423,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_LpWnsZb=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_evTlstJ=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["perViewRenderAreaCount"]=[&]() {
     json return_OwaxCWL=json({});
     return serialize_uint32_t(name.perViewRenderAreaCount);}();
@@ -86414,7 +89454,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mRasBAG;[&]() {
+temp_mRasBAG=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mRasBAG;}();
 [&]() {
 result.perViewRenderAreaCount=deserialize_uint32_t(name["members"]["perViewRenderAreaCount"]);}();
 [&]() {
@@ -86439,7 +89481,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_VTNoSBQ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_WLAlHNR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["pQueriedLowLatencyData"]=[&]() {
     json return_hrYPaim=json({});
     
@@ -86472,7 +89516,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_XXYvqCg;[&]() {
+temp_XXYvqCg=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_XXYvqCg;}();
 [&]() {
 
         if (name["members"]["pQueriedLowLatencyData"].contains("null")){
@@ -86501,7 +89547,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_agUfLdm=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_DikCbxz=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_DIWUtAQ=json({});
     return serialize_VkMemoryMapFlags(name.flags);}();
@@ -86525,7 +89573,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_Rfdumjd;[&]() {
+temp_Rfdumjd=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_Rfdumjd;}();
 [&]() {
 result.flags=deserialize_VkMemoryMapFlags(name["members"]["flags"]);}();
 [&]() {
@@ -86545,7 +89595,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_iNCWosj=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uvklqjP=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_klNphAc=json({});
     return serialize_VkMemoryUnmapFlagsKHR(name.flags);}();
@@ -86559,7 +89611,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_plwBNNC;[&]() {
+temp_plwBNNC=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_plwBNNC;}();
 [&]() {
 result.flags=deserialize_VkMemoryUnmapFlagsKHR(name["members"]["flags"]);}();
 [&]() {
@@ -86573,7 +89627,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_IDigyfg=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_QZvMKiU=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderObject"]=[&]() {
     json return_FxmPsPo=json({});
     return_FxmPsPo=[&]() {
@@ -86586,7 +89642,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderObject=deserialize_uint32_t(name["members"]["shaderObject"]);}();}();
@@ -86599,7 +89656,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_oHYdyqj=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_eugjfyR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderBinaryUUID"]=[&]() {
     json return_CUUOYeF=json({});
     
@@ -86623,7 +89682,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 
         for (int BCZZgrC=0; BCZZgrC < VK_UUID_SIZE; BCZZgrC++){
@@ -86642,7 +89702,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_VWLJiBJ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_dqFtZzB=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["flags"]=[&]() {
     json return_sZtpLTX=json({});
     return serialize_VkShaderCreateFlagsEXT(name.flags);}();
@@ -86761,7 +89823,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_COstZkd;[&]() {
+temp_COstZkd=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_COstZkd;}();
 [&]() {
 result.flags=deserialize_VkShaderCreateFlagsEXT(name["members"]["flags"]);}();
 [&]() {
@@ -86855,7 +89919,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_EVxNceZ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderTileImageColorReadAccess"]=[&]() {
     json return_JQipqRn=json({});
     return_JQipqRn=[&]() {
@@ -86878,7 +89944,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderTileImageColorReadAccess=deserialize_uint32_t(name["members"]["shaderTileImageColorReadAccess"]);}();}();
@@ -86897,7 +89964,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_FUzxllw=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["shaderTileImageCoherentReadAccelerated"]=[&]() {
     json return_cuahEBC=json({});
     return_cuahEBC=[&]() {
@@ -86920,7 +89989,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.shaderTileImageCoherentReadAccelerated=deserialize_uint32_t(name["members"]["shaderTileImageCoherentReadAccelerated"]);}();}();
@@ -86939,7 +90009,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_gKIXjkU=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_SNVItUV=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["cooperativeMatrix"]=[&]() {
     json return_AVgOFEj=json({});
     return_AVgOFEj=[&]() {
@@ -86957,7 +90029,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.cooperativeMatrix=deserialize_uint32_t(name["members"]["cooperativeMatrix"]);}();}();
@@ -86973,7 +90046,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_jnfDFoY=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["MSize"]=[&]() {
     json return_qSkxFdv=json({});
     return serialize_uint32_t(name.MSize);}();
@@ -87010,7 +90085,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.MSize=deserialize_uint32_t(name["members"]["MSize"]);}();
 [&]() {
@@ -87039,7 +90115,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_BytovDP=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_uGncfcW=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["cooperativeMatrixSupportedStages"]=[&]() {
     json return_EAUyhwj=json({});
     return serialize_VkShaderStageFlags(name.cooperativeMatrixSupportedStages);}();
@@ -87050,7 +90128,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.cooperativeMatrixSupportedStages=deserialize_VkShaderStageFlags(name["members"]["cooperativeMatrixSupportedStages"]);}();
 return result;}
@@ -87062,7 +90141,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_ilmLIgJ=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["cubicRangeClamp"]=[&]() {
     json return_XMYblzb=json({});
     return_XMYblzb=[&]() {
@@ -87075,7 +90156,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.cubicRangeClamp=deserialize_uint32_t(name["members"]["cubicRangeClamp"]);}();}();
@@ -87088,7 +90170,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_WpdBWHO=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_OsnqkSb=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["ycbcrDegamma"]=[&]() {
     json return_hHEKCKx=json({});
     return_hHEKCKx=[&]() {
@@ -87101,7 +90185,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.ycbcrDegamma=deserialize_uint32_t(name["members"]["ycbcrDegamma"]);}();}();
@@ -87114,7 +90199,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_OIlGgbD=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_jUHbEpy=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["enableYDegamma"]=[&]() {
     json return_xDrGcsF=json({});
     return_xDrGcsF=[&]() {
@@ -87132,7 +90219,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.enableYDegamma=deserialize_uint32_t(name["members"]["enableYDegamma"]);}();}();
@@ -87148,7 +90236,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_DQETPzn=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_BKkteCw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["selectableCubicWeights"]=[&]() {
     json return_XrSdKeY=json({});
     return_XrSdKeY=[&]() {
@@ -87161,7 +90251,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.selectableCubicWeights=deserialize_uint32_t(name["members"]["selectableCubicWeights"]);}();}();
@@ -87174,7 +90265,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_nrksEsl=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_DikCbxz=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["cubicWeights"]=[&]() {
     json return_AsurilE=json({});
     return serialize_VkCubicFilterWeightsQCOM(name.cubicWeights);}();
@@ -87185,7 +90278,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_Rfdumjd;[&]() {
+temp_Rfdumjd=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_Rfdumjd;}();
 [&]() {
 result.cubicWeights=deserialize_VkCubicFilterWeightsQCOM(name["members"]["cubicWeights"]);}();
 return result;}
@@ -87197,7 +90292,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_NMycnsp=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_DikCbxz=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["cubicWeights"]=[&]() {
     json return_AsurilE=json({});
     return serialize_VkCubicFilterWeightsQCOM(name.cubicWeights);}();
@@ -87208,7 +90305,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_Rfdumjd;[&]() {
+temp_Rfdumjd=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_Rfdumjd;}();
 [&]() {
 result.cubicWeights=deserialize_VkCubicFilterWeightsQCOM(name["members"]["cubicWeights"]);}();
 return result;}
@@ -87220,7 +90319,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_tJHLaqk=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_MEEdpgl=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["textureBlockMatch2"]=[&]() {
     json return_qOzPEAW=json({});
     return_qOzPEAW=[&]() {
@@ -87233,7 +90334,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.textureBlockMatch2=deserialize_uint32_t(name["members"]["textureBlockMatch2"]);}();}();
@@ -87246,7 +90348,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_AcsHHJV=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_rHrCezz=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["maxBlockMatchWindow"]=[&]() {
     json return_HpHyvqW=json({});
     return serialize_VkExtent2D(name.maxBlockMatchWindow);}();
@@ -87257,7 +90361,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.maxBlockMatchWindow=deserialize_VkExtent2D(name["members"]["maxBlockMatchWindow"]);}();
 return result;}
@@ -87269,7 +90374,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_SmurWCL=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_qVxSsBz=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["windowExtent"]=[&]() {
     json return_xwKvAIU=json({});
     return serialize_VkExtent2D(name.windowExtent);}();
@@ -87283,7 +90390,9 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+pNext temp_mZwGOqW;[&]() {
+temp_mZwGOqW=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_mZwGOqW;}();
 [&]() {
 result.windowExtent=deserialize_VkExtent2D(name["members"]["windowExtent"]);}();
 [&]() {
@@ -87297,7 +90406,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_lQrMldR=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_MEGcYDw=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["descriptorPoolOverallocation"]=[&]() {
     json return_mbLKDKu=json({});
     return_mbLKDKu=[&]() {
@@ -87310,7 +90421,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 [&]() {
 result.descriptorPoolOverallocation=deserialize_uint32_t(name["members"]["descriptorPoolOverallocation"]);}();}();
@@ -87323,7 +90435,9 @@ return result;}
 result["members"]["sType"]=[&]() {
     json return_dcqAWdF=json({});
     return serialize_VkStructureType(name.sType);}();
-result["members"]["pNext"]=serialize_pNext(name.pNext);
+result["members"]["pNext"]=[&]() {
+    json return_KDtBxZR=json({});
+    return serialize_pNext(name.pNext);}();
 result["members"]["underlyingAPI"]=[&]() {
     json return_VWxgfpP=json({});
     return serialize_VkLayeredDriverUnderlyingApiMSFT(name.underlyingAPI);}();
@@ -87334,7 +90448,8 @@ return result;}
     
 [&]() {
 result.sType=deserialize_VkStructureType(name["members"]["sType"]);}();
-result.pNext=deserialize_pNext(name["members"]["pNext"]);
+[&]() {
+result.pNext=deserialize_pNext(name["members"]["pNext"]);}();
 [&]() {
 result.underlyingAPI=deserialize_VkLayeredDriverUnderlyingApiMSFT(name["members"]["underlyingAPI"]);}();
 return result;}

@@ -1,4 +1,5 @@
 #include <vulkan/vulkan.h>
+typedef void* pNext;
 
         json serialize_VkBaseOutStructure(VkBaseOutStructure name);
         VkBaseOutStructure deserialize_VkBaseOutStructure(json &name);

@@ -14,6 +14,8 @@ using json = nlohmann::json;
 #include <Synchronization.hpp>
 """)
 
+write("typedef void* pNext;",header=True)
+
 def struct_is_callback(struct):
     members=parsed["structs"][struct]
     
@@ -133,10 +135,9 @@ for struct,members in parsed["structs"].items():
             printf("%f\\n",name.lineWidthRange[0]);
             printf("%f\\n",name.lineWidthRange[1]);
             """)
-        if member["name"]=="pNext" and member["type"]=="void" and member["num_indirection"]==1:
-            write(f"""result["members"]["{member["name"]}"]=serialize_pNext({member_copy["name"]});""")
-        else:
-            write(serialize(f"""result["members"]["{member["name"]}"]""",member_copy))
+            
+        write(serialize(f"""result["members"]["{member["name"]}"]""",member_copy))
+        
     write("return result;}")
     
     is_callback=struct_is_callback(struct)
@@ -163,10 +164,7 @@ for struct,members in parsed["structs"].items():
         for i,e in enumerate(member_copy["length"]):
             member_copy["length"][i]=add_struct_name(e, "result")
             
-        if member["name"]=="pNext" and member["type"]=="void" and member["num_indirection"]==1:
-            write("result."+member["name"]+f"""=deserialize_pNext({member_copy["name"]});""")
-        else:
-            write(deserialize("result."+member["name"],member_copy,initialize=True))
+        write(deserialize("result."+member["name"],member_copy,initialize=True))
             
         if is_callback:
             if member["type"] in parsed["funcpointers"]:
