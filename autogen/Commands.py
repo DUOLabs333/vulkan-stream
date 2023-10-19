@@ -87,9 +87,13 @@ for name, command in parsed["commands"].items():
     write(f"""
     PFN_{name} call_function;
     if(data_json["parent"]["type"]=="Instance"){{
-        call_function=(PFN_{name})get_instance_proc_addr((VkInstance)(data_json["parent"]["handle"].get<uintptr_t>()),"{name}");
+        VkInstance parent;
+        {deserialize("parent",{"name":'data_json["parent"]["handle"]' ,"type":"VkInstance","num_indirection":0,"length":[]},initialize=True)}
+        call_function=(PFN_{name})get_instance_proc_addr(parent,"{name}");
     }}else if(data_json["parent"]["type"]=="Device"){{
-        call_function=(PFN_{name})get_device_proc_addr((VkDevice)(data_json["parent"]["handle"].get<uintptr_t>()),"{name}");
+        VkDevice parent;
+        {deserialize("parent",{"name":'data_json["parent"]["handle"]' ,"type":"VkDevice","num_indirection":0,"length":[]},initialize=True)}
+        call_function=(PFN_{name})get_device_proc_addr(parent,"{name}");
     }}  
     """
     )
@@ -172,22 +176,23 @@ for name, command in parsed["commands"].items():
     
     head=command["params"][0]
     head_name=head["name"]
-    #Just set the children's struct ot the parent
+    #Just set the children's struct to the parent
     if head["type"] in parsed["handles"]:
+        #Use serialize, since we have to map
         write(f"""
         auto parent=handle_to_parent_handle_struct[(uintptr_t){head_name}];
         if (parent.device!=NULL){{
             data_json["parent"]["type"]="Device";
-            data_json["parent"]["handle"]=(uintptr_t)parent.device;
+            {serialize('data_json["parent"]["handle"]',{"name":"parent.device","type":"VkDevice","num_indirection":0,"length":[]})}
         }}else{{
             data_json["parent"]["type"]="Instance";
-            data_json["parent"]["handle"]=(uintptr_t)parent.instance;
+            {serialize('data_json["parent"]["handle"]',{"name":"parent.instance","type":"VkInstance","num_indirection":0,"length":[]})}
         }}
         """)
     else:
-        write("""
+        write(f"""
         data_json["parent"]["type"]="Instance";
-        data_json["parent"]["handle"]=NULL;
+       {serialize('data_json["parent"]["handle"]',{"name":"NULL","type":"VkInstance","num_indirection":0,"length":[]})}
         """)
     write(register_DeviceMemory(name))
     write("{") #Use scoping to allow us to overwrite const parameters as needed

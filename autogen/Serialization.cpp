@@ -94670,9 +94670,29 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             };
         
 
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkInstance_to_server_VkInstance;
+            std::map<uintptr_t,uintptr_t> server_VkInstance_to_client_VkInstance;
+            
+        #endif
+        
+
         json serialize_VkInstance(VkInstance data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkInstance_to_server_VkInstance.contains( (uintptr_t)data ))){
+                        printf("Panic: VkInstance %p not found!\n",data);
+                    }
+                     printf("Serializing VkInstance %p...\n",(VkInstance)client_VkInstance_to_server_VkInstance[(uintptr_t)data]);
+                    result["value"]=client_VkInstance_to_server_VkInstance[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94680,12 +94700,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkInstance deserialize_VkInstance(json data){
-               return (VkInstance)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkInstance result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkInstance)pointer);
+                    if (server_VkInstance_to_client_VkInstance.contains(pointer)){
+                        result=(VkInstance)server_VkInstance_to_client_VkInstance[pointer];
+                        printf("Deserializing to VkInstance %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkInstance));
+                        printf("Mapping to VkInstance %p...\n",handle);
+                        server_VkInstance_to_client_VkInstance[pointer]=(uintptr_t)handle;
+                        client_VkInstance_to_server_VkInstance[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkInstance)handle;
+                    }
+                #else
+                    result=(VkInstance)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkPhysicalDevice_to_server_VkPhysicalDevice;
+            std::map<uintptr_t,uintptr_t> server_VkPhysicalDevice_to_client_VkPhysicalDevice;
+            
+        #endif
+        
 
         json serialize_VkPhysicalDevice(VkPhysicalDevice data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkPhysicalDevice_to_server_VkPhysicalDevice.contains( (uintptr_t)data ))){
+                        printf("Panic: VkPhysicalDevice %p not found!\n",data);
+                    }
+                     printf("Serializing VkPhysicalDevice %p...\n",(VkPhysicalDevice)client_VkPhysicalDevice_to_server_VkPhysicalDevice[(uintptr_t)data]);
+                    result["value"]=client_VkPhysicalDevice_to_server_VkPhysicalDevice[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94693,12 +94752,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkPhysicalDevice deserialize_VkPhysicalDevice(json data){
-               return (VkPhysicalDevice)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkPhysicalDevice result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkPhysicalDevice)pointer);
+                    if (server_VkPhysicalDevice_to_client_VkPhysicalDevice.contains(pointer)){
+                        result=(VkPhysicalDevice)server_VkPhysicalDevice_to_client_VkPhysicalDevice[pointer];
+                        printf("Deserializing to VkPhysicalDevice %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkPhysicalDevice));
+                        printf("Mapping to VkPhysicalDevice %p...\n",handle);
+                        server_VkPhysicalDevice_to_client_VkPhysicalDevice[pointer]=(uintptr_t)handle;
+                        client_VkPhysicalDevice_to_server_VkPhysicalDevice[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkPhysicalDevice)handle;
+                    }
+                #else
+                    result=(VkPhysicalDevice)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkDevice_to_server_VkDevice;
+            std::map<uintptr_t,uintptr_t> server_VkDevice_to_client_VkDevice;
+            
+        #endif
+        
 
         json serialize_VkDevice(VkDevice data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkDevice_to_server_VkDevice.contains( (uintptr_t)data ))){
+                        printf("Panic: VkDevice %p not found!\n",data);
+                    }
+                     printf("Serializing VkDevice %p...\n",(VkDevice)client_VkDevice_to_server_VkDevice[(uintptr_t)data]);
+                    result["value"]=client_VkDevice_to_server_VkDevice[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94706,12 +94804,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkDevice deserialize_VkDevice(json data){
-               return (VkDevice)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkDevice result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkDevice)pointer);
+                    if (server_VkDevice_to_client_VkDevice.contains(pointer)){
+                        result=(VkDevice)server_VkDevice_to_client_VkDevice[pointer];
+                        printf("Deserializing to VkDevice %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkDevice));
+                        printf("Mapping to VkDevice %p...\n",handle);
+                        server_VkDevice_to_client_VkDevice[pointer]=(uintptr_t)handle;
+                        client_VkDevice_to_server_VkDevice[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkDevice)handle;
+                    }
+                #else
+                    result=(VkDevice)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkQueue_to_server_VkQueue;
+            std::map<uintptr_t,uintptr_t> server_VkQueue_to_client_VkQueue;
+            
+        #endif
+        
 
         json serialize_VkQueue(VkQueue data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkQueue_to_server_VkQueue.contains( (uintptr_t)data ))){
+                        printf("Panic: VkQueue %p not found!\n",data);
+                    }
+                     printf("Serializing VkQueue %p...\n",(VkQueue)client_VkQueue_to_server_VkQueue[(uintptr_t)data]);
+                    result["value"]=client_VkQueue_to_server_VkQueue[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94719,12 +94856,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkQueue deserialize_VkQueue(json data){
-               return (VkQueue)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkQueue result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkQueue)pointer);
+                    if (server_VkQueue_to_client_VkQueue.contains(pointer)){
+                        result=(VkQueue)server_VkQueue_to_client_VkQueue[pointer];
+                        printf("Deserializing to VkQueue %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkQueue));
+                        printf("Mapping to VkQueue %p...\n",handle);
+                        server_VkQueue_to_client_VkQueue[pointer]=(uintptr_t)handle;
+                        client_VkQueue_to_server_VkQueue[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkQueue)handle;
+                    }
+                #else
+                    result=(VkQueue)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkCommandBuffer_to_server_VkCommandBuffer;
+            std::map<uintptr_t,uintptr_t> server_VkCommandBuffer_to_client_VkCommandBuffer;
+            
+        #endif
+        
 
         json serialize_VkCommandBuffer(VkCommandBuffer data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkCommandBuffer_to_server_VkCommandBuffer.contains( (uintptr_t)data ))){
+                        printf("Panic: VkCommandBuffer %p not found!\n",data);
+                    }
+                     printf("Serializing VkCommandBuffer %p...\n",(VkCommandBuffer)client_VkCommandBuffer_to_server_VkCommandBuffer[(uintptr_t)data]);
+                    result["value"]=client_VkCommandBuffer_to_server_VkCommandBuffer[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94732,12 +94908,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkCommandBuffer deserialize_VkCommandBuffer(json data){
-               return (VkCommandBuffer)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkCommandBuffer result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkCommandBuffer)pointer);
+                    if (server_VkCommandBuffer_to_client_VkCommandBuffer.contains(pointer)){
+                        result=(VkCommandBuffer)server_VkCommandBuffer_to_client_VkCommandBuffer[pointer];
+                        printf("Deserializing to VkCommandBuffer %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkCommandBuffer));
+                        printf("Mapping to VkCommandBuffer %p...\n",handle);
+                        server_VkCommandBuffer_to_client_VkCommandBuffer[pointer]=(uintptr_t)handle;
+                        client_VkCommandBuffer_to_server_VkCommandBuffer[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkCommandBuffer)handle;
+                    }
+                #else
+                    result=(VkCommandBuffer)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkDeviceMemory_to_server_VkDeviceMemory;
+            std::map<uintptr_t,uintptr_t> server_VkDeviceMemory_to_client_VkDeviceMemory;
+            
+        #endif
+        
 
         json serialize_VkDeviceMemory(VkDeviceMemory data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkDeviceMemory_to_server_VkDeviceMemory.contains( (uintptr_t)data ))){
+                        printf("Panic: VkDeviceMemory %p not found!\n",data);
+                    }
+                     printf("Serializing VkDeviceMemory %p...\n",(VkDeviceMemory)client_VkDeviceMemory_to_server_VkDeviceMemory[(uintptr_t)data]);
+                    result["value"]=client_VkDeviceMemory_to_server_VkDeviceMemory[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             #ifdef CLIENT
@@ -94750,12 +94965,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkDeviceMemory deserialize_VkDeviceMemory(json data){
-               return (VkDeviceMemory)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkDeviceMemory result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkDeviceMemory)pointer);
+                    if (server_VkDeviceMemory_to_client_VkDeviceMemory.contains(pointer)){
+                        result=(VkDeviceMemory)server_VkDeviceMemory_to_client_VkDeviceMemory[pointer];
+                        printf("Deserializing to VkDeviceMemory %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkDeviceMemory));
+                        printf("Mapping to VkDeviceMemory %p...\n",handle);
+                        server_VkDeviceMemory_to_client_VkDeviceMemory[pointer]=(uintptr_t)handle;
+                        client_VkDeviceMemory_to_server_VkDeviceMemory[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkDeviceMemory)handle;
+                    }
+                #else
+                    result=(VkDeviceMemory)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkCommandPool_to_server_VkCommandPool;
+            std::map<uintptr_t,uintptr_t> server_VkCommandPool_to_client_VkCommandPool;
+            
+        #endif
+        
 
         json serialize_VkCommandPool(VkCommandPool data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkCommandPool_to_server_VkCommandPool.contains( (uintptr_t)data ))){
+                        printf("Panic: VkCommandPool %p not found!\n",data);
+                    }
+                     printf("Serializing VkCommandPool %p...\n",(VkCommandPool)client_VkCommandPool_to_server_VkCommandPool[(uintptr_t)data]);
+                    result["value"]=client_VkCommandPool_to_server_VkCommandPool[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94763,12 +95017,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkCommandPool deserialize_VkCommandPool(json data){
-               return (VkCommandPool)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkCommandPool result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkCommandPool)pointer);
+                    if (server_VkCommandPool_to_client_VkCommandPool.contains(pointer)){
+                        result=(VkCommandPool)server_VkCommandPool_to_client_VkCommandPool[pointer];
+                        printf("Deserializing to VkCommandPool %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkCommandPool));
+                        printf("Mapping to VkCommandPool %p...\n",handle);
+                        server_VkCommandPool_to_client_VkCommandPool[pointer]=(uintptr_t)handle;
+                        client_VkCommandPool_to_server_VkCommandPool[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkCommandPool)handle;
+                    }
+                #else
+                    result=(VkCommandPool)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkBuffer_to_server_VkBuffer;
+            std::map<uintptr_t,uintptr_t> server_VkBuffer_to_client_VkBuffer;
+            
+        #endif
+        
 
         json serialize_VkBuffer(VkBuffer data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkBuffer_to_server_VkBuffer.contains( (uintptr_t)data ))){
+                        printf("Panic: VkBuffer %p not found!\n",data);
+                    }
+                     printf("Serializing VkBuffer %p...\n",(VkBuffer)client_VkBuffer_to_server_VkBuffer[(uintptr_t)data]);
+                    result["value"]=client_VkBuffer_to_server_VkBuffer[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94776,12 +95069,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkBuffer deserialize_VkBuffer(json data){
-               return (VkBuffer)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkBuffer result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkBuffer)pointer);
+                    if (server_VkBuffer_to_client_VkBuffer.contains(pointer)){
+                        result=(VkBuffer)server_VkBuffer_to_client_VkBuffer[pointer];
+                        printf("Deserializing to VkBuffer %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkBuffer));
+                        printf("Mapping to VkBuffer %p...\n",handle);
+                        server_VkBuffer_to_client_VkBuffer[pointer]=(uintptr_t)handle;
+                        client_VkBuffer_to_server_VkBuffer[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkBuffer)handle;
+                    }
+                #else
+                    result=(VkBuffer)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkBufferView_to_server_VkBufferView;
+            std::map<uintptr_t,uintptr_t> server_VkBufferView_to_client_VkBufferView;
+            
+        #endif
+        
 
         json serialize_VkBufferView(VkBufferView data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkBufferView_to_server_VkBufferView.contains( (uintptr_t)data ))){
+                        printf("Panic: VkBufferView %p not found!\n",data);
+                    }
+                     printf("Serializing VkBufferView %p...\n",(VkBufferView)client_VkBufferView_to_server_VkBufferView[(uintptr_t)data]);
+                    result["value"]=client_VkBufferView_to_server_VkBufferView[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94789,12 +95121,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkBufferView deserialize_VkBufferView(json data){
-               return (VkBufferView)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkBufferView result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkBufferView)pointer);
+                    if (server_VkBufferView_to_client_VkBufferView.contains(pointer)){
+                        result=(VkBufferView)server_VkBufferView_to_client_VkBufferView[pointer];
+                        printf("Deserializing to VkBufferView %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkBufferView));
+                        printf("Mapping to VkBufferView %p...\n",handle);
+                        server_VkBufferView_to_client_VkBufferView[pointer]=(uintptr_t)handle;
+                        client_VkBufferView_to_server_VkBufferView[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkBufferView)handle;
+                    }
+                #else
+                    result=(VkBufferView)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkImage_to_server_VkImage;
+            std::map<uintptr_t,uintptr_t> server_VkImage_to_client_VkImage;
+            
+        #endif
+        
 
         json serialize_VkImage(VkImage data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkImage_to_server_VkImage.contains( (uintptr_t)data ))){
+                        printf("Panic: VkImage %p not found!\n",data);
+                    }
+                     printf("Serializing VkImage %p...\n",(VkImage)client_VkImage_to_server_VkImage[(uintptr_t)data]);
+                    result["value"]=client_VkImage_to_server_VkImage[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94802,12 +95173,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkImage deserialize_VkImage(json data){
-               return (VkImage)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkImage result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkImage)pointer);
+                    if (server_VkImage_to_client_VkImage.contains(pointer)){
+                        result=(VkImage)server_VkImage_to_client_VkImage[pointer];
+                        printf("Deserializing to VkImage %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkImage));
+                        printf("Mapping to VkImage %p...\n",handle);
+                        server_VkImage_to_client_VkImage[pointer]=(uintptr_t)handle;
+                        client_VkImage_to_server_VkImage[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkImage)handle;
+                    }
+                #else
+                    result=(VkImage)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkImageView_to_server_VkImageView;
+            std::map<uintptr_t,uintptr_t> server_VkImageView_to_client_VkImageView;
+            
+        #endif
+        
 
         json serialize_VkImageView(VkImageView data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkImageView_to_server_VkImageView.contains( (uintptr_t)data ))){
+                        printf("Panic: VkImageView %p not found!\n",data);
+                    }
+                     printf("Serializing VkImageView %p...\n",(VkImageView)client_VkImageView_to_server_VkImageView[(uintptr_t)data]);
+                    result["value"]=client_VkImageView_to_server_VkImageView[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94815,12 +95225,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkImageView deserialize_VkImageView(json data){
-               return (VkImageView)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkImageView result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkImageView)pointer);
+                    if (server_VkImageView_to_client_VkImageView.contains(pointer)){
+                        result=(VkImageView)server_VkImageView_to_client_VkImageView[pointer];
+                        printf("Deserializing to VkImageView %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkImageView));
+                        printf("Mapping to VkImageView %p...\n",handle);
+                        server_VkImageView_to_client_VkImageView[pointer]=(uintptr_t)handle;
+                        client_VkImageView_to_server_VkImageView[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkImageView)handle;
+                    }
+                #else
+                    result=(VkImageView)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkShaderModule_to_server_VkShaderModule;
+            std::map<uintptr_t,uintptr_t> server_VkShaderModule_to_client_VkShaderModule;
+            
+        #endif
+        
 
         json serialize_VkShaderModule(VkShaderModule data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkShaderModule_to_server_VkShaderModule.contains( (uintptr_t)data ))){
+                        printf("Panic: VkShaderModule %p not found!\n",data);
+                    }
+                     printf("Serializing VkShaderModule %p...\n",(VkShaderModule)client_VkShaderModule_to_server_VkShaderModule[(uintptr_t)data]);
+                    result["value"]=client_VkShaderModule_to_server_VkShaderModule[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94828,12 +95277,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkShaderModule deserialize_VkShaderModule(json data){
-               return (VkShaderModule)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkShaderModule result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkShaderModule)pointer);
+                    if (server_VkShaderModule_to_client_VkShaderModule.contains(pointer)){
+                        result=(VkShaderModule)server_VkShaderModule_to_client_VkShaderModule[pointer];
+                        printf("Deserializing to VkShaderModule %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkShaderModule));
+                        printf("Mapping to VkShaderModule %p...\n",handle);
+                        server_VkShaderModule_to_client_VkShaderModule[pointer]=(uintptr_t)handle;
+                        client_VkShaderModule_to_server_VkShaderModule[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkShaderModule)handle;
+                    }
+                #else
+                    result=(VkShaderModule)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkPipeline_to_server_VkPipeline;
+            std::map<uintptr_t,uintptr_t> server_VkPipeline_to_client_VkPipeline;
+            
+        #endif
+        
 
         json serialize_VkPipeline(VkPipeline data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkPipeline_to_server_VkPipeline.contains( (uintptr_t)data ))){
+                        printf("Panic: VkPipeline %p not found!\n",data);
+                    }
+                     printf("Serializing VkPipeline %p...\n",(VkPipeline)client_VkPipeline_to_server_VkPipeline[(uintptr_t)data]);
+                    result["value"]=client_VkPipeline_to_server_VkPipeline[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94841,12 +95329,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkPipeline deserialize_VkPipeline(json data){
-               return (VkPipeline)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkPipeline result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkPipeline)pointer);
+                    if (server_VkPipeline_to_client_VkPipeline.contains(pointer)){
+                        result=(VkPipeline)server_VkPipeline_to_client_VkPipeline[pointer];
+                        printf("Deserializing to VkPipeline %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkPipeline));
+                        printf("Mapping to VkPipeline %p...\n",handle);
+                        server_VkPipeline_to_client_VkPipeline[pointer]=(uintptr_t)handle;
+                        client_VkPipeline_to_server_VkPipeline[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkPipeline)handle;
+                    }
+                #else
+                    result=(VkPipeline)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkPipelineLayout_to_server_VkPipelineLayout;
+            std::map<uintptr_t,uintptr_t> server_VkPipelineLayout_to_client_VkPipelineLayout;
+            
+        #endif
+        
 
         json serialize_VkPipelineLayout(VkPipelineLayout data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkPipelineLayout_to_server_VkPipelineLayout.contains( (uintptr_t)data ))){
+                        printf("Panic: VkPipelineLayout %p not found!\n",data);
+                    }
+                     printf("Serializing VkPipelineLayout %p...\n",(VkPipelineLayout)client_VkPipelineLayout_to_server_VkPipelineLayout[(uintptr_t)data]);
+                    result["value"]=client_VkPipelineLayout_to_server_VkPipelineLayout[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94854,12 +95381,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkPipelineLayout deserialize_VkPipelineLayout(json data){
-               return (VkPipelineLayout)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkPipelineLayout result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkPipelineLayout)pointer);
+                    if (server_VkPipelineLayout_to_client_VkPipelineLayout.contains(pointer)){
+                        result=(VkPipelineLayout)server_VkPipelineLayout_to_client_VkPipelineLayout[pointer];
+                        printf("Deserializing to VkPipelineLayout %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkPipelineLayout));
+                        printf("Mapping to VkPipelineLayout %p...\n",handle);
+                        server_VkPipelineLayout_to_client_VkPipelineLayout[pointer]=(uintptr_t)handle;
+                        client_VkPipelineLayout_to_server_VkPipelineLayout[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkPipelineLayout)handle;
+                    }
+                #else
+                    result=(VkPipelineLayout)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkSampler_to_server_VkSampler;
+            std::map<uintptr_t,uintptr_t> server_VkSampler_to_client_VkSampler;
+            
+        #endif
+        
 
         json serialize_VkSampler(VkSampler data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkSampler_to_server_VkSampler.contains( (uintptr_t)data ))){
+                        printf("Panic: VkSampler %p not found!\n",data);
+                    }
+                     printf("Serializing VkSampler %p...\n",(VkSampler)client_VkSampler_to_server_VkSampler[(uintptr_t)data]);
+                    result["value"]=client_VkSampler_to_server_VkSampler[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94867,12 +95433,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkSampler deserialize_VkSampler(json data){
-               return (VkSampler)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkSampler result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkSampler)pointer);
+                    if (server_VkSampler_to_client_VkSampler.contains(pointer)){
+                        result=(VkSampler)server_VkSampler_to_client_VkSampler[pointer];
+                        printf("Deserializing to VkSampler %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkSampler));
+                        printf("Mapping to VkSampler %p...\n",handle);
+                        server_VkSampler_to_client_VkSampler[pointer]=(uintptr_t)handle;
+                        client_VkSampler_to_server_VkSampler[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkSampler)handle;
+                    }
+                #else
+                    result=(VkSampler)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkDescriptorSet_to_server_VkDescriptorSet;
+            std::map<uintptr_t,uintptr_t> server_VkDescriptorSet_to_client_VkDescriptorSet;
+            
+        #endif
+        
 
         json serialize_VkDescriptorSet(VkDescriptorSet data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkDescriptorSet_to_server_VkDescriptorSet.contains( (uintptr_t)data ))){
+                        printf("Panic: VkDescriptorSet %p not found!\n",data);
+                    }
+                     printf("Serializing VkDescriptorSet %p...\n",(VkDescriptorSet)client_VkDescriptorSet_to_server_VkDescriptorSet[(uintptr_t)data]);
+                    result["value"]=client_VkDescriptorSet_to_server_VkDescriptorSet[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94880,12 +95485,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkDescriptorSet deserialize_VkDescriptorSet(json data){
-               return (VkDescriptorSet)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkDescriptorSet result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkDescriptorSet)pointer);
+                    if (server_VkDescriptorSet_to_client_VkDescriptorSet.contains(pointer)){
+                        result=(VkDescriptorSet)server_VkDescriptorSet_to_client_VkDescriptorSet[pointer];
+                        printf("Deserializing to VkDescriptorSet %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkDescriptorSet));
+                        printf("Mapping to VkDescriptorSet %p...\n",handle);
+                        server_VkDescriptorSet_to_client_VkDescriptorSet[pointer]=(uintptr_t)handle;
+                        client_VkDescriptorSet_to_server_VkDescriptorSet[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkDescriptorSet)handle;
+                    }
+                #else
+                    result=(VkDescriptorSet)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout;
+            std::map<uintptr_t,uintptr_t> server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout;
+            
+        #endif
+        
 
         json serialize_VkDescriptorSetLayout(VkDescriptorSetLayout data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout.contains( (uintptr_t)data ))){
+                        printf("Panic: VkDescriptorSetLayout %p not found!\n",data);
+                    }
+                     printf("Serializing VkDescriptorSetLayout %p...\n",(VkDescriptorSetLayout)client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout[(uintptr_t)data]);
+                    result["value"]=client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94893,12 +95537,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkDescriptorSetLayout deserialize_VkDescriptorSetLayout(json data){
-               return (VkDescriptorSetLayout)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkDescriptorSetLayout result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkDescriptorSetLayout)pointer);
+                    if (server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout.contains(pointer)){
+                        result=(VkDescriptorSetLayout)server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout[pointer];
+                        printf("Deserializing to VkDescriptorSetLayout %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkDescriptorSetLayout));
+                        printf("Mapping to VkDescriptorSetLayout %p...\n",handle);
+                        server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout[pointer]=(uintptr_t)handle;
+                        client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkDescriptorSetLayout)handle;
+                    }
+                #else
+                    result=(VkDescriptorSetLayout)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkDescriptorPool_to_server_VkDescriptorPool;
+            std::map<uintptr_t,uintptr_t> server_VkDescriptorPool_to_client_VkDescriptorPool;
+            
+        #endif
+        
 
         json serialize_VkDescriptorPool(VkDescriptorPool data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkDescriptorPool_to_server_VkDescriptorPool.contains( (uintptr_t)data ))){
+                        printf("Panic: VkDescriptorPool %p not found!\n",data);
+                    }
+                     printf("Serializing VkDescriptorPool %p...\n",(VkDescriptorPool)client_VkDescriptorPool_to_server_VkDescriptorPool[(uintptr_t)data]);
+                    result["value"]=client_VkDescriptorPool_to_server_VkDescriptorPool[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94906,12 +95589,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkDescriptorPool deserialize_VkDescriptorPool(json data){
-               return (VkDescriptorPool)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkDescriptorPool result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkDescriptorPool)pointer);
+                    if (server_VkDescriptorPool_to_client_VkDescriptorPool.contains(pointer)){
+                        result=(VkDescriptorPool)server_VkDescriptorPool_to_client_VkDescriptorPool[pointer];
+                        printf("Deserializing to VkDescriptorPool %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkDescriptorPool));
+                        printf("Mapping to VkDescriptorPool %p...\n",handle);
+                        server_VkDescriptorPool_to_client_VkDescriptorPool[pointer]=(uintptr_t)handle;
+                        client_VkDescriptorPool_to_server_VkDescriptorPool[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkDescriptorPool)handle;
+                    }
+                #else
+                    result=(VkDescriptorPool)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkFence_to_server_VkFence;
+            std::map<uintptr_t,uintptr_t> server_VkFence_to_client_VkFence;
+            
+        #endif
+        
 
         json serialize_VkFence(VkFence data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkFence_to_server_VkFence.contains( (uintptr_t)data ))){
+                        printf("Panic: VkFence %p not found!\n",data);
+                    }
+                     printf("Serializing VkFence %p...\n",(VkFence)client_VkFence_to_server_VkFence[(uintptr_t)data]);
+                    result["value"]=client_VkFence_to_server_VkFence[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94919,12 +95641,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkFence deserialize_VkFence(json data){
-               return (VkFence)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkFence result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkFence)pointer);
+                    if (server_VkFence_to_client_VkFence.contains(pointer)){
+                        result=(VkFence)server_VkFence_to_client_VkFence[pointer];
+                        printf("Deserializing to VkFence %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkFence));
+                        printf("Mapping to VkFence %p...\n",handle);
+                        server_VkFence_to_client_VkFence[pointer]=(uintptr_t)handle;
+                        client_VkFence_to_server_VkFence[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkFence)handle;
+                    }
+                #else
+                    result=(VkFence)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkSemaphore_to_server_VkSemaphore;
+            std::map<uintptr_t,uintptr_t> server_VkSemaphore_to_client_VkSemaphore;
+            
+        #endif
+        
 
         json serialize_VkSemaphore(VkSemaphore data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkSemaphore_to_server_VkSemaphore.contains( (uintptr_t)data ))){
+                        printf("Panic: VkSemaphore %p not found!\n",data);
+                    }
+                     printf("Serializing VkSemaphore %p...\n",(VkSemaphore)client_VkSemaphore_to_server_VkSemaphore[(uintptr_t)data]);
+                    result["value"]=client_VkSemaphore_to_server_VkSemaphore[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94932,12 +95693,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkSemaphore deserialize_VkSemaphore(json data){
-               return (VkSemaphore)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkSemaphore result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkSemaphore)pointer);
+                    if (server_VkSemaphore_to_client_VkSemaphore.contains(pointer)){
+                        result=(VkSemaphore)server_VkSemaphore_to_client_VkSemaphore[pointer];
+                        printf("Deserializing to VkSemaphore %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkSemaphore));
+                        printf("Mapping to VkSemaphore %p...\n",handle);
+                        server_VkSemaphore_to_client_VkSemaphore[pointer]=(uintptr_t)handle;
+                        client_VkSemaphore_to_server_VkSemaphore[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkSemaphore)handle;
+                    }
+                #else
+                    result=(VkSemaphore)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkEvent_to_server_VkEvent;
+            std::map<uintptr_t,uintptr_t> server_VkEvent_to_client_VkEvent;
+            
+        #endif
+        
 
         json serialize_VkEvent(VkEvent data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkEvent_to_server_VkEvent.contains( (uintptr_t)data ))){
+                        printf("Panic: VkEvent %p not found!\n",data);
+                    }
+                     printf("Serializing VkEvent %p...\n",(VkEvent)client_VkEvent_to_server_VkEvent[(uintptr_t)data]);
+                    result["value"]=client_VkEvent_to_server_VkEvent[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94945,12 +95745,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkEvent deserialize_VkEvent(json data){
-               return (VkEvent)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkEvent result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkEvent)pointer);
+                    if (server_VkEvent_to_client_VkEvent.contains(pointer)){
+                        result=(VkEvent)server_VkEvent_to_client_VkEvent[pointer];
+                        printf("Deserializing to VkEvent %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkEvent));
+                        printf("Mapping to VkEvent %p...\n",handle);
+                        server_VkEvent_to_client_VkEvent[pointer]=(uintptr_t)handle;
+                        client_VkEvent_to_server_VkEvent[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkEvent)handle;
+                    }
+                #else
+                    result=(VkEvent)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkQueryPool_to_server_VkQueryPool;
+            std::map<uintptr_t,uintptr_t> server_VkQueryPool_to_client_VkQueryPool;
+            
+        #endif
+        
 
         json serialize_VkQueryPool(VkQueryPool data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkQueryPool_to_server_VkQueryPool.contains( (uintptr_t)data ))){
+                        printf("Panic: VkQueryPool %p not found!\n",data);
+                    }
+                     printf("Serializing VkQueryPool %p...\n",(VkQueryPool)client_VkQueryPool_to_server_VkQueryPool[(uintptr_t)data]);
+                    result["value"]=client_VkQueryPool_to_server_VkQueryPool[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94958,12 +95797,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkQueryPool deserialize_VkQueryPool(json data){
-               return (VkQueryPool)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkQueryPool result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkQueryPool)pointer);
+                    if (server_VkQueryPool_to_client_VkQueryPool.contains(pointer)){
+                        result=(VkQueryPool)server_VkQueryPool_to_client_VkQueryPool[pointer];
+                        printf("Deserializing to VkQueryPool %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkQueryPool));
+                        printf("Mapping to VkQueryPool %p...\n",handle);
+                        server_VkQueryPool_to_client_VkQueryPool[pointer]=(uintptr_t)handle;
+                        client_VkQueryPool_to_server_VkQueryPool[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkQueryPool)handle;
+                    }
+                #else
+                    result=(VkQueryPool)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkFramebuffer_to_server_VkFramebuffer;
+            std::map<uintptr_t,uintptr_t> server_VkFramebuffer_to_client_VkFramebuffer;
+            
+        #endif
+        
 
         json serialize_VkFramebuffer(VkFramebuffer data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkFramebuffer_to_server_VkFramebuffer.contains( (uintptr_t)data ))){
+                        printf("Panic: VkFramebuffer %p not found!\n",data);
+                    }
+                     printf("Serializing VkFramebuffer %p...\n",(VkFramebuffer)client_VkFramebuffer_to_server_VkFramebuffer[(uintptr_t)data]);
+                    result["value"]=client_VkFramebuffer_to_server_VkFramebuffer[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94971,12 +95849,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkFramebuffer deserialize_VkFramebuffer(json data){
-               return (VkFramebuffer)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkFramebuffer result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkFramebuffer)pointer);
+                    if (server_VkFramebuffer_to_client_VkFramebuffer.contains(pointer)){
+                        result=(VkFramebuffer)server_VkFramebuffer_to_client_VkFramebuffer[pointer];
+                        printf("Deserializing to VkFramebuffer %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkFramebuffer));
+                        printf("Mapping to VkFramebuffer %p...\n",handle);
+                        server_VkFramebuffer_to_client_VkFramebuffer[pointer]=(uintptr_t)handle;
+                        client_VkFramebuffer_to_server_VkFramebuffer[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkFramebuffer)handle;
+                    }
+                #else
+                    result=(VkFramebuffer)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkRenderPass_to_server_VkRenderPass;
+            std::map<uintptr_t,uintptr_t> server_VkRenderPass_to_client_VkRenderPass;
+            
+        #endif
+        
 
         json serialize_VkRenderPass(VkRenderPass data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkRenderPass_to_server_VkRenderPass.contains( (uintptr_t)data ))){
+                        printf("Panic: VkRenderPass %p not found!\n",data);
+                    }
+                     printf("Serializing VkRenderPass %p...\n",(VkRenderPass)client_VkRenderPass_to_server_VkRenderPass[(uintptr_t)data]);
+                    result["value"]=client_VkRenderPass_to_server_VkRenderPass[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94984,12 +95901,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkRenderPass deserialize_VkRenderPass(json data){
-               return (VkRenderPass)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkRenderPass result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkRenderPass)pointer);
+                    if (server_VkRenderPass_to_client_VkRenderPass.contains(pointer)){
+                        result=(VkRenderPass)server_VkRenderPass_to_client_VkRenderPass[pointer];
+                        printf("Deserializing to VkRenderPass %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkRenderPass));
+                        printf("Mapping to VkRenderPass %p...\n",handle);
+                        server_VkRenderPass_to_client_VkRenderPass[pointer]=(uintptr_t)handle;
+                        client_VkRenderPass_to_server_VkRenderPass[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkRenderPass)handle;
+                    }
+                #else
+                    result=(VkRenderPass)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkPipelineCache_to_server_VkPipelineCache;
+            std::map<uintptr_t,uintptr_t> server_VkPipelineCache_to_client_VkPipelineCache;
+            
+        #endif
+        
 
         json serialize_VkPipelineCache(VkPipelineCache data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkPipelineCache_to_server_VkPipelineCache.contains( (uintptr_t)data ))){
+                        printf("Panic: VkPipelineCache %p not found!\n",data);
+                    }
+                     printf("Serializing VkPipelineCache %p...\n",(VkPipelineCache)client_VkPipelineCache_to_server_VkPipelineCache[(uintptr_t)data]);
+                    result["value"]=client_VkPipelineCache_to_server_VkPipelineCache[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -94997,12 +95953,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkPipelineCache deserialize_VkPipelineCache(json data){
-               return (VkPipelineCache)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkPipelineCache result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkPipelineCache)pointer);
+                    if (server_VkPipelineCache_to_client_VkPipelineCache.contains(pointer)){
+                        result=(VkPipelineCache)server_VkPipelineCache_to_client_VkPipelineCache[pointer];
+                        printf("Deserializing to VkPipelineCache %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkPipelineCache));
+                        printf("Mapping to VkPipelineCache %p...\n",handle);
+                        server_VkPipelineCache_to_client_VkPipelineCache[pointer]=(uintptr_t)handle;
+                        client_VkPipelineCache_to_server_VkPipelineCache[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkPipelineCache)handle;
+                    }
+                #else
+                    result=(VkPipelineCache)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV;
+            std::map<uintptr_t,uintptr_t> server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV;
+            
+        #endif
+        
 
         json serialize_VkIndirectCommandsLayoutNV(VkIndirectCommandsLayoutNV data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV.contains( (uintptr_t)data ))){
+                        printf("Panic: VkIndirectCommandsLayoutNV %p not found!\n",data);
+                    }
+                     printf("Serializing VkIndirectCommandsLayoutNV %p...\n",(VkIndirectCommandsLayoutNV)client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV[(uintptr_t)data]);
+                    result["value"]=client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95010,12 +96005,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkIndirectCommandsLayoutNV deserialize_VkIndirectCommandsLayoutNV(json data){
-               return (VkIndirectCommandsLayoutNV)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkIndirectCommandsLayoutNV result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkIndirectCommandsLayoutNV)pointer);
+                    if (server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV.contains(pointer)){
+                        result=(VkIndirectCommandsLayoutNV)server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV[pointer];
+                        printf("Deserializing to VkIndirectCommandsLayoutNV %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkIndirectCommandsLayoutNV));
+                        printf("Mapping to VkIndirectCommandsLayoutNV %p...\n",handle);
+                        server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV[pointer]=(uintptr_t)handle;
+                        client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkIndirectCommandsLayoutNV)handle;
+                    }
+                #else
+                    result=(VkIndirectCommandsLayoutNV)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate;
+            std::map<uintptr_t,uintptr_t> server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate;
+            
+        #endif
+        
 
         json serialize_VkDescriptorUpdateTemplate(VkDescriptorUpdateTemplate data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate.contains( (uintptr_t)data ))){
+                        printf("Panic: VkDescriptorUpdateTemplate %p not found!\n",data);
+                    }
+                     printf("Serializing VkDescriptorUpdateTemplate %p...\n",(VkDescriptorUpdateTemplate)client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate[(uintptr_t)data]);
+                    result["value"]=client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95023,12 +96057,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkDescriptorUpdateTemplate deserialize_VkDescriptorUpdateTemplate(json data){
-               return (VkDescriptorUpdateTemplate)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkDescriptorUpdateTemplate result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkDescriptorUpdateTemplate)pointer);
+                    if (server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate.contains(pointer)){
+                        result=(VkDescriptorUpdateTemplate)server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate[pointer];
+                        printf("Deserializing to VkDescriptorUpdateTemplate %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkDescriptorUpdateTemplate));
+                        printf("Mapping to VkDescriptorUpdateTemplate %p...\n",handle);
+                        server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate[pointer]=(uintptr_t)handle;
+                        client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkDescriptorUpdateTemplate)handle;
+                    }
+                #else
+                    result=(VkDescriptorUpdateTemplate)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR;
+            std::map<uintptr_t,uintptr_t> server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR;
+            
+        #endif
+        
 
         json serialize_VkDescriptorUpdateTemplateKHR(VkDescriptorUpdateTemplateKHR data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR.contains( (uintptr_t)data ))){
+                        printf("Panic: VkDescriptorUpdateTemplateKHR %p not found!\n",data);
+                    }
+                     printf("Serializing VkDescriptorUpdateTemplateKHR %p...\n",(VkDescriptorUpdateTemplateKHR)client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR[(uintptr_t)data]);
+                    result["value"]=client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95036,12 +96109,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkDescriptorUpdateTemplateKHR deserialize_VkDescriptorUpdateTemplateKHR(json data){
-               return (VkDescriptorUpdateTemplateKHR)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkDescriptorUpdateTemplateKHR result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkDescriptorUpdateTemplateKHR)pointer);
+                    if (server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR.contains(pointer)){
+                        result=(VkDescriptorUpdateTemplateKHR)server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR[pointer];
+                        printf("Deserializing to VkDescriptorUpdateTemplateKHR %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkDescriptorUpdateTemplateKHR));
+                        printf("Mapping to VkDescriptorUpdateTemplateKHR %p...\n",handle);
+                        server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR[pointer]=(uintptr_t)handle;
+                        client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkDescriptorUpdateTemplateKHR)handle;
+                    }
+                #else
+                    result=(VkDescriptorUpdateTemplateKHR)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion;
+            std::map<uintptr_t,uintptr_t> server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion;
+            
+        #endif
+        
 
         json serialize_VkSamplerYcbcrConversion(VkSamplerYcbcrConversion data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion.contains( (uintptr_t)data ))){
+                        printf("Panic: VkSamplerYcbcrConversion %p not found!\n",data);
+                    }
+                     printf("Serializing VkSamplerYcbcrConversion %p...\n",(VkSamplerYcbcrConversion)client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion[(uintptr_t)data]);
+                    result["value"]=client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95049,12 +96161,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkSamplerYcbcrConversion deserialize_VkSamplerYcbcrConversion(json data){
-               return (VkSamplerYcbcrConversion)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkSamplerYcbcrConversion result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkSamplerYcbcrConversion)pointer);
+                    if (server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion.contains(pointer)){
+                        result=(VkSamplerYcbcrConversion)server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion[pointer];
+                        printf("Deserializing to VkSamplerYcbcrConversion %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkSamplerYcbcrConversion));
+                        printf("Mapping to VkSamplerYcbcrConversion %p...\n",handle);
+                        server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion[pointer]=(uintptr_t)handle;
+                        client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkSamplerYcbcrConversion)handle;
+                    }
+                #else
+                    result=(VkSamplerYcbcrConversion)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR;
+            std::map<uintptr_t,uintptr_t> server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR;
+            
+        #endif
+        
 
         json serialize_VkSamplerYcbcrConversionKHR(VkSamplerYcbcrConversionKHR data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR.contains( (uintptr_t)data ))){
+                        printf("Panic: VkSamplerYcbcrConversionKHR %p not found!\n",data);
+                    }
+                     printf("Serializing VkSamplerYcbcrConversionKHR %p...\n",(VkSamplerYcbcrConversionKHR)client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR[(uintptr_t)data]);
+                    result["value"]=client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95062,12 +96213,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkSamplerYcbcrConversionKHR deserialize_VkSamplerYcbcrConversionKHR(json data){
-               return (VkSamplerYcbcrConversionKHR)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkSamplerYcbcrConversionKHR result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkSamplerYcbcrConversionKHR)pointer);
+                    if (server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR.contains(pointer)){
+                        result=(VkSamplerYcbcrConversionKHR)server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR[pointer];
+                        printf("Deserializing to VkSamplerYcbcrConversionKHR %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkSamplerYcbcrConversionKHR));
+                        printf("Mapping to VkSamplerYcbcrConversionKHR %p...\n",handle);
+                        server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR[pointer]=(uintptr_t)handle;
+                        client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkSamplerYcbcrConversionKHR)handle;
+                    }
+                #else
+                    result=(VkSamplerYcbcrConversionKHR)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkValidationCacheEXT_to_server_VkValidationCacheEXT;
+            std::map<uintptr_t,uintptr_t> server_VkValidationCacheEXT_to_client_VkValidationCacheEXT;
+            
+        #endif
+        
 
         json serialize_VkValidationCacheEXT(VkValidationCacheEXT data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkValidationCacheEXT_to_server_VkValidationCacheEXT.contains( (uintptr_t)data ))){
+                        printf("Panic: VkValidationCacheEXT %p not found!\n",data);
+                    }
+                     printf("Serializing VkValidationCacheEXT %p...\n",(VkValidationCacheEXT)client_VkValidationCacheEXT_to_server_VkValidationCacheEXT[(uintptr_t)data]);
+                    result["value"]=client_VkValidationCacheEXT_to_server_VkValidationCacheEXT[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95075,12 +96265,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkValidationCacheEXT deserialize_VkValidationCacheEXT(json data){
-               return (VkValidationCacheEXT)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkValidationCacheEXT result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkValidationCacheEXT)pointer);
+                    if (server_VkValidationCacheEXT_to_client_VkValidationCacheEXT.contains(pointer)){
+                        result=(VkValidationCacheEXT)server_VkValidationCacheEXT_to_client_VkValidationCacheEXT[pointer];
+                        printf("Deserializing to VkValidationCacheEXT %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkValidationCacheEXT));
+                        printf("Mapping to VkValidationCacheEXT %p...\n",handle);
+                        server_VkValidationCacheEXT_to_client_VkValidationCacheEXT[pointer]=(uintptr_t)handle;
+                        client_VkValidationCacheEXT_to_server_VkValidationCacheEXT[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkValidationCacheEXT)handle;
+                    }
+                #else
+                    result=(VkValidationCacheEXT)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR;
+            std::map<uintptr_t,uintptr_t> server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR;
+            
+        #endif
+        
 
         json serialize_VkAccelerationStructureKHR(VkAccelerationStructureKHR data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR.contains( (uintptr_t)data ))){
+                        printf("Panic: VkAccelerationStructureKHR %p not found!\n",data);
+                    }
+                     printf("Serializing VkAccelerationStructureKHR %p...\n",(VkAccelerationStructureKHR)client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR[(uintptr_t)data]);
+                    result["value"]=client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95088,12 +96317,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkAccelerationStructureKHR deserialize_VkAccelerationStructureKHR(json data){
-               return (VkAccelerationStructureKHR)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkAccelerationStructureKHR result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkAccelerationStructureKHR)pointer);
+                    if (server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR.contains(pointer)){
+                        result=(VkAccelerationStructureKHR)server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR[pointer];
+                        printf("Deserializing to VkAccelerationStructureKHR %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkAccelerationStructureKHR));
+                        printf("Mapping to VkAccelerationStructureKHR %p...\n",handle);
+                        server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR[pointer]=(uintptr_t)handle;
+                        client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkAccelerationStructureKHR)handle;
+                    }
+                #else
+                    result=(VkAccelerationStructureKHR)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV;
+            std::map<uintptr_t,uintptr_t> server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV;
+            
+        #endif
+        
 
         json serialize_VkAccelerationStructureNV(VkAccelerationStructureNV data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV.contains( (uintptr_t)data ))){
+                        printf("Panic: VkAccelerationStructureNV %p not found!\n",data);
+                    }
+                     printf("Serializing VkAccelerationStructureNV %p...\n",(VkAccelerationStructureNV)client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV[(uintptr_t)data]);
+                    result["value"]=client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95101,12 +96369,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkAccelerationStructureNV deserialize_VkAccelerationStructureNV(json data){
-               return (VkAccelerationStructureNV)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkAccelerationStructureNV result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkAccelerationStructureNV)pointer);
+                    if (server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV.contains(pointer)){
+                        result=(VkAccelerationStructureNV)server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV[pointer];
+                        printf("Deserializing to VkAccelerationStructureNV %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkAccelerationStructureNV));
+                        printf("Mapping to VkAccelerationStructureNV %p...\n",handle);
+                        server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV[pointer]=(uintptr_t)handle;
+                        client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkAccelerationStructureNV)handle;
+                    }
+                #else
+                    result=(VkAccelerationStructureNV)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL;
+            std::map<uintptr_t,uintptr_t> server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL;
+            
+        #endif
+        
 
         json serialize_VkPerformanceConfigurationINTEL(VkPerformanceConfigurationINTEL data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL.contains( (uintptr_t)data ))){
+                        printf("Panic: VkPerformanceConfigurationINTEL %p not found!\n",data);
+                    }
+                     printf("Serializing VkPerformanceConfigurationINTEL %p...\n",(VkPerformanceConfigurationINTEL)client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL[(uintptr_t)data]);
+                    result["value"]=client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95114,12 +96421,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkPerformanceConfigurationINTEL deserialize_VkPerformanceConfigurationINTEL(json data){
-               return (VkPerformanceConfigurationINTEL)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkPerformanceConfigurationINTEL result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkPerformanceConfigurationINTEL)pointer);
+                    if (server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL.contains(pointer)){
+                        result=(VkPerformanceConfigurationINTEL)server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL[pointer];
+                        printf("Deserializing to VkPerformanceConfigurationINTEL %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkPerformanceConfigurationINTEL));
+                        printf("Mapping to VkPerformanceConfigurationINTEL %p...\n",handle);
+                        server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL[pointer]=(uintptr_t)handle;
+                        client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkPerformanceConfigurationINTEL)handle;
+                    }
+                #else
+                    result=(VkPerformanceConfigurationINTEL)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR;
+            std::map<uintptr_t,uintptr_t> server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR;
+            
+        #endif
+        
 
         json serialize_VkDeferredOperationKHR(VkDeferredOperationKHR data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR.contains( (uintptr_t)data ))){
+                        printf("Panic: VkDeferredOperationKHR %p not found!\n",data);
+                    }
+                     printf("Serializing VkDeferredOperationKHR %p...\n",(VkDeferredOperationKHR)client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR[(uintptr_t)data]);
+                    result["value"]=client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95127,12 +96473,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkDeferredOperationKHR deserialize_VkDeferredOperationKHR(json data){
-               return (VkDeferredOperationKHR)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkDeferredOperationKHR result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkDeferredOperationKHR)pointer);
+                    if (server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR.contains(pointer)){
+                        result=(VkDeferredOperationKHR)server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR[pointer];
+                        printf("Deserializing to VkDeferredOperationKHR %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkDeferredOperationKHR));
+                        printf("Mapping to VkDeferredOperationKHR %p...\n",handle);
+                        server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR[pointer]=(uintptr_t)handle;
+                        client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkDeferredOperationKHR)handle;
+                    }
+                #else
+                    result=(VkDeferredOperationKHR)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkPrivateDataSlot_to_server_VkPrivateDataSlot;
+            std::map<uintptr_t,uintptr_t> server_VkPrivateDataSlot_to_client_VkPrivateDataSlot;
+            
+        #endif
+        
 
         json serialize_VkPrivateDataSlot(VkPrivateDataSlot data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkPrivateDataSlot_to_server_VkPrivateDataSlot.contains( (uintptr_t)data ))){
+                        printf("Panic: VkPrivateDataSlot %p not found!\n",data);
+                    }
+                     printf("Serializing VkPrivateDataSlot %p...\n",(VkPrivateDataSlot)client_VkPrivateDataSlot_to_server_VkPrivateDataSlot[(uintptr_t)data]);
+                    result["value"]=client_VkPrivateDataSlot_to_server_VkPrivateDataSlot[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95140,12 +96525,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkPrivateDataSlot deserialize_VkPrivateDataSlot(json data){
-               return (VkPrivateDataSlot)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkPrivateDataSlot result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkPrivateDataSlot)pointer);
+                    if (server_VkPrivateDataSlot_to_client_VkPrivateDataSlot.contains(pointer)){
+                        result=(VkPrivateDataSlot)server_VkPrivateDataSlot_to_client_VkPrivateDataSlot[pointer];
+                        printf("Deserializing to VkPrivateDataSlot %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkPrivateDataSlot));
+                        printf("Mapping to VkPrivateDataSlot %p...\n",handle);
+                        server_VkPrivateDataSlot_to_client_VkPrivateDataSlot[pointer]=(uintptr_t)handle;
+                        client_VkPrivateDataSlot_to_server_VkPrivateDataSlot[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkPrivateDataSlot)handle;
+                    }
+                #else
+                    result=(VkPrivateDataSlot)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT;
+            std::map<uintptr_t,uintptr_t> server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT;
+            
+        #endif
+        
 
         json serialize_VkPrivateDataSlotEXT(VkPrivateDataSlotEXT data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT.contains( (uintptr_t)data ))){
+                        printf("Panic: VkPrivateDataSlotEXT %p not found!\n",data);
+                    }
+                     printf("Serializing VkPrivateDataSlotEXT %p...\n",(VkPrivateDataSlotEXT)client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT[(uintptr_t)data]);
+                    result["value"]=client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95153,12 +96577,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkPrivateDataSlotEXT deserialize_VkPrivateDataSlotEXT(json data){
-               return (VkPrivateDataSlotEXT)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkPrivateDataSlotEXT result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkPrivateDataSlotEXT)pointer);
+                    if (server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT.contains(pointer)){
+                        result=(VkPrivateDataSlotEXT)server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT[pointer];
+                        printf("Deserializing to VkPrivateDataSlotEXT %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkPrivateDataSlotEXT));
+                        printf("Mapping to VkPrivateDataSlotEXT %p...\n",handle);
+                        server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT[pointer]=(uintptr_t)handle;
+                        client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkPrivateDataSlotEXT)handle;
+                    }
+                #else
+                    result=(VkPrivateDataSlotEXT)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkCuModuleNVX_to_server_VkCuModuleNVX;
+            std::map<uintptr_t,uintptr_t> server_VkCuModuleNVX_to_client_VkCuModuleNVX;
+            
+        #endif
+        
 
         json serialize_VkCuModuleNVX(VkCuModuleNVX data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkCuModuleNVX_to_server_VkCuModuleNVX.contains( (uintptr_t)data ))){
+                        printf("Panic: VkCuModuleNVX %p not found!\n",data);
+                    }
+                     printf("Serializing VkCuModuleNVX %p...\n",(VkCuModuleNVX)client_VkCuModuleNVX_to_server_VkCuModuleNVX[(uintptr_t)data]);
+                    result["value"]=client_VkCuModuleNVX_to_server_VkCuModuleNVX[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95166,12 +96629,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkCuModuleNVX deserialize_VkCuModuleNVX(json data){
-               return (VkCuModuleNVX)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkCuModuleNVX result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkCuModuleNVX)pointer);
+                    if (server_VkCuModuleNVX_to_client_VkCuModuleNVX.contains(pointer)){
+                        result=(VkCuModuleNVX)server_VkCuModuleNVX_to_client_VkCuModuleNVX[pointer];
+                        printf("Deserializing to VkCuModuleNVX %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkCuModuleNVX));
+                        printf("Mapping to VkCuModuleNVX %p...\n",handle);
+                        server_VkCuModuleNVX_to_client_VkCuModuleNVX[pointer]=(uintptr_t)handle;
+                        client_VkCuModuleNVX_to_server_VkCuModuleNVX[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkCuModuleNVX)handle;
+                    }
+                #else
+                    result=(VkCuModuleNVX)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkCuFunctionNVX_to_server_VkCuFunctionNVX;
+            std::map<uintptr_t,uintptr_t> server_VkCuFunctionNVX_to_client_VkCuFunctionNVX;
+            
+        #endif
+        
 
         json serialize_VkCuFunctionNVX(VkCuFunctionNVX data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkCuFunctionNVX_to_server_VkCuFunctionNVX.contains( (uintptr_t)data ))){
+                        printf("Panic: VkCuFunctionNVX %p not found!\n",data);
+                    }
+                     printf("Serializing VkCuFunctionNVX %p...\n",(VkCuFunctionNVX)client_VkCuFunctionNVX_to_server_VkCuFunctionNVX[(uintptr_t)data]);
+                    result["value"]=client_VkCuFunctionNVX_to_server_VkCuFunctionNVX[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95179,12 +96681,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkCuFunctionNVX deserialize_VkCuFunctionNVX(json data){
-               return (VkCuFunctionNVX)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkCuFunctionNVX result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkCuFunctionNVX)pointer);
+                    if (server_VkCuFunctionNVX_to_client_VkCuFunctionNVX.contains(pointer)){
+                        result=(VkCuFunctionNVX)server_VkCuFunctionNVX_to_client_VkCuFunctionNVX[pointer];
+                        printf("Deserializing to VkCuFunctionNVX %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkCuFunctionNVX));
+                        printf("Mapping to VkCuFunctionNVX %p...\n",handle);
+                        server_VkCuFunctionNVX_to_client_VkCuFunctionNVX[pointer]=(uintptr_t)handle;
+                        client_VkCuFunctionNVX_to_server_VkCuFunctionNVX[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkCuFunctionNVX)handle;
+                    }
+                #else
+                    result=(VkCuFunctionNVX)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV;
+            std::map<uintptr_t,uintptr_t> server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV;
+            
+        #endif
+        
 
         json serialize_VkOpticalFlowSessionNV(VkOpticalFlowSessionNV data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV.contains( (uintptr_t)data ))){
+                        printf("Panic: VkOpticalFlowSessionNV %p not found!\n",data);
+                    }
+                     printf("Serializing VkOpticalFlowSessionNV %p...\n",(VkOpticalFlowSessionNV)client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV[(uintptr_t)data]);
+                    result["value"]=client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95192,12 +96733,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkOpticalFlowSessionNV deserialize_VkOpticalFlowSessionNV(json data){
-               return (VkOpticalFlowSessionNV)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkOpticalFlowSessionNV result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkOpticalFlowSessionNV)pointer);
+                    if (server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV.contains(pointer)){
+                        result=(VkOpticalFlowSessionNV)server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV[pointer];
+                        printf("Deserializing to VkOpticalFlowSessionNV %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkOpticalFlowSessionNV));
+                        printf("Mapping to VkOpticalFlowSessionNV %p...\n",handle);
+                        server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV[pointer]=(uintptr_t)handle;
+                        client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkOpticalFlowSessionNV)handle;
+                    }
+                #else
+                    result=(VkOpticalFlowSessionNV)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkMicromapEXT_to_server_VkMicromapEXT;
+            std::map<uintptr_t,uintptr_t> server_VkMicromapEXT_to_client_VkMicromapEXT;
+            
+        #endif
+        
 
         json serialize_VkMicromapEXT(VkMicromapEXT data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkMicromapEXT_to_server_VkMicromapEXT.contains( (uintptr_t)data ))){
+                        printf("Panic: VkMicromapEXT %p not found!\n",data);
+                    }
+                     printf("Serializing VkMicromapEXT %p...\n",(VkMicromapEXT)client_VkMicromapEXT_to_server_VkMicromapEXT[(uintptr_t)data]);
+                    result["value"]=client_VkMicromapEXT_to_server_VkMicromapEXT[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95205,12 +96785,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkMicromapEXT deserialize_VkMicromapEXT(json data){
-               return (VkMicromapEXT)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkMicromapEXT result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkMicromapEXT)pointer);
+                    if (server_VkMicromapEXT_to_client_VkMicromapEXT.contains(pointer)){
+                        result=(VkMicromapEXT)server_VkMicromapEXT_to_client_VkMicromapEXT[pointer];
+                        printf("Deserializing to VkMicromapEXT %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkMicromapEXT));
+                        printf("Mapping to VkMicromapEXT %p...\n",handle);
+                        server_VkMicromapEXT_to_client_VkMicromapEXT[pointer]=(uintptr_t)handle;
+                        client_VkMicromapEXT_to_server_VkMicromapEXT[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkMicromapEXT)handle;
+                    }
+                #else
+                    result=(VkMicromapEXT)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkShaderEXT_to_server_VkShaderEXT;
+            std::map<uintptr_t,uintptr_t> server_VkShaderEXT_to_client_VkShaderEXT;
+            
+        #endif
+        
 
         json serialize_VkShaderEXT(VkShaderEXT data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkShaderEXT_to_server_VkShaderEXT.contains( (uintptr_t)data ))){
+                        printf("Panic: VkShaderEXT %p not found!\n",data);
+                    }
+                     printf("Serializing VkShaderEXT %p...\n",(VkShaderEXT)client_VkShaderEXT_to_server_VkShaderEXT[(uintptr_t)data]);
+                    result["value"]=client_VkShaderEXT_to_server_VkShaderEXT[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95218,12 +96837,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkShaderEXT deserialize_VkShaderEXT(json data){
-               return (VkShaderEXT)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkShaderEXT result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkShaderEXT)pointer);
+                    if (server_VkShaderEXT_to_client_VkShaderEXT.contains(pointer)){
+                        result=(VkShaderEXT)server_VkShaderEXT_to_client_VkShaderEXT[pointer];
+                        printf("Deserializing to VkShaderEXT %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkShaderEXT));
+                        printf("Mapping to VkShaderEXT %p...\n",handle);
+                        server_VkShaderEXT_to_client_VkShaderEXT[pointer]=(uintptr_t)handle;
+                        client_VkShaderEXT_to_server_VkShaderEXT[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkShaderEXT)handle;
+                    }
+                #else
+                    result=(VkShaderEXT)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkDisplayKHR_to_server_VkDisplayKHR;
+            std::map<uintptr_t,uintptr_t> server_VkDisplayKHR_to_client_VkDisplayKHR;
+            
+        #endif
+        
 
         json serialize_VkDisplayKHR(VkDisplayKHR data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkDisplayKHR_to_server_VkDisplayKHR.contains( (uintptr_t)data ))){
+                        printf("Panic: VkDisplayKHR %p not found!\n",data);
+                    }
+                     printf("Serializing VkDisplayKHR %p...\n",(VkDisplayKHR)client_VkDisplayKHR_to_server_VkDisplayKHR[(uintptr_t)data]);
+                    result["value"]=client_VkDisplayKHR_to_server_VkDisplayKHR[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95231,12 +96889,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkDisplayKHR deserialize_VkDisplayKHR(json data){
-               return (VkDisplayKHR)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkDisplayKHR result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkDisplayKHR)pointer);
+                    if (server_VkDisplayKHR_to_client_VkDisplayKHR.contains(pointer)){
+                        result=(VkDisplayKHR)server_VkDisplayKHR_to_client_VkDisplayKHR[pointer];
+                        printf("Deserializing to VkDisplayKHR %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkDisplayKHR));
+                        printf("Mapping to VkDisplayKHR %p...\n",handle);
+                        server_VkDisplayKHR_to_client_VkDisplayKHR[pointer]=(uintptr_t)handle;
+                        client_VkDisplayKHR_to_server_VkDisplayKHR[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkDisplayKHR)handle;
+                    }
+                #else
+                    result=(VkDisplayKHR)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkDisplayModeKHR_to_server_VkDisplayModeKHR;
+            std::map<uintptr_t,uintptr_t> server_VkDisplayModeKHR_to_client_VkDisplayModeKHR;
+            
+        #endif
+        
 
         json serialize_VkDisplayModeKHR(VkDisplayModeKHR data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkDisplayModeKHR_to_server_VkDisplayModeKHR.contains( (uintptr_t)data ))){
+                        printf("Panic: VkDisplayModeKHR %p not found!\n",data);
+                    }
+                     printf("Serializing VkDisplayModeKHR %p...\n",(VkDisplayModeKHR)client_VkDisplayModeKHR_to_server_VkDisplayModeKHR[(uintptr_t)data]);
+                    result["value"]=client_VkDisplayModeKHR_to_server_VkDisplayModeKHR[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95244,12 +96941,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkDisplayModeKHR deserialize_VkDisplayModeKHR(json data){
-               return (VkDisplayModeKHR)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkDisplayModeKHR result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkDisplayModeKHR)pointer);
+                    if (server_VkDisplayModeKHR_to_client_VkDisplayModeKHR.contains(pointer)){
+                        result=(VkDisplayModeKHR)server_VkDisplayModeKHR_to_client_VkDisplayModeKHR[pointer];
+                        printf("Deserializing to VkDisplayModeKHR %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkDisplayModeKHR));
+                        printf("Mapping to VkDisplayModeKHR %p...\n",handle);
+                        server_VkDisplayModeKHR_to_client_VkDisplayModeKHR[pointer]=(uintptr_t)handle;
+                        client_VkDisplayModeKHR_to_server_VkDisplayModeKHR[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkDisplayModeKHR)handle;
+                    }
+                #else
+                    result=(VkDisplayModeKHR)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkSurfaceKHR_to_server_VkSurfaceKHR;
+            std::map<uintptr_t,uintptr_t> server_VkSurfaceKHR_to_client_VkSurfaceKHR;
+            
+        #endif
+        
 
         json serialize_VkSurfaceKHR(VkSurfaceKHR data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkSurfaceKHR_to_server_VkSurfaceKHR.contains( (uintptr_t)data ))){
+                        printf("Panic: VkSurfaceKHR %p not found!\n",data);
+                    }
+                     printf("Serializing VkSurfaceKHR %p...\n",(VkSurfaceKHR)client_VkSurfaceKHR_to_server_VkSurfaceKHR[(uintptr_t)data]);
+                    result["value"]=client_VkSurfaceKHR_to_server_VkSurfaceKHR[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95257,12 +96993,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkSurfaceKHR deserialize_VkSurfaceKHR(json data){
-               return (VkSurfaceKHR)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkSurfaceKHR result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkSurfaceKHR)pointer);
+                    if (server_VkSurfaceKHR_to_client_VkSurfaceKHR.contains(pointer)){
+                        result=(VkSurfaceKHR)server_VkSurfaceKHR_to_client_VkSurfaceKHR[pointer];
+                        printf("Deserializing to VkSurfaceKHR %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkSurfaceKHR));
+                        printf("Mapping to VkSurfaceKHR %p...\n",handle);
+                        server_VkSurfaceKHR_to_client_VkSurfaceKHR[pointer]=(uintptr_t)handle;
+                        client_VkSurfaceKHR_to_server_VkSurfaceKHR[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkSurfaceKHR)handle;
+                    }
+                #else
+                    result=(VkSurfaceKHR)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkSwapchainKHR_to_server_VkSwapchainKHR;
+            std::map<uintptr_t,uintptr_t> server_VkSwapchainKHR_to_client_VkSwapchainKHR;
+            
+        #endif
+        
 
         json serialize_VkSwapchainKHR(VkSwapchainKHR data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkSwapchainKHR_to_server_VkSwapchainKHR.contains( (uintptr_t)data ))){
+                        printf("Panic: VkSwapchainKHR %p not found!\n",data);
+                    }
+                     printf("Serializing VkSwapchainKHR %p...\n",(VkSwapchainKHR)client_VkSwapchainKHR_to_server_VkSwapchainKHR[(uintptr_t)data]);
+                    result["value"]=client_VkSwapchainKHR_to_server_VkSwapchainKHR[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95270,12 +97045,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkSwapchainKHR deserialize_VkSwapchainKHR(json data){
-               return (VkSwapchainKHR)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkSwapchainKHR result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkSwapchainKHR)pointer);
+                    if (server_VkSwapchainKHR_to_client_VkSwapchainKHR.contains(pointer)){
+                        result=(VkSwapchainKHR)server_VkSwapchainKHR_to_client_VkSwapchainKHR[pointer];
+                        printf("Deserializing to VkSwapchainKHR %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkSwapchainKHR));
+                        printf("Mapping to VkSwapchainKHR %p...\n",handle);
+                        server_VkSwapchainKHR_to_client_VkSwapchainKHR[pointer]=(uintptr_t)handle;
+                        client_VkSwapchainKHR_to_server_VkSwapchainKHR[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkSwapchainKHR)handle;
+                    }
+                #else
+                    result=(VkSwapchainKHR)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT;
+            std::map<uintptr_t,uintptr_t> server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT;
+            
+        #endif
+        
 
         json serialize_VkDebugReportCallbackEXT(VkDebugReportCallbackEXT data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT.contains( (uintptr_t)data ))){
+                        printf("Panic: VkDebugReportCallbackEXT %p not found!\n",data);
+                    }
+                     printf("Serializing VkDebugReportCallbackEXT %p...\n",(VkDebugReportCallbackEXT)client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT[(uintptr_t)data]);
+                    result["value"]=client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95283,12 +97097,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkDebugReportCallbackEXT deserialize_VkDebugReportCallbackEXT(json data){
-               return (VkDebugReportCallbackEXT)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkDebugReportCallbackEXT result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkDebugReportCallbackEXT)pointer);
+                    if (server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT.contains(pointer)){
+                        result=(VkDebugReportCallbackEXT)server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT[pointer];
+                        printf("Deserializing to VkDebugReportCallbackEXT %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkDebugReportCallbackEXT));
+                        printf("Mapping to VkDebugReportCallbackEXT %p...\n",handle);
+                        server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT[pointer]=(uintptr_t)handle;
+                        client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkDebugReportCallbackEXT)handle;
+                    }
+                #else
+                    result=(VkDebugReportCallbackEXT)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT;
+            std::map<uintptr_t,uintptr_t> server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT;
+            
+        #endif
+        
 
         json serialize_VkDebugUtilsMessengerEXT(VkDebugUtilsMessengerEXT data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT.contains( (uintptr_t)data ))){
+                        printf("Panic: VkDebugUtilsMessengerEXT %p not found!\n",data);
+                    }
+                     printf("Serializing VkDebugUtilsMessengerEXT %p...\n",(VkDebugUtilsMessengerEXT)client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT[(uintptr_t)data]);
+                    result["value"]=client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95296,12 +97149,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkDebugUtilsMessengerEXT deserialize_VkDebugUtilsMessengerEXT(json data){
-               return (VkDebugUtilsMessengerEXT)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkDebugUtilsMessengerEXT result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkDebugUtilsMessengerEXT)pointer);
+                    if (server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT.contains(pointer)){
+                        result=(VkDebugUtilsMessengerEXT)server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT[pointer];
+                        printf("Deserializing to VkDebugUtilsMessengerEXT %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkDebugUtilsMessengerEXT));
+                        printf("Mapping to VkDebugUtilsMessengerEXT %p...\n",handle);
+                        server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT[pointer]=(uintptr_t)handle;
+                        client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkDebugUtilsMessengerEXT)handle;
+                    }
+                #else
+                    result=(VkDebugUtilsMessengerEXT)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkVideoSessionKHR_to_server_VkVideoSessionKHR;
+            std::map<uintptr_t,uintptr_t> server_VkVideoSessionKHR_to_client_VkVideoSessionKHR;
+            
+        #endif
+        
 
         json serialize_VkVideoSessionKHR(VkVideoSessionKHR data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkVideoSessionKHR_to_server_VkVideoSessionKHR.contains( (uintptr_t)data ))){
+                        printf("Panic: VkVideoSessionKHR %p not found!\n",data);
+                    }
+                     printf("Serializing VkVideoSessionKHR %p...\n",(VkVideoSessionKHR)client_VkVideoSessionKHR_to_server_VkVideoSessionKHR[(uintptr_t)data]);
+                    result["value"]=client_VkVideoSessionKHR_to_server_VkVideoSessionKHR[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95309,12 +97201,51 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkVideoSessionKHR deserialize_VkVideoSessionKHR(json data){
-               return (VkVideoSessionKHR)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkVideoSessionKHR result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkVideoSessionKHR)pointer);
+                    if (server_VkVideoSessionKHR_to_client_VkVideoSessionKHR.contains(pointer)){
+                        result=(VkVideoSessionKHR)server_VkVideoSessionKHR_to_client_VkVideoSessionKHR[pointer];
+                        printf("Deserializing to VkVideoSessionKHR %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkVideoSessionKHR));
+                        printf("Mapping to VkVideoSessionKHR %p...\n",handle);
+                        server_VkVideoSessionKHR_to_client_VkVideoSessionKHR[pointer]=(uintptr_t)handle;
+                        client_VkVideoSessionKHR_to_server_VkVideoSessionKHR[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkVideoSessionKHR)handle;
+                    }
+                #else
+                    result=(VkVideoSessionKHR)pointer;
+                #endif
+                
+                return result;
        }
+
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR;
+            std::map<uintptr_t,uintptr_t> server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR;
+            
+        #endif
+        
 
         json serialize_VkVideoSessionParametersKHR(VkVideoSessionParametersKHR data){
             json result=json({});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                }else{
+                    if(!(client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR.contains( (uintptr_t)data ))){
+                        printf("Panic: VkVideoSessionParametersKHR %p not found!\n",data);
+                    }
+                     printf("Serializing VkVideoSessionParametersKHR %p...\n",(VkVideoSessionParametersKHR)client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR[(uintptr_t)data]);
+                    result["value"]=client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR[(uintptr_t)data];
+                }
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         
 
             return result;
@@ -95322,5 +97253,24 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
        
 
        VkVideoSessionParametersKHR deserialize_VkVideoSessionParametersKHR(json data){
-               return (VkVideoSessionParametersKHR)data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                VkVideoSessionParametersKHR result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\n",(VkVideoSessionParametersKHR)pointer);
+                    if (server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR.contains(pointer)){
+                        result=(VkVideoSessionParametersKHR)server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR[pointer];
+                        printf("Deserializing to VkVideoSessionParametersKHR %p...\n",result);
+                    }else{
+                        auto handle=malloc(sizeof(VkVideoSessionParametersKHR));
+                        printf("Mapping to VkVideoSessionParametersKHR %p...\n",handle);
+                        server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR[pointer]=(uintptr_t)handle;
+                        client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR[(uintptr_t)handle]=pointer;
+                        
+                        result=(VkVideoSessionParametersKHR)handle;
+                    }
+                #else
+                    result=(VkVideoSessionParametersKHR)pointer;
+                #endif
+                
+                return result;
        }

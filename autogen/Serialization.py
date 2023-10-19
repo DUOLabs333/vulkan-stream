@@ -451,10 +451,31 @@ for funcpointer,function in parsed["funcpointers"].items():
     write(f"{funcpointer} deserialize_{funcpointer}(json &name);",header=True)
         
 for handle in parsed["handles"]:
+        #The loader may want to write to this handle, so we make our own in our address space, so there won't be a semgnetation fault.
+        write(f"""
+        #ifdef CLIENT
+            std::map<uintptr_t,uintptr_t> client_{handle}_to_server_{handle};
+            std::map<uintptr_t,uintptr_t> server_{handle}_to_client_{handle};
+            
+        #endif
+        """)
         write(f"""
         json serialize_{handle}({handle} data){{
             json result=json({{}});
-            result["value"]=(uintptr_t)data;
+            #ifdef CLIENT
+                if (data==NULL){{
+                    result["value"]=(uintptr_t)NULL;
+                    printf("Handle is NULL, serializing to %p...\\n",NULL);
+                }}else{{
+                    if(!(client_{handle}_to_server_{handle}.contains( (uintptr_t)data ))){{
+                        printf("Panic: {handle} %p not found!\\n",data);
+                    }}
+                     printf("Serializing {handle} %p...\\n",({handle})client_{handle}_to_server_{handle}[(uintptr_t)data]);
+                    result["value"]=client_{handle}_to_server_{handle}[(uintptr_t)data];
+                }}
+            #else
+                result["value"]=(uintptr_t)data;
+            #endif
         """)
         if handle=="VkDeviceMemory":
             write("""
@@ -471,7 +492,26 @@ for handle in parsed["handles"]:
         
         write(f"""
        {handle} deserialize_{handle}(json data){{
-               return ({handle})data["value"].get<uintptr_t>();
+                auto pointer=data["value"].get<uintptr_t>();
+                {handle} result;
+                #ifdef CLIENT
+                    printf("Handle server pointer %p:\\n",({handle})pointer);
+                    if (server_{handle}_to_client_{handle}.contains(pointer)){{
+                        result=({handle})server_{handle}_to_client_{handle}[pointer];
+                        printf("Deserializing to {handle} %p...\\n",result);
+                    }}else{{
+                        auto handle=malloc(sizeof({handle}));
+                        printf("Mapping to {handle} %p...\\n",handle);
+                        server_{handle}_to_client_{handle}[pointer]=(uintptr_t)handle;
+                        client_{handle}_to_server_{handle}[(uintptr_t)handle]=pointer;
+                        
+                        result=({handle})handle;
+                    }}
+                #else
+                    result=({handle})pointer;
+                #endif
+                
+                return result;
        }}""")
        
         write(f"""{handle} deserialize_{handle}(json data);""",header=True)
