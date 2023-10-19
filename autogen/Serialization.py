@@ -128,6 +128,11 @@ for struct,members in parsed["structs"].items():
         for i,e in enumerate(member_copy["length"]):
             member_copy["length"][i]=add_struct_name(e, "name")
         
+        if member_copy["name"]=="name.lineWidthRange":
+            write("""
+            printf("%f\\n",name.lineWidthRange[0]);
+            printf("%f\\n",name.lineWidthRange[1]);
+            """)
         if member["name"]=="pNext" and member["type"]=="void" and member["num_indirection"]==1:
             write(f"""result["members"]["{member["name"]}"]=serialize_pNext({member_copy["name"]});""")
         else:

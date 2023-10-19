@@ -44799,6 +44799,10 @@ result["members"]["pointSizeRange"]=[&]() {
         }
         return return_YnFHven;
         }();
+
+            printf("%f\n",name.lineWidthRange[0]);
+            printf("%f\n",name.lineWidthRange[1]);
+            
 result["members"]["lineWidthRange"]=[&]() {
     json return_AxKFcmN=json({});
     

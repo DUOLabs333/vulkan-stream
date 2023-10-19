@@ -69,8 +69,9 @@ json readFromConn(){
         conn->waitForReadyRead(-1);
         line << conn->readLine().toStdString();
         if ( json::accept(line.str()) ){
-            printf("%s\n",json::parse(line.str())["type"].get<std::string>().c_str());
-           return json::parse(line.str());
+            json result=json::from_msgpack(json::parse(line.str()).get<std::vector<uint8_t>>());
+            printf("%s\n",result["type"].get<std::string>().c_str());
+           return result;
         }
 
     }
@@ -78,6 +79,6 @@ json readFromConn(){
 
 void writeToConn(json data){
     printf("%s\n",data["type"].get<std::string>().c_str());
-    currStruct()->conn->write(QByteArray::fromStdString(data.dump()+"\n"));
+    currStruct()->conn->write(QByteArray::fromStdString(json(json::to_msgpack(data)).dump()+"\n"));
     currStruct()->conn->waitForBytesWritten(-1);
 }
