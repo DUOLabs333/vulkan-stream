@@ -195,7 +195,25 @@ for name, command in parsed["commands"].items():
        {serialize('data_json["parent"]["handle"]',{"name":"NULL","type":"VkInstance","num_indirection":0,"length":[]})}
         """)
     write(register_DeviceMemory(name))
+    
+    if name=="vkEnumerateInstanceExtensionProperties":
+        write("""
+        if(pProperties==NULL){
+            const uint32_t DEFAULT_PROPERTIES_LENGTH=100;
+            pProperties=(VkExtensionProperties*)malloc(DEFAULT_PROPERTIES_LENGTH*sizeof(VkExtensionProperties));
+            *pPropertyCount=DEFAULT_PROPERTIES_LENGTH;
+            
+            for (uint32_t i=0; i<*pPropertyCount; i++){
+                pProperties[i]=VkExtensionProperties();
+            }
+        }
+        
+        uint32_t len_of_properties_array=*pPropertyCount;
+        """)
+        
     write("{") #Use scoping to allow us to overwrite const parameters as needed
+    
+    #Override *surface with call to headless, and use that
     
     if name.startswith("vkMapMemory"): #Get entire memory, then map the parts that we need
         offset="offset"
@@ -245,6 +263,33 @@ for name, command in parsed["commands"].items():
         param_copy["name"]=f"""result["members"]["{param["name"]}"]"""
         
         write(deserialize(param["name"],param_copy))
+    
+    if name=="vkEnumerateInstanceExtensionProperties":
+        write("""
+        std::set<std::string> propertiesSet;
+        for(uint32_t i=0; i<*pPropertyCount; i++){
+            propertiesSet.insert(std::string(pProperties[i].extensionName));
+        }
+        """)
+        
+        WSI=[]
+        for platform in ["XLIB","XCB"]:
+            WSI.append([f"VK_USE_PLATFORM_{platform}_KHR",f"VK_KHR_{platform}_SURFACE_EXTENSION_NAME", f"VK_KHR_{platform}_SURFACE_SPEC_VERSION"])
+        
+        for wsi in WSI:  #Add corresponding WSI extensions as needed
+            write(f"""
+            #ifdef {wsi[0]}
+                if(!propertiesSet.contains(std::string({wsi[1]}))){{
+                    if (*pPropertyCount<len_of_properties_array){{
+                        auto property=VkExtensionProperties();
+                        strcpy(property.extensionName,{wsi[1]});
+                        property.specVersion={wsi[2]};
+                        pProperties[*pPropertyCount]=property;
+                        *pPropertyCount=*pPropertyCount+1;
+                    }}
+                }}
+            #endif
+            """)
     
     if name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
         #Case switch for the different commands (iterator variable funcpointer_command)
