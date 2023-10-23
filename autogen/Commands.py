@@ -74,7 +74,7 @@ for name, command in parsed["commands"].items():
     void handle_{name}(json &data_json){{
     //Will only be called by the server
     """)
-    
+    #For createInstance: if metal is enabled, then remove the extension names for xlib and xcb
     for param in command["params"]:
         
         param_copy=param.copy()
@@ -99,8 +99,54 @@ for name, command in parsed["commands"].items():
     )
     
     call_arguments=", ".join([param["name"] for param in command["params"]])
-    return_prefix="auto return_value=" if not is_void(command) else ""
+    
+    if not is_void(command):
+        write(re.match(r"(.*?)"+re.escape(name),command["header"]).group(1)+" return_value;")
+        return_prefix="return_value=" 
+    else:
+        return_prefix=""
+    
+    write("{") #Use scoping to allow us to overwrite const parameters as needed
+    if name=="vkCreateInstance":
+        write("""
+        #ifdef VK_USE_PLATFORM_METAL_EXT
+            VkInstanceCreateInfo* pCreateInfo=pCreateInfo;
+            char ** extensions=pCreateInfo->ppEnabledExtensionNames;
+            auto extensions_length=pCreateInfo->enabledExtensionCount;
+            bool portability_subset_extension=false;
+            
+            uint32_t i=0;
+            while(index < extensions_length){
+                char* extension=extensions[i];
+                if (strcmp(extension,VK_KHR_XCB_SURFACE_EXTENSION_NAME)==0 || strcmp(extension,VK_KHR_XLIB_SURFACE_EXTENSION_NAME)==0){
+                    for (uint32_t j=i; i< extensions_length-1;i++){
+                        extensions[i]=extensions[i+1];
+                    }
+                    extensions_length--;
+                    extension=extensions[i];
+                }
+                
+                if(strcmp(extension,VK_KHR_PORTABILITY_SUBSET_EXTENSION_NAME)){
+                    portability_subset_extension=true;
+                }
+                index++;
+            }
+            
+            if (!portability_subset_extension){
+                extensions=realloc(extensions,(extensions_length+1)*sizeof(char*));
+                extensions[extensions_length]=VK_KHR_PORTABILITY_SUBSET_EXTENSION_NAME;
+            
+                extensions_length++;
+            }
+            
+            pCreateInfo->ppEnabledExtensionNames=extensions;
+            pCreateInfo->enabledExtensionCount=extensions_length;
+            
+        #endif
+            
+        """)
     write(return_prefix+"call_function"+"("+call_arguments+")"+";")
+    write("}")
     
     return_value=command.copy()
     return_value["name"]="return_value"
