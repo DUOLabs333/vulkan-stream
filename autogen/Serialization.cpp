@@ -95878,7 +95878,7 @@ allocationType=deserialize_VkInternalAllocationType(data["members"]["allocationT
 [&]() {
 allocationScope=deserialize_VkSystemAllocationScope(data["members"]["allocationScope"]);}();
 funcpointer(pUserData,size,allocationType,allocationScope);
-result["params"]["pUserData"]=[&]() {
+result["members"]["pUserData"]=[&]() {
     json return_RSwZPSo=json({});
     
         if (pUserData==NULL){
@@ -95903,13 +95903,13 @@ result["params"]["pUserData"]=[&]() {
         }
         return return_qPEUoOT;
         }();return return_RSwZPSo;}();
-result["params"]["size"]=[&]() {
+result["members"]["size"]=[&]() {
     json return_VqIFOyn=json({});
     return serialize_size_t(size);}();
-result["params"]["allocationType"]=[&]() {
+result["members"]["allocationType"]=[&]() {
     json return_zGZXhho=json({});
     return serialize_VkInternalAllocationType(allocationType);}();
-result["params"]["allocationScope"]=[&]() {
+result["members"]["allocationScope"]=[&]() {
     json return_gexmXvX=json({});
     return serialize_VkSystemAllocationScope(allocationScope);}();
 writeToConn(result);
@@ -96078,7 +96078,7 @@ allocationType=deserialize_VkInternalAllocationType(data["members"]["allocationT
 [&]() {
 allocationScope=deserialize_VkSystemAllocationScope(data["members"]["allocationScope"]);}();
 funcpointer(pUserData,size,allocationType,allocationScope);
-result["params"]["pUserData"]=[&]() {
+result["members"]["pUserData"]=[&]() {
     json return_RSwZPSo=json({});
     
         if (pUserData==NULL){
@@ -96103,13 +96103,13 @@ result["params"]["pUserData"]=[&]() {
         }
         return return_qPEUoOT;
         }();return return_RSwZPSo;}();
-result["params"]["size"]=[&]() {
+result["members"]["size"]=[&]() {
     json return_VqIFOyn=json({});
     return serialize_size_t(size);}();
-result["params"]["allocationType"]=[&]() {
+result["members"]["allocationType"]=[&]() {
     json return_zGZXhho=json({});
     return serialize_VkInternalAllocationType(allocationType);}();
-result["params"]["allocationScope"]=[&]() {
+result["members"]["allocationScope"]=[&]() {
     json return_gexmXvX=json({});
     return serialize_VkSystemAllocationScope(allocationScope);}();
 writeToConn(result);
@@ -96352,7 +96352,7 @@ result["result"]=[&]() {
         }
         return return_XKfffIn;
         }();return return_Arllkwk;}();
-result["params"]["pUserData"]=[&]() {
+result["members"]["pUserData"]=[&]() {
     json return_RSwZPSo=json({});
     
         if (pUserData==NULL){
@@ -96377,7 +96377,7 @@ result["params"]["pUserData"]=[&]() {
         }
         return return_qPEUoOT;
         }();return return_RSwZPSo;}();
-result["params"]["pOriginal"]=[&]() {
+result["members"]["pOriginal"]=[&]() {
     json return_qUMsCyj=json({});
     
         if (pOriginal==NULL){
@@ -96402,13 +96402,13 @@ result["params"]["pOriginal"]=[&]() {
         }
         return return_hpAXNbU;
         }();return return_qUMsCyj;}();
-result["params"]["size"]=[&]() {
+result["members"]["size"]=[&]() {
     json return_VqIFOyn=json({});
     return serialize_size_t(size);}();
-result["params"]["alignment"]=[&]() {
+result["members"]["alignment"]=[&]() {
     json return_HAJEZdY=json({});
     return serialize_size_t(alignment);}();
-result["params"]["allocationScope"]=[&]() {
+result["members"]["allocationScope"]=[&]() {
     json return_gexmXvX=json({});
     return serialize_VkSystemAllocationScope(allocationScope);}();
 writeToConn(result);
@@ -96662,7 +96662,7 @@ result["result"]=[&]() {
         }
         return return_CDUsIoi;
         }();return return_CaWjkee;}();
-result["params"]["pUserData"]=[&]() {
+result["members"]["pUserData"]=[&]() {
     json return_RSwZPSo=json({});
     
         if (pUserData==NULL){
@@ -96687,13 +96687,13 @@ result["params"]["pUserData"]=[&]() {
         }
         return return_qPEUoOT;
         }();return return_RSwZPSo;}();
-result["params"]["size"]=[&]() {
+result["members"]["size"]=[&]() {
     json return_VqIFOyn=json({});
     return serialize_size_t(size);}();
-result["params"]["alignment"]=[&]() {
+result["members"]["alignment"]=[&]() {
     json return_HAJEZdY=json({});
     return serialize_size_t(alignment);}();
-result["params"]["allocationScope"]=[&]() {
+result["members"]["allocationScope"]=[&]() {
     json return_gexmXvX=json({});
     return serialize_VkSystemAllocationScope(allocationScope);}();
 writeToConn(result);
@@ -96924,7 +96924,7 @@ temp_fJcyDgb[gIlUuhM]=deserialize_char(data["members"]["pMemory"]["members"][gIl
         }();pMemory=(void*)temp_fJcyDgb;
 }();
 funcpointer(pUserData,pMemory);
-result["params"]["pUserData"]=[&]() {
+result["members"]["pUserData"]=[&]() {
     json return_RSwZPSo=json({});
     
         if (pUserData==NULL){
@@ -96949,7 +96949,7 @@ result["params"]["pUserData"]=[&]() {
         }
         return return_qPEUoOT;
         }();return return_RSwZPSo;}();
-result["params"]["pMemory"]=[&]() {
+result["members"]["pMemory"]=[&]() {
     json return_sFERVwr=json({});
     
         if (pMemory==NULL){
@@ -97218,22 +97218,22 @@ result["result"]=[&]() {
     return_zpvJyFZ=[&]() {
     json return_YcIYsel=json({});
     return serialize_uint32_t(result_temp);}();return return_zpvJyFZ;}();
-result["params"]["flags"]=[&]() {
+result["members"]["flags"]=[&]() {
     json return_XSZRFnv=json({});
     return serialize_VkDebugReportFlagsEXT(flags);}();
-result["params"]["objectType"]=[&]() {
+result["members"]["objectType"]=[&]() {
     json return_KZUYZEp=json({});
     return serialize_VkDebugReportObjectTypeEXT(objectType);}();
-result["params"]["object"]=[&]() {
+result["members"]["object"]=[&]() {
     json return_ePswGlN=json({});
     return serialize_uint64_t(object);}();
-result["params"]["location"]=[&]() {
+result["members"]["location"]=[&]() {
     json return_MfvLciZ=json({});
     return serialize_size_t(location);}();
-result["params"]["messageCode"]=[&]() {
+result["members"]["messageCode"]=[&]() {
     json return_YoGUCPx=json({});
     return serialize_int32_t(messageCode);}();
-result["params"]["pLayerPrefix"]=[&]() {
+result["members"]["pLayerPrefix"]=[&]() {
     json return_dAeRyOC=json({});
     
         if (pLayerPrefix==NULL){
@@ -97244,7 +97244,7 @@ result["params"]["pLayerPrefix"]=[&]() {
     json return_YkzUCyD=json({});
     return serialize_char(*pLayerPrefix);}();
 return return_dAeRyOC;}();
-result["params"]["pMessage"]=[&]() {
+result["members"]["pMessage"]=[&]() {
     json return_bPCQekx=json({});
     
         if (pMessage==NULL){
@@ -97255,7 +97255,7 @@ result["params"]["pMessage"]=[&]() {
     json return_qCszycM=json({});
     return serialize_char(*pMessage);}();
 return return_bPCQekx;}();
-result["params"]["pUserData"]=[&]() {
+result["members"]["pUserData"]=[&]() {
     json return_RSwZPSo=json({});
     
         if (pUserData==NULL){
@@ -97482,13 +97482,13 @@ result["result"]=[&]() {
     return_eplspvb=[&]() {
     json return_qXBGUnK=json({});
     return serialize_uint32_t(result_temp);}();return return_eplspvb;}();
-result["params"]["messageSeverity"]=[&]() {
+result["members"]["messageSeverity"]=[&]() {
     json return_sNxtKmA=json({});
     return serialize_VkDebugUtilsMessageSeverityFlagBitsEXT(messageSeverity);}();
-result["params"]["messageTypes"]=[&]() {
+result["members"]["messageTypes"]=[&]() {
     json return_vagGLtM=json({});
     return serialize_VkDebugUtilsMessageTypeFlagsEXT(messageTypes);}();
-result["params"]["pCallbackData"]=[&]() {
+result["members"]["pCallbackData"]=[&]() {
     json return_oJOcfsX=json({});
     
         if (pCallbackData==NULL){
@@ -97499,7 +97499,7 @@ result["params"]["pCallbackData"]=[&]() {
     json return_FPrcMto=json({});
     return serialize_VkDebugUtilsMessengerCallbackDataEXT(*pCallbackData);}();
 return return_oJOcfsX;}();
-result["params"]["pUserData"]=[&]() {
+result["members"]["pUserData"]=[&]() {
     json return_fZfXUrt=json({});
     
         if (pUserData==NULL){
@@ -97696,7 +97696,7 @@ temp_iVKBubm[GXobTLu]=deserialize_char(data["members"]["pUserData"]["members"][G
         }();pUserData=(void*)temp_iVKBubm;
 }();
 funcpointer(pCallbackData,pUserData);
-result["params"]["pCallbackData"]=[&]() {
+result["members"]["pCallbackData"]=[&]() {
     json return_lDVRiGB=json({});
     
         if (pCallbackData==NULL){
@@ -97707,7 +97707,7 @@ result["params"]["pCallbackData"]=[&]() {
     json return_bRBLRaq=json({});
     return serialize_VkDeviceMemoryReportCallbackDataEXT(*pCallbackData);}();
 return return_lDVRiGB;}();
-result["params"]["pUserData"]=[&]() {
+result["members"]["pUserData"]=[&]() {
     json return_RSwZPSo=json({});
     
         if (pUserData==NULL){

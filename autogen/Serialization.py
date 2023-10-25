@@ -379,7 +379,7 @@ for funcpointer,function in parsed["funcpointers"].items():
             write(funcpointer_call+";")
     
         for param in function["params"]:
-            write(serialize(f"""result["params"]["{param["name"]}"]""",param))
+            write(serialize(f"""result["members"]["{param["name"]}"]""",param))
         
         write("writeToConn(result);")
         

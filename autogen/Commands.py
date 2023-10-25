@@ -116,9 +116,8 @@ for name, command in parsed["commands"].items():
 
             auto extensions_length=pCreateInfo->enabledExtensionCount;
             char ** extensions=(char**)malloc(extensions_length*sizeof(char*));
-            printf("%d\\n",pCreateInfo->enabledExtensionCount);
+
             for (int i=0; i< extensions_length; i++){
-                printf("%s\\n",pCreateInfo->ppEnabledExtensionNames[i]);
                 extensions[i]=strdup(pCreateInfo->ppEnabledExtensionNames[i]);
             }
             
@@ -127,12 +126,12 @@ for name, command in parsed["commands"].items():
             uint32_t i=0;
             while(i < extensions_length){
                 char* extension=extensions[i];
-                if (strcmp(extension,"VK_KHR_xcb_surface")==0 || strcmp(extension,"VK_KHR_xcb_surface")==0){ //Later, save the values into json to pull from
-                    for (uint32_t j=i; i< extensions_length-1;i++){
-                        extensions[i]=extensions[i+1];
+                if (strcmp(extension,"VK_KHR_xcb_surface")==0 || strcmp(extension,"VK_KHR_xlib_surface")==0){ //Later, save the values into json to pull from instead of hardcoding
+                    for (uint32_t j=i; j< extensions_length-1;j++){
+                        extensions[j]=extensions[j+1];
                     }
                     extensions_length--;
-                    extension=extensions[i];
+                    continue;
                 }
                 
                 if(strcmp(extension,"VK_KHR_portability_subset")){
@@ -148,6 +147,10 @@ for name, command in parsed["commands"].items():
                 extensions_length++;
             }
             
+            for (int i=0; i< extensions_length; i++){
+                printf("Final extension: %s\\n",extensions[i]);
+            }
+
             pCreateInfo->ppEnabledExtensionNames=extensions;
             pCreateInfo->enabledExtensionCount=extensions_length;
             
