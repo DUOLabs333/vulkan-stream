@@ -109,23 +109,24 @@ for name, command in parsed["commands"].items():
     write("{") #Use scoping to allow us to overwrite const parameters as needed
     if name=="vkCreateInstance":
         write("""
-        #ifdef VK_USE_PLATFORM_METAL_EXT
-            VkInstanceCreateInfo* temp_info=pCreateInfo;
 
-            VkInstanceCreateInfo* pCreateInfo=temp_info;
+        VkInstanceCreateInfo* temp_info=pCreateInfo;
 
-            auto extensions_length=pCreateInfo->enabledExtensionCount;
-            char ** extensions=(char**)malloc(extensions_length*sizeof(char*));
+        VkInstanceCreateInfo* pCreateInfo=temp_info;
 
-            for (int i=0; i< extensions_length; i++){
-                extensions[i]=strdup(pCreateInfo->ppEnabledExtensionNames[i]);
-            }
+        auto extensions_length=pCreateInfo->enabledExtensionCount;
+        char ** extensions=(char**)malloc(extensions_length*sizeof(char*));
+
+        for (int i=0; i< extensions_length; i++){
+            extensions[i]=strdup(pCreateInfo->ppEnabledExtensionNames[i]);
+        }
+
+        bool headless_surface_extension=false;
             
-            bool portability_subset_extension=false;
-            
-            uint32_t i=0;
-            while(i < extensions_length){
-                char* extension=extensions[i];
+        uint32_t i=0;
+        while(i < extensions_length){
+            char* extension=extensions[i];
+            #ifdef VK_USE_PLATFORM_METAL_EXT
                 if (strcmp(extension,"VK_KHR_xcb_surface")==0 || strcmp(extension,"VK_KHR_xlib_surface")==0){ //Later, save the values into json to pull from instead of hardcoding
                     for (uint32_t j=i; j< extensions_length-1;j++){
                         extensions[j]=extensions[j+1];
@@ -134,27 +135,27 @@ for name, command in parsed["commands"].items():
                     continue;
                 }
                 
-                if(strcmp(extension,"VK_KHR_portability_subset")){
-                    portability_subset_extension=true;
-                }
-                i++;
-            }
-            
-            if (!portability_subset_extension){
-                extensions=(char**)realloc(extensions,(extensions_length+1)*sizeof(char*));
-                extensions[extensions_length]=(char*)"VK_KHR_portability_subset";
-            
-                extensions_length++;
-            }
-            
-            for (int i=0; i< extensions_length; i++){
-                printf("Final extension: %s\\n",extensions[i]);
-            }
+            #endif
 
-            pCreateInfo->ppEnabledExtensionNames=extensions;
-            pCreateInfo->enabledExtensionCount=extensions_length;
-            
-        #endif
+            if (strcmp(extension,VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME)==0){
+                headless_surface_extension=true;
+            }
+            i++;
+        }
+
+        if (!headless_surface_extension){
+            extensions=(char**)realloc(extensions,(extensions_length+1)*sizeof(char*));
+            extensions[extensions_length]=(char*)VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME;
+        
+            extensions_length++;
+        }
+        
+        for (int i=0; i< extensions_length; i++){
+            printf("Final extension: %s\\n",extensions[i]);
+        }
+
+        pCreateInfo->ppEnabledExtensionNames=extensions;
+        pCreateInfo->enabledExtensionCount=extensions_length;
             
         """)
     write(return_prefix+"call_function"+"("+call_arguments+")"+";")
