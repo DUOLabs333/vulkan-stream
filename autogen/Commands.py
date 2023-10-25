@@ -74,7 +74,7 @@ for name, command in parsed["commands"].items():
     void handle_{name}(json &data_json){{
     //Will only be called by the server
     """)
-    #For createInstance: if metal is enabled, then remove the extension names for xlib and xcb
+    #For createInstance: if Metal is enabled, then remove the extension names for xlib and xcb
     for param in command["params"]:
         
         param_copy=param.copy()
@@ -110,15 +110,24 @@ for name, command in parsed["commands"].items():
     if name=="vkCreateInstance":
         write("""
         #ifdef VK_USE_PLATFORM_METAL_EXT
-            VkInstanceCreateInfo* pCreateInfo=pCreateInfo;
-            char ** extensions=pCreateInfo->ppEnabledExtensionNames;
+            VkInstanceCreateInfo* temp_info=pCreateInfo;
+
+            VkInstanceCreateInfo* pCreateInfo=temp_info;
+
             auto extensions_length=pCreateInfo->enabledExtensionCount;
+            char ** extensions=(char**)malloc(extensions_length*sizeof(char*));
+            printf("%d\\n",pCreateInfo->enabledExtensionCount);
+            for (int i=0; i< extensions_length; i++){
+                printf("%s\\n",pCreateInfo->ppEnabledExtensionNames[i]);
+                extensions[i]=strdup(pCreateInfo->ppEnabledExtensionNames[i]);
+            }
+            
             bool portability_subset_extension=false;
             
             uint32_t i=0;
-            while(index < extensions_length){
+            while(i < extensions_length){
                 char* extension=extensions[i];
-                if (strcmp(extension,VK_KHR_XCB_SURFACE_EXTENSION_NAME)==0 || strcmp(extension,VK_KHR_XLIB_SURFACE_EXTENSION_NAME)==0){
+                if (strcmp(extension,"VK_KHR_xcb_surface")==0 || strcmp(extension,"VK_KHR_xcb_surface")==0){ //Later, save the values into json to pull from
                     for (uint32_t j=i; i< extensions_length-1;i++){
                         extensions[i]=extensions[i+1];
                     }
@@ -126,15 +135,15 @@ for name, command in parsed["commands"].items():
                     extension=extensions[i];
                 }
                 
-                if(strcmp(extension,VK_KHR_PORTABILITY_SUBSET_EXTENSION_NAME)){
+                if(strcmp(extension,"VK_KHR_portability_subset")){
                     portability_subset_extension=true;
                 }
-                index++;
+                i++;
             }
             
             if (!portability_subset_extension){
-                extensions=realloc(extensions,(extensions_length+1)*sizeof(char*));
-                extensions[extensions_length]=VK_KHR_PORTABILITY_SUBSET_EXTENSION_NAME;
+                extensions=(char**)realloc(extensions,(extensions_length+1)*sizeof(char*));
+                extensions[extensions_length]=(char*)"VK_KHR_portability_subset";
             
                 extensions_length++;
             }
