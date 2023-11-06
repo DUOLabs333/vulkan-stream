@@ -156,11 +156,31 @@ for name, command in parsed["commands"].items():
 
         pCreateInfo->ppEnabledExtensionNames=extensions;
         pCreateInfo->enabledExtensionCount=extensions_length;
+        
+        char** layers=(char**)malloc((pCreateInfo->enabledLayerCount+1)*sizeof(char*));
+
+        for(int i=0; i< pCreateInfo->enabledLayerCount; i++){
+            layers[i]=(char*)malloc(strlen(pCreateInfo->ppEnabledLayerNames[i])*sizeof(char));
+            strcpy(layers[i],pCreateInfo->ppEnabledLayerNames[i]);
+        }
+        layers[pCreateInfo->enabledLayerCount]=(char*)"VK_LAYER_window_system_integration";
+
+        pCreateInfo->enabledLayerCount++;
+
+        for (int i=0; i< pCreateInfo->enabledLayerCount; i++){
+            printf("Final layer: %s\\n",layers[i]);
+        }
+
+        pCreateInfo->ppEnabledLayerNames=layers;
+        
+
             
         """)
     write(return_prefix+"call_function"+"("+call_arguments+")"+";")
     write("}")
-    
+    if (name=="vkGetInstanceProcAddr"):
+        write('printf("%s\\n",pName);')
+
     return_value=command.copy()
     return_value["name"]="return_value"
     return_value["length"]=[]
@@ -362,6 +382,7 @@ for name, command in parsed["commands"].items():
             else if (strcmp(pName,"{command_name}")==0){{
                 printf("Retrieving {command_name}...\\n");
                 return_value= (result["return"]==true) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
+                printf("Address of ProcAddr: %p\\n",return_value);
             }}
             """)
         write("""
