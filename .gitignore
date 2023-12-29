@@ -4,3 +4,4 @@ external/qtbase
 *.so
 *.a
 *.o
+Sync.json

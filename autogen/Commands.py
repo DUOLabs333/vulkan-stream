@@ -248,7 +248,7 @@ for name, command in parsed["commands"].items():
     write(command["header"]+"{")
         
     write("//Will only be called by the client")
-    
+    write(f'printf("Executing {name}\\n");')
     write("auto data_json=json({});")
     
     write(f"""data_json["type"]="command_{name}";""")
@@ -382,6 +382,18 @@ for name, command in parsed["commands"].items():
             else if (strcmp(pName,"{command_name}")==0){{
                 printf("Retrieving {command_name}...\\n");
                 return_value= (result["return"]==true) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
+                
+                #ifdef VK_USE_PLATFORM_XCB_KHR
+                    if (strcmp(pName,"vkCreateXcbSurfaceKHR")){{
+                        return_value=({command['type']}){command_name};
+                    }}
+                #endif
+                
+                #ifdef VK_USE_PLATFORM_XLIB_KHR
+                    if (strcmp(pName,"vkCreateXlibSurfaceKHR")){{
+                        return_value=({command['type']}){command_name};
+                    }}
+                #endif
                 printf("Address of ProcAddr: %p\\n",return_value);
             }}
             """)
