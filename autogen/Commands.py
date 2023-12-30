@@ -155,26 +155,7 @@ for name, command in parsed["commands"].items():
         }
 
         pCreateInfo->ppEnabledExtensionNames=extensions;
-        pCreateInfo->enabledExtensionCount=extensions_length;
-        
-        char** layers=(char**)malloc((pCreateInfo->enabledLayerCount+1)*sizeof(char*));
-
-        for(int i=0; i< pCreateInfo->enabledLayerCount; i++){
-            layers[i]=(char*)malloc(strlen(pCreateInfo->ppEnabledLayerNames[i])*sizeof(char));
-            strcpy(layers[i],pCreateInfo->ppEnabledLayerNames[i]);
-        }
-        layers[pCreateInfo->enabledLayerCount]=(char*)"VK_LAYER_window_system_integration";
-
-        pCreateInfo->enabledLayerCount++;
-
-        for (int i=0; i< pCreateInfo->enabledLayerCount; i++){
-            printf("Final layer: %s\\n",layers[i]);
-        }
-
-        pCreateInfo->ppEnabledLayerNames=layers;
-        
-
-            
+        pCreateInfo->enabledExtensionCount=extensions_length;            
         """)
     write(return_prefix+"call_function"+"("+call_arguments+")"+";")
     write("}")
@@ -242,6 +223,19 @@ std::map<uintptr_t,parent_handle_struct> handle_to_parent_handle_struct;
 
 """)
 write("""extern "C" {""")
+
+#Implement some driver-specific functions
+write("""
+VKAPI_ATTR VkResult VKAPI_CALL vk_icdNegotiateLoaderICDInterfaceVersion (uint32_t* pSupportedVersion){
+    *pSupportedVersion=3;
+    return VK_SUCCESS;
+}
+""")
+
+write("""VKAPI_ATTR PFN_vkVoidFunction VKAPI_CALL vk_icdGetInstanceProcAddr(VkInstance instance, const char* pName){
+        return vkGetInstanceProcAddr(instance,pName);
+    }
+""")
 
 for name, command in parsed["commands"].items():
 
@@ -373,9 +367,10 @@ for name, command in parsed["commands"].items():
     if name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
         #Case switch for the different commands (iterator variable funcpointer_command)
         write(f"{command['type']} return_value;")
-        write("""
-        if (false){
-        }
+        write(f"""
+        if (strcmp(pName,"vk_icdNegotiateLoaderICDInterfaceVersion")==0){{
+            return_value=({command['type']})vk_icdNegotiateLoaderICDInterfaceVersion;
+        }}
         """)
         for command_name in parsed["commands"]:
             write(f"""
@@ -384,13 +379,13 @@ for name, command in parsed["commands"].items():
                 return_value= (result["return"]==true) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
                 
                 #ifdef VK_USE_PLATFORM_XCB_KHR
-                    if (strcmp(pName,"vkCreateXcbSurfaceKHR")){{
+                    if (strcmp(pName,"vkCreateXcbSurfaceKHR")==0){{
                         return_value=({command['type']}){command_name};
                     }}
                 #endif
                 
                 #ifdef VK_USE_PLATFORM_XLIB_KHR
-                    if (strcmp(pName,"vkCreateXlibSurfaceKHR")){{
+                    if (strcmp(pName,"vkCreateXlibSurfaceKHR")==0){{
                         return_value=({command['type']}){command_name};
                     }}
                 #endif

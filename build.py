@@ -9,7 +9,7 @@ CLIENT=os.environ.get("CLIENT","0")
 #Proto-make (only recompile if changed), but don't want to deal with setting up make/cmake
 
 VK_LIB_PATH="/opt/homebrew/lib"
-#Rewrite to use glob, and substitue into SRC_FILES, which will then be flattened
+
 SRC_FILES=["autogen/*","src/*","external/shm_open_anon/shm_open_anon.c"]
 INCLUDE_PATHS=["autogen","src", "external/json/single_include", "external/PicoSHA2", "external/shm_open_anon", "external/qtbase/build/include", "external/Vulkan-Headers/include"]
 FLAGS=(["-DCLIENT"] if CLIENT=="1" else [])+["-Wfatal-errors","-fPIC","-Winvalid-pch"]+os.environ["VK_HEADER_FLAGS"].split(" ")
