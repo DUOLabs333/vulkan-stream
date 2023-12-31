@@ -17,6 +17,10 @@ using json = nlohmann::json;
 #include <Server.hpp>
 #include <Synchronization.hpp>
 #include <sys/mman.h>
+
+#ifdef CLIENT
+    #include <Surface.hpp>
+#endif
 """)
 
 write("""
@@ -243,6 +247,24 @@ for name, command in parsed["commands"].items():
         
     write("//Will only be called by the client")
     write(f'printf("Executing {name}\\n");')
+    
+    wsi_match=re.match(r"^vkCreate(Xlib|Xcb)SurfaceKHR$",name)
+    if wsi_match is not None:
+        write("""
+        auto create_info=VkHeadlessSurfaceCreateInfoEXT{.sType=VK_STRUCTURE_TYPE_HEADLESS_SURFACE_CREATE_INFO_EXT, .pNext=NULL, .flags=0};
+        auto result=vkCreateHeadlessSurfaceEXT(instance,&create_info,pAllocator,pSurface);
+        if (result!=VK_SUCCESS){
+            return result;
+        }
+        """)
+        
+        write(f"""
+        registerSurface(*pSurface,pCreateInfo,{wsi_match.group(1)});
+        
+        return result;
+        }}
+        """)
+        continue
     write("auto data_json=json({});")
     
     write(f"""data_json["type"]="command_{name}";""")

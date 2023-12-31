@@ -1,4 +1,4 @@
-#include <ThreadStruct.hpp>
+#include "ThreadStruct.hpp"
 #include <thread>
 
 std::string address;
