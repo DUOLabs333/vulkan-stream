@@ -5,15 +5,20 @@
 
 enum SurfaceType {Xlib, Xcb};
 
+//Automate generation of this file
+#ifdef VK_USE_PLATFORM_XLIB_KHR
 typedef struct {
     Display* dpy;
     Window window;
 } XlibSurfaceInfo;
+#endif 
 
+#ifdef VK_USE_PLATFORM_XCB_KHR
 typedef struct {
     xcb_connection_t* connection;
     xcb_window_t window;
 } XcbSurfaceInfo;
+#endif
 
 typedef struct {
     SurfaceType type;

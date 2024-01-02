@@ -6,6 +6,7 @@ void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
     auto surface_info=SurfaceInfo{.type=type};
     
     switch (type){
+        #ifdef VK_USE_PLATFORM_XCB_KHR
         case Xlib:
             {
             printf("Actual type: %s\n",info.type().name());
@@ -13,6 +14,9 @@ void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
             surface_info.info=XlibSurfaceInfo{.dpy=xlib_info->dpy,.window=xlib_info->window};
             break;
             }
+        #endif
+        
+        #ifdef VK_USE_PLATFORM_XLIB_KHR
         case Xcb:
             {
             printf("Actual type: %s\n",info.type().name());
@@ -20,6 +24,7 @@ void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
             surface_info.info=XcbSurfaceInfo{.connection=xcb_info->connection,.window=xcb_info->window};
             break;
             }
+        #endif
         default:
             return;
     }
