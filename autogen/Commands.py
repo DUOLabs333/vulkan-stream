@@ -11,7 +11,10 @@ write("""
 using json = nlohmann::json;
 
 #include <vulkan/vulkan.h>
+
+extern "C" {
 #include <shm_open_anon.h>
+}
 
 #include <Serialization.hpp>
 #include <Server.hpp>
@@ -78,7 +81,7 @@ for name, command in parsed["commands"].items():
     void handle_{name}(json &data_json){{
     //Will only be called by the server
     """)
-    #For createInstance: if Metal is enabled, then remove the extension names for xlib and xcb
+
     for param in command["params"]:
         
         param_copy=param.copy()
@@ -187,6 +190,9 @@ for name, command in parsed["commands"].items():
     if name=="vkMapMemory":
         write("""
         info->mem=*ppData;
+        
+        result["memory"]["ppData"]=json({});
+        result["memory"]["ppData"]["ptr"]=(uintptr_t)*ppData; //Override the default void handling
         """)
     write("""
         writeToConn(result);
@@ -242,7 +248,7 @@ write("""VKAPI_ATTR PFN_vkVoidFunction VKAPI_CALL vk_icdGetInstanceProcAddr(VkIn
 """)
 
 for name, command in parsed["commands"].items():
-    write('__attribute__((visibility ("hidden"))) '+command["header"]+"{") #All core Vulkan API functions must be hidden
+    write("__attribute__((visibility (\"hidden\"))) "+command["header"]+"{") #All core Vulkan API functions must be hidden
         
     write("//Will only be called by the client")
     write(f'printf("Executing {name}\\n");')
