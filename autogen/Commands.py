@@ -242,8 +242,7 @@ write("""VKAPI_ATTR PFN_vkVoidFunction VKAPI_CALL vk_icdGetInstanceProcAddr(VkIn
 """)
 
 for name, command in parsed["commands"].items():
-
-    write(command["header"]+"{")
+    write('__attribute__((visibility ("hidden"))) '+command["header"]+"{") #All core Vulkan API functions must be hidden
         
     write("//Will only be called by the client")
     write(f'printf("Executing {name}\\n");')
@@ -394,6 +393,7 @@ for name, command in parsed["commands"].items():
             return_value=({command['type']})vk_icdNegotiateLoaderICDInterfaceVersion;
         }}
         """)
+        #write(""#ifdef ... if(strcmp(...
         for command_name in parsed["commands"]:
             write(f"""
             else if (strcmp(pName,"{command_name}")==0){{
