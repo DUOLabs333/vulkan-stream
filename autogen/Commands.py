@@ -190,9 +190,7 @@ for name, command in parsed["commands"].items():
     if name=="vkMapMemory":
         write("""
         info->mem=*ppData;
-        
-        result["memory"]["ppData"]=json({});
-        result["memory"]["ppData"]["ptr"]=(uintptr_t)*ppData; //Override the default void handling
+        result["mem_ptr"]=(uintptr_t)*ppData;
         """)
     write("""
         writeToConn(result);
@@ -327,6 +325,8 @@ for name, command in parsed["commands"].items():
         {size}=whole_size;
         {offset}=0;
         """)
+        
+        write("*ppData=NULL;") #We're going to overwrite it anyways
     for param in command["params"]:
         write(serialize(f"""data_json["members"]["{param["name"]}"]""",param))
     write("}")
@@ -447,7 +447,7 @@ for name, command in parsed["commands"].items():
         info->mem=mmap(NULL,info->size, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED, info->fd,0);
         
         auto client_mem=(uintptr_t)info->mem;
-        uintptr_t server_mem=result["members"]["ppData"]["ptr"];
+        uintptr_t server_mem=result["mem_ptr"];
         
         client_to_server_mem[client_mem]=server_mem;
         server_to_client_mem[server_mem]=client_mem;

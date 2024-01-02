@@ -63414,7 +63414,8 @@
                     "const": false,
                     "num_indirection": 2,
                     "length": [
-                        ""
+                        "size",
+                        "1"
                     ],
                     "type": "void",
                     "header": "void** ppData\n        ",

@@ -132,7 +132,7 @@ void Sync(void* mem, uintptr_t length){
     result["hashes"]={};
     
     #ifdef CLIENT
-        result["mem"]=server_to_client_mem[(uintptr_t)mem];
+        result["mem"]=client_to_server_mem[(uintptr_t)mem];
     #else
         result["mem"]=(uintptr_t)mem;
     #endif

@@ -226,6 +226,9 @@ for item in vk.findall("./commands/command"):
             
             result["name"]=param.find("name").text
             
+            if name=="vkMapMemory" and result["name"]=="ppData":
+                result["length"]=["size","1"]
+                
             if result["name"] in params_set: #Two instances of duplicates
                 params[i]=None
                 continue
