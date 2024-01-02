@@ -326,7 +326,7 @@ for name, command in parsed["commands"].items():
         {offset}=0;
         """)
         
-        write("*ppData=NULL;") #We're going to overwrite it anyways
+        write("*ppData=NULL;") #We're going to overwrite it anyway
     for param in command["params"]:
         write(serialize(f"""data_json["members"]["{param["name"]}"]""",param))
     write("}")
@@ -460,7 +460,7 @@ for name, command in parsed["commands"].items():
         
         """)
         
-    for creation_function in ["^vkAllocate(.*)s$","^vkCreate(.*)$","^vkEnumerate(.*)s$"]:
+    for creation_function in ["^vkAllocate(.*)s$","^vkCreate(.*)$","^vkEnumerate(.*)s$","^vkGetDeviceQueue$"]:
         if re.match(creation_function,name) is not None:
             matched=False
             for param in reversed(command["params"]):
