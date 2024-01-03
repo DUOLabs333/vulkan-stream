@@ -26,5 +26,5 @@ typedef struct {
 } SurfaceInfo;
 
 void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type);
-void registerSwapchain(VkSwapchainKHR swapchain, VkSurfaceKHR surface);
+void registerSwapchain(VkSwapchainKHR swapchain, VkSurfaceKHR surface, VkDevice device);
 void QueuePresent(VkPresentInfoKHR info);

@@ -129,6 +129,7 @@ for name, command in parsed["commands"].items():
         }
 
         bool headless_surface_extension=false;
+        bool copy_image_memory_extension=false;
             
         uint32_t i=0;
         while(i < extensions_length){
@@ -147,12 +148,23 @@ for name, command in parsed["commands"].items():
             if (strcmp(extension,VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME)==0){
                 headless_surface_extension=true;
             }
+            
+            if (strcmp(extension,VK_EXT_HOST_IMAGE_COPY_EXTENSION_NAME)==0){
+               copy_image_memory_extension=true;
+            }
             i++;
         }
 
         if (!headless_surface_extension){
             extensions=(char**)realloc(extensions,(extensions_length+1)*sizeof(char*));
             extensions[extensions_length]=(char*)VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME;
+        
+            extensions_length++;
+        }
+        
+        if (!copy_image_memory_extension){
+            extensions=(char**)realloc(extensions,(extensions_length+1)*sizeof(char*));
+            extensions[extensions_length]=(char*)VK_EXT_HOST_IMAGE_COPY_EXTENSION_NAME;
         
             extensions_length++;
         }
@@ -489,7 +501,7 @@ for name, command in parsed["commands"].items():
                 handle_to_parent_handle_struct[(uintptr_t)(*{handle["name"]})]=parent;
                 """)
     if name=="vkCreateSwapchainKHR":
-        write("registerSwapchain(*pSwapchain,pCreateInfo->surface);")
+        write("registerSwapchain(*pSwapchain,pCreateInfo->surface,device);")
     elif name=="vkQueuePresentKHR":
         write("QueuePresent(pPresentInfo);") 
     if not is_void(command):
