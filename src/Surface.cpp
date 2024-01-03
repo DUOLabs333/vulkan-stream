@@ -1,7 +1,11 @@
 #include "Surface.hpp"
+#include <cstdint>
 #include <cstdio>
+#include <vulkan/vulkan_core.h>
 
 std::map<uintptr_t, SurfaceInfo> surface_to_info;
+std::map<uintptr_t, VkSurfaceKHR> swapchain_to_surface;
+
 void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
     auto surface_info=SurfaceInfo{.type=type};
     
@@ -30,4 +34,18 @@ void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
     }
     
     surface_to_info[(uintptr_t)pSurface]=surface_info;
+}
+
+
+void registerSwapchain(VkSwapchainKHR swapchain, VkSurfaceKHR surface){
+    swapchain_to_surface[(uintptr_t)swapchain]=surface;
+}
+
+void QueuePresent(VkPresentInfoKHR* info){
+    std::map<uintptr_t, VkImage*> swapchain_to_images;
+    
+    for(int i=0; i<info->swapchainCount; i++){
+    }
+    //For each swapchain, add list to some map
+    //Then, copy image into memory (make each memory 50kb and hard code it in)
 }

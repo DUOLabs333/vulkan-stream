@@ -503,7 +503,7 @@ for handle in parsed["handles"]:
                         server_{handle}_to_client_{handle}[pointer]=(uintptr_t)handle;
                         client_{handle}_to_server_{handle}[(uintptr_t)handle]=pointer;
                         
-                        result=({handle})handle;
+                        result=({handle})handle; //This is highly dangerous -- I'm basically casting {handle}* to {handle}. I should do *(({handle}*)handle)
                     }}
                 #else
                     result=({handle})pointer;

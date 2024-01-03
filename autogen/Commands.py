@@ -268,6 +268,7 @@ for name, command in parsed["commands"].items():
         }}
         """)
         continue
+    
     write("auto data_json=json({});")
     
     write(f"""data_json["type"]="command_{name}";""")
@@ -325,7 +326,7 @@ for name, command in parsed["commands"].items():
         {size}=whole_size;
         {offset}=0;
         """)
-        
+
         write("*ppData=NULL;") #We're going to overwrite it anyway
     for param in command["params"]:
         write(serialize(f"""data_json["members"]["{param["name"]}"]""",param))
@@ -398,26 +399,24 @@ for name, command in parsed["commands"].items():
         if (strcmp(pName,"vk_icdNegotiateLoaderICDInterfaceVersion")==0){{
             return_value=({command['type']})vk_icdNegotiateLoaderICDInterfaceVersion;
         }}
+        #ifdef VK_USE_PLATFORM_XCB_KHR
+            else if (strcmp(pName,"vkCreateXcbSurfaceKHR")==0){{
+                return_value=({command['type']}){command_name};
+            }}
+        #endif
+        
+        #ifdef VK_USE_PLATFORM_XLIB_KHR
+            else if (strcmp(pName,"vkCreateXlibSurfaceKHR")==0){{
+                return_value=({command['type']}){command_name};
+            }}
+        #endif
         """)
-        #write(""#ifdef ... if(strcmp(...
         for command_name in parsed["commands"]:
             write(f"""
             else if (strcmp(pName,"{command_name}")==0){{
                 printf("Retrieving {command_name}...\\n");
                 return_value= (result["return"]==true) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
                 
-                #ifdef VK_USE_PLATFORM_XCB_KHR
-                    if (strcmp(pName,"vkCreateXcbSurfaceKHR")==0){{
-                        return_value=({command['type']}){command_name};
-                    }}
-                #endif
-                
-                #ifdef VK_USE_PLATFORM_XLIB_KHR
-                    if (strcmp(pName,"vkCreateXlibSurfaceKHR")==0){{
-                        return_value=({command['type']}){command_name};
-                    }}
-                #endif
-                printf("Address of ProcAddr: %p\\n",return_value);
             }}
             """)
         write("""
@@ -425,6 +424,8 @@ for name, command in parsed["commands"].items():
                 printf("%s\\n",(std::string("Unknown function: ")+pName).c_str());
                 return_value=NULL;
             }
+            
+            printf("Address of ProcAddr: %p\\n",return_value);
         """)
     else:
         if not is_void(command):
@@ -487,7 +488,10 @@ for name, command in parsed["commands"].items():
                 write(f"""
                 handle_to_parent_handle_struct[(uintptr_t)(*{handle["name"]})]=parent;
                 """)
-            
+    if name=="vkCreateSwapchainKHR":
+        write("registerSwapchain(*pSwapchain,pCreateInfo->surface);")
+    elif name=="vkQueuePresentKHR":
+        write("QueuePresent(pPresentInfo);") 
     if not is_void(command):
         write("return return_value;")
     write("}")
