@@ -163,10 +163,10 @@ for name, command in parsed["commands"].items():
         }
         
         if (!copy_image_memory_extension){
-            extensions=(char**)realloc(extensions,(extensions_length+1)*sizeof(char*));
-            extensions[extensions_length]=(char*)VK_EXT_HOST_IMAGE_COPY_EXTENSION_NAME;
+            //extensions=(char**)realloc(extensions,(extensions_length+1)*sizeof(char*));
+            //extensions[extensions_length]=(char*)VK_EXT_HOST_IMAGE_COPY_EXTENSION_NAME;
         
-            extensions_length++;
+            //extensions_length++;
         }
         
         for (int i=0; i< extensions_length; i++){
@@ -504,6 +504,8 @@ for name, command in parsed["commands"].items():
         write("registerSwapchain(*pSwapchain,pCreateInfo->surface,device);")
     elif name=="vkCreateImage":
         write("registerImage(*pImage,pCreateInfo->extent);")
+    elif name=="vkCreateDevice":
+        write("registerDevice(*pDevice,physicalDevice);")
     elif name=="vkQueuePresentKHR":
         write("QueuePresent(pPresentInfo);") 
     if not is_void(command):
