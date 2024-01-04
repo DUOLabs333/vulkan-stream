@@ -95,6 +95,9 @@ for item in vk.findall("./types/type"):
                 if type=="struct" and result["name"]=="pNext" and result["type"]=="void" and result["num_indirection"]==1:
                     result["type"]="pNext"
                     result["num_indirection"]=0
+                
+                if name=="VkImageToMemoryCopyEXT" and result["name"]=="pHostPointer":
+                    result["length"]=["100000"]
                     
                 members[i]=result
             members=[_ for _ in members if _ is not None]

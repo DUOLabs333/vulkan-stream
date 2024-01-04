@@ -502,6 +502,8 @@ for name, command in parsed["commands"].items():
                 """)
     if name=="vkCreateSwapchainKHR":
         write("registerSwapchain(*pSwapchain,pCreateInfo->surface,device);")
+    elif name=="vkCreateImage":
+        write("registerImage(*pImage,pCreateInfo->extent);")
     elif name=="vkQueuePresentKHR":
         write("QueuePresent(pPresentInfo);") 
     if not is_void(command):

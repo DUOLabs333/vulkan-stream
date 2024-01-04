@@ -49341,7 +49341,7 @@
                 "name": "pHostPointer",
                 "const": false,
                 "length": [
-                    ""
+                    "100000"
                 ],
                 "type": "void",
                 "num_indirection": 1,

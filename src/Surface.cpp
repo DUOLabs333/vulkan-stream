@@ -8,6 +8,7 @@
 std::map<uintptr_t, SurfaceInfo> surface_to_info;
 std::map<uintptr_t, VkSurfaceKHR> swapchain_to_surface;
 std::map<uintptr_t, VkDevice> swapchain_to_device;
+std::map<uintptr_t, VkExtent3D> image_to_extent;
 
 void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
     auto surface_info=SurfaceInfo{.type=type};
@@ -45,6 +46,10 @@ void registerSwapchain(VkSwapchainKHR swapchain, VkSurfaceKHR surface, VkDevice 
     swapchain_to_device[(uintptr_t)swapchain]=device;
 }
 
+void registerImage(VkImage image, VkExtent3D extent){
+    image_to_extent[(uintptr_t)image]=extent;
+}
+
 void QueuePresent(VkPresentInfoKHR* info){
     std::map<uintptr_t, std::vector<VkImage>> swapchain_to_images;
     
@@ -70,10 +75,25 @@ void QueuePresent(VkPresentInfoKHR* info){
         auto copy_info=VkCopyImageToMemoryInfoEXT{};
         copy_info.sType=VK_STRUCTURE_TYPE_COPY_IMAGE_TO_MEMORY_INFO_EXT;
         copy_info.pNext=NULL;
+        copy_info.flags=0;
+        copy_info.srcImage=image;
+        copy_info.srcImageLayout=VK_IMAGE_LAYOUT_GENERAL;
+        copy_info.regionCount=1;
+        
+        auto copy_to_memory_info=VkImageToMemoryCopyEXT{};
+        copy_to_memory_info.sType=VK_STRUCTURE_TYPE_IMAGE_TO_MEMORY_COPY_EXT;
+        copy_to_memory_info.pNext=NULL;
+        copy_to_memory_info.pHostPointer=malloc(100000);
+        copy_to_memory_info.memoryRowLength=0;
+        copy_to_memory_info.memoryImageHeight=0;
+        copy_to_memory_info.imageSubresource=VkImageSubresourceLayers{.aspectMask=VK_IMAGE_ASPECT_COLOR_BIT,.mipLevel=0,.baseArrayLayer=0,.layerCount=1};
+        copy_to_memory_info.imageOffset=VkOffset3D{0,0,0};
+        copy_to_memory_info.imageExtent=image_to_extent[(uintptr_t)image];
+        
+        copy_info.pRegions=&copy_to_memory_info;
         
         vkCopyImageToMemoryEXT(device,&copy_info);
     }
     
-    
-    //Then, copy image into memory (make each memory 50kb and hard code it in)
+
 }
