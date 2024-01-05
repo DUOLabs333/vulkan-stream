@@ -10,6 +10,7 @@ std::map<uintptr_t, VkSurfaceKHR> swapchain_to_surface;
 std::map<uintptr_t, VkDevice> swapchain_to_device;
 std::map<uintptr_t, VkExtent3D> image_to_extent;
 std::map<uintptr_t, VkPhysicalDevice> device_to_phyiscal_device;
+std::map<uintptr_t, void*> device_to_mapped;
 
 void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
     auto surface_info=SurfaceInfo{.type=type};
@@ -132,10 +133,27 @@ auto buffer_create_info=VkBufferCreateInfo{};
 }
 
 void getImageData(VkDevice device, VkImage image, void** data){
-//If the Memory is already mapped (pointer is in map), return it
-//copyImageToBuffer (this includes startCommandBuffer, the actual vulkan command, then submitCommandBuffer, and waitForOperation)
-//getMemory (this includes creating buffer, and binding it to Memory)
-//vkMapMemory
+auto key=(uintptr_t)device;
+if (device_to_mapped.contains(key)){
+    *data=device_to_mapped[key];
+    return;
+}
+
+copyImageToBuffer(device,image);
+
+VkDeviceSize size;
+VkDeviceMemory memory;
+getMemory(&memory,&size);
+
+void* ppData=NULL;
+vkMapMemory(device,memory,0,size,0,&ppData);
+
+device_to_mapped[key]=ppData;
+
+*data=ppData;
+return;
+//copyImageToBuffer (this includes startCommandBuffer, getBuffer, the actual vulkan command, then submitCommandBuffer, and waitForOperation)
+//getMemory (this includes creating memory, and binding it to buffer )
 }
 
 void QueuePresent(VkPresentInfoKHR* info){
@@ -167,6 +185,11 @@ void QueuePresent(VkPresentInfoKHR* info){
         getImageData(device, image, &data); //Returns pointer holding the data
         
         auto surface=swapchain_to_surface[(uintptr_t)swapchain];
+        
+        if (!surface_to_info.contains((uintptr_t)surface){
+            continue;
+        }
+        
         auto surface_info=surface_to_info[(uintptr_t)surface];
         
         switch (surface_info.type){
@@ -185,6 +208,7 @@ void QueuePresent(VkPresentInfoKHR* info){
             GC gc = XCreateGC(display, window, 0, NULL);
             XPutImage(display, window, gc, image, 0, 0, 0, 0, extent.width, extent.height);
             XFreeGC(display, gc);
+            break;
             }
             #endif
             
@@ -207,11 +231,12 @@ void QueuePresent(VkPresentInfoKHR* info){
                 // Flush and free resources
                 xcb_flush(connection);
                 xcb_free_gc(connection, gc);
+                break;
             }
             #endif
             
             default:
-                continue;
+                break;
         }
         
         
