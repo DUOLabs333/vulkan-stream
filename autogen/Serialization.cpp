@@ -79266,30 +79266,30 @@ result["members"]["pNext"]=[&]() {
     json return_nQmQJXc=json({});
     return serialize_pNext(name.pNext);}();
 result["members"]["pHostPointer"]=[&]() {
-    json return_NpGnkXW=json({});
+    json return_OKdpTtb=json({});
     
         if (name.pHostPointer==NULL){
-            return_NpGnkXW["null"]=true;
-            return return_NpGnkXW;
+            return_OKdpTtb["null"]=true;
+            return return_OKdpTtb;
         }
-        return_NpGnkXW=[&]() {
-    json return_eoIErQU=json({});
+        return_OKdpTtb=[&]() {
+    json return_VqyoGFu=json({});
     
         if (((char*)(name.pHostPointer))==NULL){
-            return_eoIErQU["null"]=true;
-            return return_eoIErQU;
+            return_VqyoGFu["null"]=true;
+            return return_VqyoGFu;
         }
         
-        return_eoIErQU["members"]={};
-        for(int eoIErQU=0; eoIErQU < strlen(((char*)(name.pHostPointer)))+1; eoIErQU++){
+        return_VqyoGFu["members"]={};
+        for(int VqyoGFu=0; VqyoGFu < 100000; VqyoGFu++){
             json temp;
             temp=[&]() {
-    json return_GJXHLDo=json({});
-    return serialize_char(((char*)(name.pHostPointer))[eoIErQU]);}();
-            return_eoIErQU["members"].push_back(temp);
+    json return_UiLMKOq=json({});
+    return serialize_char(((char*)(name.pHostPointer))[VqyoGFu]);}();
+            return_VqyoGFu["members"].push_back(temp);
         }
-        return return_eoIErQU;
-        }();return return_NpGnkXW;}();
+        return return_VqyoGFu;
+        }();return return_OKdpTtb;}();
 result["members"]["memoryRowLength"]=[&]() {
     json return_JRLCeiq=json({});
     return serialize_uint32_t(name.memoryRowLength);}();
@@ -79321,18 +79321,18 @@ temp_AKhkPTS=deserialize_pNext(name["members"]["pNext"]);}();result.pNext=temp_A
         result.pHostPointer=NULL;
         return;
         }
-    char* temp_AeYiyiv;[&]() {
+    char* temp_erJndcA;[&]() {
 
         if (name["members"]["pHostPointer"].contains("null")){
-        temp_AeYiyiv=NULL;
+        temp_erJndcA=NULL;
         return;
         }
-    temp_AeYiyiv=(char*)malloc(name["members"]["pHostPointer"]["members"].size()*sizeof(char));
-        for (int EoAKYRt=0; EoAKYRt < name["members"]["pHostPointer"]["members"].size(); EoAKYRt++){
+    temp_erJndcA=(char*)malloc(100000*sizeof(char));
+        for (int yABkVYc=0; yABkVYc < 100000; yABkVYc++){
             [&]() {
-temp_AeYiyiv[EoAKYRt]=deserialize_char(name["members"]["pHostPointer"]["members"][EoAKYRt]);}();;
+temp_erJndcA[yABkVYc]=deserialize_char(name["members"]["pHostPointer"]["members"][yABkVYc]);}();;
         }
-        }();result.pHostPointer=(void*)temp_AeYiyiv;
+        }();result.pHostPointer=(void*)temp_erJndcA;
 }();
 [&]() {
 result.memoryRowLength=deserialize_uint32_t(name["members"]["memoryRowLength"]);}();
@@ -97828,7 +97828,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkInstance_to_client_VkInstance[pointer]=(uintptr_t)handle;
                         client_VkInstance_to_server_VkInstance[(uintptr_t)handle]=pointer;
                         
-                        result=(VkInstance)handle;
+                        result=(VkInstance)handle; //This is highly dangerous -- I'm basically casting VkInstance* to VkInstance. I should do *((VkInstance*)handle)
                     }
                 #else
                     result=(VkInstance)pointer;
@@ -97880,7 +97880,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkPhysicalDevice_to_client_VkPhysicalDevice[pointer]=(uintptr_t)handle;
                         client_VkPhysicalDevice_to_server_VkPhysicalDevice[(uintptr_t)handle]=pointer;
                         
-                        result=(VkPhysicalDevice)handle;
+                        result=(VkPhysicalDevice)handle; //This is highly dangerous -- I'm basically casting VkPhysicalDevice* to VkPhysicalDevice. I should do *((VkPhysicalDevice*)handle)
                     }
                 #else
                     result=(VkPhysicalDevice)pointer;
@@ -97932,7 +97932,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkDevice_to_client_VkDevice[pointer]=(uintptr_t)handle;
                         client_VkDevice_to_server_VkDevice[(uintptr_t)handle]=pointer;
                         
-                        result=(VkDevice)handle;
+                        result=(VkDevice)handle; //This is highly dangerous -- I'm basically casting VkDevice* to VkDevice. I should do *((VkDevice*)handle)
                     }
                 #else
                     result=(VkDevice)pointer;
@@ -97984,7 +97984,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkQueue_to_client_VkQueue[pointer]=(uintptr_t)handle;
                         client_VkQueue_to_server_VkQueue[(uintptr_t)handle]=pointer;
                         
-                        result=(VkQueue)handle;
+                        result=(VkQueue)handle; //This is highly dangerous -- I'm basically casting VkQueue* to VkQueue. I should do *((VkQueue*)handle)
                     }
                 #else
                     result=(VkQueue)pointer;
@@ -98036,7 +98036,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkCommandBuffer_to_client_VkCommandBuffer[pointer]=(uintptr_t)handle;
                         client_VkCommandBuffer_to_server_VkCommandBuffer[(uintptr_t)handle]=pointer;
                         
-                        result=(VkCommandBuffer)handle;
+                        result=(VkCommandBuffer)handle; //This is highly dangerous -- I'm basically casting VkCommandBuffer* to VkCommandBuffer. I should do *((VkCommandBuffer*)handle)
                     }
                 #else
                     result=(VkCommandBuffer)pointer;
@@ -98093,7 +98093,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkDeviceMemory_to_client_VkDeviceMemory[pointer]=(uintptr_t)handle;
                         client_VkDeviceMemory_to_server_VkDeviceMemory[(uintptr_t)handle]=pointer;
                         
-                        result=(VkDeviceMemory)handle;
+                        result=(VkDeviceMemory)handle; //This is highly dangerous -- I'm basically casting VkDeviceMemory* to VkDeviceMemory. I should do *((VkDeviceMemory*)handle)
                     }
                 #else
                     result=(VkDeviceMemory)pointer;
@@ -98145,7 +98145,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkCommandPool_to_client_VkCommandPool[pointer]=(uintptr_t)handle;
                         client_VkCommandPool_to_server_VkCommandPool[(uintptr_t)handle]=pointer;
                         
-                        result=(VkCommandPool)handle;
+                        result=(VkCommandPool)handle; //This is highly dangerous -- I'm basically casting VkCommandPool* to VkCommandPool. I should do *((VkCommandPool*)handle)
                     }
                 #else
                     result=(VkCommandPool)pointer;
@@ -98197,7 +98197,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkBuffer_to_client_VkBuffer[pointer]=(uintptr_t)handle;
                         client_VkBuffer_to_server_VkBuffer[(uintptr_t)handle]=pointer;
                         
-                        result=(VkBuffer)handle;
+                        result=(VkBuffer)handle; //This is highly dangerous -- I'm basically casting VkBuffer* to VkBuffer. I should do *((VkBuffer*)handle)
                     }
                 #else
                     result=(VkBuffer)pointer;
@@ -98249,7 +98249,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkBufferView_to_client_VkBufferView[pointer]=(uintptr_t)handle;
                         client_VkBufferView_to_server_VkBufferView[(uintptr_t)handle]=pointer;
                         
-                        result=(VkBufferView)handle;
+                        result=(VkBufferView)handle; //This is highly dangerous -- I'm basically casting VkBufferView* to VkBufferView. I should do *((VkBufferView*)handle)
                     }
                 #else
                     result=(VkBufferView)pointer;
@@ -98301,7 +98301,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkImage_to_client_VkImage[pointer]=(uintptr_t)handle;
                         client_VkImage_to_server_VkImage[(uintptr_t)handle]=pointer;
                         
-                        result=(VkImage)handle;
+                        result=(VkImage)handle; //This is highly dangerous -- I'm basically casting VkImage* to VkImage. I should do *((VkImage*)handle)
                     }
                 #else
                     result=(VkImage)pointer;
@@ -98353,7 +98353,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkImageView_to_client_VkImageView[pointer]=(uintptr_t)handle;
                         client_VkImageView_to_server_VkImageView[(uintptr_t)handle]=pointer;
                         
-                        result=(VkImageView)handle;
+                        result=(VkImageView)handle; //This is highly dangerous -- I'm basically casting VkImageView* to VkImageView. I should do *((VkImageView*)handle)
                     }
                 #else
                     result=(VkImageView)pointer;
@@ -98405,7 +98405,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkShaderModule_to_client_VkShaderModule[pointer]=(uintptr_t)handle;
                         client_VkShaderModule_to_server_VkShaderModule[(uintptr_t)handle]=pointer;
                         
-                        result=(VkShaderModule)handle;
+                        result=(VkShaderModule)handle; //This is highly dangerous -- I'm basically casting VkShaderModule* to VkShaderModule. I should do *((VkShaderModule*)handle)
                     }
                 #else
                     result=(VkShaderModule)pointer;
@@ -98457,7 +98457,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkPipeline_to_client_VkPipeline[pointer]=(uintptr_t)handle;
                         client_VkPipeline_to_server_VkPipeline[(uintptr_t)handle]=pointer;
                         
-                        result=(VkPipeline)handle;
+                        result=(VkPipeline)handle; //This is highly dangerous -- I'm basically casting VkPipeline* to VkPipeline. I should do *((VkPipeline*)handle)
                     }
                 #else
                     result=(VkPipeline)pointer;
@@ -98509,7 +98509,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkPipelineLayout_to_client_VkPipelineLayout[pointer]=(uintptr_t)handle;
                         client_VkPipelineLayout_to_server_VkPipelineLayout[(uintptr_t)handle]=pointer;
                         
-                        result=(VkPipelineLayout)handle;
+                        result=(VkPipelineLayout)handle; //This is highly dangerous -- I'm basically casting VkPipelineLayout* to VkPipelineLayout. I should do *((VkPipelineLayout*)handle)
                     }
                 #else
                     result=(VkPipelineLayout)pointer;
@@ -98561,7 +98561,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkSampler_to_client_VkSampler[pointer]=(uintptr_t)handle;
                         client_VkSampler_to_server_VkSampler[(uintptr_t)handle]=pointer;
                         
-                        result=(VkSampler)handle;
+                        result=(VkSampler)handle; //This is highly dangerous -- I'm basically casting VkSampler* to VkSampler. I should do *((VkSampler*)handle)
                     }
                 #else
                     result=(VkSampler)pointer;
@@ -98613,7 +98613,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkDescriptorSet_to_client_VkDescriptorSet[pointer]=(uintptr_t)handle;
                         client_VkDescriptorSet_to_server_VkDescriptorSet[(uintptr_t)handle]=pointer;
                         
-                        result=(VkDescriptorSet)handle;
+                        result=(VkDescriptorSet)handle; //This is highly dangerous -- I'm basically casting VkDescriptorSet* to VkDescriptorSet. I should do *((VkDescriptorSet*)handle)
                     }
                 #else
                     result=(VkDescriptorSet)pointer;
@@ -98665,7 +98665,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout[pointer]=(uintptr_t)handle;
                         client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout[(uintptr_t)handle]=pointer;
                         
-                        result=(VkDescriptorSetLayout)handle;
+                        result=(VkDescriptorSetLayout)handle; //This is highly dangerous -- I'm basically casting VkDescriptorSetLayout* to VkDescriptorSetLayout. I should do *((VkDescriptorSetLayout*)handle)
                     }
                 #else
                     result=(VkDescriptorSetLayout)pointer;
@@ -98717,7 +98717,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkDescriptorPool_to_client_VkDescriptorPool[pointer]=(uintptr_t)handle;
                         client_VkDescriptorPool_to_server_VkDescriptorPool[(uintptr_t)handle]=pointer;
                         
-                        result=(VkDescriptorPool)handle;
+                        result=(VkDescriptorPool)handle; //This is highly dangerous -- I'm basically casting VkDescriptorPool* to VkDescriptorPool. I should do *((VkDescriptorPool*)handle)
                     }
                 #else
                     result=(VkDescriptorPool)pointer;
@@ -98769,7 +98769,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkFence_to_client_VkFence[pointer]=(uintptr_t)handle;
                         client_VkFence_to_server_VkFence[(uintptr_t)handle]=pointer;
                         
-                        result=(VkFence)handle;
+                        result=(VkFence)handle; //This is highly dangerous -- I'm basically casting VkFence* to VkFence. I should do *((VkFence*)handle)
                     }
                 #else
                     result=(VkFence)pointer;
@@ -98821,7 +98821,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkSemaphore_to_client_VkSemaphore[pointer]=(uintptr_t)handle;
                         client_VkSemaphore_to_server_VkSemaphore[(uintptr_t)handle]=pointer;
                         
-                        result=(VkSemaphore)handle;
+                        result=(VkSemaphore)handle; //This is highly dangerous -- I'm basically casting VkSemaphore* to VkSemaphore. I should do *((VkSemaphore*)handle)
                     }
                 #else
                     result=(VkSemaphore)pointer;
@@ -98873,7 +98873,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkEvent_to_client_VkEvent[pointer]=(uintptr_t)handle;
                         client_VkEvent_to_server_VkEvent[(uintptr_t)handle]=pointer;
                         
-                        result=(VkEvent)handle;
+                        result=(VkEvent)handle; //This is highly dangerous -- I'm basically casting VkEvent* to VkEvent. I should do *((VkEvent*)handle)
                     }
                 #else
                     result=(VkEvent)pointer;
@@ -98925,7 +98925,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkQueryPool_to_client_VkQueryPool[pointer]=(uintptr_t)handle;
                         client_VkQueryPool_to_server_VkQueryPool[(uintptr_t)handle]=pointer;
                         
-                        result=(VkQueryPool)handle;
+                        result=(VkQueryPool)handle; //This is highly dangerous -- I'm basically casting VkQueryPool* to VkQueryPool. I should do *((VkQueryPool*)handle)
                     }
                 #else
                     result=(VkQueryPool)pointer;
@@ -98977,7 +98977,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkFramebuffer_to_client_VkFramebuffer[pointer]=(uintptr_t)handle;
                         client_VkFramebuffer_to_server_VkFramebuffer[(uintptr_t)handle]=pointer;
                         
-                        result=(VkFramebuffer)handle;
+                        result=(VkFramebuffer)handle; //This is highly dangerous -- I'm basically casting VkFramebuffer* to VkFramebuffer. I should do *((VkFramebuffer*)handle)
                     }
                 #else
                     result=(VkFramebuffer)pointer;
@@ -99029,7 +99029,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkRenderPass_to_client_VkRenderPass[pointer]=(uintptr_t)handle;
                         client_VkRenderPass_to_server_VkRenderPass[(uintptr_t)handle]=pointer;
                         
-                        result=(VkRenderPass)handle;
+                        result=(VkRenderPass)handle; //This is highly dangerous -- I'm basically casting VkRenderPass* to VkRenderPass. I should do *((VkRenderPass*)handle)
                     }
                 #else
                     result=(VkRenderPass)pointer;
@@ -99081,7 +99081,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkPipelineCache_to_client_VkPipelineCache[pointer]=(uintptr_t)handle;
                         client_VkPipelineCache_to_server_VkPipelineCache[(uintptr_t)handle]=pointer;
                         
-                        result=(VkPipelineCache)handle;
+                        result=(VkPipelineCache)handle; //This is highly dangerous -- I'm basically casting VkPipelineCache* to VkPipelineCache. I should do *((VkPipelineCache*)handle)
                     }
                 #else
                     result=(VkPipelineCache)pointer;
@@ -99133,7 +99133,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV[pointer]=(uintptr_t)handle;
                         client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV[(uintptr_t)handle]=pointer;
                         
-                        result=(VkIndirectCommandsLayoutNV)handle;
+                        result=(VkIndirectCommandsLayoutNV)handle; //This is highly dangerous -- I'm basically casting VkIndirectCommandsLayoutNV* to VkIndirectCommandsLayoutNV. I should do *((VkIndirectCommandsLayoutNV*)handle)
                     }
                 #else
                     result=(VkIndirectCommandsLayoutNV)pointer;
@@ -99185,7 +99185,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate[pointer]=(uintptr_t)handle;
                         client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate[(uintptr_t)handle]=pointer;
                         
-                        result=(VkDescriptorUpdateTemplate)handle;
+                        result=(VkDescriptorUpdateTemplate)handle; //This is highly dangerous -- I'm basically casting VkDescriptorUpdateTemplate* to VkDescriptorUpdateTemplate. I should do *((VkDescriptorUpdateTemplate*)handle)
                     }
                 #else
                     result=(VkDescriptorUpdateTemplate)pointer;
@@ -99237,7 +99237,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR[pointer]=(uintptr_t)handle;
                         client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR[(uintptr_t)handle]=pointer;
                         
-                        result=(VkDescriptorUpdateTemplateKHR)handle;
+                        result=(VkDescriptorUpdateTemplateKHR)handle; //This is highly dangerous -- I'm basically casting VkDescriptorUpdateTemplateKHR* to VkDescriptorUpdateTemplateKHR. I should do *((VkDescriptorUpdateTemplateKHR*)handle)
                     }
                 #else
                     result=(VkDescriptorUpdateTemplateKHR)pointer;
@@ -99289,7 +99289,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion[pointer]=(uintptr_t)handle;
                         client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion[(uintptr_t)handle]=pointer;
                         
-                        result=(VkSamplerYcbcrConversion)handle;
+                        result=(VkSamplerYcbcrConversion)handle; //This is highly dangerous -- I'm basically casting VkSamplerYcbcrConversion* to VkSamplerYcbcrConversion. I should do *((VkSamplerYcbcrConversion*)handle)
                     }
                 #else
                     result=(VkSamplerYcbcrConversion)pointer;
@@ -99341,7 +99341,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR[pointer]=(uintptr_t)handle;
                         client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR[(uintptr_t)handle]=pointer;
                         
-                        result=(VkSamplerYcbcrConversionKHR)handle;
+                        result=(VkSamplerYcbcrConversionKHR)handle; //This is highly dangerous -- I'm basically casting VkSamplerYcbcrConversionKHR* to VkSamplerYcbcrConversionKHR. I should do *((VkSamplerYcbcrConversionKHR*)handle)
                     }
                 #else
                     result=(VkSamplerYcbcrConversionKHR)pointer;
@@ -99393,7 +99393,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkValidationCacheEXT_to_client_VkValidationCacheEXT[pointer]=(uintptr_t)handle;
                         client_VkValidationCacheEXT_to_server_VkValidationCacheEXT[(uintptr_t)handle]=pointer;
                         
-                        result=(VkValidationCacheEXT)handle;
+                        result=(VkValidationCacheEXT)handle; //This is highly dangerous -- I'm basically casting VkValidationCacheEXT* to VkValidationCacheEXT. I should do *((VkValidationCacheEXT*)handle)
                     }
                 #else
                     result=(VkValidationCacheEXT)pointer;
@@ -99445,7 +99445,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR[pointer]=(uintptr_t)handle;
                         client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR[(uintptr_t)handle]=pointer;
                         
-                        result=(VkAccelerationStructureKHR)handle;
+                        result=(VkAccelerationStructureKHR)handle; //This is highly dangerous -- I'm basically casting VkAccelerationStructureKHR* to VkAccelerationStructureKHR. I should do *((VkAccelerationStructureKHR*)handle)
                     }
                 #else
                     result=(VkAccelerationStructureKHR)pointer;
@@ -99497,7 +99497,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV[pointer]=(uintptr_t)handle;
                         client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV[(uintptr_t)handle]=pointer;
                         
-                        result=(VkAccelerationStructureNV)handle;
+                        result=(VkAccelerationStructureNV)handle; //This is highly dangerous -- I'm basically casting VkAccelerationStructureNV* to VkAccelerationStructureNV. I should do *((VkAccelerationStructureNV*)handle)
                     }
                 #else
                     result=(VkAccelerationStructureNV)pointer;
@@ -99549,7 +99549,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL[pointer]=(uintptr_t)handle;
                         client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL[(uintptr_t)handle]=pointer;
                         
-                        result=(VkPerformanceConfigurationINTEL)handle;
+                        result=(VkPerformanceConfigurationINTEL)handle; //This is highly dangerous -- I'm basically casting VkPerformanceConfigurationINTEL* to VkPerformanceConfigurationINTEL. I should do *((VkPerformanceConfigurationINTEL*)handle)
                     }
                 #else
                     result=(VkPerformanceConfigurationINTEL)pointer;
@@ -99601,7 +99601,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR[pointer]=(uintptr_t)handle;
                         client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR[(uintptr_t)handle]=pointer;
                         
-                        result=(VkDeferredOperationKHR)handle;
+                        result=(VkDeferredOperationKHR)handle; //This is highly dangerous -- I'm basically casting VkDeferredOperationKHR* to VkDeferredOperationKHR. I should do *((VkDeferredOperationKHR*)handle)
                     }
                 #else
                     result=(VkDeferredOperationKHR)pointer;
@@ -99653,7 +99653,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkPrivateDataSlot_to_client_VkPrivateDataSlot[pointer]=(uintptr_t)handle;
                         client_VkPrivateDataSlot_to_server_VkPrivateDataSlot[(uintptr_t)handle]=pointer;
                         
-                        result=(VkPrivateDataSlot)handle;
+                        result=(VkPrivateDataSlot)handle; //This is highly dangerous -- I'm basically casting VkPrivateDataSlot* to VkPrivateDataSlot. I should do *((VkPrivateDataSlot*)handle)
                     }
                 #else
                     result=(VkPrivateDataSlot)pointer;
@@ -99705,7 +99705,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT[pointer]=(uintptr_t)handle;
                         client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT[(uintptr_t)handle]=pointer;
                         
-                        result=(VkPrivateDataSlotEXT)handle;
+                        result=(VkPrivateDataSlotEXT)handle; //This is highly dangerous -- I'm basically casting VkPrivateDataSlotEXT* to VkPrivateDataSlotEXT. I should do *((VkPrivateDataSlotEXT*)handle)
                     }
                 #else
                     result=(VkPrivateDataSlotEXT)pointer;
@@ -99757,7 +99757,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkCuModuleNVX_to_client_VkCuModuleNVX[pointer]=(uintptr_t)handle;
                         client_VkCuModuleNVX_to_server_VkCuModuleNVX[(uintptr_t)handle]=pointer;
                         
-                        result=(VkCuModuleNVX)handle;
+                        result=(VkCuModuleNVX)handle; //This is highly dangerous -- I'm basically casting VkCuModuleNVX* to VkCuModuleNVX. I should do *((VkCuModuleNVX*)handle)
                     }
                 #else
                     result=(VkCuModuleNVX)pointer;
@@ -99809,7 +99809,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkCuFunctionNVX_to_client_VkCuFunctionNVX[pointer]=(uintptr_t)handle;
                         client_VkCuFunctionNVX_to_server_VkCuFunctionNVX[(uintptr_t)handle]=pointer;
                         
-                        result=(VkCuFunctionNVX)handle;
+                        result=(VkCuFunctionNVX)handle; //This is highly dangerous -- I'm basically casting VkCuFunctionNVX* to VkCuFunctionNVX. I should do *((VkCuFunctionNVX*)handle)
                     }
                 #else
                     result=(VkCuFunctionNVX)pointer;
@@ -99861,7 +99861,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV[pointer]=(uintptr_t)handle;
                         client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV[(uintptr_t)handle]=pointer;
                         
-                        result=(VkOpticalFlowSessionNV)handle;
+                        result=(VkOpticalFlowSessionNV)handle; //This is highly dangerous -- I'm basically casting VkOpticalFlowSessionNV* to VkOpticalFlowSessionNV. I should do *((VkOpticalFlowSessionNV*)handle)
                     }
                 #else
                     result=(VkOpticalFlowSessionNV)pointer;
@@ -99913,7 +99913,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkMicromapEXT_to_client_VkMicromapEXT[pointer]=(uintptr_t)handle;
                         client_VkMicromapEXT_to_server_VkMicromapEXT[(uintptr_t)handle]=pointer;
                         
-                        result=(VkMicromapEXT)handle;
+                        result=(VkMicromapEXT)handle; //This is highly dangerous -- I'm basically casting VkMicromapEXT* to VkMicromapEXT. I should do *((VkMicromapEXT*)handle)
                     }
                 #else
                     result=(VkMicromapEXT)pointer;
@@ -99965,7 +99965,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkShaderEXT_to_client_VkShaderEXT[pointer]=(uintptr_t)handle;
                         client_VkShaderEXT_to_server_VkShaderEXT[(uintptr_t)handle]=pointer;
                         
-                        result=(VkShaderEXT)handle;
+                        result=(VkShaderEXT)handle; //This is highly dangerous -- I'm basically casting VkShaderEXT* to VkShaderEXT. I should do *((VkShaderEXT*)handle)
                     }
                 #else
                     result=(VkShaderEXT)pointer;
@@ -100017,7 +100017,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkDisplayKHR_to_client_VkDisplayKHR[pointer]=(uintptr_t)handle;
                         client_VkDisplayKHR_to_server_VkDisplayKHR[(uintptr_t)handle]=pointer;
                         
-                        result=(VkDisplayKHR)handle;
+                        result=(VkDisplayKHR)handle; //This is highly dangerous -- I'm basically casting VkDisplayKHR* to VkDisplayKHR. I should do *((VkDisplayKHR*)handle)
                     }
                 #else
                     result=(VkDisplayKHR)pointer;
@@ -100069,7 +100069,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkDisplayModeKHR_to_client_VkDisplayModeKHR[pointer]=(uintptr_t)handle;
                         client_VkDisplayModeKHR_to_server_VkDisplayModeKHR[(uintptr_t)handle]=pointer;
                         
-                        result=(VkDisplayModeKHR)handle;
+                        result=(VkDisplayModeKHR)handle; //This is highly dangerous -- I'm basically casting VkDisplayModeKHR* to VkDisplayModeKHR. I should do *((VkDisplayModeKHR*)handle)
                     }
                 #else
                     result=(VkDisplayModeKHR)pointer;
@@ -100121,7 +100121,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkSurfaceKHR_to_client_VkSurfaceKHR[pointer]=(uintptr_t)handle;
                         client_VkSurfaceKHR_to_server_VkSurfaceKHR[(uintptr_t)handle]=pointer;
                         
-                        result=(VkSurfaceKHR)handle;
+                        result=(VkSurfaceKHR)handle; //This is highly dangerous -- I'm basically casting VkSurfaceKHR* to VkSurfaceKHR. I should do *((VkSurfaceKHR*)handle)
                     }
                 #else
                     result=(VkSurfaceKHR)pointer;
@@ -100173,7 +100173,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkSwapchainKHR_to_client_VkSwapchainKHR[pointer]=(uintptr_t)handle;
                         client_VkSwapchainKHR_to_server_VkSwapchainKHR[(uintptr_t)handle]=pointer;
                         
-                        result=(VkSwapchainKHR)handle;
+                        result=(VkSwapchainKHR)handle; //This is highly dangerous -- I'm basically casting VkSwapchainKHR* to VkSwapchainKHR. I should do *((VkSwapchainKHR*)handle)
                     }
                 #else
                     result=(VkSwapchainKHR)pointer;
@@ -100225,7 +100225,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT[pointer]=(uintptr_t)handle;
                         client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT[(uintptr_t)handle]=pointer;
                         
-                        result=(VkDebugReportCallbackEXT)handle;
+                        result=(VkDebugReportCallbackEXT)handle; //This is highly dangerous -- I'm basically casting VkDebugReportCallbackEXT* to VkDebugReportCallbackEXT. I should do *((VkDebugReportCallbackEXT*)handle)
                     }
                 #else
                     result=(VkDebugReportCallbackEXT)pointer;
@@ -100277,7 +100277,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT[pointer]=(uintptr_t)handle;
                         client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT[(uintptr_t)handle]=pointer;
                         
-                        result=(VkDebugUtilsMessengerEXT)handle;
+                        result=(VkDebugUtilsMessengerEXT)handle; //This is highly dangerous -- I'm basically casting VkDebugUtilsMessengerEXT* to VkDebugUtilsMessengerEXT. I should do *((VkDebugUtilsMessengerEXT*)handle)
                     }
                 #else
                     result=(VkDebugUtilsMessengerEXT)pointer;
@@ -100329,7 +100329,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkVideoSessionKHR_to_client_VkVideoSessionKHR[pointer]=(uintptr_t)handle;
                         client_VkVideoSessionKHR_to_server_VkVideoSessionKHR[(uintptr_t)handle]=pointer;
                         
-                        result=(VkVideoSessionKHR)handle;
+                        result=(VkVideoSessionKHR)handle; //This is highly dangerous -- I'm basically casting VkVideoSessionKHR* to VkVideoSessionKHR. I should do *((VkVideoSessionKHR*)handle)
                     }
                 #else
                     result=(VkVideoSessionKHR)pointer;
@@ -100381,7 +100381,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR[pointer]=(uintptr_t)handle;
                         client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR[(uintptr_t)handle]=pointer;
                         
-                        result=(VkVideoSessionParametersKHR)handle;
+                        result=(VkVideoSessionParametersKHR)handle; //This is highly dangerous -- I'm basically casting VkVideoSessionParametersKHR* to VkVideoSessionParametersKHR. I should do *((VkVideoSessionParametersKHR*)handle)
                     }
                 #else
                     result=(VkVideoSessionParametersKHR)pointer;

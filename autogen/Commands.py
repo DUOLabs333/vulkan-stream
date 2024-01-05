@@ -413,13 +413,13 @@ for name, command in parsed["commands"].items():
         }}
         #ifdef VK_USE_PLATFORM_XCB_KHR
             else if (strcmp(pName,"vkCreateXcbSurfaceKHR")==0){{
-                return_value=({command['type']})"vkCreateXcbSurfaceKHR";
+                return_value=({command['type']})vkCreateXcbSurfaceKHR;
             }}
         #endif
         
         #ifdef VK_USE_PLATFORM_XLIB_KHR
             else if (strcmp(pName,"vkCreateXlibSurfaceKHR")==0){{
-                return_value=({command['type']})"vkCreateXlibSurfaceKHR";
+                return_value=({command['type']})vkCreateXlibSurfaceKHR;
             }}
         #endif
         """)
@@ -507,7 +507,8 @@ for name, command in parsed["commands"].items():
     elif name=="vkCreateDevice":
         write("registerDevice(*pDevice,physicalDevice);")
     elif name=="vkQueuePresentKHR":
-        write("QueuePresent(pPresentInfo);") 
+        write("QueuePresent(pPresentInfo);")
+    write(f'printf("Ending {name}...\\n");')
     if not is_void(command):
         write("return return_value;")
     write("}")
