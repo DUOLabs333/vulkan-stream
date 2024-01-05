@@ -9,8 +9,10 @@ std::map<uintptr_t, SurfaceInfo> surface_to_info;
 std::map<uintptr_t, VkSurfaceKHR> swapchain_to_surface;
 std::map<uintptr_t, VkDevice> swapchain_to_device;
 std::map<uintptr_t, VkExtent3D> image_to_extent;
+
 std::map<uintptr_t, VkPhysicalDevice> device_to_phyiscal_device;
 std::map<uintptr_t, void*> device_to_mapped;
+std::map<uintptr_t, VkBuffer> device_to_buffer;
 
 void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
     auto surface_info=SurfaceInfo{.type=type};
@@ -57,11 +59,7 @@ void registerDevice(VkDevice device, VkPhysicalDevice phyiscal_device){
 }
 
 
-bool queue_present_init_finished=false;
 
-VkQueue queue;
-VkCommandPool command_pool;
-VkCommandBuffer command_buffer;
 void queue_present_init(VkDevice& device){ //Move this function to one that returns a recording buffer, caching it against devices as needed. Then, another function submits the command
     if (!queue_present_init_finished){
         return;
@@ -122,14 +120,57 @@ auto buffer_create_info=VkBufferCreateInfo{};
         
         vkCreateBuffer(device,&buffer_create_info,NULL,&buffer);
         
-        VkDeviceMemory memory;
-        auto memory_allocate_info=VkMemoryAllocateInfo{};
-        memory_allocate_info.sType=VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;
-        memory_allocate_info.pNext=NULL;
-        memory_allocate_info.allocationSize=100000;
-        memory_allocate_info.memoryTypeIndex=0;
-        
-        vkAllocateMemory(device,&memory_allocate_info,NULL,&memory);
+}
+
+void copyImageToBuffer(VkDevice device, VkImage image){
+auto command_buffer=getCommandBuffer(device);
+
+auto begin_command_buffer_info=VkCommandBufferBeginInfo{.sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO,.pNext=NULL,.flags=VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT,.pInheritanceInfo=NULL};
+vkBeginCommandBuffer(command_buffer,&begin_command_buffer_info);
+
+auto buffer=getBuffer(device);
+auto region=VkBufferImageCopy{
+.bufferOffset=0,
+.bufferRowLength=0,
+.bufferImageHeight=0,
+.imageSubresource=VkImageSubresourceLayers{.aspectMask=VK_IMAGE_ASPECT_COLOR_BIT,.mipLevel=0,.baseArrayLayer=0,.layerCount=1},
+.imageOffset=VkOffset3D{0,0,0},
+.imageExtent=image_to_extent[(uintptr_t)image]
+};
+vkCmdCopyImageToBuffer(command_buffer,image,VK_IMAGE_LAYOUT_GENERAL,buffer,1,&region);
+
+vkEndCommandBuffer(command_buffer);
+
+vkFence fence;
+auto fence_create_info=VkFenceCreateInfo{.sType=VK_STRUCTURE_TYPE_FENCE_CREATE_INFO,.pNext=NULL,.flags=0};
+vkCreateFence(device,&fence_create_info,NULL,&fence);
+
+auto queue_submit_info=VkSubmitInfo{
+.sType=VK_STRUCTURE_TYPE_SUBMIT_INFO,
+.pNext
+}
+//getCommandBuffer (which will create a pool if not exists. Should be cached)
+//vkbeginCommandBuffer
+//createBuffer
+//vkCmdCopyImageToBuffer
+//vkEndCommandBuffer
+//vkCreateFence
+//vkQueueSubmit
+//vkWaitForFences
+
+}
+
+void getMemory(VkDevice device, VkDeviceMemory* memory, VkDeviceSize* size){
+    *size=100000;
+    
+    auto memory_allocate_info=VkMemoryAllocateInfo{};
+    memory_allocate_info.sType=VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;
+    memory_allocate_info.pNext=NULL;
+    memory_allocate_info.allocationSize=*size;
+    memory_allocate_info.memoryTypeIndex=0;
+    
+    vkAllocateMemory(device,&memory_allocate_info,NULL,memory);
+    vkBindBufferMemory(device, getBuffer(device),*memory,0);
 }
 
 void getImageData(VkDevice device, VkImage image, void** data){
@@ -143,7 +184,7 @@ copyImageToBuffer(device,image);
 
 VkDeviceSize size;
 VkDeviceMemory memory;
-getMemory(&memory,&size);
+getMemory(device,&memory,&size);
 
 void* ppData=NULL;
 vkMapMemory(device,memory,0,size,0,&ppData);
@@ -153,7 +194,6 @@ device_to_mapped[key]=ppData;
 *data=ppData;
 return;
 //copyImageToBuffer (this includes startCommandBuffer, getBuffer, the actual vulkan command, then submitCommandBuffer, and waitForOperation)
-//getMemory (this includes creating memory, and binding it to buffer )
 }
 
 void QueuePresent(VkPresentInfoKHR* info){
@@ -244,7 +284,7 @@ void QueuePresent(VkPresentInfoKHR* info){
         
         
         
-        //vkCmdCopyImageToBuffer(
+        
         /*
         auto copy_info=VkCopyImageToMemoryInfoEXT{};
         copy_info.sType=VK_STRUCTURE_TYPE_COPY_IMAGE_TO_MEMORY_INFO_EXT;
