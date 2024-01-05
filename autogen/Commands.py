@@ -6,6 +6,7 @@ write("""
 #include <ThreadStruct.hpp>
 #include <stdexcept>
 #include <future>
+#include "vk_enum_string_helper.h"
 
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
@@ -510,6 +511,8 @@ for name, command in parsed["commands"].items():
         write("QueuePresent(pPresentInfo);")
     write(f'printf("Ending {name}...\\n");')
     if not is_void(command):
+        if command["type"]=="VkResult":
+            write(f'printf("Return value of {name} is: %s...\\n",string_VkResult(return_value));')
         write("return return_value;")
     write("}")
 write("}")

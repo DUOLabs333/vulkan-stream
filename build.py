@@ -15,7 +15,7 @@ INCLUDE_PATHS=["autogen","src", "external/json/single_include", "external/PicoSH
 FLAGS=(["-DCLIENT"] if CLIENT=="1" else [])+["-Wfatal-errors","-fPIC","-Winvalid-pch"]+os.environ["VK_HEADER_FLAGS"].split(" ")
 STATIC_LIBS=["external/qtbase/build/lib/*"]
 SHARED_LIBS_PATHS=[VK_LIB_PATH]
-SHARED_LIBS=(["double-conversion"] if sys.platform=="linux" else ["resolv"])+(["vulkan"] if CLIENT=="0" else [])
+SHARED_LIBS=(["double-conversion"] if sys.platform=="linux" else ["resolv"])+(["vulkan"] if CLIENT=="0" else ["xcb","X11","xcb-image"])
 FRAMEWORKS=["CoreFoundation","CFNetwork","CoreServices","IOKit","AppKit","Foundation","SystemConfiguration","Security"]
 
 def get_object_file(name):

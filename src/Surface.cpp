@@ -208,11 +208,29 @@ vkWaitForFences(device,1,&fence,VK_TRUE, 5ULL*1000000000); //5 seconds. TODO: Wr
 void getMemory(VkDevice device, VkDeviceMemory* memory, VkDeviceSize* size){
     auto buffer=getBuffer(device,size);
     
-    auto memory_allocate_info=VkMemoryAllocateInfo{};
-    memory_allocate_info.sType=VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;
-    memory_allocate_info.pNext=NULL;
-    memory_allocate_info.allocationSize=*size;
-    memory_allocate_info.memoryTypeIndex=0;
+    auto memory_properties=VkPhysicalDeviceMemoryProperties{};
+    vkGetPhysicalDeviceMemoryProperties(device_to_phyiscal_device[(uintptr_t)device],&memory_properties);
+    
+    uint32_t memory_type_index=0;
+    bool found=false;
+    for (uint32_t i=0; i< memory_properties.memoryTypeCount; i++){
+        if ((memory_properties.memoryTypes[i].propertyFlags & VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT)!=0){
+            memory_type_index=i;
+            found=true;
+            break;
+        }
+    }
+    
+    if (!found){
+        printf("None found!\n");
+    }
+    
+    auto memory_allocate_info=VkMemoryAllocateInfo{
+    .sType=VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,
+    .pNext=NULL,
+    .allocationSize=*size,
+    .memoryTypeIndex=memory_type_index
+    };
     
     vkAllocateMemory(device,&memory_allocate_info,NULL,memory);
     vkBindBufferMemory(device, buffer,*memory,0);
@@ -309,7 +327,7 @@ void QueuePresent(const VkPresentInfoKHR* info){
                 xcb_create_gc(connection, gc, window, 0, NULL);
             
                 // Create an XCB image
-                xcb_image_t *x_image = xcb_image_create_native(connection, extent.width, extent.height, XCB_IMAGE_FORMAT_Z_PIXMAP, 0, data, size, (uint8_t*)data);
+                xcb_image_t *x_image = xcb_image_create_native(connection, extent.width, extent.height, XCB_IMAGE_FORMAT_Z_PIXMAP, 1, data, size, (uint8_t*)data);
             
             
                 // Put the XCB image onto the window
