@@ -11,11 +11,11 @@ std::map<uintptr_t, VkDevice> swapchain_to_device;
 std::map<uintptr_t, VkExtent3D> image_to_extent;
 std::map<uintptr_t, VkPhysicalDevice> device_to_phyiscal_device;
 
-void registerSurface(VkSurfaceKHR& pSurface, std::any info, SurfaceType type){
+void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
     auto surface_info=SurfaceInfo{.type=type};
     
     switch (type){
-        #ifdef VK_USE_PLATFORM_XCB_KHR
+        #ifdef VK_USE_PLATFORM_XLIB_KHR
         case Xlib:
             {
             printf("Actual type: %s\n",info.type().name());
@@ -25,7 +25,7 @@ void registerSurface(VkSurfaceKHR& pSurface, std::any info, SurfaceType type){
             }
         #endif
         
-        #ifdef VK_USE_PLATFORM_XLIB_KHR
+        #ifdef VK_USE_PLATFORM_XCB_KHR
         case Xcb:
             {
             printf("Actual type: %s\n",info.type().name());
@@ -47,11 +47,11 @@ void registerSwapchain(VkSwapchainKHR swapchain, VkSurfaceKHR surface, VkDevice 
     swapchain_to_device[(uintptr_t)swapchain]=device;
 }
 
-void registerImage(VkImage& image, VkExtent3D& extent){
+void registerImage(VkImage image, VkExtent3D extent){
     image_to_extent[(uintptr_t)image]=extent;
 }
 
-void registerDevice(VkDevice& device, VkPhysicalDevice& phyiscal_device){
+void registerDevice(VkDevice device, VkPhysicalDevice phyiscal_device){
     device_to_phyiscal_device[(uintptr_t)device]=phyiscal_device;
 }
 
@@ -106,34 +106,10 @@ void queue_present_init(VkDevice& device){ //Move this function to one that retu
     
     queue_present_init_finished=true;
 }
-void QueuePresent(VkPresentInfoKHR* info){
-    
-    std::map<uintptr_t, std::vector<VkImage>> swapchain_to_images;
-    
-    for(int i=0; i<info->swapchainCount; i++){
-        uint32_t numImages=0;
-        VkImage* images=NULL;
-        auto swapchain=info->pSwapchains[i];
-        auto device=swapchain_to_device[(uintptr_t)swapchain];
-        
-        queue_present_init(device);
-        
-        if (!swapchain_to_images.contains((uintptr_t)swapchain)){
-            vkGetSwapchainImagesKHR(device,swapchain,&numImages,images);
-            
-            images=(VkImage*)malloc(numImages*sizeof(VkImage));
-            vkGetSwapchainImagesKHR(swapchain_to_device[(uintptr_t)swapchain],swapchain,&numImages,images);
-            
-            std::vector<VkImage> vec(images, images + numImages);
-            swapchain_to_images[(uintptr_t)swapchain]=vec;
-        }
-        
-        
-        auto imageIndex=info->pImageIndices[i];
-        auto image=swapchain_to_images[(uintptr_t)swapchain][imageIndex];
-        VkBuffer buffer;
-        
-        auto buffer_create_info=VkBufferCreateInfo{};
+
+void dummy(){
+VkBuffer buffer;
+auto buffer_create_info=VkBufferCreateInfo{};
         buffer_create_info.sType=VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO;
         buffer_create_info.pNext=NULL;
         buffer_create_info.flags=0;
@@ -153,11 +129,97 @@ void QueuePresent(VkPresentInfoKHR* info){
         memory_allocate_info.memoryTypeIndex=0;
         
         vkAllocateMemory(device,&memory_allocate_info,NULL,&memory);
+}
+
+void getImageData(VkDevice device, VkImage image, void** data){
+//If the Memory is already mapped (pointer is in map), return it
+//copyImageToBuffer (this includes startCommandBuffer, the actual vulkan command, then submitCommandBuffer, and waitForOperation)
+//getMemory (this includes creating buffer, and binding it to Memory)
+//vkMapMemory
+}
+
+void QueuePresent(VkPresentInfoKHR* info){
+    
+    std::map<uintptr_t, std::vector<VkImage>> swapchain_to_images;
+    
+    for(int i=0; i<info->swapchainCount; i++){
+        uint32_t numImages=0;
+        VkImage* images=NULL;
+        auto swapchain=info->pSwapchains[i];
+        auto device=swapchain_to_device[(uintptr_t)swapchain];
+        
+        if (!swapchain_to_images.contains((uintptr_t)swapchain)){
+            vkGetSwapchainImagesKHR(device,swapchain,&numImages,images);
+            
+            images=(VkImage*)malloc(numImages*sizeof(VkImage));
+            vkGetSwapchainImagesKHR(swapchain_to_device[(uintptr_t)swapchain],swapchain,&numImages,images);
+            
+            std::vector<VkImage> vec(images, images + numImages);
+            swapchain_to_images[(uintptr_t)swapchain]=vec;
+        }
+        
+        
+        auto imageIndex=info->pImageIndices[i];
+        auto image=swapchain_to_images[(uintptr_t)swapchain][imageIndex];
+        auto extent=image_to_extent[(uintptr_t)image];
+        
+        void* data=NULL;
+        getImageData(device, image, &data); //Returns pointer holding the data
+        
+        auto surface=swapchain_to_surface[(uintptr_t)swapchain];
+        auto surface_info=surface_to_info[(uintptr_t)surface];
+        
+        switch (surface_info.type){
+        
+            #ifdef VK_USE_PLATFORM_XLIB_KHR
+            case Xlib:
+            {
+            auto info=std::get<XlibSurfaceInfo>(surface_info.info);
+            auto display=info.dpy;
+            auto window=info.window;
+            
+            int screen = DefaultScreen(display);
+            XImage *x_image = XCreateImage(display, DefaultVisual(display, screen), 0,
+                             ZPixmap, 0, (char *)data, extent.width, extent.height, 32, 0);
+            
+            GC gc = XCreateGC(display, window, 0, NULL);
+            XPutImage(display, window, gc, image, 0, 0, 0, 0, extent.width, extent.height);
+            XFreeGC(display, gc);
+            }
+            #endif
+            
+            #ifdef VK_USE_PLATFORM_XLIB_KHR
+            case Xcb:
+            {
+                xcb_gcontext_t gc = xcb_generate_id(connection);
+                xcb_create_gc(connection, gc, window, 0, NULL);
+            
+                // Create an XCB image
+                xcb_image_t *image = xcb_image_create_native(connection, extent.width, extent.height, XCB_IMAGE_FORMAT_Z_PIXMAP, 32, NULL, ~0, NULL);
+            
+                // Copy pixel data to the XCB image
+                uint32_t *image_pixels = xcb_image_data(image);
+                memcpy(image_pixels, (uint32_t*)image_data, width * height * sizeof(uint32_t));
+            
+                // Put the XCB image onto the window
+                xcb_image_put(connection, window, gc, image, 0, 0, 0);
+            
+                // Flush and free resources
+                xcb_flush(connection);
+                xcb_free_gc(connection, gc);
+            }
+            #endif
+            
+            default:
+                continue;
+        }
         
         
         
         
-        vkCmdCopyImageToBuffer(
+        
+        
+        //vkCmdCopyImageToBuffer(
         /*
         auto copy_info=VkCopyImageToMemoryInfoEXT{};
         copy_info.sType=VK_STRUCTURE_TYPE_COPY_IMAGE_TO_MEMORY_INFO_EXT;
