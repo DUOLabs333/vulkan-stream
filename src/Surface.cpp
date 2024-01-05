@@ -13,6 +13,9 @@ std::map<uintptr_t, VkExtent3D> image_to_extent;
 std::map<uintptr_t, VkPhysicalDevice> device_to_phyiscal_device;
 std::map<uintptr_t, void*> device_to_mapped;
 std::map<uintptr_t, VkBuffer> device_to_buffer;
+std::map<uintptr_t, VkCommandBuffer> device_to_command_buffer;
+std::map<uintptr_t, VkQueue> device_to_queue;
+std::map<uintptr_t, uint32_t> device_to_queue_family_index;
 
 void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
     auto surface_info=SurfaceInfo{.type=type};
@@ -58,68 +61,103 @@ void registerDevice(VkDevice device, VkPhysicalDevice phyiscal_device){
     device_to_phyiscal_device[(uintptr_t)device]=phyiscal_device;
 }
 
-
-
-void queue_present_init(VkDevice& device){ //Move this function to one that returns a recording buffer, caching it against devices as needed. Then, another function submits the command
-    if (!queue_present_init_finished){
-        return;
+VkQueue getQueue(VkDevice device,uint32_t* pIndex){
+auto key=(uintptr_t)device;
+if (device_to_queue.contains(key)){
+    if (pIndex!=NULL){
+        *pIndex=device_to_queue_family_index[key];
     }
-    
-    auto physical_device=device_to_phyiscal_device[(uintptr_t)device];
-    uint32_t num_queue_families=0;
-    
-    vkGetPhysicalDeviceQueueFamilyProperties(physical_device,&num_queue_families,NULL);
-    
-    auto queue_families=(VkQueueFamilyProperties*)malloc(num_queue_families*sizeof(VkQueueFamilyProperties));
-    
-    vkGetPhysicalDeviceQueueFamilyProperties(physical_device,&num_queue_families,queue_families);
-    
-    uint32_t queue_family_index=0;
-    
-    for (int i=0; i<num_queue_families; i++){
-        if ((queue_families[i].queueFlags & VK_QUEUE_GRAPHICS_BIT)!=0){
-            queue_family_index=i;
-            break;
-        }
-    }
-    
-    vkGetDeviceQueue(device,queue_family_index,0,&queue);
-    
-    auto command_pool_create_info=VkCommandPoolCreateInfo{};
-    command_pool_create_info.sType=VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO;
-    command_pool_create_info.pNext=NULL;
-    command_pool_create_info.flags=0;
-    command_pool_create_info.queueFamilyIndex=queue_family_index;
-    vkCreateCommandPool(device, &command_pool_create_info, NULL, &command_pool);
-    
-    
-    auto command_buffer_allocate_info=VkCommandBufferAllocateInfo{};
-    command_buffer_allocate_info.sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
-    command_buffer_allocate_info.pNext=NULL;
-    command_buffer_allocate_info.commandPool=command_pool;
-    command_buffer_allocate_info.level=VK_COMMAND_BUFFER_LEVEL_PRIMARY;
-    command_buffer_allocate_info.commandBufferCount=1;
-    vkAllocateCommandBuffers(device,&command_buffer_allocate_info,&command_buffer);
-    
-    
-    
-    queue_present_init_finished=true;
+    return device_to_queue[key];
 }
 
-void dummy(){
+auto physical_device=device_to_phyiscal_device[key];
+
+uint32_t num_queue_families=0;
+vkGetPhysicalDeviceQueueFamilyProperties(physical_device,&num_queue_families,NULL);
+
+auto queue_families=(VkQueueFamilyProperties*)malloc(num_queue_families*sizeof(VkQueueFamilyProperties));
+vkGetPhysicalDeviceQueueFamilyProperties(physical_device,&num_queue_families,queue_families);
+
+uint32_t queue_family_index=0;
+for (int i=0; i<num_queue_families; i++){
+    if ((queue_families[i].queueFlags & VK_QUEUE_GRAPHICS_BIT)!=0){
+        queue_family_index=i;
+        break;
+    }
+}
+
+VkQueue queue;
+vkGetDeviceQueue(device,queue_family_index,0,&queue);
+
+device_to_queue[key]=queue;
+device_to_queue_family_index[key]=queue_family_index;
+
+*pIndex=queue_family_index;
+return queue;
+}
+
+VkCommandBuffer getCommandBuffer(VkDevice device){ 
+auto key=(uintptr_t)device;
+if (device_to_command_buffer.contains(key)){
+    return device_to_command_buffer[key];
+}
+
+VkCommandPool command_pool; 
+uint32_t queue_family_index;
+
+getQueue(device,&queue_family_index);
+auto command_pool_create_info=VkCommandPoolCreateInfo{
+.sType=VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO,
+.pNext=NULL,
+.flags=0,
+.queueFamilyIndex=queue_family_index,
+};
+
+vkCreateCommandPool(device, &command_pool_create_info, NULL, &command_pool);
+
+
+auto command_buffer_allocate_info=VkCommandBufferAllocateInfo{
+.sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO,
+.pNext=NULL,
+.commandPool=command_pool,
+.level=VK_COMMAND_BUFFER_LEVEL_PRIMARY,
+.commandBufferCount=1,
+};
+
+VkCommandBuffer command_buffer;
+vkAllocateCommandBuffers(device,&command_buffer_allocate_info,&command_buffer);
+
+device_to_command_buffer[key]=command_buffer;
+return command_buffer;
+}
+
+VkBuffer getBuffer(VkDevice device, VkDeviceSize* size){
+VkDeviceSize BUFFER_SIZE=100000;
+auto key=(uintptr_t)device;
+
+if (size!=NULL){
+    *size=BUFFER_SIZE;
+}
+
+if (device_to_buffer.contains(key)){
+    return device_to_buffer[key];
+}
+
 VkBuffer buffer;
-auto buffer_create_info=VkBufferCreateInfo{};
-        buffer_create_info.sType=VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO;
-        buffer_create_info.pNext=NULL;
-        buffer_create_info.flags=0;
-        buffer_create_info.size=100000;
-        buffer_create_info.usage=0;
-        buffer_create_info.sharingMode=VK_SHARING_MODE_EXCLUSIVE;
-        buffer_create_info.queueFamilyIndexCount=0;
-        buffer_create_info.pQueueFamilyIndices=NULL;
-        
-        vkCreateBuffer(device,&buffer_create_info,NULL,&buffer);
-        
+auto buffer_create_info=VkBufferCreateInfo{
+.sType=VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO,
+.pNext=NULL,
+.flags=0,
+.size=BUFFER_SIZE,
+.usage=0,
+.sharingMode=VK_SHARING_MODE_EXCLUSIVE,
+.queueFamilyIndexCount=0,
+.pQueueFamilyIndices=NULL,
+};
+vkCreateBuffer(device,&buffer_create_info,NULL,&buffer);
+
+device_to_buffer[key]=buffer;
+return buffer;      
 }
 
 void copyImageToBuffer(VkDevice device, VkImage image){
@@ -128,7 +166,8 @@ auto command_buffer=getCommandBuffer(device);
 auto begin_command_buffer_info=VkCommandBufferBeginInfo{.sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO,.pNext=NULL,.flags=VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT,.pInheritanceInfo=NULL};
 vkBeginCommandBuffer(command_buffer,&begin_command_buffer_info);
 
-auto buffer=getBuffer(device);
+
+auto buffer=getBuffer(device,NULL);
 auto region=VkBufferImageCopy{
 .bufferOffset=0,
 .bufferRowLength=0,
@@ -141,27 +180,32 @@ vkCmdCopyImageToBuffer(command_buffer,image,VK_IMAGE_LAYOUT_GENERAL,buffer,1,&re
 
 vkEndCommandBuffer(command_buffer);
 
-vkFence fence;
+VkFence fence;
 auto fence_create_info=VkFenceCreateInfo{.sType=VK_STRUCTURE_TYPE_FENCE_CREATE_INFO,.pNext=NULL,.flags=0};
 vkCreateFence(device,&fence_create_info,NULL,&fence);
 
+auto queue=getQueue(device,NULL);
 auto queue_submit_info=VkSubmitInfo{
 .sType=VK_STRUCTURE_TYPE_SUBMIT_INFO,
-.pNext
-}
-//getCommandBuffer (which will create a pool if not exists. Should be cached)
-//vkbeginCommandBuffer
-//createBuffer
-//vkCmdCopyImageToBuffer
-//vkEndCommandBuffer
-//vkCreateFence
-//vkQueueSubmit
-//vkWaitForFences
+.pNext=NULL,
+.waitSemaphoreCount=0,
+.pWaitSemaphores=NULL,
+.pWaitDstStageMask=NULL,
+.commandBufferCount=1,
+.pCommandBuffers=&command_buffer,
+.signalSemaphoreCount=0,
+.pSignalSemaphores=NULL
+};
+
+vkQueueSubmit(queue,1,&queue_submit_info,fence);
+
+
+vkWaitForFences(device,1,&fence,VK_TRUE, 5ULL*1000000000); //5 seconds. TODO: Write code to keep checking in a loop until its done
 
 }
 
 void getMemory(VkDevice device, VkDeviceMemory* memory, VkDeviceSize* size){
-    *size=100000;
+    auto buffer=getBuffer(device,size);
     
     auto memory_allocate_info=VkMemoryAllocateInfo{};
     memory_allocate_info.sType=VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;
@@ -170,7 +214,7 @@ void getMemory(VkDevice device, VkDeviceMemory* memory, VkDeviceSize* size){
     memory_allocate_info.memoryTypeIndex=0;
     
     vkAllocateMemory(device,&memory_allocate_info,NULL,memory);
-    vkBindBufferMemory(device, getBuffer(device),*memory,0);
+    vkBindBufferMemory(device, buffer,*memory,0);
 }
 
 void getImageData(VkDevice device, VkImage image, void** data){
@@ -188,12 +232,10 @@ getMemory(device,&memory,&size);
 
 void* ppData=NULL;
 vkMapMemory(device,memory,0,size,0,&ppData);
-
 device_to_mapped[key]=ppData;
 
 *data=ppData;
 return;
-//copyImageToBuffer (this includes startCommandBuffer, getBuffer, the actual vulkan command, then submitCommandBuffer, and waitForOperation)
 }
 
 void QueuePresent(VkPresentInfoKHR* info){
