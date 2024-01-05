@@ -405,7 +405,7 @@ for name, command in parsed["commands"].items():
             """)
     
     if name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
-        #Case switch for the different commands (iterator variable funcpointer_command)
+      
         write(f"{command['type']} return_value;")
         write(f"""
         if (strcmp(pName,"vk_icdNegotiateLoaderICDInterfaceVersion")==0){{
@@ -413,13 +413,13 @@ for name, command in parsed["commands"].items():
         }}
         #ifdef VK_USE_PLATFORM_XCB_KHR
             else if (strcmp(pName,"vkCreateXcbSurfaceKHR")==0){{
-                return_value=({command['type']}){command_name};
+                return_value=({command['type']})"vkCreateXcbSurfaceKHR";
             }}
         #endif
         
         #ifdef VK_USE_PLATFORM_XLIB_KHR
             else if (strcmp(pName,"vkCreateXlibSurfaceKHR")==0){{
-                return_value=({command['type']}){command_name};
+                return_value=({command['type']})"vkCreateXlibSurfaceKHR";
             }}
         #endif
         """)
