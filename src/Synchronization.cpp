@@ -2,6 +2,11 @@
 #include <picosha2.h>
 #include <nlohmann/json.hpp>
 #include <Server.hpp>
+#include <vulkan/vulkan.h>
+
+extern "C" {
+#include <shm_open_anon.h>
+}
 
 #ifndef CLIENT
     #include <ThreadStruct.hpp>
@@ -9,9 +14,17 @@
 
 using json = nlohmann::json;
 
-std::map<uintptr_t,int> allocated_mems;
 std::map<uintptr_t,uintptr_t> client_to_server_mem;
 std::map<uintptr_t,uintptr_t> server_to_client_mem;
+
+typedef struct {
+int fd;
+VkDeviceSize size;
+void* mem;
+} MemInfo;
+
+std::map<uintptr_t,MemInfo*> devicememory_to_mem_info;
+
 std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
     char* src_char_array=(char*)malloc(sizeof(char)*(length+1));
     
@@ -29,6 +42,29 @@ std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
     
 }
 
+void* registerDeviceMemory(VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem){
+auto info=new MemInfo();
+info->size=size;
+
+#ifdef CLIENT
+    info->fd=shm_open_anon(); //Make new place for memory
+    ftruncate(info->fd,info->size);
+    
+    info->mem=mmap(NULL,info->size, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED, info->fd,0);
+    
+    auto client_mem=(uintptr_t)(info->mem);
+    client_to_server_mem[client_mem]=server_mem;
+    server_to_client_mem[server_mem]=client_mem;
+    
+    memcpy(info->mem,mem,info->size);
+#else
+info->mem=(void*)server_mem;
+#endif
+
+devicememory_to_mem_info[(uintptr_t)memory]=info;
+
+return info->mem;
+}
 
 void handle_sync_response(json data){
     //Recieved the bytes. Send a notification that it finished sending the bytes.
@@ -90,7 +126,7 @@ void handle_sync_init(json data){
 void handle_sync_request(json data){
     //Recieved a request for bytes, sent the bytes. Wait for the recipient to set the bytes
     #ifdef CLIENT
-        void* mem=(char*)server_to_client_mem[data["mem"]];
+        void* mem=(void*)server_to_client_mem[data["mem"]];
     #else
         void* mem=(void*)data["mem"].get<uintptr_t>();
     #endif
@@ -105,8 +141,9 @@ void handle_sync_request(json data){
     result["buffers"]={};
     
     for(int i=0; i<data["starts"].size(); i++){
-        auto buffer=(char*)malloc(sizeof(char)*data["lengths"][i].get<size_t>());
-        memcpy(buffer,(char*)mem+result["starts"][i].get<size_t>(),data["lengths"][i].get<size_t>());
+        auto length=data["lengths"][i].get<size_t>();
+        auto buffer=(char*)malloc(sizeof(char)*length);
+        memcpy(buffer,(char*)mem+result["starts"][i].get<size_t>(),length);
         result["buffers"].push_back(buffer);
     }
     
@@ -120,7 +157,7 @@ void handle_sync_request(json data){
     }
 }
 
-void Sync(void* mem, uintptr_t length){
+void Sync(void* mem, size_t length){
     int parts=10;
     auto d=length/parts;
     auto remainder=length%parts;
@@ -162,4 +199,10 @@ void Sync(void* mem, uintptr_t length){
             break;
         }
     }
+}
+
+void SyncAll(){
+for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
+    Sync(mem_info->mem,mem_info->size);
+}
 }

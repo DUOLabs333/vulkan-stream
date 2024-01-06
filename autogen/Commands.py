@@ -13,10 +13,6 @@ using json = nlohmann::json;
 
 #include <vulkan/vulkan.h>
 
-extern "C" {
-#include <shm_open_anon.h>
-}
-
 #include <Serialization.hpp>
 #include <Server.hpp>
 #include <Synchronization.hpp>
@@ -27,42 +23,15 @@ extern "C" {
 #endif
 """)
 
-write("""
-typedef struct {
-int fd;
-VkDeviceSize size;
-void* mem;
-std::vector<void*> mapped_ranges;
-} MemInfo;
-""")
-write("std::map<uintptr_t,MemInfo*> devicememory_to_mem_info;")
-
-def sync_DeviceMemory():
-    return """
-   for (auto& device_memory: *(currStruct()->mem_to_sync)){
-       if (devicememory_to_mem_info.count(device_memory)){
-           auto& mem_info=devicememory_to_mem_info[device_memory];
-              Sync(mem_info->mem,mem_info->size);
-           }
-   }
-   currStruct()->mem_to_sync->clear();
-   """
-
-def register_DeviceMemory(name):
+def register_DeviceMemory(name,mem):
     if name.startswith("vkMapMemory"): #Make this its own section (for both client and server --- server does not need to keep track of fd or need to sync on first map)
         memory="memory"
-        if name=="vkMapMemory2KHR":
-            memory="pMemoryMapInfo->memory"
+        size="size"
+        if "2" in name:
+            memory=f"pMemoryMapInfo->{memory}"
+            size=f"pMemoryMapInfo->{size}"
             
-        return f"""
-        auto info=new MemInfo();
-        
-        VkDeviceSize whole_size;
-        vkGetDeviceMemoryCommitment(device,{memory},&whole_size);
-        info->size=whole_size;
-        
-        devicememory_to_mem_info[(uintptr_t){memory}]=info;
-        """
+        return f"*ppData=registerDeviceMemory({memory},{size},*ppData,{mem});"
     else:
         return ""
     
@@ -90,7 +59,6 @@ for name, command in parsed["commands"].items():
     
         write(param["header"].replace("const ","",1)+";")
         write(deserialize(param["name"],param_copy,initialize=True))
-    write(register_DeviceMemory(name))
 
     write(f"""
     PFN_{name} call_function;
@@ -181,7 +149,7 @@ for name, command in parsed["commands"].items():
     write("}")
     if (name=="vkGetInstanceProcAddr"):
         write('printf("%s\\n",pName);')
-
+    
     return_value=command.copy()
     return_value["name"]="return_value"
     return_value["length"]=[]
@@ -198,13 +166,11 @@ for name, command in parsed["commands"].items():
         write(serialize(f"""result["members"]["{param["name"]}"]""",param))
             
     if name=="vkWaitForFences":
-        write(sync_DeviceMemory())
+        write("SyncAll();")
 
     if name=="vkMapMemory":
-        write("""
-        info->mem=*ppData;
-        result["mem_ptr"]=(uintptr_t)*ppData;
-        """)
+       write(register_DeviceMemory(name,"(uintptr_t)(*ppData)"))
+       
     write("""
         writeToConn(result);
     }""")
@@ -306,7 +272,6 @@ for name, command in parsed["commands"].items():
         data_json["parent"]["type"]="Instance";
        {serialize('data_json["parent"]["handle"]',{"name":"NULL","type":"VkInstance","num_indirection":0,"length":[]})}
         """)
-    write(register_DeviceMemory(name))
     
     if name=="vkEnumerateInstanceExtensionProperties":
         write("""
@@ -323,30 +288,16 @@ for name, command in parsed["commands"].items():
         uint32_t len_of_properties_array=*pPropertyCount;
         """)
         
-    write("{") #Use scoping to allow us to overwrite const parameters as needed
+    write("{") #Using scoping to allow us to overwrite const parameters as needed
     
-    #Override *surface with call to headless, and use that
-    
-    if name.startswith("vkMapMemory"): #Get entire memory, then map the parts that we need
-        offset="offset"
-        size="size"
-        if name=="vkMapMemory2KHR":
-            offset="pMemoryMapInfo->offset"
-            size="pMemoryMapInfo->size"
-            write("VkMemoryMapInfoKHR* pMemoryMapInfo=pMemoryMapInfo;")
-        
-        write(f"""
-        {size}=whole_size;
-        {offset}=0;
-        """)
-
+    if name.startswith("vkMapMemory"):
         write("*ppData=NULL;") #We're going to overwrite it anyway
     for param in command["params"]:
         write(serialize(f"""data_json["members"]["{param["name"]}"]""",param))
     write("}")
     
     if name=="vkQueueSubmit":
-        write(sync_DeviceMemory())
+        write("SyncAll();")
     
     write("""
         writeToConn(data_json);
@@ -448,31 +399,7 @@ for name, command in parsed["commands"].items():
             write(command["type"]+"*"*command["num_indirection"]+" return_value;")
             write(deserialize("return_value",return_value))
     if name.startswith("vkMapMemory"):
-        offset="offset"
-        size="size"
-        if name=="vkMapMemory2KHR":
-            offset="pMemoryMapInfo->offset"
-            size="pMemoryMapInfo->size"
-            
-        write(f"""
-        info->fd=shm_open_anon(); //Make new place for memory
-        ftruncate(info->fd,info->size);
-        
-        info->mem=mmap(NULL,info->size, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED, info->fd,0);
-        
-        auto client_mem=(uintptr_t)info->mem;
-        uintptr_t server_mem=result["mem_ptr"];
-        
-        client_to_server_mem[client_mem]=server_mem;
-        server_to_client_mem[server_mem]=client_mem;
-        
-        memcpy(info->mem,*ppData,info->size);
-        
-        *ppData=mmap(NULL,{size},PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED,info->fd,{offset});
-        
-        info->mapped_ranges.push_back(*ppData);
-        
-        """)
+        register_DeviceMemory(name,'result["mem_ptr"]')
         
     for creation_function in ["^vkAllocate(.*)s$","^vkCreate(.*)$","^vkEnumerate(.*)s$","^vkGetDeviceQueue$"]:
         if re.match(creation_function,name) is not None:
