@@ -2,6 +2,7 @@
 #include <any>
 #include <vulkan/vulkan_core.h>
 #include <map>
+#include <iostream>
 
 enum SurfaceType {Xlib, Xcb};
 
@@ -29,7 +30,6 @@ typedef struct {
 } SurfaceInfo;
 
 void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type);
-void registerSwapchain(VkSwapchainKHR swapchain, VkSurfaceKHR surface, VkDevice device);
-void registerImage(VkImage image, VkExtent3D extent);
+void registerSwapchain(VkSwapchainKHR swapchain, VkDevice device, const VkSwapchainCreateInfoKHR* info);
 void registerDevice(VkDevice device, VkPhysicalDevice phyiscal_device);
 void QueuePresent(const VkPresentInfoKHR* info);

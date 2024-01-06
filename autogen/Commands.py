@@ -502,9 +502,7 @@ for name, command in parsed["commands"].items():
                 handle_to_parent_handle_struct[(uintptr_t)(*{handle["name"]})]=parent;
                 """)
     if name=="vkCreateSwapchainKHR":
-        write("registerSwapchain(*pSwapchain,pCreateInfo->surface,device);")
-    elif name=="vkCreateImage":
-        write("registerImage(*pImage,pCreateInfo->extent);")
+        write("registerSwapchain(*pSwapchain,device, pCreateInfo);")
     elif name=="vkCreateDevice":
         write("registerDevice(*pDevice,physicalDevice);")
     elif name=="vkQueuePresentKHR":

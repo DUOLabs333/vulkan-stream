@@ -6,9 +6,10 @@
 #include <vulkan/vulkan_core.h>
 
 std::map<uintptr_t, SurfaceInfo> surface_to_info;
+
 std::map<uintptr_t, VkSurfaceKHR> swapchain_to_surface;
 std::map<uintptr_t, VkDevice> swapchain_to_device;
-std::map<uintptr_t, VkExtent3D> image_to_extent;
+std::map<uintptr_t, VkExtent2D> swapchain_to_extent;
 
 std::map<uintptr_t, VkPhysicalDevice> device_to_phyiscal_device;
 std::map<uintptr_t, void*> device_to_mapped;
@@ -49,13 +50,10 @@ void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
 }
 
 
-void registerSwapchain(VkSwapchainKHR swapchain, VkSurfaceKHR surface, VkDevice device){
-    swapchain_to_surface[(uintptr_t)swapchain]=surface;
+void registerSwapchain(VkSwapchainKHR swapchain, VkDevice device, const VkSwapchainCreateInfoKHR* info){
+    swapchain_to_surface[(uintptr_t)swapchain]=info->surface;
     swapchain_to_device[(uintptr_t)swapchain]=device;
-}
-
-void registerImage(VkImage image, VkExtent3D extent){
-    image_to_extent[(uintptr_t)image]=extent;
+    swapchain_to_extent[(uintptr_t)swapchain]=info->imageExtent;
 }
 
 void registerDevice(VkDevice device, VkPhysicalDevice phyiscal_device){
@@ -161,7 +159,7 @@ device_to_buffer[key]=buffer;
 return buffer;      
 }
 
-void copyImageToBuffer(VkDevice device, VkImage image){
+void copyImageToBuffer(VkDevice device, VkImage image, VkExtent2D extent){
 auto command_buffer=getCommandBuffer(device);
 
 auto begin_command_buffer_info=VkCommandBufferBeginInfo{.sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO,.pNext=NULL,.flags=VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT,.pInheritanceInfo=NULL};
@@ -175,8 +173,10 @@ auto region=VkBufferImageCopy{
 .bufferImageHeight=0,
 .imageSubresource=VkImageSubresourceLayers{.aspectMask=VK_IMAGE_ASPECT_COLOR_BIT,.mipLevel=0,.baseArrayLayer=0,.layerCount=1},
 .imageOffset=VkOffset3D{0,0,0},
-.imageExtent=image_to_extent[(uintptr_t)image]
+.imageExtent=VkExtent3D{extent.width,extent.height,1}
 };
+
+
 vkCmdCopyImageToBuffer(command_buffer,image,VK_IMAGE_LAYOUT_GENERAL,buffer,1,&region);
 
 vkEndCommandBuffer(command_buffer);
@@ -236,7 +236,7 @@ void getMemory(VkDevice device, VkDeviceMemory* memory, VkDeviceSize* size){
     vkBindBufferMemory(device, buffer,*memory,0);
 }
 
-void getImageData(VkDevice device, VkImage image, void** data, VkDeviceSize* pSize){
+void getImageData(VkDevice device, VkImage image, void** data, VkDeviceSize* pSize, VkExtent2D extent){
 auto key=(uintptr_t)device;
 if (device_to_mapped.contains(key)){
     *data=device_to_mapped[key];
@@ -244,7 +244,7 @@ if (device_to_mapped.contains(key)){
     return;
 }
 
-copyImageToBuffer(device,image);
+copyImageToBuffer(device,image,extent);
 
 VkDeviceSize size;
 VkDeviceMemory memory;
@@ -276,17 +276,19 @@ void QueuePresent(const VkPresentInfoKHR* info){
             vkGetSwapchainImagesKHR(swapchain_to_device[(uintptr_t)swapchain],swapchain,&numImages,images);
             
             std::vector<VkImage> vec(images, images + numImages);
+            
             swapchain_to_images[(uintptr_t)swapchain]=vec;
         }
         
         
         auto imageIndex=info->pImageIndices[i];
         auto image=swapchain_to_images[(uintptr_t)swapchain][imageIndex];
-        auto extent=image_to_extent[(uintptr_t)image];
+        auto extent=swapchain_to_extent[(uintptr_t)swapchain];
+        printf("Image Extent: %d, %d\n",extent.width,extent.height);
         
         void* data=NULL;
         VkDeviceSize size;
-        getImageData(device, image, &data, &size); //Returns pointer holding the data
+        getImageData(device, image, &data, &size, extent); //Returns pointer holding the data
         
         auto surface=swapchain_to_surface[(uintptr_t)swapchain];
         
@@ -325,10 +327,29 @@ void QueuePresent(const VkPresentInfoKHR* info){
                 
                 xcb_gcontext_t gc = xcb_generate_id(connection);
                 xcb_create_gc(connection, gc, window, 0, NULL);
-            
+                
+                std::vector<uint8_t> data_before((uint8_t*)data,(uint8_t*)data+10);
+                
+                std::cout << "Data (Before): ";
+                
+                for (auto& elem : data_before){
+                    std::cout << unsigned(elem) << ' ';
+                }
+                
+                std::cout << std::endl;
+                
                 // Create an XCB image
                 xcb_image_t *x_image = xcb_image_create_native(connection, extent.width, extent.height, XCB_IMAGE_FORMAT_Z_PIXMAP, 1, data, size, (uint8_t*)data);
-            
+                
+                std::vector<uint8_t> data_after((uint8_t*)data,(uint8_t*)data+10);
+                
+                std::cout << "Data (After): ";
+                
+                for (auto& elem : data_after){
+                    std::cout << unsigned(elem) << ' ';
+                }
+                
+                std::cout << std::endl;
             
                 // Put the XCB image onto the window
                 xcb_image_put(connection, window, gc, x_image, 0, 0, 0);
