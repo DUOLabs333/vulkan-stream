@@ -42,7 +42,7 @@ std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
     
 }
 
-void* registerDeviceMemory(VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem){
+void* registerDeviceMemoryMap(VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem){
 auto info=new MemInfo();
 info->size=size;
 

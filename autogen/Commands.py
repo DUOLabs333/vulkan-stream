@@ -23,7 +23,7 @@ using json = nlohmann::json;
 #endif
 """)
 
-def register_DeviceMemory(name,mem):
+def registerDeviceMemoryMap(name,mem):
     if name.startswith("vkMapMemory"): #Make this its own section (for both client and server --- server does not need to keep track of fd or need to sync on first map)
         memory="memory"
         size="size"
@@ -31,7 +31,7 @@ def register_DeviceMemory(name,mem):
             memory=f"pMemoryMapInfo->{memory}"
             size=f"pMemoryMapInfo->{size}"
             
-        return f"*ppData=registerDeviceMemory({memory},{size},*ppData,{mem});"
+        return f"*ppData=registerDeviceMemoryMap({memory},{size},*ppData,{mem});"
     else:
         return ""
     
@@ -90,52 +90,29 @@ for name, command in parsed["commands"].items():
 
         VkInstanceCreateInfo* pCreateInfo=temp_info;
 
-        auto extensions_length=pCreateInfo->enabledExtensionCount;
-        char ** extensions=(char**)malloc(extensions_length*sizeof(char*));
-
-        for (int i=0; i< extensions_length; i++){
-            extensions[i]=strdup(pCreateInfo->ppEnabledExtensionNames[i]);
+        //Instead, copy to a set, do modification, then copy it back
+        
+        std::set<std::string> extensions_set;
+        
+        for(int i=0; i< pCreateInfo->enabledExtensionCount; i++){
+            extensions_set.insert(std::string(pCreateInfo->ppEnabledExtensionNames[i]));
         }
-
-        bool headless_surface_extension=false;
-        bool copy_image_memory_extension=false;
-            
-        uint32_t i=0;
-        while(i < extensions_length){
-            char* extension=extensions[i];
-            #ifdef VK_USE_PLATFORM_METAL_EXT
-                if (strcmp(extension,"VK_KHR_xcb_surface")==0 || strcmp(extension,"VK_KHR_xlib_surface")==0){ //Later, save the values into json to pull from instead of hardcoding
-                    for (uint32_t j=i; j< extensions_length-1;j++){
-                        extensions[j]=extensions[j+1];
-                    }
-                    extensions_length--;
-                    continue;
-                }
-                
-            #endif
-
-            if (strcmp(extension,VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME)==0){
-                headless_surface_extension=true;
-            }
-            
-            if (strcmp(extension,VK_EXT_HOST_IMAGE_COPY_EXTENSION_NAME)==0){
-               copy_image_memory_extension=true;
-            }
+        #ifdef VK_USE_PLATFORM_METAL_EXT
+            extensions_set.erase(std::string("VK_KHR_xcb_surface"));
+            extensions_set.erase(std::string("VK_KHR_xlib_surface"));
+        #endif
+        
+        extensions_set.insert(std::string(VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME));
+        //extensions_set.insert(std::string(VK_EXT_HOST_IMAGE_COPY_EXTENSION_NAME));
+        extensions_set.insert(std::string(VK_EXT_SWAPCHAIN_MAINTENANCE_1_EXTENSION_NAME));
+        
+        auto extensions_length=extensions_set.size();
+        char ** extensions_list=(char**)malloc(extensions_length*sizeof(char*));
+        
+        int i=0;
+        for (auto& elem: extensions_set){
+            extensions[i]=elem.c_str();
             i++;
-        }
-
-        if (!headless_surface_extension){
-            extensions=(char**)realloc(extensions,(extensions_length+1)*sizeof(char*));
-            extensions[extensions_length]=(char*)VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME;
-        
-            extensions_length++;
-        }
-        
-        if (!copy_image_memory_extension){
-            //extensions=(char**)realloc(extensions,(extensions_length+1)*sizeof(char*));
-            //extensions[extensions_length]=(char*)VK_EXT_HOST_IMAGE_COPY_EXTENSION_NAME;
-        
-            //extensions_length++;
         }
         
         for (int i=0; i< extensions_length; i++){
@@ -169,7 +146,7 @@ for name, command in parsed["commands"].items():
         write("SyncAll();")
 
     if name=="vkMapMemory":
-       write(register_DeviceMemory(name,"(uintptr_t)(*ppData)"))
+       write(registerDeviceMemoryMap(name,"(uintptr_t)(*ppData)"))
        
     write("""
         writeToConn(result);
@@ -399,7 +376,7 @@ for name, command in parsed["commands"].items():
             write(command["type"]+"*"*command["num_indirection"]+" return_value;")
             write(deserialize("return_value",return_value))
     if name.startswith("vkMapMemory"):
-        register_DeviceMemory(name,'result["mem_ptr"]')
+        registerDeviceMemoryMap(name,'result["mem_ptr"]')
         
     for creation_function in ["^vkAllocate(.*)s$","^vkCreate(.*)$","^vkEnumerate(.*)s$","^vkGetDeviceQueue$"]:
         if re.match(creation_function,name) is not None:
