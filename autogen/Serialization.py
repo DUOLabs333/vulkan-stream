@@ -73,6 +73,39 @@ json serialize_pNext(const void* name){
 }
 """)
 
+write("std::map<VkStructureType, size_t> structure_type_to_size={")
+for struct,members in parsed["structs"].items():
+    type=members[0]["value"]
+
+    if type=="":
+        continue
+
+    write(f"{{{type}, sizeof({struct}) }},")
+write("};")
+
+write("""
+void* copyVkStruct (const void* data){
+    auto curr=data;
+    while (true){
+        if (data==NULL){
+        return NULL;
+        }
+        auto structure_type=(VkBaseInStructure*)curr->sType;
+        if (!structure_type_to_size.contains(structure_type)){
+            curr=(VkBaseInStructure*)curr->pNext;
+            continue;
+        }
+        
+        auto struct_size=structure_type_to_size[structure_type];
+        auto result=malloc(struct_size);
+        memcpy(result,curr,struct_size);
+        return result
+    }
+    
+}
+""")
+write("copyVkStruct (const void* data)",header=True)
+
 for struct,members in parsed["structs"].items():
     member={}
     member["name"]="name"
