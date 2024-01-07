@@ -259,15 +259,21 @@ device_to_mapped[key]=ppData;
 return;
 }
 
-void QueuePresent(const VkPresentInfoKHR* info){
+void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, const uint32_t* indices_list, uint32_t swapchain_count){
     
     std::map<uintptr_t, std::vector<VkImage>> swapchain_to_images;
     
-    for(int i=0; i<info->swapchainCount; i++){
+    for(int i=0; i<swapchain_count; i++){
         uint32_t numImages=0;
         VkImage* images=NULL;
-        auto swapchain=info->pSwapchains[i];
+        auto swapchain=swapchains_list[i];
         auto device=swapchain_to_device[(uintptr_t)swapchain];
+        
+        while(true){
+            if (vkWaitForFences(device,1,&(fences_list[i]),VK_TRUE,5ULL*10000000) != VK_TIMEOUT){
+                break;
+            }
+        }
         
         if (!swapchain_to_images.contains((uintptr_t)swapchain)){
             vkGetSwapchainImagesKHR(device,swapchain,&numImages,images);
@@ -281,7 +287,7 @@ void QueuePresent(const VkPresentInfoKHR* info){
         }
         
         
-        auto imageIndex=info->pImageIndices[i];
+        auto imageIndex=indices_list[i];
         auto image=swapchain_to_images[(uintptr_t)swapchain][imageIndex];
         auto extent=swapchain_to_extent[(uintptr_t)swapchain];
         printf("Image Extent: %d, %d\n",extent.width,extent.height);

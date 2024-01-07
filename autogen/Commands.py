@@ -20,20 +20,27 @@ using json = nlohmann::json;
 
 #ifdef CLIENT
     #include <Surface.hpp>
+    
+    void* memdup(const void* mem, size_t size) { 
+       void* out = malloc(size);
+    
+       if(out != NULL)
+           memcpy(out, mem, size);
+    
+       return out;
+    }
+    
 #endif
 """)
 
 def registerDeviceMemoryMap(name,mem):
-    if name.startswith("vkMapMemory"): #Make this its own section (for both client and server --- server does not need to keep track of fd or need to sync on first map)
-        memory="memory"
-        size="size"
-        if "2" in name:
-            memory=f"pMemoryMapInfo->{memory}"
-            size=f"pMemoryMapInfo->{size}"
-            
-        return f"*ppData=registerDeviceMemoryMap({memory},{size},*ppData,{mem});"
-    else:
-        return ""
+    memory="memory"
+    size="size"
+    if "2" in name:
+        memory=f"pMemoryMapInfo->{memory}"
+        size=f"pMemoryMapInfo->{size}"
+        
+    return f"*ppData=registerDeviceMemoryMap({memory},{size},*ppData,{mem});"
     
 write("#ifndef CLIENT")
 write("""
@@ -145,8 +152,9 @@ for name, command in parsed["commands"].items():
     if name=="vkWaitForFences":
         write("SyncAll();")
 
-    if name=="vkMapMemory":
+    if name.startswith("vkMapMemory"):
        write(registerDeviceMemoryMap(name,"(uintptr_t)(*ppData)"))
+       write('result["mem_ptr"]=(uintptr_t)*ppData;')
        
     write("""
         writeToConn(result);
@@ -269,6 +277,56 @@ for name, command in parsed["commands"].items():
     
     if name.startswith("vkMapMemory"):
         write("*ppData=NULL;") #We're going to overwrite it anyway
+    elif name=="vkQueuePresentKHR":
+        write("""
+        VkPresentInfoKHR* new_info=pPresentInfo;
+        
+        VkBaseInStructure* parent_struct=(VkBaseInStructure*)new_info;
+        void* curr_struct=copyVkStruct(parent_struct->pNext);
+        VkSwapchainPresentFenceInfoEXT* swapchain_fence_info=NULL;
+        
+        while(curr_struct!=NULL){
+            parent_struct->pNext=curr_struct;
+            if (VkBaseInStructure*)curr_struct->sType==VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_EXT){
+                swapchain_fence_info=(VkSwapchainPresentFenceInfoEXT*)curr_struct;
+            }
+            parent_struct=(VkBaseInStructure*)curr_struct;
+            curr_struct=copyVkStruct(parent_struct->pNext);
+        }
+            
+         if (swapchain_fence_info==NULL){
+            swapchain_fence_info=new VkSwapchainPresentFenceInfoEXT;
+            swapchain_fence_info->sType=VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_EXT;
+            swapchain_fence_info->pNext=NULL;
+            swapchain_fence_info->swapchainCount=0;
+            swapchain_fence_info->pFences=NULL;
+            parent_struct->pNext=swapchain_fence_info;
+         }
+         
+         auto old_count=swapchain_fence_info->swapchainCount;
+         auto fences_list=(VkFence*)memdup(swapchain_fence_info->pFences,old_count*sizeof(VkFence));
+         
+         swapchain_fence_info->swapchainCount=new_info->swapchainCount;
+         auto new_count=swapchain_fence_info->swapchainCount;
+         fences_list=realloc(fences_list,new_count*sizeof(VkFence));
+         swapchain_fence_info->pFences=fences_list;
+         
+         auto fence_create_info=VkFenceCreateInfo{
+         .sType=VK_STRUCTURE_TYPE_FENCE_CREATE_INFO,
+         .pNext=NULL,
+         .flags=0
+         };
+         
+         for (int i=0; i< new_count; i++){
+            if ((i=> old_count) || (fences_list[i]==VK_NULL_HANDLE)){
+                vkCreateFence(swapchain_to_device[(uintptr_t)(info->pSwapchains[i])],&fence_create_info, NULL, &(fences_list[i]));
+            }
+         }
+         
+         VkPresentInfoKHR* pPresentInfo=new_info;
+         
+          std::thread(QueueDisplay, fences_list, memdup(pPresentInfo->pSwapchains, new_count), memdup(pPresentInfo->pImageIndices, new_count), new_count);
+        """)
     for param in command["params"]:
         write(serialize(f"""data_json["members"]["{param["name"]}"]""",param))
     write("}")
@@ -409,8 +467,6 @@ for name, command in parsed["commands"].items():
         write("registerSwapchain(*pSwapchain,device, pCreateInfo);")
     elif name=="vkCreateDevice":
         write("registerDevice(*pDevice,physicalDevice);")
-    elif name=="vkQueuePresentKHR":
-        write("QueuePresent(pPresentInfo);")
     write(f'printf("Ending {name}...\\n");')
     if not is_void(command):
         if command["type"]=="VkResult":

@@ -32,4 +32,4 @@ typedef struct {
 void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type);
 void registerSwapchain(VkSwapchainKHR swapchain, VkDevice device, const VkSwapchainCreateInfoKHR* info);
 void registerDevice(VkDevice device, VkPhysicalDevice phyiscal_device);
-void QueuePresent(const VkPresentInfoKHR* info);
+void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchain_list, const uint32_t* index_list, uint32_t swapchain_count);
