@@ -95,10 +95,6 @@ void handle_sync_response(json data){
     }
     
     writeToConn(result);
-    
-    #ifndef CLIENT
-        currStruct()->mem_to_sync->insert((uintptr_t)mem);
-    #endif
 }
 
 void handle_sync_init(json data){
@@ -221,6 +217,6 @@ for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
 
 void SyncAllocations(){
 for (auto& [mem, size] : allocated_mems){
-    Sync(mem, size);
+    Sync((void*)mem, size);
 }
 }

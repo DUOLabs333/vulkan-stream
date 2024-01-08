@@ -103,19 +103,19 @@ for name, command in parsed["commands"].items():
         extensions_set.insert(std::string(VK_EXT_SWAPCHAIN_MAINTENANCE_1_EXTENSION_NAME));
         
         auto extensions_length=extensions_set.size();
-        char ** extensions_list=(char**)malloc(extensions_length*sizeof(char*));
+        auto extensions_list=(char **)malloc(extensions_length*sizeof(char*));
         
         int i=0;
         for (auto& elem: extensions_set){
-            extensions[i]=elem.c_str();
+            extensions_list[i]=strdup(elem.c_str());
             i++;
         }
         
         for (int i=0; i< extensions_length; i++){
-            printf("Final extension: %s\\n",extensions[i]);
+            printf("Final extension: %s\\n",extensions_list[i]);
         }
 
-        pCreateInfo->ppEnabledExtensionNames=extensions;
+        pCreateInfo->ppEnabledExtensionNames=extensions_list;
         pCreateInfo->enabledExtensionCount=extensions_length;            
         """)
     write(return_prefix+"call_function"+"("+call_arguments+")"+";")
