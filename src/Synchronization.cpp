@@ -46,11 +46,13 @@ std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
 }
 
 void registerClientServerMemoryMapping(uintptr_t client_mem, uintptr_t server_mem){
+    printf("Memory mapping in progress...\n");
     client_to_server_mem[client_mem]=server_mem;
     server_to_client_mem[server_mem]=client_mem;
 }
 
 void* registerDeviceMemoryMap(VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem){
+printf("DeviceMemory mapping in progress...\n");
 auto info=new MemInfo();
 info->size=size;
 
@@ -100,6 +102,10 @@ void handle_sync_response(json data){
 void handle_sync_init(json data){
     //Recived an init, sent a request for bytes. Wait for bytes to be sent
     #ifdef CLIENT
+        if (!server_to_client_mem.contains(data["mem"])){
+            printf("Panic! It's not found!\n");
+        }
+        printf("Pointer: %p\n", server_to_client_mem[data["mem"]]);
         void* mem=(char*)server_to_client_mem[data["mem"]];
     #else
         void* mem=(void*)data["mem"].get<uintptr_t>();

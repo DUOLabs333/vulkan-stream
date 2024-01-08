@@ -19,6 +19,11 @@ using json = nlohmann::json;
 
 #ifdef CLIENT
     #include <Surface.hpp>
+    
+    std::map<uintptr_t, VkDeviceSize> devicememory_to_size;
+    void registerDeviceMemory(VkDeviceMemory memory, VkDeviceSize size){
+        devicememory_to_size[(uintptr_t)memory]=size;
+    }
 #endif
 """)
 
@@ -175,7 +180,7 @@ for name, command in parsed["commands"].items():
 
     if name.startswith("vkMapMemory"):
        write(registerDeviceMemoryMap(name,"(uintptr_t)(*ppData)"))
-       write('result["mem_ptr"]=(uintptr_t)*ppData;')
+       write('result["mem_ptr"]=(uintptr_t)(*ppData);')
        
     write("""
         writeToConn(result);
@@ -293,7 +298,21 @@ for name, command in parsed["commands"].items():
         
         uint32_t len_of_properties_array=*pPropertyCount;
         """)
-        
+    
+    if name=="vkMapMemory":
+        write("""
+        if (size==VK_WHOLE_SIZE){
+            size=devicememory_to_size[(uintptr_t)memory]-offset;
+        }
+        """)
+    elif name=="vkMapMemory2KHR":
+        write("""
+        if (pMemoryMapInfo->size==VK_WHOLE_SIZE){
+            VkMemoryMapInfoKHR new_map_info=*pMemoryMapInfo;
+            new_map_info.size=devicememory_to_size[(uintptr_t)new_map_info.memory]-new_map_info.offset;
+            pMemoryMapInfo=&new_map_info;
+        }
+        """)
     write("{") #Using scoping to allow us to overwrite const parameters as needed
     
     if name.startswith("vkMapMemory"):
@@ -454,8 +473,6 @@ for name, command in parsed["commands"].items():
             return_value["length"]=[]
             write(command["type"]+"*"*command["num_indirection"]+" return_value;")
             write(deserialize("return_value",return_value))
-    if name.startswith("vkMapMemory"):
-        registerDeviceMemoryMap(name,'result["mem_ptr"]')
         
     for creation_function in ["^vkAllocate(.*)s$","^vkCreate(.*)$","^vkEnumerate(.*)s$","^vkGetDeviceQueue$"]:
         if re.match(creation_function,name) is not None:
@@ -488,6 +505,11 @@ for name, command in parsed["commands"].items():
         write("registerSwapchain(*pSwapchain,device, pCreateInfo);")
     elif name=="vkCreateDevice":
         write("registerDevice(*pDevice,physicalDevice);")
+    elif name=="vkAllocateMemory":
+        write("registerDeviceMemory(*pMemory, pAllocateInfo->allocationSize);")
+    elif name.startswith("vkMapMemory"):
+        write(registerDeviceMemoryMap(name,'result["mem_ptr"]'))
+        
     write(f'printf("Ending {name}...\\n");')
     if not is_void(command):
         if command["type"]=="VkResult":
