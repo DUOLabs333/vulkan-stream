@@ -3,6 +3,8 @@
 #include <nlohmann/json.hpp>
 #include <Server.hpp>
 #include <vulkan/vulkan.h>
+#include <shared_mutex>
+#include <mutex>
 
 extern "C" {
 #include <shm_open_anon.h>
@@ -13,6 +15,10 @@ extern "C" {
 #else
     #include <sys/mman.h>
 #endif
+
+typedef std::shared_mutex Lock;
+
+Lock test_lock;
 
 using json = nlohmann::json;
 
@@ -47,8 +53,10 @@ std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
 
 void registerClientServerMemoryMapping(uintptr_t client_mem, uintptr_t server_mem){
     printf("Memory mapping in progress...\n");
+    test_lock.lock();
     client_to_server_mem[client_mem]=server_mem;
     server_to_client_mem[server_mem]=client_mem;
+    test_lock.unlock();
 }
 
 void* registerDeviceMemoryMap(VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem){
@@ -172,6 +180,7 @@ void handle_sync_request(json data){
 }
 
 void Sync(void* mem, size_t length){
+    test_lock.lock_shared();
     int parts=10;
     auto d=length/parts;
     auto remainder=length%parts;
@@ -213,6 +222,7 @@ void Sync(void* mem, size_t length){
             break;
         }
     }
+    test_lock.unlock_shared();
 }
 
 void SyncAll(){

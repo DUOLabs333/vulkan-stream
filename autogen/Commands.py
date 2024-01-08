@@ -365,7 +365,8 @@ for name, command in parsed["commands"].items():
          
          VkPresentInfoKHR* pPresentInfo=new_info;
          
-          std::thread(QueueDisplay, fences_list, (VkSwapchainKHR*)memdup(pPresentInfo->pSwapchains, new_count), (uint32_t*)memdup(pPresentInfo->pImageIndices, new_count), new_count);
+          std::thread display_thread(QueueDisplay, fences_list, (VkSwapchainKHR*)memdup(pPresentInfo->pSwapchains, new_count*sizeof(VkSwapchainKHR)), (uint32_t*)memdup(pPresentInfo->pImageIndices, new_count*sizeof(uint32_t)), new_count);
+          display_thread.detach();
         """)
     for param in command["params"]:
         write(serialize(f"""data_json["members"]["{param["name"]}"]""",param))
