@@ -53,6 +53,7 @@ for file in SRC_FILES:
     if os.path.exists(object_file):
         if int(os.path.getmtime(object_file))==int(os.path.getmtime(file)):
             continue
+        os.remove(object_file)
             
     modified_time=int(os.path.getmtime(file))
     CPP=file.endswith(".cpp")

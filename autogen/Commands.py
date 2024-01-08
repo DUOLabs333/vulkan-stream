@@ -100,6 +100,38 @@ for name, command in parsed["commands"].items():
         
         extensions_set.insert(std::string(VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME));
         //extensions_set.insert(std::string(VK_EXT_HOST_IMAGE_COPY_EXTENSION_NAME));
+        extensions_set.insert(std::string(VK_EXT_SURFACE_MAINTENANCE_1_EXTENSION_NAME));
+        
+        auto extensions_length=extensions_set.size();
+        auto extensions_list=(char **)malloc(extensions_length*sizeof(char*));
+        
+        int i=0;
+        for (auto& elem: extensions_set){
+            extensions_list[i]=strdup(elem.c_str());
+            i++;
+        }
+        
+        for (int i=0; i< extensions_length; i++){
+            printf("Final extension: %s\\n",extensions_list[i]);
+        }
+
+        pCreateInfo->ppEnabledExtensionNames=extensions_list;
+        pCreateInfo->enabledExtensionCount=extensions_length;            
+        """)
+    elif name=="vkCreateDevice":
+        write("""
+        VkDeviceCreateInfo* temp_info=pCreateInfo;
+
+        VkDeviceCreateInfo* pCreateInfo=temp_info;
+
+        //Instead, copy to a set, do modification, then copy it back
+        
+        std::set<std::string> extensions_set;
+        
+        for(int i=0; i< pCreateInfo->enabledExtensionCount; i++){
+            extensions_set.insert(std::string(pCreateInfo->ppEnabledExtensionNames[i]));
+        }
+        
         extensions_set.insert(std::string(VK_EXT_SWAPCHAIN_MAINTENANCE_1_EXTENSION_NAME));
         
         auto extensions_length=extensions_set.size();
