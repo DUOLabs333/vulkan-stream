@@ -1,5 +1,13 @@
 #include <vulkan/vulkan.h>
+
+typedef struct StreamStructure{
+    VkStructureType sType;
+    const void* pNext;
+} StreamStructure;
+
 typedef void* pNext;
+void* memdup(const void* mem, size_t size);
+void* copyVkStruct (const void* data);
 
         json serialize_VkBaseOutStructure(VkBaseOutStructure name);
         VkBaseOutStructure deserialize_VkBaseOutStructure(json &name);

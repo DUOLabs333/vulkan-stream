@@ -10,10 +10,13 @@ extern "C" {
 
 #ifndef CLIENT
     #include <ThreadStruct.hpp>
+#else
+    #include <sys/mman.h>
 #endif
 
 using json = nlohmann::json;
 
+std::map<uintptr_t,int> allocated_mems;
 std::map<uintptr_t,uintptr_t> client_to_server_mem;
 std::map<uintptr_t,uintptr_t> server_to_client_mem;
 
@@ -42,6 +45,11 @@ std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
     
 }
 
+void registerClientServerMemoryMapping(uintptr_t client_mem, uintptr_t server_mem){
+    client_to_server_mem[client_mem]=server_mem;
+    server_to_client_mem[server_mem]=client_mem;
+}
+
 void* registerDeviceMemoryMap(VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem){
 auto info=new MemInfo();
 info->size=size;
@@ -53,8 +61,8 @@ info->size=size;
     info->mem=mmap(NULL,info->size, PROT_EXEC | PROT_READ | PROT_WRITE, MAP_SHARED, info->fd,0);
     
     auto client_mem=(uintptr_t)(info->mem);
-    client_to_server_mem[client_mem]=server_mem;
-    server_to_client_mem[server_mem]=client_mem;
+    
+    registerClientServerMemoryMapping(client_mem, server_mem);
     
     memcpy(info->mem,mem,info->size);
 #else
@@ -64,6 +72,10 @@ info->mem=(void*)server_mem;
 devicememory_to_mem_info[(uintptr_t)memory]=info;
 
 return info->mem;
+}
+
+void registerAllocatedMem(void* mem, int size){
+    allocated_mems[(uintptr_t)mem]=size;
 }
 
 void handle_sync_response(json data){
@@ -204,5 +216,11 @@ void Sync(void* mem, size_t length){
 void SyncAll(){
 for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
     Sync(mem_info->mem,mem_info->size);
+}
+}
+
+void SyncAllocations(){
+for (auto& [mem, size] : allocated_mems){
+    Sync(mem, size);
 }
 }

@@ -14,6 +14,13 @@ using json = nlohmann::json;
 #include <Synchronization.hpp>
 """)
 
+write("""
+typedef struct StreamStructure{
+    VkStructureType sType;
+    const void* pNext;
+} StreamStructure;
+""",header=True)
+
 write("typedef void* pNext;",header=True)
 
 def struct_is_callback(struct):
@@ -84,27 +91,40 @@ for struct,members in parsed["structs"].items():
 write("};")
 
 write("""
+void* memdup(const void* mem, size_t size) { 
+   void* out = malloc(size);
+
+   if(out != NULL)
+       memcpy(out, mem, size);
+
+   return out;
+}
+""")
+
+write("void* memdup(const void* mem, size_t size);", header=True)
+
+write("""
 void* copyVkStruct (const void* data){
     auto curr=data;
     while (true){
         if (data==NULL){
         return NULL;
         }
-        auto structure_type=(VkBaseInStructure*)curr->sType;
+        auto structure_type=((StreamStructure*)curr)->sType;
         if (!structure_type_to_size.contains(structure_type)){
-            curr=(VkBaseInStructure*)curr->pNext;
+            curr=((StreamStructure*)curr)->pNext;
             continue;
         }
         
         auto struct_size=structure_type_to_size[structure_type];
-        auto result=malloc(struct_size);
-        memcpy(result,curr,struct_size);
-        return result
+        auto result=memdup(curr, struct_size);
+        
+        return result;
     }
     
 }
 """)
-write("copyVkStruct (const void* data)",header=True)
+write("void* copyVkStruct (const void* data);",header=True)
 
 for struct,members in parsed["structs"].items():
     member={}
@@ -351,15 +371,8 @@ for funcpointer,function in parsed["funcpointers"].items():
             
         write(("auto result= " if not is_void(function) else '')+f"""handle_{funcpointer}_response({response_header});""")
         if function["type"]=="void" and function["num_indirection"]==1:
-            write("""
-                allocated_mems[(uintptr_t)result]=size;
-            """)
-        write("""
-            for (auto & element: allocated_mems){
-                Sync((void*)element.first,element.second);
-            }
-            """
-        )
+            write("registerAllocatedMem(result,size);")
+        write("SyncAllocations();")
         if not is_void(function):
             write("return result;")
         else:
@@ -421,8 +434,7 @@ for funcpointer,function in parsed["funcpointers"].items():
                 while(true){{
                     data=readFromConn();
                     if (data["type"]=="{funcpointer}_malloc"){{
-                        client_to_server_mem[(uintptr_t)result["result"]]=data["mem"];
-                        server_to_client_mem[data["mem"]]=(uintptr_t)result["result"];
+                        registerClientServerMemoryMapping((uintptr_t)result["result"], data["mem"]);
                         break;
                     }}
                 }}
@@ -508,12 +520,6 @@ for handle in parsed["handles"]:
                 result["value"]=(uintptr_t)data;
             #endif
         """)
-        if handle=="VkDeviceMemory":
-            write("""
-            #ifdef CLIENT
-                currStruct()->mem_to_sync->insert((uintptr_t)data);
-            #endif
-            """)
         write("""
             return result;
         }

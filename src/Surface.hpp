@@ -29,6 +29,8 @@ typedef struct {
     std::any info;
 } SurfaceInfo;
 
+extern std::map<uintptr_t, VkDevice> swapchain_to_device;
+
 void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type);
 void registerSwapchain(VkSwapchainKHR swapchain, VkDevice device, const VkSwapchainCreateInfoKHR* info);
 void registerDevice(VkDevice device, VkPhysicalDevice phyiscal_device);

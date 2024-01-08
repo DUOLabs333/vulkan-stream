@@ -16,7 +16,6 @@ using json = nlohmann::json;
 #include <Serialization.hpp>
 #include <Server.hpp>
 #include <Synchronization.hpp>
-#include <sys/mman.h>
 
 #ifdef CLIENT
     #include <Surface.hpp>
@@ -269,18 +268,18 @@ for name, command in parsed["commands"].items():
         write("*ppData=NULL;") #We're going to overwrite it anyway
     elif name=="vkQueuePresentKHR":
         write("""
-        VkPresentInfoKHR* new_info=pPresentInfo;
+        auto new_info=(VkPresentInfoKHR*)copyVkStruct(pPresentInfo);
         
-        VkBaseInStructure* parent_struct=(VkBaseInStructure*)new_info;
+        auto parent_struct=(StreamStructure*)new_info;
         void* curr_struct=copyVkStruct(parent_struct->pNext);
         VkSwapchainPresentFenceInfoEXT* swapchain_fence_info=NULL;
         
         while(curr_struct!=NULL){
             parent_struct->pNext=curr_struct;
-            if (VkBaseInStructure*)curr_struct->sType==VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_EXT){
+            if (((StreamStructure*)curr_struct)->sType==VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_EXT){
                 swapchain_fence_info=(VkSwapchainPresentFenceInfoEXT*)curr_struct;
             }
-            parent_struct=(VkBaseInStructure*)curr_struct;
+            parent_struct=(StreamStructure*)curr_struct;
             curr_struct=copyVkStruct(parent_struct->pNext);
         }
             
@@ -298,7 +297,7 @@ for name, command in parsed["commands"].items():
          
          swapchain_fence_info->swapchainCount=new_info->swapchainCount;
          auto new_count=swapchain_fence_info->swapchainCount;
-         fences_list=realloc(fences_list,new_count*sizeof(VkFence));
+         fences_list=(VkFence*)realloc(fences_list,new_count*sizeof(VkFence));
          swapchain_fence_info->pFences=fences_list;
          
          auto fence_create_info=VkFenceCreateInfo{
@@ -308,14 +307,14 @@ for name, command in parsed["commands"].items():
          };
          
          for (int i=0; i< new_count; i++){
-            if ((i=> old_count) || (fences_list[i]==VK_NULL_HANDLE)){
-                vkCreateFence(swapchain_to_device[(uintptr_t)(info->pSwapchains[i])],&fence_create_info, NULL, &(fences_list[i]));
+            if ((i>= old_count) || (fences_list[i]==VK_NULL_HANDLE)){
+                vkCreateFence(swapchain_to_device[(uintptr_t)(new_info->pSwapchains[i])],&fence_create_info, NULL, &(fences_list[i]));
             }
          }
          
          VkPresentInfoKHR* pPresentInfo=new_info;
          
-          std::thread(QueueDisplay, fences_list, memdup(pPresentInfo->pSwapchains, new_count), memdup(pPresentInfo->pImageIndices, new_count), new_count);
+          std::thread(QueueDisplay, fences_list, (VkSwapchainKHR*)memdup(pPresentInfo->pSwapchains, new_count), (uint32_t*)memdup(pPresentInfo->pImageIndices, new_count), new_count);
         """)
     for param in command["params"]:
         write(serialize(f"""data_json["members"]["{param["name"]}"]""",param))
