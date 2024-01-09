@@ -29,14 +29,8 @@ void* mem;
 std::map<uintptr_t,MemInfo*> devicememory_to_mem_info;
 
 std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
-
-    char* src_char_array=(char*)malloc(sizeof(char)*(length+1));
     
-    strncpy(src_char_array,(char*)mem+start,length);
-    
-    src_char_array[length]='\0';
-    
-    std::string src_string(src_char_array);
+    std::string src_string((char*)mem+start,(char*)mem+start+length);
     
     std::vector<unsigned char> hash(picosha2::k_digest_size);
     
@@ -127,6 +121,7 @@ void handle_sync_init(json data){
     
     for (int i=0; i<data["starts"].size(); i++){
         if (HashMem(mem,data["starts"][i],data["lengths"][i])!=data["hashes"][i]){
+            printf("New data found!\n");
             result["starts"].push_back(data["starts"][i]);
             result["lengths"].push_back(data["lengths"][i]);
         }
@@ -164,8 +159,10 @@ void handle_sync_request(json data){
     
     for(int i=0; i<data["starts"].size(); i++){
         auto length=data["lengths"][i].get<size_t>();
-        auto buffer=(char*)malloc(sizeof(char)*length);
-        memcpy(buffer,(char*)mem+result["starts"][i].get<size_t>(),length);
+        auto start=result["starts"][i].get<size_t>();
+        
+        std::string buffer((char*)mem+start, (char*)mem+start+length);
+        
         result["buffers"].push_back(buffer);
     }
     
