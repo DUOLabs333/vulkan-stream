@@ -200,8 +200,11 @@ auto queue_submit_info=VkSubmitInfo{
 
 vkQueueSubmit(queue,1,&queue_submit_info,fence);
 
-
-vkWaitForFences(device,1,&fence,VK_TRUE, 5ULL*1000000000); //5 seconds. TODO: Write code to keep checking in a loop until its done
+while(true){
+if (vkWaitForFences(device,1,&fence,VK_TRUE, 5ULL*1000000000)!=VK_TIMEOUT){
+    break;
+}
+}
 
 }
 

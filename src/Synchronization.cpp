@@ -3,8 +3,6 @@
 #include <nlohmann/json.hpp>
 #include <Server.hpp>
 #include <vulkan/vulkan.h>
-#include <shared_mutex>
-#include <mutex>
 
 extern "C" {
 #include <shm_open_anon.h>
@@ -15,10 +13,6 @@ extern "C" {
 #else
     #include <sys/mman.h>
 #endif
-
-typedef std::shared_mutex Lock;
-
-Lock test_lock;
 
 using json = nlohmann::json;
 
@@ -35,6 +29,7 @@ void* mem;
 std::map<uintptr_t,MemInfo*> devicememory_to_mem_info;
 
 std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
+
     char* src_char_array=(char*)malloc(sizeof(char)*(length+1));
     
     strncpy(src_char_array,(char*)mem+start,length);
@@ -53,10 +48,10 @@ std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
 
 void registerClientServerMemoryMapping(uintptr_t client_mem, uintptr_t server_mem){
     printf("Memory mapping in progress...\n");
-    test_lock.lock();
+
     client_to_server_mem[client_mem]=server_mem;
     server_to_client_mem[server_mem]=client_mem;
-    test_lock.unlock();
+
 }
 
 void* registerDeviceMemoryMap(VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem){
@@ -79,7 +74,9 @@ info->size=size;
 info->mem=(void*)server_mem;
 #endif
 
+
 devicememory_to_mem_info[(uintptr_t)memory]=info;
+
 
 return info->mem;
 }
@@ -100,8 +97,10 @@ void handle_sync_response(json data){
     
     result["type"]="handle_sync_end";
     
-    for(int i=0; i < data["starts"].size(); i++){
-        memcpy((char*)mem+data["starts"][i].get<size_t>(),data["buffers"][i].get<std::string>().c_str(),data["lengths"][i].get<size_t>());
+    if (mem!=NULL){
+        for(int i=0; i < data["starts"].size(); i++){
+            memcpy((char*)mem+data["starts"][i].get<size_t>(),data["buffers"][i].get<std::string>().c_str(),data["lengths"][i].get<size_t>());
+        }
     }
     
     writeToConn(result);
@@ -109,11 +108,12 @@ void handle_sync_response(json data){
 
 void handle_sync_init(json data){
     //Recived an init, sent a request for bytes. Wait for bytes to be sent
+   
     #ifdef CLIENT
+        printf("Memory to sync: %lx\n", data["mem"].get<uintptr_t>());
         if (!server_to_client_mem.contains(data["mem"])){
             printf("Panic! It's not found!\n");
         }
-        printf("Pointer: %p\n", server_to_client_mem[data["mem"]]);
         void* mem=(char*)server_to_client_mem[data["mem"]];
     #else
         void* mem=(void*)data["mem"].get<uintptr_t>();
@@ -143,6 +143,7 @@ void handle_sync_init(json data){
             break;
         }
     }
+    
 }
 
 void handle_sync_request(json data){
@@ -180,7 +181,7 @@ void handle_sync_request(json data){
 }
 
 void Sync(void* mem, size_t length){
-    test_lock.lock_shared();
+
     int parts=10;
     auto d=length/parts;
     auto remainder=length%parts;
@@ -222,13 +223,14 @@ void Sync(void* mem, size_t length){
             break;
         }
     }
-    test_lock.unlock_shared();
 }
 
 void SyncAll(){
+
 for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
     Sync(mem_info->mem,mem_info->size);
 }
+
 }
 
 void SyncAllocations(){

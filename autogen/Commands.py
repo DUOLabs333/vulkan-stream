@@ -5,6 +5,7 @@ import copy
 write("""
 #include <ThreadStruct.hpp>
 #include <stdexcept>
+#include <shared_mutex>
 #include <future>
 #include "vk_enum_string_helper.h"
 
@@ -25,6 +26,10 @@ using json = nlohmann::json;
         devicememory_to_size[(uintptr_t)memory]=size;
     }
 #endif
+
+typedef std::shared_mutex Lock;
+
+Lock MemoryMapLock;
 """)
 
 def registerDeviceMemoryMap(name,mem):
@@ -236,11 +241,22 @@ write("""VKAPI_ATTR PFN_vkVoidFunction VKAPI_CALL vk_icdGetInstanceProcAddr(VkIn
 """)
 
 for name, command in parsed["commands"].items():
+    memory_map_lock=0
+    if name.startswith("vkMapMemory"):
+        memory_map_lock=1 #Lock for writing
+    elif (name=="vkQueueSubmit") or (name=="vkWaitForFences"):
+        memory_map_lock=2 #Lock for reading
+        
     write("__attribute__((visibility (\"hidden\"))) "+command["header"]+"{") #All core Vulkan API functions must be hidden
         
     write("//Will only be called by the client")
     write(f'printf("Executing {name}\\n");')
     
+    if memory_map_lock==1:
+        write("MemoryMapLock.lock();")
+    elif memory_map_lock==2:
+        write("MemoryMapLock.lock_shared();")
+        
     wsi_match=re.match(r"^vkCreate(Xlib|Xcb)SurfaceKHR$",name)
     if wsi_match is not None:
         write("""
@@ -510,7 +526,12 @@ for name, command in parsed["commands"].items():
         write("registerDeviceMemory(*pMemory, pAllocateInfo->allocationSize);")
     elif name.startswith("vkMapMemory"):
         write(registerDeviceMemoryMap(name,'result["mem_ptr"]'))
-        
+    
+    if memory_map_lock==1:
+        write("MemoryMapLock.unlock();")
+    elif memory_map_lock==2:
+        write("MemoryMapLock.unlock_shared();")
+            
     write(f'printf("Ending {name}...\\n");')
     if not is_void(command):
         if command["type"]=="VkResult":
