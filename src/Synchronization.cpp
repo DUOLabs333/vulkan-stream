@@ -97,10 +97,9 @@ void handle_sync_response(json data){
     
     result["type"]="handle_sync_end";
     
-    if (mem!=NULL){
-        for(int i=0; i < data["starts"].size(); i++){
-            memcpy((char*)mem+data["starts"][i].get<size_t>(),data["buffers"][i].get<std::string>().c_str(),data["lengths"][i].get<size_t>());
-        }
+
+    for(int i=0; i < data["starts"].size(); i++){
+        memcpy((char*)mem+data["starts"][i].get<size_t>(),data["buffers"][i].get<std::string>().c_str(),data["lengths"][i].get<size_t>());
     }
     
     writeToConn(result);

@@ -255,7 +255,9 @@ getMemory(device,&memory,&size);
 
 void* ppData=NULL;
 vkMapMemory(device,memory,0,size,0,&ppData);
+
 device_to_mapped[key]=ppData;
+device_to_mapped_size[key]=size;
 
 *data=ppData;
 *pSize=size;
