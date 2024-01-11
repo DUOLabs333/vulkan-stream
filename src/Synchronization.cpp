@@ -91,7 +91,6 @@ void handle_sync_response(json data){
     
     result["type"]="handle_sync_end";
     
-
     for(int i=0; i < data["starts"].size(); i++){
         memcpy((char*)mem+data["starts"][i].get<size_t>(),data["buffers"][i].get<std::string>().c_str(),data["lengths"][i].get<size_t>());
     }
@@ -103,7 +102,6 @@ void handle_sync_init(json data){
     //Recived an init, sent a request for bytes. Wait for bytes to be sent
    
     #ifdef CLIENT
-        printf("Memory to sync: %lx\n", data["mem"].get<uintptr_t>());
         if (!server_to_client_mem.contains(data["mem"])){
             printf("Panic! It's not found!\n");
         }
@@ -121,7 +119,6 @@ void handle_sync_init(json data){
     
     for (int i=0; i<data["starts"].size(); i++){
         if (HashMem(mem,data["starts"][i],data["lengths"][i])!=data["hashes"][i]){
-            printf("New data found!\n");
             result["starts"].push_back(data["starts"][i]);
             result["lengths"].push_back(data["lengths"][i]);
         }

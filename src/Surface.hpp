@@ -3,6 +3,7 @@
 #include <vulkan/vulkan_core.h>
 #include <map>
 #include <iostream>
+#include <shared_mutex>
 
 enum SurfaceType {Xlib, Xcb};
 

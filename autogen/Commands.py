@@ -30,6 +30,7 @@ using json = nlohmann::json;
 typedef std::shared_mutex Lock;
 
 Lock MemoryMapLock;
+Lock MemoryOperationLock; //This is not needed (but may be preferred, at the expense of unneccessary locking)
 """)
 
 def registerDeviceMemoryMap(name,mem):
@@ -242,16 +243,24 @@ write("""VKAPI_ATTR PFN_vkVoidFunction VKAPI_CALL vk_icdGetInstanceProcAddr(VkIn
 
 for name, command in parsed["commands"].items():
     memory_map_lock=0
+    memory_operation_lock=False
     if name.startswith("vkMapMemory"):
         memory_map_lock=1 #Lock for writing
+        memory_operation_lock=True
     elif (name=="vkQueueSubmit") or (name=="vkWaitForFences"):
         memory_map_lock=2 #Lock for reading
+        memory_operation_lock=True
+    
+    if name=="vkWaitForFences": #Only for debugging purposes --- remove when done
+        memory_operation_lock=False
         
     write("__attribute__((visibility (\"hidden\"))) "+command["header"]+"{") #All core Vulkan API functions must be hidden
         
     write("//Will only be called by the client")
     write(f'printf("Executing {name}\\n");')
     
+    if memory_operation_lock:
+        write("MemoryOperationLock.lock();")
     if memory_map_lock==1:
         write("MemoryMapLock.lock();")
     elif memory_map_lock==2:
@@ -329,6 +338,20 @@ for name, command in parsed["commands"].items():
             pMemoryMapInfo=&new_map_info;
         }
         """)
+    
+    if name=="vkQueueSubmit":
+        write("""
+        auto create_info=VkFenceCreateInfo{
+        .sType=VK_STRUCTURE_TYPE_FENCE_CREATE_INFO,
+        .pNext=NULL,
+        .flags=0
+        };
+        auto device=handle_to_parent_handle_struct[(uintptr_t)queue].device;
+        if (fence==VK_NULL_HANDLE){ //This system is only for debug purposes --- once I figure out why nothing is showing up, this should be deleted
+            vkCreateFence(device, &create_info,NULL, &fence);
+        }   
+        
+        """)
     write("{") #Using scoping to allow us to overwrite const parameters as needed
     
     if name.startswith("vkMapMemory"):
@@ -383,6 +406,14 @@ for name, command in parsed["commands"].items():
          
           std::thread display_thread(QueueDisplay, fences_list, (VkSwapchainKHR*)memdup(pPresentInfo->pSwapchains, new_count*sizeof(VkSwapchainKHR)), (uint32_t*)memdup(pPresentInfo->pImageIndices, new_count*sizeof(uint32_t)), new_count);
           display_thread.detach();
+        """)
+    elif name=="vkCreateSwapchainKHR":
+        write("""
+        VkSwapchainCreateInfoKHR temp_info=*pCreateInfo;
+        
+        temp_info.imageUsage|=VK_IMAGE_USAGE_TRANSFER_SRC_BIT;
+        
+        pCreateInfo=&temp_info;
         """)
     for param in command["params"]:
         write(serialize(f"""data_json["members"]["{param["name"]}"]""",param))
@@ -527,11 +558,20 @@ for name, command in parsed["commands"].items():
     elif name.startswith("vkMapMemory"):
         write(registerDeviceMemoryMap(name,'result["mem_ptr"]'))
     
+    if name=="vkQueueSubmit":
+        write("""
+        while (true){
+            if (vkWaitForFences(device,1, &fence, VK_TRUE, 5ULL*10000000) != VK_TIMEOUT){ //This whole system is for debugging purposes, and should be removed once I figure out the problem
+                break;
+            }
+        }
+        """)
     if memory_map_lock==1:
         write("MemoryMapLock.unlock();")
     elif memory_map_lock==2:
         write("MemoryMapLock.unlock_shared();")
-            
+    if memory_operation_lock:
+        write("MemoryOperationLock.unlock();")        
     write(f'printf("Ending {name}...\\n");')
     if not is_void(command):
         if command["type"]=="VkResult":

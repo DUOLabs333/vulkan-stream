@@ -4,6 +4,9 @@
 #include <vector>
 #include <cstdlib>
 #include <vulkan/vulkan_core.h>
+#include <shared_mutex>
+
+std::shared_mutex DisplayLock;
 
 std::map<uintptr_t, SurfaceInfo> surface_to_info;
 
@@ -16,6 +19,7 @@ std::map<uintptr_t, void*> device_to_mapped;
 std::map<uintptr_t, VkDeviceSize> device_to_mapped_size;
 std::map<uintptr_t, VkBuffer> device_to_buffer;
 std::map<uintptr_t, VkCommandBuffer> device_to_command_buffer;
+std::map<uintptr_t, VkDeviceMemory> device_to_devicememory;
 std::map<uintptr_t, VkQueue> device_to_queue;
 std::map<uintptr_t, uint32_t> device_to_queue_family_index;
 
@@ -108,7 +112,7 @@ getQueue(device,&queue_family_index);
 auto command_pool_create_info=VkCommandPoolCreateInfo{
 .sType=VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO,
 .pNext=NULL,
-.flags=0,
+.flags=VK_COMMAND_POOL_CREATE_RESET_COMMAND_BUFFER_BIT,
 .queueFamilyIndex=queue_family_index,
 };
 
@@ -131,7 +135,7 @@ return command_buffer;
 }
 
 VkBuffer getBuffer(VkDevice device, VkDeviceSize* size){
-VkDeviceSize BUFFER_SIZE=100000;
+VkDeviceSize BUFFER_SIZE=1000000;
 auto key=(uintptr_t)device;
 
 if (size!=NULL){
@@ -148,7 +152,7 @@ auto buffer_create_info=VkBufferCreateInfo{
 .pNext=NULL,
 .flags=0,
 .size=BUFFER_SIZE,
-.usage=0,
+.usage=VK_BUFFER_USAGE_TRANSFER_DST_BIT,
 .sharingMode=VK_SHARING_MODE_EXCLUSIVE,
 .queueFamilyIndexCount=0,
 .pQueueFamilyIndices=NULL,
@@ -156,17 +160,113 @@ auto buffer_create_info=VkBufferCreateInfo{
 vkCreateBuffer(device,&buffer_create_info,NULL,&buffer);
 
 device_to_buffer[key]=buffer;
+
+
+auto memory_properties=VkPhysicalDeviceMemoryProperties{};
+vkGetPhysicalDeviceMemoryProperties(device_to_phyiscal_device[(uintptr_t)device],&memory_properties);
+
+uint32_t memory_type_index=0;
+bool found=false;
+for (uint32_t i=0; i< memory_properties.memoryTypeCount; i++){
+    if ((memory_properties.memoryTypes[i].propertyFlags & VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT)!=0){
+        memory_type_index=i;
+        found=true;
+        break;
+    }
+}
+
+if (!found){
+    printf("None found!\n");
+}
+
+auto memory_allocate_info=VkMemoryAllocateInfo{
+.sType=VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,
+.pNext=NULL,
+.allocationSize=*size,
+.memoryTypeIndex=memory_type_index
+};
+
+VkDeviceMemory memory;
+vkAllocateMemory(device,&memory_allocate_info,NULL, &memory);
+vkBindBufferMemory(device, buffer,memory,0);
+
+device_to_devicememory[key]=memory;
+
 return buffer;      
 }
 
-void copyImageToBuffer(VkDevice device, VkImage image, VkExtent2D extent){
-auto command_buffer=getCommandBuffer(device);
 
+void transferImageToLayout(VkDevice device, VkImage image, VkImageLayout oldLayout, VkImageLayout newLayout){
+
+
+auto image_barrier=VkImageMemoryBarrier{
+.sType=VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER,
+.pNext=NULL,
+.srcAccessMask=VK_ACCESS_MEMORY_READ_BIT|VK_ACCESS_MEMORY_WRITE_BIT,
+.dstAccessMask=VK_ACCESS_MEMORY_READ_BIT|VK_ACCESS_MEMORY_WRITE_BIT,
+.oldLayout=oldLayout,
+.newLayout=newLayout,
+.srcQueueFamilyIndex=VK_QUEUE_FAMILY_IGNORED,
+.dstQueueFamilyIndex=VK_QUEUE_FAMILY_IGNORED,
+.image=image,
+.subresourceRange=VkImageSubresourceRange{
+.aspectMask=VK_IMAGE_ASPECT_COLOR_BIT,
+.baseMipLevel=0,
+.levelCount=1,
+.baseArrayLayer=0,
+.layerCount=1
+}
+};
+
+auto command_buffer=getCommandBuffer(device);
+auto begin_command_buffer_info=VkCommandBufferBeginInfo{.sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO,.pNext=NULL,.flags=VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT,.pInheritanceInfo=NULL};
+vkBeginCommandBuffer(command_buffer,&begin_command_buffer_info);
+
+auto stage_mask=VK_PIPELINE_STAGE_TRANSFER_BIT|VK_PIPELINE_STAGE_HOST_BIT|VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT;
+
+vkCmdPipelineBarrier(command_buffer, stage_mask, stage_mask, VK_DEPENDENCY_BY_REGION_BIT, 0, NULL, 0, NULL, 1, &image_barrier);
+
+vkEndCommandBuffer(command_buffer);
+
+VkFence fence;
+auto fence_create_info=VkFenceCreateInfo{.sType=VK_STRUCTURE_TYPE_FENCE_CREATE_INFO,.pNext=NULL,.flags=0};
+vkCreateFence(device,&fence_create_info,NULL,&fence);
+
+auto queue=getQueue(device,NULL);
+auto queue_submit_info=VkSubmitInfo{
+.sType=VK_STRUCTURE_TYPE_SUBMIT_INFO,
+.pNext=NULL,
+.waitSemaphoreCount=0,
+.pWaitSemaphores=NULL,
+.pWaitDstStageMask=NULL,
+.commandBufferCount=1,
+.pCommandBuffers=&command_buffer,
+.signalSemaphoreCount=0,
+.pSignalSemaphores=NULL
+};
+
+vkQueueSubmit(queue,1,&queue_submit_info,fence);
+
+while(true){
+if (vkWaitForFences(device,1,&fence,VK_TRUE, 5ULL*1000000000)!=VK_TIMEOUT){
+    break;
+}
+}
+
+}
+
+void copyImageToBuffer(VkDevice device, VkImage image, VkExtent2D extent){
+
+transferImageToLayout(device,image,VK_IMAGE_LAYOUT_PRESENT_SRC_KHR, VK_IMAGE_LAYOUT_GENERAL);
+
+auto command_buffer=getCommandBuffer(device);
 auto begin_command_buffer_info=VkCommandBufferBeginInfo{.sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO,.pNext=NULL,.flags=VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT,.pInheritanceInfo=NULL};
 vkBeginCommandBuffer(command_buffer,&begin_command_buffer_info);
 
 
-auto buffer=getBuffer(device,NULL);
+VkDeviceSize size;
+auto buffer=getBuffer(device,&size);
+ 
 auto region=VkBufferImageCopy{
 .bufferOffset=0,
 .bufferRowLength=0,
@@ -206,38 +306,9 @@ if (vkWaitForFences(device,1,&fence,VK_TRUE, 5ULL*1000000000)!=VK_TIMEOUT){
 }
 }
 
+transferImageToLayout(device,image,VK_IMAGE_LAYOUT_GENERAL,VK_IMAGE_LAYOUT_PRESENT_SRC_KHR);
 }
 
-void getMemory(VkDevice device, VkDeviceMemory* memory, VkDeviceSize* size){
-    auto buffer=getBuffer(device,size);
-    
-    auto memory_properties=VkPhysicalDeviceMemoryProperties{};
-    vkGetPhysicalDeviceMemoryProperties(device_to_phyiscal_device[(uintptr_t)device],&memory_properties);
-    
-    uint32_t memory_type_index=0;
-    bool found=false;
-    for (uint32_t i=0; i< memory_properties.memoryTypeCount; i++){
-        if ((memory_properties.memoryTypes[i].propertyFlags & VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT)!=0){
-            memory_type_index=i;
-            found=true;
-            break;
-        }
-    }
-    
-    if (!found){
-        printf("None found!\n");
-    }
-    
-    auto memory_allocate_info=VkMemoryAllocateInfo{
-    .sType=VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO,
-    .pNext=NULL,
-    .allocationSize=*size,
-    .memoryTypeIndex=memory_type_index
-    };
-    
-    vkAllocateMemory(device,&memory_allocate_info,NULL,memory);
-    vkBindBufferMemory(device, buffer,*memory,0);
-}
 
 void getImageData(VkDevice device, VkImage image, void** data, VkDeviceSize* pSize, VkExtent2D extent){
 auto key=(uintptr_t)device;
@@ -250,8 +321,9 @@ if (device_to_mapped.contains(key)){
 copyImageToBuffer(device,image,extent);
 
 VkDeviceSize size;
-VkDeviceMemory memory;
-getMemory(device,&memory,&size);
+
+auto memory=device_to_devicememory[key];
+getBuffer(device,&size);
 
 void* ppData=NULL;
 vkMapMemory(device,memory,0,size,0,&ppData);
@@ -265,7 +337,7 @@ return;
 }
 
 void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, const uint32_t* indices_list, uint32_t swapchain_count){
-    
+    DisplayLock.lock();
     std::map<uintptr_t, std::vector<VkImage>> swapchain_to_images;
     
     for(int i=0; i<swapchain_count; i++){
@@ -346,19 +418,22 @@ void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, c
                 for (auto& elem : data_before){
                     std::cout << unsigned(elem) << ' ';
                 }
+                std::cout << std::endl;
+                
+                for (int i=0; i< size; i++){
+                        if (unsigned(((char*)data)[i])!=0){
+                            printf("Non-zero!\n");
+                            break;
+                        }
+                    }
                 
                 std::cout << std::endl;
                 
                 // Create an XCB image
                 xcb_image_t *x_image = xcb_image_create_native(connection, extent.width, extent.height, XCB_IMAGE_FORMAT_Z_PIXMAP, 1, data, size, (uint8_t*)data);
                 
-                std::vector<uint8_t> data_after((uint8_t*)data,(uint8_t*)data+10);
+                std::vector<uint8_t> data_after((uint8_t*)data,(uint8_t*)data+size);
                 
-                std::cout << "Data (After): ";
-                
-                for (auto& elem : data_after){
-                    std::cout << unsigned(elem) << ' ';
-                }
                 
                 std::cout << std::endl;
             
@@ -406,6 +481,6 @@ void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, c
         vkCopyImageToMemoryEXT(device,&copy_info);
         */
     }
-    
+    DisplayLock.unlock();
 
 }
