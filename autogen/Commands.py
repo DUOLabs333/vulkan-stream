@@ -112,6 +112,7 @@ for name, command in parsed["commands"].items():
         extensions_set.insert(std::string(VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME));
         //extensions_set.insert(std::string(VK_EXT_HOST_IMAGE_COPY_EXTENSION_NAME));
         extensions_set.insert(std::string(VK_EXT_SURFACE_MAINTENANCE_1_EXTENSION_NAME));
+        extensions_set.insert(std::string(VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME));
         
         auto extensions_length=extensions_set.size();
         auto extensions_list=(char **)malloc(extensions_length*sizeof(char*));
@@ -250,15 +251,15 @@ for name, command in parsed["commands"].items():
     elif (name=="vkQueueSubmit") or (name=="vkWaitForFences"):
         memory_map_lock=2 #Lock for reading
         memory_operation_lock=True
-    
-    if name=="vkWaitForFences": #Only for debugging purposes --- remove when done
-        memory_operation_lock=False
         
     write("__attribute__((visibility (\"hidden\"))) "+command["header"]+"{") #All core Vulkan API functions must be hidden
         
     write("//Will only be called by the client")
     write(f'printf("Executing {name}\\n");')
     
+    memory_operation_lock=False
+    if memory_operation_lock:
+        write("MemoryOperationLock.lock();")
     if memory_map_lock==1:
         write("MemoryMapLock.lock();")
     elif memory_map_lock==2:
@@ -336,20 +337,7 @@ for name, command in parsed["commands"].items():
             pMemoryMapInfo=&new_map_info;
         }
         """)
-    
-    if name=="vkQueueSubmit":
-        write("""
-        auto create_info=VkFenceCreateInfo{
-        .sType=VK_STRUCTURE_TYPE_FENCE_CREATE_INFO,
-        .pNext=NULL,
-        .flags=0
-        };
-        auto device=handle_to_parent_handle_struct[(uintptr_t)queue].device;
-        if (fence==VK_NULL_HANDLE){ //This system is only for debug purposes --- once I figure out why nothing is showing up, this should be deleted
-            vkCreateFence(device, &create_info,NULL, &fence);
-        }   
-        
-        """)
+
     write("{") #Using scoping to allow us to overwrite const parameters as needed
     
     if name.startswith("vkMapMemory"):
@@ -560,7 +548,9 @@ for name, command in parsed["commands"].items():
         write("MemoryMapLock.unlock();")
     elif memory_map_lock==2:
         write("MemoryMapLock.unlock_shared();")
-    
+    if memory_operation_lock:
+        write("MemoryOperationLock.unlock();")
+        
     write(f'printf("Ending {name}...\\n");')
     if not is_void(command):
         if command["type"]=="VkResult":
