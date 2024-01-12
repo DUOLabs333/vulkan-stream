@@ -307,7 +307,7 @@ return;
 }
 
 void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, const uint32_t* indices_list, uint32_t swapchain_count){
-    DisplayLock.lock();
+    DisplayLock.lock(); //This is important --- otherwise, every thread will be stepping all over each other
     std::map<uintptr_t, std::vector<VkImage>> swapchain_to_images;
     
     for(int i=0; i<swapchain_count; i++){
@@ -377,28 +377,22 @@ void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, c
                 auto info=std::any_cast<XcbSurfaceInfo>(surface_info.info);
                 auto connection=info.connection;
                 auto window=info.window;
-                xcb_map_window(connection, window);
+                
                 xcb_gcontext_t gc = xcb_generate_id(connection);
                 xcb_create_gc(connection, gc, window, 0, NULL);
                 
-                std::vector<uint8_t> data_before((uint8_t*)data,(uint8_t*)data+10);
-                
-                std::cout << "Data (Before): ";
-                
-                for (auto& elem : data_before){
-                    std::cout << unsigned(elem) << ' ';
-                }
-                std::cout << std::endl;
                 auto screen=xcb_setup_roots_iterator(xcb_get_setup(connection)).data;
-                auto depth = screen->root_depth;
+                auto depth = screen->root_depth; //This is important --- ntohing will show on screen otherwise
+                
                 // Create an XCB image
                 xcb_image_t *x_image = xcb_image_create_native(connection, extent.width, extent.height, XCB_IMAGE_FORMAT_Z_PIXMAP, depth, data, size, (uint8_t*)data);
                 
                 xcb_pixmap_t pixmap = xcb_generate_id(connection);
                 xcb_create_pixmap(connection, depth, pixmap, window, extent.width, extent.height);
                 // Put the XCB image onto the window
-                xcb_image_put(connection, window, gc, x_image, 0, 0, 0);
-                //xcb_copy_area(connection, pixmap, window, gc, 0, 0, 0, 0, extent.width, extent.height);
+                xcb_image_put(connection, pixmap, gc, x_image, 0, 0, 0);
+                xcb_copy_area(connection, pixmap, window, gc, 0, 0, 0, 0, extent.width, extent.height);
+                
                 // Flush and free resources
                 xcb_flush(connection);
                 xcb_free_gc(connection, gc);

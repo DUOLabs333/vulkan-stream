@@ -259,8 +259,6 @@ for name, command in parsed["commands"].items():
     write("//Will only be called by the client")
     write(f'printf("Executing {name}\\n");')
     
-    if memory_operation_lock:
-        write("MemoryOperationLock.lock();")
     if memory_map_lock==1:
         write("MemoryMapLock.lock();")
     elif memory_map_lock==2:
@@ -558,20 +556,11 @@ for name, command in parsed["commands"].items():
     elif name.startswith("vkMapMemory"):
         write(registerDeviceMemoryMap(name,'result["mem_ptr"]'))
     
-    if name=="vkQueueSubmit":
-        write("""
-        while (true){
-            if (vkWaitForFences(device,1, &fence, VK_TRUE, 5ULL*10000000) != VK_TIMEOUT){ //This whole system is for debugging purposes, and should be removed once I figure out the problem
-                break;
-            }
-        }
-        """)
     if memory_map_lock==1:
         write("MemoryMapLock.unlock();")
     elif memory_map_lock==2:
         write("MemoryMapLock.unlock_shared();")
-    if memory_operation_lock:
-        write("MemoryOperationLock.unlock();")        
+    
     write(f'printf("Ending {name}...\\n");')
     if not is_void(command):
         if command["type"]=="VkResult":
