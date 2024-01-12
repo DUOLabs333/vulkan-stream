@@ -168,7 +168,7 @@ vkGetPhysicalDeviceMemoryProperties(device_to_phyiscal_device[(uintptr_t)device]
 uint32_t memory_type_index=0;
 bool found=false;
 for (uint32_t i=0; i< memory_properties.memoryTypeCount; i++){
-    if ((memory_properties.memoryTypes[i].propertyFlags & VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT)!=0){
+    if ((memory_properties.memoryTypes[i].propertyFlags & (VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT|VK_MEMORY_PROPERTY_HOST_COHERENT_BIT))== (VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT|VK_MEMORY_PROPERTY_HOST_COHERENT_BIT)){ //Switch it back to just host_visible when done
         memory_type_index=i;
         found=true;
         break;
