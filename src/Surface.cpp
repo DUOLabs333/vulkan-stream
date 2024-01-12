@@ -196,7 +196,7 @@ return buffer;
 }
 
 
-void transferImageToLayout(VkDevice device, VkImage image, VkImageLayout oldLayout, VkImageLayout newLayout){
+void transferImageToLayout(VkCommandBuffer command_buffer, VkImage image, VkImageLayout oldLayout, VkImageLayout newLayout){
 
 
 auto image_barrier=VkImageMemoryBarrier{
@@ -218,51 +218,20 @@ auto image_barrier=VkImageMemoryBarrier{
 }
 };
 
-auto command_buffer=getCommandBuffer(device);
-auto begin_command_buffer_info=VkCommandBufferBeginInfo{.sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO,.pNext=NULL,.flags=VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT,.pInheritanceInfo=NULL};
-vkBeginCommandBuffer(command_buffer,&begin_command_buffer_info);
 
-auto stage_mask=VK_PIPELINE_STAGE_TRANSFER_BIT|VK_PIPELINE_STAGE_HOST_BIT|VK_PIPELINE_STAGE_ALL_GRAPHICS_BIT;
+auto stage_mask=VK_PIPELINE_STAGE_ALL_COMMANDS_BIT;
 
 vkCmdPipelineBarrier(command_buffer, stage_mask, stage_mask, VK_DEPENDENCY_BY_REGION_BIT, 0, NULL, 0, NULL, 1, &image_barrier);
-
-vkEndCommandBuffer(command_buffer);
-
-VkFence fence;
-auto fence_create_info=VkFenceCreateInfo{.sType=VK_STRUCTURE_TYPE_FENCE_CREATE_INFO,.pNext=NULL,.flags=0};
-vkCreateFence(device,&fence_create_info,NULL,&fence);
-
-auto queue=getQueue(device,NULL);
-auto queue_submit_info=VkSubmitInfo{
-.sType=VK_STRUCTURE_TYPE_SUBMIT_INFO,
-.pNext=NULL,
-.waitSemaphoreCount=0,
-.pWaitSemaphores=NULL,
-.pWaitDstStageMask=NULL,
-.commandBufferCount=1,
-.pCommandBuffers=&command_buffer,
-.signalSemaphoreCount=0,
-.pSignalSemaphores=NULL
-};
-
-vkQueueSubmit(queue,1,&queue_submit_info,fence);
-
-while(true){
-if (vkWaitForFences(device,1,&fence,VK_TRUE, 5ULL*1000000000)!=VK_TIMEOUT){
-    break;
-}
-}
 
 }
 
 void copyImageToBuffer(VkDevice device, VkImage image, VkExtent2D extent){
 
-transferImageToLayout(device,image,VK_IMAGE_LAYOUT_PRESENT_SRC_KHR, VK_IMAGE_LAYOUT_GENERAL);
-
 auto command_buffer=getCommandBuffer(device);
 auto begin_command_buffer_info=VkCommandBufferBeginInfo{.sType=VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO,.pNext=NULL,.flags=VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT,.pInheritanceInfo=NULL};
 vkBeginCommandBuffer(command_buffer,&begin_command_buffer_info);
 
+transferImageToLayout(command_buffer,image,VK_IMAGE_LAYOUT_PRESENT_SRC_KHR, VK_IMAGE_LAYOUT_GENERAL);
 
 VkDeviceSize size;
 auto buffer=getBuffer(device,&size);
@@ -279,6 +248,8 @@ auto region=VkBufferImageCopy{
 
 vkCmdCopyImageToBuffer(command_buffer,image,VK_IMAGE_LAYOUT_GENERAL,buffer,1,&region);
 
+transferImageToLayout(command_buffer,image,VK_IMAGE_LAYOUT_GENERAL, VK_IMAGE_LAYOUT_PRESENT_SRC_KHR);
+
 vkEndCommandBuffer(command_buffer);
 
 VkFence fence;
@@ -301,12 +272,10 @@ auto queue_submit_info=VkSubmitInfo{
 vkQueueSubmit(queue,1,&queue_submit_info,fence);
 
 while(true){
-if (vkWaitForFences(device,1,&fence,VK_TRUE, 5ULL*1000000000)!=VK_TIMEOUT){
+if (vkWaitForFences(device,1,&fence,VK_TRUE, 5ULL*10000)!=VK_TIMEOUT){
     break;
 }
 }
-
-transferImageToLayout(device,image,VK_IMAGE_LAYOUT_GENERAL,VK_IMAGE_LAYOUT_PRESENT_SRC_KHR);
 }
 
 
@@ -317,6 +286,7 @@ if (device_to_mapped.contains(key)){
     *pSize=device_to_mapped_size[key];
     return;
 }
+
 
 copyImageToBuffer(device,image,extent);
 
@@ -347,7 +317,7 @@ void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, c
         auto device=swapchain_to_device[(uintptr_t)swapchain];
         
         while(true){
-            if (vkWaitForFences(device,1,&(fences_list[i]),VK_TRUE,5ULL*10000000) != VK_TIMEOUT){
+            if (vkWaitForFences(device,1,&(fences_list[i]),VK_TRUE,5ULL*10000) != VK_TIMEOUT){
                 break;
             }
         }
@@ -407,7 +377,7 @@ void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, c
                 auto info=std::any_cast<XcbSurfaceInfo>(surface_info.info);
                 auto connection=info.connection;
                 auto window=info.window;
-                
+                xcb_map_window(connection, window);
                 xcb_gcontext_t gc = xcb_generate_id(connection);
                 xcb_create_gc(connection, gc, window, 0, NULL);
                 
@@ -419,27 +389,16 @@ void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, c
                     std::cout << unsigned(elem) << ' ';
                 }
                 std::cout << std::endl;
-                
-                for (int i=0; i< size; i++){
-                        if (unsigned(((char*)data)[i])!=0){
-                            printf("Non-zero!\n");
-                            break;
-                        }
-                    }
-                
-                std::cout << std::endl;
-                
+                auto screen=xcb_setup_roots_iterator(xcb_get_setup(connection)).data;
+                auto depth = screen->root_depth;
                 // Create an XCB image
-                xcb_image_t *x_image = xcb_image_create_native(connection, extent.width, extent.height, XCB_IMAGE_FORMAT_Z_PIXMAP, 1, data, size, (uint8_t*)data);
+                xcb_image_t *x_image = xcb_image_create_native(connection, extent.width, extent.height, XCB_IMAGE_FORMAT_Z_PIXMAP, depth, data, size, (uint8_t*)data);
                 
-                std::vector<uint8_t> data_after((uint8_t*)data,(uint8_t*)data+size);
-                
-                
-                std::cout << std::endl;
-            
+                xcb_pixmap_t pixmap = xcb_generate_id(connection);
+                xcb_create_pixmap(connection, depth, pixmap, window, extent.width, extent.height);
                 // Put the XCB image onto the window
                 xcb_image_put(connection, window, gc, x_image, 0, 0, 0);
-            
+                //xcb_copy_area(connection, pixmap, window, gc, 0, 0, 0, 0, extent.width, extent.height);
                 // Flush and free resources
                 xcb_flush(connection);
                 xcb_free_gc(connection, gc);
