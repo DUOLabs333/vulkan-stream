@@ -347,7 +347,6 @@ void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, c
         auto surface=swapchain_to_surface[(uintptr_t)swapchain];
         
         if (!surface_to_info.contains((uintptr_t)surface)){
-            debug_printf("Oh no, this is bad!\n");
             continue;
         }
         
@@ -385,7 +384,7 @@ void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, c
                 xcb_create_gc(connection, gc, window, 0, NULL);
                 
                 auto screen=xcb_setup_roots_iterator(xcb_get_setup(connection)).data;
-                auto depth = screen->root_depth; //This is important --- ntohing will show on screen otherwise
+                auto depth = screen->root_depth; //This is important --- nothing will show on screen otherwise
                 
                 // Create an XCB image
                 xcb_image_t *x_image = xcb_image_create_native(connection, extent.width, extent.height, XCB_IMAGE_FORMAT_Z_PIXMAP, depth, data, size, (uint8_t*)data);
