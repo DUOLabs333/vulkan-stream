@@ -92,6 +92,7 @@ void handle_sync_response(json data){
     result["type"]="handle_sync_end";
     
     for(int i=0; i < data["starts"].size(); i++){
+        printf("Memory %p: Data has changed!\n",(char*)mem);
         memcpy((char*)mem+data["starts"][i].get<size_t>(),data["buffers"][i].get<std::string>().c_str(),data["lengths"][i].get<size_t>());
     }
     
@@ -99,7 +100,7 @@ void handle_sync_response(json data){
 }
 
 void handle_sync_init(json data){
-    //Recived an init, sent a request for bytes. Wait for bytes to be sent
+    //Received an init, sent a request for bytes. Wait for bytes to be sent
    
     #ifdef CLIENT
         if (!server_to_client_mem.contains(data["mem"])){

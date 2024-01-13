@@ -281,29 +281,29 @@ if (vkWaitForFences(device,1,&fence,VK_TRUE, 5ULL*10000)!=VK_TIMEOUT){
 
 void getImageData(VkDevice device, VkImage image, void** data, VkDeviceSize* pSize, VkExtent2D extent){
 auto key=(uintptr_t)device;
-if (device_to_mapped.contains(key)){
-    *data=device_to_mapped[key];
-    *pSize=device_to_mapped_size[key];
-    return;
-}
-
 
 copyImageToBuffer(device,image,extent);
 
-VkDeviceSize size;
-
-auto memory=device_to_devicememory[key];
-getBuffer(device,&size);
-
-void* ppData=NULL;
-vkMapMemory(device,memory,0,size,0,&ppData);
-
-device_to_mapped[key]=ppData;
-device_to_mapped_size[key]=size;
-
-*data=ppData;
-*pSize=size;
+if (device_to_mapped.contains(key)){
+    *data=device_to_mapped[key];
+    *pSize=device_to_mapped_size[key];
+}else{
+    VkDeviceSize size;
+    
+    auto memory=device_to_devicememory[key];
+    getBuffer(device,&size);
+    
+    void* ppData=NULL;
+    vkMapMemory(device,memory,0,size,0,&ppData);
+    
+    device_to_mapped[key]=ppData;
+    device_to_mapped_size[key]=size;
+    
+    *data=ppData;
+    *pSize=size;
+}
 return;
+
 }
 
 void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, const uint32_t* indices_list, uint32_t swapchain_count){
@@ -311,6 +311,7 @@ void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, c
     std::map<uintptr_t, std::vector<VkImage>> swapchain_to_images;
     
     for(int i=0; i<swapchain_count; i++){
+        printf("Index: %i\n",i);
         uint32_t numImages=0;
         VkImage* images=NULL;
         auto swapchain=swapchains_list[i];
@@ -342,10 +343,11 @@ void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, c
         void* data=NULL;
         VkDeviceSize size;
         getImageData(device, image, &data, &size, extent); //Returns pointer holding the data
-        
+        printf("Memory %p: Displaying!\n",data);
         auto surface=swapchain_to_surface[(uintptr_t)swapchain];
         
         if (!surface_to_info.contains((uintptr_t)surface)){
+            printf("Oh no, this is bad!\n");
             continue;
         }
         
@@ -374,6 +376,7 @@ void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, c
             #ifdef VK_USE_PLATFORM_XCB_KHR
             case Xcb:
             {
+                printf("Displaying with Xcb!\n");
                 auto info=std::any_cast<XcbSurfaceInfo>(surface_info.info);
                 auto connection=info.connection;
                 auto window=info.window;
