@@ -30,7 +30,7 @@ void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
         #ifdef VK_USE_PLATFORM_XLIB_KHR
         case Xlib:
             {
-            printf("Actual type: %s\n",info.type().name());
+            debug_printf("Actual type: %s\n",info.type().name());
             auto xlib_info=std::any_cast<const VkXlibSurfaceCreateInfoKHR*>(info);
             surface_info.info=XlibSurfaceInfo{.dpy=xlib_info->dpy,.window=xlib_info->window};
             break;
@@ -40,7 +40,7 @@ void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
         #ifdef VK_USE_PLATFORM_XCB_KHR
         case Xcb:
             {
-            printf("Actual type: %s\n",info.type().name());
+            debug_printf("Actual type: %s\n",info.type().name());
             auto xcb_info=std::any_cast<const VkXcbSurfaceCreateInfoKHR*>(info);
             surface_info.info=XcbSurfaceInfo{.connection=xcb_info->connection,.window=xcb_info->window};
             break;
@@ -176,7 +176,7 @@ for (uint32_t i=0; i< memory_properties.memoryTypeCount; i++){
 }
 
 if (!found){
-    printf("None found!\n");
+    debug_printf("None found!\n");
 }
 
 auto memory_allocate_info=VkMemoryAllocateInfo{
@@ -311,7 +311,7 @@ void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, c
     std::map<uintptr_t, std::vector<VkImage>> swapchain_to_images;
     
     for(int i=0; i<swapchain_count; i++){
-        printf("Index: %i\n",i);
+        debug_printf("Index: %i\n",i);
         uint32_t numImages=0;
         VkImage* images=NULL;
         auto swapchain=swapchains_list[i];
@@ -338,16 +338,16 @@ void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, c
         auto imageIndex=indices_list[i];
         auto image=swapchain_to_images[(uintptr_t)swapchain][imageIndex];
         auto extent=swapchain_to_extent[(uintptr_t)swapchain];
-        printf("Image Extent: %d, %d\n",extent.width,extent.height);
+        debug_printf("Image Extent: %d, %d\n",extent.width,extent.height);
         
         void* data=NULL;
         VkDeviceSize size;
         getImageData(device, image, &data, &size, extent); //Returns pointer holding the data
-        printf("Memory %p: Displaying!\n",data);
+        debug_printf("Memory %p: Displaying!\n",data);
         auto surface=swapchain_to_surface[(uintptr_t)swapchain];
         
         if (!surface_to_info.contains((uintptr_t)surface)){
-            printf("Oh no, this is bad!\n");
+            debug_printf("Oh no, this is bad!\n");
             continue;
         }
         
@@ -376,7 +376,7 @@ void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, c
             #ifdef VK_USE_PLATFORM_XCB_KHR
             case Xcb:
             {
-                printf("Displaying with Xcb!\n");
+                debug_printf("Displaying with Xcb!\n");
                 auto info=std::any_cast<XcbSurfaceInfo>(surface_info.info);
                 auto connection=info.connection;
                 auto window=info.window;

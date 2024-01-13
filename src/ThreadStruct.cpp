@@ -1,5 +1,6 @@
 #include "ThreadStruct.hpp"
 #include <thread>
+#include <debug.hpp>
 
 std::string address;
 int port;

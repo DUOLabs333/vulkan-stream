@@ -1,4 +1,6 @@
 #include <vulkan/vulkan.h>
+#include <debug.hpp>
+
 void handle_sync_init(json data);
 void SyncAll();
 void SyncAllocations();

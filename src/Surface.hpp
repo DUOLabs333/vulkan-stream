@@ -4,6 +4,7 @@
 #include <map>
 #include <iostream>
 #include <shared_mutex>
+#include <debug.hpp>
 
 enum SurfaceType {Xlib, Xcb};
 

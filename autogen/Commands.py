@@ -3,6 +3,7 @@ import re
 import copy
 
 write("""
+#include <debug.hpp>
 #include <ThreadStruct.hpp>
 #include <stdexcept>
 #include <shared_mutex>
@@ -32,7 +33,6 @@ typedef std::shared_mutex Lock;
 Lock MemoryMapLock;
 Lock MemoryOperationLock; //This is not needed (but may be preferred, at the expense of unneccessary locking)
 """)
-
 def registerDeviceMemoryMap(name,mem):
     memory="memory"
     size="size"
@@ -124,7 +124,7 @@ for name, command in parsed["commands"].items():
         }
         
         for (int i=0; i< extensions_length; i++){
-            printf("Final extension: %s\\n",extensions_list[i]);
+            debug_printf("Final extension: %s\\n",extensions_list[i]);
         }
 
         pCreateInfo->ppEnabledExtensionNames=extensions_list;
@@ -156,7 +156,7 @@ for name, command in parsed["commands"].items():
         }
         
         for (int i=0; i< extensions_length; i++){
-            printf("Final extension: %s\\n",extensions_list[i]);
+            debug_printf("Final extension: %s\\n",extensions_list[i]);
         }
 
         pCreateInfo->ppEnabledExtensionNames=extensions_list;
@@ -165,7 +165,7 @@ for name, command in parsed["commands"].items():
     write(return_prefix+"call_function"+"("+call_arguments+")"+";")
     write("}")
     if (name=="vkGetInstanceProcAddr"):
-        write('printf("%s\\n",pName);')
+        write('debug_printf("%s\\n",pName);')
     
     return_value=command.copy()
     return_value["name"]="return_value"
@@ -183,7 +183,11 @@ for name, command in parsed["commands"].items():
         write(serialize(f"""result["members"]["{param["name"]}"]""",param))
             
     if name=="vkWaitForFences":
-        write("SyncAll();")
+        write("""
+            if (return_value!=VK_TIMEOUT){
+                SyncAll();
+            }
+            """)
 
     if name.startswith("vkMapMemory"):
        write(registerDeviceMemoryMap(name,"(uintptr_t)(*ppData)"))
@@ -206,7 +210,7 @@ for command in parsed["commands"]:
     write(f"""
         if(command=="{command}"){{
             if (command=="vkGetPhysicalDeviceProperties2"){{
-            ////printf("%s\\n",data.dump().c_str());
+            ////debug_printf("%s\\n",data.dump().c_str());
         }}
             handle_{command}(data);
             return;
@@ -255,7 +259,7 @@ for name, command in parsed["commands"].items():
     write("__attribute__((visibility (\"hidden\"))) "+command["header"]+"{") #All core Vulkan API functions must be hidden
         
     write("//Will only be called by the client")
-    write(f'printf("Executing {name}\\n");')
+    write(f'debug_printf("Executing {name}\\n");')
     
     memory_operation_lock=False
     if memory_operation_lock:
@@ -487,18 +491,18 @@ for name, command in parsed["commands"].items():
         for command_name in parsed["commands"]:
             write(f"""
             else if (strcmp(pName,"{command_name}")==0){{
-                printf("Retrieving {command_name}...\\n");
+                debug_printf("Retrieving {command_name}...\\n");
                 return_value= (result["return"]==true) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
                 
             }}
             """)
         write("""
             else {
-                printf("%s\\n",(std::string("Unknown function: ")+pName).c_str());
+                debug_printf("%s\\n",(std::string("Unknown function: ")+pName).c_str());
                 return_value=NULL;
             }
             
-            printf("Address of ProcAddr: %p\\n",return_value);
+            debug_printf("Address of ProcAddr: %p\\n",return_value);
         """)
     else:
         if not is_void(command):
@@ -551,10 +555,10 @@ for name, command in parsed["commands"].items():
     if memory_operation_lock:
         write("MemoryOperationLock.unlock();")
         
-    write(f'printf("Ending {name}...\\n");')
+    write(f'debug_printf("Ending {name}...\\n");')
     if not is_void(command):
         if command["type"]=="VkResult":
-            write(f'printf("Return value of {name} is: %s...\\n",string_VkResult(return_value));')
+            write(f'debug_printf("Return value of {name} is: %s...\\n",string_VkResult(return_value));')
         write("return return_value;")
     write("}")
 write("}")

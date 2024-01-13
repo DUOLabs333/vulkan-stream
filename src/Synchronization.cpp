@@ -41,7 +41,7 @@ std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
 }
 
 void registerClientServerMemoryMapping(uintptr_t client_mem, uintptr_t server_mem){
-    printf("Memory mapping in progress...\n");
+    debug_printf("Memory mapping in progress...\n");
 
     client_to_server_mem[client_mem]=server_mem;
     server_to_client_mem[server_mem]=client_mem;
@@ -49,7 +49,7 @@ void registerClientServerMemoryMapping(uintptr_t client_mem, uintptr_t server_me
 }
 
 void* registerDeviceMemoryMap(VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem){
-printf("DeviceMemory mapping in progress...\n");
+debug_printf("DeviceMemory mapping in progress...\n");
 auto info=new MemInfo();
 info->size=size;
 
@@ -92,7 +92,7 @@ void handle_sync_response(json data){
     result["type"]="handle_sync_end";
     
     for(int i=0; i < data["starts"].size(); i++){
-        printf("Memory %p: Data has changed!\n",(char*)mem);
+        debug_printf("Memory %p: Data has changed!\n",(char*)mem);
         memcpy((char*)mem+data["starts"][i].get<size_t>(),data["buffers"][i].get<std::string>().c_str(),data["lengths"][i].get<size_t>());
     }
     
@@ -104,7 +104,7 @@ void handle_sync_init(json data){
    
     #ifdef CLIENT
         if (!server_to_client_mem.contains(data["mem"])){
-            printf("Panic! It's not found!\n");
+            debug_printf("Panic! It's not found!\n");
         }
         void* mem=(char*)server_to_client_mem[data["mem"]];
     #else

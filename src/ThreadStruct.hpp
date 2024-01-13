@@ -2,6 +2,7 @@
 #include <QtNetwork/QTcpSocket>
 #include <string>
 #include <set>
+#include <debug.hpp>
 
 extern std::string address;
 

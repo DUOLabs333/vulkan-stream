@@ -11,7 +11,7 @@ using json = nlohmann::json;
 
 
         json serialize_VkBaseOutStructure_pNext(const void* name){
-        printf("Serializing VkBaseOutStructure...\n");
+        debug_printf("Serializing VkBaseOutStructure...\n");
         json result;
         result=[&]() {
     json return_NXSgfQF=json({});
@@ -29,7 +29,7 @@ return return_NXSgfQF;}();
     
 
         json serialize_VkBaseInStructure_pNext(const void* name){
-        printf("Serializing VkBaseInStructure...\n");
+        debug_printf("Serializing VkBaseInStructure...\n");
         json result;
         result=[&]() {
     json return_YREqsbl=json({});
@@ -47,7 +47,7 @@ return return_YREqsbl;}();
     
 
         json serialize_VkOffset2D_pNext(const void* name){
-        printf("Serializing VkOffset2D...\n");
+        debug_printf("Serializing VkOffset2D...\n");
         json result;
         result=[&]() {
     json return_gMoTbYS=json({});
@@ -65,7 +65,7 @@ return return_gMoTbYS;}();
     
 
         json serialize_VkOffset3D_pNext(const void* name){
-        printf("Serializing VkOffset3D...\n");
+        debug_printf("Serializing VkOffset3D...\n");
         json result;
         result=[&]() {
     json return_DuUvebI=json({});
@@ -83,7 +83,7 @@ return return_DuUvebI;}();
     
 
         json serialize_VkExtent2D_pNext(const void* name){
-        printf("Serializing VkExtent2D...\n");
+        debug_printf("Serializing VkExtent2D...\n");
         json result;
         result=[&]() {
     json return_ZEeYLrg=json({});
@@ -101,7 +101,7 @@ return return_ZEeYLrg;}();
     
 
         json serialize_VkExtent3D_pNext(const void* name){
-        printf("Serializing VkExtent3D...\n");
+        debug_printf("Serializing VkExtent3D...\n");
         json result;
         result=[&]() {
     json return_jfMWqWj=json({});
@@ -119,7 +119,7 @@ return return_jfMWqWj;}();
     
 
         json serialize_VkViewport_pNext(const void* name){
-        printf("Serializing VkViewport...\n");
+        debug_printf("Serializing VkViewport...\n");
         json result;
         result=[&]() {
     json return_OYMQFvp=json({});
@@ -137,7 +137,7 @@ return return_OYMQFvp;}();
     
 
         json serialize_VkRect2D_pNext(const void* name){
-        printf("Serializing VkRect2D...\n");
+        debug_printf("Serializing VkRect2D...\n");
         json result;
         result=[&]() {
     json return_IiZUbrn=json({});
@@ -155,7 +155,7 @@ return return_IiZUbrn;}();
     
 
         json serialize_VkClearRect_pNext(const void* name){
-        printf("Serializing VkClearRect...\n");
+        debug_printf("Serializing VkClearRect...\n");
         json result;
         result=[&]() {
     json return_ubiJpRf=json({});
@@ -173,7 +173,7 @@ return return_ubiJpRf;}();
     
 
         json serialize_VkComponentMapping_pNext(const void* name){
-        printf("Serializing VkComponentMapping...\n");
+        debug_printf("Serializing VkComponentMapping...\n");
         json result;
         result=[&]() {
     json return_SKghmdY=json({});
@@ -191,7 +191,7 @@ return return_SKghmdY;}();
     
 
         json serialize_VkPhysicalDeviceProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceProperties...\n");
         json result;
         result=[&]() {
     json return_SOLChBx=json({});
@@ -209,7 +209,7 @@ return return_SOLChBx;}();
     
 
         json serialize_VkExtensionProperties_pNext(const void* name){
-        printf("Serializing VkExtensionProperties...\n");
+        debug_printf("Serializing VkExtensionProperties...\n");
         json result;
         result=[&]() {
     json return_VDIkpnc=json({});
@@ -227,7 +227,7 @@ return return_VDIkpnc;}();
     
 
         json serialize_VkLayerProperties_pNext(const void* name){
-        printf("Serializing VkLayerProperties...\n");
+        debug_printf("Serializing VkLayerProperties...\n");
         json result;
         result=[&]() {
     json return_MHLIjUL=json({});
@@ -245,7 +245,7 @@ return return_MHLIjUL;}();
     
 
         json serialize_VkApplicationInfo_pNext(const void* name){
-        printf("Serializing VkApplicationInfo...\n");
+        debug_printf("Serializing VkApplicationInfo...\n");
         json result;
         result=[&]() {
     json return_MnDirxf=json({});
@@ -263,7 +263,7 @@ return return_MnDirxf;}();
     
 
         json serialize_VkAllocationCallbacks_pNext(const void* name){
-        printf("Serializing VkAllocationCallbacks...\n");
+        debug_printf("Serializing VkAllocationCallbacks...\n");
         json result;
         result=[&]() {
     json return_qZGSDvO=json({});
@@ -281,7 +281,7 @@ return return_qZGSDvO;}();
     
 
         json serialize_VkDeviceQueueCreateInfo_pNext(const void* name){
-        printf("Serializing VkDeviceQueueCreateInfo...\n");
+        debug_printf("Serializing VkDeviceQueueCreateInfo...\n");
         json result;
         result=[&]() {
     json return_FsKpTvh=json({});
@@ -299,7 +299,7 @@ return return_FsKpTvh;}();
     
 
         json serialize_VkDeviceCreateInfo_pNext(const void* name){
-        printf("Serializing VkDeviceCreateInfo...\n");
+        debug_printf("Serializing VkDeviceCreateInfo...\n");
         json result;
         result=[&]() {
     json return_rFTumXh=json({});
@@ -317,7 +317,7 @@ return return_rFTumXh;}();
     
 
         json serialize_VkInstanceCreateInfo_pNext(const void* name){
-        printf("Serializing VkInstanceCreateInfo...\n");
+        debug_printf("Serializing VkInstanceCreateInfo...\n");
         json result;
         result=[&]() {
     json return_GAHRyOM=json({});
@@ -335,7 +335,7 @@ return return_GAHRyOM;}();
     
 
         json serialize_VkQueueFamilyProperties_pNext(const void* name){
-        printf("Serializing VkQueueFamilyProperties...\n");
+        debug_printf("Serializing VkQueueFamilyProperties...\n");
         json result;
         result=[&]() {
     json return_cwfsFjI=json({});
@@ -353,7 +353,7 @@ return return_cwfsFjI;}();
     
 
         json serialize_VkPhysicalDeviceMemoryProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMemoryProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceMemoryProperties...\n");
         json result;
         result=[&]() {
     json return_rsVyigp=json({});
@@ -371,7 +371,7 @@ return return_rsVyigp;}();
     
 
         json serialize_VkMemoryAllocateInfo_pNext(const void* name){
-        printf("Serializing VkMemoryAllocateInfo...\n");
+        debug_printf("Serializing VkMemoryAllocateInfo...\n");
         json result;
         result=[&]() {
     json return_IahRuRW=json({});
@@ -389,7 +389,7 @@ return return_IahRuRW;}();
     
 
         json serialize_VkMemoryRequirements_pNext(const void* name){
-        printf("Serializing VkMemoryRequirements...\n");
+        debug_printf("Serializing VkMemoryRequirements...\n");
         json result;
         result=[&]() {
     json return_hnVYqIY=json({});
@@ -407,7 +407,7 @@ return return_hnVYqIY;}();
     
 
         json serialize_VkSparseImageFormatProperties_pNext(const void* name){
-        printf("Serializing VkSparseImageFormatProperties...\n");
+        debug_printf("Serializing VkSparseImageFormatProperties...\n");
         json result;
         result=[&]() {
     json return_ZMpGJLC=json({});
@@ -425,7 +425,7 @@ return return_ZMpGJLC;}();
     
 
         json serialize_VkSparseImageMemoryRequirements_pNext(const void* name){
-        printf("Serializing VkSparseImageMemoryRequirements...\n");
+        debug_printf("Serializing VkSparseImageMemoryRequirements...\n");
         json result;
         result=[&]() {
     json return_hICliiY=json({});
@@ -443,7 +443,7 @@ return return_hICliiY;}();
     
 
         json serialize_VkMemoryType_pNext(const void* name){
-        printf("Serializing VkMemoryType...\n");
+        debug_printf("Serializing VkMemoryType...\n");
         json result;
         result=[&]() {
     json return_ruTYJNg=json({});
@@ -461,7 +461,7 @@ return return_ruTYJNg;}();
     
 
         json serialize_VkMemoryHeap_pNext(const void* name){
-        printf("Serializing VkMemoryHeap...\n");
+        debug_printf("Serializing VkMemoryHeap...\n");
         json result;
         result=[&]() {
     json return_LbbuJSo=json({});
@@ -479,7 +479,7 @@ return return_LbbuJSo;}();
     
 
         json serialize_VkMappedMemoryRange_pNext(const void* name){
-        printf("Serializing VkMappedMemoryRange...\n");
+        debug_printf("Serializing VkMappedMemoryRange...\n");
         json result;
         result=[&]() {
     json return_uQFoiAB=json({});
@@ -497,7 +497,7 @@ return return_uQFoiAB;}();
     
 
         json serialize_VkFormatProperties_pNext(const void* name){
-        printf("Serializing VkFormatProperties...\n");
+        debug_printf("Serializing VkFormatProperties...\n");
         json result;
         result=[&]() {
     json return_enHEhYw=json({});
@@ -515,7 +515,7 @@ return return_enHEhYw;}();
     
 
         json serialize_VkImageFormatProperties_pNext(const void* name){
-        printf("Serializing VkImageFormatProperties...\n");
+        debug_printf("Serializing VkImageFormatProperties...\n");
         json result;
         result=[&]() {
     json return_YTIEhbL=json({});
@@ -533,7 +533,7 @@ return return_YTIEhbL;}();
     
 
         json serialize_VkDescriptorBufferInfo_pNext(const void* name){
-        printf("Serializing VkDescriptorBufferInfo...\n");
+        debug_printf("Serializing VkDescriptorBufferInfo...\n");
         json result;
         result=[&]() {
     json return_MgKqcJE=json({});
@@ -551,7 +551,7 @@ return return_MgKqcJE;}();
     
 
         json serialize_VkDescriptorImageInfo_pNext(const void* name){
-        printf("Serializing VkDescriptorImageInfo...\n");
+        debug_printf("Serializing VkDescriptorImageInfo...\n");
         json result;
         result=[&]() {
     json return_mlJklSz=json({});
@@ -569,7 +569,7 @@ return return_mlJklSz;}();
     
 
         json serialize_VkWriteDescriptorSet_pNext(const void* name){
-        printf("Serializing VkWriteDescriptorSet...\n");
+        debug_printf("Serializing VkWriteDescriptorSet...\n");
         json result;
         result=[&]() {
     json return_YRlLjhc=json({});
@@ -587,7 +587,7 @@ return return_YRlLjhc;}();
     
 
         json serialize_VkCopyDescriptorSet_pNext(const void* name){
-        printf("Serializing VkCopyDescriptorSet...\n");
+        debug_printf("Serializing VkCopyDescriptorSet...\n");
         json result;
         result=[&]() {
     json return_nQEKrPY=json({});
@@ -605,7 +605,7 @@ return return_nQEKrPY;}();
     
 
         json serialize_VkBufferUsageFlags2CreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkBufferUsageFlags2CreateInfoKHR...\n");
+        debug_printf("Serializing VkBufferUsageFlags2CreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_TWzABul=json({});
@@ -623,7 +623,7 @@ return return_TWzABul;}();
     
 
         json serialize_VkBufferCreateInfo_pNext(const void* name){
-        printf("Serializing VkBufferCreateInfo...\n");
+        debug_printf("Serializing VkBufferCreateInfo...\n");
         json result;
         result=[&]() {
     json return_vlTdBFX=json({});
@@ -641,7 +641,7 @@ return return_vlTdBFX;}();
     
 
         json serialize_VkBufferViewCreateInfo_pNext(const void* name){
-        printf("Serializing VkBufferViewCreateInfo...\n");
+        debug_printf("Serializing VkBufferViewCreateInfo...\n");
         json result;
         result=[&]() {
     json return_KPyhtZh=json({});
@@ -659,7 +659,7 @@ return return_KPyhtZh;}();
     
 
         json serialize_VkImageSubresource_pNext(const void* name){
-        printf("Serializing VkImageSubresource...\n");
+        debug_printf("Serializing VkImageSubresource...\n");
         json result;
         result=[&]() {
     json return_ZYgKcLl=json({});
@@ -677,7 +677,7 @@ return return_ZYgKcLl;}();
     
 
         json serialize_VkImageSubresourceLayers_pNext(const void* name){
-        printf("Serializing VkImageSubresourceLayers...\n");
+        debug_printf("Serializing VkImageSubresourceLayers...\n");
         json result;
         result=[&]() {
     json return_WYKnqjW=json({});
@@ -695,7 +695,7 @@ return return_WYKnqjW;}();
     
 
         json serialize_VkImageSubresourceRange_pNext(const void* name){
-        printf("Serializing VkImageSubresourceRange...\n");
+        debug_printf("Serializing VkImageSubresourceRange...\n");
         json result;
         result=[&]() {
     json return_djSXTRR=json({});
@@ -713,7 +713,7 @@ return return_djSXTRR;}();
     
 
         json serialize_VkMemoryBarrier_pNext(const void* name){
-        printf("Serializing VkMemoryBarrier...\n");
+        debug_printf("Serializing VkMemoryBarrier...\n");
         json result;
         result=[&]() {
     json return_EskuKMO=json({});
@@ -731,7 +731,7 @@ return return_EskuKMO;}();
     
 
         json serialize_VkBufferMemoryBarrier_pNext(const void* name){
-        printf("Serializing VkBufferMemoryBarrier...\n");
+        debug_printf("Serializing VkBufferMemoryBarrier...\n");
         json result;
         result=[&]() {
     json return_baOmLGR=json({});
@@ -749,7 +749,7 @@ return return_baOmLGR;}();
     
 
         json serialize_VkImageMemoryBarrier_pNext(const void* name){
-        printf("Serializing VkImageMemoryBarrier...\n");
+        debug_printf("Serializing VkImageMemoryBarrier...\n");
         json result;
         result=[&]() {
     json return_yGtkcms=json({});
@@ -767,7 +767,7 @@ return return_yGtkcms;}();
     
 
         json serialize_VkImageCreateInfo_pNext(const void* name){
-        printf("Serializing VkImageCreateInfo...\n");
+        debug_printf("Serializing VkImageCreateInfo...\n");
         json result;
         result=[&]() {
     json return_HmecbDF=json({});
@@ -785,7 +785,7 @@ return return_HmecbDF;}();
     
 
         json serialize_VkSubresourceLayout_pNext(const void* name){
-        printf("Serializing VkSubresourceLayout...\n");
+        debug_printf("Serializing VkSubresourceLayout...\n");
         json result;
         result=[&]() {
     json return_riTXtAA=json({});
@@ -803,7 +803,7 @@ return return_riTXtAA;}();
     
 
         json serialize_VkImageViewCreateInfo_pNext(const void* name){
-        printf("Serializing VkImageViewCreateInfo...\n");
+        debug_printf("Serializing VkImageViewCreateInfo...\n");
         json result;
         result=[&]() {
     json return_mURgdLf=json({});
@@ -821,7 +821,7 @@ return return_mURgdLf;}();
     
 
         json serialize_VkBufferCopy_pNext(const void* name){
-        printf("Serializing VkBufferCopy...\n");
+        debug_printf("Serializing VkBufferCopy...\n");
         json result;
         result=[&]() {
     json return_FuquXmS=json({});
@@ -839,7 +839,7 @@ return return_FuquXmS;}();
     
 
         json serialize_VkSparseMemoryBind_pNext(const void* name){
-        printf("Serializing VkSparseMemoryBind...\n");
+        debug_printf("Serializing VkSparseMemoryBind...\n");
         json result;
         result=[&]() {
     json return_yxLkgct=json({});
@@ -857,7 +857,7 @@ return return_yxLkgct;}();
     
 
         json serialize_VkSparseImageMemoryBind_pNext(const void* name){
-        printf("Serializing VkSparseImageMemoryBind...\n");
+        debug_printf("Serializing VkSparseImageMemoryBind...\n");
         json result;
         result=[&]() {
     json return_eccUZax=json({});
@@ -875,7 +875,7 @@ return return_eccUZax;}();
     
 
         json serialize_VkSparseBufferMemoryBindInfo_pNext(const void* name){
-        printf("Serializing VkSparseBufferMemoryBindInfo...\n");
+        debug_printf("Serializing VkSparseBufferMemoryBindInfo...\n");
         json result;
         result=[&]() {
     json return_cshjNfM=json({});
@@ -893,7 +893,7 @@ return return_cshjNfM;}();
     
 
         json serialize_VkSparseImageOpaqueMemoryBindInfo_pNext(const void* name){
-        printf("Serializing VkSparseImageOpaqueMemoryBindInfo...\n");
+        debug_printf("Serializing VkSparseImageOpaqueMemoryBindInfo...\n");
         json result;
         result=[&]() {
     json return_GdPKmqb=json({});
@@ -911,7 +911,7 @@ return return_GdPKmqb;}();
     
 
         json serialize_VkSparseImageMemoryBindInfo_pNext(const void* name){
-        printf("Serializing VkSparseImageMemoryBindInfo...\n");
+        debug_printf("Serializing VkSparseImageMemoryBindInfo...\n");
         json result;
         result=[&]() {
     json return_nMmaZJR=json({});
@@ -929,7 +929,7 @@ return return_nMmaZJR;}();
     
 
         json serialize_VkBindSparseInfo_pNext(const void* name){
-        printf("Serializing VkBindSparseInfo...\n");
+        debug_printf("Serializing VkBindSparseInfo...\n");
         json result;
         result=[&]() {
     json return_nBjhVaG=json({});
@@ -947,7 +947,7 @@ return return_nBjhVaG;}();
     
 
         json serialize_VkImageCopy_pNext(const void* name){
-        printf("Serializing VkImageCopy...\n");
+        debug_printf("Serializing VkImageCopy...\n");
         json result;
         result=[&]() {
     json return_fSEtuna=json({});
@@ -965,7 +965,7 @@ return return_fSEtuna;}();
     
 
         json serialize_VkImageBlit_pNext(const void* name){
-        printf("Serializing VkImageBlit...\n");
+        debug_printf("Serializing VkImageBlit...\n");
         json result;
         result=[&]() {
     json return_XnBxZtK=json({});
@@ -983,7 +983,7 @@ return return_XnBxZtK;}();
     
 
         json serialize_VkBufferImageCopy_pNext(const void* name){
-        printf("Serializing VkBufferImageCopy...\n");
+        debug_printf("Serializing VkBufferImageCopy...\n");
         json result;
         result=[&]() {
     json return_ZEaDpSC=json({});
@@ -1001,7 +1001,7 @@ return return_ZEaDpSC;}();
     
 
         json serialize_VkCopyMemoryIndirectCommandNV_pNext(const void* name){
-        printf("Serializing VkCopyMemoryIndirectCommandNV...\n");
+        debug_printf("Serializing VkCopyMemoryIndirectCommandNV...\n");
         json result;
         result=[&]() {
     json return_LOiiXuh=json({});
@@ -1019,7 +1019,7 @@ return return_LOiiXuh;}();
     
 
         json serialize_VkCopyMemoryToImageIndirectCommandNV_pNext(const void* name){
-        printf("Serializing VkCopyMemoryToImageIndirectCommandNV...\n");
+        debug_printf("Serializing VkCopyMemoryToImageIndirectCommandNV...\n");
         json result;
         result=[&]() {
     json return_zyBVKli=json({});
@@ -1037,7 +1037,7 @@ return return_zyBVKli;}();
     
 
         json serialize_VkImageResolve_pNext(const void* name){
-        printf("Serializing VkImageResolve...\n");
+        debug_printf("Serializing VkImageResolve...\n");
         json result;
         result=[&]() {
     json return_RYoPBeH=json({});
@@ -1055,7 +1055,7 @@ return return_RYoPBeH;}();
     
 
         json serialize_VkShaderModuleCreateInfo_pNext(const void* name){
-        printf("Serializing VkShaderModuleCreateInfo...\n");
+        debug_printf("Serializing VkShaderModuleCreateInfo...\n");
         json result;
         result=[&]() {
     json return_FSrmGaS=json({});
@@ -1073,7 +1073,7 @@ return return_FSrmGaS;}();
     
 
         json serialize_VkDescriptorSetLayoutBinding_pNext(const void* name){
-        printf("Serializing VkDescriptorSetLayoutBinding...\n");
+        debug_printf("Serializing VkDescriptorSetLayoutBinding...\n");
         json result;
         result=[&]() {
     json return_gnSQqZk=json({});
@@ -1091,7 +1091,7 @@ return return_gnSQqZk;}();
     
 
         json serialize_VkDescriptorSetLayoutCreateInfo_pNext(const void* name){
-        printf("Serializing VkDescriptorSetLayoutCreateInfo...\n");
+        debug_printf("Serializing VkDescriptorSetLayoutCreateInfo...\n");
         json result;
         result=[&]() {
     json return_nQtKqFk=json({});
@@ -1109,7 +1109,7 @@ return return_nQtKqFk;}();
     
 
         json serialize_VkDescriptorPoolSize_pNext(const void* name){
-        printf("Serializing VkDescriptorPoolSize...\n");
+        debug_printf("Serializing VkDescriptorPoolSize...\n");
         json result;
         result=[&]() {
     json return_fcVLyAR=json({});
@@ -1127,7 +1127,7 @@ return return_fcVLyAR;}();
     
 
         json serialize_VkDescriptorPoolCreateInfo_pNext(const void* name){
-        printf("Serializing VkDescriptorPoolCreateInfo...\n");
+        debug_printf("Serializing VkDescriptorPoolCreateInfo...\n");
         json result;
         result=[&]() {
     json return_JMTSDiy=json({});
@@ -1145,7 +1145,7 @@ return return_JMTSDiy;}();
     
 
         json serialize_VkDescriptorSetAllocateInfo_pNext(const void* name){
-        printf("Serializing VkDescriptorSetAllocateInfo...\n");
+        debug_printf("Serializing VkDescriptorSetAllocateInfo...\n");
         json result;
         result=[&]() {
     json return_sBLvfke=json({});
@@ -1163,7 +1163,7 @@ return return_sBLvfke;}();
     
 
         json serialize_VkSpecializationMapEntry_pNext(const void* name){
-        printf("Serializing VkSpecializationMapEntry...\n");
+        debug_printf("Serializing VkSpecializationMapEntry...\n");
         json result;
         result=[&]() {
     json return_ljBalIB=json({});
@@ -1181,7 +1181,7 @@ return return_ljBalIB;}();
     
 
         json serialize_VkSpecializationInfo_pNext(const void* name){
-        printf("Serializing VkSpecializationInfo...\n");
+        debug_printf("Serializing VkSpecializationInfo...\n");
         json result;
         result=[&]() {
     json return_AJQbXCQ=json({});
@@ -1199,7 +1199,7 @@ return return_AJQbXCQ;}();
     
 
         json serialize_VkPipelineShaderStageCreateInfo_pNext(const void* name){
-        printf("Serializing VkPipelineShaderStageCreateInfo...\n");
+        debug_printf("Serializing VkPipelineShaderStageCreateInfo...\n");
         json result;
         result=[&]() {
     json return_hSSgqbR=json({});
@@ -1217,7 +1217,7 @@ return return_hSSgqbR;}();
     
 
         json serialize_VkComputePipelineCreateInfo_pNext(const void* name){
-        printf("Serializing VkComputePipelineCreateInfo...\n");
+        debug_printf("Serializing VkComputePipelineCreateInfo...\n");
         json result;
         result=[&]() {
     json return_ArKLGRB=json({});
@@ -1235,7 +1235,7 @@ return return_ArKLGRB;}();
     
 
         json serialize_VkComputePipelineIndirectBufferInfoNV_pNext(const void* name){
-        printf("Serializing VkComputePipelineIndirectBufferInfoNV...\n");
+        debug_printf("Serializing VkComputePipelineIndirectBufferInfoNV...\n");
         json result;
         result=[&]() {
     json return_pStdhaW=json({});
@@ -1253,7 +1253,7 @@ return return_pStdhaW;}();
     
 
         json serialize_VkPipelineCreateFlags2CreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkPipelineCreateFlags2CreateInfoKHR...\n");
+        debug_printf("Serializing VkPipelineCreateFlags2CreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_TjLwXPi=json({});
@@ -1271,7 +1271,7 @@ return return_TjLwXPi;}();
     
 
         json serialize_VkVertexInputBindingDescription_pNext(const void* name){
-        printf("Serializing VkVertexInputBindingDescription...\n");
+        debug_printf("Serializing VkVertexInputBindingDescription...\n");
         json result;
         result=[&]() {
     json return_CSocSsP=json({});
@@ -1289,7 +1289,7 @@ return return_CSocSsP;}();
     
 
         json serialize_VkVertexInputAttributeDescription_pNext(const void* name){
-        printf("Serializing VkVertexInputAttributeDescription...\n");
+        debug_printf("Serializing VkVertexInputAttributeDescription...\n");
         json result;
         result=[&]() {
     json return_xgVqABG=json({});
@@ -1307,7 +1307,7 @@ return return_xgVqABG;}();
     
 
         json serialize_VkPipelineVertexInputStateCreateInfo_pNext(const void* name){
-        printf("Serializing VkPipelineVertexInputStateCreateInfo...\n");
+        debug_printf("Serializing VkPipelineVertexInputStateCreateInfo...\n");
         json result;
         result=[&]() {
     json return_NWHqWai=json({});
@@ -1325,7 +1325,7 @@ return return_NWHqWai;}();
     
 
         json serialize_VkPipelineInputAssemblyStateCreateInfo_pNext(const void* name){
-        printf("Serializing VkPipelineInputAssemblyStateCreateInfo...\n");
+        debug_printf("Serializing VkPipelineInputAssemblyStateCreateInfo...\n");
         json result;
         result=[&]() {
     json return_DQNdQTN=json({});
@@ -1343,7 +1343,7 @@ return return_DQNdQTN;}();
     
 
         json serialize_VkPipelineTessellationStateCreateInfo_pNext(const void* name){
-        printf("Serializing VkPipelineTessellationStateCreateInfo...\n");
+        debug_printf("Serializing VkPipelineTessellationStateCreateInfo...\n");
         json result;
         result=[&]() {
     json return_HuFtUoA=json({});
@@ -1361,7 +1361,7 @@ return return_HuFtUoA;}();
     
 
         json serialize_VkPipelineViewportStateCreateInfo_pNext(const void* name){
-        printf("Serializing VkPipelineViewportStateCreateInfo...\n");
+        debug_printf("Serializing VkPipelineViewportStateCreateInfo...\n");
         json result;
         result=[&]() {
     json return_saElcve=json({});
@@ -1379,7 +1379,7 @@ return return_saElcve;}();
     
 
         json serialize_VkPipelineRasterizationStateCreateInfo_pNext(const void* name){
-        printf("Serializing VkPipelineRasterizationStateCreateInfo...\n");
+        debug_printf("Serializing VkPipelineRasterizationStateCreateInfo...\n");
         json result;
         result=[&]() {
     json return_tZspbIU=json({});
@@ -1397,7 +1397,7 @@ return return_tZspbIU;}();
     
 
         json serialize_VkPipelineMultisampleStateCreateInfo_pNext(const void* name){
-        printf("Serializing VkPipelineMultisampleStateCreateInfo...\n");
+        debug_printf("Serializing VkPipelineMultisampleStateCreateInfo...\n");
         json result;
         result=[&]() {
     json return_LQXNUTU=json({});
@@ -1415,7 +1415,7 @@ return return_LQXNUTU;}();
     
 
         json serialize_VkPipelineColorBlendAttachmentState_pNext(const void* name){
-        printf("Serializing VkPipelineColorBlendAttachmentState...\n");
+        debug_printf("Serializing VkPipelineColorBlendAttachmentState...\n");
         json result;
         result=[&]() {
     json return_hPkfLUB=json({});
@@ -1433,7 +1433,7 @@ return return_hPkfLUB;}();
     
 
         json serialize_VkPipelineColorBlendStateCreateInfo_pNext(const void* name){
-        printf("Serializing VkPipelineColorBlendStateCreateInfo...\n");
+        debug_printf("Serializing VkPipelineColorBlendStateCreateInfo...\n");
         json result;
         result=[&]() {
     json return_drVqcjn=json({});
@@ -1451,7 +1451,7 @@ return return_drVqcjn;}();
     
 
         json serialize_VkPipelineDynamicStateCreateInfo_pNext(const void* name){
-        printf("Serializing VkPipelineDynamicStateCreateInfo...\n");
+        debug_printf("Serializing VkPipelineDynamicStateCreateInfo...\n");
         json result;
         result=[&]() {
     json return_SGMOErm=json({});
@@ -1469,7 +1469,7 @@ return return_SGMOErm;}();
     
 
         json serialize_VkStencilOpState_pNext(const void* name){
-        printf("Serializing VkStencilOpState...\n");
+        debug_printf("Serializing VkStencilOpState...\n");
         json result;
         result=[&]() {
     json return_qbojgOm=json({});
@@ -1487,7 +1487,7 @@ return return_qbojgOm;}();
     
 
         json serialize_VkPipelineDepthStencilStateCreateInfo_pNext(const void* name){
-        printf("Serializing VkPipelineDepthStencilStateCreateInfo...\n");
+        debug_printf("Serializing VkPipelineDepthStencilStateCreateInfo...\n");
         json result;
         result=[&]() {
     json return_CbXOKbm=json({});
@@ -1505,7 +1505,7 @@ return return_CbXOKbm;}();
     
 
         json serialize_VkGraphicsPipelineCreateInfo_pNext(const void* name){
-        printf("Serializing VkGraphicsPipelineCreateInfo...\n");
+        debug_printf("Serializing VkGraphicsPipelineCreateInfo...\n");
         json result;
         result=[&]() {
     json return_GUcQRLF=json({});
@@ -1523,7 +1523,7 @@ return return_GUcQRLF;}();
     
 
         json serialize_VkPipelineCacheCreateInfo_pNext(const void* name){
-        printf("Serializing VkPipelineCacheCreateInfo...\n");
+        debug_printf("Serializing VkPipelineCacheCreateInfo...\n");
         json result;
         result=[&]() {
     json return_oKpKrLn=json({});
@@ -1541,7 +1541,7 @@ return return_oKpKrLn;}();
     
 
         json serialize_VkPipelineCacheHeaderVersionOne_pNext(const void* name){
-        printf("Serializing VkPipelineCacheHeaderVersionOne...\n");
+        debug_printf("Serializing VkPipelineCacheHeaderVersionOne...\n");
         json result;
         result=[&]() {
     json return_awHgJes=json({});
@@ -1559,7 +1559,7 @@ return return_awHgJes;}();
     
 
         json serialize_VkPushConstantRange_pNext(const void* name){
-        printf("Serializing VkPushConstantRange...\n");
+        debug_printf("Serializing VkPushConstantRange...\n");
         json result;
         result=[&]() {
     json return_EGsZPLt=json({});
@@ -1577,7 +1577,7 @@ return return_EGsZPLt;}();
     
 
         json serialize_VkPipelineLayoutCreateInfo_pNext(const void* name){
-        printf("Serializing VkPipelineLayoutCreateInfo...\n");
+        debug_printf("Serializing VkPipelineLayoutCreateInfo...\n");
         json result;
         result=[&]() {
     json return_QmPWILM=json({});
@@ -1595,7 +1595,7 @@ return return_QmPWILM;}();
     
 
         json serialize_VkSamplerCreateInfo_pNext(const void* name){
-        printf("Serializing VkSamplerCreateInfo...\n");
+        debug_printf("Serializing VkSamplerCreateInfo...\n");
         json result;
         result=[&]() {
     json return_uDXczob=json({});
@@ -1613,7 +1613,7 @@ return return_uDXczob;}();
     
 
         json serialize_VkCommandPoolCreateInfo_pNext(const void* name){
-        printf("Serializing VkCommandPoolCreateInfo...\n");
+        debug_printf("Serializing VkCommandPoolCreateInfo...\n");
         json result;
         result=[&]() {
     json return_cyBqygv=json({});
@@ -1631,7 +1631,7 @@ return return_cyBqygv;}();
     
 
         json serialize_VkCommandBufferAllocateInfo_pNext(const void* name){
-        printf("Serializing VkCommandBufferAllocateInfo...\n");
+        debug_printf("Serializing VkCommandBufferAllocateInfo...\n");
         json result;
         result=[&]() {
     json return_mAGydQc=json({});
@@ -1649,7 +1649,7 @@ return return_mAGydQc;}();
     
 
         json serialize_VkCommandBufferInheritanceInfo_pNext(const void* name){
-        printf("Serializing VkCommandBufferInheritanceInfo...\n");
+        debug_printf("Serializing VkCommandBufferInheritanceInfo...\n");
         json result;
         result=[&]() {
     json return_rYakWAD=json({});
@@ -1667,7 +1667,7 @@ return return_rYakWAD;}();
     
 
         json serialize_VkCommandBufferBeginInfo_pNext(const void* name){
-        printf("Serializing VkCommandBufferBeginInfo...\n");
+        debug_printf("Serializing VkCommandBufferBeginInfo...\n");
         json result;
         result=[&]() {
     json return_VpCdGOV=json({});
@@ -1685,7 +1685,7 @@ return return_VpCdGOV;}();
     
 
         json serialize_VkRenderPassBeginInfo_pNext(const void* name){
-        printf("Serializing VkRenderPassBeginInfo...\n");
+        debug_printf("Serializing VkRenderPassBeginInfo...\n");
         json result;
         result=[&]() {
     json return_LXVFFSq=json({});
@@ -1703,7 +1703,7 @@ return return_LXVFFSq;}();
     
 
         json serialize_VkClearColorValue_pNext(const void* name){
-        printf("Serializing VkClearColorValue...\n");
+        debug_printf("Serializing VkClearColorValue...\n");
         json result;
         result=[&]() {
     json return_JrnGpWD=json({});
@@ -1721,7 +1721,7 @@ return return_JrnGpWD;}();
     
 
         json serialize_VkClearDepthStencilValue_pNext(const void* name){
-        printf("Serializing VkClearDepthStencilValue...\n");
+        debug_printf("Serializing VkClearDepthStencilValue...\n");
         json result;
         result=[&]() {
     json return_OgXqQQY=json({});
@@ -1739,7 +1739,7 @@ return return_OgXqQQY;}();
     
 
         json serialize_VkClearValue_pNext(const void* name){
-        printf("Serializing VkClearValue...\n");
+        debug_printf("Serializing VkClearValue...\n");
         json result;
         result=[&]() {
     json return_nIVPaCZ=json({});
@@ -1757,7 +1757,7 @@ return return_nIVPaCZ;}();
     
 
         json serialize_VkClearAttachment_pNext(const void* name){
-        printf("Serializing VkClearAttachment...\n");
+        debug_printf("Serializing VkClearAttachment...\n");
         json result;
         result=[&]() {
     json return_xBNaGNL=json({});
@@ -1775,7 +1775,7 @@ return return_xBNaGNL;}();
     
 
         json serialize_VkAttachmentDescription_pNext(const void* name){
-        printf("Serializing VkAttachmentDescription...\n");
+        debug_printf("Serializing VkAttachmentDescription...\n");
         json result;
         result=[&]() {
     json return_BAoyIuX=json({});
@@ -1793,7 +1793,7 @@ return return_BAoyIuX;}();
     
 
         json serialize_VkAttachmentReference_pNext(const void* name){
-        printf("Serializing VkAttachmentReference...\n");
+        debug_printf("Serializing VkAttachmentReference...\n");
         json result;
         result=[&]() {
     json return_zbXtpFO=json({});
@@ -1811,7 +1811,7 @@ return return_zbXtpFO;}();
     
 
         json serialize_VkSubpassDescription_pNext(const void* name){
-        printf("Serializing VkSubpassDescription...\n");
+        debug_printf("Serializing VkSubpassDescription...\n");
         json result;
         result=[&]() {
     json return_wFkfSMB=json({});
@@ -1829,7 +1829,7 @@ return return_wFkfSMB;}();
     
 
         json serialize_VkSubpassDependency_pNext(const void* name){
-        printf("Serializing VkSubpassDependency...\n");
+        debug_printf("Serializing VkSubpassDependency...\n");
         json result;
         result=[&]() {
     json return_YNiwmcJ=json({});
@@ -1847,7 +1847,7 @@ return return_YNiwmcJ;}();
     
 
         json serialize_VkRenderPassCreateInfo_pNext(const void* name){
-        printf("Serializing VkRenderPassCreateInfo...\n");
+        debug_printf("Serializing VkRenderPassCreateInfo...\n");
         json result;
         result=[&]() {
     json return_vBCRmlk=json({});
@@ -1865,7 +1865,7 @@ return return_vBCRmlk;}();
     
 
         json serialize_VkEventCreateInfo_pNext(const void* name){
-        printf("Serializing VkEventCreateInfo...\n");
+        debug_printf("Serializing VkEventCreateInfo...\n");
         json result;
         result=[&]() {
     json return_zZaGPlt=json({});
@@ -1883,7 +1883,7 @@ return return_zZaGPlt;}();
     
 
         json serialize_VkFenceCreateInfo_pNext(const void* name){
-        printf("Serializing VkFenceCreateInfo...\n");
+        debug_printf("Serializing VkFenceCreateInfo...\n");
         json result;
         result=[&]() {
     json return_MIlfdLS=json({});
@@ -1901,7 +1901,7 @@ return return_MIlfdLS;}();
     
 
         json serialize_VkPhysicalDeviceFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceFeatures...\n");
         json result;
         result=[&]() {
     json return_lcZghIk=json({});
@@ -1919,7 +1919,7 @@ return return_lcZghIk;}();
     
 
         json serialize_VkPhysicalDeviceSparseProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSparseProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceSparseProperties...\n");
         json result;
         result=[&]() {
     json return_QrCBhlR=json({});
@@ -1937,7 +1937,7 @@ return return_QrCBhlR;}();
     
 
         json serialize_VkPhysicalDeviceLimits_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceLimits...\n");
+        debug_printf("Serializing VkPhysicalDeviceLimits...\n");
         json result;
         result=[&]() {
     json return_zJRQYJk=json({});
@@ -1955,7 +1955,7 @@ return return_zJRQYJk;}();
     
 
         json serialize_VkSemaphoreCreateInfo_pNext(const void* name){
-        printf("Serializing VkSemaphoreCreateInfo...\n");
+        debug_printf("Serializing VkSemaphoreCreateInfo...\n");
         json result;
         result=[&]() {
     json return_UWFoxsc=json({});
@@ -1973,7 +1973,7 @@ return return_UWFoxsc;}();
     
 
         json serialize_VkQueryPoolCreateInfo_pNext(const void* name){
-        printf("Serializing VkQueryPoolCreateInfo...\n");
+        debug_printf("Serializing VkQueryPoolCreateInfo...\n");
         json result;
         result=[&]() {
     json return_DbRiyAZ=json({});
@@ -1991,7 +1991,7 @@ return return_DbRiyAZ;}();
     
 
         json serialize_VkFramebufferCreateInfo_pNext(const void* name){
-        printf("Serializing VkFramebufferCreateInfo...\n");
+        debug_printf("Serializing VkFramebufferCreateInfo...\n");
         json result;
         result=[&]() {
     json return_KrJNCWl=json({});
@@ -2009,7 +2009,7 @@ return return_KrJNCWl;}();
     
 
         json serialize_VkDrawIndirectCommand_pNext(const void* name){
-        printf("Serializing VkDrawIndirectCommand...\n");
+        debug_printf("Serializing VkDrawIndirectCommand...\n");
         json result;
         result=[&]() {
     json return_DOejkIL=json({});
@@ -2027,7 +2027,7 @@ return return_DOejkIL;}();
     
 
         json serialize_VkDrawIndexedIndirectCommand_pNext(const void* name){
-        printf("Serializing VkDrawIndexedIndirectCommand...\n");
+        debug_printf("Serializing VkDrawIndexedIndirectCommand...\n");
         json result;
         result=[&]() {
     json return_HXqWacn=json({});
@@ -2045,7 +2045,7 @@ return return_HXqWacn;}();
     
 
         json serialize_VkDispatchIndirectCommand_pNext(const void* name){
-        printf("Serializing VkDispatchIndirectCommand...\n");
+        debug_printf("Serializing VkDispatchIndirectCommand...\n");
         json result;
         result=[&]() {
     json return_ZiSxYWy=json({});
@@ -2063,7 +2063,7 @@ return return_ZiSxYWy;}();
     
 
         json serialize_VkMultiDrawInfoEXT_pNext(const void* name){
-        printf("Serializing VkMultiDrawInfoEXT...\n");
+        debug_printf("Serializing VkMultiDrawInfoEXT...\n");
         json result;
         result=[&]() {
     json return_GqLJqyr=json({});
@@ -2081,7 +2081,7 @@ return return_GqLJqyr;}();
     
 
         json serialize_VkMultiDrawIndexedInfoEXT_pNext(const void* name){
-        printf("Serializing VkMultiDrawIndexedInfoEXT...\n");
+        debug_printf("Serializing VkMultiDrawIndexedInfoEXT...\n");
         json result;
         result=[&]() {
     json return_JqVOVit=json({});
@@ -2099,7 +2099,7 @@ return return_JqVOVit;}();
     
 
         json serialize_VkSubmitInfo_pNext(const void* name){
-        printf("Serializing VkSubmitInfo...\n");
+        debug_printf("Serializing VkSubmitInfo...\n");
         json result;
         result=[&]() {
     json return_TolNPRv=json({});
@@ -2117,7 +2117,7 @@ return return_TolNPRv;}();
     
 
         json serialize_VkDisplayPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkDisplayPropertiesKHR...\n");
+        debug_printf("Serializing VkDisplayPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_SlviuKj=json({});
@@ -2135,7 +2135,7 @@ return return_SlviuKj;}();
     
 
         json serialize_VkDisplayPlanePropertiesKHR_pNext(const void* name){
-        printf("Serializing VkDisplayPlanePropertiesKHR...\n");
+        debug_printf("Serializing VkDisplayPlanePropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_grZwyVG=json({});
@@ -2153,7 +2153,7 @@ return return_grZwyVG;}();
     
 
         json serialize_VkDisplayModeParametersKHR_pNext(const void* name){
-        printf("Serializing VkDisplayModeParametersKHR...\n");
+        debug_printf("Serializing VkDisplayModeParametersKHR...\n");
         json result;
         result=[&]() {
     json return_gOlIrIm=json({});
@@ -2171,7 +2171,7 @@ return return_gOlIrIm;}();
     
 
         json serialize_VkDisplayModePropertiesKHR_pNext(const void* name){
-        printf("Serializing VkDisplayModePropertiesKHR...\n");
+        debug_printf("Serializing VkDisplayModePropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_KTDfcDv=json({});
@@ -2189,7 +2189,7 @@ return return_KTDfcDv;}();
     
 
         json serialize_VkDisplayModeCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkDisplayModeCreateInfoKHR...\n");
+        debug_printf("Serializing VkDisplayModeCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_IdHsDQe=json({});
@@ -2207,7 +2207,7 @@ return return_IdHsDQe;}();
     
 
         json serialize_VkDisplayPlaneCapabilitiesKHR_pNext(const void* name){
-        printf("Serializing VkDisplayPlaneCapabilitiesKHR...\n");
+        debug_printf("Serializing VkDisplayPlaneCapabilitiesKHR...\n");
         json result;
         result=[&]() {
     json return_ARFUZfF=json({});
@@ -2225,7 +2225,7 @@ return return_ARFUZfF;}();
     
 
         json serialize_VkDisplaySurfaceCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkDisplaySurfaceCreateInfoKHR...\n");
+        debug_printf("Serializing VkDisplaySurfaceCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_myUndWr=json({});
@@ -2243,7 +2243,7 @@ return return_myUndWr;}();
     
 
         json serialize_VkDisplayPresentInfoKHR_pNext(const void* name){
-        printf("Serializing VkDisplayPresentInfoKHR...\n");
+        debug_printf("Serializing VkDisplayPresentInfoKHR...\n");
         json result;
         result=[&]() {
     json return_QaWdQkG=json({});
@@ -2261,7 +2261,7 @@ return return_QaWdQkG;}();
     
 
         json serialize_VkSurfaceCapabilitiesKHR_pNext(const void* name){
-        printf("Serializing VkSurfaceCapabilitiesKHR...\n");
+        debug_printf("Serializing VkSurfaceCapabilitiesKHR...\n");
         json result;
         result=[&]() {
     json return_pANnyHq=json({});
@@ -2279,7 +2279,7 @@ return return_pANnyHq;}();
     
 
         json serialize_VkXlibSurfaceCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkXlibSurfaceCreateInfoKHR...\n");
+        debug_printf("Serializing VkXlibSurfaceCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_yNpXaDa=json({});
@@ -2297,7 +2297,7 @@ return return_yNpXaDa;}();
     
 
         json serialize_VkXcbSurfaceCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkXcbSurfaceCreateInfoKHR...\n");
+        debug_printf("Serializing VkXcbSurfaceCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_NvkJCyW=json({});
@@ -2315,7 +2315,7 @@ return return_NvkJCyW;}();
     
 
         json serialize_VkSurfaceFormatKHR_pNext(const void* name){
-        printf("Serializing VkSurfaceFormatKHR...\n");
+        debug_printf("Serializing VkSurfaceFormatKHR...\n");
         json result;
         result=[&]() {
     json return_RbMyTNy=json({});
@@ -2333,7 +2333,7 @@ return return_RbMyTNy;}();
     
 
         json serialize_VkSwapchainCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkSwapchainCreateInfoKHR...\n");
+        debug_printf("Serializing VkSwapchainCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_prJDHtc=json({});
@@ -2351,7 +2351,7 @@ return return_prJDHtc;}();
     
 
         json serialize_VkPresentInfoKHR_pNext(const void* name){
-        printf("Serializing VkPresentInfoKHR...\n");
+        debug_printf("Serializing VkPresentInfoKHR...\n");
         json result;
         result=[&]() {
     json return_exPrSLl=json({});
@@ -2369,7 +2369,7 @@ return return_exPrSLl;}();
     
 
         json serialize_VkDebugReportCallbackCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkDebugReportCallbackCreateInfoEXT...\n");
+        debug_printf("Serializing VkDebugReportCallbackCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_MZiakBK=json({});
@@ -2387,7 +2387,7 @@ return return_MZiakBK;}();
     
 
         json serialize_VkValidationFlagsEXT_pNext(const void* name){
-        printf("Serializing VkValidationFlagsEXT...\n");
+        debug_printf("Serializing VkValidationFlagsEXT...\n");
         json result;
         result=[&]() {
     json return_NfyyEqI=json({});
@@ -2405,7 +2405,7 @@ return return_NfyyEqI;}();
     
 
         json serialize_VkValidationFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkValidationFeaturesEXT...\n");
+        debug_printf("Serializing VkValidationFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_OIOmvHI=json({});
@@ -2423,7 +2423,7 @@ return return_OIOmvHI;}();
     
 
         json serialize_VkPipelineRasterizationStateRasterizationOrderAMD_pNext(const void* name){
-        printf("Serializing VkPipelineRasterizationStateRasterizationOrderAMD...\n");
+        debug_printf("Serializing VkPipelineRasterizationStateRasterizationOrderAMD...\n");
         json result;
         result=[&]() {
     json return_bWJtNOx=json({});
@@ -2441,7 +2441,7 @@ return return_bWJtNOx;}();
     
 
         json serialize_VkDebugMarkerObjectNameInfoEXT_pNext(const void* name){
-        printf("Serializing VkDebugMarkerObjectNameInfoEXT...\n");
+        debug_printf("Serializing VkDebugMarkerObjectNameInfoEXT...\n");
         json result;
         result=[&]() {
     json return_njHTeyq=json({});
@@ -2459,7 +2459,7 @@ return return_njHTeyq;}();
     
 
         json serialize_VkDebugMarkerObjectTagInfoEXT_pNext(const void* name){
-        printf("Serializing VkDebugMarkerObjectTagInfoEXT...\n");
+        debug_printf("Serializing VkDebugMarkerObjectTagInfoEXT...\n");
         json result;
         result=[&]() {
     json return_DkeLbeU=json({});
@@ -2477,7 +2477,7 @@ return return_DkeLbeU;}();
     
 
         json serialize_VkDebugMarkerMarkerInfoEXT_pNext(const void* name){
-        printf("Serializing VkDebugMarkerMarkerInfoEXT...\n");
+        debug_printf("Serializing VkDebugMarkerMarkerInfoEXT...\n");
         json result;
         result=[&]() {
     json return_TeYLvlr=json({});
@@ -2495,7 +2495,7 @@ return return_TeYLvlr;}();
     
 
         json serialize_VkDedicatedAllocationImageCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkDedicatedAllocationImageCreateInfoNV...\n");
+        debug_printf("Serializing VkDedicatedAllocationImageCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_gtaJuBT=json({});
@@ -2513,7 +2513,7 @@ return return_gtaJuBT;}();
     
 
         json serialize_VkDedicatedAllocationBufferCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkDedicatedAllocationBufferCreateInfoNV...\n");
+        debug_printf("Serializing VkDedicatedAllocationBufferCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_lXeTIpp=json({});
@@ -2531,7 +2531,7 @@ return return_lXeTIpp;}();
     
 
         json serialize_VkDedicatedAllocationMemoryAllocateInfoNV_pNext(const void* name){
-        printf("Serializing VkDedicatedAllocationMemoryAllocateInfoNV...\n");
+        debug_printf("Serializing VkDedicatedAllocationMemoryAllocateInfoNV...\n");
         json result;
         result=[&]() {
     json return_pNGHaHq=json({});
@@ -2549,7 +2549,7 @@ return return_pNGHaHq;}();
     
 
         json serialize_VkExternalImageFormatPropertiesNV_pNext(const void* name){
-        printf("Serializing VkExternalImageFormatPropertiesNV...\n");
+        debug_printf("Serializing VkExternalImageFormatPropertiesNV...\n");
         json result;
         result=[&]() {
     json return_DRQOKFC=json({});
@@ -2567,7 +2567,7 @@ return return_DRQOKFC;}();
     
 
         json serialize_VkExternalMemoryImageCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkExternalMemoryImageCreateInfoNV...\n");
+        debug_printf("Serializing VkExternalMemoryImageCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_ANjkPCy=json({});
@@ -2585,7 +2585,7 @@ return return_ANjkPCy;}();
     
 
         json serialize_VkExportMemoryAllocateInfoNV_pNext(const void* name){
-        printf("Serializing VkExportMemoryAllocateInfoNV...\n");
+        debug_printf("Serializing VkExportMemoryAllocateInfoNV...\n");
         json result;
         result=[&]() {
     json return_crphCee=json({});
@@ -2603,7 +2603,7 @@ return return_crphCee;}();
     
 
         json serialize_VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_cvVXZyw=json({});
@@ -2621,7 +2621,7 @@ return return_cvVXZyw;}();
     
 
         json serialize_VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_xNVnDSX=json({});
@@ -2639,7 +2639,7 @@ return return_xNVnDSX;}();
     
 
         json serialize_VkDevicePrivateDataCreateInfo_pNext(const void* name){
-        printf("Serializing VkDevicePrivateDataCreateInfo...\n");
+        debug_printf("Serializing VkDevicePrivateDataCreateInfo...\n");
         json result;
         result=[&]() {
     json return_OZsKNdr=json({});
@@ -2657,7 +2657,7 @@ return return_OZsKNdr;}();
     
 
         json serialize_VkDevicePrivateDataCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkDevicePrivateDataCreateInfoEXT...\n");
+        debug_printf("Serializing VkDevicePrivateDataCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_hIVVfPg=json({});
@@ -2675,7 +2675,7 @@ return return_hIVVfPg;}();
     
 
         json serialize_VkPrivateDataSlotCreateInfo_pNext(const void* name){
-        printf("Serializing VkPrivateDataSlotCreateInfo...\n");
+        debug_printf("Serializing VkPrivateDataSlotCreateInfo...\n");
         json result;
         result=[&]() {
     json return_CpPpVDj=json({});
@@ -2693,7 +2693,7 @@ return return_CpPpVDj;}();
     
 
         json serialize_VkPrivateDataSlotCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkPrivateDataSlotCreateInfoEXT...\n");
+        debug_printf("Serializing VkPrivateDataSlotCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_WnbzrQO=json({});
@@ -2711,7 +2711,7 @@ return return_WnbzrQO;}();
     
 
         json serialize_VkPhysicalDevicePrivateDataFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePrivateDataFeatures...\n");
+        debug_printf("Serializing VkPhysicalDevicePrivateDataFeatures...\n");
         json result;
         result=[&]() {
     json return_FiypNly=json({});
@@ -2729,7 +2729,7 @@ return return_FiypNly;}();
     
 
         json serialize_VkPhysicalDevicePrivateDataFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePrivateDataFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDevicePrivateDataFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_QnQobDp=json({});
@@ -2747,7 +2747,7 @@ return return_QnQobDp;}();
     
 
         json serialize_VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV...\n");
         json result;
         result=[&]() {
     json return_DJKxETt=json({});
@@ -2765,7 +2765,7 @@ return return_DJKxETt;}();
     
 
         json serialize_VkPhysicalDeviceMultiDrawPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMultiDrawPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceMultiDrawPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_BxXiVTW=json({});
@@ -2783,7 +2783,7 @@ return return_BxXiVTW;}();
     
 
         json serialize_VkGraphicsShaderGroupCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkGraphicsShaderGroupCreateInfoNV...\n");
+        debug_printf("Serializing VkGraphicsShaderGroupCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_qYAhRMb=json({});
@@ -2801,7 +2801,7 @@ return return_qYAhRMb;}();
     
 
         json serialize_VkGraphicsPipelineShaderGroupsCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkGraphicsPipelineShaderGroupsCreateInfoNV...\n");
+        debug_printf("Serializing VkGraphicsPipelineShaderGroupsCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_vkmzkKk=json({});
@@ -2819,7 +2819,7 @@ return return_vkmzkKk;}();
     
 
         json serialize_VkBindShaderGroupIndirectCommandNV_pNext(const void* name){
-        printf("Serializing VkBindShaderGroupIndirectCommandNV...\n");
+        debug_printf("Serializing VkBindShaderGroupIndirectCommandNV...\n");
         json result;
         result=[&]() {
     json return_JNEKsYH=json({});
@@ -2837,7 +2837,7 @@ return return_JNEKsYH;}();
     
 
         json serialize_VkBindIndexBufferIndirectCommandNV_pNext(const void* name){
-        printf("Serializing VkBindIndexBufferIndirectCommandNV...\n");
+        debug_printf("Serializing VkBindIndexBufferIndirectCommandNV...\n");
         json result;
         result=[&]() {
     json return_cDUxIDf=json({});
@@ -2855,7 +2855,7 @@ return return_cDUxIDf;}();
     
 
         json serialize_VkBindVertexBufferIndirectCommandNV_pNext(const void* name){
-        printf("Serializing VkBindVertexBufferIndirectCommandNV...\n");
+        debug_printf("Serializing VkBindVertexBufferIndirectCommandNV...\n");
         json result;
         result=[&]() {
     json return_Atdtjkz=json({});
@@ -2873,7 +2873,7 @@ return return_Atdtjkz;}();
     
 
         json serialize_VkSetStateFlagsIndirectCommandNV_pNext(const void* name){
-        printf("Serializing VkSetStateFlagsIndirectCommandNV...\n");
+        debug_printf("Serializing VkSetStateFlagsIndirectCommandNV...\n");
         json result;
         result=[&]() {
     json return_TXTIXez=json({});
@@ -2891,7 +2891,7 @@ return return_TXTIXez;}();
     
 
         json serialize_VkIndirectCommandsStreamNV_pNext(const void* name){
-        printf("Serializing VkIndirectCommandsStreamNV...\n");
+        debug_printf("Serializing VkIndirectCommandsStreamNV...\n");
         json result;
         result=[&]() {
     json return_VnGQPUG=json({});
@@ -2909,7 +2909,7 @@ return return_VnGQPUG;}();
     
 
         json serialize_VkIndirectCommandsLayoutTokenNV_pNext(const void* name){
-        printf("Serializing VkIndirectCommandsLayoutTokenNV...\n");
+        debug_printf("Serializing VkIndirectCommandsLayoutTokenNV...\n");
         json result;
         result=[&]() {
     json return_dBaeaBz=json({});
@@ -2927,7 +2927,7 @@ return return_dBaeaBz;}();
     
 
         json serialize_VkIndirectCommandsLayoutCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkIndirectCommandsLayoutCreateInfoNV...\n");
+        debug_printf("Serializing VkIndirectCommandsLayoutCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_nRlhuxO=json({});
@@ -2945,7 +2945,7 @@ return return_nRlhuxO;}();
     
 
         json serialize_VkGeneratedCommandsInfoNV_pNext(const void* name){
-        printf("Serializing VkGeneratedCommandsInfoNV...\n");
+        debug_printf("Serializing VkGeneratedCommandsInfoNV...\n");
         json result;
         result=[&]() {
     json return_oUtXqUB=json({});
@@ -2963,7 +2963,7 @@ return return_oUtXqUB;}();
     
 
         json serialize_VkGeneratedCommandsMemoryRequirementsInfoNV_pNext(const void* name){
-        printf("Serializing VkGeneratedCommandsMemoryRequirementsInfoNV...\n");
+        debug_printf("Serializing VkGeneratedCommandsMemoryRequirementsInfoNV...\n");
         json result;
         result=[&]() {
     json return_VKZKrhy=json({});
@@ -2981,7 +2981,7 @@ return return_VKZKrhy;}();
     
 
         json serialize_VkPipelineIndirectDeviceAddressInfoNV_pNext(const void* name){
-        printf("Serializing VkPipelineIndirectDeviceAddressInfoNV...\n");
+        debug_printf("Serializing VkPipelineIndirectDeviceAddressInfoNV...\n");
         json result;
         result=[&]() {
     json return_zlcLash=json({});
@@ -2999,7 +2999,7 @@ return return_zlcLash;}();
     
 
         json serialize_VkBindPipelineIndirectCommandNV_pNext(const void* name){
-        printf("Serializing VkBindPipelineIndirectCommandNV...\n");
+        debug_printf("Serializing VkBindPipelineIndirectCommandNV...\n");
         json result;
         result=[&]() {
     json return_HuPFkvp=json({});
@@ -3017,7 +3017,7 @@ return return_HuPFkvp;}();
     
 
         json serialize_VkPhysicalDeviceFeatures2_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFeatures2...\n");
+        debug_printf("Serializing VkPhysicalDeviceFeatures2...\n");
         json result;
         result=[&]() {
     json return_LgVemOB=json({});
@@ -3035,7 +3035,7 @@ return return_LgVemOB;}();
     
 
         json serialize_VkPhysicalDeviceFeatures2KHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFeatures2KHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceFeatures2KHR...\n");
         json result;
         result=[&]() {
     json return_OngRUwp=json({});
@@ -3053,7 +3053,7 @@ return return_OngRUwp;}();
     
 
         json serialize_VkPhysicalDeviceProperties2_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceProperties2...\n");
+        debug_printf("Serializing VkPhysicalDeviceProperties2...\n");
         json result;
         result=[&]() {
     json return_asIndyo=json({});
@@ -3071,7 +3071,7 @@ return return_asIndyo;}();
     
 
         json serialize_VkPhysicalDeviceProperties2KHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceProperties2KHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceProperties2KHR...\n");
         json result;
         result=[&]() {
     json return_BFPEwmb=json({});
@@ -3089,7 +3089,7 @@ return return_BFPEwmb;}();
     
 
         json serialize_VkFormatProperties2_pNext(const void* name){
-        printf("Serializing VkFormatProperties2...\n");
+        debug_printf("Serializing VkFormatProperties2...\n");
         json result;
         result=[&]() {
     json return_axzCyiS=json({});
@@ -3107,7 +3107,7 @@ return return_axzCyiS;}();
     
 
         json serialize_VkFormatProperties2KHR_pNext(const void* name){
-        printf("Serializing VkFormatProperties2KHR...\n");
+        debug_printf("Serializing VkFormatProperties2KHR...\n");
         json result;
         result=[&]() {
     json return_HAfOLSC=json({});
@@ -3125,7 +3125,7 @@ return return_HAfOLSC;}();
     
 
         json serialize_VkImageFormatProperties2_pNext(const void* name){
-        printf("Serializing VkImageFormatProperties2...\n");
+        debug_printf("Serializing VkImageFormatProperties2...\n");
         json result;
         result=[&]() {
     json return_bHsYLVl=json({});
@@ -3143,7 +3143,7 @@ return return_bHsYLVl;}();
     
 
         json serialize_VkImageFormatProperties2KHR_pNext(const void* name){
-        printf("Serializing VkImageFormatProperties2KHR...\n");
+        debug_printf("Serializing VkImageFormatProperties2KHR...\n");
         json result;
         result=[&]() {
     json return_JcuLYqE=json({});
@@ -3161,7 +3161,7 @@ return return_JcuLYqE;}();
     
 
         json serialize_VkPhysicalDeviceImageFormatInfo2_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceImageFormatInfo2...\n");
+        debug_printf("Serializing VkPhysicalDeviceImageFormatInfo2...\n");
         json result;
         result=[&]() {
     json return_wULjtYD=json({});
@@ -3179,7 +3179,7 @@ return return_wULjtYD;}();
     
 
         json serialize_VkPhysicalDeviceImageFormatInfo2KHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceImageFormatInfo2KHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceImageFormatInfo2KHR...\n");
         json result;
         result=[&]() {
     json return_AWoXkeO=json({});
@@ -3197,7 +3197,7 @@ return return_AWoXkeO;}();
     
 
         json serialize_VkQueueFamilyProperties2_pNext(const void* name){
-        printf("Serializing VkQueueFamilyProperties2...\n");
+        debug_printf("Serializing VkQueueFamilyProperties2...\n");
         json result;
         result=[&]() {
     json return_YyaQEnG=json({});
@@ -3215,7 +3215,7 @@ return return_YyaQEnG;}();
     
 
         json serialize_VkQueueFamilyProperties2KHR_pNext(const void* name){
-        printf("Serializing VkQueueFamilyProperties2KHR...\n");
+        debug_printf("Serializing VkQueueFamilyProperties2KHR...\n");
         json result;
         result=[&]() {
     json return_UkKXPQl=json({});
@@ -3233,7 +3233,7 @@ return return_UkKXPQl;}();
     
 
         json serialize_VkPhysicalDeviceMemoryProperties2_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMemoryProperties2...\n");
+        debug_printf("Serializing VkPhysicalDeviceMemoryProperties2...\n");
         json result;
         result=[&]() {
     json return_PWGsaxn=json({});
@@ -3251,7 +3251,7 @@ return return_PWGsaxn;}();
     
 
         json serialize_VkPhysicalDeviceMemoryProperties2KHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMemoryProperties2KHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceMemoryProperties2KHR...\n");
         json result;
         result=[&]() {
     json return_SWBddXQ=json({});
@@ -3269,7 +3269,7 @@ return return_SWBddXQ;}();
     
 
         json serialize_VkSparseImageFormatProperties2_pNext(const void* name){
-        printf("Serializing VkSparseImageFormatProperties2...\n");
+        debug_printf("Serializing VkSparseImageFormatProperties2...\n");
         json result;
         result=[&]() {
     json return_hGUcTYK=json({});
@@ -3287,7 +3287,7 @@ return return_hGUcTYK;}();
     
 
         json serialize_VkSparseImageFormatProperties2KHR_pNext(const void* name){
-        printf("Serializing VkSparseImageFormatProperties2KHR...\n");
+        debug_printf("Serializing VkSparseImageFormatProperties2KHR...\n");
         json result;
         result=[&]() {
     json return_TjCeYbX=json({});
@@ -3305,7 +3305,7 @@ return return_TjCeYbX;}();
     
 
         json serialize_VkPhysicalDeviceSparseImageFormatInfo2_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSparseImageFormatInfo2...\n");
+        debug_printf("Serializing VkPhysicalDeviceSparseImageFormatInfo2...\n");
         json result;
         result=[&]() {
     json return_BSMhkIm=json({});
@@ -3323,7 +3323,7 @@ return return_BSMhkIm;}();
     
 
         json serialize_VkPhysicalDeviceSparseImageFormatInfo2KHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSparseImageFormatInfo2KHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceSparseImageFormatInfo2KHR...\n");
         json result;
         result=[&]() {
     json return_qykzdkX=json({});
@@ -3341,7 +3341,7 @@ return return_qykzdkX;}();
     
 
         json serialize_VkPhysicalDevicePushDescriptorPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePushDescriptorPropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDevicePushDescriptorPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_jyDYuNU=json({});
@@ -3359,7 +3359,7 @@ return return_jyDYuNU;}();
     
 
         json serialize_VkConformanceVersion_pNext(const void* name){
-        printf("Serializing VkConformanceVersion...\n");
+        debug_printf("Serializing VkConformanceVersion...\n");
         json result;
         result=[&]() {
     json return_RyjMBbH=json({});
@@ -3377,7 +3377,7 @@ return return_RyjMBbH;}();
     
 
         json serialize_VkConformanceVersionKHR_pNext(const void* name){
-        printf("Serializing VkConformanceVersionKHR...\n");
+        debug_printf("Serializing VkConformanceVersionKHR...\n");
         json result;
         result=[&]() {
     json return_xluTtvT=json({});
@@ -3395,7 +3395,7 @@ return return_xluTtvT;}();
     
 
         json serialize_VkPhysicalDeviceDriverProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDriverProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceDriverProperties...\n");
         json result;
         result=[&]() {
     json return_LdlIxzd=json({});
@@ -3413,7 +3413,7 @@ return return_LdlIxzd;}();
     
 
         json serialize_VkPhysicalDeviceDriverPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDriverPropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceDriverPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_AXveNHA=json({});
@@ -3431,7 +3431,7 @@ return return_AXveNHA;}();
     
 
         json serialize_VkPresentRegionsKHR_pNext(const void* name){
-        printf("Serializing VkPresentRegionsKHR...\n");
+        debug_printf("Serializing VkPresentRegionsKHR...\n");
         json result;
         result=[&]() {
     json return_CngvoOc=json({});
@@ -3449,7 +3449,7 @@ return return_CngvoOc;}();
     
 
         json serialize_VkPresentRegionKHR_pNext(const void* name){
-        printf("Serializing VkPresentRegionKHR...\n");
+        debug_printf("Serializing VkPresentRegionKHR...\n");
         json result;
         result=[&]() {
     json return_lzwWfXI=json({});
@@ -3467,7 +3467,7 @@ return return_lzwWfXI;}();
     
 
         json serialize_VkRectLayerKHR_pNext(const void* name){
-        printf("Serializing VkRectLayerKHR...\n");
+        debug_printf("Serializing VkRectLayerKHR...\n");
         json result;
         result=[&]() {
     json return_sntBJGH=json({});
@@ -3485,7 +3485,7 @@ return return_sntBJGH;}();
     
 
         json serialize_VkPhysicalDeviceVariablePointersFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceVariablePointersFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceVariablePointersFeatures...\n");
         json result;
         result=[&]() {
     json return_IQsgakN=json({});
@@ -3503,7 +3503,7 @@ return return_IQsgakN;}();
     
 
         json serialize_VkPhysicalDeviceVariablePointersFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceVariablePointersFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceVariablePointersFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_zjCFffA=json({});
@@ -3521,7 +3521,7 @@ return return_zjCFffA;}();
     
 
         json serialize_VkPhysicalDeviceVariablePointerFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceVariablePointerFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceVariablePointerFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_oBtrkxD=json({});
@@ -3539,7 +3539,7 @@ return return_oBtrkxD;}();
     
 
         json serialize_VkPhysicalDeviceVariablePointerFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceVariablePointerFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceVariablePointerFeatures...\n");
         json result;
         result=[&]() {
     json return_qeBtBOY=json({});
@@ -3557,7 +3557,7 @@ return return_qeBtBOY;}();
     
 
         json serialize_VkExternalMemoryProperties_pNext(const void* name){
-        printf("Serializing VkExternalMemoryProperties...\n");
+        debug_printf("Serializing VkExternalMemoryProperties...\n");
         json result;
         result=[&]() {
     json return_ssoXPQo=json({});
@@ -3575,7 +3575,7 @@ return return_ssoXPQo;}();
     
 
         json serialize_VkExternalMemoryPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkExternalMemoryPropertiesKHR...\n");
+        debug_printf("Serializing VkExternalMemoryPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_lpRmEta=json({});
@@ -3593,7 +3593,7 @@ return return_lpRmEta;}();
     
 
         json serialize_VkPhysicalDeviceExternalImageFormatInfo_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceExternalImageFormatInfo...\n");
+        debug_printf("Serializing VkPhysicalDeviceExternalImageFormatInfo...\n");
         json result;
         result=[&]() {
     json return_vsgJpBB=json({});
@@ -3611,7 +3611,7 @@ return return_vsgJpBB;}();
     
 
         json serialize_VkPhysicalDeviceExternalImageFormatInfoKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceExternalImageFormatInfoKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceExternalImageFormatInfoKHR...\n");
         json result;
         result=[&]() {
     json return_AKfDUiN=json({});
@@ -3629,7 +3629,7 @@ return return_AKfDUiN;}();
     
 
         json serialize_VkExternalImageFormatProperties_pNext(const void* name){
-        printf("Serializing VkExternalImageFormatProperties...\n");
+        debug_printf("Serializing VkExternalImageFormatProperties...\n");
         json result;
         result=[&]() {
     json return_UXFRGqH=json({});
@@ -3647,7 +3647,7 @@ return return_UXFRGqH;}();
     
 
         json serialize_VkExternalImageFormatPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkExternalImageFormatPropertiesKHR...\n");
+        debug_printf("Serializing VkExternalImageFormatPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_hKBaBnv=json({});
@@ -3665,7 +3665,7 @@ return return_hKBaBnv;}();
     
 
         json serialize_VkPhysicalDeviceExternalBufferInfo_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceExternalBufferInfo...\n");
+        debug_printf("Serializing VkPhysicalDeviceExternalBufferInfo...\n");
         json result;
         result=[&]() {
     json return_LcADeBW=json({});
@@ -3683,7 +3683,7 @@ return return_LcADeBW;}();
     
 
         json serialize_VkPhysicalDeviceExternalBufferInfoKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceExternalBufferInfoKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceExternalBufferInfoKHR...\n");
         json result;
         result=[&]() {
     json return_WgtHFgF=json({});
@@ -3701,7 +3701,7 @@ return return_WgtHFgF;}();
     
 
         json serialize_VkExternalBufferProperties_pNext(const void* name){
-        printf("Serializing VkExternalBufferProperties...\n");
+        debug_printf("Serializing VkExternalBufferProperties...\n");
         json result;
         result=[&]() {
     json return_DNLbFGd=json({});
@@ -3719,7 +3719,7 @@ return return_DNLbFGd;}();
     
 
         json serialize_VkExternalBufferPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkExternalBufferPropertiesKHR...\n");
+        debug_printf("Serializing VkExternalBufferPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_KKQiuMi=json({});
@@ -3737,7 +3737,7 @@ return return_KKQiuMi;}();
     
 
         json serialize_VkPhysicalDeviceIDProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceIDProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceIDProperties...\n");
         json result;
         result=[&]() {
     json return_VMUJWkB=json({});
@@ -3755,7 +3755,7 @@ return return_VMUJWkB;}();
     
 
         json serialize_VkPhysicalDeviceIDPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceIDPropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceIDPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_oqTLJSb=json({});
@@ -3773,7 +3773,7 @@ return return_oqTLJSb;}();
     
 
         json serialize_VkExternalMemoryImageCreateInfo_pNext(const void* name){
-        printf("Serializing VkExternalMemoryImageCreateInfo...\n");
+        debug_printf("Serializing VkExternalMemoryImageCreateInfo...\n");
         json result;
         result=[&]() {
     json return_nreAZYf=json({});
@@ -3791,7 +3791,7 @@ return return_nreAZYf;}();
     
 
         json serialize_VkExternalMemoryImageCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkExternalMemoryImageCreateInfoKHR...\n");
+        debug_printf("Serializing VkExternalMemoryImageCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_cHQJOex=json({});
@@ -3809,7 +3809,7 @@ return return_cHQJOex;}();
     
 
         json serialize_VkExternalMemoryBufferCreateInfo_pNext(const void* name){
-        printf("Serializing VkExternalMemoryBufferCreateInfo...\n");
+        debug_printf("Serializing VkExternalMemoryBufferCreateInfo...\n");
         json result;
         result=[&]() {
     json return_zbkdAHs=json({});
@@ -3827,7 +3827,7 @@ return return_zbkdAHs;}();
     
 
         json serialize_VkExternalMemoryBufferCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkExternalMemoryBufferCreateInfoKHR...\n");
+        debug_printf("Serializing VkExternalMemoryBufferCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_ZsigHIz=json({});
@@ -3845,7 +3845,7 @@ return return_ZsigHIz;}();
     
 
         json serialize_VkExportMemoryAllocateInfo_pNext(const void* name){
-        printf("Serializing VkExportMemoryAllocateInfo...\n");
+        debug_printf("Serializing VkExportMemoryAllocateInfo...\n");
         json result;
         result=[&]() {
     json return_BwIkCCN=json({});
@@ -3863,7 +3863,7 @@ return return_BwIkCCN;}();
     
 
         json serialize_VkExportMemoryAllocateInfoKHR_pNext(const void* name){
-        printf("Serializing VkExportMemoryAllocateInfoKHR...\n");
+        debug_printf("Serializing VkExportMemoryAllocateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_NYGLWAX=json({});
@@ -3881,7 +3881,7 @@ return return_NYGLWAX;}();
     
 
         json serialize_VkImportMemoryFdInfoKHR_pNext(const void* name){
-        printf("Serializing VkImportMemoryFdInfoKHR...\n");
+        debug_printf("Serializing VkImportMemoryFdInfoKHR...\n");
         json result;
         result=[&]() {
     json return_drMphoD=json({});
@@ -3899,7 +3899,7 @@ return return_drMphoD;}();
     
 
         json serialize_VkMemoryFdPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkMemoryFdPropertiesKHR...\n");
+        debug_printf("Serializing VkMemoryFdPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_LbCtLFN=json({});
@@ -3917,7 +3917,7 @@ return return_LbCtLFN;}();
     
 
         json serialize_VkMemoryGetFdInfoKHR_pNext(const void* name){
-        printf("Serializing VkMemoryGetFdInfoKHR...\n");
+        debug_printf("Serializing VkMemoryGetFdInfoKHR...\n");
         json result;
         result=[&]() {
     json return_wfzBBRq=json({});
@@ -3935,7 +3935,7 @@ return return_wfzBBRq;}();
     
 
         json serialize_VkPhysicalDeviceExternalSemaphoreInfo_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceExternalSemaphoreInfo...\n");
+        debug_printf("Serializing VkPhysicalDeviceExternalSemaphoreInfo...\n");
         json result;
         result=[&]() {
     json return_ldzOBnJ=json({});
@@ -3953,7 +3953,7 @@ return return_ldzOBnJ;}();
     
 
         json serialize_VkPhysicalDeviceExternalSemaphoreInfoKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceExternalSemaphoreInfoKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceExternalSemaphoreInfoKHR...\n");
         json result;
         result=[&]() {
     json return_dBtswcU=json({});
@@ -3971,7 +3971,7 @@ return return_dBtswcU;}();
     
 
         json serialize_VkExternalSemaphoreProperties_pNext(const void* name){
-        printf("Serializing VkExternalSemaphoreProperties...\n");
+        debug_printf("Serializing VkExternalSemaphoreProperties...\n");
         json result;
         result=[&]() {
     json return_SmbihUY=json({});
@@ -3989,7 +3989,7 @@ return return_SmbihUY;}();
     
 
         json serialize_VkExternalSemaphorePropertiesKHR_pNext(const void* name){
-        printf("Serializing VkExternalSemaphorePropertiesKHR...\n");
+        debug_printf("Serializing VkExternalSemaphorePropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_uKxRaVs=json({});
@@ -4007,7 +4007,7 @@ return return_uKxRaVs;}();
     
 
         json serialize_VkExportSemaphoreCreateInfo_pNext(const void* name){
-        printf("Serializing VkExportSemaphoreCreateInfo...\n");
+        debug_printf("Serializing VkExportSemaphoreCreateInfo...\n");
         json result;
         result=[&]() {
     json return_eWPlAQu=json({});
@@ -4025,7 +4025,7 @@ return return_eWPlAQu;}();
     
 
         json serialize_VkExportSemaphoreCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkExportSemaphoreCreateInfoKHR...\n");
+        debug_printf("Serializing VkExportSemaphoreCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_PhqsFWK=json({});
@@ -4043,7 +4043,7 @@ return return_PhqsFWK;}();
     
 
         json serialize_VkImportSemaphoreFdInfoKHR_pNext(const void* name){
-        printf("Serializing VkImportSemaphoreFdInfoKHR...\n");
+        debug_printf("Serializing VkImportSemaphoreFdInfoKHR...\n");
         json result;
         result=[&]() {
     json return_JlxsXMD=json({});
@@ -4061,7 +4061,7 @@ return return_JlxsXMD;}();
     
 
         json serialize_VkSemaphoreGetFdInfoKHR_pNext(const void* name){
-        printf("Serializing VkSemaphoreGetFdInfoKHR...\n");
+        debug_printf("Serializing VkSemaphoreGetFdInfoKHR...\n");
         json result;
         result=[&]() {
     json return_CdqLXTU=json({});
@@ -4079,7 +4079,7 @@ return return_CdqLXTU;}();
     
 
         json serialize_VkPhysicalDeviceExternalFenceInfo_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceExternalFenceInfo...\n");
+        debug_printf("Serializing VkPhysicalDeviceExternalFenceInfo...\n");
         json result;
         result=[&]() {
     json return_fHmzqzb=json({});
@@ -4097,7 +4097,7 @@ return return_fHmzqzb;}();
     
 
         json serialize_VkPhysicalDeviceExternalFenceInfoKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceExternalFenceInfoKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceExternalFenceInfoKHR...\n");
         json result;
         result=[&]() {
     json return_RRGrfxd=json({});
@@ -4115,7 +4115,7 @@ return return_RRGrfxd;}();
     
 
         json serialize_VkExternalFenceProperties_pNext(const void* name){
-        printf("Serializing VkExternalFenceProperties...\n");
+        debug_printf("Serializing VkExternalFenceProperties...\n");
         json result;
         result=[&]() {
     json return_QApnBDz=json({});
@@ -4133,7 +4133,7 @@ return return_QApnBDz;}();
     
 
         json serialize_VkExternalFencePropertiesKHR_pNext(const void* name){
-        printf("Serializing VkExternalFencePropertiesKHR...\n");
+        debug_printf("Serializing VkExternalFencePropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_gUmPkil=json({});
@@ -4151,7 +4151,7 @@ return return_gUmPkil;}();
     
 
         json serialize_VkExportFenceCreateInfo_pNext(const void* name){
-        printf("Serializing VkExportFenceCreateInfo...\n");
+        debug_printf("Serializing VkExportFenceCreateInfo...\n");
         json result;
         result=[&]() {
     json return_qutPrXH=json({});
@@ -4169,7 +4169,7 @@ return return_qutPrXH;}();
     
 
         json serialize_VkExportFenceCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkExportFenceCreateInfoKHR...\n");
+        debug_printf("Serializing VkExportFenceCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_uFoewXo=json({});
@@ -4187,7 +4187,7 @@ return return_uFoewXo;}();
     
 
         json serialize_VkImportFenceFdInfoKHR_pNext(const void* name){
-        printf("Serializing VkImportFenceFdInfoKHR...\n");
+        debug_printf("Serializing VkImportFenceFdInfoKHR...\n");
         json result;
         result=[&]() {
     json return_oMEqwwB=json({});
@@ -4205,7 +4205,7 @@ return return_oMEqwwB;}();
     
 
         json serialize_VkFenceGetFdInfoKHR_pNext(const void* name){
-        printf("Serializing VkFenceGetFdInfoKHR...\n");
+        debug_printf("Serializing VkFenceGetFdInfoKHR...\n");
         json result;
         result=[&]() {
     json return_pNjwglH=json({});
@@ -4223,7 +4223,7 @@ return return_pNjwglH;}();
     
 
         json serialize_VkPhysicalDeviceMultiviewFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMultiviewFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceMultiviewFeatures...\n");
         json result;
         result=[&]() {
     json return_oWQUUJt=json({});
@@ -4241,7 +4241,7 @@ return return_oWQUUJt;}();
     
 
         json serialize_VkPhysicalDeviceMultiviewFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMultiviewFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceMultiviewFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_txsKlUp=json({});
@@ -4259,7 +4259,7 @@ return return_txsKlUp;}();
     
 
         json serialize_VkPhysicalDeviceMultiviewProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMultiviewProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceMultiviewProperties...\n");
         json result;
         result=[&]() {
     json return_zRuOTzo=json({});
@@ -4277,7 +4277,7 @@ return return_zRuOTzo;}();
     
 
         json serialize_VkPhysicalDeviceMultiviewPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMultiviewPropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceMultiviewPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_CnCFvNe=json({});
@@ -4295,7 +4295,7 @@ return return_CnCFvNe;}();
     
 
         json serialize_VkRenderPassMultiviewCreateInfo_pNext(const void* name){
-        printf("Serializing VkRenderPassMultiviewCreateInfo...\n");
+        debug_printf("Serializing VkRenderPassMultiviewCreateInfo...\n");
         json result;
         result=[&]() {
     json return_dIcnrlH=json({});
@@ -4313,7 +4313,7 @@ return return_dIcnrlH;}();
     
 
         json serialize_VkRenderPassMultiviewCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkRenderPassMultiviewCreateInfoKHR...\n");
+        debug_printf("Serializing VkRenderPassMultiviewCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_CIlQnmE=json({});
@@ -4331,7 +4331,7 @@ return return_CIlQnmE;}();
     
 
         json serialize_VkSurfaceCapabilities2EXT_pNext(const void* name){
-        printf("Serializing VkSurfaceCapabilities2EXT...\n");
+        debug_printf("Serializing VkSurfaceCapabilities2EXT...\n");
         json result;
         result=[&]() {
     json return_YWkbWcc=json({});
@@ -4349,7 +4349,7 @@ return return_YWkbWcc;}();
     
 
         json serialize_VkDisplayPowerInfoEXT_pNext(const void* name){
-        printf("Serializing VkDisplayPowerInfoEXT...\n");
+        debug_printf("Serializing VkDisplayPowerInfoEXT...\n");
         json result;
         result=[&]() {
     json return_NIgFHnB=json({});
@@ -4367,7 +4367,7 @@ return return_NIgFHnB;}();
     
 
         json serialize_VkDeviceEventInfoEXT_pNext(const void* name){
-        printf("Serializing VkDeviceEventInfoEXT...\n");
+        debug_printf("Serializing VkDeviceEventInfoEXT...\n");
         json result;
         result=[&]() {
     json return_njFRBQz=json({});
@@ -4385,7 +4385,7 @@ return return_njFRBQz;}();
     
 
         json serialize_VkDisplayEventInfoEXT_pNext(const void* name){
-        printf("Serializing VkDisplayEventInfoEXT...\n");
+        debug_printf("Serializing VkDisplayEventInfoEXT...\n");
         json result;
         result=[&]() {
     json return_mziPbqc=json({});
@@ -4403,7 +4403,7 @@ return return_mziPbqc;}();
     
 
         json serialize_VkSwapchainCounterCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkSwapchainCounterCreateInfoEXT...\n");
+        debug_printf("Serializing VkSwapchainCounterCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_DvRVfNK=json({});
@@ -4421,7 +4421,7 @@ return return_DvRVfNK;}();
     
 
         json serialize_VkPhysicalDeviceGroupProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceGroupProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceGroupProperties...\n");
         json result;
         result=[&]() {
     json return_KUWTbCB=json({});
@@ -4439,7 +4439,7 @@ return return_KUWTbCB;}();
     
 
         json serialize_VkPhysicalDeviceGroupPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceGroupPropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceGroupPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_EuZXhGk=json({});
@@ -4457,7 +4457,7 @@ return return_EuZXhGk;}();
     
 
         json serialize_VkMemoryAllocateFlagsInfo_pNext(const void* name){
-        printf("Serializing VkMemoryAllocateFlagsInfo...\n");
+        debug_printf("Serializing VkMemoryAllocateFlagsInfo...\n");
         json result;
         result=[&]() {
     json return_yEypUip=json({});
@@ -4475,7 +4475,7 @@ return return_yEypUip;}();
     
 
         json serialize_VkMemoryAllocateFlagsInfoKHR_pNext(const void* name){
-        printf("Serializing VkMemoryAllocateFlagsInfoKHR...\n");
+        debug_printf("Serializing VkMemoryAllocateFlagsInfoKHR...\n");
         json result;
         result=[&]() {
     json return_Wwounhj=json({});
@@ -4493,7 +4493,7 @@ return return_Wwounhj;}();
     
 
         json serialize_VkBindBufferMemoryInfo_pNext(const void* name){
-        printf("Serializing VkBindBufferMemoryInfo...\n");
+        debug_printf("Serializing VkBindBufferMemoryInfo...\n");
         json result;
         result=[&]() {
     json return_nnsHbwQ=json({});
@@ -4511,7 +4511,7 @@ return return_nnsHbwQ;}();
     
 
         json serialize_VkBindBufferMemoryInfoKHR_pNext(const void* name){
-        printf("Serializing VkBindBufferMemoryInfoKHR...\n");
+        debug_printf("Serializing VkBindBufferMemoryInfoKHR...\n");
         json result;
         result=[&]() {
     json return_TctXPgm=json({});
@@ -4529,7 +4529,7 @@ return return_TctXPgm;}();
     
 
         json serialize_VkBindBufferMemoryDeviceGroupInfo_pNext(const void* name){
-        printf("Serializing VkBindBufferMemoryDeviceGroupInfo...\n");
+        debug_printf("Serializing VkBindBufferMemoryDeviceGroupInfo...\n");
         json result;
         result=[&]() {
     json return_TuLQOLW=json({});
@@ -4547,7 +4547,7 @@ return return_TuLQOLW;}();
     
 
         json serialize_VkBindBufferMemoryDeviceGroupInfoKHR_pNext(const void* name){
-        printf("Serializing VkBindBufferMemoryDeviceGroupInfoKHR...\n");
+        debug_printf("Serializing VkBindBufferMemoryDeviceGroupInfoKHR...\n");
         json result;
         result=[&]() {
     json return_kCCNZAY=json({});
@@ -4565,7 +4565,7 @@ return return_kCCNZAY;}();
     
 
         json serialize_VkBindImageMemoryInfo_pNext(const void* name){
-        printf("Serializing VkBindImageMemoryInfo...\n");
+        debug_printf("Serializing VkBindImageMemoryInfo...\n");
         json result;
         result=[&]() {
     json return_umxlPYw=json({});
@@ -4583,7 +4583,7 @@ return return_umxlPYw;}();
     
 
         json serialize_VkBindImageMemoryInfoKHR_pNext(const void* name){
-        printf("Serializing VkBindImageMemoryInfoKHR...\n");
+        debug_printf("Serializing VkBindImageMemoryInfoKHR...\n");
         json result;
         result=[&]() {
     json return_BcRgIDp=json({});
@@ -4601,7 +4601,7 @@ return return_BcRgIDp;}();
     
 
         json serialize_VkBindImageMemoryDeviceGroupInfo_pNext(const void* name){
-        printf("Serializing VkBindImageMemoryDeviceGroupInfo...\n");
+        debug_printf("Serializing VkBindImageMemoryDeviceGroupInfo...\n");
         json result;
         result=[&]() {
     json return_cNqcuFX=json({});
@@ -4619,7 +4619,7 @@ return return_cNqcuFX;}();
     
 
         json serialize_VkBindImageMemoryDeviceGroupInfoKHR_pNext(const void* name){
-        printf("Serializing VkBindImageMemoryDeviceGroupInfoKHR...\n");
+        debug_printf("Serializing VkBindImageMemoryDeviceGroupInfoKHR...\n");
         json result;
         result=[&]() {
     json return_aRFgZyN=json({});
@@ -4637,7 +4637,7 @@ return return_aRFgZyN;}();
     
 
         json serialize_VkDeviceGroupRenderPassBeginInfo_pNext(const void* name){
-        printf("Serializing VkDeviceGroupRenderPassBeginInfo...\n");
+        debug_printf("Serializing VkDeviceGroupRenderPassBeginInfo...\n");
         json result;
         result=[&]() {
     json return_PfFhioW=json({});
@@ -4655,7 +4655,7 @@ return return_PfFhioW;}();
     
 
         json serialize_VkDeviceGroupRenderPassBeginInfoKHR_pNext(const void* name){
-        printf("Serializing VkDeviceGroupRenderPassBeginInfoKHR...\n");
+        debug_printf("Serializing VkDeviceGroupRenderPassBeginInfoKHR...\n");
         json result;
         result=[&]() {
     json return_HVeTwDy=json({});
@@ -4673,7 +4673,7 @@ return return_HVeTwDy;}();
     
 
         json serialize_VkDeviceGroupCommandBufferBeginInfo_pNext(const void* name){
-        printf("Serializing VkDeviceGroupCommandBufferBeginInfo...\n");
+        debug_printf("Serializing VkDeviceGroupCommandBufferBeginInfo...\n");
         json result;
         result=[&]() {
     json return_fdPYrUq=json({});
@@ -4691,7 +4691,7 @@ return return_fdPYrUq;}();
     
 
         json serialize_VkDeviceGroupCommandBufferBeginInfoKHR_pNext(const void* name){
-        printf("Serializing VkDeviceGroupCommandBufferBeginInfoKHR...\n");
+        debug_printf("Serializing VkDeviceGroupCommandBufferBeginInfoKHR...\n");
         json result;
         result=[&]() {
     json return_hQjYhxh=json({});
@@ -4709,7 +4709,7 @@ return return_hQjYhxh;}();
     
 
         json serialize_VkDeviceGroupSubmitInfo_pNext(const void* name){
-        printf("Serializing VkDeviceGroupSubmitInfo...\n");
+        debug_printf("Serializing VkDeviceGroupSubmitInfo...\n");
         json result;
         result=[&]() {
     json return_AhbbvYO=json({});
@@ -4727,7 +4727,7 @@ return return_AhbbvYO;}();
     
 
         json serialize_VkDeviceGroupSubmitInfoKHR_pNext(const void* name){
-        printf("Serializing VkDeviceGroupSubmitInfoKHR...\n");
+        debug_printf("Serializing VkDeviceGroupSubmitInfoKHR...\n");
         json result;
         result=[&]() {
     json return_tzuwyWq=json({});
@@ -4745,7 +4745,7 @@ return return_tzuwyWq;}();
     
 
         json serialize_VkDeviceGroupBindSparseInfo_pNext(const void* name){
-        printf("Serializing VkDeviceGroupBindSparseInfo...\n");
+        debug_printf("Serializing VkDeviceGroupBindSparseInfo...\n");
         json result;
         result=[&]() {
     json return_BorRMJA=json({});
@@ -4763,7 +4763,7 @@ return return_BorRMJA;}();
     
 
         json serialize_VkDeviceGroupBindSparseInfoKHR_pNext(const void* name){
-        printf("Serializing VkDeviceGroupBindSparseInfoKHR...\n");
+        debug_printf("Serializing VkDeviceGroupBindSparseInfoKHR...\n");
         json result;
         result=[&]() {
     json return_nmKcBjk=json({});
@@ -4781,7 +4781,7 @@ return return_nmKcBjk;}();
     
 
         json serialize_VkDeviceGroupPresentCapabilitiesKHR_pNext(const void* name){
-        printf("Serializing VkDeviceGroupPresentCapabilitiesKHR...\n");
+        debug_printf("Serializing VkDeviceGroupPresentCapabilitiesKHR...\n");
         json result;
         result=[&]() {
     json return_UXEdezX=json({});
@@ -4799,7 +4799,7 @@ return return_UXEdezX;}();
     
 
         json serialize_VkImageSwapchainCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkImageSwapchainCreateInfoKHR...\n");
+        debug_printf("Serializing VkImageSwapchainCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_qYyDUwl=json({});
@@ -4817,7 +4817,7 @@ return return_qYyDUwl;}();
     
 
         json serialize_VkBindImageMemorySwapchainInfoKHR_pNext(const void* name){
-        printf("Serializing VkBindImageMemorySwapchainInfoKHR...\n");
+        debug_printf("Serializing VkBindImageMemorySwapchainInfoKHR...\n");
         json result;
         result=[&]() {
     json return_QKbGVFd=json({});
@@ -4835,7 +4835,7 @@ return return_QKbGVFd;}();
     
 
         json serialize_VkAcquireNextImageInfoKHR_pNext(const void* name){
-        printf("Serializing VkAcquireNextImageInfoKHR...\n");
+        debug_printf("Serializing VkAcquireNextImageInfoKHR...\n");
         json result;
         result=[&]() {
     json return_LVJbwYV=json({});
@@ -4853,7 +4853,7 @@ return return_LVJbwYV;}();
     
 
         json serialize_VkDeviceGroupPresentInfoKHR_pNext(const void* name){
-        printf("Serializing VkDeviceGroupPresentInfoKHR...\n");
+        debug_printf("Serializing VkDeviceGroupPresentInfoKHR...\n");
         json result;
         result=[&]() {
     json return_IrBOPAW=json({});
@@ -4871,7 +4871,7 @@ return return_IrBOPAW;}();
     
 
         json serialize_VkDeviceGroupDeviceCreateInfo_pNext(const void* name){
-        printf("Serializing VkDeviceGroupDeviceCreateInfo...\n");
+        debug_printf("Serializing VkDeviceGroupDeviceCreateInfo...\n");
         json result;
         result=[&]() {
     json return_WIKNePq=json({});
@@ -4889,7 +4889,7 @@ return return_WIKNePq;}();
     
 
         json serialize_VkDeviceGroupDeviceCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkDeviceGroupDeviceCreateInfoKHR...\n");
+        debug_printf("Serializing VkDeviceGroupDeviceCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_dKBTIjy=json({});
@@ -4907,7 +4907,7 @@ return return_dKBTIjy;}();
     
 
         json serialize_VkDeviceGroupSwapchainCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkDeviceGroupSwapchainCreateInfoKHR...\n");
+        debug_printf("Serializing VkDeviceGroupSwapchainCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_Yxembry=json({});
@@ -4925,7 +4925,7 @@ return return_Yxembry;}();
     
 
         json serialize_VkDescriptorUpdateTemplateEntry_pNext(const void* name){
-        printf("Serializing VkDescriptorUpdateTemplateEntry...\n");
+        debug_printf("Serializing VkDescriptorUpdateTemplateEntry...\n");
         json result;
         result=[&]() {
     json return_GnlrPYN=json({});
@@ -4943,7 +4943,7 @@ return return_GnlrPYN;}();
     
 
         json serialize_VkDescriptorUpdateTemplateEntryKHR_pNext(const void* name){
-        printf("Serializing VkDescriptorUpdateTemplateEntryKHR...\n");
+        debug_printf("Serializing VkDescriptorUpdateTemplateEntryKHR...\n");
         json result;
         result=[&]() {
     json return_zcbVsyN=json({});
@@ -4961,7 +4961,7 @@ return return_zcbVsyN;}();
     
 
         json serialize_VkDescriptorUpdateTemplateCreateInfo_pNext(const void* name){
-        printf("Serializing VkDescriptorUpdateTemplateCreateInfo...\n");
+        debug_printf("Serializing VkDescriptorUpdateTemplateCreateInfo...\n");
         json result;
         result=[&]() {
     json return_FPcEhUa=json({});
@@ -4979,7 +4979,7 @@ return return_FPcEhUa;}();
     
 
         json serialize_VkDescriptorUpdateTemplateCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkDescriptorUpdateTemplateCreateInfoKHR...\n");
+        debug_printf("Serializing VkDescriptorUpdateTemplateCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_gDnOfcC=json({});
@@ -4997,7 +4997,7 @@ return return_gDnOfcC;}();
     
 
         json serialize_VkXYColorEXT_pNext(const void* name){
-        printf("Serializing VkXYColorEXT...\n");
+        debug_printf("Serializing VkXYColorEXT...\n");
         json result;
         result=[&]() {
     json return_xwJfNnG=json({});
@@ -5015,7 +5015,7 @@ return return_xwJfNnG;}();
     
 
         json serialize_VkPhysicalDevicePresentIdFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePresentIdFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDevicePresentIdFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_aNbaTlC=json({});
@@ -5033,7 +5033,7 @@ return return_aNbaTlC;}();
     
 
         json serialize_VkPresentIdKHR_pNext(const void* name){
-        printf("Serializing VkPresentIdKHR...\n");
+        debug_printf("Serializing VkPresentIdKHR...\n");
         json result;
         result=[&]() {
     json return_imiRqaH=json({});
@@ -5051,7 +5051,7 @@ return return_imiRqaH;}();
     
 
         json serialize_VkPhysicalDevicePresentWaitFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePresentWaitFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDevicePresentWaitFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_RmOpFBi=json({});
@@ -5069,7 +5069,7 @@ return return_RmOpFBi;}();
     
 
         json serialize_VkHdrMetadataEXT_pNext(const void* name){
-        printf("Serializing VkHdrMetadataEXT...\n");
+        debug_printf("Serializing VkHdrMetadataEXT...\n");
         json result;
         result=[&]() {
     json return_WSskPfD=json({});
@@ -5087,7 +5087,7 @@ return return_WSskPfD;}();
     
 
         json serialize_VkDisplayNativeHdrSurfaceCapabilitiesAMD_pNext(const void* name){
-        printf("Serializing VkDisplayNativeHdrSurfaceCapabilitiesAMD...\n");
+        debug_printf("Serializing VkDisplayNativeHdrSurfaceCapabilitiesAMD...\n");
         json result;
         result=[&]() {
     json return_LiWObLe=json({});
@@ -5105,7 +5105,7 @@ return return_LiWObLe;}();
     
 
         json serialize_VkSwapchainDisplayNativeHdrCreateInfoAMD_pNext(const void* name){
-        printf("Serializing VkSwapchainDisplayNativeHdrCreateInfoAMD...\n");
+        debug_printf("Serializing VkSwapchainDisplayNativeHdrCreateInfoAMD...\n");
         json result;
         result=[&]() {
     json return_lxTUguY=json({});
@@ -5123,7 +5123,7 @@ return return_lxTUguY;}();
     
 
         json serialize_VkRefreshCycleDurationGOOGLE_pNext(const void* name){
-        printf("Serializing VkRefreshCycleDurationGOOGLE...\n");
+        debug_printf("Serializing VkRefreshCycleDurationGOOGLE...\n");
         json result;
         result=[&]() {
     json return_rVvOGhM=json({});
@@ -5141,7 +5141,7 @@ return return_rVvOGhM;}();
     
 
         json serialize_VkPastPresentationTimingGOOGLE_pNext(const void* name){
-        printf("Serializing VkPastPresentationTimingGOOGLE...\n");
+        debug_printf("Serializing VkPastPresentationTimingGOOGLE...\n");
         json result;
         result=[&]() {
     json return_pAQSZwc=json({});
@@ -5159,7 +5159,7 @@ return return_pAQSZwc;}();
     
 
         json serialize_VkPresentTimesInfoGOOGLE_pNext(const void* name){
-        printf("Serializing VkPresentTimesInfoGOOGLE...\n");
+        debug_printf("Serializing VkPresentTimesInfoGOOGLE...\n");
         json result;
         result=[&]() {
     json return_xBVlCqi=json({});
@@ -5177,7 +5177,7 @@ return return_xBVlCqi;}();
     
 
         json serialize_VkPresentTimeGOOGLE_pNext(const void* name){
-        printf("Serializing VkPresentTimeGOOGLE...\n");
+        debug_printf("Serializing VkPresentTimeGOOGLE...\n");
         json result;
         result=[&]() {
     json return_ZSAWojF=json({});
@@ -5195,7 +5195,7 @@ return return_ZSAWojF;}();
     
 
         json serialize_VkViewportWScalingNV_pNext(const void* name){
-        printf("Serializing VkViewportWScalingNV...\n");
+        debug_printf("Serializing VkViewportWScalingNV...\n");
         json result;
         result=[&]() {
     json return_HIhTVPG=json({});
@@ -5213,7 +5213,7 @@ return return_HIhTVPG;}();
     
 
         json serialize_VkPipelineViewportWScalingStateCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkPipelineViewportWScalingStateCreateInfoNV...\n");
+        debug_printf("Serializing VkPipelineViewportWScalingStateCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_aInWBxD=json({});
@@ -5231,7 +5231,7 @@ return return_aInWBxD;}();
     
 
         json serialize_VkViewportSwizzleNV_pNext(const void* name){
-        printf("Serializing VkViewportSwizzleNV...\n");
+        debug_printf("Serializing VkViewportSwizzleNV...\n");
         json result;
         result=[&]() {
     json return_NeNwwuA=json({});
@@ -5249,7 +5249,7 @@ return return_NeNwwuA;}();
     
 
         json serialize_VkPipelineViewportSwizzleStateCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkPipelineViewportSwizzleStateCreateInfoNV...\n");
+        debug_printf("Serializing VkPipelineViewportSwizzleStateCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_IyojVOG=json({});
@@ -5267,7 +5267,7 @@ return return_IyojVOG;}();
     
 
         json serialize_VkPhysicalDeviceDiscardRectanglePropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDiscardRectanglePropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceDiscardRectanglePropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_cuSWUaN=json({});
@@ -5285,7 +5285,7 @@ return return_cuSWUaN;}();
     
 
         json serialize_VkPipelineDiscardRectangleStateCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkPipelineDiscardRectangleStateCreateInfoEXT...\n");
+        debug_printf("Serializing VkPipelineDiscardRectangleStateCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_rNFTtCF=json({});
@@ -5303,7 +5303,7 @@ return return_rNFTtCF;}();
     
 
         json serialize_VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX...\n");
+        debug_printf("Serializing VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX...\n");
         json result;
         result=[&]() {
     json return_BSsQMtw=json({});
@@ -5321,7 +5321,7 @@ return return_BSsQMtw;}();
     
 
         json serialize_VkInputAttachmentAspectReference_pNext(const void* name){
-        printf("Serializing VkInputAttachmentAspectReference...\n");
+        debug_printf("Serializing VkInputAttachmentAspectReference...\n");
         json result;
         result=[&]() {
     json return_vQpQWaA=json({});
@@ -5339,7 +5339,7 @@ return return_vQpQWaA;}();
     
 
         json serialize_VkInputAttachmentAspectReferenceKHR_pNext(const void* name){
-        printf("Serializing VkInputAttachmentAspectReferenceKHR...\n");
+        debug_printf("Serializing VkInputAttachmentAspectReferenceKHR...\n");
         json result;
         result=[&]() {
     json return_MdzvpJx=json({});
@@ -5357,7 +5357,7 @@ return return_MdzvpJx;}();
     
 
         json serialize_VkRenderPassInputAttachmentAspectCreateInfo_pNext(const void* name){
-        printf("Serializing VkRenderPassInputAttachmentAspectCreateInfo...\n");
+        debug_printf("Serializing VkRenderPassInputAttachmentAspectCreateInfo...\n");
         json result;
         result=[&]() {
     json return_JZrYpiJ=json({});
@@ -5375,7 +5375,7 @@ return return_JZrYpiJ;}();
     
 
         json serialize_VkRenderPassInputAttachmentAspectCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkRenderPassInputAttachmentAspectCreateInfoKHR...\n");
+        debug_printf("Serializing VkRenderPassInputAttachmentAspectCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_zJTbOgt=json({});
@@ -5393,7 +5393,7 @@ return return_zJTbOgt;}();
     
 
         json serialize_VkPhysicalDeviceSurfaceInfo2KHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSurfaceInfo2KHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceSurfaceInfo2KHR...\n");
         json result;
         result=[&]() {
     json return_HZHBywL=json({});
@@ -5411,7 +5411,7 @@ return return_HZHBywL;}();
     
 
         json serialize_VkSurfaceCapabilities2KHR_pNext(const void* name){
-        printf("Serializing VkSurfaceCapabilities2KHR...\n");
+        debug_printf("Serializing VkSurfaceCapabilities2KHR...\n");
         json result;
         result=[&]() {
     json return_usCprvr=json({});
@@ -5429,7 +5429,7 @@ return return_usCprvr;}();
     
 
         json serialize_VkSurfaceFormat2KHR_pNext(const void* name){
-        printf("Serializing VkSurfaceFormat2KHR...\n");
+        debug_printf("Serializing VkSurfaceFormat2KHR...\n");
         json result;
         result=[&]() {
     json return_kJcTjaN=json({});
@@ -5447,7 +5447,7 @@ return return_kJcTjaN;}();
     
 
         json serialize_VkDisplayProperties2KHR_pNext(const void* name){
-        printf("Serializing VkDisplayProperties2KHR...\n");
+        debug_printf("Serializing VkDisplayProperties2KHR...\n");
         json result;
         result=[&]() {
     json return_RmJBtUi=json({});
@@ -5465,7 +5465,7 @@ return return_RmJBtUi;}();
     
 
         json serialize_VkDisplayPlaneProperties2KHR_pNext(const void* name){
-        printf("Serializing VkDisplayPlaneProperties2KHR...\n");
+        debug_printf("Serializing VkDisplayPlaneProperties2KHR...\n");
         json result;
         result=[&]() {
     json return_UKApwHC=json({});
@@ -5483,7 +5483,7 @@ return return_UKApwHC;}();
     
 
         json serialize_VkDisplayModeProperties2KHR_pNext(const void* name){
-        printf("Serializing VkDisplayModeProperties2KHR...\n");
+        debug_printf("Serializing VkDisplayModeProperties2KHR...\n");
         json result;
         result=[&]() {
     json return_CnkNYUo=json({});
@@ -5501,7 +5501,7 @@ return return_CnkNYUo;}();
     
 
         json serialize_VkDisplayPlaneInfo2KHR_pNext(const void* name){
-        printf("Serializing VkDisplayPlaneInfo2KHR...\n");
+        debug_printf("Serializing VkDisplayPlaneInfo2KHR...\n");
         json result;
         result=[&]() {
     json return_ThXjjBs=json({});
@@ -5519,7 +5519,7 @@ return return_ThXjjBs;}();
     
 
         json serialize_VkDisplayPlaneCapabilities2KHR_pNext(const void* name){
-        printf("Serializing VkDisplayPlaneCapabilities2KHR...\n");
+        debug_printf("Serializing VkDisplayPlaneCapabilities2KHR...\n");
         json result;
         result=[&]() {
     json return_ufrCJck=json({});
@@ -5537,7 +5537,7 @@ return return_ufrCJck;}();
     
 
         json serialize_VkSharedPresentSurfaceCapabilitiesKHR_pNext(const void* name){
-        printf("Serializing VkSharedPresentSurfaceCapabilitiesKHR...\n");
+        debug_printf("Serializing VkSharedPresentSurfaceCapabilitiesKHR...\n");
         json result;
         result=[&]() {
     json return_yvvUNEl=json({});
@@ -5555,7 +5555,7 @@ return return_yvvUNEl;}();
     
 
         json serialize_VkPhysicalDevice16BitStorageFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDevice16BitStorageFeatures...\n");
+        debug_printf("Serializing VkPhysicalDevice16BitStorageFeatures...\n");
         json result;
         result=[&]() {
     json return_sirChEt=json({});
@@ -5573,7 +5573,7 @@ return return_sirChEt;}();
     
 
         json serialize_VkPhysicalDevice16BitStorageFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDevice16BitStorageFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDevice16BitStorageFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_jTytLMp=json({});
@@ -5591,7 +5591,7 @@ return return_jTytLMp;}();
     
 
         json serialize_VkPhysicalDeviceSubgroupProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSubgroupProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceSubgroupProperties...\n");
         json result;
         result=[&]() {
     json return_aIuNPGP=json({});
@@ -5609,7 +5609,7 @@ return return_aIuNPGP;}();
     
 
         json serialize_VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures...\n");
         json result;
         result=[&]() {
     json return_feelhcm=json({});
@@ -5627,7 +5627,7 @@ return return_feelhcm;}();
     
 
         json serialize_VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_tXvekky=json({});
@@ -5645,7 +5645,7 @@ return return_tXvekky;}();
     
 
         json serialize_VkBufferMemoryRequirementsInfo2_pNext(const void* name){
-        printf("Serializing VkBufferMemoryRequirementsInfo2...\n");
+        debug_printf("Serializing VkBufferMemoryRequirementsInfo2...\n");
         json result;
         result=[&]() {
     json return_jPmsmJG=json({});
@@ -5663,7 +5663,7 @@ return return_jPmsmJG;}();
     
 
         json serialize_VkBufferMemoryRequirementsInfo2KHR_pNext(const void* name){
-        printf("Serializing VkBufferMemoryRequirementsInfo2KHR...\n");
+        debug_printf("Serializing VkBufferMemoryRequirementsInfo2KHR...\n");
         json result;
         result=[&]() {
     json return_KZgfiss=json({});
@@ -5681,7 +5681,7 @@ return return_KZgfiss;}();
     
 
         json serialize_VkDeviceBufferMemoryRequirements_pNext(const void* name){
-        printf("Serializing VkDeviceBufferMemoryRequirements...\n");
+        debug_printf("Serializing VkDeviceBufferMemoryRequirements...\n");
         json result;
         result=[&]() {
     json return_HQSGwHe=json({});
@@ -5699,7 +5699,7 @@ return return_HQSGwHe;}();
     
 
         json serialize_VkDeviceBufferMemoryRequirementsKHR_pNext(const void* name){
-        printf("Serializing VkDeviceBufferMemoryRequirementsKHR...\n");
+        debug_printf("Serializing VkDeviceBufferMemoryRequirementsKHR...\n");
         json result;
         result=[&]() {
     json return_EzFpzOi=json({});
@@ -5717,7 +5717,7 @@ return return_EzFpzOi;}();
     
 
         json serialize_VkImageMemoryRequirementsInfo2_pNext(const void* name){
-        printf("Serializing VkImageMemoryRequirementsInfo2...\n");
+        debug_printf("Serializing VkImageMemoryRequirementsInfo2...\n");
         json result;
         result=[&]() {
     json return_mWYWCWC=json({});
@@ -5735,7 +5735,7 @@ return return_mWYWCWC;}();
     
 
         json serialize_VkImageMemoryRequirementsInfo2KHR_pNext(const void* name){
-        printf("Serializing VkImageMemoryRequirementsInfo2KHR...\n");
+        debug_printf("Serializing VkImageMemoryRequirementsInfo2KHR...\n");
         json result;
         result=[&]() {
     json return_NNvPMjV=json({});
@@ -5753,7 +5753,7 @@ return return_NNvPMjV;}();
     
 
         json serialize_VkImageSparseMemoryRequirementsInfo2_pNext(const void* name){
-        printf("Serializing VkImageSparseMemoryRequirementsInfo2...\n");
+        debug_printf("Serializing VkImageSparseMemoryRequirementsInfo2...\n");
         json result;
         result=[&]() {
     json return_EwsuBUF=json({});
@@ -5771,7 +5771,7 @@ return return_EwsuBUF;}();
     
 
         json serialize_VkImageSparseMemoryRequirementsInfo2KHR_pNext(const void* name){
-        printf("Serializing VkImageSparseMemoryRequirementsInfo2KHR...\n");
+        debug_printf("Serializing VkImageSparseMemoryRequirementsInfo2KHR...\n");
         json result;
         result=[&]() {
     json return_GAsPXmz=json({});
@@ -5789,7 +5789,7 @@ return return_GAsPXmz;}();
     
 
         json serialize_VkDeviceImageMemoryRequirements_pNext(const void* name){
-        printf("Serializing VkDeviceImageMemoryRequirements...\n");
+        debug_printf("Serializing VkDeviceImageMemoryRequirements...\n");
         json result;
         result=[&]() {
     json return_nRMAkcz=json({});
@@ -5807,7 +5807,7 @@ return return_nRMAkcz;}();
     
 
         json serialize_VkDeviceImageMemoryRequirementsKHR_pNext(const void* name){
-        printf("Serializing VkDeviceImageMemoryRequirementsKHR...\n");
+        debug_printf("Serializing VkDeviceImageMemoryRequirementsKHR...\n");
         json result;
         result=[&]() {
     json return_OetsnUh=json({});
@@ -5825,7 +5825,7 @@ return return_OetsnUh;}();
     
 
         json serialize_VkMemoryRequirements2_pNext(const void* name){
-        printf("Serializing VkMemoryRequirements2...\n");
+        debug_printf("Serializing VkMemoryRequirements2...\n");
         json result;
         result=[&]() {
     json return_xniPzxa=json({});
@@ -5843,7 +5843,7 @@ return return_xniPzxa;}();
     
 
         json serialize_VkMemoryRequirements2KHR_pNext(const void* name){
-        printf("Serializing VkMemoryRequirements2KHR...\n");
+        debug_printf("Serializing VkMemoryRequirements2KHR...\n");
         json result;
         result=[&]() {
     json return_nBlmDhx=json({});
@@ -5861,7 +5861,7 @@ return return_nBlmDhx;}();
     
 
         json serialize_VkSparseImageMemoryRequirements2_pNext(const void* name){
-        printf("Serializing VkSparseImageMemoryRequirements2...\n");
+        debug_printf("Serializing VkSparseImageMemoryRequirements2...\n");
         json result;
         result=[&]() {
     json return_lehhUyw=json({});
@@ -5879,7 +5879,7 @@ return return_lehhUyw;}();
     
 
         json serialize_VkSparseImageMemoryRequirements2KHR_pNext(const void* name){
-        printf("Serializing VkSparseImageMemoryRequirements2KHR...\n");
+        debug_printf("Serializing VkSparseImageMemoryRequirements2KHR...\n");
         json result;
         result=[&]() {
     json return_DqUzupP=json({});
@@ -5897,7 +5897,7 @@ return return_DqUzupP;}();
     
 
         json serialize_VkPhysicalDevicePointClippingProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePointClippingProperties...\n");
+        debug_printf("Serializing VkPhysicalDevicePointClippingProperties...\n");
         json result;
         result=[&]() {
     json return_vGtNCDV=json({});
@@ -5915,7 +5915,7 @@ return return_vGtNCDV;}();
     
 
         json serialize_VkPhysicalDevicePointClippingPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePointClippingPropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDevicePointClippingPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_YVoaRQr=json({});
@@ -5933,7 +5933,7 @@ return return_YVoaRQr;}();
     
 
         json serialize_VkMemoryDedicatedRequirements_pNext(const void* name){
-        printf("Serializing VkMemoryDedicatedRequirements...\n");
+        debug_printf("Serializing VkMemoryDedicatedRequirements...\n");
         json result;
         result=[&]() {
     json return_xaCoWAh=json({});
@@ -5951,7 +5951,7 @@ return return_xaCoWAh;}();
     
 
         json serialize_VkMemoryDedicatedRequirementsKHR_pNext(const void* name){
-        printf("Serializing VkMemoryDedicatedRequirementsKHR...\n");
+        debug_printf("Serializing VkMemoryDedicatedRequirementsKHR...\n");
         json result;
         result=[&]() {
     json return_ZWGMTKn=json({});
@@ -5969,7 +5969,7 @@ return return_ZWGMTKn;}();
     
 
         json serialize_VkMemoryDedicatedAllocateInfo_pNext(const void* name){
-        printf("Serializing VkMemoryDedicatedAllocateInfo...\n");
+        debug_printf("Serializing VkMemoryDedicatedAllocateInfo...\n");
         json result;
         result=[&]() {
     json return_zsPARkI=json({});
@@ -5987,7 +5987,7 @@ return return_zsPARkI;}();
     
 
         json serialize_VkMemoryDedicatedAllocateInfoKHR_pNext(const void* name){
-        printf("Serializing VkMemoryDedicatedAllocateInfoKHR...\n");
+        debug_printf("Serializing VkMemoryDedicatedAllocateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_sMXvKIs=json({});
@@ -6005,7 +6005,7 @@ return return_sMXvKIs;}();
     
 
         json serialize_VkImageViewUsageCreateInfo_pNext(const void* name){
-        printf("Serializing VkImageViewUsageCreateInfo...\n");
+        debug_printf("Serializing VkImageViewUsageCreateInfo...\n");
         json result;
         result=[&]() {
     json return_pxKewRk=json({});
@@ -6023,7 +6023,7 @@ return return_pxKewRk;}();
     
 
         json serialize_VkImageViewSlicedCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkImageViewSlicedCreateInfoEXT...\n");
+        debug_printf("Serializing VkImageViewSlicedCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_ySeYrWH=json({});
@@ -6041,7 +6041,7 @@ return return_ySeYrWH;}();
     
 
         json serialize_VkImageViewUsageCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkImageViewUsageCreateInfoKHR...\n");
+        debug_printf("Serializing VkImageViewUsageCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_WYXmWfE=json({});
@@ -6059,7 +6059,7 @@ return return_WYXmWfE;}();
     
 
         json serialize_VkPipelineTessellationDomainOriginStateCreateInfo_pNext(const void* name){
-        printf("Serializing VkPipelineTessellationDomainOriginStateCreateInfo...\n");
+        debug_printf("Serializing VkPipelineTessellationDomainOriginStateCreateInfo...\n");
         json result;
         result=[&]() {
     json return_gQYDjHt=json({});
@@ -6077,7 +6077,7 @@ return return_gQYDjHt;}();
     
 
         json serialize_VkPipelineTessellationDomainOriginStateCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkPipelineTessellationDomainOriginStateCreateInfoKHR...\n");
+        debug_printf("Serializing VkPipelineTessellationDomainOriginStateCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_qOdeppa=json({});
@@ -6095,7 +6095,7 @@ return return_qOdeppa;}();
     
 
         json serialize_VkSamplerYcbcrConversionInfo_pNext(const void* name){
-        printf("Serializing VkSamplerYcbcrConversionInfo...\n");
+        debug_printf("Serializing VkSamplerYcbcrConversionInfo...\n");
         json result;
         result=[&]() {
     json return_RrLZfrU=json({});
@@ -6113,7 +6113,7 @@ return return_RrLZfrU;}();
     
 
         json serialize_VkSamplerYcbcrConversionInfoKHR_pNext(const void* name){
-        printf("Serializing VkSamplerYcbcrConversionInfoKHR...\n");
+        debug_printf("Serializing VkSamplerYcbcrConversionInfoKHR...\n");
         json result;
         result=[&]() {
     json return_DFCbbiA=json({});
@@ -6131,7 +6131,7 @@ return return_DFCbbiA;}();
     
 
         json serialize_VkSamplerYcbcrConversionCreateInfo_pNext(const void* name){
-        printf("Serializing VkSamplerYcbcrConversionCreateInfo...\n");
+        debug_printf("Serializing VkSamplerYcbcrConversionCreateInfo...\n");
         json result;
         result=[&]() {
     json return_EsBEiHC=json({});
@@ -6149,7 +6149,7 @@ return return_EsBEiHC;}();
     
 
         json serialize_VkSamplerYcbcrConversionCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkSamplerYcbcrConversionCreateInfoKHR...\n");
+        debug_printf("Serializing VkSamplerYcbcrConversionCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_RGXCewU=json({});
@@ -6167,7 +6167,7 @@ return return_RGXCewU;}();
     
 
         json serialize_VkBindImagePlaneMemoryInfo_pNext(const void* name){
-        printf("Serializing VkBindImagePlaneMemoryInfo...\n");
+        debug_printf("Serializing VkBindImagePlaneMemoryInfo...\n");
         json result;
         result=[&]() {
     json return_tNdlOAT=json({});
@@ -6185,7 +6185,7 @@ return return_tNdlOAT;}();
     
 
         json serialize_VkBindImagePlaneMemoryInfoKHR_pNext(const void* name){
-        printf("Serializing VkBindImagePlaneMemoryInfoKHR...\n");
+        debug_printf("Serializing VkBindImagePlaneMemoryInfoKHR...\n");
         json result;
         result=[&]() {
     json return_YFlUJgy=json({});
@@ -6203,7 +6203,7 @@ return return_YFlUJgy;}();
     
 
         json serialize_VkImagePlaneMemoryRequirementsInfo_pNext(const void* name){
-        printf("Serializing VkImagePlaneMemoryRequirementsInfo...\n");
+        debug_printf("Serializing VkImagePlaneMemoryRequirementsInfo...\n");
         json result;
         result=[&]() {
     json return_jmENzai=json({});
@@ -6221,7 +6221,7 @@ return return_jmENzai;}();
     
 
         json serialize_VkImagePlaneMemoryRequirementsInfoKHR_pNext(const void* name){
-        printf("Serializing VkImagePlaneMemoryRequirementsInfoKHR...\n");
+        debug_printf("Serializing VkImagePlaneMemoryRequirementsInfoKHR...\n");
         json result;
         result=[&]() {
     json return_uFfCfbo=json({});
@@ -6239,7 +6239,7 @@ return return_uFfCfbo;}();
     
 
         json serialize_VkPhysicalDeviceSamplerYcbcrConversionFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSamplerYcbcrConversionFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceSamplerYcbcrConversionFeatures...\n");
         json result;
         result=[&]() {
     json return_AhhjMYD=json({});
@@ -6257,7 +6257,7 @@ return return_AhhjMYD;}();
     
 
         json serialize_VkPhysicalDeviceSamplerYcbcrConversionFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSamplerYcbcrConversionFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceSamplerYcbcrConversionFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_oxCgwqM=json({});
@@ -6275,7 +6275,7 @@ return return_oxCgwqM;}();
     
 
         json serialize_VkSamplerYcbcrConversionImageFormatProperties_pNext(const void* name){
-        printf("Serializing VkSamplerYcbcrConversionImageFormatProperties...\n");
+        debug_printf("Serializing VkSamplerYcbcrConversionImageFormatProperties...\n");
         json result;
         result=[&]() {
     json return_wKHSzYz=json({});
@@ -6293,7 +6293,7 @@ return return_wKHSzYz;}();
     
 
         json serialize_VkSamplerYcbcrConversionImageFormatPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkSamplerYcbcrConversionImageFormatPropertiesKHR...\n");
+        debug_printf("Serializing VkSamplerYcbcrConversionImageFormatPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_vrGNciQ=json({});
@@ -6311,7 +6311,7 @@ return return_vrGNciQ;}();
     
 
         json serialize_VkTextureLODGatherFormatPropertiesAMD_pNext(const void* name){
-        printf("Serializing VkTextureLODGatherFormatPropertiesAMD...\n");
+        debug_printf("Serializing VkTextureLODGatherFormatPropertiesAMD...\n");
         json result;
         result=[&]() {
     json return_YTxsiYK=json({});
@@ -6329,7 +6329,7 @@ return return_YTxsiYK;}();
     
 
         json serialize_VkConditionalRenderingBeginInfoEXT_pNext(const void* name){
-        printf("Serializing VkConditionalRenderingBeginInfoEXT...\n");
+        debug_printf("Serializing VkConditionalRenderingBeginInfoEXT...\n");
         json result;
         result=[&]() {
     json return_hUbgQeP=json({});
@@ -6347,7 +6347,7 @@ return return_hUbgQeP;}();
     
 
         json serialize_VkProtectedSubmitInfo_pNext(const void* name){
-        printf("Serializing VkProtectedSubmitInfo...\n");
+        debug_printf("Serializing VkProtectedSubmitInfo...\n");
         json result;
         result=[&]() {
     json return_xdMrrrE=json({});
@@ -6365,7 +6365,7 @@ return return_xdMrrrE;}();
     
 
         json serialize_VkPhysicalDeviceProtectedMemoryFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceProtectedMemoryFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceProtectedMemoryFeatures...\n");
         json result;
         result=[&]() {
     json return_WASdBck=json({});
@@ -6383,7 +6383,7 @@ return return_WASdBck;}();
     
 
         json serialize_VkPhysicalDeviceProtectedMemoryProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceProtectedMemoryProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceProtectedMemoryProperties...\n");
         json result;
         result=[&]() {
     json return_hxWAmly=json({});
@@ -6401,7 +6401,7 @@ return return_hxWAmly;}();
     
 
         json serialize_VkDeviceQueueInfo2_pNext(const void* name){
-        printf("Serializing VkDeviceQueueInfo2...\n");
+        debug_printf("Serializing VkDeviceQueueInfo2...\n");
         json result;
         result=[&]() {
     json return_dxnpkxo=json({});
@@ -6419,7 +6419,7 @@ return return_dxnpkxo;}();
     
 
         json serialize_VkPipelineCoverageToColorStateCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkPipelineCoverageToColorStateCreateInfoNV...\n");
+        debug_printf("Serializing VkPipelineCoverageToColorStateCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_DZXHTTN=json({});
@@ -6437,7 +6437,7 @@ return return_DZXHTTN;}();
     
 
         json serialize_VkPhysicalDeviceSamplerFilterMinmaxProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSamplerFilterMinmaxProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceSamplerFilterMinmaxProperties...\n");
         json result;
         result=[&]() {
     json return_cdjTqfw=json({});
@@ -6455,7 +6455,7 @@ return return_cdjTqfw;}();
     
 
         json serialize_VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_QSwiFqc=json({});
@@ -6473,7 +6473,7 @@ return return_QSwiFqc;}();
     
 
         json serialize_VkSampleLocationEXT_pNext(const void* name){
-        printf("Serializing VkSampleLocationEXT...\n");
+        debug_printf("Serializing VkSampleLocationEXT...\n");
         json result;
         result=[&]() {
     json return_RPSamXG=json({});
@@ -6491,7 +6491,7 @@ return return_RPSamXG;}();
     
 
         json serialize_VkSampleLocationsInfoEXT_pNext(const void* name){
-        printf("Serializing VkSampleLocationsInfoEXT...\n");
+        debug_printf("Serializing VkSampleLocationsInfoEXT...\n");
         json result;
         result=[&]() {
     json return_QPtfEug=json({});
@@ -6509,7 +6509,7 @@ return return_QPtfEug;}();
     
 
         json serialize_VkAttachmentSampleLocationsEXT_pNext(const void* name){
-        printf("Serializing VkAttachmentSampleLocationsEXT...\n");
+        debug_printf("Serializing VkAttachmentSampleLocationsEXT...\n");
         json result;
         result=[&]() {
     json return_SpyqLtn=json({});
@@ -6527,7 +6527,7 @@ return return_SpyqLtn;}();
     
 
         json serialize_VkSubpassSampleLocationsEXT_pNext(const void* name){
-        printf("Serializing VkSubpassSampleLocationsEXT...\n");
+        debug_printf("Serializing VkSubpassSampleLocationsEXT...\n");
         json result;
         result=[&]() {
     json return_uaJjvyj=json({});
@@ -6545,7 +6545,7 @@ return return_uaJjvyj;}();
     
 
         json serialize_VkRenderPassSampleLocationsBeginInfoEXT_pNext(const void* name){
-        printf("Serializing VkRenderPassSampleLocationsBeginInfoEXT...\n");
+        debug_printf("Serializing VkRenderPassSampleLocationsBeginInfoEXT...\n");
         json result;
         result=[&]() {
     json return_nWCrZAL=json({});
@@ -6563,7 +6563,7 @@ return return_nWCrZAL;}();
     
 
         json serialize_VkPipelineSampleLocationsStateCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkPipelineSampleLocationsStateCreateInfoEXT...\n");
+        debug_printf("Serializing VkPipelineSampleLocationsStateCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_XLbvRxG=json({});
@@ -6581,7 +6581,7 @@ return return_XLbvRxG;}();
     
 
         json serialize_VkPhysicalDeviceSampleLocationsPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSampleLocationsPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceSampleLocationsPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_gUcRODd=json({});
@@ -6599,7 +6599,7 @@ return return_gUcRODd;}();
     
 
         json serialize_VkMultisamplePropertiesEXT_pNext(const void* name){
-        printf("Serializing VkMultisamplePropertiesEXT...\n");
+        debug_printf("Serializing VkMultisamplePropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_yLCRVVL=json({});
@@ -6617,7 +6617,7 @@ return return_yLCRVVL;}();
     
 
         json serialize_VkSamplerReductionModeCreateInfo_pNext(const void* name){
-        printf("Serializing VkSamplerReductionModeCreateInfo...\n");
+        debug_printf("Serializing VkSamplerReductionModeCreateInfo...\n");
         json result;
         result=[&]() {
     json return_WzdmtUP=json({});
@@ -6635,7 +6635,7 @@ return return_WzdmtUP;}();
     
 
         json serialize_VkSamplerReductionModeCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkSamplerReductionModeCreateInfoEXT...\n");
+        debug_printf("Serializing VkSamplerReductionModeCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_cfhTLVV=json({});
@@ -6653,7 +6653,7 @@ return return_cfhTLVV;}();
     
 
         json serialize_VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_tnMZTLC=json({});
@@ -6671,7 +6671,7 @@ return return_tnMZTLC;}();
     
 
         json serialize_VkPhysicalDeviceMultiDrawFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMultiDrawFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceMultiDrawFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_IxlRVNF=json({});
@@ -6689,7 +6689,7 @@ return return_IxlRVNF;}();
     
 
         json serialize_VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_sAYiGnp=json({});
@@ -6707,7 +6707,7 @@ return return_sAYiGnp;}();
     
 
         json serialize_VkPipelineColorBlendAdvancedStateCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkPipelineColorBlendAdvancedStateCreateInfoEXT...\n");
+        debug_printf("Serializing VkPipelineColorBlendAdvancedStateCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_dnYmVww=json({});
@@ -6725,7 +6725,7 @@ return return_dnYmVww;}();
     
 
         json serialize_VkPhysicalDeviceInlineUniformBlockFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceInlineUniformBlockFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceInlineUniformBlockFeatures...\n");
         json result;
         result=[&]() {
     json return_XoXtwUC=json({});
@@ -6743,7 +6743,7 @@ return return_XoXtwUC;}();
     
 
         json serialize_VkPhysicalDeviceInlineUniformBlockFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceInlineUniformBlockFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceInlineUniformBlockFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_INXfYyl=json({});
@@ -6761,7 +6761,7 @@ return return_INXfYyl;}();
     
 
         json serialize_VkPhysicalDeviceInlineUniformBlockProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceInlineUniformBlockProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceInlineUniformBlockProperties...\n");
         json result;
         result=[&]() {
     json return_MVWVrSX=json({});
@@ -6779,7 +6779,7 @@ return return_MVWVrSX;}();
     
 
         json serialize_VkPhysicalDeviceInlineUniformBlockPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceInlineUniformBlockPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceInlineUniformBlockPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_tiFiuLH=json({});
@@ -6797,7 +6797,7 @@ return return_tiFiuLH;}();
     
 
         json serialize_VkWriteDescriptorSetInlineUniformBlock_pNext(const void* name){
-        printf("Serializing VkWriteDescriptorSetInlineUniformBlock...\n");
+        debug_printf("Serializing VkWriteDescriptorSetInlineUniformBlock...\n");
         json result;
         result=[&]() {
     json return_UNFJLPI=json({});
@@ -6815,7 +6815,7 @@ return return_UNFJLPI;}();
     
 
         json serialize_VkWriteDescriptorSetInlineUniformBlockEXT_pNext(const void* name){
-        printf("Serializing VkWriteDescriptorSetInlineUniformBlockEXT...\n");
+        debug_printf("Serializing VkWriteDescriptorSetInlineUniformBlockEXT...\n");
         json result;
         result=[&]() {
     json return_gKulIcz=json({});
@@ -6833,7 +6833,7 @@ return return_gKulIcz;}();
     
 
         json serialize_VkDescriptorPoolInlineUniformBlockCreateInfo_pNext(const void* name){
-        printf("Serializing VkDescriptorPoolInlineUniformBlockCreateInfo...\n");
+        debug_printf("Serializing VkDescriptorPoolInlineUniformBlockCreateInfo...\n");
         json result;
         result=[&]() {
     json return_UpBfxiJ=json({});
@@ -6851,7 +6851,7 @@ return return_UpBfxiJ;}();
     
 
         json serialize_VkDescriptorPoolInlineUniformBlockCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkDescriptorPoolInlineUniformBlockCreateInfoEXT...\n");
+        debug_printf("Serializing VkDescriptorPoolInlineUniformBlockCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_eeGTRMm=json({});
@@ -6869,7 +6869,7 @@ return return_eeGTRMm;}();
     
 
         json serialize_VkPipelineCoverageModulationStateCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkPipelineCoverageModulationStateCreateInfoNV...\n");
+        debug_printf("Serializing VkPipelineCoverageModulationStateCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_AquHTbw=json({});
@@ -6887,7 +6887,7 @@ return return_AquHTbw;}();
     
 
         json serialize_VkImageFormatListCreateInfo_pNext(const void* name){
-        printf("Serializing VkImageFormatListCreateInfo...\n");
+        debug_printf("Serializing VkImageFormatListCreateInfo...\n");
         json result;
         result=[&]() {
     json return_KvEPFMi=json({});
@@ -6905,7 +6905,7 @@ return return_KvEPFMi;}();
     
 
         json serialize_VkImageFormatListCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkImageFormatListCreateInfoKHR...\n");
+        debug_printf("Serializing VkImageFormatListCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_DWUFeHy=json({});
@@ -6923,7 +6923,7 @@ return return_DWUFeHy;}();
     
 
         json serialize_VkValidationCacheCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkValidationCacheCreateInfoEXT...\n");
+        debug_printf("Serializing VkValidationCacheCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_tyEQfDX=json({});
@@ -6941,7 +6941,7 @@ return return_tyEQfDX;}();
     
 
         json serialize_VkShaderModuleValidationCacheCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkShaderModuleValidationCacheCreateInfoEXT...\n");
+        debug_printf("Serializing VkShaderModuleValidationCacheCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_lOelTZD=json({});
@@ -6959,7 +6959,7 @@ return return_lOelTZD;}();
     
 
         json serialize_VkPhysicalDeviceMaintenance3Properties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMaintenance3Properties...\n");
+        debug_printf("Serializing VkPhysicalDeviceMaintenance3Properties...\n");
         json result;
         result=[&]() {
     json return_qagQWfA=json({});
@@ -6977,7 +6977,7 @@ return return_qagQWfA;}();
     
 
         json serialize_VkPhysicalDeviceMaintenance3PropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMaintenance3PropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceMaintenance3PropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_TdrJTHI=json({});
@@ -6995,7 +6995,7 @@ return return_TdrJTHI;}();
     
 
         json serialize_VkPhysicalDeviceMaintenance4Features_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMaintenance4Features...\n");
+        debug_printf("Serializing VkPhysicalDeviceMaintenance4Features...\n");
         json result;
         result=[&]() {
     json return_TIgyxji=json({});
@@ -7013,7 +7013,7 @@ return return_TIgyxji;}();
     
 
         json serialize_VkPhysicalDeviceMaintenance4FeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMaintenance4FeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceMaintenance4FeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_JqROptS=json({});
@@ -7031,7 +7031,7 @@ return return_JqROptS;}();
     
 
         json serialize_VkPhysicalDeviceMaintenance4Properties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMaintenance4Properties...\n");
+        debug_printf("Serializing VkPhysicalDeviceMaintenance4Properties...\n");
         json result;
         result=[&]() {
     json return_rEmiXJe=json({});
@@ -7049,7 +7049,7 @@ return return_rEmiXJe;}();
     
 
         json serialize_VkPhysicalDeviceMaintenance4PropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMaintenance4PropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceMaintenance4PropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_waIxpnZ=json({});
@@ -7067,7 +7067,7 @@ return return_waIxpnZ;}();
     
 
         json serialize_VkPhysicalDeviceMaintenance5FeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMaintenance5FeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceMaintenance5FeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_yHOYGvn=json({});
@@ -7085,7 +7085,7 @@ return return_yHOYGvn;}();
     
 
         json serialize_VkPhysicalDeviceMaintenance5PropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMaintenance5PropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceMaintenance5PropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_lwQHjyQ=json({});
@@ -7103,7 +7103,7 @@ return return_lwQHjyQ;}();
     
 
         json serialize_VkRenderingAreaInfoKHR_pNext(const void* name){
-        printf("Serializing VkRenderingAreaInfoKHR...\n");
+        debug_printf("Serializing VkRenderingAreaInfoKHR...\n");
         json result;
         result=[&]() {
     json return_fEcBDyJ=json({});
@@ -7121,7 +7121,7 @@ return return_fEcBDyJ;}();
     
 
         json serialize_VkDescriptorSetLayoutSupport_pNext(const void* name){
-        printf("Serializing VkDescriptorSetLayoutSupport...\n");
+        debug_printf("Serializing VkDescriptorSetLayoutSupport...\n");
         json result;
         result=[&]() {
     json return_ckoNRVo=json({});
@@ -7139,7 +7139,7 @@ return return_ckoNRVo;}();
     
 
         json serialize_VkDescriptorSetLayoutSupportKHR_pNext(const void* name){
-        printf("Serializing VkDescriptorSetLayoutSupportKHR...\n");
+        debug_printf("Serializing VkDescriptorSetLayoutSupportKHR...\n");
         json result;
         result=[&]() {
     json return_PYZYdKP=json({});
@@ -7157,7 +7157,7 @@ return return_PYZYdKP;}();
     
 
         json serialize_VkPhysicalDeviceShaderDrawParametersFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderDrawParametersFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderDrawParametersFeatures...\n");
         json result;
         result=[&]() {
     json return_wKXJXcb=json({});
@@ -7175,7 +7175,7 @@ return return_wKXJXcb;}();
     
 
         json serialize_VkPhysicalDeviceShaderDrawParameterFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderDrawParameterFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderDrawParameterFeatures...\n");
         json result;
         result=[&]() {
     json return_GRhzGhu=json({});
@@ -7193,7 +7193,7 @@ return return_GRhzGhu;}();
     
 
         json serialize_VkPhysicalDeviceShaderFloat16Int8Features_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderFloat16Int8Features...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderFloat16Int8Features...\n");
         json result;
         result=[&]() {
     json return_SAwrGIS=json({});
@@ -7211,7 +7211,7 @@ return return_SAwrGIS;}();
     
 
         json serialize_VkPhysicalDeviceShaderFloat16Int8FeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderFloat16Int8FeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderFloat16Int8FeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_DJNKLda=json({});
@@ -7229,7 +7229,7 @@ return return_DJNKLda;}();
     
 
         json serialize_VkPhysicalDeviceFloat16Int8FeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFloat16Int8FeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceFloat16Int8FeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_qyJzvGH=json({});
@@ -7247,7 +7247,7 @@ return return_qyJzvGH;}();
     
 
         json serialize_VkPhysicalDeviceFloatControlsProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFloatControlsProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceFloatControlsProperties...\n");
         json result;
         result=[&]() {
     json return_wUsHqZW=json({});
@@ -7265,7 +7265,7 @@ return return_wUsHqZW;}();
     
 
         json serialize_VkPhysicalDeviceFloatControlsPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFloatControlsPropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceFloatControlsPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_ovWnqfj=json({});
@@ -7283,7 +7283,7 @@ return return_ovWnqfj;}();
     
 
         json serialize_VkPhysicalDeviceHostQueryResetFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceHostQueryResetFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceHostQueryResetFeatures...\n");
         json result;
         result=[&]() {
     json return_eolahtJ=json({});
@@ -7301,7 +7301,7 @@ return return_eolahtJ;}();
     
 
         json serialize_VkPhysicalDeviceHostQueryResetFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceHostQueryResetFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceHostQueryResetFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_ffgQgUh=json({});
@@ -7319,7 +7319,7 @@ return return_ffgQgUh;}();
     
 
         json serialize_VkShaderResourceUsageAMD_pNext(const void* name){
-        printf("Serializing VkShaderResourceUsageAMD...\n");
+        debug_printf("Serializing VkShaderResourceUsageAMD...\n");
         json result;
         result=[&]() {
     json return_reoNDmu=json({});
@@ -7337,7 +7337,7 @@ return return_reoNDmu;}();
     
 
         json serialize_VkShaderStatisticsInfoAMD_pNext(const void* name){
-        printf("Serializing VkShaderStatisticsInfoAMD...\n");
+        debug_printf("Serializing VkShaderStatisticsInfoAMD...\n");
         json result;
         result=[&]() {
     json return_CcSDNhF=json({});
@@ -7355,7 +7355,7 @@ return return_CcSDNhF;}();
     
 
         json serialize_VkDeviceQueueGlobalPriorityCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkDeviceQueueGlobalPriorityCreateInfoKHR...\n");
+        debug_printf("Serializing VkDeviceQueueGlobalPriorityCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_eDRGWNi=json({});
@@ -7373,7 +7373,7 @@ return return_eDRGWNi;}();
     
 
         json serialize_VkDeviceQueueGlobalPriorityCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkDeviceQueueGlobalPriorityCreateInfoEXT...\n");
+        debug_printf("Serializing VkDeviceQueueGlobalPriorityCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_FMYaRRZ=json({});
@@ -7391,7 +7391,7 @@ return return_FMYaRRZ;}();
     
 
         json serialize_VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_YfutsQF=json({});
@@ -7409,7 +7409,7 @@ return return_YfutsQF;}();
     
 
         json serialize_VkPhysicalDeviceGlobalPriorityQueryFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceGlobalPriorityQueryFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceGlobalPriorityQueryFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_GMSmgdo=json({});
@@ -7427,7 +7427,7 @@ return return_GMSmgdo;}();
     
 
         json serialize_VkQueueFamilyGlobalPriorityPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkQueueFamilyGlobalPriorityPropertiesKHR...\n");
+        debug_printf("Serializing VkQueueFamilyGlobalPriorityPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_WNSPhrV=json({});
@@ -7445,7 +7445,7 @@ return return_WNSPhrV;}();
     
 
         json serialize_VkQueueFamilyGlobalPriorityPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkQueueFamilyGlobalPriorityPropertiesEXT...\n");
+        debug_printf("Serializing VkQueueFamilyGlobalPriorityPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_UzmdVca=json({});
@@ -7463,7 +7463,7 @@ return return_UzmdVca;}();
     
 
         json serialize_VkDebugUtilsObjectNameInfoEXT_pNext(const void* name){
-        printf("Serializing VkDebugUtilsObjectNameInfoEXT...\n");
+        debug_printf("Serializing VkDebugUtilsObjectNameInfoEXT...\n");
         json result;
         result=[&]() {
     json return_yUzdxON=json({});
@@ -7481,7 +7481,7 @@ return return_yUzdxON;}();
     
 
         json serialize_VkDebugUtilsObjectTagInfoEXT_pNext(const void* name){
-        printf("Serializing VkDebugUtilsObjectTagInfoEXT...\n");
+        debug_printf("Serializing VkDebugUtilsObjectTagInfoEXT...\n");
         json result;
         result=[&]() {
     json return_IKByNUr=json({});
@@ -7499,7 +7499,7 @@ return return_IKByNUr;}();
     
 
         json serialize_VkDebugUtilsLabelEXT_pNext(const void* name){
-        printf("Serializing VkDebugUtilsLabelEXT...\n");
+        debug_printf("Serializing VkDebugUtilsLabelEXT...\n");
         json result;
         result=[&]() {
     json return_STkMEAZ=json({});
@@ -7517,7 +7517,7 @@ return return_STkMEAZ;}();
     
 
         json serialize_VkDebugUtilsMessengerCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkDebugUtilsMessengerCreateInfoEXT...\n");
+        debug_printf("Serializing VkDebugUtilsMessengerCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_pbirZHK=json({});
@@ -7535,7 +7535,7 @@ return return_pbirZHK;}();
     
 
         json serialize_VkDebugUtilsMessengerCallbackDataEXT_pNext(const void* name){
-        printf("Serializing VkDebugUtilsMessengerCallbackDataEXT...\n");
+        debug_printf("Serializing VkDebugUtilsMessengerCallbackDataEXT...\n");
         json result;
         result=[&]() {
     json return_AVPJvTW=json({});
@@ -7553,7 +7553,7 @@ return return_AVPJvTW;}();
     
 
         json serialize_VkPhysicalDeviceDeviceMemoryReportFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDeviceMemoryReportFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceDeviceMemoryReportFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_pNxNfvq=json({});
@@ -7571,7 +7571,7 @@ return return_pNxNfvq;}();
     
 
         json serialize_VkDeviceDeviceMemoryReportCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkDeviceDeviceMemoryReportCreateInfoEXT...\n");
+        debug_printf("Serializing VkDeviceDeviceMemoryReportCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_osbNHLF=json({});
@@ -7589,7 +7589,7 @@ return return_osbNHLF;}();
     
 
         json serialize_VkDeviceMemoryReportCallbackDataEXT_pNext(const void* name){
-        printf("Serializing VkDeviceMemoryReportCallbackDataEXT...\n");
+        debug_printf("Serializing VkDeviceMemoryReportCallbackDataEXT...\n");
         json result;
         result=[&]() {
     json return_rVKFZlL=json({});
@@ -7607,7 +7607,7 @@ return return_rVKFZlL;}();
     
 
         json serialize_VkImportMemoryHostPointerInfoEXT_pNext(const void* name){
-        printf("Serializing VkImportMemoryHostPointerInfoEXT...\n");
+        debug_printf("Serializing VkImportMemoryHostPointerInfoEXT...\n");
         json result;
         result=[&]() {
     json return_RXPLVBP=json({});
@@ -7625,7 +7625,7 @@ return return_RXPLVBP;}();
     
 
         json serialize_VkMemoryHostPointerPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkMemoryHostPointerPropertiesEXT...\n");
+        debug_printf("Serializing VkMemoryHostPointerPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_eOWFbgh=json({});
@@ -7643,7 +7643,7 @@ return return_eOWFbgh;}();
     
 
         json serialize_VkPhysicalDeviceExternalMemoryHostPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceExternalMemoryHostPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceExternalMemoryHostPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_qIpTJxa=json({});
@@ -7661,7 +7661,7 @@ return return_qIpTJxa;}();
     
 
         json serialize_VkPhysicalDeviceConservativeRasterizationPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceConservativeRasterizationPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceConservativeRasterizationPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_cwpsiKP=json({});
@@ -7679,7 +7679,7 @@ return return_cwpsiKP;}();
     
 
         json serialize_VkCalibratedTimestampInfoEXT_pNext(const void* name){
-        printf("Serializing VkCalibratedTimestampInfoEXT...\n");
+        debug_printf("Serializing VkCalibratedTimestampInfoEXT...\n");
         json result;
         result=[&]() {
     json return_dAklHPK=json({});
@@ -7697,7 +7697,7 @@ return return_dAklHPK;}();
     
 
         json serialize_VkPhysicalDeviceShaderCorePropertiesAMD_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderCorePropertiesAMD...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderCorePropertiesAMD...\n");
         json result;
         result=[&]() {
     json return_GPXQKUS=json({});
@@ -7715,7 +7715,7 @@ return return_GPXQKUS;}();
     
 
         json serialize_VkPhysicalDeviceShaderCoreProperties2AMD_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderCoreProperties2AMD...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderCoreProperties2AMD...\n");
         json result;
         result=[&]() {
     json return_tRdiAvS=json({});
@@ -7733,7 +7733,7 @@ return return_tRdiAvS;}();
     
 
         json serialize_VkPipelineRasterizationConservativeStateCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkPipelineRasterizationConservativeStateCreateInfoEXT...\n");
+        debug_printf("Serializing VkPipelineRasterizationConservativeStateCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_pLjByxV=json({});
@@ -7751,7 +7751,7 @@ return return_pLjByxV;}();
     
 
         json serialize_VkPhysicalDeviceDescriptorIndexingFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDescriptorIndexingFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceDescriptorIndexingFeatures...\n");
         json result;
         result=[&]() {
     json return_HiCrlwz=json({});
@@ -7769,7 +7769,7 @@ return return_HiCrlwz;}();
     
 
         json serialize_VkPhysicalDeviceDescriptorIndexingFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDescriptorIndexingFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceDescriptorIndexingFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_xyUECEp=json({});
@@ -7787,7 +7787,7 @@ return return_xyUECEp;}();
     
 
         json serialize_VkPhysicalDeviceDescriptorIndexingProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDescriptorIndexingProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceDescriptorIndexingProperties...\n");
         json result;
         result=[&]() {
     json return_nnpbegW=json({});
@@ -7805,7 +7805,7 @@ return return_nnpbegW;}();
     
 
         json serialize_VkPhysicalDeviceDescriptorIndexingPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDescriptorIndexingPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceDescriptorIndexingPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_zhHJpst=json({});
@@ -7823,7 +7823,7 @@ return return_zhHJpst;}();
     
 
         json serialize_VkDescriptorSetLayoutBindingFlagsCreateInfo_pNext(const void* name){
-        printf("Serializing VkDescriptorSetLayoutBindingFlagsCreateInfo...\n");
+        debug_printf("Serializing VkDescriptorSetLayoutBindingFlagsCreateInfo...\n");
         json result;
         result=[&]() {
     json return_hhXyrWh=json({});
@@ -7841,7 +7841,7 @@ return return_hhXyrWh;}();
     
 
         json serialize_VkDescriptorSetLayoutBindingFlagsCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkDescriptorSetLayoutBindingFlagsCreateInfoEXT...\n");
+        debug_printf("Serializing VkDescriptorSetLayoutBindingFlagsCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_GujfzRH=json({});
@@ -7859,7 +7859,7 @@ return return_GujfzRH;}();
     
 
         json serialize_VkDescriptorSetVariableDescriptorCountAllocateInfo_pNext(const void* name){
-        printf("Serializing VkDescriptorSetVariableDescriptorCountAllocateInfo...\n");
+        debug_printf("Serializing VkDescriptorSetVariableDescriptorCountAllocateInfo...\n");
         json result;
         result=[&]() {
     json return_dxsyJiU=json({});
@@ -7877,7 +7877,7 @@ return return_dxsyJiU;}();
     
 
         json serialize_VkDescriptorSetVariableDescriptorCountAllocateInfoEXT_pNext(const void* name){
-        printf("Serializing VkDescriptorSetVariableDescriptorCountAllocateInfoEXT...\n");
+        debug_printf("Serializing VkDescriptorSetVariableDescriptorCountAllocateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_fXTCpsp=json({});
@@ -7895,7 +7895,7 @@ return return_fXTCpsp;}();
     
 
         json serialize_VkDescriptorSetVariableDescriptorCountLayoutSupport_pNext(const void* name){
-        printf("Serializing VkDescriptorSetVariableDescriptorCountLayoutSupport...\n");
+        debug_printf("Serializing VkDescriptorSetVariableDescriptorCountLayoutSupport...\n");
         json result;
         result=[&]() {
     json return_CuwRVPq=json({});
@@ -7913,7 +7913,7 @@ return return_CuwRVPq;}();
     
 
         json serialize_VkDescriptorSetVariableDescriptorCountLayoutSupportEXT_pNext(const void* name){
-        printf("Serializing VkDescriptorSetVariableDescriptorCountLayoutSupportEXT...\n");
+        debug_printf("Serializing VkDescriptorSetVariableDescriptorCountLayoutSupportEXT...\n");
         json result;
         result=[&]() {
     json return_jEMpaZy=json({});
@@ -7931,7 +7931,7 @@ return return_jEMpaZy;}();
     
 
         json serialize_VkAttachmentDescription2_pNext(const void* name){
-        printf("Serializing VkAttachmentDescription2...\n");
+        debug_printf("Serializing VkAttachmentDescription2...\n");
         json result;
         result=[&]() {
     json return_XLlrnDy=json({});
@@ -7949,7 +7949,7 @@ return return_XLlrnDy;}();
     
 
         json serialize_VkAttachmentDescription2KHR_pNext(const void* name){
-        printf("Serializing VkAttachmentDescription2KHR...\n");
+        debug_printf("Serializing VkAttachmentDescription2KHR...\n");
         json result;
         result=[&]() {
     json return_YVQyRBU=json({});
@@ -7967,7 +7967,7 @@ return return_YVQyRBU;}();
     
 
         json serialize_VkAttachmentReference2_pNext(const void* name){
-        printf("Serializing VkAttachmentReference2...\n");
+        debug_printf("Serializing VkAttachmentReference2...\n");
         json result;
         result=[&]() {
     json return_ebvaije=json({});
@@ -7985,7 +7985,7 @@ return return_ebvaije;}();
     
 
         json serialize_VkAttachmentReference2KHR_pNext(const void* name){
-        printf("Serializing VkAttachmentReference2KHR...\n");
+        debug_printf("Serializing VkAttachmentReference2KHR...\n");
         json result;
         result=[&]() {
     json return_bosukQI=json({});
@@ -8003,7 +8003,7 @@ return return_bosukQI;}();
     
 
         json serialize_VkSubpassDescription2_pNext(const void* name){
-        printf("Serializing VkSubpassDescription2...\n");
+        debug_printf("Serializing VkSubpassDescription2...\n");
         json result;
         result=[&]() {
     json return_BxgQWBZ=json({});
@@ -8021,7 +8021,7 @@ return return_BxgQWBZ;}();
     
 
         json serialize_VkSubpassDescription2KHR_pNext(const void* name){
-        printf("Serializing VkSubpassDescription2KHR...\n");
+        debug_printf("Serializing VkSubpassDescription2KHR...\n");
         json result;
         result=[&]() {
     json return_IBYPKgo=json({});
@@ -8039,7 +8039,7 @@ return return_IBYPKgo;}();
     
 
         json serialize_VkSubpassDependency2_pNext(const void* name){
-        printf("Serializing VkSubpassDependency2...\n");
+        debug_printf("Serializing VkSubpassDependency2...\n");
         json result;
         result=[&]() {
     json return_PtughuF=json({});
@@ -8057,7 +8057,7 @@ return return_PtughuF;}();
     
 
         json serialize_VkSubpassDependency2KHR_pNext(const void* name){
-        printf("Serializing VkSubpassDependency2KHR...\n");
+        debug_printf("Serializing VkSubpassDependency2KHR...\n");
         json result;
         result=[&]() {
     json return_EYkvuVt=json({});
@@ -8075,7 +8075,7 @@ return return_EYkvuVt;}();
     
 
         json serialize_VkRenderPassCreateInfo2_pNext(const void* name){
-        printf("Serializing VkRenderPassCreateInfo2...\n");
+        debug_printf("Serializing VkRenderPassCreateInfo2...\n");
         json result;
         result=[&]() {
     json return_lQPWuma=json({});
@@ -8093,7 +8093,7 @@ return return_lQPWuma;}();
     
 
         json serialize_VkRenderPassCreateInfo2KHR_pNext(const void* name){
-        printf("Serializing VkRenderPassCreateInfo2KHR...\n");
+        debug_printf("Serializing VkRenderPassCreateInfo2KHR...\n");
         json result;
         result=[&]() {
     json return_GXjDEqB=json({});
@@ -8111,7 +8111,7 @@ return return_GXjDEqB;}();
     
 
         json serialize_VkSubpassBeginInfo_pNext(const void* name){
-        printf("Serializing VkSubpassBeginInfo...\n");
+        debug_printf("Serializing VkSubpassBeginInfo...\n");
         json result;
         result=[&]() {
     json return_JBDreAx=json({});
@@ -8129,7 +8129,7 @@ return return_JBDreAx;}();
     
 
         json serialize_VkSubpassBeginInfoKHR_pNext(const void* name){
-        printf("Serializing VkSubpassBeginInfoKHR...\n");
+        debug_printf("Serializing VkSubpassBeginInfoKHR...\n");
         json result;
         result=[&]() {
     json return_puyGluI=json({});
@@ -8147,7 +8147,7 @@ return return_puyGluI;}();
     
 
         json serialize_VkSubpassEndInfo_pNext(const void* name){
-        printf("Serializing VkSubpassEndInfo...\n");
+        debug_printf("Serializing VkSubpassEndInfo...\n");
         json result;
         result=[&]() {
     json return_UCRiJeb=json({});
@@ -8165,7 +8165,7 @@ return return_UCRiJeb;}();
     
 
         json serialize_VkSubpassEndInfoKHR_pNext(const void* name){
-        printf("Serializing VkSubpassEndInfoKHR...\n");
+        debug_printf("Serializing VkSubpassEndInfoKHR...\n");
         json result;
         result=[&]() {
     json return_bpBimwu=json({});
@@ -8183,7 +8183,7 @@ return return_bpBimwu;}();
     
 
         json serialize_VkPhysicalDeviceTimelineSemaphoreFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceTimelineSemaphoreFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceTimelineSemaphoreFeatures...\n");
         json result;
         result=[&]() {
     json return_EwwzHwT=json({});
@@ -8201,7 +8201,7 @@ return return_EwwzHwT;}();
     
 
         json serialize_VkPhysicalDeviceTimelineSemaphoreFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceTimelineSemaphoreFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceTimelineSemaphoreFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_PtcsqfZ=json({});
@@ -8219,7 +8219,7 @@ return return_PtcsqfZ;}();
     
 
         json serialize_VkPhysicalDeviceTimelineSemaphoreProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceTimelineSemaphoreProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceTimelineSemaphoreProperties...\n");
         json result;
         result=[&]() {
     json return_QInaqkG=json({});
@@ -8237,7 +8237,7 @@ return return_QInaqkG;}();
     
 
         json serialize_VkPhysicalDeviceTimelineSemaphorePropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceTimelineSemaphorePropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceTimelineSemaphorePropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_BwEEjxV=json({});
@@ -8255,7 +8255,7 @@ return return_BwEEjxV;}();
     
 
         json serialize_VkSemaphoreTypeCreateInfo_pNext(const void* name){
-        printf("Serializing VkSemaphoreTypeCreateInfo...\n");
+        debug_printf("Serializing VkSemaphoreTypeCreateInfo...\n");
         json result;
         result=[&]() {
     json return_MyPGFeo=json({});
@@ -8273,7 +8273,7 @@ return return_MyPGFeo;}();
     
 
         json serialize_VkSemaphoreTypeCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkSemaphoreTypeCreateInfoKHR...\n");
+        debug_printf("Serializing VkSemaphoreTypeCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_bqrfczi=json({});
@@ -8291,7 +8291,7 @@ return return_bqrfczi;}();
     
 
         json serialize_VkTimelineSemaphoreSubmitInfo_pNext(const void* name){
-        printf("Serializing VkTimelineSemaphoreSubmitInfo...\n");
+        debug_printf("Serializing VkTimelineSemaphoreSubmitInfo...\n");
         json result;
         result=[&]() {
     json return_mKWbOHP=json({});
@@ -8309,7 +8309,7 @@ return return_mKWbOHP;}();
     
 
         json serialize_VkTimelineSemaphoreSubmitInfoKHR_pNext(const void* name){
-        printf("Serializing VkTimelineSemaphoreSubmitInfoKHR...\n");
+        debug_printf("Serializing VkTimelineSemaphoreSubmitInfoKHR...\n");
         json result;
         result=[&]() {
     json return_IDXPATz=json({});
@@ -8327,7 +8327,7 @@ return return_IDXPATz;}();
     
 
         json serialize_VkSemaphoreWaitInfo_pNext(const void* name){
-        printf("Serializing VkSemaphoreWaitInfo...\n");
+        debug_printf("Serializing VkSemaphoreWaitInfo...\n");
         json result;
         result=[&]() {
     json return_tSzqvGA=json({});
@@ -8345,7 +8345,7 @@ return return_tSzqvGA;}();
     
 
         json serialize_VkSemaphoreWaitInfoKHR_pNext(const void* name){
-        printf("Serializing VkSemaphoreWaitInfoKHR...\n");
+        debug_printf("Serializing VkSemaphoreWaitInfoKHR...\n");
         json result;
         result=[&]() {
     json return_XNhMEUg=json({});
@@ -8363,7 +8363,7 @@ return return_XNhMEUg;}();
     
 
         json serialize_VkSemaphoreSignalInfo_pNext(const void* name){
-        printf("Serializing VkSemaphoreSignalInfo...\n");
+        debug_printf("Serializing VkSemaphoreSignalInfo...\n");
         json result;
         result=[&]() {
     json return_qnfnrRp=json({});
@@ -8381,7 +8381,7 @@ return return_qnfnrRp;}();
     
 
         json serialize_VkSemaphoreSignalInfoKHR_pNext(const void* name){
-        printf("Serializing VkSemaphoreSignalInfoKHR...\n");
+        debug_printf("Serializing VkSemaphoreSignalInfoKHR...\n");
         json result;
         result=[&]() {
     json return_kpGEUkJ=json({});
@@ -8399,7 +8399,7 @@ return return_kpGEUkJ;}();
     
 
         json serialize_VkVertexInputBindingDivisorDescriptionEXT_pNext(const void* name){
-        printf("Serializing VkVertexInputBindingDivisorDescriptionEXT...\n");
+        debug_printf("Serializing VkVertexInputBindingDivisorDescriptionEXT...\n");
         json result;
         result=[&]() {
     json return_jaFlvHE=json({});
@@ -8417,7 +8417,7 @@ return return_jaFlvHE;}();
     
 
         json serialize_VkPipelineVertexInputDivisorStateCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkPipelineVertexInputDivisorStateCreateInfoEXT...\n");
+        debug_printf("Serializing VkPipelineVertexInputDivisorStateCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_niUERBK=json({});
@@ -8435,7 +8435,7 @@ return return_niUERBK;}();
     
 
         json serialize_VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_QXtoBGa=json({});
@@ -8453,7 +8453,7 @@ return return_QXtoBGa;}();
     
 
         json serialize_VkPhysicalDevicePCIBusInfoPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePCIBusInfoPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDevicePCIBusInfoPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_IiPNALG=json({});
@@ -8471,7 +8471,7 @@ return return_IiPNALG;}();
     
 
         json serialize_VkCommandBufferInheritanceConditionalRenderingInfoEXT_pNext(const void* name){
-        printf("Serializing VkCommandBufferInheritanceConditionalRenderingInfoEXT...\n");
+        debug_printf("Serializing VkCommandBufferInheritanceConditionalRenderingInfoEXT...\n");
         json result;
         result=[&]() {
     json return_RGNXAnl=json({});
@@ -8489,7 +8489,7 @@ return return_RGNXAnl;}();
     
 
         json serialize_VkPhysicalDevice8BitStorageFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDevice8BitStorageFeatures...\n");
+        debug_printf("Serializing VkPhysicalDevice8BitStorageFeatures...\n");
         json result;
         result=[&]() {
     json return_tphqXfj=json({});
@@ -8507,7 +8507,7 @@ return return_tphqXfj;}();
     
 
         json serialize_VkPhysicalDevice8BitStorageFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDevice8BitStorageFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDevice8BitStorageFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_lbUQLKW=json({});
@@ -8525,7 +8525,7 @@ return return_lbUQLKW;}();
     
 
         json serialize_VkPhysicalDeviceConditionalRenderingFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceConditionalRenderingFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceConditionalRenderingFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_UWFfAGQ=json({});
@@ -8543,7 +8543,7 @@ return return_UWFfAGQ;}();
     
 
         json serialize_VkPhysicalDeviceVulkanMemoryModelFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceVulkanMemoryModelFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceVulkanMemoryModelFeatures...\n");
         json result;
         result=[&]() {
     json return_GJKwMUY=json({});
@@ -8561,7 +8561,7 @@ return return_GJKwMUY;}();
     
 
         json serialize_VkPhysicalDeviceVulkanMemoryModelFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceVulkanMemoryModelFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceVulkanMemoryModelFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_MUugMay=json({});
@@ -8579,7 +8579,7 @@ return return_MUugMay;}();
     
 
         json serialize_VkPhysicalDeviceShaderAtomicInt64Features_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderAtomicInt64Features...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderAtomicInt64Features...\n");
         json result;
         result=[&]() {
     json return_iPnwKGa=json({});
@@ -8597,7 +8597,7 @@ return return_iPnwKGa;}();
     
 
         json serialize_VkPhysicalDeviceShaderAtomicInt64FeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderAtomicInt64FeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderAtomicInt64FeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_jkHXzNH=json({});
@@ -8615,7 +8615,7 @@ return return_jkHXzNH;}();
     
 
         json serialize_VkPhysicalDeviceShaderAtomicFloatFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderAtomicFloatFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderAtomicFloatFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_WqXXZgS=json({});
@@ -8633,7 +8633,7 @@ return return_WqXXZgS;}();
     
 
         json serialize_VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_XplUrXa=json({});
@@ -8651,7 +8651,7 @@ return return_XplUrXa;}();
     
 
         json serialize_VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_nzIDwPB=json({});
@@ -8669,7 +8669,7 @@ return return_nzIDwPB;}();
     
 
         json serialize_VkQueueFamilyCheckpointPropertiesNV_pNext(const void* name){
-        printf("Serializing VkQueueFamilyCheckpointPropertiesNV...\n");
+        debug_printf("Serializing VkQueueFamilyCheckpointPropertiesNV...\n");
         json result;
         result=[&]() {
     json return_VFLIvDZ=json({});
@@ -8687,7 +8687,7 @@ return return_VFLIvDZ;}();
     
 
         json serialize_VkCheckpointDataNV_pNext(const void* name){
-        printf("Serializing VkCheckpointDataNV...\n");
+        debug_printf("Serializing VkCheckpointDataNV...\n");
         json result;
         result=[&]() {
     json return_AQLgraC=json({});
@@ -8705,7 +8705,7 @@ return return_AQLgraC;}();
     
 
         json serialize_VkPhysicalDeviceDepthStencilResolveProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDepthStencilResolveProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceDepthStencilResolveProperties...\n");
         json result;
         result=[&]() {
     json return_ATsDGcv=json({});
@@ -8723,7 +8723,7 @@ return return_ATsDGcv;}();
     
 
         json serialize_VkPhysicalDeviceDepthStencilResolvePropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDepthStencilResolvePropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceDepthStencilResolvePropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_BqrAiTF=json({});
@@ -8741,7 +8741,7 @@ return return_BqrAiTF;}();
     
 
         json serialize_VkSubpassDescriptionDepthStencilResolve_pNext(const void* name){
-        printf("Serializing VkSubpassDescriptionDepthStencilResolve...\n");
+        debug_printf("Serializing VkSubpassDescriptionDepthStencilResolve...\n");
         json result;
         result=[&]() {
     json return_bANlGHT=json({});
@@ -8759,7 +8759,7 @@ return return_bANlGHT;}();
     
 
         json serialize_VkSubpassDescriptionDepthStencilResolveKHR_pNext(const void* name){
-        printf("Serializing VkSubpassDescriptionDepthStencilResolveKHR...\n");
+        debug_printf("Serializing VkSubpassDescriptionDepthStencilResolveKHR...\n");
         json result;
         result=[&]() {
     json return_mZHJfPo=json({});
@@ -8777,7 +8777,7 @@ return return_mZHJfPo;}();
     
 
         json serialize_VkImageViewASTCDecodeModeEXT_pNext(const void* name){
-        printf("Serializing VkImageViewASTCDecodeModeEXT...\n");
+        debug_printf("Serializing VkImageViewASTCDecodeModeEXT...\n");
         json result;
         result=[&]() {
     json return_vEAbSOe=json({});
@@ -8795,7 +8795,7 @@ return return_vEAbSOe;}();
     
 
         json serialize_VkPhysicalDeviceASTCDecodeFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceASTCDecodeFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceASTCDecodeFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_YUDKCzH=json({});
@@ -8813,7 +8813,7 @@ return return_YUDKCzH;}();
     
 
         json serialize_VkPhysicalDeviceTransformFeedbackFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceTransformFeedbackFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceTransformFeedbackFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_xSDhsap=json({});
@@ -8831,7 +8831,7 @@ return return_xSDhsap;}();
     
 
         json serialize_VkPhysicalDeviceTransformFeedbackPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceTransformFeedbackPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceTransformFeedbackPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_bAcGSLC=json({});
@@ -8849,7 +8849,7 @@ return return_bAcGSLC;}();
     
 
         json serialize_VkPipelineRasterizationStateStreamCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkPipelineRasterizationStateStreamCreateInfoEXT...\n");
+        debug_printf("Serializing VkPipelineRasterizationStateStreamCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_HkRcNIn=json({});
@@ -8867,7 +8867,7 @@ return return_HkRcNIn;}();
     
 
         json serialize_VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_rEWLFDo=json({});
@@ -8885,7 +8885,7 @@ return return_rEWLFDo;}();
     
 
         json serialize_VkPipelineRepresentativeFragmentTestStateCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkPipelineRepresentativeFragmentTestStateCreateInfoNV...\n");
+        debug_printf("Serializing VkPipelineRepresentativeFragmentTestStateCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_oDBpDDo=json({});
@@ -8903,7 +8903,7 @@ return return_oDBpDDo;}();
     
 
         json serialize_VkPhysicalDeviceExclusiveScissorFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceExclusiveScissorFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceExclusiveScissorFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_IAhGgJG=json({});
@@ -8921,7 +8921,7 @@ return return_IAhGgJG;}();
     
 
         json serialize_VkPipelineViewportExclusiveScissorStateCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkPipelineViewportExclusiveScissorStateCreateInfoNV...\n");
+        debug_printf("Serializing VkPipelineViewportExclusiveScissorStateCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_WRkQnjs=json({});
@@ -8939,7 +8939,7 @@ return return_WRkQnjs;}();
     
 
         json serialize_VkPhysicalDeviceCornerSampledImageFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceCornerSampledImageFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceCornerSampledImageFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_GFHlmPK=json({});
@@ -8957,7 +8957,7 @@ return return_GFHlmPK;}();
     
 
         json serialize_VkPhysicalDeviceComputeShaderDerivativesFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceComputeShaderDerivativesFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceComputeShaderDerivativesFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_FftGiHr=json({});
@@ -8975,7 +8975,7 @@ return return_FftGiHr;}();
     
 
         json serialize_VkPhysicalDeviceShaderImageFootprintFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderImageFootprintFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderImageFootprintFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_VvPqEsa=json({});
@@ -8993,7 +8993,7 @@ return return_VvPqEsa;}();
     
 
         json serialize_VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_PuGBKpO=json({});
@@ -9011,7 +9011,7 @@ return return_PuGBKpO;}();
     
 
         json serialize_VkPhysicalDeviceCopyMemoryIndirectFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceCopyMemoryIndirectFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceCopyMemoryIndirectFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_WqpwGfL=json({});
@@ -9029,7 +9029,7 @@ return return_WqpwGfL;}();
     
 
         json serialize_VkPhysicalDeviceCopyMemoryIndirectPropertiesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceCopyMemoryIndirectPropertiesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceCopyMemoryIndirectPropertiesNV...\n");
         json result;
         result=[&]() {
     json return_zmYIqHz=json({});
@@ -9047,7 +9047,7 @@ return return_zmYIqHz;}();
     
 
         json serialize_VkPhysicalDeviceMemoryDecompressionFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMemoryDecompressionFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceMemoryDecompressionFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_tvfkgwl=json({});
@@ -9065,7 +9065,7 @@ return return_tvfkgwl;}();
     
 
         json serialize_VkPhysicalDeviceMemoryDecompressionPropertiesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMemoryDecompressionPropertiesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceMemoryDecompressionPropertiesNV...\n");
         json result;
         result=[&]() {
     json return_JoqRuwk=json({});
@@ -9083,7 +9083,7 @@ return return_JoqRuwk;}();
     
 
         json serialize_VkShadingRatePaletteNV_pNext(const void* name){
-        printf("Serializing VkShadingRatePaletteNV...\n");
+        debug_printf("Serializing VkShadingRatePaletteNV...\n");
         json result;
         result=[&]() {
     json return_EUCSCAe=json({});
@@ -9101,7 +9101,7 @@ return return_EUCSCAe;}();
     
 
         json serialize_VkPipelineViewportShadingRateImageStateCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkPipelineViewportShadingRateImageStateCreateInfoNV...\n");
+        debug_printf("Serializing VkPipelineViewportShadingRateImageStateCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_HybxAGw=json({});
@@ -9119,7 +9119,7 @@ return return_HybxAGw;}();
     
 
         json serialize_VkPhysicalDeviceShadingRateImageFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShadingRateImageFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceShadingRateImageFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_mScatTV=json({});
@@ -9137,7 +9137,7 @@ return return_mScatTV;}();
     
 
         json serialize_VkPhysicalDeviceShadingRateImagePropertiesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShadingRateImagePropertiesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceShadingRateImagePropertiesNV...\n");
         json result;
         result=[&]() {
     json return_Kqyqnat=json({});
@@ -9155,7 +9155,7 @@ return return_Kqyqnat;}();
     
 
         json serialize_VkPhysicalDeviceInvocationMaskFeaturesHUAWEI_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceInvocationMaskFeaturesHUAWEI...\n");
+        debug_printf("Serializing VkPhysicalDeviceInvocationMaskFeaturesHUAWEI...\n");
         json result;
         result=[&]() {
     json return_QMWDpAC=json({});
@@ -9173,7 +9173,7 @@ return return_QMWDpAC;}();
     
 
         json serialize_VkCoarseSampleLocationNV_pNext(const void* name){
-        printf("Serializing VkCoarseSampleLocationNV...\n");
+        debug_printf("Serializing VkCoarseSampleLocationNV...\n");
         json result;
         result=[&]() {
     json return_WoIeoDu=json({});
@@ -9191,7 +9191,7 @@ return return_WoIeoDu;}();
     
 
         json serialize_VkCoarseSampleOrderCustomNV_pNext(const void* name){
-        printf("Serializing VkCoarseSampleOrderCustomNV...\n");
+        debug_printf("Serializing VkCoarseSampleOrderCustomNV...\n");
         json result;
         result=[&]() {
     json return_ewghbRF=json({});
@@ -9209,7 +9209,7 @@ return return_ewghbRF;}();
     
 
         json serialize_VkPipelineViewportCoarseSampleOrderStateCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkPipelineViewportCoarseSampleOrderStateCreateInfoNV...\n");
+        debug_printf("Serializing VkPipelineViewportCoarseSampleOrderStateCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_eTUEoff=json({});
@@ -9227,7 +9227,7 @@ return return_eTUEoff;}();
     
 
         json serialize_VkPhysicalDeviceMeshShaderFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMeshShaderFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceMeshShaderFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_RYaMPvP=json({});
@@ -9245,7 +9245,7 @@ return return_RYaMPvP;}();
     
 
         json serialize_VkPhysicalDeviceMeshShaderPropertiesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMeshShaderPropertiesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceMeshShaderPropertiesNV...\n");
         json result;
         result=[&]() {
     json return_yDqNjUD=json({});
@@ -9263,7 +9263,7 @@ return return_yDqNjUD;}();
     
 
         json serialize_VkDrawMeshTasksIndirectCommandNV_pNext(const void* name){
-        printf("Serializing VkDrawMeshTasksIndirectCommandNV...\n");
+        debug_printf("Serializing VkDrawMeshTasksIndirectCommandNV...\n");
         json result;
         result=[&]() {
     json return_vzMnCDP=json({});
@@ -9281,7 +9281,7 @@ return return_vzMnCDP;}();
     
 
         json serialize_VkPhysicalDeviceMeshShaderFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMeshShaderFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceMeshShaderFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_yVJxboA=json({});
@@ -9299,7 +9299,7 @@ return return_yVJxboA;}();
     
 
         json serialize_VkPhysicalDeviceMeshShaderPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMeshShaderPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceMeshShaderPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_GKJZXYX=json({});
@@ -9317,7 +9317,7 @@ return return_GKJZXYX;}();
     
 
         json serialize_VkDrawMeshTasksIndirectCommandEXT_pNext(const void* name){
-        printf("Serializing VkDrawMeshTasksIndirectCommandEXT...\n");
+        debug_printf("Serializing VkDrawMeshTasksIndirectCommandEXT...\n");
         json result;
         result=[&]() {
     json return_IZAICpX=json({});
@@ -9335,7 +9335,7 @@ return return_IZAICpX;}();
     
 
         json serialize_VkRayTracingShaderGroupCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkRayTracingShaderGroupCreateInfoNV...\n");
+        debug_printf("Serializing VkRayTracingShaderGroupCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_Lfdrvqq=json({});
@@ -9353,7 +9353,7 @@ return return_Lfdrvqq;}();
     
 
         json serialize_VkRayTracingShaderGroupCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkRayTracingShaderGroupCreateInfoKHR...\n");
+        debug_printf("Serializing VkRayTracingShaderGroupCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_NzJaXfy=json({});
@@ -9371,7 +9371,7 @@ return return_NzJaXfy;}();
     
 
         json serialize_VkRayTracingPipelineCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkRayTracingPipelineCreateInfoNV...\n");
+        debug_printf("Serializing VkRayTracingPipelineCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_dKmSdtG=json({});
@@ -9389,7 +9389,7 @@ return return_dKmSdtG;}();
     
 
         json serialize_VkRayTracingPipelineCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkRayTracingPipelineCreateInfoKHR...\n");
+        debug_printf("Serializing VkRayTracingPipelineCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_ZGUnDdG=json({});
@@ -9407,7 +9407,7 @@ return return_ZGUnDdG;}();
     
 
         json serialize_VkGeometryTrianglesNV_pNext(const void* name){
-        printf("Serializing VkGeometryTrianglesNV...\n");
+        debug_printf("Serializing VkGeometryTrianglesNV...\n");
         json result;
         result=[&]() {
     json return_kCsLtKS=json({});
@@ -9425,7 +9425,7 @@ return return_kCsLtKS;}();
     
 
         json serialize_VkGeometryAABBNV_pNext(const void* name){
-        printf("Serializing VkGeometryAABBNV...\n");
+        debug_printf("Serializing VkGeometryAABBNV...\n");
         json result;
         result=[&]() {
     json return_CfvnsjS=json({});
@@ -9443,7 +9443,7 @@ return return_CfvnsjS;}();
     
 
         json serialize_VkGeometryDataNV_pNext(const void* name){
-        printf("Serializing VkGeometryDataNV...\n");
+        debug_printf("Serializing VkGeometryDataNV...\n");
         json result;
         result=[&]() {
     json return_NLDDgEK=json({});
@@ -9461,7 +9461,7 @@ return return_NLDDgEK;}();
     
 
         json serialize_VkGeometryNV_pNext(const void* name){
-        printf("Serializing VkGeometryNV...\n");
+        debug_printf("Serializing VkGeometryNV...\n");
         json result;
         result=[&]() {
     json return_WcPvsoN=json({});
@@ -9479,7 +9479,7 @@ return return_WcPvsoN;}();
     
 
         json serialize_VkAccelerationStructureInfoNV_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureInfoNV...\n");
+        debug_printf("Serializing VkAccelerationStructureInfoNV...\n");
         json result;
         result=[&]() {
     json return_NVRugZZ=json({});
@@ -9497,7 +9497,7 @@ return return_NVRugZZ;}();
     
 
         json serialize_VkAccelerationStructureCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureCreateInfoNV...\n");
+        debug_printf("Serializing VkAccelerationStructureCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_xhGWPcR=json({});
@@ -9515,7 +9515,7 @@ return return_xhGWPcR;}();
     
 
         json serialize_VkBindAccelerationStructureMemoryInfoNV_pNext(const void* name){
-        printf("Serializing VkBindAccelerationStructureMemoryInfoNV...\n");
+        debug_printf("Serializing VkBindAccelerationStructureMemoryInfoNV...\n");
         json result;
         result=[&]() {
     json return_hsDFEYV=json({});
@@ -9533,7 +9533,7 @@ return return_hsDFEYV;}();
     
 
         json serialize_VkWriteDescriptorSetAccelerationStructureKHR_pNext(const void* name){
-        printf("Serializing VkWriteDescriptorSetAccelerationStructureKHR...\n");
+        debug_printf("Serializing VkWriteDescriptorSetAccelerationStructureKHR...\n");
         json result;
         result=[&]() {
     json return_iLAQCVL=json({});
@@ -9551,7 +9551,7 @@ return return_iLAQCVL;}();
     
 
         json serialize_VkWriteDescriptorSetAccelerationStructureNV_pNext(const void* name){
-        printf("Serializing VkWriteDescriptorSetAccelerationStructureNV...\n");
+        debug_printf("Serializing VkWriteDescriptorSetAccelerationStructureNV...\n");
         json result;
         result=[&]() {
     json return_YKpdzDu=json({});
@@ -9569,7 +9569,7 @@ return return_YKpdzDu;}();
     
 
         json serialize_VkAccelerationStructureMemoryRequirementsInfoNV_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureMemoryRequirementsInfoNV...\n");
+        debug_printf("Serializing VkAccelerationStructureMemoryRequirementsInfoNV...\n");
         json result;
         result=[&]() {
     json return_hjFfeAJ=json({});
@@ -9587,7 +9587,7 @@ return return_hjFfeAJ;}();
     
 
         json serialize_VkPhysicalDeviceAccelerationStructureFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceAccelerationStructureFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceAccelerationStructureFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_GzJpqWa=json({});
@@ -9605,7 +9605,7 @@ return return_GzJpqWa;}();
     
 
         json serialize_VkPhysicalDeviceRayTracingPipelineFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceRayTracingPipelineFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceRayTracingPipelineFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_nseTqbi=json({});
@@ -9623,7 +9623,7 @@ return return_nseTqbi;}();
     
 
         json serialize_VkPhysicalDeviceRayQueryFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceRayQueryFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceRayQueryFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_DhykcsV=json({});
@@ -9641,7 +9641,7 @@ return return_DhykcsV;}();
     
 
         json serialize_VkPhysicalDeviceAccelerationStructurePropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceAccelerationStructurePropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceAccelerationStructurePropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_wVKYxVB=json({});
@@ -9659,7 +9659,7 @@ return return_wVKYxVB;}();
     
 
         json serialize_VkPhysicalDeviceRayTracingPipelinePropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceRayTracingPipelinePropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceRayTracingPipelinePropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_XUHHtcP=json({});
@@ -9677,7 +9677,7 @@ return return_XUHHtcP;}();
     
 
         json serialize_VkPhysicalDeviceRayTracingPropertiesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceRayTracingPropertiesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceRayTracingPropertiesNV...\n");
         json result;
         result=[&]() {
     json return_JNYlZkN=json({});
@@ -9695,7 +9695,7 @@ return return_JNYlZkN;}();
     
 
         json serialize_VkStridedDeviceAddressRegionKHR_pNext(const void* name){
-        printf("Serializing VkStridedDeviceAddressRegionKHR...\n");
+        debug_printf("Serializing VkStridedDeviceAddressRegionKHR...\n");
         json result;
         result=[&]() {
     json return_UBUMgXQ=json({});
@@ -9713,7 +9713,7 @@ return return_UBUMgXQ;}();
     
 
         json serialize_VkTraceRaysIndirectCommandKHR_pNext(const void* name){
-        printf("Serializing VkTraceRaysIndirectCommandKHR...\n");
+        debug_printf("Serializing VkTraceRaysIndirectCommandKHR...\n");
         json result;
         result=[&]() {
     json return_hfhHhea=json({});
@@ -9731,7 +9731,7 @@ return return_hfhHhea;}();
     
 
         json serialize_VkTraceRaysIndirectCommand2KHR_pNext(const void* name){
-        printf("Serializing VkTraceRaysIndirectCommand2KHR...\n");
+        debug_printf("Serializing VkTraceRaysIndirectCommand2KHR...\n");
         json result;
         result=[&]() {
     json return_RNSIOPu=json({});
@@ -9749,7 +9749,7 @@ return return_RNSIOPu;}();
     
 
         json serialize_VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_EGaatpX=json({});
@@ -9767,7 +9767,7 @@ return return_EGaatpX;}();
     
 
         json serialize_VkDrmFormatModifierPropertiesListEXT_pNext(const void* name){
-        printf("Serializing VkDrmFormatModifierPropertiesListEXT...\n");
+        debug_printf("Serializing VkDrmFormatModifierPropertiesListEXT...\n");
         json result;
         result=[&]() {
     json return_zTpfapH=json({});
@@ -9785,7 +9785,7 @@ return return_zTpfapH;}();
     
 
         json serialize_VkDrmFormatModifierPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkDrmFormatModifierPropertiesEXT...\n");
+        debug_printf("Serializing VkDrmFormatModifierPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_IjMrPuF=json({});
@@ -9803,7 +9803,7 @@ return return_IjMrPuF;}();
     
 
         json serialize_VkPhysicalDeviceImageDrmFormatModifierInfoEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceImageDrmFormatModifierInfoEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceImageDrmFormatModifierInfoEXT...\n");
         json result;
         result=[&]() {
     json return_zAeuINi=json({});
@@ -9821,7 +9821,7 @@ return return_zAeuINi;}();
     
 
         json serialize_VkImageDrmFormatModifierListCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkImageDrmFormatModifierListCreateInfoEXT...\n");
+        debug_printf("Serializing VkImageDrmFormatModifierListCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_XykeALO=json({});
@@ -9839,7 +9839,7 @@ return return_XykeALO;}();
     
 
         json serialize_VkImageDrmFormatModifierExplicitCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkImageDrmFormatModifierExplicitCreateInfoEXT...\n");
+        debug_printf("Serializing VkImageDrmFormatModifierExplicitCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_GqjzCoz=json({});
@@ -9857,7 +9857,7 @@ return return_GqjzCoz;}();
     
 
         json serialize_VkImageDrmFormatModifierPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkImageDrmFormatModifierPropertiesEXT...\n");
+        debug_printf("Serializing VkImageDrmFormatModifierPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_ecfVpVS=json({});
@@ -9875,7 +9875,7 @@ return return_ecfVpVS;}();
     
 
         json serialize_VkImageStencilUsageCreateInfo_pNext(const void* name){
-        printf("Serializing VkImageStencilUsageCreateInfo...\n");
+        debug_printf("Serializing VkImageStencilUsageCreateInfo...\n");
         json result;
         result=[&]() {
     json return_ehcHufc=json({});
@@ -9893,7 +9893,7 @@ return return_ehcHufc;}();
     
 
         json serialize_VkImageStencilUsageCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkImageStencilUsageCreateInfoEXT...\n");
+        debug_printf("Serializing VkImageStencilUsageCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_dobwtsw=json({});
@@ -9911,7 +9911,7 @@ return return_dobwtsw;}();
     
 
         json serialize_VkDeviceMemoryOverallocationCreateInfoAMD_pNext(const void* name){
-        printf("Serializing VkDeviceMemoryOverallocationCreateInfoAMD...\n");
+        debug_printf("Serializing VkDeviceMemoryOverallocationCreateInfoAMD...\n");
         json result;
         result=[&]() {
     json return_QIPubby=json({});
@@ -9929,7 +9929,7 @@ return return_QIPubby;}();
     
 
         json serialize_VkPhysicalDeviceFragmentDensityMapFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFragmentDensityMapFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceFragmentDensityMapFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_fcwMqbo=json({});
@@ -9947,7 +9947,7 @@ return return_fcwMqbo;}();
     
 
         json serialize_VkPhysicalDeviceFragmentDensityMap2FeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFragmentDensityMap2FeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceFragmentDensityMap2FeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_TIjKGPc=json({});
@@ -9965,7 +9965,7 @@ return return_TIjKGPc;}();
     
 
         json serialize_VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM...\n");
+        debug_printf("Serializing VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM...\n");
         json result;
         result=[&]() {
     json return_ENlmZmt=json({});
@@ -9983,7 +9983,7 @@ return return_ENlmZmt;}();
     
 
         json serialize_VkPhysicalDeviceFragmentDensityMapPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFragmentDensityMapPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceFragmentDensityMapPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_AukMUwa=json({});
@@ -10001,7 +10001,7 @@ return return_AukMUwa;}();
     
 
         json serialize_VkPhysicalDeviceFragmentDensityMap2PropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFragmentDensityMap2PropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceFragmentDensityMap2PropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_GxiJssa=json({});
@@ -10019,7 +10019,7 @@ return return_GxiJssa;}();
     
 
         json serialize_VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM...\n");
+        debug_printf("Serializing VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM...\n");
         json result;
         result=[&]() {
     json return_BkEGCHg=json({});
@@ -10037,7 +10037,7 @@ return return_BkEGCHg;}();
     
 
         json serialize_VkRenderPassFragmentDensityMapCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkRenderPassFragmentDensityMapCreateInfoEXT...\n");
+        debug_printf("Serializing VkRenderPassFragmentDensityMapCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_owVnHeB=json({});
@@ -10055,7 +10055,7 @@ return return_owVnHeB;}();
     
 
         json serialize_VkSubpassFragmentDensityMapOffsetEndInfoQCOM_pNext(const void* name){
-        printf("Serializing VkSubpassFragmentDensityMapOffsetEndInfoQCOM...\n");
+        debug_printf("Serializing VkSubpassFragmentDensityMapOffsetEndInfoQCOM...\n");
         json result;
         result=[&]() {
     json return_gaJVzEw=json({});
@@ -10073,7 +10073,7 @@ return return_gaJVzEw;}();
     
 
         json serialize_VkPhysicalDeviceScalarBlockLayoutFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceScalarBlockLayoutFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceScalarBlockLayoutFeatures...\n");
         json result;
         result=[&]() {
     json return_NaVjiKl=json({});
@@ -10091,7 +10091,7 @@ return return_NaVjiKl;}();
     
 
         json serialize_VkPhysicalDeviceScalarBlockLayoutFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceScalarBlockLayoutFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceScalarBlockLayoutFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_BcrqjiI=json({});
@@ -10109,7 +10109,7 @@ return return_BcrqjiI;}();
     
 
         json serialize_VkSurfaceProtectedCapabilitiesKHR_pNext(const void* name){
-        printf("Serializing VkSurfaceProtectedCapabilitiesKHR...\n");
+        debug_printf("Serializing VkSurfaceProtectedCapabilitiesKHR...\n");
         json result;
         result=[&]() {
     json return_BXotcoL=json({});
@@ -10127,7 +10127,7 @@ return return_BXotcoL;}();
     
 
         json serialize_VkPhysicalDeviceUniformBufferStandardLayoutFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceUniformBufferStandardLayoutFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceUniformBufferStandardLayoutFeatures...\n");
         json result;
         result=[&]() {
     json return_NUoROAP=json({});
@@ -10145,7 +10145,7 @@ return return_NUoROAP;}();
     
 
         json serialize_VkPhysicalDeviceUniformBufferStandardLayoutFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceUniformBufferStandardLayoutFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceUniformBufferStandardLayoutFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_fONQExN=json({});
@@ -10163,7 +10163,7 @@ return return_fONQExN;}();
     
 
         json serialize_VkPhysicalDeviceDepthClipEnableFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDepthClipEnableFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceDepthClipEnableFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_JWBGeGN=json({});
@@ -10181,7 +10181,7 @@ return return_JWBGeGN;}();
     
 
         json serialize_VkPipelineRasterizationDepthClipStateCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkPipelineRasterizationDepthClipStateCreateInfoEXT...\n");
+        debug_printf("Serializing VkPipelineRasterizationDepthClipStateCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_PXMpcol=json({});
@@ -10199,7 +10199,7 @@ return return_PXMpcol;}();
     
 
         json serialize_VkPhysicalDeviceMemoryBudgetPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMemoryBudgetPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceMemoryBudgetPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_YAtsGBw=json({});
@@ -10217,7 +10217,7 @@ return return_YAtsGBw;}();
     
 
         json serialize_VkPhysicalDeviceMemoryPriorityFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMemoryPriorityFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceMemoryPriorityFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_eoRGVCj=json({});
@@ -10235,7 +10235,7 @@ return return_eoRGVCj;}();
     
 
         json serialize_VkMemoryPriorityAllocateInfoEXT_pNext(const void* name){
-        printf("Serializing VkMemoryPriorityAllocateInfoEXT...\n");
+        debug_printf("Serializing VkMemoryPriorityAllocateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_zSLogOc=json({});
@@ -10253,7 +10253,7 @@ return return_zSLogOc;}();
     
 
         json serialize_VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_TozdQNq=json({});
@@ -10271,7 +10271,7 @@ return return_TozdQNq;}();
     
 
         json serialize_VkPhysicalDeviceBufferDeviceAddressFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceBufferDeviceAddressFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceBufferDeviceAddressFeatures...\n");
         json result;
         result=[&]() {
     json return_HgphCRQ=json({});
@@ -10289,7 +10289,7 @@ return return_HgphCRQ;}();
     
 
         json serialize_VkPhysicalDeviceBufferDeviceAddressFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceBufferDeviceAddressFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceBufferDeviceAddressFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_MIMWpwQ=json({});
@@ -10307,7 +10307,7 @@ return return_MIMWpwQ;}();
     
 
         json serialize_VkPhysicalDeviceBufferDeviceAddressFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceBufferDeviceAddressFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceBufferDeviceAddressFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_EApEhGI=json({});
@@ -10325,7 +10325,7 @@ return return_EApEhGI;}();
     
 
         json serialize_VkPhysicalDeviceBufferAddressFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceBufferAddressFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceBufferAddressFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_BppuOeO=json({});
@@ -10343,7 +10343,7 @@ return return_BppuOeO;}();
     
 
         json serialize_VkBufferDeviceAddressInfo_pNext(const void* name){
-        printf("Serializing VkBufferDeviceAddressInfo...\n");
+        debug_printf("Serializing VkBufferDeviceAddressInfo...\n");
         json result;
         result=[&]() {
     json return_wYdkRtB=json({});
@@ -10361,7 +10361,7 @@ return return_wYdkRtB;}();
     
 
         json serialize_VkBufferDeviceAddressInfoKHR_pNext(const void* name){
-        printf("Serializing VkBufferDeviceAddressInfoKHR...\n");
+        debug_printf("Serializing VkBufferDeviceAddressInfoKHR...\n");
         json result;
         result=[&]() {
     json return_UovIVWS=json({});
@@ -10379,7 +10379,7 @@ return return_UovIVWS;}();
     
 
         json serialize_VkBufferDeviceAddressInfoEXT_pNext(const void* name){
-        printf("Serializing VkBufferDeviceAddressInfoEXT...\n");
+        debug_printf("Serializing VkBufferDeviceAddressInfoEXT...\n");
         json result;
         result=[&]() {
     json return_VlabTyG=json({});
@@ -10397,7 +10397,7 @@ return return_VlabTyG;}();
     
 
         json serialize_VkBufferOpaqueCaptureAddressCreateInfo_pNext(const void* name){
-        printf("Serializing VkBufferOpaqueCaptureAddressCreateInfo...\n");
+        debug_printf("Serializing VkBufferOpaqueCaptureAddressCreateInfo...\n");
         json result;
         result=[&]() {
     json return_ztIZftT=json({});
@@ -10415,7 +10415,7 @@ return return_ztIZftT;}();
     
 
         json serialize_VkBufferOpaqueCaptureAddressCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkBufferOpaqueCaptureAddressCreateInfoKHR...\n");
+        debug_printf("Serializing VkBufferOpaqueCaptureAddressCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_JHTiCVA=json({});
@@ -10433,7 +10433,7 @@ return return_JHTiCVA;}();
     
 
         json serialize_VkBufferDeviceAddressCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkBufferDeviceAddressCreateInfoEXT...\n");
+        debug_printf("Serializing VkBufferDeviceAddressCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_cVcxygV=json({});
@@ -10451,7 +10451,7 @@ return return_cVcxygV;}();
     
 
         json serialize_VkPhysicalDeviceImageViewImageFormatInfoEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceImageViewImageFormatInfoEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceImageViewImageFormatInfoEXT...\n");
         json result;
         result=[&]() {
     json return_lQhBrIG=json({});
@@ -10469,7 +10469,7 @@ return return_lQhBrIG;}();
     
 
         json serialize_VkFilterCubicImageViewImageFormatPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkFilterCubicImageViewImageFormatPropertiesEXT...\n");
+        debug_printf("Serializing VkFilterCubicImageViewImageFormatPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_begdiiT=json({});
@@ -10487,7 +10487,7 @@ return return_begdiiT;}();
     
 
         json serialize_VkPhysicalDeviceImagelessFramebufferFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceImagelessFramebufferFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceImagelessFramebufferFeatures...\n");
         json result;
         result=[&]() {
     json return_xrsAzqA=json({});
@@ -10505,7 +10505,7 @@ return return_xrsAzqA;}();
     
 
         json serialize_VkPhysicalDeviceImagelessFramebufferFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceImagelessFramebufferFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceImagelessFramebufferFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_zkvpERs=json({});
@@ -10523,7 +10523,7 @@ return return_zkvpERs;}();
     
 
         json serialize_VkFramebufferAttachmentsCreateInfo_pNext(const void* name){
-        printf("Serializing VkFramebufferAttachmentsCreateInfo...\n");
+        debug_printf("Serializing VkFramebufferAttachmentsCreateInfo...\n");
         json result;
         result=[&]() {
     json return_CSFhUYp=json({});
@@ -10541,7 +10541,7 @@ return return_CSFhUYp;}();
     
 
         json serialize_VkFramebufferAttachmentsCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkFramebufferAttachmentsCreateInfoKHR...\n");
+        debug_printf("Serializing VkFramebufferAttachmentsCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_MBWdUYJ=json({});
@@ -10559,7 +10559,7 @@ return return_MBWdUYJ;}();
     
 
         json serialize_VkFramebufferAttachmentImageInfo_pNext(const void* name){
-        printf("Serializing VkFramebufferAttachmentImageInfo...\n");
+        debug_printf("Serializing VkFramebufferAttachmentImageInfo...\n");
         json result;
         result=[&]() {
     json return_jgPbZpW=json({});
@@ -10577,7 +10577,7 @@ return return_jgPbZpW;}();
     
 
         json serialize_VkFramebufferAttachmentImageInfoKHR_pNext(const void* name){
-        printf("Serializing VkFramebufferAttachmentImageInfoKHR...\n");
+        debug_printf("Serializing VkFramebufferAttachmentImageInfoKHR...\n");
         json result;
         result=[&]() {
     json return_AMDRbBY=json({});
@@ -10595,7 +10595,7 @@ return return_AMDRbBY;}();
     
 
         json serialize_VkRenderPassAttachmentBeginInfo_pNext(const void* name){
-        printf("Serializing VkRenderPassAttachmentBeginInfo...\n");
+        debug_printf("Serializing VkRenderPassAttachmentBeginInfo...\n");
         json result;
         result=[&]() {
     json return_xGVAbBY=json({});
@@ -10613,7 +10613,7 @@ return return_xGVAbBY;}();
     
 
         json serialize_VkRenderPassAttachmentBeginInfoKHR_pNext(const void* name){
-        printf("Serializing VkRenderPassAttachmentBeginInfoKHR...\n");
+        debug_printf("Serializing VkRenderPassAttachmentBeginInfoKHR...\n");
         json result;
         result=[&]() {
     json return_FAPESxG=json({});
@@ -10631,7 +10631,7 @@ return return_FAPESxG;}();
     
 
         json serialize_VkPhysicalDeviceTextureCompressionASTCHDRFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceTextureCompressionASTCHDRFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceTextureCompressionASTCHDRFeatures...\n");
         json result;
         result=[&]() {
     json return_aqRoVcK=json({});
@@ -10649,7 +10649,7 @@ return return_aqRoVcK;}();
     
 
         json serialize_VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_BnaWTQK=json({});
@@ -10667,7 +10667,7 @@ return return_BnaWTQK;}();
     
 
         json serialize_VkPhysicalDeviceCooperativeMatrixFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceCooperativeMatrixFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceCooperativeMatrixFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_apSpkXH=json({});
@@ -10685,7 +10685,7 @@ return return_apSpkXH;}();
     
 
         json serialize_VkPhysicalDeviceCooperativeMatrixPropertiesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceCooperativeMatrixPropertiesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceCooperativeMatrixPropertiesNV...\n");
         json result;
         result=[&]() {
     json return_PKPxwXX=json({});
@@ -10703,7 +10703,7 @@ return return_PKPxwXX;}();
     
 
         json serialize_VkCooperativeMatrixPropertiesNV_pNext(const void* name){
-        printf("Serializing VkCooperativeMatrixPropertiesNV...\n");
+        debug_printf("Serializing VkCooperativeMatrixPropertiesNV...\n");
         json result;
         result=[&]() {
     json return_kkNkJoM=json({});
@@ -10721,7 +10721,7 @@ return return_kkNkJoM;}();
     
 
         json serialize_VkPhysicalDeviceYcbcrImageArraysFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceYcbcrImageArraysFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceYcbcrImageArraysFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_LHYqaSa=json({});
@@ -10739,7 +10739,7 @@ return return_LHYqaSa;}();
     
 
         json serialize_VkImageViewHandleInfoNVX_pNext(const void* name){
-        printf("Serializing VkImageViewHandleInfoNVX...\n");
+        debug_printf("Serializing VkImageViewHandleInfoNVX...\n");
         json result;
         result=[&]() {
     json return_naeSHFk=json({});
@@ -10757,7 +10757,7 @@ return return_naeSHFk;}();
     
 
         json serialize_VkImageViewAddressPropertiesNVX_pNext(const void* name){
-        printf("Serializing VkImageViewAddressPropertiesNVX...\n");
+        debug_printf("Serializing VkImageViewAddressPropertiesNVX...\n");
         json result;
         result=[&]() {
     json return_vrGJacQ=json({});
@@ -10775,7 +10775,7 @@ return return_vrGJacQ;}();
     
 
         json serialize_VkPipelineCreationFeedback_pNext(const void* name){
-        printf("Serializing VkPipelineCreationFeedback...\n");
+        debug_printf("Serializing VkPipelineCreationFeedback...\n");
         json result;
         result=[&]() {
     json return_keDDMKk=json({});
@@ -10793,7 +10793,7 @@ return return_keDDMKk;}();
     
 
         json serialize_VkPipelineCreationFeedbackEXT_pNext(const void* name){
-        printf("Serializing VkPipelineCreationFeedbackEXT...\n");
+        debug_printf("Serializing VkPipelineCreationFeedbackEXT...\n");
         json result;
         result=[&]() {
     json return_RdUIzKS=json({});
@@ -10811,7 +10811,7 @@ return return_RdUIzKS;}();
     
 
         json serialize_VkPipelineCreationFeedbackCreateInfo_pNext(const void* name){
-        printf("Serializing VkPipelineCreationFeedbackCreateInfo...\n");
+        debug_printf("Serializing VkPipelineCreationFeedbackCreateInfo...\n");
         json result;
         result=[&]() {
     json return_aQlPnUC=json({});
@@ -10829,7 +10829,7 @@ return return_aQlPnUC;}();
     
 
         json serialize_VkPipelineCreationFeedbackCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkPipelineCreationFeedbackCreateInfoEXT...\n");
+        debug_printf("Serializing VkPipelineCreationFeedbackCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_aBEcJEB=json({});
@@ -10847,7 +10847,7 @@ return return_aBEcJEB;}();
     
 
         json serialize_VkPhysicalDevicePresentBarrierFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePresentBarrierFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDevicePresentBarrierFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_gBEleoS=json({});
@@ -10865,7 +10865,7 @@ return return_gBEleoS;}();
     
 
         json serialize_VkSurfaceCapabilitiesPresentBarrierNV_pNext(const void* name){
-        printf("Serializing VkSurfaceCapabilitiesPresentBarrierNV...\n");
+        debug_printf("Serializing VkSurfaceCapabilitiesPresentBarrierNV...\n");
         json result;
         result=[&]() {
     json return_NCnZPRI=json({});
@@ -10883,7 +10883,7 @@ return return_NCnZPRI;}();
     
 
         json serialize_VkSwapchainPresentBarrierCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkSwapchainPresentBarrierCreateInfoNV...\n");
+        debug_printf("Serializing VkSwapchainPresentBarrierCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_dzCXZWU=json({});
@@ -10901,7 +10901,7 @@ return return_dzCXZWU;}();
     
 
         json serialize_VkPhysicalDevicePerformanceQueryFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePerformanceQueryFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDevicePerformanceQueryFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_qzWObEE=json({});
@@ -10919,7 +10919,7 @@ return return_qzWObEE;}();
     
 
         json serialize_VkPhysicalDevicePerformanceQueryPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePerformanceQueryPropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDevicePerformanceQueryPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_KhjugPf=json({});
@@ -10937,7 +10937,7 @@ return return_KhjugPf;}();
     
 
         json serialize_VkPerformanceCounterKHR_pNext(const void* name){
-        printf("Serializing VkPerformanceCounterKHR...\n");
+        debug_printf("Serializing VkPerformanceCounterKHR...\n");
         json result;
         result=[&]() {
     json return_sVGOltG=json({});
@@ -10955,7 +10955,7 @@ return return_sVGOltG;}();
     
 
         json serialize_VkPerformanceCounterDescriptionKHR_pNext(const void* name){
-        printf("Serializing VkPerformanceCounterDescriptionKHR...\n");
+        debug_printf("Serializing VkPerformanceCounterDescriptionKHR...\n");
         json result;
         result=[&]() {
     json return_SlKrOXF=json({});
@@ -10973,7 +10973,7 @@ return return_SlKrOXF;}();
     
 
         json serialize_VkQueryPoolPerformanceCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkQueryPoolPerformanceCreateInfoKHR...\n");
+        debug_printf("Serializing VkQueryPoolPerformanceCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_FndKLAN=json({});
@@ -10991,7 +10991,7 @@ return return_FndKLAN;}();
     
 
         json serialize_VkPerformanceCounterResultKHR_pNext(const void* name){
-        printf("Serializing VkPerformanceCounterResultKHR...\n");
+        debug_printf("Serializing VkPerformanceCounterResultKHR...\n");
         json result;
         result=[&]() {
     json return_YakOHNl=json({});
@@ -11009,7 +11009,7 @@ return return_YakOHNl;}();
     
 
         json serialize_VkAcquireProfilingLockInfoKHR_pNext(const void* name){
-        printf("Serializing VkAcquireProfilingLockInfoKHR...\n");
+        debug_printf("Serializing VkAcquireProfilingLockInfoKHR...\n");
         json result;
         result=[&]() {
     json return_JyGXITx=json({});
@@ -11027,7 +11027,7 @@ return return_JyGXITx;}();
     
 
         json serialize_VkPerformanceQuerySubmitInfoKHR_pNext(const void* name){
-        printf("Serializing VkPerformanceQuerySubmitInfoKHR...\n");
+        debug_printf("Serializing VkPerformanceQuerySubmitInfoKHR...\n");
         json result;
         result=[&]() {
     json return_pxAvDAP=json({});
@@ -11045,7 +11045,7 @@ return return_pxAvDAP;}();
     
 
         json serialize_VkHeadlessSurfaceCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkHeadlessSurfaceCreateInfoEXT...\n");
+        debug_printf("Serializing VkHeadlessSurfaceCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_LzQzvTL=json({});
@@ -11063,7 +11063,7 @@ return return_LzQzvTL;}();
     
 
         json serialize_VkPhysicalDeviceCoverageReductionModeFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceCoverageReductionModeFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceCoverageReductionModeFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_PVEDdUD=json({});
@@ -11081,7 +11081,7 @@ return return_PVEDdUD;}();
     
 
         json serialize_VkPipelineCoverageReductionStateCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkPipelineCoverageReductionStateCreateInfoNV...\n");
+        debug_printf("Serializing VkPipelineCoverageReductionStateCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_xMYEuaH=json({});
@@ -11099,7 +11099,7 @@ return return_xMYEuaH;}();
     
 
         json serialize_VkFramebufferMixedSamplesCombinationNV_pNext(const void* name){
-        printf("Serializing VkFramebufferMixedSamplesCombinationNV...\n");
+        debug_printf("Serializing VkFramebufferMixedSamplesCombinationNV...\n");
         json result;
         result=[&]() {
     json return_sZKOVpe=json({});
@@ -11117,7 +11117,7 @@ return return_sZKOVpe;}();
     
 
         json serialize_VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL...\n");
         json result;
         result=[&]() {
     json return_jdpEVCZ=json({});
@@ -11135,7 +11135,7 @@ return return_jdpEVCZ;}();
     
 
         json serialize_VkPerformanceValueDataINTEL_pNext(const void* name){
-        printf("Serializing VkPerformanceValueDataINTEL...\n");
+        debug_printf("Serializing VkPerformanceValueDataINTEL...\n");
         json result;
         result=[&]() {
     json return_iAZQitu=json({});
@@ -11153,7 +11153,7 @@ return return_iAZQitu;}();
     
 
         json serialize_VkPerformanceValueINTEL_pNext(const void* name){
-        printf("Serializing VkPerformanceValueINTEL...\n");
+        debug_printf("Serializing VkPerformanceValueINTEL...\n");
         json result;
         result=[&]() {
     json return_FYmzuCO=json({});
@@ -11171,7 +11171,7 @@ return return_FYmzuCO;}();
     
 
         json serialize_VkInitializePerformanceApiInfoINTEL_pNext(const void* name){
-        printf("Serializing VkInitializePerformanceApiInfoINTEL...\n");
+        debug_printf("Serializing VkInitializePerformanceApiInfoINTEL...\n");
         json result;
         result=[&]() {
     json return_wZEbWwU=json({});
@@ -11189,7 +11189,7 @@ return return_wZEbWwU;}();
     
 
         json serialize_VkQueryPoolPerformanceQueryCreateInfoINTEL_pNext(const void* name){
-        printf("Serializing VkQueryPoolPerformanceQueryCreateInfoINTEL...\n");
+        debug_printf("Serializing VkQueryPoolPerformanceQueryCreateInfoINTEL...\n");
         json result;
         result=[&]() {
     json return_LCCsLOU=json({});
@@ -11207,7 +11207,7 @@ return return_LCCsLOU;}();
     
 
         json serialize_VkQueryPoolCreateInfoINTEL_pNext(const void* name){
-        printf("Serializing VkQueryPoolCreateInfoINTEL...\n");
+        debug_printf("Serializing VkQueryPoolCreateInfoINTEL...\n");
         json result;
         result=[&]() {
     json return_eCPXdEf=json({});
@@ -11225,7 +11225,7 @@ return return_eCPXdEf;}();
     
 
         json serialize_VkPerformanceMarkerInfoINTEL_pNext(const void* name){
-        printf("Serializing VkPerformanceMarkerInfoINTEL...\n");
+        debug_printf("Serializing VkPerformanceMarkerInfoINTEL...\n");
         json result;
         result=[&]() {
     json return_WxpAWDL=json({});
@@ -11243,7 +11243,7 @@ return return_WxpAWDL;}();
     
 
         json serialize_VkPerformanceStreamMarkerInfoINTEL_pNext(const void* name){
-        printf("Serializing VkPerformanceStreamMarkerInfoINTEL...\n");
+        debug_printf("Serializing VkPerformanceStreamMarkerInfoINTEL...\n");
         json result;
         result=[&]() {
     json return_xInZVOs=json({});
@@ -11261,7 +11261,7 @@ return return_xInZVOs;}();
     
 
         json serialize_VkPerformanceOverrideInfoINTEL_pNext(const void* name){
-        printf("Serializing VkPerformanceOverrideInfoINTEL...\n");
+        debug_printf("Serializing VkPerformanceOverrideInfoINTEL...\n");
         json result;
         result=[&]() {
     json return_oLdcEee=json({});
@@ -11279,7 +11279,7 @@ return return_oLdcEee;}();
     
 
         json serialize_VkPerformanceConfigurationAcquireInfoINTEL_pNext(const void* name){
-        printf("Serializing VkPerformanceConfigurationAcquireInfoINTEL...\n");
+        debug_printf("Serializing VkPerformanceConfigurationAcquireInfoINTEL...\n");
         json result;
         result=[&]() {
     json return_uaetarq=json({});
@@ -11297,7 +11297,7 @@ return return_uaetarq;}();
     
 
         json serialize_VkPhysicalDeviceShaderClockFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderClockFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderClockFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_TTMcsQZ=json({});
@@ -11315,7 +11315,7 @@ return return_TTMcsQZ;}();
     
 
         json serialize_VkPhysicalDeviceIndexTypeUint8FeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceIndexTypeUint8FeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceIndexTypeUint8FeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_ZGjIGVo=json({});
@@ -11333,7 +11333,7 @@ return return_ZGjIGVo;}();
     
 
         json serialize_VkPhysicalDeviceShaderSMBuiltinsPropertiesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderSMBuiltinsPropertiesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderSMBuiltinsPropertiesNV...\n");
         json result;
         result=[&]() {
     json return_PISaQmP=json({});
@@ -11351,7 +11351,7 @@ return return_PISaQmP;}();
     
 
         json serialize_VkPhysicalDeviceShaderSMBuiltinsFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderSMBuiltinsFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderSMBuiltinsFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_mHEqrFj=json({});
@@ -11369,7 +11369,7 @@ return return_mHEqrFj;}();
     
 
         json serialize_VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_mxKvGlJ=json({});
@@ -11387,7 +11387,7 @@ return return_mxKvGlJ;}();
     
 
         json serialize_VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures...\n");
         json result;
         result=[&]() {
     json return_JAAuKqS=json({});
@@ -11405,7 +11405,7 @@ return return_JAAuKqS;}();
     
 
         json serialize_VkPhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_TzGfpUy=json({});
@@ -11423,7 +11423,7 @@ return return_TzGfpUy;}();
     
 
         json serialize_VkAttachmentReferenceStencilLayout_pNext(const void* name){
-        printf("Serializing VkAttachmentReferenceStencilLayout...\n");
+        debug_printf("Serializing VkAttachmentReferenceStencilLayout...\n");
         json result;
         result=[&]() {
     json return_CneVtXR=json({});
@@ -11441,7 +11441,7 @@ return return_CneVtXR;}();
     
 
         json serialize_VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_VleeJLG=json({});
@@ -11459,7 +11459,7 @@ return return_VleeJLG;}();
     
 
         json serialize_VkAttachmentReferenceStencilLayoutKHR_pNext(const void* name){
-        printf("Serializing VkAttachmentReferenceStencilLayoutKHR...\n");
+        debug_printf("Serializing VkAttachmentReferenceStencilLayoutKHR...\n");
         json result;
         result=[&]() {
     json return_dEYuUxL=json({});
@@ -11477,7 +11477,7 @@ return return_dEYuUxL;}();
     
 
         json serialize_VkAttachmentDescriptionStencilLayout_pNext(const void* name){
-        printf("Serializing VkAttachmentDescriptionStencilLayout...\n");
+        debug_printf("Serializing VkAttachmentDescriptionStencilLayout...\n");
         json result;
         result=[&]() {
     json return_ozWOpdU=json({});
@@ -11495,7 +11495,7 @@ return return_ozWOpdU;}();
     
 
         json serialize_VkAttachmentDescriptionStencilLayoutKHR_pNext(const void* name){
-        printf("Serializing VkAttachmentDescriptionStencilLayoutKHR...\n");
+        debug_printf("Serializing VkAttachmentDescriptionStencilLayoutKHR...\n");
         json result;
         result=[&]() {
     json return_EaaEtkt=json({});
@@ -11513,7 +11513,7 @@ return return_EaaEtkt;}();
     
 
         json serialize_VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_dUSEYgh=json({});
@@ -11531,7 +11531,7 @@ return return_dUSEYgh;}();
     
 
         json serialize_VkPipelineInfoKHR_pNext(const void* name){
-        printf("Serializing VkPipelineInfoKHR...\n");
+        debug_printf("Serializing VkPipelineInfoKHR...\n");
         json result;
         result=[&]() {
     json return_cOxXfcD=json({});
@@ -11549,7 +11549,7 @@ return return_cOxXfcD;}();
     
 
         json serialize_VkPipelineInfoEXT_pNext(const void* name){
-        printf("Serializing VkPipelineInfoEXT...\n");
+        debug_printf("Serializing VkPipelineInfoEXT...\n");
         json result;
         result=[&]() {
     json return_TxkQVJe=json({});
@@ -11567,7 +11567,7 @@ return return_TxkQVJe;}();
     
 
         json serialize_VkPipelineExecutablePropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPipelineExecutablePropertiesKHR...\n");
+        debug_printf("Serializing VkPipelineExecutablePropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_YpVrNMa=json({});
@@ -11585,7 +11585,7 @@ return return_YpVrNMa;}();
     
 
         json serialize_VkPipelineExecutableInfoKHR_pNext(const void* name){
-        printf("Serializing VkPipelineExecutableInfoKHR...\n");
+        debug_printf("Serializing VkPipelineExecutableInfoKHR...\n");
         json result;
         result=[&]() {
     json return_OQiSOVa=json({});
@@ -11603,7 +11603,7 @@ return return_OQiSOVa;}();
     
 
         json serialize_VkPipelineExecutableStatisticValueKHR_pNext(const void* name){
-        printf("Serializing VkPipelineExecutableStatisticValueKHR...\n");
+        debug_printf("Serializing VkPipelineExecutableStatisticValueKHR...\n");
         json result;
         result=[&]() {
     json return_YqHJQcj=json({});
@@ -11621,7 +11621,7 @@ return return_YqHJQcj;}();
     
 
         json serialize_VkPipelineExecutableStatisticKHR_pNext(const void* name){
-        printf("Serializing VkPipelineExecutableStatisticKHR...\n");
+        debug_printf("Serializing VkPipelineExecutableStatisticKHR...\n");
         json result;
         result=[&]() {
     json return_LwKVQSx=json({});
@@ -11639,7 +11639,7 @@ return return_LwKVQSx;}();
     
 
         json serialize_VkPipelineExecutableInternalRepresentationKHR_pNext(const void* name){
-        printf("Serializing VkPipelineExecutableInternalRepresentationKHR...\n");
+        debug_printf("Serializing VkPipelineExecutableInternalRepresentationKHR...\n");
         json result;
         result=[&]() {
     json return_pEsJeBH=json({});
@@ -11657,7 +11657,7 @@ return return_pEsJeBH;}();
     
 
         json serialize_VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures...\n");
         json result;
         result=[&]() {
     json return_vyJvmIn=json({});
@@ -11675,7 +11675,7 @@ return return_vyJvmIn;}();
     
 
         json serialize_VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_BMngNUP=json({});
@@ -11693,7 +11693,7 @@ return return_BMngNUP;}();
     
 
         json serialize_VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_raJGjqF=json({});
@@ -11711,7 +11711,7 @@ return return_raJGjqF;}();
     
 
         json serialize_VkPhysicalDeviceTexelBufferAlignmentProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceTexelBufferAlignmentProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceTexelBufferAlignmentProperties...\n");
         json result;
         result=[&]() {
     json return_YIjgJvf=json({});
@@ -11729,7 +11729,7 @@ return return_YIjgJvf;}();
     
 
         json serialize_VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_YQHDQwl=json({});
@@ -11747,7 +11747,7 @@ return return_YQHDQwl;}();
     
 
         json serialize_VkPhysicalDeviceSubgroupSizeControlFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSubgroupSizeControlFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceSubgroupSizeControlFeatures...\n");
         json result;
         result=[&]() {
     json return_ZzlaSyE=json({});
@@ -11765,7 +11765,7 @@ return return_ZzlaSyE;}();
     
 
         json serialize_VkPhysicalDeviceSubgroupSizeControlFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSubgroupSizeControlFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceSubgroupSizeControlFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_JcxEqVe=json({});
@@ -11783,7 +11783,7 @@ return return_JcxEqVe;}();
     
 
         json serialize_VkPhysicalDeviceSubgroupSizeControlProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSubgroupSizeControlProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceSubgroupSizeControlProperties...\n");
         json result;
         result=[&]() {
     json return_VUjvmsd=json({});
@@ -11801,7 +11801,7 @@ return return_VUjvmsd;}();
     
 
         json serialize_VkPhysicalDeviceSubgroupSizeControlPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSubgroupSizeControlPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceSubgroupSizeControlPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_QPDzWMH=json({});
@@ -11819,7 +11819,7 @@ return return_QPDzWMH;}();
     
 
         json serialize_VkPipelineShaderStageRequiredSubgroupSizeCreateInfo_pNext(const void* name){
-        printf("Serializing VkPipelineShaderStageRequiredSubgroupSizeCreateInfo...\n");
+        debug_printf("Serializing VkPipelineShaderStageRequiredSubgroupSizeCreateInfo...\n");
         json result;
         result=[&]() {
     json return_scQweYu=json({});
@@ -11837,7 +11837,7 @@ return return_scQweYu;}();
     
 
         json serialize_VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT...\n");
+        debug_printf("Serializing VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_iAFAnyg=json({});
@@ -11855,7 +11855,7 @@ return return_iAFAnyg;}();
     
 
         json serialize_VkShaderRequiredSubgroupSizeCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkShaderRequiredSubgroupSizeCreateInfoEXT...\n");
+        debug_printf("Serializing VkShaderRequiredSubgroupSizeCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_tLzMNYW=json({});
@@ -11873,7 +11873,7 @@ return return_tLzMNYW;}();
     
 
         json serialize_VkSubpassShadingPipelineCreateInfoHUAWEI_pNext(const void* name){
-        printf("Serializing VkSubpassShadingPipelineCreateInfoHUAWEI...\n");
+        debug_printf("Serializing VkSubpassShadingPipelineCreateInfoHUAWEI...\n");
         json result;
         result=[&]() {
     json return_zhQreyF=json({});
@@ -11891,7 +11891,7 @@ return return_zhQreyF;}();
     
 
         json serialize_VkPhysicalDeviceSubpassShadingPropertiesHUAWEI_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSubpassShadingPropertiesHUAWEI...\n");
+        debug_printf("Serializing VkPhysicalDeviceSubpassShadingPropertiesHUAWEI...\n");
         json result;
         result=[&]() {
     json return_kUievWW=json({});
@@ -11909,7 +11909,7 @@ return return_kUievWW;}();
     
 
         json serialize_VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI...\n");
+        debug_printf("Serializing VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI...\n");
         json result;
         result=[&]() {
     json return_eaVfkDv=json({});
@@ -11927,7 +11927,7 @@ return return_eaVfkDv;}();
     
 
         json serialize_VkMemoryOpaqueCaptureAddressAllocateInfo_pNext(const void* name){
-        printf("Serializing VkMemoryOpaqueCaptureAddressAllocateInfo...\n");
+        debug_printf("Serializing VkMemoryOpaqueCaptureAddressAllocateInfo...\n");
         json result;
         result=[&]() {
     json return_NwotHUQ=json({});
@@ -11945,7 +11945,7 @@ return return_NwotHUQ;}();
     
 
         json serialize_VkMemoryOpaqueCaptureAddressAllocateInfoKHR_pNext(const void* name){
-        printf("Serializing VkMemoryOpaqueCaptureAddressAllocateInfoKHR...\n");
+        debug_printf("Serializing VkMemoryOpaqueCaptureAddressAllocateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_gKBCOXa=json({});
@@ -11963,7 +11963,7 @@ return return_gKBCOXa;}();
     
 
         json serialize_VkDeviceMemoryOpaqueCaptureAddressInfo_pNext(const void* name){
-        printf("Serializing VkDeviceMemoryOpaqueCaptureAddressInfo...\n");
+        debug_printf("Serializing VkDeviceMemoryOpaqueCaptureAddressInfo...\n");
         json result;
         result=[&]() {
     json return_BZQbxSe=json({});
@@ -11981,7 +11981,7 @@ return return_BZQbxSe;}();
     
 
         json serialize_VkDeviceMemoryOpaqueCaptureAddressInfoKHR_pNext(const void* name){
-        printf("Serializing VkDeviceMemoryOpaqueCaptureAddressInfoKHR...\n");
+        debug_printf("Serializing VkDeviceMemoryOpaqueCaptureAddressInfoKHR...\n");
         json result;
         result=[&]() {
     json return_WhUEnLe=json({});
@@ -11999,7 +11999,7 @@ return return_WhUEnLe;}();
     
 
         json serialize_VkPhysicalDeviceLineRasterizationFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceLineRasterizationFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceLineRasterizationFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_lMfCejn=json({});
@@ -12017,7 +12017,7 @@ return return_lMfCejn;}();
     
 
         json serialize_VkPhysicalDeviceLineRasterizationPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceLineRasterizationPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceLineRasterizationPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_KdbweIW=json({});
@@ -12035,7 +12035,7 @@ return return_KdbweIW;}();
     
 
         json serialize_VkPipelineRasterizationLineStateCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkPipelineRasterizationLineStateCreateInfoEXT...\n");
+        debug_printf("Serializing VkPipelineRasterizationLineStateCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_MeiJihF=json({});
@@ -12053,7 +12053,7 @@ return return_MeiJihF;}();
     
 
         json serialize_VkPhysicalDevicePipelineCreationCacheControlFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePipelineCreationCacheControlFeatures...\n");
+        debug_printf("Serializing VkPhysicalDevicePipelineCreationCacheControlFeatures...\n");
         json result;
         result=[&]() {
     json return_EMJRrDf=json({});
@@ -12071,7 +12071,7 @@ return return_EMJRrDf;}();
     
 
         json serialize_VkPhysicalDevicePipelineCreationCacheControlFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePipelineCreationCacheControlFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDevicePipelineCreationCacheControlFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_GhtFHXi=json({});
@@ -12089,7 +12089,7 @@ return return_GhtFHXi;}();
     
 
         json serialize_VkPhysicalDeviceVulkan11Features_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceVulkan11Features...\n");
+        debug_printf("Serializing VkPhysicalDeviceVulkan11Features...\n");
         json result;
         result=[&]() {
     json return_mIFpQfQ=json({});
@@ -12107,7 +12107,7 @@ return return_mIFpQfQ;}();
     
 
         json serialize_VkPhysicalDeviceVulkan11Properties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceVulkan11Properties...\n");
+        debug_printf("Serializing VkPhysicalDeviceVulkan11Properties...\n");
         json result;
         result=[&]() {
     json return_XCOsjRI=json({});
@@ -12125,7 +12125,7 @@ return return_XCOsjRI;}();
     
 
         json serialize_VkPhysicalDeviceVulkan12Features_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceVulkan12Features...\n");
+        debug_printf("Serializing VkPhysicalDeviceVulkan12Features...\n");
         json result;
         result=[&]() {
     json return_yXyMHTx=json({});
@@ -12143,7 +12143,7 @@ return return_yXyMHTx;}();
     
 
         json serialize_VkPhysicalDeviceVulkan12Properties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceVulkan12Properties...\n");
+        debug_printf("Serializing VkPhysicalDeviceVulkan12Properties...\n");
         json result;
         result=[&]() {
     json return_oZcyAix=json({});
@@ -12161,7 +12161,7 @@ return return_oZcyAix;}();
     
 
         json serialize_VkPhysicalDeviceVulkan13Features_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceVulkan13Features...\n");
+        debug_printf("Serializing VkPhysicalDeviceVulkan13Features...\n");
         json result;
         result=[&]() {
     json return_GVBCDXL=json({});
@@ -12179,7 +12179,7 @@ return return_GVBCDXL;}();
     
 
         json serialize_VkPhysicalDeviceVulkan13Properties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceVulkan13Properties...\n");
+        debug_printf("Serializing VkPhysicalDeviceVulkan13Properties...\n");
         json result;
         result=[&]() {
     json return_MYhbGDG=json({});
@@ -12197,7 +12197,7 @@ return return_MYhbGDG;}();
     
 
         json serialize_VkPipelineCompilerControlCreateInfoAMD_pNext(const void* name){
-        printf("Serializing VkPipelineCompilerControlCreateInfoAMD...\n");
+        debug_printf("Serializing VkPipelineCompilerControlCreateInfoAMD...\n");
         json result;
         result=[&]() {
     json return_MmlAgYC=json({});
@@ -12215,7 +12215,7 @@ return return_MmlAgYC;}();
     
 
         json serialize_VkPhysicalDeviceCoherentMemoryFeaturesAMD_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceCoherentMemoryFeaturesAMD...\n");
+        debug_printf("Serializing VkPhysicalDeviceCoherentMemoryFeaturesAMD...\n");
         json result;
         result=[&]() {
     json return_ZfPgbyP=json({});
@@ -12233,7 +12233,7 @@ return return_ZfPgbyP;}();
     
 
         json serialize_VkPhysicalDeviceToolProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceToolProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceToolProperties...\n");
         json result;
         result=[&]() {
     json return_BeERMAv=json({});
@@ -12251,7 +12251,7 @@ return return_BeERMAv;}();
     
 
         json serialize_VkPhysicalDeviceToolPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceToolPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceToolPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_gbKtUIq=json({});
@@ -12269,7 +12269,7 @@ return return_gbKtUIq;}();
     
 
         json serialize_VkSamplerCustomBorderColorCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkSamplerCustomBorderColorCreateInfoEXT...\n");
+        debug_printf("Serializing VkSamplerCustomBorderColorCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_PUwuIpm=json({});
@@ -12287,7 +12287,7 @@ return return_PUwuIpm;}();
     
 
         json serialize_VkPhysicalDeviceCustomBorderColorPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceCustomBorderColorPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceCustomBorderColorPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_SYFIVOt=json({});
@@ -12305,7 +12305,7 @@ return return_SYFIVOt;}();
     
 
         json serialize_VkPhysicalDeviceCustomBorderColorFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceCustomBorderColorFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceCustomBorderColorFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_tlKpOZl=json({});
@@ -12323,7 +12323,7 @@ return return_tlKpOZl;}();
     
 
         json serialize_VkSamplerBorderColorComponentMappingCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkSamplerBorderColorComponentMappingCreateInfoEXT...\n");
+        debug_printf("Serializing VkSamplerBorderColorComponentMappingCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_uOmIavH=json({});
@@ -12341,7 +12341,7 @@ return return_uOmIavH;}();
     
 
         json serialize_VkPhysicalDeviceBorderColorSwizzleFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceBorderColorSwizzleFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceBorderColorSwizzleFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_aBlXpvY=json({});
@@ -12359,7 +12359,7 @@ return return_aBlXpvY;}();
     
 
         json serialize_VkDeviceOrHostAddressKHR_pNext(const void* name){
-        printf("Serializing VkDeviceOrHostAddressKHR...\n");
+        debug_printf("Serializing VkDeviceOrHostAddressKHR...\n");
         json result;
         result=[&]() {
     json return_ZemxmAu=json({});
@@ -12377,7 +12377,7 @@ return return_ZemxmAu;}();
     
 
         json serialize_VkDeviceOrHostAddressConstKHR_pNext(const void* name){
-        printf("Serializing VkDeviceOrHostAddressConstKHR...\n");
+        debug_printf("Serializing VkDeviceOrHostAddressConstKHR...\n");
         json result;
         result=[&]() {
     json return_hzTYIZU=json({});
@@ -12395,7 +12395,7 @@ return return_hzTYIZU;}();
     
 
         json serialize_VkAccelerationStructureGeometryTrianglesDataKHR_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureGeometryTrianglesDataKHR...\n");
+        debug_printf("Serializing VkAccelerationStructureGeometryTrianglesDataKHR...\n");
         json result;
         result=[&]() {
     json return_hdFEalw=json({});
@@ -12413,7 +12413,7 @@ return return_hdFEalw;}();
     
 
         json serialize_VkAccelerationStructureGeometryAabbsDataKHR_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureGeometryAabbsDataKHR...\n");
+        debug_printf("Serializing VkAccelerationStructureGeometryAabbsDataKHR...\n");
         json result;
         result=[&]() {
     json return_lRsluyw=json({});
@@ -12431,7 +12431,7 @@ return return_lRsluyw;}();
     
 
         json serialize_VkAccelerationStructureGeometryInstancesDataKHR_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureGeometryInstancesDataKHR...\n");
+        debug_printf("Serializing VkAccelerationStructureGeometryInstancesDataKHR...\n");
         json result;
         result=[&]() {
     json return_ZIsnoTd=json({});
@@ -12449,7 +12449,7 @@ return return_ZIsnoTd;}();
     
 
         json serialize_VkAccelerationStructureGeometryDataKHR_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureGeometryDataKHR...\n");
+        debug_printf("Serializing VkAccelerationStructureGeometryDataKHR...\n");
         json result;
         result=[&]() {
     json return_cIyewLi=json({});
@@ -12467,7 +12467,7 @@ return return_cIyewLi;}();
     
 
         json serialize_VkAccelerationStructureGeometryKHR_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureGeometryKHR...\n");
+        debug_printf("Serializing VkAccelerationStructureGeometryKHR...\n");
         json result;
         result=[&]() {
     json return_acZcxCu=json({});
@@ -12485,7 +12485,7 @@ return return_acZcxCu;}();
     
 
         json serialize_VkAccelerationStructureBuildGeometryInfoKHR_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureBuildGeometryInfoKHR...\n");
+        debug_printf("Serializing VkAccelerationStructureBuildGeometryInfoKHR...\n");
         json result;
         result=[&]() {
     json return_CYoxUQe=json({});
@@ -12503,7 +12503,7 @@ return return_CYoxUQe;}();
     
 
         json serialize_VkAccelerationStructureBuildRangeInfoKHR_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureBuildRangeInfoKHR...\n");
+        debug_printf("Serializing VkAccelerationStructureBuildRangeInfoKHR...\n");
         json result;
         result=[&]() {
     json return_OXclhgw=json({});
@@ -12521,7 +12521,7 @@ return return_OXclhgw;}();
     
 
         json serialize_VkAccelerationStructureCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureCreateInfoKHR...\n");
+        debug_printf("Serializing VkAccelerationStructureCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_mgccVFW=json({});
@@ -12539,7 +12539,7 @@ return return_mgccVFW;}();
     
 
         json serialize_VkAabbPositionsKHR_pNext(const void* name){
-        printf("Serializing VkAabbPositionsKHR...\n");
+        debug_printf("Serializing VkAabbPositionsKHR...\n");
         json result;
         result=[&]() {
     json return_MJNTYhq=json({});
@@ -12557,7 +12557,7 @@ return return_MJNTYhq;}();
     
 
         json serialize_VkAabbPositionsNV_pNext(const void* name){
-        printf("Serializing VkAabbPositionsNV...\n");
+        debug_printf("Serializing VkAabbPositionsNV...\n");
         json result;
         result=[&]() {
     json return_FpCmBxR=json({});
@@ -12575,7 +12575,7 @@ return return_FpCmBxR;}();
     
 
         json serialize_VkTransformMatrixKHR_pNext(const void* name){
-        printf("Serializing VkTransformMatrixKHR...\n");
+        debug_printf("Serializing VkTransformMatrixKHR...\n");
         json result;
         result=[&]() {
     json return_DQMtkzL=json({});
@@ -12593,7 +12593,7 @@ return return_DQMtkzL;}();
     
 
         json serialize_VkTransformMatrixNV_pNext(const void* name){
-        printf("Serializing VkTransformMatrixNV...\n");
+        debug_printf("Serializing VkTransformMatrixNV...\n");
         json result;
         result=[&]() {
     json return_HByJGdY=json({});
@@ -12611,7 +12611,7 @@ return return_HByJGdY;}();
     
 
         json serialize_VkAccelerationStructureInstanceKHR_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureInstanceKHR...\n");
+        debug_printf("Serializing VkAccelerationStructureInstanceKHR...\n");
         json result;
         result=[&]() {
     json return_ewsGMNy=json({});
@@ -12629,7 +12629,7 @@ return return_ewsGMNy;}();
     
 
         json serialize_VkAccelerationStructureInstanceNV_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureInstanceNV...\n");
+        debug_printf("Serializing VkAccelerationStructureInstanceNV...\n");
         json result;
         result=[&]() {
     json return_CDHQNpC=json({});
@@ -12647,7 +12647,7 @@ return return_CDHQNpC;}();
     
 
         json serialize_VkAccelerationStructureDeviceAddressInfoKHR_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureDeviceAddressInfoKHR...\n");
+        debug_printf("Serializing VkAccelerationStructureDeviceAddressInfoKHR...\n");
         json result;
         result=[&]() {
     json return_wFUddZf=json({});
@@ -12665,7 +12665,7 @@ return return_wFUddZf;}();
     
 
         json serialize_VkAccelerationStructureVersionInfoKHR_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureVersionInfoKHR...\n");
+        debug_printf("Serializing VkAccelerationStructureVersionInfoKHR...\n");
         json result;
         result=[&]() {
     json return_ndBMCOr=json({});
@@ -12683,7 +12683,7 @@ return return_ndBMCOr;}();
     
 
         json serialize_VkCopyAccelerationStructureInfoKHR_pNext(const void* name){
-        printf("Serializing VkCopyAccelerationStructureInfoKHR...\n");
+        debug_printf("Serializing VkCopyAccelerationStructureInfoKHR...\n");
         json result;
         result=[&]() {
     json return_JrSmyLD=json({});
@@ -12701,7 +12701,7 @@ return return_JrSmyLD;}();
     
 
         json serialize_VkCopyAccelerationStructureToMemoryInfoKHR_pNext(const void* name){
-        printf("Serializing VkCopyAccelerationStructureToMemoryInfoKHR...\n");
+        debug_printf("Serializing VkCopyAccelerationStructureToMemoryInfoKHR...\n");
         json result;
         result=[&]() {
     json return_QHVPKhW=json({});
@@ -12719,7 +12719,7 @@ return return_QHVPKhW;}();
     
 
         json serialize_VkCopyMemoryToAccelerationStructureInfoKHR_pNext(const void* name){
-        printf("Serializing VkCopyMemoryToAccelerationStructureInfoKHR...\n");
+        debug_printf("Serializing VkCopyMemoryToAccelerationStructureInfoKHR...\n");
         json result;
         result=[&]() {
     json return_kRnUbcG=json({});
@@ -12737,7 +12737,7 @@ return return_kRnUbcG;}();
     
 
         json serialize_VkRayTracingPipelineInterfaceCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkRayTracingPipelineInterfaceCreateInfoKHR...\n");
+        debug_printf("Serializing VkRayTracingPipelineInterfaceCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_TLHLznV=json({});
@@ -12755,7 +12755,7 @@ return return_TLHLznV;}();
     
 
         json serialize_VkPipelineLibraryCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkPipelineLibraryCreateInfoKHR...\n");
+        debug_printf("Serializing VkPipelineLibraryCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_IZaLJxY=json({});
@@ -12773,7 +12773,7 @@ return return_IZaLJxY;}();
     
 
         json serialize_VkPhysicalDeviceExtendedDynamicStateFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceExtendedDynamicStateFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceExtendedDynamicStateFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_tcwUZez=json({});
@@ -12791,7 +12791,7 @@ return return_tcwUZez;}();
     
 
         json serialize_VkPhysicalDeviceExtendedDynamicState2FeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceExtendedDynamicState2FeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceExtendedDynamicState2FeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_QXgiqxe=json({});
@@ -12809,7 +12809,7 @@ return return_QXgiqxe;}();
     
 
         json serialize_VkPhysicalDeviceExtendedDynamicState3FeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceExtendedDynamicState3FeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceExtendedDynamicState3FeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_aKJERwR=json({});
@@ -12827,7 +12827,7 @@ return return_aKJERwR;}();
     
 
         json serialize_VkPhysicalDeviceExtendedDynamicState3PropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceExtendedDynamicState3PropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceExtendedDynamicState3PropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_bgeBMkK=json({});
@@ -12845,7 +12845,7 @@ return return_bgeBMkK;}();
     
 
         json serialize_VkColorBlendEquationEXT_pNext(const void* name){
-        printf("Serializing VkColorBlendEquationEXT...\n");
+        debug_printf("Serializing VkColorBlendEquationEXT...\n");
         json result;
         result=[&]() {
     json return_mccasFV=json({});
@@ -12863,7 +12863,7 @@ return return_mccasFV;}();
     
 
         json serialize_VkColorBlendAdvancedEXT_pNext(const void* name){
-        printf("Serializing VkColorBlendAdvancedEXT...\n");
+        debug_printf("Serializing VkColorBlendAdvancedEXT...\n");
         json result;
         result=[&]() {
     json return_zxjegBj=json({});
@@ -12881,7 +12881,7 @@ return return_zxjegBj;}();
     
 
         json serialize_VkRenderPassTransformBeginInfoQCOM_pNext(const void* name){
-        printf("Serializing VkRenderPassTransformBeginInfoQCOM...\n");
+        debug_printf("Serializing VkRenderPassTransformBeginInfoQCOM...\n");
         json result;
         result=[&]() {
     json return_ZtdfzNP=json({});
@@ -12899,7 +12899,7 @@ return return_ZtdfzNP;}();
     
 
         json serialize_VkCopyCommandTransformInfoQCOM_pNext(const void* name){
-        printf("Serializing VkCopyCommandTransformInfoQCOM...\n");
+        debug_printf("Serializing VkCopyCommandTransformInfoQCOM...\n");
         json result;
         result=[&]() {
     json return_jWKzDCO=json({});
@@ -12917,7 +12917,7 @@ return return_jWKzDCO;}();
     
 
         json serialize_VkCommandBufferInheritanceRenderPassTransformInfoQCOM_pNext(const void* name){
-        printf("Serializing VkCommandBufferInheritanceRenderPassTransformInfoQCOM...\n");
+        debug_printf("Serializing VkCommandBufferInheritanceRenderPassTransformInfoQCOM...\n");
         json result;
         result=[&]() {
     json return_kOgXHPS=json({});
@@ -12935,7 +12935,7 @@ return return_kOgXHPS;}();
     
 
         json serialize_VkPhysicalDeviceDiagnosticsConfigFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDiagnosticsConfigFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceDiagnosticsConfigFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_mTbPzWw=json({});
@@ -12953,7 +12953,7 @@ return return_mTbPzWw;}();
     
 
         json serialize_VkDeviceDiagnosticsConfigCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkDeviceDiagnosticsConfigCreateInfoNV...\n");
+        debug_printf("Serializing VkDeviceDiagnosticsConfigCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_SsFHhFO=json({});
@@ -12971,7 +12971,7 @@ return return_SsFHhFO;}();
     
 
         json serialize_VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures...\n");
         json result;
         result=[&]() {
     json return_WEEjjoA=json({});
@@ -12989,7 +12989,7 @@ return return_WEEjjoA;}();
     
 
         json serialize_VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_NlnzAPs=json({});
@@ -13007,7 +13007,7 @@ return return_NlnzAPs;}();
     
 
         json serialize_VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_vKSGiFo=json({});
@@ -13025,7 +13025,7 @@ return return_vKSGiFo;}();
     
 
         json serialize_VkPhysicalDeviceRobustness2FeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceRobustness2FeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceRobustness2FeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_jtkBzsD=json({});
@@ -13043,7 +13043,7 @@ return return_jtkBzsD;}();
     
 
         json serialize_VkPhysicalDeviceRobustness2PropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceRobustness2PropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceRobustness2PropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_gBCpMff=json({});
@@ -13061,7 +13061,7 @@ return return_gBCpMff;}();
     
 
         json serialize_VkPhysicalDeviceImageRobustnessFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceImageRobustnessFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceImageRobustnessFeatures...\n");
         json result;
         result=[&]() {
     json return_acRNqkx=json({});
@@ -13079,7 +13079,7 @@ return return_acRNqkx;}();
     
 
         json serialize_VkPhysicalDeviceImageRobustnessFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceImageRobustnessFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceImageRobustnessFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_qNqQjfI=json({});
@@ -13097,7 +13097,7 @@ return return_qNqQjfI;}();
     
 
         json serialize_VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_faURDfF=json({});
@@ -13115,7 +13115,7 @@ return return_faURDfF;}();
     
 
         json serialize_VkPhysicalDevice4444FormatsFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDevice4444FormatsFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDevice4444FormatsFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_lAZtdLz=json({});
@@ -13133,7 +13133,7 @@ return return_lAZtdLz;}();
     
 
         json serialize_VkPhysicalDeviceSubpassShadingFeaturesHUAWEI_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSubpassShadingFeaturesHUAWEI...\n");
+        debug_printf("Serializing VkPhysicalDeviceSubpassShadingFeaturesHUAWEI...\n");
         json result;
         result=[&]() {
     json return_wiVHGEN=json({});
@@ -13151,7 +13151,7 @@ return return_wiVHGEN;}();
     
 
         json serialize_VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI...\n");
+        debug_printf("Serializing VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI...\n");
         json result;
         result=[&]() {
     json return_aQDkhfl=json({});
@@ -13169,7 +13169,7 @@ return return_aQDkhfl;}();
     
 
         json serialize_VkBufferCopy2_pNext(const void* name){
-        printf("Serializing VkBufferCopy2...\n");
+        debug_printf("Serializing VkBufferCopy2...\n");
         json result;
         result=[&]() {
     json return_UzJlukl=json({});
@@ -13187,7 +13187,7 @@ return return_UzJlukl;}();
     
 
         json serialize_VkBufferCopy2KHR_pNext(const void* name){
-        printf("Serializing VkBufferCopy2KHR...\n");
+        debug_printf("Serializing VkBufferCopy2KHR...\n");
         json result;
         result=[&]() {
     json return_SlbWxLi=json({});
@@ -13205,7 +13205,7 @@ return return_SlbWxLi;}();
     
 
         json serialize_VkImageCopy2_pNext(const void* name){
-        printf("Serializing VkImageCopy2...\n");
+        debug_printf("Serializing VkImageCopy2...\n");
         json result;
         result=[&]() {
     json return_dOVCxwp=json({});
@@ -13223,7 +13223,7 @@ return return_dOVCxwp;}();
     
 
         json serialize_VkImageCopy2KHR_pNext(const void* name){
-        printf("Serializing VkImageCopy2KHR...\n");
+        debug_printf("Serializing VkImageCopy2KHR...\n");
         json result;
         result=[&]() {
     json return_GsoXAts=json({});
@@ -13241,7 +13241,7 @@ return return_GsoXAts;}();
     
 
         json serialize_VkImageBlit2_pNext(const void* name){
-        printf("Serializing VkImageBlit2...\n");
+        debug_printf("Serializing VkImageBlit2...\n");
         json result;
         result=[&]() {
     json return_eYwZdrQ=json({});
@@ -13259,7 +13259,7 @@ return return_eYwZdrQ;}();
     
 
         json serialize_VkImageBlit2KHR_pNext(const void* name){
-        printf("Serializing VkImageBlit2KHR...\n");
+        debug_printf("Serializing VkImageBlit2KHR...\n");
         json result;
         result=[&]() {
     json return_JpsLRHF=json({});
@@ -13277,7 +13277,7 @@ return return_JpsLRHF;}();
     
 
         json serialize_VkBufferImageCopy2_pNext(const void* name){
-        printf("Serializing VkBufferImageCopy2...\n");
+        debug_printf("Serializing VkBufferImageCopy2...\n");
         json result;
         result=[&]() {
     json return_fUrDVlz=json({});
@@ -13295,7 +13295,7 @@ return return_fUrDVlz;}();
     
 
         json serialize_VkBufferImageCopy2KHR_pNext(const void* name){
-        printf("Serializing VkBufferImageCopy2KHR...\n");
+        debug_printf("Serializing VkBufferImageCopy2KHR...\n");
         json result;
         result=[&]() {
     json return_gphLXNx=json({});
@@ -13313,7 +13313,7 @@ return return_gphLXNx;}();
     
 
         json serialize_VkImageResolve2_pNext(const void* name){
-        printf("Serializing VkImageResolve2...\n");
+        debug_printf("Serializing VkImageResolve2...\n");
         json result;
         result=[&]() {
     json return_iflruup=json({});
@@ -13331,7 +13331,7 @@ return return_iflruup;}();
     
 
         json serialize_VkImageResolve2KHR_pNext(const void* name){
-        printf("Serializing VkImageResolve2KHR...\n");
+        debug_printf("Serializing VkImageResolve2KHR...\n");
         json result;
         result=[&]() {
     json return_uYAekha=json({});
@@ -13349,7 +13349,7 @@ return return_uYAekha;}();
     
 
         json serialize_VkCopyBufferInfo2_pNext(const void* name){
-        printf("Serializing VkCopyBufferInfo2...\n");
+        debug_printf("Serializing VkCopyBufferInfo2...\n");
         json result;
         result=[&]() {
     json return_xcOOaoq=json({});
@@ -13367,7 +13367,7 @@ return return_xcOOaoq;}();
     
 
         json serialize_VkCopyBufferInfo2KHR_pNext(const void* name){
-        printf("Serializing VkCopyBufferInfo2KHR...\n");
+        debug_printf("Serializing VkCopyBufferInfo2KHR...\n");
         json result;
         result=[&]() {
     json return_BKKJCGz=json({});
@@ -13385,7 +13385,7 @@ return return_BKKJCGz;}();
     
 
         json serialize_VkCopyImageInfo2_pNext(const void* name){
-        printf("Serializing VkCopyImageInfo2...\n");
+        debug_printf("Serializing VkCopyImageInfo2...\n");
         json result;
         result=[&]() {
     json return_BvWkWCz=json({});
@@ -13403,7 +13403,7 @@ return return_BvWkWCz;}();
     
 
         json serialize_VkCopyImageInfo2KHR_pNext(const void* name){
-        printf("Serializing VkCopyImageInfo2KHR...\n");
+        debug_printf("Serializing VkCopyImageInfo2KHR...\n");
         json result;
         result=[&]() {
     json return_IyAyOXJ=json({});
@@ -13421,7 +13421,7 @@ return return_IyAyOXJ;}();
     
 
         json serialize_VkBlitImageInfo2_pNext(const void* name){
-        printf("Serializing VkBlitImageInfo2...\n");
+        debug_printf("Serializing VkBlitImageInfo2...\n");
         json result;
         result=[&]() {
     json return_PqDbzbB=json({});
@@ -13439,7 +13439,7 @@ return return_PqDbzbB;}();
     
 
         json serialize_VkBlitImageInfo2KHR_pNext(const void* name){
-        printf("Serializing VkBlitImageInfo2KHR...\n");
+        debug_printf("Serializing VkBlitImageInfo2KHR...\n");
         json result;
         result=[&]() {
     json return_pXPmcNS=json({});
@@ -13457,7 +13457,7 @@ return return_pXPmcNS;}();
     
 
         json serialize_VkCopyBufferToImageInfo2_pNext(const void* name){
-        printf("Serializing VkCopyBufferToImageInfo2...\n");
+        debug_printf("Serializing VkCopyBufferToImageInfo2...\n");
         json result;
         result=[&]() {
     json return_uXjadNc=json({});
@@ -13475,7 +13475,7 @@ return return_uXjadNc;}();
     
 
         json serialize_VkCopyBufferToImageInfo2KHR_pNext(const void* name){
-        printf("Serializing VkCopyBufferToImageInfo2KHR...\n");
+        debug_printf("Serializing VkCopyBufferToImageInfo2KHR...\n");
         json result;
         result=[&]() {
     json return_sJVzvAu=json({});
@@ -13493,7 +13493,7 @@ return return_sJVzvAu;}();
     
 
         json serialize_VkCopyImageToBufferInfo2_pNext(const void* name){
-        printf("Serializing VkCopyImageToBufferInfo2...\n");
+        debug_printf("Serializing VkCopyImageToBufferInfo2...\n");
         json result;
         result=[&]() {
     json return_wlbtcpU=json({});
@@ -13511,7 +13511,7 @@ return return_wlbtcpU;}();
     
 
         json serialize_VkCopyImageToBufferInfo2KHR_pNext(const void* name){
-        printf("Serializing VkCopyImageToBufferInfo2KHR...\n");
+        debug_printf("Serializing VkCopyImageToBufferInfo2KHR...\n");
         json result;
         result=[&]() {
     json return_DiEOGsG=json({});
@@ -13529,7 +13529,7 @@ return return_DiEOGsG;}();
     
 
         json serialize_VkResolveImageInfo2_pNext(const void* name){
-        printf("Serializing VkResolveImageInfo2...\n");
+        debug_printf("Serializing VkResolveImageInfo2...\n");
         json result;
         result=[&]() {
     json return_gJKZpEi=json({});
@@ -13547,7 +13547,7 @@ return return_gJKZpEi;}();
     
 
         json serialize_VkResolveImageInfo2KHR_pNext(const void* name){
-        printf("Serializing VkResolveImageInfo2KHR...\n");
+        debug_printf("Serializing VkResolveImageInfo2KHR...\n");
         json result;
         result=[&]() {
     json return_odeYMgq=json({});
@@ -13565,7 +13565,7 @@ return return_odeYMgq;}();
     
 
         json serialize_VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_atiuKUh=json({});
@@ -13583,7 +13583,7 @@ return return_atiuKUh;}();
     
 
         json serialize_VkFragmentShadingRateAttachmentInfoKHR_pNext(const void* name){
-        printf("Serializing VkFragmentShadingRateAttachmentInfoKHR...\n");
+        debug_printf("Serializing VkFragmentShadingRateAttachmentInfoKHR...\n");
         json result;
         result=[&]() {
     json return_KQiBQrc=json({});
@@ -13601,7 +13601,7 @@ return return_KQiBQrc;}();
     
 
         json serialize_VkPipelineFragmentShadingRateStateCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkPipelineFragmentShadingRateStateCreateInfoKHR...\n");
+        debug_printf("Serializing VkPipelineFragmentShadingRateStateCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_BDWEciU=json({});
@@ -13619,7 +13619,7 @@ return return_BDWEciU;}();
     
 
         json serialize_VkPhysicalDeviceFragmentShadingRateFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFragmentShadingRateFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceFragmentShadingRateFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_mhndaoI=json({});
@@ -13637,7 +13637,7 @@ return return_mhndaoI;}();
     
 
         json serialize_VkPhysicalDeviceFragmentShadingRatePropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFragmentShadingRatePropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceFragmentShadingRatePropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_EYOKWJG=json({});
@@ -13655,7 +13655,7 @@ return return_EYOKWJG;}();
     
 
         json serialize_VkPhysicalDeviceFragmentShadingRateKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFragmentShadingRateKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceFragmentShadingRateKHR...\n");
         json result;
         result=[&]() {
     json return_ilDAxyE=json({});
@@ -13673,7 +13673,7 @@ return return_ilDAxyE;}();
     
 
         json serialize_VkPhysicalDeviceShaderTerminateInvocationFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderTerminateInvocationFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderTerminateInvocationFeatures...\n");
         json result;
         result=[&]() {
     json return_bEhzWfU=json({});
@@ -13691,7 +13691,7 @@ return return_bEhzWfU;}();
     
 
         json serialize_VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_uNiayVO=json({});
@@ -13709,7 +13709,7 @@ return return_uNiayVO;}();
     
 
         json serialize_VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_ucBVQcG=json({});
@@ -13727,7 +13727,7 @@ return return_ucBVQcG;}();
     
 
         json serialize_VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV...\n");
         json result;
         result=[&]() {
     json return_ntDGYvY=json({});
@@ -13745,7 +13745,7 @@ return return_ntDGYvY;}();
     
 
         json serialize_VkPipelineFragmentShadingRateEnumStateCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkPipelineFragmentShadingRateEnumStateCreateInfoNV...\n");
+        debug_printf("Serializing VkPipelineFragmentShadingRateEnumStateCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_RepzFPB=json({});
@@ -13763,7 +13763,7 @@ return return_RepzFPB;}();
     
 
         json serialize_VkAccelerationStructureBuildSizesInfoKHR_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureBuildSizesInfoKHR...\n");
+        debug_printf("Serializing VkAccelerationStructureBuildSizesInfoKHR...\n");
         json result;
         result=[&]() {
     json return_axEczGd=json({});
@@ -13781,7 +13781,7 @@ return return_axEczGd;}();
     
 
         json serialize_VkPhysicalDeviceImage2DViewOf3DFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceImage2DViewOf3DFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceImage2DViewOf3DFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_rTspLBz=json({});
@@ -13799,7 +13799,7 @@ return return_rTspLBz;}();
     
 
         json serialize_VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_GkoQaGW=json({});
@@ -13817,7 +13817,7 @@ return return_GkoQaGW;}();
     
 
         json serialize_VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_yVHpyWD=json({});
@@ -13835,7 +13835,7 @@ return return_yVHpyWD;}();
     
 
         json serialize_VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_jUOajBX=json({});
@@ -13853,7 +13853,7 @@ return return_jUOajBX;}();
     
 
         json serialize_VkPhysicalDeviceMutableDescriptorTypeFeaturesVALVE_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMutableDescriptorTypeFeaturesVALVE...\n");
+        debug_printf("Serializing VkPhysicalDeviceMutableDescriptorTypeFeaturesVALVE...\n");
         json result;
         result=[&]() {
     json return_kZcYXmL=json({});
@@ -13871,7 +13871,7 @@ return return_kZcYXmL;}();
     
 
         json serialize_VkMutableDescriptorTypeListEXT_pNext(const void* name){
-        printf("Serializing VkMutableDescriptorTypeListEXT...\n");
+        debug_printf("Serializing VkMutableDescriptorTypeListEXT...\n");
         json result;
         result=[&]() {
     json return_cfGhWYP=json({});
@@ -13889,7 +13889,7 @@ return return_cfGhWYP;}();
     
 
         json serialize_VkMutableDescriptorTypeListVALVE_pNext(const void* name){
-        printf("Serializing VkMutableDescriptorTypeListVALVE...\n");
+        debug_printf("Serializing VkMutableDescriptorTypeListVALVE...\n");
         json result;
         result=[&]() {
     json return_KrybswL=json({});
@@ -13907,7 +13907,7 @@ return return_KrybswL;}();
     
 
         json serialize_VkMutableDescriptorTypeCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkMutableDescriptorTypeCreateInfoEXT...\n");
+        debug_printf("Serializing VkMutableDescriptorTypeCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_NvlLoCx=json({});
@@ -13925,7 +13925,7 @@ return return_NvlLoCx;}();
     
 
         json serialize_VkMutableDescriptorTypeCreateInfoVALVE_pNext(const void* name){
-        printf("Serializing VkMutableDescriptorTypeCreateInfoVALVE...\n");
+        debug_printf("Serializing VkMutableDescriptorTypeCreateInfoVALVE...\n");
         json result;
         result=[&]() {
     json return_ykWPVZg=json({});
@@ -13943,7 +13943,7 @@ return return_ykWPVZg;}();
     
 
         json serialize_VkPhysicalDeviceDepthClipControlFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDepthClipControlFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceDepthClipControlFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_XnQnRmi=json({});
@@ -13961,7 +13961,7 @@ return return_XnQnRmi;}();
     
 
         json serialize_VkPipelineViewportDepthClipControlCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkPipelineViewportDepthClipControlCreateInfoEXT...\n");
+        debug_printf("Serializing VkPipelineViewportDepthClipControlCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_eEneJwj=json({});
@@ -13979,7 +13979,7 @@ return return_eEneJwj;}();
     
 
         json serialize_VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_dfBBYDn=json({});
@@ -13997,7 +13997,7 @@ return return_dfBBYDn;}();
     
 
         json serialize_VkPhysicalDeviceExternalMemoryRDMAFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceExternalMemoryRDMAFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceExternalMemoryRDMAFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_EpLomzD=json({});
@@ -14015,7 +14015,7 @@ return return_EpLomzD;}();
     
 
         json serialize_VkVertexInputBindingDescription2EXT_pNext(const void* name){
-        printf("Serializing VkVertexInputBindingDescription2EXT...\n");
+        debug_printf("Serializing VkVertexInputBindingDescription2EXT...\n");
         json result;
         result=[&]() {
     json return_rHtpCrY=json({});
@@ -14033,7 +14033,7 @@ return return_rHtpCrY;}();
     
 
         json serialize_VkVertexInputAttributeDescription2EXT_pNext(const void* name){
-        printf("Serializing VkVertexInputAttributeDescription2EXT...\n");
+        debug_printf("Serializing VkVertexInputAttributeDescription2EXT...\n");
         json result;
         result=[&]() {
     json return_aphmeYL=json({});
@@ -14051,7 +14051,7 @@ return return_aphmeYL;}();
     
 
         json serialize_VkPhysicalDeviceColorWriteEnableFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceColorWriteEnableFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceColorWriteEnableFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_mmiqIeM=json({});
@@ -14069,7 +14069,7 @@ return return_mmiqIeM;}();
     
 
         json serialize_VkPipelineColorWriteCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkPipelineColorWriteCreateInfoEXT...\n");
+        debug_printf("Serializing VkPipelineColorWriteCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_uXaBBzW=json({});
@@ -14087,7 +14087,7 @@ return return_uXaBBzW;}();
     
 
         json serialize_VkMemoryBarrier2_pNext(const void* name){
-        printf("Serializing VkMemoryBarrier2...\n");
+        debug_printf("Serializing VkMemoryBarrier2...\n");
         json result;
         result=[&]() {
     json return_ffdCcgR=json({});
@@ -14105,7 +14105,7 @@ return return_ffdCcgR;}();
     
 
         json serialize_VkMemoryBarrier2KHR_pNext(const void* name){
-        printf("Serializing VkMemoryBarrier2KHR...\n");
+        debug_printf("Serializing VkMemoryBarrier2KHR...\n");
         json result;
         result=[&]() {
     json return_pSTCLZo=json({});
@@ -14123,7 +14123,7 @@ return return_pSTCLZo;}();
     
 
         json serialize_VkImageMemoryBarrier2_pNext(const void* name){
-        printf("Serializing VkImageMemoryBarrier2...\n");
+        debug_printf("Serializing VkImageMemoryBarrier2...\n");
         json result;
         result=[&]() {
     json return_Naxsteq=json({});
@@ -14141,7 +14141,7 @@ return return_Naxsteq;}();
     
 
         json serialize_VkImageMemoryBarrier2KHR_pNext(const void* name){
-        printf("Serializing VkImageMemoryBarrier2KHR...\n");
+        debug_printf("Serializing VkImageMemoryBarrier2KHR...\n");
         json result;
         result=[&]() {
     json return_uLIOfUT=json({});
@@ -14159,7 +14159,7 @@ return return_uLIOfUT;}();
     
 
         json serialize_VkBufferMemoryBarrier2_pNext(const void* name){
-        printf("Serializing VkBufferMemoryBarrier2...\n");
+        debug_printf("Serializing VkBufferMemoryBarrier2...\n");
         json result;
         result=[&]() {
     json return_RqyVprJ=json({});
@@ -14177,7 +14177,7 @@ return return_RqyVprJ;}();
     
 
         json serialize_VkBufferMemoryBarrier2KHR_pNext(const void* name){
-        printf("Serializing VkBufferMemoryBarrier2KHR...\n");
+        debug_printf("Serializing VkBufferMemoryBarrier2KHR...\n");
         json result;
         result=[&]() {
     json return_gpIEGNU=json({});
@@ -14195,7 +14195,7 @@ return return_gpIEGNU;}();
     
 
         json serialize_VkDependencyInfo_pNext(const void* name){
-        printf("Serializing VkDependencyInfo...\n");
+        debug_printf("Serializing VkDependencyInfo...\n");
         json result;
         result=[&]() {
     json return_JHUJwQv=json({});
@@ -14213,7 +14213,7 @@ return return_JHUJwQv;}();
     
 
         json serialize_VkDependencyInfoKHR_pNext(const void* name){
-        printf("Serializing VkDependencyInfoKHR...\n");
+        debug_printf("Serializing VkDependencyInfoKHR...\n");
         json result;
         result=[&]() {
     json return_uWwSNDb=json({});
@@ -14231,7 +14231,7 @@ return return_uWwSNDb;}();
     
 
         json serialize_VkSemaphoreSubmitInfo_pNext(const void* name){
-        printf("Serializing VkSemaphoreSubmitInfo...\n");
+        debug_printf("Serializing VkSemaphoreSubmitInfo...\n");
         json result;
         result=[&]() {
     json return_isLEcFy=json({});
@@ -14249,7 +14249,7 @@ return return_isLEcFy;}();
     
 
         json serialize_VkSemaphoreSubmitInfoKHR_pNext(const void* name){
-        printf("Serializing VkSemaphoreSubmitInfoKHR...\n");
+        debug_printf("Serializing VkSemaphoreSubmitInfoKHR...\n");
         json result;
         result=[&]() {
     json return_YcnSGVi=json({});
@@ -14267,7 +14267,7 @@ return return_YcnSGVi;}();
     
 
         json serialize_VkCommandBufferSubmitInfo_pNext(const void* name){
-        printf("Serializing VkCommandBufferSubmitInfo...\n");
+        debug_printf("Serializing VkCommandBufferSubmitInfo...\n");
         json result;
         result=[&]() {
     json return_mAPbqOY=json({});
@@ -14285,7 +14285,7 @@ return return_mAPbqOY;}();
     
 
         json serialize_VkCommandBufferSubmitInfoKHR_pNext(const void* name){
-        printf("Serializing VkCommandBufferSubmitInfoKHR...\n");
+        debug_printf("Serializing VkCommandBufferSubmitInfoKHR...\n");
         json result;
         result=[&]() {
     json return_BJIGquM=json({});
@@ -14303,7 +14303,7 @@ return return_BJIGquM;}();
     
 
         json serialize_VkSubmitInfo2_pNext(const void* name){
-        printf("Serializing VkSubmitInfo2...\n");
+        debug_printf("Serializing VkSubmitInfo2...\n");
         json result;
         result=[&]() {
     json return_lcCnPRN=json({});
@@ -14321,7 +14321,7 @@ return return_lcCnPRN;}();
     
 
         json serialize_VkSubmitInfo2KHR_pNext(const void* name){
-        printf("Serializing VkSubmitInfo2KHR...\n");
+        debug_printf("Serializing VkSubmitInfo2KHR...\n");
         json result;
         result=[&]() {
     json return_oDtXJXb=json({});
@@ -14339,7 +14339,7 @@ return return_oDtXJXb;}();
     
 
         json serialize_VkQueueFamilyCheckpointProperties2NV_pNext(const void* name){
-        printf("Serializing VkQueueFamilyCheckpointProperties2NV...\n");
+        debug_printf("Serializing VkQueueFamilyCheckpointProperties2NV...\n");
         json result;
         result=[&]() {
     json return_dwQcxxw=json({});
@@ -14357,7 +14357,7 @@ return return_dwQcxxw;}();
     
 
         json serialize_VkCheckpointData2NV_pNext(const void* name){
-        printf("Serializing VkCheckpointData2NV...\n");
+        debug_printf("Serializing VkCheckpointData2NV...\n");
         json result;
         result=[&]() {
     json return_btFDfbe=json({});
@@ -14375,7 +14375,7 @@ return return_btFDfbe;}();
     
 
         json serialize_VkPhysicalDeviceSynchronization2Features_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSynchronization2Features...\n");
+        debug_printf("Serializing VkPhysicalDeviceSynchronization2Features...\n");
         json result;
         result=[&]() {
     json return_GekwtQH=json({});
@@ -14393,7 +14393,7 @@ return return_GekwtQH;}();
     
 
         json serialize_VkPhysicalDeviceSynchronization2FeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSynchronization2FeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceSynchronization2FeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_atRdPGl=json({});
@@ -14411,7 +14411,7 @@ return return_atRdPGl;}();
     
 
         json serialize_VkPhysicalDeviceHostImageCopyFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceHostImageCopyFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceHostImageCopyFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_KRvbHAc=json({});
@@ -14429,7 +14429,7 @@ return return_KRvbHAc;}();
     
 
         json serialize_VkPhysicalDeviceHostImageCopyPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceHostImageCopyPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceHostImageCopyPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_wUZXtTd=json({});
@@ -14447,7 +14447,7 @@ return return_wUZXtTd;}();
     
 
         json serialize_VkMemoryToImageCopyEXT_pNext(const void* name){
-        printf("Serializing VkMemoryToImageCopyEXT...\n");
+        debug_printf("Serializing VkMemoryToImageCopyEXT...\n");
         json result;
         result=[&]() {
     json return_RuqTppw=json({});
@@ -14465,7 +14465,7 @@ return return_RuqTppw;}();
     
 
         json serialize_VkImageToMemoryCopyEXT_pNext(const void* name){
-        printf("Serializing VkImageToMemoryCopyEXT...\n");
+        debug_printf("Serializing VkImageToMemoryCopyEXT...\n");
         json result;
         result=[&]() {
     json return_cHZPFye=json({});
@@ -14483,7 +14483,7 @@ return return_cHZPFye;}();
     
 
         json serialize_VkCopyMemoryToImageInfoEXT_pNext(const void* name){
-        printf("Serializing VkCopyMemoryToImageInfoEXT...\n");
+        debug_printf("Serializing VkCopyMemoryToImageInfoEXT...\n");
         json result;
         result=[&]() {
     json return_VLYFPxE=json({});
@@ -14501,7 +14501,7 @@ return return_VLYFPxE;}();
     
 
         json serialize_VkCopyImageToMemoryInfoEXT_pNext(const void* name){
-        printf("Serializing VkCopyImageToMemoryInfoEXT...\n");
+        debug_printf("Serializing VkCopyImageToMemoryInfoEXT...\n");
         json result;
         result=[&]() {
     json return_RTOdzYm=json({});
@@ -14519,7 +14519,7 @@ return return_RTOdzYm;}();
     
 
         json serialize_VkCopyImageToImageInfoEXT_pNext(const void* name){
-        printf("Serializing VkCopyImageToImageInfoEXT...\n");
+        debug_printf("Serializing VkCopyImageToImageInfoEXT...\n");
         json result;
         result=[&]() {
     json return_nBEgXec=json({});
@@ -14537,7 +14537,7 @@ return return_nBEgXec;}();
     
 
         json serialize_VkHostImageLayoutTransitionInfoEXT_pNext(const void* name){
-        printf("Serializing VkHostImageLayoutTransitionInfoEXT...\n");
+        debug_printf("Serializing VkHostImageLayoutTransitionInfoEXT...\n");
         json result;
         result=[&]() {
     json return_oFIDeQB=json({});
@@ -14555,7 +14555,7 @@ return return_oFIDeQB;}();
     
 
         json serialize_VkSubresourceHostMemcpySizeEXT_pNext(const void* name){
-        printf("Serializing VkSubresourceHostMemcpySizeEXT...\n");
+        debug_printf("Serializing VkSubresourceHostMemcpySizeEXT...\n");
         json result;
         result=[&]() {
     json return_KlYTnYw=json({});
@@ -14573,7 +14573,7 @@ return return_KlYTnYw;}();
     
 
         json serialize_VkHostImageCopyDevicePerformanceQueryEXT_pNext(const void* name){
-        printf("Serializing VkHostImageCopyDevicePerformanceQueryEXT...\n");
+        debug_printf("Serializing VkHostImageCopyDevicePerformanceQueryEXT...\n");
         json result;
         result=[&]() {
     json return_gAETQEJ=json({});
@@ -14591,7 +14591,7 @@ return return_gAETQEJ;}();
     
 
         json serialize_VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_ljwswdl=json({});
@@ -14609,7 +14609,7 @@ return return_ljwswdl;}();
     
 
         json serialize_VkPhysicalDeviceLegacyDitheringFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceLegacyDitheringFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceLegacyDitheringFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_CXwmLqD=json({});
@@ -14627,7 +14627,7 @@ return return_CXwmLqD;}();
     
 
         json serialize_VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_OeBvVOX=json({});
@@ -14645,7 +14645,7 @@ return return_OeBvVOX;}();
     
 
         json serialize_VkSubpassResolvePerformanceQueryEXT_pNext(const void* name){
-        printf("Serializing VkSubpassResolvePerformanceQueryEXT...\n");
+        debug_printf("Serializing VkSubpassResolvePerformanceQueryEXT...\n");
         json result;
         result=[&]() {
     json return_xuNLDhb=json({});
@@ -14663,7 +14663,7 @@ return return_xuNLDhb;}();
     
 
         json serialize_VkMultisampledRenderToSingleSampledInfoEXT_pNext(const void* name){
-        printf("Serializing VkMultisampledRenderToSingleSampledInfoEXT...\n");
+        debug_printf("Serializing VkMultisampledRenderToSingleSampledInfoEXT...\n");
         json result;
         result=[&]() {
     json return_rSLQwta=json({});
@@ -14681,7 +14681,7 @@ return return_rSLQwta;}();
     
 
         json serialize_VkPhysicalDevicePipelineProtectedAccessFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePipelineProtectedAccessFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDevicePipelineProtectedAccessFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_OAjDGIi=json({});
@@ -14699,7 +14699,7 @@ return return_OAjDGIi;}();
     
 
         json serialize_VkQueueFamilyVideoPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkQueueFamilyVideoPropertiesKHR...\n");
+        debug_printf("Serializing VkQueueFamilyVideoPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_ibrdUWY=json({});
@@ -14717,7 +14717,7 @@ return return_ibrdUWY;}();
     
 
         json serialize_VkQueueFamilyQueryResultStatusPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkQueueFamilyQueryResultStatusPropertiesKHR...\n");
+        debug_printf("Serializing VkQueueFamilyQueryResultStatusPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_FJZVmHU=json({});
@@ -14735,7 +14735,7 @@ return return_FJZVmHU;}();
     
 
         json serialize_VkVideoProfileListInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoProfileListInfoKHR...\n");
+        debug_printf("Serializing VkVideoProfileListInfoKHR...\n");
         json result;
         result=[&]() {
     json return_hFFkOfp=json({});
@@ -14753,7 +14753,7 @@ return return_hFFkOfp;}();
     
 
         json serialize_VkPhysicalDeviceVideoFormatInfoKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceVideoFormatInfoKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceVideoFormatInfoKHR...\n");
         json result;
         result=[&]() {
     json return_IenbUwR=json({});
@@ -14771,7 +14771,7 @@ return return_IenbUwR;}();
     
 
         json serialize_VkVideoFormatPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkVideoFormatPropertiesKHR...\n");
+        debug_printf("Serializing VkVideoFormatPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_WwBuRvv=json({});
@@ -14789,7 +14789,7 @@ return return_WwBuRvv;}();
     
 
         json serialize_VkVideoProfileInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoProfileInfoKHR...\n");
+        debug_printf("Serializing VkVideoProfileInfoKHR...\n");
         json result;
         result=[&]() {
     json return_RCKsOrJ=json({});
@@ -14807,7 +14807,7 @@ return return_RCKsOrJ;}();
     
 
         json serialize_VkVideoCapabilitiesKHR_pNext(const void* name){
-        printf("Serializing VkVideoCapabilitiesKHR...\n");
+        debug_printf("Serializing VkVideoCapabilitiesKHR...\n");
         json result;
         result=[&]() {
     json return_yPixyzG=json({});
@@ -14825,7 +14825,7 @@ return return_yPixyzG;}();
     
 
         json serialize_VkVideoSessionMemoryRequirementsKHR_pNext(const void* name){
-        printf("Serializing VkVideoSessionMemoryRequirementsKHR...\n");
+        debug_printf("Serializing VkVideoSessionMemoryRequirementsKHR...\n");
         json result;
         result=[&]() {
     json return_cQsdTjt=json({});
@@ -14843,7 +14843,7 @@ return return_cQsdTjt;}();
     
 
         json serialize_VkBindVideoSessionMemoryInfoKHR_pNext(const void* name){
-        printf("Serializing VkBindVideoSessionMemoryInfoKHR...\n");
+        debug_printf("Serializing VkBindVideoSessionMemoryInfoKHR...\n");
         json result;
         result=[&]() {
     json return_CmwYuhK=json({});
@@ -14861,7 +14861,7 @@ return return_CmwYuhK;}();
     
 
         json serialize_VkVideoPictureResourceInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoPictureResourceInfoKHR...\n");
+        debug_printf("Serializing VkVideoPictureResourceInfoKHR...\n");
         json result;
         result=[&]() {
     json return_qxPelVs=json({});
@@ -14879,7 +14879,7 @@ return return_qxPelVs;}();
     
 
         json serialize_VkVideoReferenceSlotInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoReferenceSlotInfoKHR...\n");
+        debug_printf("Serializing VkVideoReferenceSlotInfoKHR...\n");
         json result;
         result=[&]() {
     json return_BtKsIgI=json({});
@@ -14897,7 +14897,7 @@ return return_BtKsIgI;}();
     
 
         json serialize_VkVideoDecodeCapabilitiesKHR_pNext(const void* name){
-        printf("Serializing VkVideoDecodeCapabilitiesKHR...\n");
+        debug_printf("Serializing VkVideoDecodeCapabilitiesKHR...\n");
         json result;
         result=[&]() {
     json return_GIBITmI=json({});
@@ -14915,7 +14915,7 @@ return return_GIBITmI;}();
     
 
         json serialize_VkVideoDecodeUsageInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoDecodeUsageInfoKHR...\n");
+        debug_printf("Serializing VkVideoDecodeUsageInfoKHR...\n");
         json result;
         result=[&]() {
     json return_HdRJNjn=json({});
@@ -14933,7 +14933,7 @@ return return_HdRJNjn;}();
     
 
         json serialize_VkVideoDecodeInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoDecodeInfoKHR...\n");
+        debug_printf("Serializing VkVideoDecodeInfoKHR...\n");
         json result;
         result=[&]() {
     json return_qEZkcHq=json({});
@@ -14951,7 +14951,7 @@ return return_qEZkcHq;}();
     
 
         json serialize_VkVideoDecodeH264ProfileInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoDecodeH264ProfileInfoKHR...\n");
+        debug_printf("Serializing VkVideoDecodeH264ProfileInfoKHR...\n");
         json result;
         result=[&]() {
     json return_tQWPXfQ=json({});
@@ -14969,7 +14969,7 @@ return return_tQWPXfQ;}();
     
 
         json serialize_VkVideoDecodeH264CapabilitiesKHR_pNext(const void* name){
-        printf("Serializing VkVideoDecodeH264CapabilitiesKHR...\n");
+        debug_printf("Serializing VkVideoDecodeH264CapabilitiesKHR...\n");
         json result;
         result=[&]() {
     json return_KUQiIyc=json({});
@@ -14987,7 +14987,7 @@ return return_KUQiIyc;}();
     
 
         json serialize_VkVideoDecodeH264SessionParametersAddInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoDecodeH264SessionParametersAddInfoKHR...\n");
+        debug_printf("Serializing VkVideoDecodeH264SessionParametersAddInfoKHR...\n");
         json result;
         result=[&]() {
     json return_rYjkBiv=json({});
@@ -15005,7 +15005,7 @@ return return_rYjkBiv;}();
     
 
         json serialize_VkVideoDecodeH264SessionParametersCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoDecodeH264SessionParametersCreateInfoKHR...\n");
+        debug_printf("Serializing VkVideoDecodeH264SessionParametersCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_dnctEoK=json({});
@@ -15023,7 +15023,7 @@ return return_dnctEoK;}();
     
 
         json serialize_VkVideoDecodeH264PictureInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoDecodeH264PictureInfoKHR...\n");
+        debug_printf("Serializing VkVideoDecodeH264PictureInfoKHR...\n");
         json result;
         result=[&]() {
     json return_ZOxAtUr=json({});
@@ -15041,7 +15041,7 @@ return return_ZOxAtUr;}();
     
 
         json serialize_VkVideoDecodeH264DpbSlotInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoDecodeH264DpbSlotInfoKHR...\n");
+        debug_printf("Serializing VkVideoDecodeH264DpbSlotInfoKHR...\n");
         json result;
         result=[&]() {
     json return_cvRhyoP=json({});
@@ -15059,7 +15059,7 @@ return return_cvRhyoP;}();
     
 
         json serialize_VkVideoDecodeH265ProfileInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoDecodeH265ProfileInfoKHR...\n");
+        debug_printf("Serializing VkVideoDecodeH265ProfileInfoKHR...\n");
         json result;
         result=[&]() {
     json return_RezBJhZ=json({});
@@ -15077,7 +15077,7 @@ return return_RezBJhZ;}();
     
 
         json serialize_VkVideoDecodeH265CapabilitiesKHR_pNext(const void* name){
-        printf("Serializing VkVideoDecodeH265CapabilitiesKHR...\n");
+        debug_printf("Serializing VkVideoDecodeH265CapabilitiesKHR...\n");
         json result;
         result=[&]() {
     json return_qHrMWON=json({});
@@ -15095,7 +15095,7 @@ return return_qHrMWON;}();
     
 
         json serialize_VkVideoDecodeH265SessionParametersAddInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoDecodeH265SessionParametersAddInfoKHR...\n");
+        debug_printf("Serializing VkVideoDecodeH265SessionParametersAddInfoKHR...\n");
         json result;
         result=[&]() {
     json return_pYtrRhg=json({});
@@ -15113,7 +15113,7 @@ return return_pYtrRhg;}();
     
 
         json serialize_VkVideoDecodeH265SessionParametersCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoDecodeH265SessionParametersCreateInfoKHR...\n");
+        debug_printf("Serializing VkVideoDecodeH265SessionParametersCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_FczLngM=json({});
@@ -15131,7 +15131,7 @@ return return_FczLngM;}();
     
 
         json serialize_VkVideoDecodeH265PictureInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoDecodeH265PictureInfoKHR...\n");
+        debug_printf("Serializing VkVideoDecodeH265PictureInfoKHR...\n");
         json result;
         result=[&]() {
     json return_IGxDWUS=json({});
@@ -15149,7 +15149,7 @@ return return_IGxDWUS;}();
     
 
         json serialize_VkVideoDecodeH265DpbSlotInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoDecodeH265DpbSlotInfoKHR...\n");
+        debug_printf("Serializing VkVideoDecodeH265DpbSlotInfoKHR...\n");
         json result;
         result=[&]() {
     json return_MIqbRPa=json({});
@@ -15167,7 +15167,7 @@ return return_MIqbRPa;}();
     
 
         json serialize_VkVideoSessionCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoSessionCreateInfoKHR...\n");
+        debug_printf("Serializing VkVideoSessionCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_exEJcXg=json({});
@@ -15185,7 +15185,7 @@ return return_exEJcXg;}();
     
 
         json serialize_VkVideoSessionParametersCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoSessionParametersCreateInfoKHR...\n");
+        debug_printf("Serializing VkVideoSessionParametersCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_jyImIDt=json({});
@@ -15203,7 +15203,7 @@ return return_jyImIDt;}();
     
 
         json serialize_VkVideoSessionParametersUpdateInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoSessionParametersUpdateInfoKHR...\n");
+        debug_printf("Serializing VkVideoSessionParametersUpdateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_uQAgFYn=json({});
@@ -15221,7 +15221,7 @@ return return_uQAgFYn;}();
     
 
         json serialize_VkVideoBeginCodingInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoBeginCodingInfoKHR...\n");
+        debug_printf("Serializing VkVideoBeginCodingInfoKHR...\n");
         json result;
         result=[&]() {
     json return_yWlSxEr=json({});
@@ -15239,7 +15239,7 @@ return return_yWlSxEr;}();
     
 
         json serialize_VkVideoEndCodingInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoEndCodingInfoKHR...\n");
+        debug_printf("Serializing VkVideoEndCodingInfoKHR...\n");
         json result;
         result=[&]() {
     json return_LLvlCtv=json({});
@@ -15257,7 +15257,7 @@ return return_LLvlCtv;}();
     
 
         json serialize_VkVideoCodingControlInfoKHR_pNext(const void* name){
-        printf("Serializing VkVideoCodingControlInfoKHR...\n");
+        debug_printf("Serializing VkVideoCodingControlInfoKHR...\n");
         json result;
         result=[&]() {
     json return_ovZgTGe=json({});
@@ -15275,7 +15275,7 @@ return return_ovZgTGe;}();
     
 
         json serialize_VkPhysicalDeviceInheritedViewportScissorFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceInheritedViewportScissorFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceInheritedViewportScissorFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_yFEnvXt=json({});
@@ -15293,7 +15293,7 @@ return return_yFEnvXt;}();
     
 
         json serialize_VkCommandBufferInheritanceViewportScissorInfoNV_pNext(const void* name){
-        printf("Serializing VkCommandBufferInheritanceViewportScissorInfoNV...\n");
+        debug_printf("Serializing VkCommandBufferInheritanceViewportScissorInfoNV...\n");
         json result;
         result=[&]() {
     json return_MnMMyoe=json({});
@@ -15311,7 +15311,7 @@ return return_MnMMyoe;}();
     
 
         json serialize_VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_qQIYIgr=json({});
@@ -15329,7 +15329,7 @@ return return_qQIYIgr;}();
     
 
         json serialize_VkPhysicalDeviceProvokingVertexFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceProvokingVertexFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceProvokingVertexFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_TLIgvgU=json({});
@@ -15347,7 +15347,7 @@ return return_TLIgvgU;}();
     
 
         json serialize_VkPhysicalDeviceProvokingVertexPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceProvokingVertexPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceProvokingVertexPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_rnOzTIR=json({});
@@ -15365,7 +15365,7 @@ return return_rnOzTIR;}();
     
 
         json serialize_VkPipelineRasterizationProvokingVertexStateCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkPipelineRasterizationProvokingVertexStateCreateInfoEXT...\n");
+        debug_printf("Serializing VkPipelineRasterizationProvokingVertexStateCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_bSqpZaW=json({});
@@ -15383,7 +15383,7 @@ return return_bSqpZaW;}();
     
 
         json serialize_VkCuModuleCreateInfoNVX_pNext(const void* name){
-        printf("Serializing VkCuModuleCreateInfoNVX...\n");
+        debug_printf("Serializing VkCuModuleCreateInfoNVX...\n");
         json result;
         result=[&]() {
     json return_DkDUUZz=json({});
@@ -15401,7 +15401,7 @@ return return_DkDUUZz;}();
     
 
         json serialize_VkCuFunctionCreateInfoNVX_pNext(const void* name){
-        printf("Serializing VkCuFunctionCreateInfoNVX...\n");
+        debug_printf("Serializing VkCuFunctionCreateInfoNVX...\n");
         json result;
         result=[&]() {
     json return_RdRqCdJ=json({});
@@ -15419,7 +15419,7 @@ return return_RdRqCdJ;}();
     
 
         json serialize_VkCuLaunchInfoNVX_pNext(const void* name){
-        printf("Serializing VkCuLaunchInfoNVX...\n");
+        debug_printf("Serializing VkCuLaunchInfoNVX...\n");
         json result;
         result=[&]() {
     json return_kIowffr=json({});
@@ -15437,7 +15437,7 @@ return return_kIowffr;}();
     
 
         json serialize_VkPhysicalDeviceDescriptorBufferFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDescriptorBufferFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceDescriptorBufferFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_pbukgay=json({});
@@ -15455,7 +15455,7 @@ return return_pbukgay;}();
     
 
         json serialize_VkPhysicalDeviceDescriptorBufferPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDescriptorBufferPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceDescriptorBufferPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_tmffuJF=json({});
@@ -15473,7 +15473,7 @@ return return_tmffuJF;}();
     
 
         json serialize_VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_cZakzyI=json({});
@@ -15491,7 +15491,7 @@ return return_cZakzyI;}();
     
 
         json serialize_VkDescriptorAddressInfoEXT_pNext(const void* name){
-        printf("Serializing VkDescriptorAddressInfoEXT...\n");
+        debug_printf("Serializing VkDescriptorAddressInfoEXT...\n");
         json result;
         result=[&]() {
     json return_SYoPshx=json({});
@@ -15509,7 +15509,7 @@ return return_SYoPshx;}();
     
 
         json serialize_VkDescriptorBufferBindingInfoEXT_pNext(const void* name){
-        printf("Serializing VkDescriptorBufferBindingInfoEXT...\n");
+        debug_printf("Serializing VkDescriptorBufferBindingInfoEXT...\n");
         json result;
         result=[&]() {
     json return_QLIGgQN=json({});
@@ -15527,7 +15527,7 @@ return return_QLIGgQN;}();
     
 
         json serialize_VkDescriptorBufferBindingPushDescriptorBufferHandleEXT_pNext(const void* name){
-        printf("Serializing VkDescriptorBufferBindingPushDescriptorBufferHandleEXT...\n");
+        debug_printf("Serializing VkDescriptorBufferBindingPushDescriptorBufferHandleEXT...\n");
         json result;
         result=[&]() {
     json return_YKyaAjn=json({});
@@ -15545,7 +15545,7 @@ return return_YKyaAjn;}();
     
 
         json serialize_VkDescriptorDataEXT_pNext(const void* name){
-        printf("Serializing VkDescriptorDataEXT...\n");
+        debug_printf("Serializing VkDescriptorDataEXT...\n");
         json result;
         result=[&]() {
     json return_yYImJlL=json({});
@@ -15563,7 +15563,7 @@ return return_yYImJlL;}();
     
 
         json serialize_VkDescriptorGetInfoEXT_pNext(const void* name){
-        printf("Serializing VkDescriptorGetInfoEXT...\n");
+        debug_printf("Serializing VkDescriptorGetInfoEXT...\n");
         json result;
         result=[&]() {
     json return_RvOxZul=json({});
@@ -15581,7 +15581,7 @@ return return_RvOxZul;}();
     
 
         json serialize_VkBufferCaptureDescriptorDataInfoEXT_pNext(const void* name){
-        printf("Serializing VkBufferCaptureDescriptorDataInfoEXT...\n");
+        debug_printf("Serializing VkBufferCaptureDescriptorDataInfoEXT...\n");
         json result;
         result=[&]() {
     json return_iEJFnQM=json({});
@@ -15599,7 +15599,7 @@ return return_iEJFnQM;}();
     
 
         json serialize_VkImageCaptureDescriptorDataInfoEXT_pNext(const void* name){
-        printf("Serializing VkImageCaptureDescriptorDataInfoEXT...\n");
+        debug_printf("Serializing VkImageCaptureDescriptorDataInfoEXT...\n");
         json result;
         result=[&]() {
     json return_iFwHHax=json({});
@@ -15617,7 +15617,7 @@ return return_iFwHHax;}();
     
 
         json serialize_VkImageViewCaptureDescriptorDataInfoEXT_pNext(const void* name){
-        printf("Serializing VkImageViewCaptureDescriptorDataInfoEXT...\n");
+        debug_printf("Serializing VkImageViewCaptureDescriptorDataInfoEXT...\n");
         json result;
         result=[&]() {
     json return_uOpjrin=json({});
@@ -15635,7 +15635,7 @@ return return_uOpjrin;}();
     
 
         json serialize_VkSamplerCaptureDescriptorDataInfoEXT_pNext(const void* name){
-        printf("Serializing VkSamplerCaptureDescriptorDataInfoEXT...\n");
+        debug_printf("Serializing VkSamplerCaptureDescriptorDataInfoEXT...\n");
         json result;
         result=[&]() {
     json return_HbOmkvC=json({});
@@ -15653,7 +15653,7 @@ return return_HbOmkvC;}();
     
 
         json serialize_VkAccelerationStructureCaptureDescriptorDataInfoEXT_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureCaptureDescriptorDataInfoEXT...\n");
+        debug_printf("Serializing VkAccelerationStructureCaptureDescriptorDataInfoEXT...\n");
         json result;
         result=[&]() {
     json return_gIsZbtn=json({});
@@ -15671,7 +15671,7 @@ return return_gIsZbtn;}();
     
 
         json serialize_VkOpaqueCaptureDescriptorDataCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkOpaqueCaptureDescriptorDataCreateInfoEXT...\n");
+        debug_printf("Serializing VkOpaqueCaptureDescriptorDataCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_yCmSRGt=json({});
@@ -15689,7 +15689,7 @@ return return_yCmSRGt;}();
     
 
         json serialize_VkPhysicalDeviceShaderIntegerDotProductFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderIntegerDotProductFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderIntegerDotProductFeatures...\n");
         json result;
         result=[&]() {
     json return_gePiqMb=json({});
@@ -15707,7 +15707,7 @@ return return_gePiqMb;}();
     
 
         json serialize_VkPhysicalDeviceShaderIntegerDotProductFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderIntegerDotProductFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderIntegerDotProductFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_xPRqPIG=json({});
@@ -15725,7 +15725,7 @@ return return_xPRqPIG;}();
     
 
         json serialize_VkPhysicalDeviceShaderIntegerDotProductProperties_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderIntegerDotProductProperties...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderIntegerDotProductProperties...\n");
         json result;
         result=[&]() {
     json return_lGJwXyJ=json({});
@@ -15743,7 +15743,7 @@ return return_lGJwXyJ;}();
     
 
         json serialize_VkPhysicalDeviceShaderIntegerDotProductPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderIntegerDotProductPropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderIntegerDotProductPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_CqbLmrQ=json({});
@@ -15761,7 +15761,7 @@ return return_CqbLmrQ;}();
     
 
         json serialize_VkPhysicalDeviceDrmPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDrmPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceDrmPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_iruuWyM=json({});
@@ -15779,7 +15779,7 @@ return return_iruuWyM;}();
     
 
         json serialize_VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_cXZZYJE=json({});
@@ -15797,7 +15797,7 @@ return return_cXZZYJE;}();
     
 
         json serialize_VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_DIsSZeb=json({});
@@ -15815,7 +15815,7 @@ return return_DIsSZeb;}();
     
 
         json serialize_VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_mjuFfrb=json({});
@@ -15833,7 +15833,7 @@ return return_mjuFfrb;}();
     
 
         json serialize_VkPhysicalDeviceRayTracingMotionBlurFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceRayTracingMotionBlurFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceRayTracingMotionBlurFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_qTogrLy=json({});
@@ -15851,7 +15851,7 @@ return return_qTogrLy;}();
     
 
         json serialize_VkAccelerationStructureGeometryMotionTrianglesDataNV_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureGeometryMotionTrianglesDataNV...\n");
+        debug_printf("Serializing VkAccelerationStructureGeometryMotionTrianglesDataNV...\n");
         json result;
         result=[&]() {
     json return_riIvakd=json({});
@@ -15869,7 +15869,7 @@ return return_riIvakd;}();
     
 
         json serialize_VkAccelerationStructureMotionInfoNV_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureMotionInfoNV...\n");
+        debug_printf("Serializing VkAccelerationStructureMotionInfoNV...\n");
         json result;
         result=[&]() {
     json return_YvBiHjW=json({});
@@ -15887,7 +15887,7 @@ return return_YvBiHjW;}();
     
 
         json serialize_VkSRTDataNV_pNext(const void* name){
-        printf("Serializing VkSRTDataNV...\n");
+        debug_printf("Serializing VkSRTDataNV...\n");
         json result;
         result=[&]() {
     json return_gjIZbvz=json({});
@@ -15905,7 +15905,7 @@ return return_gjIZbvz;}();
     
 
         json serialize_VkAccelerationStructureSRTMotionInstanceNV_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureSRTMotionInstanceNV...\n");
+        debug_printf("Serializing VkAccelerationStructureSRTMotionInstanceNV...\n");
         json result;
         result=[&]() {
     json return_dBRLVwI=json({});
@@ -15923,7 +15923,7 @@ return return_dBRLVwI;}();
     
 
         json serialize_VkAccelerationStructureMatrixMotionInstanceNV_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureMatrixMotionInstanceNV...\n");
+        debug_printf("Serializing VkAccelerationStructureMatrixMotionInstanceNV...\n");
         json result;
         result=[&]() {
     json return_gBfhKBj=json({});
@@ -15941,7 +15941,7 @@ return return_gBfhKBj;}();
     
 
         json serialize_VkAccelerationStructureMotionInstanceDataNV_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureMotionInstanceDataNV...\n");
+        debug_printf("Serializing VkAccelerationStructureMotionInstanceDataNV...\n");
         json result;
         result=[&]() {
     json return_ZoXNQgo=json({});
@@ -15959,7 +15959,7 @@ return return_ZoXNQgo;}();
     
 
         json serialize_VkAccelerationStructureMotionInstanceNV_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureMotionInstanceNV...\n");
+        debug_printf("Serializing VkAccelerationStructureMotionInstanceNV...\n");
         json result;
         result=[&]() {
     json return_ESqVDXT=json({});
@@ -15977,7 +15977,7 @@ return return_ESqVDXT;}();
     
 
         json serialize_VkMemoryGetRemoteAddressInfoNV_pNext(const void* name){
-        printf("Serializing VkMemoryGetRemoteAddressInfoNV...\n");
+        debug_printf("Serializing VkMemoryGetRemoteAddressInfoNV...\n");
         json result;
         result=[&]() {
     json return_ASFdQMb=json({});
@@ -15995,7 +15995,7 @@ return return_ASFdQMb;}();
     
 
         json serialize_VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_FQfAhhu=json({});
@@ -16013,7 +16013,7 @@ return return_FQfAhhu;}();
     
 
         json serialize_VkFormatProperties3_pNext(const void* name){
-        printf("Serializing VkFormatProperties3...\n");
+        debug_printf("Serializing VkFormatProperties3...\n");
         json result;
         result=[&]() {
     json return_akPIZyC=json({});
@@ -16031,7 +16031,7 @@ return return_akPIZyC;}();
     
 
         json serialize_VkFormatProperties3KHR_pNext(const void* name){
-        printf("Serializing VkFormatProperties3KHR...\n");
+        debug_printf("Serializing VkFormatProperties3KHR...\n");
         json result;
         result=[&]() {
     json return_TrggMzE=json({});
@@ -16049,7 +16049,7 @@ return return_TrggMzE;}();
     
 
         json serialize_VkDrmFormatModifierPropertiesList2EXT_pNext(const void* name){
-        printf("Serializing VkDrmFormatModifierPropertiesList2EXT...\n");
+        debug_printf("Serializing VkDrmFormatModifierPropertiesList2EXT...\n");
         json result;
         result=[&]() {
     json return_qQrzMZX=json({});
@@ -16067,7 +16067,7 @@ return return_qQrzMZX;}();
     
 
         json serialize_VkDrmFormatModifierProperties2EXT_pNext(const void* name){
-        printf("Serializing VkDrmFormatModifierProperties2EXT...\n");
+        debug_printf("Serializing VkDrmFormatModifierProperties2EXT...\n");
         json result;
         result=[&]() {
     json return_ihTiJjf=json({});
@@ -16085,7 +16085,7 @@ return return_ihTiJjf;}();
     
 
         json serialize_VkPipelineRenderingCreateInfo_pNext(const void* name){
-        printf("Serializing VkPipelineRenderingCreateInfo...\n");
+        debug_printf("Serializing VkPipelineRenderingCreateInfo...\n");
         json result;
         result=[&]() {
     json return_qSUkyOn=json({});
@@ -16103,7 +16103,7 @@ return return_qSUkyOn;}();
     
 
         json serialize_VkPipelineRenderingCreateInfoKHR_pNext(const void* name){
-        printf("Serializing VkPipelineRenderingCreateInfoKHR...\n");
+        debug_printf("Serializing VkPipelineRenderingCreateInfoKHR...\n");
         json result;
         result=[&]() {
     json return_ZiBmYPI=json({});
@@ -16121,7 +16121,7 @@ return return_ZiBmYPI;}();
     
 
         json serialize_VkRenderingInfo_pNext(const void* name){
-        printf("Serializing VkRenderingInfo...\n");
+        debug_printf("Serializing VkRenderingInfo...\n");
         json result;
         result=[&]() {
     json return_MfnZhaC=json({});
@@ -16139,7 +16139,7 @@ return return_MfnZhaC;}();
     
 
         json serialize_VkRenderingInfoKHR_pNext(const void* name){
-        printf("Serializing VkRenderingInfoKHR...\n");
+        debug_printf("Serializing VkRenderingInfoKHR...\n");
         json result;
         result=[&]() {
     json return_SkRdmTZ=json({});
@@ -16157,7 +16157,7 @@ return return_SkRdmTZ;}();
     
 
         json serialize_VkRenderingAttachmentInfo_pNext(const void* name){
-        printf("Serializing VkRenderingAttachmentInfo...\n");
+        debug_printf("Serializing VkRenderingAttachmentInfo...\n");
         json result;
         result=[&]() {
     json return_oynBpoY=json({});
@@ -16175,7 +16175,7 @@ return return_oynBpoY;}();
     
 
         json serialize_VkRenderingAttachmentInfoKHR_pNext(const void* name){
-        printf("Serializing VkRenderingAttachmentInfoKHR...\n");
+        debug_printf("Serializing VkRenderingAttachmentInfoKHR...\n");
         json result;
         result=[&]() {
     json return_JUmflmt=json({});
@@ -16193,7 +16193,7 @@ return return_JUmflmt;}();
     
 
         json serialize_VkRenderingFragmentShadingRateAttachmentInfoKHR_pNext(const void* name){
-        printf("Serializing VkRenderingFragmentShadingRateAttachmentInfoKHR...\n");
+        debug_printf("Serializing VkRenderingFragmentShadingRateAttachmentInfoKHR...\n");
         json result;
         result=[&]() {
     json return_CJxRSUc=json({});
@@ -16211,7 +16211,7 @@ return return_CJxRSUc;}();
     
 
         json serialize_VkRenderingFragmentDensityMapAttachmentInfoEXT_pNext(const void* name){
-        printf("Serializing VkRenderingFragmentDensityMapAttachmentInfoEXT...\n");
+        debug_printf("Serializing VkRenderingFragmentDensityMapAttachmentInfoEXT...\n");
         json result;
         result=[&]() {
     json return_nUAiXzh=json({});
@@ -16229,7 +16229,7 @@ return return_nUAiXzh;}();
     
 
         json serialize_VkPhysicalDeviceDynamicRenderingFeatures_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDynamicRenderingFeatures...\n");
+        debug_printf("Serializing VkPhysicalDeviceDynamicRenderingFeatures...\n");
         json result;
         result=[&]() {
     json return_lgzWLJC=json({});
@@ -16247,7 +16247,7 @@ return return_lgzWLJC;}();
     
 
         json serialize_VkPhysicalDeviceDynamicRenderingFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDynamicRenderingFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceDynamicRenderingFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_sjlytDy=json({});
@@ -16265,7 +16265,7 @@ return return_sjlytDy;}();
     
 
         json serialize_VkCommandBufferInheritanceRenderingInfo_pNext(const void* name){
-        printf("Serializing VkCommandBufferInheritanceRenderingInfo...\n");
+        debug_printf("Serializing VkCommandBufferInheritanceRenderingInfo...\n");
         json result;
         result=[&]() {
     json return_SnZDPxw=json({});
@@ -16283,7 +16283,7 @@ return return_SnZDPxw;}();
     
 
         json serialize_VkCommandBufferInheritanceRenderingInfoKHR_pNext(const void* name){
-        printf("Serializing VkCommandBufferInheritanceRenderingInfoKHR...\n");
+        debug_printf("Serializing VkCommandBufferInheritanceRenderingInfoKHR...\n");
         json result;
         result=[&]() {
     json return_hEfzhQn=json({});
@@ -16301,7 +16301,7 @@ return return_hEfzhQn;}();
     
 
         json serialize_VkAttachmentSampleCountInfoAMD_pNext(const void* name){
-        printf("Serializing VkAttachmentSampleCountInfoAMD...\n");
+        debug_printf("Serializing VkAttachmentSampleCountInfoAMD...\n");
         json result;
         result=[&]() {
     json return_gCxTKUP=json({});
@@ -16319,7 +16319,7 @@ return return_gCxTKUP;}();
     
 
         json serialize_VkAttachmentSampleCountInfoNV_pNext(const void* name){
-        printf("Serializing VkAttachmentSampleCountInfoNV...\n");
+        debug_printf("Serializing VkAttachmentSampleCountInfoNV...\n");
         json result;
         result=[&]() {
     json return_LEpVGks=json({});
@@ -16337,7 +16337,7 @@ return return_LEpVGks;}();
     
 
         json serialize_VkMultiviewPerViewAttributesInfoNVX_pNext(const void* name){
-        printf("Serializing VkMultiviewPerViewAttributesInfoNVX...\n");
+        debug_printf("Serializing VkMultiviewPerViewAttributesInfoNVX...\n");
         json result;
         result=[&]() {
     json return_EOiUjdr=json({});
@@ -16355,7 +16355,7 @@ return return_EOiUjdr;}();
     
 
         json serialize_VkPhysicalDeviceImageViewMinLodFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceImageViewMinLodFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceImageViewMinLodFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_OqkWtHc=json({});
@@ -16373,7 +16373,7 @@ return return_OqkWtHc;}();
     
 
         json serialize_VkImageViewMinLodCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkImageViewMinLodCreateInfoEXT...\n");
+        debug_printf("Serializing VkImageViewMinLodCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_KNhlqYt=json({});
@@ -16391,7 +16391,7 @@ return return_KNhlqYt;}();
     
 
         json serialize_VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_WtpdjIe=json({});
@@ -16409,7 +16409,7 @@ return return_WtpdjIe;}();
     
 
         json serialize_VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM...\n");
+        debug_printf("Serializing VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM...\n");
         json result;
         result=[&]() {
     json return_oJvfquw=json({});
@@ -16427,7 +16427,7 @@ return return_oJvfquw;}();
     
 
         json serialize_VkPhysicalDeviceLinearColorAttachmentFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceLinearColorAttachmentFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceLinearColorAttachmentFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_hvoTHkr=json({});
@@ -16445,7 +16445,7 @@ return return_hvoTHkr;}();
     
 
         json serialize_VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_XYJhPbW=json({});
@@ -16463,7 +16463,7 @@ return return_XYJhPbW;}();
     
 
         json serialize_VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_wrIPlvb=json({});
@@ -16481,7 +16481,7 @@ return return_wrIPlvb;}();
     
 
         json serialize_VkGraphicsPipelineLibraryCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkGraphicsPipelineLibraryCreateInfoEXT...\n");
+        debug_printf("Serializing VkGraphicsPipelineLibraryCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_KFNESCW=json({});
@@ -16499,7 +16499,7 @@ return return_KFNESCW;}();
     
 
         json serialize_VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE...\n");
+        debug_printf("Serializing VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE...\n");
         json result;
         result=[&]() {
     json return_mUOdUwn=json({});
@@ -16517,7 +16517,7 @@ return return_mUOdUwn;}();
     
 
         json serialize_VkDescriptorSetBindingReferenceVALVE_pNext(const void* name){
-        printf("Serializing VkDescriptorSetBindingReferenceVALVE...\n");
+        debug_printf("Serializing VkDescriptorSetBindingReferenceVALVE...\n");
         json result;
         result=[&]() {
     json return_QfKcziq=json({});
@@ -16535,7 +16535,7 @@ return return_QfKcziq;}();
     
 
         json serialize_VkDescriptorSetLayoutHostMappingInfoVALVE_pNext(const void* name){
-        printf("Serializing VkDescriptorSetLayoutHostMappingInfoVALVE...\n");
+        debug_printf("Serializing VkDescriptorSetLayoutHostMappingInfoVALVE...\n");
         json result;
         result=[&]() {
     json return_WICOXPp=json({});
@@ -16553,7 +16553,7 @@ return return_WICOXPp;}();
     
 
         json serialize_VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_tfZgFpA=json({});
@@ -16571,7 +16571,7 @@ return return_tfZgFpA;}();
     
 
         json serialize_VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_JcPctPr=json({});
@@ -16589,7 +16589,7 @@ return return_JcPctPr;}();
     
 
         json serialize_VkPipelineShaderStageModuleIdentifierCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkPipelineShaderStageModuleIdentifierCreateInfoEXT...\n");
+        debug_printf("Serializing VkPipelineShaderStageModuleIdentifierCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_xGfTQqj=json({});
@@ -16607,7 +16607,7 @@ return return_xGfTQqj;}();
     
 
         json serialize_VkShaderModuleIdentifierEXT_pNext(const void* name){
-        printf("Serializing VkShaderModuleIdentifierEXT...\n");
+        debug_printf("Serializing VkShaderModuleIdentifierEXT...\n");
         json result;
         result=[&]() {
     json return_aykFeXw=json({});
@@ -16625,7 +16625,7 @@ return return_aykFeXw;}();
     
 
         json serialize_VkImageCompressionControlEXT_pNext(const void* name){
-        printf("Serializing VkImageCompressionControlEXT...\n");
+        debug_printf("Serializing VkImageCompressionControlEXT...\n");
         json result;
         result=[&]() {
     json return_ssyzpkC=json({});
@@ -16643,7 +16643,7 @@ return return_ssyzpkC;}();
     
 
         json serialize_VkPhysicalDeviceImageCompressionControlFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceImageCompressionControlFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceImageCompressionControlFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_umHyMWa=json({});
@@ -16661,7 +16661,7 @@ return return_umHyMWa;}();
     
 
         json serialize_VkImageCompressionPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkImageCompressionPropertiesEXT...\n");
+        debug_printf("Serializing VkImageCompressionPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_JyedyqW=json({});
@@ -16679,7 +16679,7 @@ return return_JyedyqW;}();
     
 
         json serialize_VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_rLNwIIp=json({});
@@ -16697,7 +16697,7 @@ return return_rLNwIIp;}();
     
 
         json serialize_VkImageSubresource2KHR_pNext(const void* name){
-        printf("Serializing VkImageSubresource2KHR...\n");
+        debug_printf("Serializing VkImageSubresource2KHR...\n");
         json result;
         result=[&]() {
     json return_ZsRfvGd=json({});
@@ -16715,7 +16715,7 @@ return return_ZsRfvGd;}();
     
 
         json serialize_VkImageSubresource2EXT_pNext(const void* name){
-        printf("Serializing VkImageSubresource2EXT...\n");
+        debug_printf("Serializing VkImageSubresource2EXT...\n");
         json result;
         result=[&]() {
     json return_iNBBaqI=json({});
@@ -16733,7 +16733,7 @@ return return_iNBBaqI;}();
     
 
         json serialize_VkSubresourceLayout2KHR_pNext(const void* name){
-        printf("Serializing VkSubresourceLayout2KHR...\n");
+        debug_printf("Serializing VkSubresourceLayout2KHR...\n");
         json result;
         result=[&]() {
     json return_pujuMgI=json({});
@@ -16751,7 +16751,7 @@ return return_pujuMgI;}();
     
 
         json serialize_VkSubresourceLayout2EXT_pNext(const void* name){
-        printf("Serializing VkSubresourceLayout2EXT...\n");
+        debug_printf("Serializing VkSubresourceLayout2EXT...\n");
         json result;
         result=[&]() {
     json return_PKjBTAd=json({});
@@ -16769,7 +16769,7 @@ return return_PKjBTAd;}();
     
 
         json serialize_VkRenderPassCreationControlEXT_pNext(const void* name){
-        printf("Serializing VkRenderPassCreationControlEXT...\n");
+        debug_printf("Serializing VkRenderPassCreationControlEXT...\n");
         json result;
         result=[&]() {
     json return_oCIzhTl=json({});
@@ -16787,7 +16787,7 @@ return return_oCIzhTl;}();
     
 
         json serialize_VkRenderPassCreationFeedbackInfoEXT_pNext(const void* name){
-        printf("Serializing VkRenderPassCreationFeedbackInfoEXT...\n");
+        debug_printf("Serializing VkRenderPassCreationFeedbackInfoEXT...\n");
         json result;
         result=[&]() {
     json return_akJeyBH=json({});
@@ -16805,7 +16805,7 @@ return return_akJeyBH;}();
     
 
         json serialize_VkRenderPassCreationFeedbackCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkRenderPassCreationFeedbackCreateInfoEXT...\n");
+        debug_printf("Serializing VkRenderPassCreationFeedbackCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_NmxGCsq=json({});
@@ -16823,7 +16823,7 @@ return return_NmxGCsq;}();
     
 
         json serialize_VkRenderPassSubpassFeedbackInfoEXT_pNext(const void* name){
-        printf("Serializing VkRenderPassSubpassFeedbackInfoEXT...\n");
+        debug_printf("Serializing VkRenderPassSubpassFeedbackInfoEXT...\n");
         json result;
         result=[&]() {
     json return_StYIHgr=json({});
@@ -16841,7 +16841,7 @@ return return_StYIHgr;}();
     
 
         json serialize_VkRenderPassSubpassFeedbackCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkRenderPassSubpassFeedbackCreateInfoEXT...\n");
+        debug_printf("Serializing VkRenderPassSubpassFeedbackCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_lQKQPph=json({});
@@ -16859,7 +16859,7 @@ return return_lQKQPph;}();
     
 
         json serialize_VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_hMmpphI=json({});
@@ -16877,7 +16877,7 @@ return return_hMmpphI;}();
     
 
         json serialize_VkMicromapBuildInfoEXT_pNext(const void* name){
-        printf("Serializing VkMicromapBuildInfoEXT...\n");
+        debug_printf("Serializing VkMicromapBuildInfoEXT...\n");
         json result;
         result=[&]() {
     json return_SLWpmpK=json({});
@@ -16895,7 +16895,7 @@ return return_SLWpmpK;}();
     
 
         json serialize_VkMicromapCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkMicromapCreateInfoEXT...\n");
+        debug_printf("Serializing VkMicromapCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_zYtIGGR=json({});
@@ -16913,7 +16913,7 @@ return return_zYtIGGR;}();
     
 
         json serialize_VkMicromapVersionInfoEXT_pNext(const void* name){
-        printf("Serializing VkMicromapVersionInfoEXT...\n");
+        debug_printf("Serializing VkMicromapVersionInfoEXT...\n");
         json result;
         result=[&]() {
     json return_lreCqbd=json({});
@@ -16931,7 +16931,7 @@ return return_lreCqbd;}();
     
 
         json serialize_VkCopyMicromapInfoEXT_pNext(const void* name){
-        printf("Serializing VkCopyMicromapInfoEXT...\n");
+        debug_printf("Serializing VkCopyMicromapInfoEXT...\n");
         json result;
         result=[&]() {
     json return_utahmlc=json({});
@@ -16949,7 +16949,7 @@ return return_utahmlc;}();
     
 
         json serialize_VkCopyMicromapToMemoryInfoEXT_pNext(const void* name){
-        printf("Serializing VkCopyMicromapToMemoryInfoEXT...\n");
+        debug_printf("Serializing VkCopyMicromapToMemoryInfoEXT...\n");
         json result;
         result=[&]() {
     json return_RRULrug=json({});
@@ -16967,7 +16967,7 @@ return return_RRULrug;}();
     
 
         json serialize_VkCopyMemoryToMicromapInfoEXT_pNext(const void* name){
-        printf("Serializing VkCopyMemoryToMicromapInfoEXT...\n");
+        debug_printf("Serializing VkCopyMemoryToMicromapInfoEXT...\n");
         json result;
         result=[&]() {
     json return_rmxKUlo=json({});
@@ -16985,7 +16985,7 @@ return return_rmxKUlo;}();
     
 
         json serialize_VkMicromapBuildSizesInfoEXT_pNext(const void* name){
-        printf("Serializing VkMicromapBuildSizesInfoEXT...\n");
+        debug_printf("Serializing VkMicromapBuildSizesInfoEXT...\n");
         json result;
         result=[&]() {
     json return_hgWIRzH=json({});
@@ -17003,7 +17003,7 @@ return return_hgWIRzH;}();
     
 
         json serialize_VkMicromapUsageEXT_pNext(const void* name){
-        printf("Serializing VkMicromapUsageEXT...\n");
+        debug_printf("Serializing VkMicromapUsageEXT...\n");
         json result;
         result=[&]() {
     json return_dstzzST=json({});
@@ -17021,7 +17021,7 @@ return return_dstzzST;}();
     
 
         json serialize_VkMicromapTriangleEXT_pNext(const void* name){
-        printf("Serializing VkMicromapTriangleEXT...\n");
+        debug_printf("Serializing VkMicromapTriangleEXT...\n");
         json result;
         result=[&]() {
     json return_krIusJS=json({});
@@ -17039,7 +17039,7 @@ return return_krIusJS;}();
     
 
         json serialize_VkPhysicalDeviceOpacityMicromapFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceOpacityMicromapFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceOpacityMicromapFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_cfpspDX=json({});
@@ -17057,7 +17057,7 @@ return return_cfpspDX;}();
     
 
         json serialize_VkPhysicalDeviceOpacityMicromapPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceOpacityMicromapPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceOpacityMicromapPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_NbbvWVO=json({});
@@ -17075,7 +17075,7 @@ return return_NbbvWVO;}();
     
 
         json serialize_VkAccelerationStructureTrianglesOpacityMicromapEXT_pNext(const void* name){
-        printf("Serializing VkAccelerationStructureTrianglesOpacityMicromapEXT...\n");
+        debug_printf("Serializing VkAccelerationStructureTrianglesOpacityMicromapEXT...\n");
         json result;
         result=[&]() {
     json return_PNhVjGF=json({});
@@ -17093,7 +17093,7 @@ return return_PNhVjGF;}();
     
 
         json serialize_VkPipelinePropertiesIdentifierEXT_pNext(const void* name){
-        printf("Serializing VkPipelinePropertiesIdentifierEXT...\n");
+        debug_printf("Serializing VkPipelinePropertiesIdentifierEXT...\n");
         json result;
         result=[&]() {
     json return_MDRZkgp=json({});
@@ -17111,7 +17111,7 @@ return return_MDRZkgp;}();
     
 
         json serialize_VkPhysicalDevicePipelinePropertiesFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePipelinePropertiesFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDevicePipelinePropertiesFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_SNuozII=json({});
@@ -17129,7 +17129,7 @@ return return_SNuozII;}();
     
 
         json serialize_VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD...\n");
         json result;
         result=[&]() {
     json return_ncZkhGQ=json({});
@@ -17147,7 +17147,7 @@ return return_ncZkhGQ;}();
     
 
         json serialize_VkExternalMemoryAcquireUnmodifiedEXT_pNext(const void* name){
-        printf("Serializing VkExternalMemoryAcquireUnmodifiedEXT...\n");
+        debug_printf("Serializing VkExternalMemoryAcquireUnmodifiedEXT...\n");
         json result;
         result=[&]() {
     json return_RGdtWwp=json({});
@@ -17165,7 +17165,7 @@ return return_RGdtWwp;}();
     
 
         json serialize_VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_AlbeSvD=json({});
@@ -17183,7 +17183,7 @@ return return_AlbeSvD;}();
     
 
         json serialize_VkPhysicalDevicePipelineRobustnessFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePipelineRobustnessFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDevicePipelineRobustnessFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_SoECIpc=json({});
@@ -17201,7 +17201,7 @@ return return_SoECIpc;}();
     
 
         json serialize_VkPipelineRobustnessCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkPipelineRobustnessCreateInfoEXT...\n");
+        debug_printf("Serializing VkPipelineRobustnessCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_aaffUqt=json({});
@@ -17219,7 +17219,7 @@ return return_aaffUqt;}();
     
 
         json serialize_VkPhysicalDevicePipelineRobustnessPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePipelineRobustnessPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDevicePipelineRobustnessPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_tqtDaCr=json({});
@@ -17237,7 +17237,7 @@ return return_tqtDaCr;}();
     
 
         json serialize_VkImageViewSampleWeightCreateInfoQCOM_pNext(const void* name){
-        printf("Serializing VkImageViewSampleWeightCreateInfoQCOM...\n");
+        debug_printf("Serializing VkImageViewSampleWeightCreateInfoQCOM...\n");
         json result;
         result=[&]() {
     json return_YFYxRBf=json({});
@@ -17255,7 +17255,7 @@ return return_YFYxRBf;}();
     
 
         json serialize_VkPhysicalDeviceImageProcessingFeaturesQCOM_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceImageProcessingFeaturesQCOM...\n");
+        debug_printf("Serializing VkPhysicalDeviceImageProcessingFeaturesQCOM...\n");
         json result;
         result=[&]() {
     json return_DWPjxWV=json({});
@@ -17273,7 +17273,7 @@ return return_DWPjxWV;}();
     
 
         json serialize_VkPhysicalDeviceImageProcessingPropertiesQCOM_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceImageProcessingPropertiesQCOM...\n");
+        debug_printf("Serializing VkPhysicalDeviceImageProcessingPropertiesQCOM...\n");
         json result;
         result=[&]() {
     json return_YlJnOOH=json({});
@@ -17291,7 +17291,7 @@ return return_YlJnOOH;}();
     
 
         json serialize_VkPhysicalDeviceTilePropertiesFeaturesQCOM_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceTilePropertiesFeaturesQCOM...\n");
+        debug_printf("Serializing VkPhysicalDeviceTilePropertiesFeaturesQCOM...\n");
         json result;
         result=[&]() {
     json return_SQXgHrN=json({});
@@ -17309,7 +17309,7 @@ return return_SQXgHrN;}();
     
 
         json serialize_VkTilePropertiesQCOM_pNext(const void* name){
-        printf("Serializing VkTilePropertiesQCOM...\n");
+        debug_printf("Serializing VkTilePropertiesQCOM...\n");
         json result;
         result=[&]() {
     json return_DptEELv=json({});
@@ -17327,7 +17327,7 @@ return return_DptEELv;}();
     
 
         json serialize_VkPhysicalDeviceAmigoProfilingFeaturesSEC_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceAmigoProfilingFeaturesSEC...\n");
+        debug_printf("Serializing VkPhysicalDeviceAmigoProfilingFeaturesSEC...\n");
         json result;
         result=[&]() {
     json return_RokQBgt=json({});
@@ -17345,7 +17345,7 @@ return return_RokQBgt;}();
     
 
         json serialize_VkAmigoProfilingSubmitInfoSEC_pNext(const void* name){
-        printf("Serializing VkAmigoProfilingSubmitInfoSEC...\n");
+        debug_printf("Serializing VkAmigoProfilingSubmitInfoSEC...\n");
         json result;
         result=[&]() {
     json return_tjMLwNo=json({});
@@ -17363,7 +17363,7 @@ return return_tjMLwNo;}();
     
 
         json serialize_VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_YXtKMaE=json({});
@@ -17381,7 +17381,7 @@ return return_YXtKMaE;}();
     
 
         json serialize_VkPhysicalDeviceDepthClampZeroOneFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDepthClampZeroOneFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceDepthClampZeroOneFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_LTDqGHR=json({});
@@ -17399,7 +17399,7 @@ return return_LTDqGHR;}();
     
 
         json serialize_VkPhysicalDeviceAddressBindingReportFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceAddressBindingReportFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceAddressBindingReportFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_uPXJBKX=json({});
@@ -17417,7 +17417,7 @@ return return_uPXJBKX;}();
     
 
         json serialize_VkDeviceAddressBindingCallbackDataEXT_pNext(const void* name){
-        printf("Serializing VkDeviceAddressBindingCallbackDataEXT...\n");
+        debug_printf("Serializing VkDeviceAddressBindingCallbackDataEXT...\n");
         json result;
         result=[&]() {
     json return_eLnLcOE=json({});
@@ -17435,7 +17435,7 @@ return return_eLnLcOE;}();
     
 
         json serialize_VkPhysicalDeviceOpticalFlowFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceOpticalFlowFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceOpticalFlowFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_sbBLdqG=json({});
@@ -17453,7 +17453,7 @@ return return_sbBLdqG;}();
     
 
         json serialize_VkPhysicalDeviceOpticalFlowPropertiesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceOpticalFlowPropertiesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceOpticalFlowPropertiesNV...\n");
         json result;
         result=[&]() {
     json return_sMIINta=json({});
@@ -17471,7 +17471,7 @@ return return_sMIINta;}();
     
 
         json serialize_VkOpticalFlowImageFormatInfoNV_pNext(const void* name){
-        printf("Serializing VkOpticalFlowImageFormatInfoNV...\n");
+        debug_printf("Serializing VkOpticalFlowImageFormatInfoNV...\n");
         json result;
         result=[&]() {
     json return_wyDtSim=json({});
@@ -17489,7 +17489,7 @@ return return_wyDtSim;}();
     
 
         json serialize_VkOpticalFlowImageFormatPropertiesNV_pNext(const void* name){
-        printf("Serializing VkOpticalFlowImageFormatPropertiesNV...\n");
+        debug_printf("Serializing VkOpticalFlowImageFormatPropertiesNV...\n");
         json result;
         result=[&]() {
     json return_KdTECOC=json({});
@@ -17507,7 +17507,7 @@ return return_KdTECOC;}();
     
 
         json serialize_VkOpticalFlowSessionCreateInfoNV_pNext(const void* name){
-        printf("Serializing VkOpticalFlowSessionCreateInfoNV...\n");
+        debug_printf("Serializing VkOpticalFlowSessionCreateInfoNV...\n");
         json result;
         result=[&]() {
     json return_WaSTRHf=json({});
@@ -17525,7 +17525,7 @@ return return_WaSTRHf;}();
     
 
         json serialize_VkOpticalFlowSessionCreatePrivateDataInfoNV_pNext(const void* name){
-        printf("Serializing VkOpticalFlowSessionCreatePrivateDataInfoNV...\n");
+        debug_printf("Serializing VkOpticalFlowSessionCreatePrivateDataInfoNV...\n");
         json result;
         result=[&]() {
     json return_AiRrdOr=json({});
@@ -17543,7 +17543,7 @@ return return_AiRrdOr;}();
     
 
         json serialize_VkOpticalFlowExecuteInfoNV_pNext(const void* name){
-        printf("Serializing VkOpticalFlowExecuteInfoNV...\n");
+        debug_printf("Serializing VkOpticalFlowExecuteInfoNV...\n");
         json result;
         result=[&]() {
     json return_WnJYaBN=json({});
@@ -17561,7 +17561,7 @@ return return_WnJYaBN;}();
     
 
         json serialize_VkPhysicalDeviceFaultFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFaultFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceFaultFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_ScJNoPt=json({});
@@ -17579,7 +17579,7 @@ return return_ScJNoPt;}();
     
 
         json serialize_VkDeviceFaultAddressInfoEXT_pNext(const void* name){
-        printf("Serializing VkDeviceFaultAddressInfoEXT...\n");
+        debug_printf("Serializing VkDeviceFaultAddressInfoEXT...\n");
         json result;
         result=[&]() {
     json return_jqDSRFe=json({});
@@ -17597,7 +17597,7 @@ return return_jqDSRFe;}();
     
 
         json serialize_VkDeviceFaultVendorInfoEXT_pNext(const void* name){
-        printf("Serializing VkDeviceFaultVendorInfoEXT...\n");
+        debug_printf("Serializing VkDeviceFaultVendorInfoEXT...\n");
         json result;
         result=[&]() {
     json return_coIQMpu=json({});
@@ -17615,7 +17615,7 @@ return return_coIQMpu;}();
     
 
         json serialize_VkDeviceFaultCountsEXT_pNext(const void* name){
-        printf("Serializing VkDeviceFaultCountsEXT...\n");
+        debug_printf("Serializing VkDeviceFaultCountsEXT...\n");
         json result;
         result=[&]() {
     json return_JQCuYyW=json({});
@@ -17633,7 +17633,7 @@ return return_JQCuYyW;}();
     
 
         json serialize_VkDeviceFaultInfoEXT_pNext(const void* name){
-        printf("Serializing VkDeviceFaultInfoEXT...\n");
+        debug_printf("Serializing VkDeviceFaultInfoEXT...\n");
         json result;
         result=[&]() {
     json return_dwFrzpU=json({});
@@ -17651,7 +17651,7 @@ return return_dwFrzpU;}();
     
 
         json serialize_VkDeviceFaultVendorBinaryHeaderVersionOneEXT_pNext(const void* name){
-        printf("Serializing VkDeviceFaultVendorBinaryHeaderVersionOneEXT...\n");
+        debug_printf("Serializing VkDeviceFaultVendorBinaryHeaderVersionOneEXT...\n");
         json result;
         result=[&]() {
     json return_qAMvGHv=json({});
@@ -17669,7 +17669,7 @@ return return_qAMvGHv;}();
     
 
         json serialize_VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_IPIHIIi=json({});
@@ -17687,7 +17687,7 @@ return return_IPIHIIi;}();
     
 
         json serialize_VkDepthBiasInfoEXT_pNext(const void* name){
-        printf("Serializing VkDepthBiasInfoEXT...\n");
+        debug_printf("Serializing VkDepthBiasInfoEXT...\n");
         json result;
         result=[&]() {
     json return_nYFVwYj=json({});
@@ -17705,7 +17705,7 @@ return return_nYFVwYj;}();
     
 
         json serialize_VkDepthBiasRepresentationInfoEXT_pNext(const void* name){
-        printf("Serializing VkDepthBiasRepresentationInfoEXT...\n");
+        debug_printf("Serializing VkDepthBiasRepresentationInfoEXT...\n");
         json result;
         result=[&]() {
     json return_HlFjFeH=json({});
@@ -17723,7 +17723,7 @@ return return_HlFjFeH;}();
     
 
         json serialize_VkDecompressMemoryRegionNV_pNext(const void* name){
-        printf("Serializing VkDecompressMemoryRegionNV...\n");
+        debug_printf("Serializing VkDecompressMemoryRegionNV...\n");
         json result;
         result=[&]() {
     json return_qxpKpeQ=json({});
@@ -17741,7 +17741,7 @@ return return_qxpKpeQ;}();
     
 
         json serialize_VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM...\n");
         json result;
         result=[&]() {
     json return_UPgZChQ=json({});
@@ -17759,7 +17759,7 @@ return return_UPgZChQ;}();
     
 
         json serialize_VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM...\n");
         json result;
         result=[&]() {
     json return_EVrfktW=json({});
@@ -17777,7 +17777,7 @@ return return_EVrfktW;}();
     
 
         json serialize_VkFrameBoundaryEXT_pNext(const void* name){
-        printf("Serializing VkFrameBoundaryEXT...\n");
+        debug_printf("Serializing VkFrameBoundaryEXT...\n");
         json result;
         result=[&]() {
     json return_rwYDxqc=json({});
@@ -17795,7 +17795,7 @@ return return_rwYDxqc;}();
     
 
         json serialize_VkPhysicalDeviceFrameBoundaryFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceFrameBoundaryFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceFrameBoundaryFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_DhpMwTH=json({});
@@ -17813,7 +17813,7 @@ return return_DhpMwTH;}();
     
 
         json serialize_VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_QIApBiZ=json({});
@@ -17831,7 +17831,7 @@ return return_QIApBiZ;}();
     
 
         json serialize_VkSurfacePresentModeEXT_pNext(const void* name){
-        printf("Serializing VkSurfacePresentModeEXT...\n");
+        debug_printf("Serializing VkSurfacePresentModeEXT...\n");
         json result;
         result=[&]() {
     json return_woepgpS=json({});
@@ -17849,7 +17849,7 @@ return return_woepgpS;}();
     
 
         json serialize_VkSurfacePresentScalingCapabilitiesEXT_pNext(const void* name){
-        printf("Serializing VkSurfacePresentScalingCapabilitiesEXT...\n");
+        debug_printf("Serializing VkSurfacePresentScalingCapabilitiesEXT...\n");
         json result;
         result=[&]() {
     json return_wLGtQnS=json({});
@@ -17867,7 +17867,7 @@ return return_wLGtQnS;}();
     
 
         json serialize_VkSurfacePresentModeCompatibilityEXT_pNext(const void* name){
-        printf("Serializing VkSurfacePresentModeCompatibilityEXT...\n");
+        debug_printf("Serializing VkSurfacePresentModeCompatibilityEXT...\n");
         json result;
         result=[&]() {
     json return_QHCMfPn=json({});
@@ -17885,7 +17885,7 @@ return return_QHCMfPn;}();
     
 
         json serialize_VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_GsiQaHU=json({});
@@ -17903,7 +17903,7 @@ return return_GsiQaHU;}();
     
 
         json serialize_VkSwapchainPresentFenceInfoEXT_pNext(const void* name){
-        printf("Serializing VkSwapchainPresentFenceInfoEXT...\n");
+        debug_printf("Serializing VkSwapchainPresentFenceInfoEXT...\n");
         json result;
         result=[&]() {
     json return_YkMIcQe=json({});
@@ -17921,7 +17921,7 @@ return return_YkMIcQe;}();
     
 
         json serialize_VkSwapchainPresentModesCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkSwapchainPresentModesCreateInfoEXT...\n");
+        debug_printf("Serializing VkSwapchainPresentModesCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_CvPjmyN=json({});
@@ -17939,7 +17939,7 @@ return return_CvPjmyN;}();
     
 
         json serialize_VkSwapchainPresentModeInfoEXT_pNext(const void* name){
-        printf("Serializing VkSwapchainPresentModeInfoEXT...\n");
+        debug_printf("Serializing VkSwapchainPresentModeInfoEXT...\n");
         json result;
         result=[&]() {
     json return_WcFhITC=json({});
@@ -17957,7 +17957,7 @@ return return_WcFhITC;}();
     
 
         json serialize_VkSwapchainPresentScalingCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkSwapchainPresentScalingCreateInfoEXT...\n");
+        debug_printf("Serializing VkSwapchainPresentScalingCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_MQTZIjj=json({});
@@ -17975,7 +17975,7 @@ return return_MQTZIjj;}();
     
 
         json serialize_VkReleaseSwapchainImagesInfoEXT_pNext(const void* name){
-        printf("Serializing VkReleaseSwapchainImagesInfoEXT...\n");
+        debug_printf("Serializing VkReleaseSwapchainImagesInfoEXT...\n");
         json result;
         result=[&]() {
     json return_SqkwUYm=json({});
@@ -17993,7 +17993,7 @@ return return_SqkwUYm;}();
     
 
         json serialize_VkPhysicalDeviceDepthBiasControlFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDepthBiasControlFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceDepthBiasControlFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_zEDukrX=json({});
@@ -18011,7 +18011,7 @@ return return_zEDukrX;}();
     
 
         json serialize_VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_ahKWUVS=json({});
@@ -18029,7 +18029,7 @@ return return_ahKWUVS;}();
     
 
         json serialize_VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV...\n");
         json result;
         result=[&]() {
     json return_ZBpmknH=json({});
@@ -18047,7 +18047,7 @@ return return_ZBpmknH;}();
     
 
         json serialize_VkDirectDriverLoadingInfoLUNARG_pNext(const void* name){
-        printf("Serializing VkDirectDriverLoadingInfoLUNARG...\n");
+        debug_printf("Serializing VkDirectDriverLoadingInfoLUNARG...\n");
         json result;
         result=[&]() {
     json return_jXAqIjU=json({});
@@ -18065,7 +18065,7 @@ return return_jXAqIjU;}();
     
 
         json serialize_VkDirectDriverLoadingListLUNARG_pNext(const void* name){
-        printf("Serializing VkDirectDriverLoadingListLUNARG...\n");
+        debug_printf("Serializing VkDirectDriverLoadingListLUNARG...\n");
         json result;
         result=[&]() {
     json return_UhOxJKE=json({});
@@ -18083,7 +18083,7 @@ return return_UhOxJKE;}();
     
 
         json serialize_VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM...\n");
+        debug_printf("Serializing VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM...\n");
         json result;
         result=[&]() {
     json return_FpzeODP=json({});
@@ -18101,7 +18101,7 @@ return return_FpzeODP;}();
     
 
         json serialize_VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_VGOjKUY=json({});
@@ -18119,7 +18119,7 @@ return return_VGOjKUY;}();
     
 
         json serialize_VkDeviceImageSubresourceInfoKHR_pNext(const void* name){
-        printf("Serializing VkDeviceImageSubresourceInfoKHR...\n");
+        debug_printf("Serializing VkDeviceImageSubresourceInfoKHR...\n");
         json result;
         result=[&]() {
     json return_GyRiaSd=json({});
@@ -18137,7 +18137,7 @@ return return_GyRiaSd;}();
     
 
         json serialize_VkPhysicalDeviceShaderCorePropertiesARM_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderCorePropertiesARM...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderCorePropertiesARM...\n");
         json result;
         result=[&]() {
     json return_UjwxABB=json({});
@@ -18155,7 +18155,7 @@ return return_UjwxABB;}();
     
 
         json serialize_VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM...\n");
+        debug_printf("Serializing VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM...\n");
         json result;
         result=[&]() {
     json return_gnotDff=json({});
@@ -18173,7 +18173,7 @@ return return_gnotDff;}();
     
 
         json serialize_VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM_pNext(const void* name){
-        printf("Serializing VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM...\n");
+        debug_printf("Serializing VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM...\n");
         json result;
         result=[&]() {
     json return_QfxXdWc=json({});
@@ -18191,7 +18191,7 @@ return return_QfxXdWc;}();
     
 
         json serialize_VkQueryLowLatencySupportNV_pNext(const void* name){
-        printf("Serializing VkQueryLowLatencySupportNV...\n");
+        debug_printf("Serializing VkQueryLowLatencySupportNV...\n");
         json result;
         result=[&]() {
     json return_LKCyIna=json({});
@@ -18209,7 +18209,7 @@ return return_LKCyIna;}();
     
 
         json serialize_VkMemoryMapInfoKHR_pNext(const void* name){
-        printf("Serializing VkMemoryMapInfoKHR...\n");
+        debug_printf("Serializing VkMemoryMapInfoKHR...\n");
         json result;
         result=[&]() {
     json return_SanywDJ=json({});
@@ -18227,7 +18227,7 @@ return return_SanywDJ;}();
     
 
         json serialize_VkMemoryUnmapInfoKHR_pNext(const void* name){
-        printf("Serializing VkMemoryUnmapInfoKHR...\n");
+        debug_printf("Serializing VkMemoryUnmapInfoKHR...\n");
         json result;
         result=[&]() {
     json return_KvGZBfp=json({});
@@ -18245,7 +18245,7 @@ return return_KvGZBfp;}();
     
 
         json serialize_VkPhysicalDeviceShaderObjectFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderObjectFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderObjectFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_lazOEDp=json({});
@@ -18263,7 +18263,7 @@ return return_lazOEDp;}();
     
 
         json serialize_VkPhysicalDeviceShaderObjectPropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderObjectPropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderObjectPropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_CkWMsUN=json({});
@@ -18281,7 +18281,7 @@ return return_CkWMsUN;}();
     
 
         json serialize_VkShaderCreateInfoEXT_pNext(const void* name){
-        printf("Serializing VkShaderCreateInfoEXT...\n");
+        debug_printf("Serializing VkShaderCreateInfoEXT...\n");
         json result;
         result=[&]() {
     json return_RmzwMvx=json({});
@@ -18299,7 +18299,7 @@ return return_RmzwMvx;}();
     
 
         json serialize_VkPhysicalDeviceShaderTileImageFeaturesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderTileImageFeaturesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderTileImageFeaturesEXT...\n");
         json result;
         result=[&]() {
     json return_wMKsrQk=json({});
@@ -18317,7 +18317,7 @@ return return_wMKsrQk;}();
     
 
         json serialize_VkPhysicalDeviceShaderTileImagePropertiesEXT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceShaderTileImagePropertiesEXT...\n");
+        debug_printf("Serializing VkPhysicalDeviceShaderTileImagePropertiesEXT...\n");
         json result;
         result=[&]() {
     json return_tpYWoTB=json({});
@@ -18335,7 +18335,7 @@ return return_tpYWoTB;}();
     
 
         json serialize_VkPhysicalDeviceCooperativeMatrixFeaturesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceCooperativeMatrixFeaturesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceCooperativeMatrixFeaturesKHR...\n");
         json result;
         result=[&]() {
     json return_TpYVdpP=json({});
@@ -18353,7 +18353,7 @@ return return_TpYVdpP;}();
     
 
         json serialize_VkCooperativeMatrixPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkCooperativeMatrixPropertiesKHR...\n");
+        debug_printf("Serializing VkCooperativeMatrixPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_GRkRGka=json({});
@@ -18371,7 +18371,7 @@ return return_GRkRGka;}();
     
 
         json serialize_VkPhysicalDeviceCooperativeMatrixPropertiesKHR_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceCooperativeMatrixPropertiesKHR...\n");
+        debug_printf("Serializing VkPhysicalDeviceCooperativeMatrixPropertiesKHR...\n");
         json result;
         result=[&]() {
     json return_RHWAuzI=json({});
@@ -18389,7 +18389,7 @@ return return_RHWAuzI;}();
     
 
         json serialize_VkPhysicalDeviceCubicClampFeaturesQCOM_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceCubicClampFeaturesQCOM...\n");
+        debug_printf("Serializing VkPhysicalDeviceCubicClampFeaturesQCOM...\n");
         json result;
         result=[&]() {
     json return_IKZfYOl=json({});
@@ -18407,7 +18407,7 @@ return return_IKZfYOl;}();
     
 
         json serialize_VkPhysicalDeviceYcbcrDegammaFeaturesQCOM_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceYcbcrDegammaFeaturesQCOM...\n");
+        debug_printf("Serializing VkPhysicalDeviceYcbcrDegammaFeaturesQCOM...\n");
         json result;
         result=[&]() {
     json return_lnnjDta=json({});
@@ -18425,7 +18425,7 @@ return return_lnnjDta;}();
     
 
         json serialize_VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM_pNext(const void* name){
-        printf("Serializing VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM...\n");
+        debug_printf("Serializing VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM...\n");
         json result;
         result=[&]() {
     json return_ZvJtJMR=json({});
@@ -18443,7 +18443,7 @@ return return_ZvJtJMR;}();
     
 
         json serialize_VkPhysicalDeviceCubicWeightsFeaturesQCOM_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceCubicWeightsFeaturesQCOM...\n");
+        debug_printf("Serializing VkPhysicalDeviceCubicWeightsFeaturesQCOM...\n");
         json result;
         result=[&]() {
     json return_cKrbero=json({});
@@ -18461,7 +18461,7 @@ return return_cKrbero;}();
     
 
         json serialize_VkSamplerCubicWeightsCreateInfoQCOM_pNext(const void* name){
-        printf("Serializing VkSamplerCubicWeightsCreateInfoQCOM...\n");
+        debug_printf("Serializing VkSamplerCubicWeightsCreateInfoQCOM...\n");
         json result;
         result=[&]() {
     json return_qLFZcSm=json({});
@@ -18479,7 +18479,7 @@ return return_qLFZcSm;}();
     
 
         json serialize_VkBlitImageCubicWeightsInfoQCOM_pNext(const void* name){
-        printf("Serializing VkBlitImageCubicWeightsInfoQCOM...\n");
+        debug_printf("Serializing VkBlitImageCubicWeightsInfoQCOM...\n");
         json result;
         result=[&]() {
     json return_ZEpXfpm=json({});
@@ -18497,7 +18497,7 @@ return return_ZEpXfpm;}();
     
 
         json serialize_VkPhysicalDeviceImageProcessing2FeaturesQCOM_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceImageProcessing2FeaturesQCOM...\n");
+        debug_printf("Serializing VkPhysicalDeviceImageProcessing2FeaturesQCOM...\n");
         json result;
         result=[&]() {
     json return_vxTjVhC=json({});
@@ -18515,7 +18515,7 @@ return return_vxTjVhC;}();
     
 
         json serialize_VkPhysicalDeviceImageProcessing2PropertiesQCOM_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceImageProcessing2PropertiesQCOM...\n");
+        debug_printf("Serializing VkPhysicalDeviceImageProcessing2PropertiesQCOM...\n");
         json result;
         result=[&]() {
     json return_wjZEflx=json({});
@@ -18533,7 +18533,7 @@ return return_wjZEflx;}();
     
 
         json serialize_VkSamplerBlockMatchWindowCreateInfoQCOM_pNext(const void* name){
-        printf("Serializing VkSamplerBlockMatchWindowCreateInfoQCOM...\n");
+        debug_printf("Serializing VkSamplerBlockMatchWindowCreateInfoQCOM...\n");
         json result;
         result=[&]() {
     json return_ZDUolsM=json({});
@@ -18551,7 +18551,7 @@ return return_ZDUolsM;}();
     
 
         json serialize_VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV...\n");
+        debug_printf("Serializing VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV...\n");
         json result;
         result=[&]() {
     json return_MqUxMpf=json({});
@@ -18569,7 +18569,7 @@ return return_MqUxMpf;}();
     
 
         json serialize_VkPhysicalDeviceLayeredDriverPropertiesMSFT_pNext(const void* name){
-        printf("Serializing VkPhysicalDeviceLayeredDriverPropertiesMSFT...\n");
+        debug_printf("Serializing VkPhysicalDeviceLayeredDriverPropertiesMSFT...\n");
         json result;
         result=[&]() {
     json return_fjZOWku=json({});
@@ -20404,7 +20404,7 @@ void* copyVkStruct (const void* data){
 
 
         void* deserialize_VkBaseOutStructure_pNext(json& name){
-        printf("Deserializing VkBaseOutStructure...\n");
+        debug_printf("Deserializing VkBaseOutStructure...\n");
         VkBaseOutStructure* result;
         [&]() {
 
@@ -20421,7 +20421,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBaseInStructure_pNext(json& name){
-        printf("Deserializing VkBaseInStructure...\n");
+        debug_printf("Deserializing VkBaseInStructure...\n");
         VkBaseInStructure* result;
         [&]() {
 
@@ -20438,7 +20438,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkOffset2D_pNext(json& name){
-        printf("Deserializing VkOffset2D...\n");
+        debug_printf("Deserializing VkOffset2D...\n");
         VkOffset2D* result;
         [&]() {
 
@@ -20455,7 +20455,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkOffset3D_pNext(json& name){
-        printf("Deserializing VkOffset3D...\n");
+        debug_printf("Deserializing VkOffset3D...\n");
         VkOffset3D* result;
         [&]() {
 
@@ -20472,7 +20472,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExtent2D_pNext(json& name){
-        printf("Deserializing VkExtent2D...\n");
+        debug_printf("Deserializing VkExtent2D...\n");
         VkExtent2D* result;
         [&]() {
 
@@ -20489,7 +20489,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExtent3D_pNext(json& name){
-        printf("Deserializing VkExtent3D...\n");
+        debug_printf("Deserializing VkExtent3D...\n");
         VkExtent3D* result;
         [&]() {
 
@@ -20506,7 +20506,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkViewport_pNext(json& name){
-        printf("Deserializing VkViewport...\n");
+        debug_printf("Deserializing VkViewport...\n");
         VkViewport* result;
         [&]() {
 
@@ -20523,7 +20523,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRect2D_pNext(json& name){
-        printf("Deserializing VkRect2D...\n");
+        debug_printf("Deserializing VkRect2D...\n");
         VkRect2D* result;
         [&]() {
 
@@ -20540,7 +20540,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkClearRect_pNext(json& name){
-        printf("Deserializing VkClearRect...\n");
+        debug_printf("Deserializing VkClearRect...\n");
         VkClearRect* result;
         [&]() {
 
@@ -20557,7 +20557,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkComponentMapping_pNext(json& name){
-        printf("Deserializing VkComponentMapping...\n");
+        debug_printf("Deserializing VkComponentMapping...\n");
         VkComponentMapping* result;
         [&]() {
 
@@ -20574,7 +20574,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceProperties...\n");
         VkPhysicalDeviceProperties* result;
         [&]() {
 
@@ -20591,7 +20591,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExtensionProperties_pNext(json& name){
-        printf("Deserializing VkExtensionProperties...\n");
+        debug_printf("Deserializing VkExtensionProperties...\n");
         VkExtensionProperties* result;
         [&]() {
 
@@ -20608,7 +20608,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkLayerProperties_pNext(json& name){
-        printf("Deserializing VkLayerProperties...\n");
+        debug_printf("Deserializing VkLayerProperties...\n");
         VkLayerProperties* result;
         [&]() {
 
@@ -20625,7 +20625,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkApplicationInfo_pNext(json& name){
-        printf("Deserializing VkApplicationInfo...\n");
+        debug_printf("Deserializing VkApplicationInfo...\n");
         VkApplicationInfo* result;
         [&]() {
 
@@ -20642,7 +20642,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAllocationCallbacks_pNext(json& name){
-        printf("Deserializing VkAllocationCallbacks...\n");
+        debug_printf("Deserializing VkAllocationCallbacks...\n");
         VkAllocationCallbacks* result;
         [&]() {
 
@@ -20659,7 +20659,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceQueueCreateInfo_pNext(json& name){
-        printf("Deserializing VkDeviceQueueCreateInfo...\n");
+        debug_printf("Deserializing VkDeviceQueueCreateInfo...\n");
         VkDeviceQueueCreateInfo* result;
         [&]() {
 
@@ -20676,7 +20676,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceCreateInfo_pNext(json& name){
-        printf("Deserializing VkDeviceCreateInfo...\n");
+        debug_printf("Deserializing VkDeviceCreateInfo...\n");
         VkDeviceCreateInfo* result;
         [&]() {
 
@@ -20693,7 +20693,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkInstanceCreateInfo_pNext(json& name){
-        printf("Deserializing VkInstanceCreateInfo...\n");
+        debug_printf("Deserializing VkInstanceCreateInfo...\n");
         VkInstanceCreateInfo* result;
         [&]() {
 
@@ -20710,7 +20710,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkQueueFamilyProperties_pNext(json& name){
-        printf("Deserializing VkQueueFamilyProperties...\n");
+        debug_printf("Deserializing VkQueueFamilyProperties...\n");
         VkQueueFamilyProperties* result;
         [&]() {
 
@@ -20727,7 +20727,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMemoryProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMemoryProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMemoryProperties...\n");
         VkPhysicalDeviceMemoryProperties* result;
         [&]() {
 
@@ -20744,7 +20744,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryAllocateInfo_pNext(json& name){
-        printf("Deserializing VkMemoryAllocateInfo...\n");
+        debug_printf("Deserializing VkMemoryAllocateInfo...\n");
         VkMemoryAllocateInfo* result;
         [&]() {
 
@@ -20761,7 +20761,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryRequirements_pNext(json& name){
-        printf("Deserializing VkMemoryRequirements...\n");
+        debug_printf("Deserializing VkMemoryRequirements...\n");
         VkMemoryRequirements* result;
         [&]() {
 
@@ -20778,7 +20778,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSparseImageFormatProperties_pNext(json& name){
-        printf("Deserializing VkSparseImageFormatProperties...\n");
+        debug_printf("Deserializing VkSparseImageFormatProperties...\n");
         VkSparseImageFormatProperties* result;
         [&]() {
 
@@ -20795,7 +20795,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSparseImageMemoryRequirements_pNext(json& name){
-        printf("Deserializing VkSparseImageMemoryRequirements...\n");
+        debug_printf("Deserializing VkSparseImageMemoryRequirements...\n");
         VkSparseImageMemoryRequirements* result;
         [&]() {
 
@@ -20812,7 +20812,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryType_pNext(json& name){
-        printf("Deserializing VkMemoryType...\n");
+        debug_printf("Deserializing VkMemoryType...\n");
         VkMemoryType* result;
         [&]() {
 
@@ -20829,7 +20829,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryHeap_pNext(json& name){
-        printf("Deserializing VkMemoryHeap...\n");
+        debug_printf("Deserializing VkMemoryHeap...\n");
         VkMemoryHeap* result;
         [&]() {
 
@@ -20846,7 +20846,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMappedMemoryRange_pNext(json& name){
-        printf("Deserializing VkMappedMemoryRange...\n");
+        debug_printf("Deserializing VkMappedMemoryRange...\n");
         VkMappedMemoryRange* result;
         [&]() {
 
@@ -20863,7 +20863,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkFormatProperties_pNext(json& name){
-        printf("Deserializing VkFormatProperties...\n");
+        debug_printf("Deserializing VkFormatProperties...\n");
         VkFormatProperties* result;
         [&]() {
 
@@ -20880,7 +20880,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageFormatProperties_pNext(json& name){
-        printf("Deserializing VkImageFormatProperties...\n");
+        debug_printf("Deserializing VkImageFormatProperties...\n");
         VkImageFormatProperties* result;
         [&]() {
 
@@ -20897,7 +20897,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorBufferInfo_pNext(json& name){
-        printf("Deserializing VkDescriptorBufferInfo...\n");
+        debug_printf("Deserializing VkDescriptorBufferInfo...\n");
         VkDescriptorBufferInfo* result;
         [&]() {
 
@@ -20914,7 +20914,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorImageInfo_pNext(json& name){
-        printf("Deserializing VkDescriptorImageInfo...\n");
+        debug_printf("Deserializing VkDescriptorImageInfo...\n");
         VkDescriptorImageInfo* result;
         [&]() {
 
@@ -20931,7 +20931,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkWriteDescriptorSet_pNext(json& name){
-        printf("Deserializing VkWriteDescriptorSet...\n");
+        debug_printf("Deserializing VkWriteDescriptorSet...\n");
         VkWriteDescriptorSet* result;
         [&]() {
 
@@ -20948,7 +20948,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyDescriptorSet_pNext(json& name){
-        printf("Deserializing VkCopyDescriptorSet...\n");
+        debug_printf("Deserializing VkCopyDescriptorSet...\n");
         VkCopyDescriptorSet* result;
         [&]() {
 
@@ -20965,7 +20965,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferUsageFlags2CreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkBufferUsageFlags2CreateInfoKHR...\n");
+        debug_printf("Deserializing VkBufferUsageFlags2CreateInfoKHR...\n");
         VkBufferUsageFlags2CreateInfoKHR* result;
         [&]() {
 
@@ -20982,7 +20982,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferCreateInfo_pNext(json& name){
-        printf("Deserializing VkBufferCreateInfo...\n");
+        debug_printf("Deserializing VkBufferCreateInfo...\n");
         VkBufferCreateInfo* result;
         [&]() {
 
@@ -20999,7 +20999,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferViewCreateInfo_pNext(json& name){
-        printf("Deserializing VkBufferViewCreateInfo...\n");
+        debug_printf("Deserializing VkBufferViewCreateInfo...\n");
         VkBufferViewCreateInfo* result;
         [&]() {
 
@@ -21016,7 +21016,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageSubresource_pNext(json& name){
-        printf("Deserializing VkImageSubresource...\n");
+        debug_printf("Deserializing VkImageSubresource...\n");
         VkImageSubresource* result;
         [&]() {
 
@@ -21033,7 +21033,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageSubresourceLayers_pNext(json& name){
-        printf("Deserializing VkImageSubresourceLayers...\n");
+        debug_printf("Deserializing VkImageSubresourceLayers...\n");
         VkImageSubresourceLayers* result;
         [&]() {
 
@@ -21050,7 +21050,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageSubresourceRange_pNext(json& name){
-        printf("Deserializing VkImageSubresourceRange...\n");
+        debug_printf("Deserializing VkImageSubresourceRange...\n");
         VkImageSubresourceRange* result;
         [&]() {
 
@@ -21067,7 +21067,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryBarrier_pNext(json& name){
-        printf("Deserializing VkMemoryBarrier...\n");
+        debug_printf("Deserializing VkMemoryBarrier...\n");
         VkMemoryBarrier* result;
         [&]() {
 
@@ -21084,7 +21084,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferMemoryBarrier_pNext(json& name){
-        printf("Deserializing VkBufferMemoryBarrier...\n");
+        debug_printf("Deserializing VkBufferMemoryBarrier...\n");
         VkBufferMemoryBarrier* result;
         [&]() {
 
@@ -21101,7 +21101,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageMemoryBarrier_pNext(json& name){
-        printf("Deserializing VkImageMemoryBarrier...\n");
+        debug_printf("Deserializing VkImageMemoryBarrier...\n");
         VkImageMemoryBarrier* result;
         [&]() {
 
@@ -21118,7 +21118,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageCreateInfo_pNext(json& name){
-        printf("Deserializing VkImageCreateInfo...\n");
+        debug_printf("Deserializing VkImageCreateInfo...\n");
         VkImageCreateInfo* result;
         [&]() {
 
@@ -21135,7 +21135,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubresourceLayout_pNext(json& name){
-        printf("Deserializing VkSubresourceLayout...\n");
+        debug_printf("Deserializing VkSubresourceLayout...\n");
         VkSubresourceLayout* result;
         [&]() {
 
@@ -21152,7 +21152,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageViewCreateInfo_pNext(json& name){
-        printf("Deserializing VkImageViewCreateInfo...\n");
+        debug_printf("Deserializing VkImageViewCreateInfo...\n");
         VkImageViewCreateInfo* result;
         [&]() {
 
@@ -21169,7 +21169,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferCopy_pNext(json& name){
-        printf("Deserializing VkBufferCopy...\n");
+        debug_printf("Deserializing VkBufferCopy...\n");
         VkBufferCopy* result;
         [&]() {
 
@@ -21186,7 +21186,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSparseMemoryBind_pNext(json& name){
-        printf("Deserializing VkSparseMemoryBind...\n");
+        debug_printf("Deserializing VkSparseMemoryBind...\n");
         VkSparseMemoryBind* result;
         [&]() {
 
@@ -21203,7 +21203,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSparseImageMemoryBind_pNext(json& name){
-        printf("Deserializing VkSparseImageMemoryBind...\n");
+        debug_printf("Deserializing VkSparseImageMemoryBind...\n");
         VkSparseImageMemoryBind* result;
         [&]() {
 
@@ -21220,7 +21220,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSparseBufferMemoryBindInfo_pNext(json& name){
-        printf("Deserializing VkSparseBufferMemoryBindInfo...\n");
+        debug_printf("Deserializing VkSparseBufferMemoryBindInfo...\n");
         VkSparseBufferMemoryBindInfo* result;
         [&]() {
 
@@ -21237,7 +21237,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSparseImageOpaqueMemoryBindInfo_pNext(json& name){
-        printf("Deserializing VkSparseImageOpaqueMemoryBindInfo...\n");
+        debug_printf("Deserializing VkSparseImageOpaqueMemoryBindInfo...\n");
         VkSparseImageOpaqueMemoryBindInfo* result;
         [&]() {
 
@@ -21254,7 +21254,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSparseImageMemoryBindInfo_pNext(json& name){
-        printf("Deserializing VkSparseImageMemoryBindInfo...\n");
+        debug_printf("Deserializing VkSparseImageMemoryBindInfo...\n");
         VkSparseImageMemoryBindInfo* result;
         [&]() {
 
@@ -21271,7 +21271,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindSparseInfo_pNext(json& name){
-        printf("Deserializing VkBindSparseInfo...\n");
+        debug_printf("Deserializing VkBindSparseInfo...\n");
         VkBindSparseInfo* result;
         [&]() {
 
@@ -21288,7 +21288,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageCopy_pNext(json& name){
-        printf("Deserializing VkImageCopy...\n");
+        debug_printf("Deserializing VkImageCopy...\n");
         VkImageCopy* result;
         [&]() {
 
@@ -21305,7 +21305,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageBlit_pNext(json& name){
-        printf("Deserializing VkImageBlit...\n");
+        debug_printf("Deserializing VkImageBlit...\n");
         VkImageBlit* result;
         [&]() {
 
@@ -21322,7 +21322,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferImageCopy_pNext(json& name){
-        printf("Deserializing VkBufferImageCopy...\n");
+        debug_printf("Deserializing VkBufferImageCopy...\n");
         VkBufferImageCopy* result;
         [&]() {
 
@@ -21339,7 +21339,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyMemoryIndirectCommandNV_pNext(json& name){
-        printf("Deserializing VkCopyMemoryIndirectCommandNV...\n");
+        debug_printf("Deserializing VkCopyMemoryIndirectCommandNV...\n");
         VkCopyMemoryIndirectCommandNV* result;
         [&]() {
 
@@ -21356,7 +21356,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyMemoryToImageIndirectCommandNV_pNext(json& name){
-        printf("Deserializing VkCopyMemoryToImageIndirectCommandNV...\n");
+        debug_printf("Deserializing VkCopyMemoryToImageIndirectCommandNV...\n");
         VkCopyMemoryToImageIndirectCommandNV* result;
         [&]() {
 
@@ -21373,7 +21373,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageResolve_pNext(json& name){
-        printf("Deserializing VkImageResolve...\n");
+        debug_printf("Deserializing VkImageResolve...\n");
         VkImageResolve* result;
         [&]() {
 
@@ -21390,7 +21390,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkShaderModuleCreateInfo_pNext(json& name){
-        printf("Deserializing VkShaderModuleCreateInfo...\n");
+        debug_printf("Deserializing VkShaderModuleCreateInfo...\n");
         VkShaderModuleCreateInfo* result;
         [&]() {
 
@@ -21407,7 +21407,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorSetLayoutBinding_pNext(json& name){
-        printf("Deserializing VkDescriptorSetLayoutBinding...\n");
+        debug_printf("Deserializing VkDescriptorSetLayoutBinding...\n");
         VkDescriptorSetLayoutBinding* result;
         [&]() {
 
@@ -21424,7 +21424,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorSetLayoutCreateInfo_pNext(json& name){
-        printf("Deserializing VkDescriptorSetLayoutCreateInfo...\n");
+        debug_printf("Deserializing VkDescriptorSetLayoutCreateInfo...\n");
         VkDescriptorSetLayoutCreateInfo* result;
         [&]() {
 
@@ -21441,7 +21441,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorPoolSize_pNext(json& name){
-        printf("Deserializing VkDescriptorPoolSize...\n");
+        debug_printf("Deserializing VkDescriptorPoolSize...\n");
         VkDescriptorPoolSize* result;
         [&]() {
 
@@ -21458,7 +21458,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorPoolCreateInfo_pNext(json& name){
-        printf("Deserializing VkDescriptorPoolCreateInfo...\n");
+        debug_printf("Deserializing VkDescriptorPoolCreateInfo...\n");
         VkDescriptorPoolCreateInfo* result;
         [&]() {
 
@@ -21475,7 +21475,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorSetAllocateInfo_pNext(json& name){
-        printf("Deserializing VkDescriptorSetAllocateInfo...\n");
+        debug_printf("Deserializing VkDescriptorSetAllocateInfo...\n");
         VkDescriptorSetAllocateInfo* result;
         [&]() {
 
@@ -21492,7 +21492,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSpecializationMapEntry_pNext(json& name){
-        printf("Deserializing VkSpecializationMapEntry...\n");
+        debug_printf("Deserializing VkSpecializationMapEntry...\n");
         VkSpecializationMapEntry* result;
         [&]() {
 
@@ -21509,7 +21509,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSpecializationInfo_pNext(json& name){
-        printf("Deserializing VkSpecializationInfo...\n");
+        debug_printf("Deserializing VkSpecializationInfo...\n");
         VkSpecializationInfo* result;
         [&]() {
 
@@ -21526,7 +21526,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineShaderStageCreateInfo_pNext(json& name){
-        printf("Deserializing VkPipelineShaderStageCreateInfo...\n");
+        debug_printf("Deserializing VkPipelineShaderStageCreateInfo...\n");
         VkPipelineShaderStageCreateInfo* result;
         [&]() {
 
@@ -21543,7 +21543,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkComputePipelineCreateInfo_pNext(json& name){
-        printf("Deserializing VkComputePipelineCreateInfo...\n");
+        debug_printf("Deserializing VkComputePipelineCreateInfo...\n");
         VkComputePipelineCreateInfo* result;
         [&]() {
 
@@ -21560,7 +21560,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkComputePipelineIndirectBufferInfoNV_pNext(json& name){
-        printf("Deserializing VkComputePipelineIndirectBufferInfoNV...\n");
+        debug_printf("Deserializing VkComputePipelineIndirectBufferInfoNV...\n");
         VkComputePipelineIndirectBufferInfoNV* result;
         [&]() {
 
@@ -21577,7 +21577,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineCreateFlags2CreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkPipelineCreateFlags2CreateInfoKHR...\n");
+        debug_printf("Deserializing VkPipelineCreateFlags2CreateInfoKHR...\n");
         VkPipelineCreateFlags2CreateInfoKHR* result;
         [&]() {
 
@@ -21594,7 +21594,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVertexInputBindingDescription_pNext(json& name){
-        printf("Deserializing VkVertexInputBindingDescription...\n");
+        debug_printf("Deserializing VkVertexInputBindingDescription...\n");
         VkVertexInputBindingDescription* result;
         [&]() {
 
@@ -21611,7 +21611,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVertexInputAttributeDescription_pNext(json& name){
-        printf("Deserializing VkVertexInputAttributeDescription...\n");
+        debug_printf("Deserializing VkVertexInputAttributeDescription...\n");
         VkVertexInputAttributeDescription* result;
         [&]() {
 
@@ -21628,7 +21628,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineVertexInputStateCreateInfo_pNext(json& name){
-        printf("Deserializing VkPipelineVertexInputStateCreateInfo...\n");
+        debug_printf("Deserializing VkPipelineVertexInputStateCreateInfo...\n");
         VkPipelineVertexInputStateCreateInfo* result;
         [&]() {
 
@@ -21645,7 +21645,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineInputAssemblyStateCreateInfo_pNext(json& name){
-        printf("Deserializing VkPipelineInputAssemblyStateCreateInfo...\n");
+        debug_printf("Deserializing VkPipelineInputAssemblyStateCreateInfo...\n");
         VkPipelineInputAssemblyStateCreateInfo* result;
         [&]() {
 
@@ -21662,7 +21662,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineTessellationStateCreateInfo_pNext(json& name){
-        printf("Deserializing VkPipelineTessellationStateCreateInfo...\n");
+        debug_printf("Deserializing VkPipelineTessellationStateCreateInfo...\n");
         VkPipelineTessellationStateCreateInfo* result;
         [&]() {
 
@@ -21679,7 +21679,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineViewportStateCreateInfo_pNext(json& name){
-        printf("Deserializing VkPipelineViewportStateCreateInfo...\n");
+        debug_printf("Deserializing VkPipelineViewportStateCreateInfo...\n");
         VkPipelineViewportStateCreateInfo* result;
         [&]() {
 
@@ -21696,7 +21696,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineRasterizationStateCreateInfo_pNext(json& name){
-        printf("Deserializing VkPipelineRasterizationStateCreateInfo...\n");
+        debug_printf("Deserializing VkPipelineRasterizationStateCreateInfo...\n");
         VkPipelineRasterizationStateCreateInfo* result;
         [&]() {
 
@@ -21713,7 +21713,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineMultisampleStateCreateInfo_pNext(json& name){
-        printf("Deserializing VkPipelineMultisampleStateCreateInfo...\n");
+        debug_printf("Deserializing VkPipelineMultisampleStateCreateInfo...\n");
         VkPipelineMultisampleStateCreateInfo* result;
         [&]() {
 
@@ -21730,7 +21730,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineColorBlendAttachmentState_pNext(json& name){
-        printf("Deserializing VkPipelineColorBlendAttachmentState...\n");
+        debug_printf("Deserializing VkPipelineColorBlendAttachmentState...\n");
         VkPipelineColorBlendAttachmentState* result;
         [&]() {
 
@@ -21747,7 +21747,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineColorBlendStateCreateInfo_pNext(json& name){
-        printf("Deserializing VkPipelineColorBlendStateCreateInfo...\n");
+        debug_printf("Deserializing VkPipelineColorBlendStateCreateInfo...\n");
         VkPipelineColorBlendStateCreateInfo* result;
         [&]() {
 
@@ -21764,7 +21764,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineDynamicStateCreateInfo_pNext(json& name){
-        printf("Deserializing VkPipelineDynamicStateCreateInfo...\n");
+        debug_printf("Deserializing VkPipelineDynamicStateCreateInfo...\n");
         VkPipelineDynamicStateCreateInfo* result;
         [&]() {
 
@@ -21781,7 +21781,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkStencilOpState_pNext(json& name){
-        printf("Deserializing VkStencilOpState...\n");
+        debug_printf("Deserializing VkStencilOpState...\n");
         VkStencilOpState* result;
         [&]() {
 
@@ -21798,7 +21798,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineDepthStencilStateCreateInfo_pNext(json& name){
-        printf("Deserializing VkPipelineDepthStencilStateCreateInfo...\n");
+        debug_printf("Deserializing VkPipelineDepthStencilStateCreateInfo...\n");
         VkPipelineDepthStencilStateCreateInfo* result;
         [&]() {
 
@@ -21815,7 +21815,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkGraphicsPipelineCreateInfo_pNext(json& name){
-        printf("Deserializing VkGraphicsPipelineCreateInfo...\n");
+        debug_printf("Deserializing VkGraphicsPipelineCreateInfo...\n");
         VkGraphicsPipelineCreateInfo* result;
         [&]() {
 
@@ -21832,7 +21832,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineCacheCreateInfo_pNext(json& name){
-        printf("Deserializing VkPipelineCacheCreateInfo...\n");
+        debug_printf("Deserializing VkPipelineCacheCreateInfo...\n");
         VkPipelineCacheCreateInfo* result;
         [&]() {
 
@@ -21849,7 +21849,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineCacheHeaderVersionOne_pNext(json& name){
-        printf("Deserializing VkPipelineCacheHeaderVersionOne...\n");
+        debug_printf("Deserializing VkPipelineCacheHeaderVersionOne...\n");
         VkPipelineCacheHeaderVersionOne* result;
         [&]() {
 
@@ -21866,7 +21866,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPushConstantRange_pNext(json& name){
-        printf("Deserializing VkPushConstantRange...\n");
+        debug_printf("Deserializing VkPushConstantRange...\n");
         VkPushConstantRange* result;
         [&]() {
 
@@ -21883,7 +21883,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineLayoutCreateInfo_pNext(json& name){
-        printf("Deserializing VkPipelineLayoutCreateInfo...\n");
+        debug_printf("Deserializing VkPipelineLayoutCreateInfo...\n");
         VkPipelineLayoutCreateInfo* result;
         [&]() {
 
@@ -21900,7 +21900,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSamplerCreateInfo_pNext(json& name){
-        printf("Deserializing VkSamplerCreateInfo...\n");
+        debug_printf("Deserializing VkSamplerCreateInfo...\n");
         VkSamplerCreateInfo* result;
         [&]() {
 
@@ -21917,7 +21917,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCommandPoolCreateInfo_pNext(json& name){
-        printf("Deserializing VkCommandPoolCreateInfo...\n");
+        debug_printf("Deserializing VkCommandPoolCreateInfo...\n");
         VkCommandPoolCreateInfo* result;
         [&]() {
 
@@ -21934,7 +21934,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCommandBufferAllocateInfo_pNext(json& name){
-        printf("Deserializing VkCommandBufferAllocateInfo...\n");
+        debug_printf("Deserializing VkCommandBufferAllocateInfo...\n");
         VkCommandBufferAllocateInfo* result;
         [&]() {
 
@@ -21951,7 +21951,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCommandBufferInheritanceInfo_pNext(json& name){
-        printf("Deserializing VkCommandBufferInheritanceInfo...\n");
+        debug_printf("Deserializing VkCommandBufferInheritanceInfo...\n");
         VkCommandBufferInheritanceInfo* result;
         [&]() {
 
@@ -21968,7 +21968,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCommandBufferBeginInfo_pNext(json& name){
-        printf("Deserializing VkCommandBufferBeginInfo...\n");
+        debug_printf("Deserializing VkCommandBufferBeginInfo...\n");
         VkCommandBufferBeginInfo* result;
         [&]() {
 
@@ -21985,7 +21985,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassBeginInfo_pNext(json& name){
-        printf("Deserializing VkRenderPassBeginInfo...\n");
+        debug_printf("Deserializing VkRenderPassBeginInfo...\n");
         VkRenderPassBeginInfo* result;
         [&]() {
 
@@ -22002,7 +22002,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkClearColorValue_pNext(json& name){
-        printf("Deserializing VkClearColorValue...\n");
+        debug_printf("Deserializing VkClearColorValue...\n");
         VkClearColorValue* result;
         [&]() {
 
@@ -22019,7 +22019,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkClearDepthStencilValue_pNext(json& name){
-        printf("Deserializing VkClearDepthStencilValue...\n");
+        debug_printf("Deserializing VkClearDepthStencilValue...\n");
         VkClearDepthStencilValue* result;
         [&]() {
 
@@ -22036,7 +22036,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkClearValue_pNext(json& name){
-        printf("Deserializing VkClearValue...\n");
+        debug_printf("Deserializing VkClearValue...\n");
         VkClearValue* result;
         [&]() {
 
@@ -22053,7 +22053,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkClearAttachment_pNext(json& name){
-        printf("Deserializing VkClearAttachment...\n");
+        debug_printf("Deserializing VkClearAttachment...\n");
         VkClearAttachment* result;
         [&]() {
 
@@ -22070,7 +22070,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAttachmentDescription_pNext(json& name){
-        printf("Deserializing VkAttachmentDescription...\n");
+        debug_printf("Deserializing VkAttachmentDescription...\n");
         VkAttachmentDescription* result;
         [&]() {
 
@@ -22087,7 +22087,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAttachmentReference_pNext(json& name){
-        printf("Deserializing VkAttachmentReference...\n");
+        debug_printf("Deserializing VkAttachmentReference...\n");
         VkAttachmentReference* result;
         [&]() {
 
@@ -22104,7 +22104,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubpassDescription_pNext(json& name){
-        printf("Deserializing VkSubpassDescription...\n");
+        debug_printf("Deserializing VkSubpassDescription...\n");
         VkSubpassDescription* result;
         [&]() {
 
@@ -22121,7 +22121,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubpassDependency_pNext(json& name){
-        printf("Deserializing VkSubpassDependency...\n");
+        debug_printf("Deserializing VkSubpassDependency...\n");
         VkSubpassDependency* result;
         [&]() {
 
@@ -22138,7 +22138,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassCreateInfo_pNext(json& name){
-        printf("Deserializing VkRenderPassCreateInfo...\n");
+        debug_printf("Deserializing VkRenderPassCreateInfo...\n");
         VkRenderPassCreateInfo* result;
         [&]() {
 
@@ -22155,7 +22155,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkEventCreateInfo_pNext(json& name){
-        printf("Deserializing VkEventCreateInfo...\n");
+        debug_printf("Deserializing VkEventCreateInfo...\n");
         VkEventCreateInfo* result;
         [&]() {
 
@@ -22172,7 +22172,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkFenceCreateInfo_pNext(json& name){
-        printf("Deserializing VkFenceCreateInfo...\n");
+        debug_printf("Deserializing VkFenceCreateInfo...\n");
         VkFenceCreateInfo* result;
         [&]() {
 
@@ -22189,7 +22189,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFeatures...\n");
         VkPhysicalDeviceFeatures* result;
         [&]() {
 
@@ -22206,7 +22206,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSparseProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSparseProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSparseProperties...\n");
         VkPhysicalDeviceSparseProperties* result;
         [&]() {
 
@@ -22223,7 +22223,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceLimits_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceLimits...\n");
+        debug_printf("Deserializing VkPhysicalDeviceLimits...\n");
         VkPhysicalDeviceLimits* result;
         [&]() {
 
@@ -22240,7 +22240,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSemaphoreCreateInfo_pNext(json& name){
-        printf("Deserializing VkSemaphoreCreateInfo...\n");
+        debug_printf("Deserializing VkSemaphoreCreateInfo...\n");
         VkSemaphoreCreateInfo* result;
         [&]() {
 
@@ -22257,7 +22257,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkQueryPoolCreateInfo_pNext(json& name){
-        printf("Deserializing VkQueryPoolCreateInfo...\n");
+        debug_printf("Deserializing VkQueryPoolCreateInfo...\n");
         VkQueryPoolCreateInfo* result;
         [&]() {
 
@@ -22274,7 +22274,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkFramebufferCreateInfo_pNext(json& name){
-        printf("Deserializing VkFramebufferCreateInfo...\n");
+        debug_printf("Deserializing VkFramebufferCreateInfo...\n");
         VkFramebufferCreateInfo* result;
         [&]() {
 
@@ -22291,7 +22291,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDrawIndirectCommand_pNext(json& name){
-        printf("Deserializing VkDrawIndirectCommand...\n");
+        debug_printf("Deserializing VkDrawIndirectCommand...\n");
         VkDrawIndirectCommand* result;
         [&]() {
 
@@ -22308,7 +22308,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDrawIndexedIndirectCommand_pNext(json& name){
-        printf("Deserializing VkDrawIndexedIndirectCommand...\n");
+        debug_printf("Deserializing VkDrawIndexedIndirectCommand...\n");
         VkDrawIndexedIndirectCommand* result;
         [&]() {
 
@@ -22325,7 +22325,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDispatchIndirectCommand_pNext(json& name){
-        printf("Deserializing VkDispatchIndirectCommand...\n");
+        debug_printf("Deserializing VkDispatchIndirectCommand...\n");
         VkDispatchIndirectCommand* result;
         [&]() {
 
@@ -22342,7 +22342,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMultiDrawInfoEXT_pNext(json& name){
-        printf("Deserializing VkMultiDrawInfoEXT...\n");
+        debug_printf("Deserializing VkMultiDrawInfoEXT...\n");
         VkMultiDrawInfoEXT* result;
         [&]() {
 
@@ -22359,7 +22359,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMultiDrawIndexedInfoEXT_pNext(json& name){
-        printf("Deserializing VkMultiDrawIndexedInfoEXT...\n");
+        debug_printf("Deserializing VkMultiDrawIndexedInfoEXT...\n");
         VkMultiDrawIndexedInfoEXT* result;
         [&]() {
 
@@ -22376,7 +22376,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubmitInfo_pNext(json& name){
-        printf("Deserializing VkSubmitInfo...\n");
+        debug_printf("Deserializing VkSubmitInfo...\n");
         VkSubmitInfo* result;
         [&]() {
 
@@ -22393,7 +22393,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDisplayPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkDisplayPropertiesKHR...\n");
+        debug_printf("Deserializing VkDisplayPropertiesKHR...\n");
         VkDisplayPropertiesKHR* result;
         [&]() {
 
@@ -22410,7 +22410,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDisplayPlanePropertiesKHR_pNext(json& name){
-        printf("Deserializing VkDisplayPlanePropertiesKHR...\n");
+        debug_printf("Deserializing VkDisplayPlanePropertiesKHR...\n");
         VkDisplayPlanePropertiesKHR* result;
         [&]() {
 
@@ -22427,7 +22427,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDisplayModeParametersKHR_pNext(json& name){
-        printf("Deserializing VkDisplayModeParametersKHR...\n");
+        debug_printf("Deserializing VkDisplayModeParametersKHR...\n");
         VkDisplayModeParametersKHR* result;
         [&]() {
 
@@ -22444,7 +22444,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDisplayModePropertiesKHR_pNext(json& name){
-        printf("Deserializing VkDisplayModePropertiesKHR...\n");
+        debug_printf("Deserializing VkDisplayModePropertiesKHR...\n");
         VkDisplayModePropertiesKHR* result;
         [&]() {
 
@@ -22461,7 +22461,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDisplayModeCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkDisplayModeCreateInfoKHR...\n");
+        debug_printf("Deserializing VkDisplayModeCreateInfoKHR...\n");
         VkDisplayModeCreateInfoKHR* result;
         [&]() {
 
@@ -22478,7 +22478,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDisplayPlaneCapabilitiesKHR_pNext(json& name){
-        printf("Deserializing VkDisplayPlaneCapabilitiesKHR...\n");
+        debug_printf("Deserializing VkDisplayPlaneCapabilitiesKHR...\n");
         VkDisplayPlaneCapabilitiesKHR* result;
         [&]() {
 
@@ -22495,7 +22495,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDisplaySurfaceCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkDisplaySurfaceCreateInfoKHR...\n");
+        debug_printf("Deserializing VkDisplaySurfaceCreateInfoKHR...\n");
         VkDisplaySurfaceCreateInfoKHR* result;
         [&]() {
 
@@ -22512,7 +22512,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDisplayPresentInfoKHR_pNext(json& name){
-        printf("Deserializing VkDisplayPresentInfoKHR...\n");
+        debug_printf("Deserializing VkDisplayPresentInfoKHR...\n");
         VkDisplayPresentInfoKHR* result;
         [&]() {
 
@@ -22529,7 +22529,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSurfaceCapabilitiesKHR_pNext(json& name){
-        printf("Deserializing VkSurfaceCapabilitiesKHR...\n");
+        debug_printf("Deserializing VkSurfaceCapabilitiesKHR...\n");
         VkSurfaceCapabilitiesKHR* result;
         [&]() {
 
@@ -22546,7 +22546,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkXlibSurfaceCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkXlibSurfaceCreateInfoKHR...\n");
+        debug_printf("Deserializing VkXlibSurfaceCreateInfoKHR...\n");
         VkXlibSurfaceCreateInfoKHR* result;
         [&]() {
 
@@ -22563,7 +22563,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkXcbSurfaceCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkXcbSurfaceCreateInfoKHR...\n");
+        debug_printf("Deserializing VkXcbSurfaceCreateInfoKHR...\n");
         VkXcbSurfaceCreateInfoKHR* result;
         [&]() {
 
@@ -22580,7 +22580,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSurfaceFormatKHR_pNext(json& name){
-        printf("Deserializing VkSurfaceFormatKHR...\n");
+        debug_printf("Deserializing VkSurfaceFormatKHR...\n");
         VkSurfaceFormatKHR* result;
         [&]() {
 
@@ -22597,7 +22597,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSwapchainCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkSwapchainCreateInfoKHR...\n");
+        debug_printf("Deserializing VkSwapchainCreateInfoKHR...\n");
         VkSwapchainCreateInfoKHR* result;
         [&]() {
 
@@ -22614,7 +22614,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPresentInfoKHR_pNext(json& name){
-        printf("Deserializing VkPresentInfoKHR...\n");
+        debug_printf("Deserializing VkPresentInfoKHR...\n");
         VkPresentInfoKHR* result;
         [&]() {
 
@@ -22631,7 +22631,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDebugReportCallbackCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkDebugReportCallbackCreateInfoEXT...\n");
+        debug_printf("Deserializing VkDebugReportCallbackCreateInfoEXT...\n");
         VkDebugReportCallbackCreateInfoEXT* result;
         [&]() {
 
@@ -22648,7 +22648,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkValidationFlagsEXT_pNext(json& name){
-        printf("Deserializing VkValidationFlagsEXT...\n");
+        debug_printf("Deserializing VkValidationFlagsEXT...\n");
         VkValidationFlagsEXT* result;
         [&]() {
 
@@ -22665,7 +22665,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkValidationFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkValidationFeaturesEXT...\n");
+        debug_printf("Deserializing VkValidationFeaturesEXT...\n");
         VkValidationFeaturesEXT* result;
         [&]() {
 
@@ -22682,7 +22682,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineRasterizationStateRasterizationOrderAMD_pNext(json& name){
-        printf("Deserializing VkPipelineRasterizationStateRasterizationOrderAMD...\n");
+        debug_printf("Deserializing VkPipelineRasterizationStateRasterizationOrderAMD...\n");
         VkPipelineRasterizationStateRasterizationOrderAMD* result;
         [&]() {
 
@@ -22699,7 +22699,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDebugMarkerObjectNameInfoEXT_pNext(json& name){
-        printf("Deserializing VkDebugMarkerObjectNameInfoEXT...\n");
+        debug_printf("Deserializing VkDebugMarkerObjectNameInfoEXT...\n");
         VkDebugMarkerObjectNameInfoEXT* result;
         [&]() {
 
@@ -22716,7 +22716,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDebugMarkerObjectTagInfoEXT_pNext(json& name){
-        printf("Deserializing VkDebugMarkerObjectTagInfoEXT...\n");
+        debug_printf("Deserializing VkDebugMarkerObjectTagInfoEXT...\n");
         VkDebugMarkerObjectTagInfoEXT* result;
         [&]() {
 
@@ -22733,7 +22733,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDebugMarkerMarkerInfoEXT_pNext(json& name){
-        printf("Deserializing VkDebugMarkerMarkerInfoEXT...\n");
+        debug_printf("Deserializing VkDebugMarkerMarkerInfoEXT...\n");
         VkDebugMarkerMarkerInfoEXT* result;
         [&]() {
 
@@ -22750,7 +22750,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDedicatedAllocationImageCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkDedicatedAllocationImageCreateInfoNV...\n");
+        debug_printf("Deserializing VkDedicatedAllocationImageCreateInfoNV...\n");
         VkDedicatedAllocationImageCreateInfoNV* result;
         [&]() {
 
@@ -22767,7 +22767,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDedicatedAllocationBufferCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkDedicatedAllocationBufferCreateInfoNV...\n");
+        debug_printf("Deserializing VkDedicatedAllocationBufferCreateInfoNV...\n");
         VkDedicatedAllocationBufferCreateInfoNV* result;
         [&]() {
 
@@ -22784,7 +22784,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDedicatedAllocationMemoryAllocateInfoNV_pNext(json& name){
-        printf("Deserializing VkDedicatedAllocationMemoryAllocateInfoNV...\n");
+        debug_printf("Deserializing VkDedicatedAllocationMemoryAllocateInfoNV...\n");
         VkDedicatedAllocationMemoryAllocateInfoNV* result;
         [&]() {
 
@@ -22801,7 +22801,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExternalImageFormatPropertiesNV_pNext(json& name){
-        printf("Deserializing VkExternalImageFormatPropertiesNV...\n");
+        debug_printf("Deserializing VkExternalImageFormatPropertiesNV...\n");
         VkExternalImageFormatPropertiesNV* result;
         [&]() {
 
@@ -22818,7 +22818,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExternalMemoryImageCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkExternalMemoryImageCreateInfoNV...\n");
+        debug_printf("Deserializing VkExternalMemoryImageCreateInfoNV...\n");
         VkExternalMemoryImageCreateInfoNV* result;
         [&]() {
 
@@ -22835,7 +22835,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExportMemoryAllocateInfoNV_pNext(json& name){
-        printf("Deserializing VkExportMemoryAllocateInfoNV...\n");
+        debug_printf("Deserializing VkExportMemoryAllocateInfoNV...\n");
         VkExportMemoryAllocateInfoNV* result;
         [&]() {
 
@@ -22852,7 +22852,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV...\n");
         VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV* result;
         [&]() {
 
@@ -22869,7 +22869,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV...\n");
         VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV* result;
         [&]() {
 
@@ -22886,7 +22886,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDevicePrivateDataCreateInfo_pNext(json& name){
-        printf("Deserializing VkDevicePrivateDataCreateInfo...\n");
+        debug_printf("Deserializing VkDevicePrivateDataCreateInfo...\n");
         VkDevicePrivateDataCreateInfo* result;
         [&]() {
 
@@ -22903,7 +22903,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDevicePrivateDataCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkDevicePrivateDataCreateInfoEXT...\n");
+        debug_printf("Deserializing VkDevicePrivateDataCreateInfoEXT...\n");
         VkDevicePrivateDataCreateInfoEXT* result;
         [&]() {
 
@@ -22920,7 +22920,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPrivateDataSlotCreateInfo_pNext(json& name){
-        printf("Deserializing VkPrivateDataSlotCreateInfo...\n");
+        debug_printf("Deserializing VkPrivateDataSlotCreateInfo...\n");
         VkPrivateDataSlotCreateInfo* result;
         [&]() {
 
@@ -22937,7 +22937,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPrivateDataSlotCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkPrivateDataSlotCreateInfoEXT...\n");
+        debug_printf("Deserializing VkPrivateDataSlotCreateInfoEXT...\n");
         VkPrivateDataSlotCreateInfoEXT* result;
         [&]() {
 
@@ -22954,7 +22954,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePrivateDataFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePrivateDataFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDevicePrivateDataFeatures...\n");
         VkPhysicalDevicePrivateDataFeatures* result;
         [&]() {
 
@@ -22971,7 +22971,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePrivateDataFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePrivateDataFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDevicePrivateDataFeaturesEXT...\n");
         VkPhysicalDevicePrivateDataFeaturesEXT* result;
         [&]() {
 
@@ -22988,7 +22988,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV...\n");
         VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV* result;
         [&]() {
 
@@ -23005,7 +23005,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMultiDrawPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMultiDrawPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMultiDrawPropertiesEXT...\n");
         VkPhysicalDeviceMultiDrawPropertiesEXT* result;
         [&]() {
 
@@ -23022,7 +23022,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkGraphicsShaderGroupCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkGraphicsShaderGroupCreateInfoNV...\n");
+        debug_printf("Deserializing VkGraphicsShaderGroupCreateInfoNV...\n");
         VkGraphicsShaderGroupCreateInfoNV* result;
         [&]() {
 
@@ -23039,7 +23039,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkGraphicsPipelineShaderGroupsCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkGraphicsPipelineShaderGroupsCreateInfoNV...\n");
+        debug_printf("Deserializing VkGraphicsPipelineShaderGroupsCreateInfoNV...\n");
         VkGraphicsPipelineShaderGroupsCreateInfoNV* result;
         [&]() {
 
@@ -23056,7 +23056,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindShaderGroupIndirectCommandNV_pNext(json& name){
-        printf("Deserializing VkBindShaderGroupIndirectCommandNV...\n");
+        debug_printf("Deserializing VkBindShaderGroupIndirectCommandNV...\n");
         VkBindShaderGroupIndirectCommandNV* result;
         [&]() {
 
@@ -23073,7 +23073,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindIndexBufferIndirectCommandNV_pNext(json& name){
-        printf("Deserializing VkBindIndexBufferIndirectCommandNV...\n");
+        debug_printf("Deserializing VkBindIndexBufferIndirectCommandNV...\n");
         VkBindIndexBufferIndirectCommandNV* result;
         [&]() {
 
@@ -23090,7 +23090,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindVertexBufferIndirectCommandNV_pNext(json& name){
-        printf("Deserializing VkBindVertexBufferIndirectCommandNV...\n");
+        debug_printf("Deserializing VkBindVertexBufferIndirectCommandNV...\n");
         VkBindVertexBufferIndirectCommandNV* result;
         [&]() {
 
@@ -23107,7 +23107,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSetStateFlagsIndirectCommandNV_pNext(json& name){
-        printf("Deserializing VkSetStateFlagsIndirectCommandNV...\n");
+        debug_printf("Deserializing VkSetStateFlagsIndirectCommandNV...\n");
         VkSetStateFlagsIndirectCommandNV* result;
         [&]() {
 
@@ -23124,7 +23124,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkIndirectCommandsStreamNV_pNext(json& name){
-        printf("Deserializing VkIndirectCommandsStreamNV...\n");
+        debug_printf("Deserializing VkIndirectCommandsStreamNV...\n");
         VkIndirectCommandsStreamNV* result;
         [&]() {
 
@@ -23141,7 +23141,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkIndirectCommandsLayoutTokenNV_pNext(json& name){
-        printf("Deserializing VkIndirectCommandsLayoutTokenNV...\n");
+        debug_printf("Deserializing VkIndirectCommandsLayoutTokenNV...\n");
         VkIndirectCommandsLayoutTokenNV* result;
         [&]() {
 
@@ -23158,7 +23158,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkIndirectCommandsLayoutCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkIndirectCommandsLayoutCreateInfoNV...\n");
+        debug_printf("Deserializing VkIndirectCommandsLayoutCreateInfoNV...\n");
         VkIndirectCommandsLayoutCreateInfoNV* result;
         [&]() {
 
@@ -23175,7 +23175,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkGeneratedCommandsInfoNV_pNext(json& name){
-        printf("Deserializing VkGeneratedCommandsInfoNV...\n");
+        debug_printf("Deserializing VkGeneratedCommandsInfoNV...\n");
         VkGeneratedCommandsInfoNV* result;
         [&]() {
 
@@ -23192,7 +23192,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkGeneratedCommandsMemoryRequirementsInfoNV_pNext(json& name){
-        printf("Deserializing VkGeneratedCommandsMemoryRequirementsInfoNV...\n");
+        debug_printf("Deserializing VkGeneratedCommandsMemoryRequirementsInfoNV...\n");
         VkGeneratedCommandsMemoryRequirementsInfoNV* result;
         [&]() {
 
@@ -23209,7 +23209,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineIndirectDeviceAddressInfoNV_pNext(json& name){
-        printf("Deserializing VkPipelineIndirectDeviceAddressInfoNV...\n");
+        debug_printf("Deserializing VkPipelineIndirectDeviceAddressInfoNV...\n");
         VkPipelineIndirectDeviceAddressInfoNV* result;
         [&]() {
 
@@ -23226,7 +23226,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindPipelineIndirectCommandNV_pNext(json& name){
-        printf("Deserializing VkBindPipelineIndirectCommandNV...\n");
+        debug_printf("Deserializing VkBindPipelineIndirectCommandNV...\n");
         VkBindPipelineIndirectCommandNV* result;
         [&]() {
 
@@ -23243,7 +23243,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFeatures2_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFeatures2...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFeatures2...\n");
         VkPhysicalDeviceFeatures2* result;
         [&]() {
 
@@ -23260,7 +23260,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFeatures2KHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFeatures2KHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFeatures2KHR...\n");
         VkPhysicalDeviceFeatures2KHR* result;
         [&]() {
 
@@ -23277,7 +23277,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceProperties2_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceProperties2...\n");
+        debug_printf("Deserializing VkPhysicalDeviceProperties2...\n");
         VkPhysicalDeviceProperties2* result;
         [&]() {
 
@@ -23294,7 +23294,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceProperties2KHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceProperties2KHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceProperties2KHR...\n");
         VkPhysicalDeviceProperties2KHR* result;
         [&]() {
 
@@ -23311,7 +23311,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkFormatProperties2_pNext(json& name){
-        printf("Deserializing VkFormatProperties2...\n");
+        debug_printf("Deserializing VkFormatProperties2...\n");
         VkFormatProperties2* result;
         [&]() {
 
@@ -23328,7 +23328,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkFormatProperties2KHR_pNext(json& name){
-        printf("Deserializing VkFormatProperties2KHR...\n");
+        debug_printf("Deserializing VkFormatProperties2KHR...\n");
         VkFormatProperties2KHR* result;
         [&]() {
 
@@ -23345,7 +23345,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageFormatProperties2_pNext(json& name){
-        printf("Deserializing VkImageFormatProperties2...\n");
+        debug_printf("Deserializing VkImageFormatProperties2...\n");
         VkImageFormatProperties2* result;
         [&]() {
 
@@ -23362,7 +23362,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageFormatProperties2KHR_pNext(json& name){
-        printf("Deserializing VkImageFormatProperties2KHR...\n");
+        debug_printf("Deserializing VkImageFormatProperties2KHR...\n");
         VkImageFormatProperties2KHR* result;
         [&]() {
 
@@ -23379,7 +23379,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceImageFormatInfo2_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceImageFormatInfo2...\n");
+        debug_printf("Deserializing VkPhysicalDeviceImageFormatInfo2...\n");
         VkPhysicalDeviceImageFormatInfo2* result;
         [&]() {
 
@@ -23396,7 +23396,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceImageFormatInfo2KHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceImageFormatInfo2KHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceImageFormatInfo2KHR...\n");
         VkPhysicalDeviceImageFormatInfo2KHR* result;
         [&]() {
 
@@ -23413,7 +23413,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkQueueFamilyProperties2_pNext(json& name){
-        printf("Deserializing VkQueueFamilyProperties2...\n");
+        debug_printf("Deserializing VkQueueFamilyProperties2...\n");
         VkQueueFamilyProperties2* result;
         [&]() {
 
@@ -23430,7 +23430,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkQueueFamilyProperties2KHR_pNext(json& name){
-        printf("Deserializing VkQueueFamilyProperties2KHR...\n");
+        debug_printf("Deserializing VkQueueFamilyProperties2KHR...\n");
         VkQueueFamilyProperties2KHR* result;
         [&]() {
 
@@ -23447,7 +23447,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMemoryProperties2_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMemoryProperties2...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMemoryProperties2...\n");
         VkPhysicalDeviceMemoryProperties2* result;
         [&]() {
 
@@ -23464,7 +23464,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMemoryProperties2KHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMemoryProperties2KHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMemoryProperties2KHR...\n");
         VkPhysicalDeviceMemoryProperties2KHR* result;
         [&]() {
 
@@ -23481,7 +23481,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSparseImageFormatProperties2_pNext(json& name){
-        printf("Deserializing VkSparseImageFormatProperties2...\n");
+        debug_printf("Deserializing VkSparseImageFormatProperties2...\n");
         VkSparseImageFormatProperties2* result;
         [&]() {
 
@@ -23498,7 +23498,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSparseImageFormatProperties2KHR_pNext(json& name){
-        printf("Deserializing VkSparseImageFormatProperties2KHR...\n");
+        debug_printf("Deserializing VkSparseImageFormatProperties2KHR...\n");
         VkSparseImageFormatProperties2KHR* result;
         [&]() {
 
@@ -23515,7 +23515,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSparseImageFormatInfo2_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSparseImageFormatInfo2...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSparseImageFormatInfo2...\n");
         VkPhysicalDeviceSparseImageFormatInfo2* result;
         [&]() {
 
@@ -23532,7 +23532,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSparseImageFormatInfo2KHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSparseImageFormatInfo2KHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSparseImageFormatInfo2KHR...\n");
         VkPhysicalDeviceSparseImageFormatInfo2KHR* result;
         [&]() {
 
@@ -23549,7 +23549,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePushDescriptorPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePushDescriptorPropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDevicePushDescriptorPropertiesKHR...\n");
         VkPhysicalDevicePushDescriptorPropertiesKHR* result;
         [&]() {
 
@@ -23566,7 +23566,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkConformanceVersion_pNext(json& name){
-        printf("Deserializing VkConformanceVersion...\n");
+        debug_printf("Deserializing VkConformanceVersion...\n");
         VkConformanceVersion* result;
         [&]() {
 
@@ -23583,7 +23583,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkConformanceVersionKHR_pNext(json& name){
-        printf("Deserializing VkConformanceVersionKHR...\n");
+        debug_printf("Deserializing VkConformanceVersionKHR...\n");
         VkConformanceVersionKHR* result;
         [&]() {
 
@@ -23600,7 +23600,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDriverProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDriverProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDriverProperties...\n");
         VkPhysicalDeviceDriverProperties* result;
         [&]() {
 
@@ -23617,7 +23617,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDriverPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDriverPropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDriverPropertiesKHR...\n");
         VkPhysicalDeviceDriverPropertiesKHR* result;
         [&]() {
 
@@ -23634,7 +23634,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPresentRegionsKHR_pNext(json& name){
-        printf("Deserializing VkPresentRegionsKHR...\n");
+        debug_printf("Deserializing VkPresentRegionsKHR...\n");
         VkPresentRegionsKHR* result;
         [&]() {
 
@@ -23651,7 +23651,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPresentRegionKHR_pNext(json& name){
-        printf("Deserializing VkPresentRegionKHR...\n");
+        debug_printf("Deserializing VkPresentRegionKHR...\n");
         VkPresentRegionKHR* result;
         [&]() {
 
@@ -23668,7 +23668,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRectLayerKHR_pNext(json& name){
-        printf("Deserializing VkRectLayerKHR...\n");
+        debug_printf("Deserializing VkRectLayerKHR...\n");
         VkRectLayerKHR* result;
         [&]() {
 
@@ -23685,7 +23685,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceVariablePointersFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceVariablePointersFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceVariablePointersFeatures...\n");
         VkPhysicalDeviceVariablePointersFeatures* result;
         [&]() {
 
@@ -23702,7 +23702,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceVariablePointersFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceVariablePointersFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceVariablePointersFeaturesKHR...\n");
         VkPhysicalDeviceVariablePointersFeaturesKHR* result;
         [&]() {
 
@@ -23719,7 +23719,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceVariablePointerFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceVariablePointerFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceVariablePointerFeaturesKHR...\n");
         VkPhysicalDeviceVariablePointerFeaturesKHR* result;
         [&]() {
 
@@ -23736,7 +23736,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceVariablePointerFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceVariablePointerFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceVariablePointerFeatures...\n");
         VkPhysicalDeviceVariablePointerFeatures* result;
         [&]() {
 
@@ -23753,7 +23753,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExternalMemoryProperties_pNext(json& name){
-        printf("Deserializing VkExternalMemoryProperties...\n");
+        debug_printf("Deserializing VkExternalMemoryProperties...\n");
         VkExternalMemoryProperties* result;
         [&]() {
 
@@ -23770,7 +23770,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExternalMemoryPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkExternalMemoryPropertiesKHR...\n");
+        debug_printf("Deserializing VkExternalMemoryPropertiesKHR...\n");
         VkExternalMemoryPropertiesKHR* result;
         [&]() {
 
@@ -23787,7 +23787,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceExternalImageFormatInfo_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceExternalImageFormatInfo...\n");
+        debug_printf("Deserializing VkPhysicalDeviceExternalImageFormatInfo...\n");
         VkPhysicalDeviceExternalImageFormatInfo* result;
         [&]() {
 
@@ -23804,7 +23804,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceExternalImageFormatInfoKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceExternalImageFormatInfoKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceExternalImageFormatInfoKHR...\n");
         VkPhysicalDeviceExternalImageFormatInfoKHR* result;
         [&]() {
 
@@ -23821,7 +23821,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExternalImageFormatProperties_pNext(json& name){
-        printf("Deserializing VkExternalImageFormatProperties...\n");
+        debug_printf("Deserializing VkExternalImageFormatProperties...\n");
         VkExternalImageFormatProperties* result;
         [&]() {
 
@@ -23838,7 +23838,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExternalImageFormatPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkExternalImageFormatPropertiesKHR...\n");
+        debug_printf("Deserializing VkExternalImageFormatPropertiesKHR...\n");
         VkExternalImageFormatPropertiesKHR* result;
         [&]() {
 
@@ -23855,7 +23855,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceExternalBufferInfo_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceExternalBufferInfo...\n");
+        debug_printf("Deserializing VkPhysicalDeviceExternalBufferInfo...\n");
         VkPhysicalDeviceExternalBufferInfo* result;
         [&]() {
 
@@ -23872,7 +23872,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceExternalBufferInfoKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceExternalBufferInfoKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceExternalBufferInfoKHR...\n");
         VkPhysicalDeviceExternalBufferInfoKHR* result;
         [&]() {
 
@@ -23889,7 +23889,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExternalBufferProperties_pNext(json& name){
-        printf("Deserializing VkExternalBufferProperties...\n");
+        debug_printf("Deserializing VkExternalBufferProperties...\n");
         VkExternalBufferProperties* result;
         [&]() {
 
@@ -23906,7 +23906,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExternalBufferPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkExternalBufferPropertiesKHR...\n");
+        debug_printf("Deserializing VkExternalBufferPropertiesKHR...\n");
         VkExternalBufferPropertiesKHR* result;
         [&]() {
 
@@ -23923,7 +23923,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceIDProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceIDProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceIDProperties...\n");
         VkPhysicalDeviceIDProperties* result;
         [&]() {
 
@@ -23940,7 +23940,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceIDPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceIDPropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceIDPropertiesKHR...\n");
         VkPhysicalDeviceIDPropertiesKHR* result;
         [&]() {
 
@@ -23957,7 +23957,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExternalMemoryImageCreateInfo_pNext(json& name){
-        printf("Deserializing VkExternalMemoryImageCreateInfo...\n");
+        debug_printf("Deserializing VkExternalMemoryImageCreateInfo...\n");
         VkExternalMemoryImageCreateInfo* result;
         [&]() {
 
@@ -23974,7 +23974,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExternalMemoryImageCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkExternalMemoryImageCreateInfoKHR...\n");
+        debug_printf("Deserializing VkExternalMemoryImageCreateInfoKHR...\n");
         VkExternalMemoryImageCreateInfoKHR* result;
         [&]() {
 
@@ -23991,7 +23991,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExternalMemoryBufferCreateInfo_pNext(json& name){
-        printf("Deserializing VkExternalMemoryBufferCreateInfo...\n");
+        debug_printf("Deserializing VkExternalMemoryBufferCreateInfo...\n");
         VkExternalMemoryBufferCreateInfo* result;
         [&]() {
 
@@ -24008,7 +24008,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExternalMemoryBufferCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkExternalMemoryBufferCreateInfoKHR...\n");
+        debug_printf("Deserializing VkExternalMemoryBufferCreateInfoKHR...\n");
         VkExternalMemoryBufferCreateInfoKHR* result;
         [&]() {
 
@@ -24025,7 +24025,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExportMemoryAllocateInfo_pNext(json& name){
-        printf("Deserializing VkExportMemoryAllocateInfo...\n");
+        debug_printf("Deserializing VkExportMemoryAllocateInfo...\n");
         VkExportMemoryAllocateInfo* result;
         [&]() {
 
@@ -24042,7 +24042,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExportMemoryAllocateInfoKHR_pNext(json& name){
-        printf("Deserializing VkExportMemoryAllocateInfoKHR...\n");
+        debug_printf("Deserializing VkExportMemoryAllocateInfoKHR...\n");
         VkExportMemoryAllocateInfoKHR* result;
         [&]() {
 
@@ -24059,7 +24059,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImportMemoryFdInfoKHR_pNext(json& name){
-        printf("Deserializing VkImportMemoryFdInfoKHR...\n");
+        debug_printf("Deserializing VkImportMemoryFdInfoKHR...\n");
         VkImportMemoryFdInfoKHR* result;
         [&]() {
 
@@ -24076,7 +24076,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryFdPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkMemoryFdPropertiesKHR...\n");
+        debug_printf("Deserializing VkMemoryFdPropertiesKHR...\n");
         VkMemoryFdPropertiesKHR* result;
         [&]() {
 
@@ -24093,7 +24093,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryGetFdInfoKHR_pNext(json& name){
-        printf("Deserializing VkMemoryGetFdInfoKHR...\n");
+        debug_printf("Deserializing VkMemoryGetFdInfoKHR...\n");
         VkMemoryGetFdInfoKHR* result;
         [&]() {
 
@@ -24110,7 +24110,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceExternalSemaphoreInfo_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceExternalSemaphoreInfo...\n");
+        debug_printf("Deserializing VkPhysicalDeviceExternalSemaphoreInfo...\n");
         VkPhysicalDeviceExternalSemaphoreInfo* result;
         [&]() {
 
@@ -24127,7 +24127,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceExternalSemaphoreInfoKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceExternalSemaphoreInfoKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceExternalSemaphoreInfoKHR...\n");
         VkPhysicalDeviceExternalSemaphoreInfoKHR* result;
         [&]() {
 
@@ -24144,7 +24144,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExternalSemaphoreProperties_pNext(json& name){
-        printf("Deserializing VkExternalSemaphoreProperties...\n");
+        debug_printf("Deserializing VkExternalSemaphoreProperties...\n");
         VkExternalSemaphoreProperties* result;
         [&]() {
 
@@ -24161,7 +24161,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExternalSemaphorePropertiesKHR_pNext(json& name){
-        printf("Deserializing VkExternalSemaphorePropertiesKHR...\n");
+        debug_printf("Deserializing VkExternalSemaphorePropertiesKHR...\n");
         VkExternalSemaphorePropertiesKHR* result;
         [&]() {
 
@@ -24178,7 +24178,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExportSemaphoreCreateInfo_pNext(json& name){
-        printf("Deserializing VkExportSemaphoreCreateInfo...\n");
+        debug_printf("Deserializing VkExportSemaphoreCreateInfo...\n");
         VkExportSemaphoreCreateInfo* result;
         [&]() {
 
@@ -24195,7 +24195,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExportSemaphoreCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkExportSemaphoreCreateInfoKHR...\n");
+        debug_printf("Deserializing VkExportSemaphoreCreateInfoKHR...\n");
         VkExportSemaphoreCreateInfoKHR* result;
         [&]() {
 
@@ -24212,7 +24212,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImportSemaphoreFdInfoKHR_pNext(json& name){
-        printf("Deserializing VkImportSemaphoreFdInfoKHR...\n");
+        debug_printf("Deserializing VkImportSemaphoreFdInfoKHR...\n");
         VkImportSemaphoreFdInfoKHR* result;
         [&]() {
 
@@ -24229,7 +24229,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSemaphoreGetFdInfoKHR_pNext(json& name){
-        printf("Deserializing VkSemaphoreGetFdInfoKHR...\n");
+        debug_printf("Deserializing VkSemaphoreGetFdInfoKHR...\n");
         VkSemaphoreGetFdInfoKHR* result;
         [&]() {
 
@@ -24246,7 +24246,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceExternalFenceInfo_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceExternalFenceInfo...\n");
+        debug_printf("Deserializing VkPhysicalDeviceExternalFenceInfo...\n");
         VkPhysicalDeviceExternalFenceInfo* result;
         [&]() {
 
@@ -24263,7 +24263,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceExternalFenceInfoKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceExternalFenceInfoKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceExternalFenceInfoKHR...\n");
         VkPhysicalDeviceExternalFenceInfoKHR* result;
         [&]() {
 
@@ -24280,7 +24280,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExternalFenceProperties_pNext(json& name){
-        printf("Deserializing VkExternalFenceProperties...\n");
+        debug_printf("Deserializing VkExternalFenceProperties...\n");
         VkExternalFenceProperties* result;
         [&]() {
 
@@ -24297,7 +24297,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExternalFencePropertiesKHR_pNext(json& name){
-        printf("Deserializing VkExternalFencePropertiesKHR...\n");
+        debug_printf("Deserializing VkExternalFencePropertiesKHR...\n");
         VkExternalFencePropertiesKHR* result;
         [&]() {
 
@@ -24314,7 +24314,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExportFenceCreateInfo_pNext(json& name){
-        printf("Deserializing VkExportFenceCreateInfo...\n");
+        debug_printf("Deserializing VkExportFenceCreateInfo...\n");
         VkExportFenceCreateInfo* result;
         [&]() {
 
@@ -24331,7 +24331,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExportFenceCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkExportFenceCreateInfoKHR...\n");
+        debug_printf("Deserializing VkExportFenceCreateInfoKHR...\n");
         VkExportFenceCreateInfoKHR* result;
         [&]() {
 
@@ -24348,7 +24348,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImportFenceFdInfoKHR_pNext(json& name){
-        printf("Deserializing VkImportFenceFdInfoKHR...\n");
+        debug_printf("Deserializing VkImportFenceFdInfoKHR...\n");
         VkImportFenceFdInfoKHR* result;
         [&]() {
 
@@ -24365,7 +24365,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkFenceGetFdInfoKHR_pNext(json& name){
-        printf("Deserializing VkFenceGetFdInfoKHR...\n");
+        debug_printf("Deserializing VkFenceGetFdInfoKHR...\n");
         VkFenceGetFdInfoKHR* result;
         [&]() {
 
@@ -24382,7 +24382,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMultiviewFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMultiviewFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMultiviewFeatures...\n");
         VkPhysicalDeviceMultiviewFeatures* result;
         [&]() {
 
@@ -24399,7 +24399,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMultiviewFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMultiviewFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMultiviewFeaturesKHR...\n");
         VkPhysicalDeviceMultiviewFeaturesKHR* result;
         [&]() {
 
@@ -24416,7 +24416,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMultiviewProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMultiviewProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMultiviewProperties...\n");
         VkPhysicalDeviceMultiviewProperties* result;
         [&]() {
 
@@ -24433,7 +24433,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMultiviewPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMultiviewPropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMultiviewPropertiesKHR...\n");
         VkPhysicalDeviceMultiviewPropertiesKHR* result;
         [&]() {
 
@@ -24450,7 +24450,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassMultiviewCreateInfo_pNext(json& name){
-        printf("Deserializing VkRenderPassMultiviewCreateInfo...\n");
+        debug_printf("Deserializing VkRenderPassMultiviewCreateInfo...\n");
         VkRenderPassMultiviewCreateInfo* result;
         [&]() {
 
@@ -24467,7 +24467,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassMultiviewCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkRenderPassMultiviewCreateInfoKHR...\n");
+        debug_printf("Deserializing VkRenderPassMultiviewCreateInfoKHR...\n");
         VkRenderPassMultiviewCreateInfoKHR* result;
         [&]() {
 
@@ -24484,7 +24484,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSurfaceCapabilities2EXT_pNext(json& name){
-        printf("Deserializing VkSurfaceCapabilities2EXT...\n");
+        debug_printf("Deserializing VkSurfaceCapabilities2EXT...\n");
         VkSurfaceCapabilities2EXT* result;
         [&]() {
 
@@ -24501,7 +24501,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDisplayPowerInfoEXT_pNext(json& name){
-        printf("Deserializing VkDisplayPowerInfoEXT...\n");
+        debug_printf("Deserializing VkDisplayPowerInfoEXT...\n");
         VkDisplayPowerInfoEXT* result;
         [&]() {
 
@@ -24518,7 +24518,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceEventInfoEXT_pNext(json& name){
-        printf("Deserializing VkDeviceEventInfoEXT...\n");
+        debug_printf("Deserializing VkDeviceEventInfoEXT...\n");
         VkDeviceEventInfoEXT* result;
         [&]() {
 
@@ -24535,7 +24535,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDisplayEventInfoEXT_pNext(json& name){
-        printf("Deserializing VkDisplayEventInfoEXT...\n");
+        debug_printf("Deserializing VkDisplayEventInfoEXT...\n");
         VkDisplayEventInfoEXT* result;
         [&]() {
 
@@ -24552,7 +24552,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSwapchainCounterCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkSwapchainCounterCreateInfoEXT...\n");
+        debug_printf("Deserializing VkSwapchainCounterCreateInfoEXT...\n");
         VkSwapchainCounterCreateInfoEXT* result;
         [&]() {
 
@@ -24569,7 +24569,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceGroupProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceGroupProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceGroupProperties...\n");
         VkPhysicalDeviceGroupProperties* result;
         [&]() {
 
@@ -24586,7 +24586,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceGroupPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceGroupPropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceGroupPropertiesKHR...\n");
         VkPhysicalDeviceGroupPropertiesKHR* result;
         [&]() {
 
@@ -24603,7 +24603,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryAllocateFlagsInfo_pNext(json& name){
-        printf("Deserializing VkMemoryAllocateFlagsInfo...\n");
+        debug_printf("Deserializing VkMemoryAllocateFlagsInfo...\n");
         VkMemoryAllocateFlagsInfo* result;
         [&]() {
 
@@ -24620,7 +24620,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryAllocateFlagsInfoKHR_pNext(json& name){
-        printf("Deserializing VkMemoryAllocateFlagsInfoKHR...\n");
+        debug_printf("Deserializing VkMemoryAllocateFlagsInfoKHR...\n");
         VkMemoryAllocateFlagsInfoKHR* result;
         [&]() {
 
@@ -24637,7 +24637,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindBufferMemoryInfo_pNext(json& name){
-        printf("Deserializing VkBindBufferMemoryInfo...\n");
+        debug_printf("Deserializing VkBindBufferMemoryInfo...\n");
         VkBindBufferMemoryInfo* result;
         [&]() {
 
@@ -24654,7 +24654,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindBufferMemoryInfoKHR_pNext(json& name){
-        printf("Deserializing VkBindBufferMemoryInfoKHR...\n");
+        debug_printf("Deserializing VkBindBufferMemoryInfoKHR...\n");
         VkBindBufferMemoryInfoKHR* result;
         [&]() {
 
@@ -24671,7 +24671,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindBufferMemoryDeviceGroupInfo_pNext(json& name){
-        printf("Deserializing VkBindBufferMemoryDeviceGroupInfo...\n");
+        debug_printf("Deserializing VkBindBufferMemoryDeviceGroupInfo...\n");
         VkBindBufferMemoryDeviceGroupInfo* result;
         [&]() {
 
@@ -24688,7 +24688,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindBufferMemoryDeviceGroupInfoKHR_pNext(json& name){
-        printf("Deserializing VkBindBufferMemoryDeviceGroupInfoKHR...\n");
+        debug_printf("Deserializing VkBindBufferMemoryDeviceGroupInfoKHR...\n");
         VkBindBufferMemoryDeviceGroupInfoKHR* result;
         [&]() {
 
@@ -24705,7 +24705,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindImageMemoryInfo_pNext(json& name){
-        printf("Deserializing VkBindImageMemoryInfo...\n");
+        debug_printf("Deserializing VkBindImageMemoryInfo...\n");
         VkBindImageMemoryInfo* result;
         [&]() {
 
@@ -24722,7 +24722,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindImageMemoryInfoKHR_pNext(json& name){
-        printf("Deserializing VkBindImageMemoryInfoKHR...\n");
+        debug_printf("Deserializing VkBindImageMemoryInfoKHR...\n");
         VkBindImageMemoryInfoKHR* result;
         [&]() {
 
@@ -24739,7 +24739,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindImageMemoryDeviceGroupInfo_pNext(json& name){
-        printf("Deserializing VkBindImageMemoryDeviceGroupInfo...\n");
+        debug_printf("Deserializing VkBindImageMemoryDeviceGroupInfo...\n");
         VkBindImageMemoryDeviceGroupInfo* result;
         [&]() {
 
@@ -24756,7 +24756,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindImageMemoryDeviceGroupInfoKHR_pNext(json& name){
-        printf("Deserializing VkBindImageMemoryDeviceGroupInfoKHR...\n");
+        debug_printf("Deserializing VkBindImageMemoryDeviceGroupInfoKHR...\n");
         VkBindImageMemoryDeviceGroupInfoKHR* result;
         [&]() {
 
@@ -24773,7 +24773,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceGroupRenderPassBeginInfo_pNext(json& name){
-        printf("Deserializing VkDeviceGroupRenderPassBeginInfo...\n");
+        debug_printf("Deserializing VkDeviceGroupRenderPassBeginInfo...\n");
         VkDeviceGroupRenderPassBeginInfo* result;
         [&]() {
 
@@ -24790,7 +24790,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceGroupRenderPassBeginInfoKHR_pNext(json& name){
-        printf("Deserializing VkDeviceGroupRenderPassBeginInfoKHR...\n");
+        debug_printf("Deserializing VkDeviceGroupRenderPassBeginInfoKHR...\n");
         VkDeviceGroupRenderPassBeginInfoKHR* result;
         [&]() {
 
@@ -24807,7 +24807,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceGroupCommandBufferBeginInfo_pNext(json& name){
-        printf("Deserializing VkDeviceGroupCommandBufferBeginInfo...\n");
+        debug_printf("Deserializing VkDeviceGroupCommandBufferBeginInfo...\n");
         VkDeviceGroupCommandBufferBeginInfo* result;
         [&]() {
 
@@ -24824,7 +24824,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceGroupCommandBufferBeginInfoKHR_pNext(json& name){
-        printf("Deserializing VkDeviceGroupCommandBufferBeginInfoKHR...\n");
+        debug_printf("Deserializing VkDeviceGroupCommandBufferBeginInfoKHR...\n");
         VkDeviceGroupCommandBufferBeginInfoKHR* result;
         [&]() {
 
@@ -24841,7 +24841,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceGroupSubmitInfo_pNext(json& name){
-        printf("Deserializing VkDeviceGroupSubmitInfo...\n");
+        debug_printf("Deserializing VkDeviceGroupSubmitInfo...\n");
         VkDeviceGroupSubmitInfo* result;
         [&]() {
 
@@ -24858,7 +24858,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceGroupSubmitInfoKHR_pNext(json& name){
-        printf("Deserializing VkDeviceGroupSubmitInfoKHR...\n");
+        debug_printf("Deserializing VkDeviceGroupSubmitInfoKHR...\n");
         VkDeviceGroupSubmitInfoKHR* result;
         [&]() {
 
@@ -24875,7 +24875,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceGroupBindSparseInfo_pNext(json& name){
-        printf("Deserializing VkDeviceGroupBindSparseInfo...\n");
+        debug_printf("Deserializing VkDeviceGroupBindSparseInfo...\n");
         VkDeviceGroupBindSparseInfo* result;
         [&]() {
 
@@ -24892,7 +24892,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceGroupBindSparseInfoKHR_pNext(json& name){
-        printf("Deserializing VkDeviceGroupBindSparseInfoKHR...\n");
+        debug_printf("Deserializing VkDeviceGroupBindSparseInfoKHR...\n");
         VkDeviceGroupBindSparseInfoKHR* result;
         [&]() {
 
@@ -24909,7 +24909,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceGroupPresentCapabilitiesKHR_pNext(json& name){
-        printf("Deserializing VkDeviceGroupPresentCapabilitiesKHR...\n");
+        debug_printf("Deserializing VkDeviceGroupPresentCapabilitiesKHR...\n");
         VkDeviceGroupPresentCapabilitiesKHR* result;
         [&]() {
 
@@ -24926,7 +24926,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageSwapchainCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkImageSwapchainCreateInfoKHR...\n");
+        debug_printf("Deserializing VkImageSwapchainCreateInfoKHR...\n");
         VkImageSwapchainCreateInfoKHR* result;
         [&]() {
 
@@ -24943,7 +24943,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindImageMemorySwapchainInfoKHR_pNext(json& name){
-        printf("Deserializing VkBindImageMemorySwapchainInfoKHR...\n");
+        debug_printf("Deserializing VkBindImageMemorySwapchainInfoKHR...\n");
         VkBindImageMemorySwapchainInfoKHR* result;
         [&]() {
 
@@ -24960,7 +24960,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAcquireNextImageInfoKHR_pNext(json& name){
-        printf("Deserializing VkAcquireNextImageInfoKHR...\n");
+        debug_printf("Deserializing VkAcquireNextImageInfoKHR...\n");
         VkAcquireNextImageInfoKHR* result;
         [&]() {
 
@@ -24977,7 +24977,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceGroupPresentInfoKHR_pNext(json& name){
-        printf("Deserializing VkDeviceGroupPresentInfoKHR...\n");
+        debug_printf("Deserializing VkDeviceGroupPresentInfoKHR...\n");
         VkDeviceGroupPresentInfoKHR* result;
         [&]() {
 
@@ -24994,7 +24994,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceGroupDeviceCreateInfo_pNext(json& name){
-        printf("Deserializing VkDeviceGroupDeviceCreateInfo...\n");
+        debug_printf("Deserializing VkDeviceGroupDeviceCreateInfo...\n");
         VkDeviceGroupDeviceCreateInfo* result;
         [&]() {
 
@@ -25011,7 +25011,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceGroupDeviceCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkDeviceGroupDeviceCreateInfoKHR...\n");
+        debug_printf("Deserializing VkDeviceGroupDeviceCreateInfoKHR...\n");
         VkDeviceGroupDeviceCreateInfoKHR* result;
         [&]() {
 
@@ -25028,7 +25028,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceGroupSwapchainCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkDeviceGroupSwapchainCreateInfoKHR...\n");
+        debug_printf("Deserializing VkDeviceGroupSwapchainCreateInfoKHR...\n");
         VkDeviceGroupSwapchainCreateInfoKHR* result;
         [&]() {
 
@@ -25045,7 +25045,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorUpdateTemplateEntry_pNext(json& name){
-        printf("Deserializing VkDescriptorUpdateTemplateEntry...\n");
+        debug_printf("Deserializing VkDescriptorUpdateTemplateEntry...\n");
         VkDescriptorUpdateTemplateEntry* result;
         [&]() {
 
@@ -25062,7 +25062,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorUpdateTemplateEntryKHR_pNext(json& name){
-        printf("Deserializing VkDescriptorUpdateTemplateEntryKHR...\n");
+        debug_printf("Deserializing VkDescriptorUpdateTemplateEntryKHR...\n");
         VkDescriptorUpdateTemplateEntryKHR* result;
         [&]() {
 
@@ -25079,7 +25079,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorUpdateTemplateCreateInfo_pNext(json& name){
-        printf("Deserializing VkDescriptorUpdateTemplateCreateInfo...\n");
+        debug_printf("Deserializing VkDescriptorUpdateTemplateCreateInfo...\n");
         VkDescriptorUpdateTemplateCreateInfo* result;
         [&]() {
 
@@ -25096,7 +25096,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorUpdateTemplateCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkDescriptorUpdateTemplateCreateInfoKHR...\n");
+        debug_printf("Deserializing VkDescriptorUpdateTemplateCreateInfoKHR...\n");
         VkDescriptorUpdateTemplateCreateInfoKHR* result;
         [&]() {
 
@@ -25113,7 +25113,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkXYColorEXT_pNext(json& name){
-        printf("Deserializing VkXYColorEXT...\n");
+        debug_printf("Deserializing VkXYColorEXT...\n");
         VkXYColorEXT* result;
         [&]() {
 
@@ -25130,7 +25130,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePresentIdFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePresentIdFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDevicePresentIdFeaturesKHR...\n");
         VkPhysicalDevicePresentIdFeaturesKHR* result;
         [&]() {
 
@@ -25147,7 +25147,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPresentIdKHR_pNext(json& name){
-        printf("Deserializing VkPresentIdKHR...\n");
+        debug_printf("Deserializing VkPresentIdKHR...\n");
         VkPresentIdKHR* result;
         [&]() {
 
@@ -25164,7 +25164,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePresentWaitFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePresentWaitFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDevicePresentWaitFeaturesKHR...\n");
         VkPhysicalDevicePresentWaitFeaturesKHR* result;
         [&]() {
 
@@ -25181,7 +25181,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkHdrMetadataEXT_pNext(json& name){
-        printf("Deserializing VkHdrMetadataEXT...\n");
+        debug_printf("Deserializing VkHdrMetadataEXT...\n");
         VkHdrMetadataEXT* result;
         [&]() {
 
@@ -25198,7 +25198,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDisplayNativeHdrSurfaceCapabilitiesAMD_pNext(json& name){
-        printf("Deserializing VkDisplayNativeHdrSurfaceCapabilitiesAMD...\n");
+        debug_printf("Deserializing VkDisplayNativeHdrSurfaceCapabilitiesAMD...\n");
         VkDisplayNativeHdrSurfaceCapabilitiesAMD* result;
         [&]() {
 
@@ -25215,7 +25215,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSwapchainDisplayNativeHdrCreateInfoAMD_pNext(json& name){
-        printf("Deserializing VkSwapchainDisplayNativeHdrCreateInfoAMD...\n");
+        debug_printf("Deserializing VkSwapchainDisplayNativeHdrCreateInfoAMD...\n");
         VkSwapchainDisplayNativeHdrCreateInfoAMD* result;
         [&]() {
 
@@ -25232,7 +25232,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRefreshCycleDurationGOOGLE_pNext(json& name){
-        printf("Deserializing VkRefreshCycleDurationGOOGLE...\n");
+        debug_printf("Deserializing VkRefreshCycleDurationGOOGLE...\n");
         VkRefreshCycleDurationGOOGLE* result;
         [&]() {
 
@@ -25249,7 +25249,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPastPresentationTimingGOOGLE_pNext(json& name){
-        printf("Deserializing VkPastPresentationTimingGOOGLE...\n");
+        debug_printf("Deserializing VkPastPresentationTimingGOOGLE...\n");
         VkPastPresentationTimingGOOGLE* result;
         [&]() {
 
@@ -25266,7 +25266,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPresentTimesInfoGOOGLE_pNext(json& name){
-        printf("Deserializing VkPresentTimesInfoGOOGLE...\n");
+        debug_printf("Deserializing VkPresentTimesInfoGOOGLE...\n");
         VkPresentTimesInfoGOOGLE* result;
         [&]() {
 
@@ -25283,7 +25283,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPresentTimeGOOGLE_pNext(json& name){
-        printf("Deserializing VkPresentTimeGOOGLE...\n");
+        debug_printf("Deserializing VkPresentTimeGOOGLE...\n");
         VkPresentTimeGOOGLE* result;
         [&]() {
 
@@ -25300,7 +25300,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkViewportWScalingNV_pNext(json& name){
-        printf("Deserializing VkViewportWScalingNV...\n");
+        debug_printf("Deserializing VkViewportWScalingNV...\n");
         VkViewportWScalingNV* result;
         [&]() {
 
@@ -25317,7 +25317,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineViewportWScalingStateCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkPipelineViewportWScalingStateCreateInfoNV...\n");
+        debug_printf("Deserializing VkPipelineViewportWScalingStateCreateInfoNV...\n");
         VkPipelineViewportWScalingStateCreateInfoNV* result;
         [&]() {
 
@@ -25334,7 +25334,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkViewportSwizzleNV_pNext(json& name){
-        printf("Deserializing VkViewportSwizzleNV...\n");
+        debug_printf("Deserializing VkViewportSwizzleNV...\n");
         VkViewportSwizzleNV* result;
         [&]() {
 
@@ -25351,7 +25351,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineViewportSwizzleStateCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkPipelineViewportSwizzleStateCreateInfoNV...\n");
+        debug_printf("Deserializing VkPipelineViewportSwizzleStateCreateInfoNV...\n");
         VkPipelineViewportSwizzleStateCreateInfoNV* result;
         [&]() {
 
@@ -25368,7 +25368,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDiscardRectanglePropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDiscardRectanglePropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDiscardRectanglePropertiesEXT...\n");
         VkPhysicalDeviceDiscardRectanglePropertiesEXT* result;
         [&]() {
 
@@ -25385,7 +25385,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineDiscardRectangleStateCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkPipelineDiscardRectangleStateCreateInfoEXT...\n");
+        debug_printf("Deserializing VkPipelineDiscardRectangleStateCreateInfoEXT...\n");
         VkPipelineDiscardRectangleStateCreateInfoEXT* result;
         [&]() {
 
@@ -25402,7 +25402,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX...\n");
         VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX* result;
         [&]() {
 
@@ -25419,7 +25419,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkInputAttachmentAspectReference_pNext(json& name){
-        printf("Deserializing VkInputAttachmentAspectReference...\n");
+        debug_printf("Deserializing VkInputAttachmentAspectReference...\n");
         VkInputAttachmentAspectReference* result;
         [&]() {
 
@@ -25436,7 +25436,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkInputAttachmentAspectReferenceKHR_pNext(json& name){
-        printf("Deserializing VkInputAttachmentAspectReferenceKHR...\n");
+        debug_printf("Deserializing VkInputAttachmentAspectReferenceKHR...\n");
         VkInputAttachmentAspectReferenceKHR* result;
         [&]() {
 
@@ -25453,7 +25453,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassInputAttachmentAspectCreateInfo_pNext(json& name){
-        printf("Deserializing VkRenderPassInputAttachmentAspectCreateInfo...\n");
+        debug_printf("Deserializing VkRenderPassInputAttachmentAspectCreateInfo...\n");
         VkRenderPassInputAttachmentAspectCreateInfo* result;
         [&]() {
 
@@ -25470,7 +25470,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassInputAttachmentAspectCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkRenderPassInputAttachmentAspectCreateInfoKHR...\n");
+        debug_printf("Deserializing VkRenderPassInputAttachmentAspectCreateInfoKHR...\n");
         VkRenderPassInputAttachmentAspectCreateInfoKHR* result;
         [&]() {
 
@@ -25487,7 +25487,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSurfaceInfo2KHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSurfaceInfo2KHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSurfaceInfo2KHR...\n");
         VkPhysicalDeviceSurfaceInfo2KHR* result;
         [&]() {
 
@@ -25504,7 +25504,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSurfaceCapabilities2KHR_pNext(json& name){
-        printf("Deserializing VkSurfaceCapabilities2KHR...\n");
+        debug_printf("Deserializing VkSurfaceCapabilities2KHR...\n");
         VkSurfaceCapabilities2KHR* result;
         [&]() {
 
@@ -25521,7 +25521,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSurfaceFormat2KHR_pNext(json& name){
-        printf("Deserializing VkSurfaceFormat2KHR...\n");
+        debug_printf("Deserializing VkSurfaceFormat2KHR...\n");
         VkSurfaceFormat2KHR* result;
         [&]() {
 
@@ -25538,7 +25538,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDisplayProperties2KHR_pNext(json& name){
-        printf("Deserializing VkDisplayProperties2KHR...\n");
+        debug_printf("Deserializing VkDisplayProperties2KHR...\n");
         VkDisplayProperties2KHR* result;
         [&]() {
 
@@ -25555,7 +25555,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDisplayPlaneProperties2KHR_pNext(json& name){
-        printf("Deserializing VkDisplayPlaneProperties2KHR...\n");
+        debug_printf("Deserializing VkDisplayPlaneProperties2KHR...\n");
         VkDisplayPlaneProperties2KHR* result;
         [&]() {
 
@@ -25572,7 +25572,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDisplayModeProperties2KHR_pNext(json& name){
-        printf("Deserializing VkDisplayModeProperties2KHR...\n");
+        debug_printf("Deserializing VkDisplayModeProperties2KHR...\n");
         VkDisplayModeProperties2KHR* result;
         [&]() {
 
@@ -25589,7 +25589,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDisplayPlaneInfo2KHR_pNext(json& name){
-        printf("Deserializing VkDisplayPlaneInfo2KHR...\n");
+        debug_printf("Deserializing VkDisplayPlaneInfo2KHR...\n");
         VkDisplayPlaneInfo2KHR* result;
         [&]() {
 
@@ -25606,7 +25606,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDisplayPlaneCapabilities2KHR_pNext(json& name){
-        printf("Deserializing VkDisplayPlaneCapabilities2KHR...\n");
+        debug_printf("Deserializing VkDisplayPlaneCapabilities2KHR...\n");
         VkDisplayPlaneCapabilities2KHR* result;
         [&]() {
 
@@ -25623,7 +25623,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSharedPresentSurfaceCapabilitiesKHR_pNext(json& name){
-        printf("Deserializing VkSharedPresentSurfaceCapabilitiesKHR...\n");
+        debug_printf("Deserializing VkSharedPresentSurfaceCapabilitiesKHR...\n");
         VkSharedPresentSurfaceCapabilitiesKHR* result;
         [&]() {
 
@@ -25640,7 +25640,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevice16BitStorageFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDevice16BitStorageFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDevice16BitStorageFeatures...\n");
         VkPhysicalDevice16BitStorageFeatures* result;
         [&]() {
 
@@ -25657,7 +25657,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevice16BitStorageFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDevice16BitStorageFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDevice16BitStorageFeaturesKHR...\n");
         VkPhysicalDevice16BitStorageFeaturesKHR* result;
         [&]() {
 
@@ -25674,7 +25674,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSubgroupProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSubgroupProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSubgroupProperties...\n");
         VkPhysicalDeviceSubgroupProperties* result;
         [&]() {
 
@@ -25691,7 +25691,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures...\n");
         VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures* result;
         [&]() {
 
@@ -25708,7 +25708,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR...\n");
         VkPhysicalDeviceShaderSubgroupExtendedTypesFeaturesKHR* result;
         [&]() {
 
@@ -25725,7 +25725,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferMemoryRequirementsInfo2_pNext(json& name){
-        printf("Deserializing VkBufferMemoryRequirementsInfo2...\n");
+        debug_printf("Deserializing VkBufferMemoryRequirementsInfo2...\n");
         VkBufferMemoryRequirementsInfo2* result;
         [&]() {
 
@@ -25742,7 +25742,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferMemoryRequirementsInfo2KHR_pNext(json& name){
-        printf("Deserializing VkBufferMemoryRequirementsInfo2KHR...\n");
+        debug_printf("Deserializing VkBufferMemoryRequirementsInfo2KHR...\n");
         VkBufferMemoryRequirementsInfo2KHR* result;
         [&]() {
 
@@ -25759,7 +25759,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceBufferMemoryRequirements_pNext(json& name){
-        printf("Deserializing VkDeviceBufferMemoryRequirements...\n");
+        debug_printf("Deserializing VkDeviceBufferMemoryRequirements...\n");
         VkDeviceBufferMemoryRequirements* result;
         [&]() {
 
@@ -25776,7 +25776,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceBufferMemoryRequirementsKHR_pNext(json& name){
-        printf("Deserializing VkDeviceBufferMemoryRequirementsKHR...\n");
+        debug_printf("Deserializing VkDeviceBufferMemoryRequirementsKHR...\n");
         VkDeviceBufferMemoryRequirementsKHR* result;
         [&]() {
 
@@ -25793,7 +25793,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageMemoryRequirementsInfo2_pNext(json& name){
-        printf("Deserializing VkImageMemoryRequirementsInfo2...\n");
+        debug_printf("Deserializing VkImageMemoryRequirementsInfo2...\n");
         VkImageMemoryRequirementsInfo2* result;
         [&]() {
 
@@ -25810,7 +25810,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageMemoryRequirementsInfo2KHR_pNext(json& name){
-        printf("Deserializing VkImageMemoryRequirementsInfo2KHR...\n");
+        debug_printf("Deserializing VkImageMemoryRequirementsInfo2KHR...\n");
         VkImageMemoryRequirementsInfo2KHR* result;
         [&]() {
 
@@ -25827,7 +25827,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageSparseMemoryRequirementsInfo2_pNext(json& name){
-        printf("Deserializing VkImageSparseMemoryRequirementsInfo2...\n");
+        debug_printf("Deserializing VkImageSparseMemoryRequirementsInfo2...\n");
         VkImageSparseMemoryRequirementsInfo2* result;
         [&]() {
 
@@ -25844,7 +25844,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageSparseMemoryRequirementsInfo2KHR_pNext(json& name){
-        printf("Deserializing VkImageSparseMemoryRequirementsInfo2KHR...\n");
+        debug_printf("Deserializing VkImageSparseMemoryRequirementsInfo2KHR...\n");
         VkImageSparseMemoryRequirementsInfo2KHR* result;
         [&]() {
 
@@ -25861,7 +25861,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceImageMemoryRequirements_pNext(json& name){
-        printf("Deserializing VkDeviceImageMemoryRequirements...\n");
+        debug_printf("Deserializing VkDeviceImageMemoryRequirements...\n");
         VkDeviceImageMemoryRequirements* result;
         [&]() {
 
@@ -25878,7 +25878,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceImageMemoryRequirementsKHR_pNext(json& name){
-        printf("Deserializing VkDeviceImageMemoryRequirementsKHR...\n");
+        debug_printf("Deserializing VkDeviceImageMemoryRequirementsKHR...\n");
         VkDeviceImageMemoryRequirementsKHR* result;
         [&]() {
 
@@ -25895,7 +25895,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryRequirements2_pNext(json& name){
-        printf("Deserializing VkMemoryRequirements2...\n");
+        debug_printf("Deserializing VkMemoryRequirements2...\n");
         VkMemoryRequirements2* result;
         [&]() {
 
@@ -25912,7 +25912,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryRequirements2KHR_pNext(json& name){
-        printf("Deserializing VkMemoryRequirements2KHR...\n");
+        debug_printf("Deserializing VkMemoryRequirements2KHR...\n");
         VkMemoryRequirements2KHR* result;
         [&]() {
 
@@ -25929,7 +25929,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSparseImageMemoryRequirements2_pNext(json& name){
-        printf("Deserializing VkSparseImageMemoryRequirements2...\n");
+        debug_printf("Deserializing VkSparseImageMemoryRequirements2...\n");
         VkSparseImageMemoryRequirements2* result;
         [&]() {
 
@@ -25946,7 +25946,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSparseImageMemoryRequirements2KHR_pNext(json& name){
-        printf("Deserializing VkSparseImageMemoryRequirements2KHR...\n");
+        debug_printf("Deserializing VkSparseImageMemoryRequirements2KHR...\n");
         VkSparseImageMemoryRequirements2KHR* result;
         [&]() {
 
@@ -25963,7 +25963,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePointClippingProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePointClippingProperties...\n");
+        debug_printf("Deserializing VkPhysicalDevicePointClippingProperties...\n");
         VkPhysicalDevicePointClippingProperties* result;
         [&]() {
 
@@ -25980,7 +25980,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePointClippingPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePointClippingPropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDevicePointClippingPropertiesKHR...\n");
         VkPhysicalDevicePointClippingPropertiesKHR* result;
         [&]() {
 
@@ -25997,7 +25997,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryDedicatedRequirements_pNext(json& name){
-        printf("Deserializing VkMemoryDedicatedRequirements...\n");
+        debug_printf("Deserializing VkMemoryDedicatedRequirements...\n");
         VkMemoryDedicatedRequirements* result;
         [&]() {
 
@@ -26014,7 +26014,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryDedicatedRequirementsKHR_pNext(json& name){
-        printf("Deserializing VkMemoryDedicatedRequirementsKHR...\n");
+        debug_printf("Deserializing VkMemoryDedicatedRequirementsKHR...\n");
         VkMemoryDedicatedRequirementsKHR* result;
         [&]() {
 
@@ -26031,7 +26031,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryDedicatedAllocateInfo_pNext(json& name){
-        printf("Deserializing VkMemoryDedicatedAllocateInfo...\n");
+        debug_printf("Deserializing VkMemoryDedicatedAllocateInfo...\n");
         VkMemoryDedicatedAllocateInfo* result;
         [&]() {
 
@@ -26048,7 +26048,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryDedicatedAllocateInfoKHR_pNext(json& name){
-        printf("Deserializing VkMemoryDedicatedAllocateInfoKHR...\n");
+        debug_printf("Deserializing VkMemoryDedicatedAllocateInfoKHR...\n");
         VkMemoryDedicatedAllocateInfoKHR* result;
         [&]() {
 
@@ -26065,7 +26065,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageViewUsageCreateInfo_pNext(json& name){
-        printf("Deserializing VkImageViewUsageCreateInfo...\n");
+        debug_printf("Deserializing VkImageViewUsageCreateInfo...\n");
         VkImageViewUsageCreateInfo* result;
         [&]() {
 
@@ -26082,7 +26082,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageViewSlicedCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkImageViewSlicedCreateInfoEXT...\n");
+        debug_printf("Deserializing VkImageViewSlicedCreateInfoEXT...\n");
         VkImageViewSlicedCreateInfoEXT* result;
         [&]() {
 
@@ -26099,7 +26099,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageViewUsageCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkImageViewUsageCreateInfoKHR...\n");
+        debug_printf("Deserializing VkImageViewUsageCreateInfoKHR...\n");
         VkImageViewUsageCreateInfoKHR* result;
         [&]() {
 
@@ -26116,7 +26116,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineTessellationDomainOriginStateCreateInfo_pNext(json& name){
-        printf("Deserializing VkPipelineTessellationDomainOriginStateCreateInfo...\n");
+        debug_printf("Deserializing VkPipelineTessellationDomainOriginStateCreateInfo...\n");
         VkPipelineTessellationDomainOriginStateCreateInfo* result;
         [&]() {
 
@@ -26133,7 +26133,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineTessellationDomainOriginStateCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkPipelineTessellationDomainOriginStateCreateInfoKHR...\n");
+        debug_printf("Deserializing VkPipelineTessellationDomainOriginStateCreateInfoKHR...\n");
         VkPipelineTessellationDomainOriginStateCreateInfoKHR* result;
         [&]() {
 
@@ -26150,7 +26150,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSamplerYcbcrConversionInfo_pNext(json& name){
-        printf("Deserializing VkSamplerYcbcrConversionInfo...\n");
+        debug_printf("Deserializing VkSamplerYcbcrConversionInfo...\n");
         VkSamplerYcbcrConversionInfo* result;
         [&]() {
 
@@ -26167,7 +26167,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSamplerYcbcrConversionInfoKHR_pNext(json& name){
-        printf("Deserializing VkSamplerYcbcrConversionInfoKHR...\n");
+        debug_printf("Deserializing VkSamplerYcbcrConversionInfoKHR...\n");
         VkSamplerYcbcrConversionInfoKHR* result;
         [&]() {
 
@@ -26184,7 +26184,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSamplerYcbcrConversionCreateInfo_pNext(json& name){
-        printf("Deserializing VkSamplerYcbcrConversionCreateInfo...\n");
+        debug_printf("Deserializing VkSamplerYcbcrConversionCreateInfo...\n");
         VkSamplerYcbcrConversionCreateInfo* result;
         [&]() {
 
@@ -26201,7 +26201,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSamplerYcbcrConversionCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkSamplerYcbcrConversionCreateInfoKHR...\n");
+        debug_printf("Deserializing VkSamplerYcbcrConversionCreateInfoKHR...\n");
         VkSamplerYcbcrConversionCreateInfoKHR* result;
         [&]() {
 
@@ -26218,7 +26218,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindImagePlaneMemoryInfo_pNext(json& name){
-        printf("Deserializing VkBindImagePlaneMemoryInfo...\n");
+        debug_printf("Deserializing VkBindImagePlaneMemoryInfo...\n");
         VkBindImagePlaneMemoryInfo* result;
         [&]() {
 
@@ -26235,7 +26235,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindImagePlaneMemoryInfoKHR_pNext(json& name){
-        printf("Deserializing VkBindImagePlaneMemoryInfoKHR...\n");
+        debug_printf("Deserializing VkBindImagePlaneMemoryInfoKHR...\n");
         VkBindImagePlaneMemoryInfoKHR* result;
         [&]() {
 
@@ -26252,7 +26252,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImagePlaneMemoryRequirementsInfo_pNext(json& name){
-        printf("Deserializing VkImagePlaneMemoryRequirementsInfo...\n");
+        debug_printf("Deserializing VkImagePlaneMemoryRequirementsInfo...\n");
         VkImagePlaneMemoryRequirementsInfo* result;
         [&]() {
 
@@ -26269,7 +26269,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImagePlaneMemoryRequirementsInfoKHR_pNext(json& name){
-        printf("Deserializing VkImagePlaneMemoryRequirementsInfoKHR...\n");
+        debug_printf("Deserializing VkImagePlaneMemoryRequirementsInfoKHR...\n");
         VkImagePlaneMemoryRequirementsInfoKHR* result;
         [&]() {
 
@@ -26286,7 +26286,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSamplerYcbcrConversionFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSamplerYcbcrConversionFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSamplerYcbcrConversionFeatures...\n");
         VkPhysicalDeviceSamplerYcbcrConversionFeatures* result;
         [&]() {
 
@@ -26303,7 +26303,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSamplerYcbcrConversionFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSamplerYcbcrConversionFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSamplerYcbcrConversionFeaturesKHR...\n");
         VkPhysicalDeviceSamplerYcbcrConversionFeaturesKHR* result;
         [&]() {
 
@@ -26320,7 +26320,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSamplerYcbcrConversionImageFormatProperties_pNext(json& name){
-        printf("Deserializing VkSamplerYcbcrConversionImageFormatProperties...\n");
+        debug_printf("Deserializing VkSamplerYcbcrConversionImageFormatProperties...\n");
         VkSamplerYcbcrConversionImageFormatProperties* result;
         [&]() {
 
@@ -26337,7 +26337,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSamplerYcbcrConversionImageFormatPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkSamplerYcbcrConversionImageFormatPropertiesKHR...\n");
+        debug_printf("Deserializing VkSamplerYcbcrConversionImageFormatPropertiesKHR...\n");
         VkSamplerYcbcrConversionImageFormatPropertiesKHR* result;
         [&]() {
 
@@ -26354,7 +26354,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkTextureLODGatherFormatPropertiesAMD_pNext(json& name){
-        printf("Deserializing VkTextureLODGatherFormatPropertiesAMD...\n");
+        debug_printf("Deserializing VkTextureLODGatherFormatPropertiesAMD...\n");
         VkTextureLODGatherFormatPropertiesAMD* result;
         [&]() {
 
@@ -26371,7 +26371,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkConditionalRenderingBeginInfoEXT_pNext(json& name){
-        printf("Deserializing VkConditionalRenderingBeginInfoEXT...\n");
+        debug_printf("Deserializing VkConditionalRenderingBeginInfoEXT...\n");
         VkConditionalRenderingBeginInfoEXT* result;
         [&]() {
 
@@ -26388,7 +26388,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkProtectedSubmitInfo_pNext(json& name){
-        printf("Deserializing VkProtectedSubmitInfo...\n");
+        debug_printf("Deserializing VkProtectedSubmitInfo...\n");
         VkProtectedSubmitInfo* result;
         [&]() {
 
@@ -26405,7 +26405,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceProtectedMemoryFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceProtectedMemoryFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceProtectedMemoryFeatures...\n");
         VkPhysicalDeviceProtectedMemoryFeatures* result;
         [&]() {
 
@@ -26422,7 +26422,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceProtectedMemoryProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceProtectedMemoryProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceProtectedMemoryProperties...\n");
         VkPhysicalDeviceProtectedMemoryProperties* result;
         [&]() {
 
@@ -26439,7 +26439,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceQueueInfo2_pNext(json& name){
-        printf("Deserializing VkDeviceQueueInfo2...\n");
+        debug_printf("Deserializing VkDeviceQueueInfo2...\n");
         VkDeviceQueueInfo2* result;
         [&]() {
 
@@ -26456,7 +26456,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineCoverageToColorStateCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkPipelineCoverageToColorStateCreateInfoNV...\n");
+        debug_printf("Deserializing VkPipelineCoverageToColorStateCreateInfoNV...\n");
         VkPipelineCoverageToColorStateCreateInfoNV* result;
         [&]() {
 
@@ -26473,7 +26473,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSamplerFilterMinmaxProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSamplerFilterMinmaxProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSamplerFilterMinmaxProperties...\n");
         VkPhysicalDeviceSamplerFilterMinmaxProperties* result;
         [&]() {
 
@@ -26490,7 +26490,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT...\n");
         VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT* result;
         [&]() {
 
@@ -26507,7 +26507,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSampleLocationEXT_pNext(json& name){
-        printf("Deserializing VkSampleLocationEXT...\n");
+        debug_printf("Deserializing VkSampleLocationEXT...\n");
         VkSampleLocationEXT* result;
         [&]() {
 
@@ -26524,7 +26524,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSampleLocationsInfoEXT_pNext(json& name){
-        printf("Deserializing VkSampleLocationsInfoEXT...\n");
+        debug_printf("Deserializing VkSampleLocationsInfoEXT...\n");
         VkSampleLocationsInfoEXT* result;
         [&]() {
 
@@ -26541,7 +26541,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAttachmentSampleLocationsEXT_pNext(json& name){
-        printf("Deserializing VkAttachmentSampleLocationsEXT...\n");
+        debug_printf("Deserializing VkAttachmentSampleLocationsEXT...\n");
         VkAttachmentSampleLocationsEXT* result;
         [&]() {
 
@@ -26558,7 +26558,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubpassSampleLocationsEXT_pNext(json& name){
-        printf("Deserializing VkSubpassSampleLocationsEXT...\n");
+        debug_printf("Deserializing VkSubpassSampleLocationsEXT...\n");
         VkSubpassSampleLocationsEXT* result;
         [&]() {
 
@@ -26575,7 +26575,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassSampleLocationsBeginInfoEXT_pNext(json& name){
-        printf("Deserializing VkRenderPassSampleLocationsBeginInfoEXT...\n");
+        debug_printf("Deserializing VkRenderPassSampleLocationsBeginInfoEXT...\n");
         VkRenderPassSampleLocationsBeginInfoEXT* result;
         [&]() {
 
@@ -26592,7 +26592,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineSampleLocationsStateCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkPipelineSampleLocationsStateCreateInfoEXT...\n");
+        debug_printf("Deserializing VkPipelineSampleLocationsStateCreateInfoEXT...\n");
         VkPipelineSampleLocationsStateCreateInfoEXT* result;
         [&]() {
 
@@ -26609,7 +26609,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSampleLocationsPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSampleLocationsPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSampleLocationsPropertiesEXT...\n");
         VkPhysicalDeviceSampleLocationsPropertiesEXT* result;
         [&]() {
 
@@ -26626,7 +26626,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMultisamplePropertiesEXT_pNext(json& name){
-        printf("Deserializing VkMultisamplePropertiesEXT...\n");
+        debug_printf("Deserializing VkMultisamplePropertiesEXT...\n");
         VkMultisamplePropertiesEXT* result;
         [&]() {
 
@@ -26643,7 +26643,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSamplerReductionModeCreateInfo_pNext(json& name){
-        printf("Deserializing VkSamplerReductionModeCreateInfo...\n");
+        debug_printf("Deserializing VkSamplerReductionModeCreateInfo...\n");
         VkSamplerReductionModeCreateInfo* result;
         [&]() {
 
@@ -26660,7 +26660,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSamplerReductionModeCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkSamplerReductionModeCreateInfoEXT...\n");
+        debug_printf("Deserializing VkSamplerReductionModeCreateInfoEXT...\n");
         VkSamplerReductionModeCreateInfoEXT* result;
         [&]() {
 
@@ -26677,7 +26677,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT...\n");
         VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT* result;
         [&]() {
 
@@ -26694,7 +26694,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMultiDrawFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMultiDrawFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMultiDrawFeaturesEXT...\n");
         VkPhysicalDeviceMultiDrawFeaturesEXT* result;
         [&]() {
 
@@ -26711,7 +26711,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT...\n");
         VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT* result;
         [&]() {
 
@@ -26728,7 +26728,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineColorBlendAdvancedStateCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkPipelineColorBlendAdvancedStateCreateInfoEXT...\n");
+        debug_printf("Deserializing VkPipelineColorBlendAdvancedStateCreateInfoEXT...\n");
         VkPipelineColorBlendAdvancedStateCreateInfoEXT* result;
         [&]() {
 
@@ -26745,7 +26745,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceInlineUniformBlockFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceInlineUniformBlockFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceInlineUniformBlockFeatures...\n");
         VkPhysicalDeviceInlineUniformBlockFeatures* result;
         [&]() {
 
@@ -26762,7 +26762,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceInlineUniformBlockFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceInlineUniformBlockFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceInlineUniformBlockFeaturesEXT...\n");
         VkPhysicalDeviceInlineUniformBlockFeaturesEXT* result;
         [&]() {
 
@@ -26779,7 +26779,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceInlineUniformBlockProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceInlineUniformBlockProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceInlineUniformBlockProperties...\n");
         VkPhysicalDeviceInlineUniformBlockProperties* result;
         [&]() {
 
@@ -26796,7 +26796,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceInlineUniformBlockPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceInlineUniformBlockPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceInlineUniformBlockPropertiesEXT...\n");
         VkPhysicalDeviceInlineUniformBlockPropertiesEXT* result;
         [&]() {
 
@@ -26813,7 +26813,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkWriteDescriptorSetInlineUniformBlock_pNext(json& name){
-        printf("Deserializing VkWriteDescriptorSetInlineUniformBlock...\n");
+        debug_printf("Deserializing VkWriteDescriptorSetInlineUniformBlock...\n");
         VkWriteDescriptorSetInlineUniformBlock* result;
         [&]() {
 
@@ -26830,7 +26830,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkWriteDescriptorSetInlineUniformBlockEXT_pNext(json& name){
-        printf("Deserializing VkWriteDescriptorSetInlineUniformBlockEXT...\n");
+        debug_printf("Deserializing VkWriteDescriptorSetInlineUniformBlockEXT...\n");
         VkWriteDescriptorSetInlineUniformBlockEXT* result;
         [&]() {
 
@@ -26847,7 +26847,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorPoolInlineUniformBlockCreateInfo_pNext(json& name){
-        printf("Deserializing VkDescriptorPoolInlineUniformBlockCreateInfo...\n");
+        debug_printf("Deserializing VkDescriptorPoolInlineUniformBlockCreateInfo...\n");
         VkDescriptorPoolInlineUniformBlockCreateInfo* result;
         [&]() {
 
@@ -26864,7 +26864,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorPoolInlineUniformBlockCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkDescriptorPoolInlineUniformBlockCreateInfoEXT...\n");
+        debug_printf("Deserializing VkDescriptorPoolInlineUniformBlockCreateInfoEXT...\n");
         VkDescriptorPoolInlineUniformBlockCreateInfoEXT* result;
         [&]() {
 
@@ -26881,7 +26881,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineCoverageModulationStateCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkPipelineCoverageModulationStateCreateInfoNV...\n");
+        debug_printf("Deserializing VkPipelineCoverageModulationStateCreateInfoNV...\n");
         VkPipelineCoverageModulationStateCreateInfoNV* result;
         [&]() {
 
@@ -26898,7 +26898,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageFormatListCreateInfo_pNext(json& name){
-        printf("Deserializing VkImageFormatListCreateInfo...\n");
+        debug_printf("Deserializing VkImageFormatListCreateInfo...\n");
         VkImageFormatListCreateInfo* result;
         [&]() {
 
@@ -26915,7 +26915,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageFormatListCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkImageFormatListCreateInfoKHR...\n");
+        debug_printf("Deserializing VkImageFormatListCreateInfoKHR...\n");
         VkImageFormatListCreateInfoKHR* result;
         [&]() {
 
@@ -26932,7 +26932,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkValidationCacheCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkValidationCacheCreateInfoEXT...\n");
+        debug_printf("Deserializing VkValidationCacheCreateInfoEXT...\n");
         VkValidationCacheCreateInfoEXT* result;
         [&]() {
 
@@ -26949,7 +26949,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkShaderModuleValidationCacheCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkShaderModuleValidationCacheCreateInfoEXT...\n");
+        debug_printf("Deserializing VkShaderModuleValidationCacheCreateInfoEXT...\n");
         VkShaderModuleValidationCacheCreateInfoEXT* result;
         [&]() {
 
@@ -26966,7 +26966,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMaintenance3Properties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMaintenance3Properties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMaintenance3Properties...\n");
         VkPhysicalDeviceMaintenance3Properties* result;
         [&]() {
 
@@ -26983,7 +26983,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMaintenance3PropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMaintenance3PropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMaintenance3PropertiesKHR...\n");
         VkPhysicalDeviceMaintenance3PropertiesKHR* result;
         [&]() {
 
@@ -27000,7 +27000,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMaintenance4Features_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMaintenance4Features...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMaintenance4Features...\n");
         VkPhysicalDeviceMaintenance4Features* result;
         [&]() {
 
@@ -27017,7 +27017,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMaintenance4FeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMaintenance4FeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMaintenance4FeaturesKHR...\n");
         VkPhysicalDeviceMaintenance4FeaturesKHR* result;
         [&]() {
 
@@ -27034,7 +27034,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMaintenance4Properties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMaintenance4Properties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMaintenance4Properties...\n");
         VkPhysicalDeviceMaintenance4Properties* result;
         [&]() {
 
@@ -27051,7 +27051,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMaintenance4PropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMaintenance4PropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMaintenance4PropertiesKHR...\n");
         VkPhysicalDeviceMaintenance4PropertiesKHR* result;
         [&]() {
 
@@ -27068,7 +27068,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMaintenance5FeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMaintenance5FeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMaintenance5FeaturesKHR...\n");
         VkPhysicalDeviceMaintenance5FeaturesKHR* result;
         [&]() {
 
@@ -27085,7 +27085,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMaintenance5PropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMaintenance5PropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMaintenance5PropertiesKHR...\n");
         VkPhysicalDeviceMaintenance5PropertiesKHR* result;
         [&]() {
 
@@ -27102,7 +27102,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderingAreaInfoKHR_pNext(json& name){
-        printf("Deserializing VkRenderingAreaInfoKHR...\n");
+        debug_printf("Deserializing VkRenderingAreaInfoKHR...\n");
         VkRenderingAreaInfoKHR* result;
         [&]() {
 
@@ -27119,7 +27119,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorSetLayoutSupport_pNext(json& name){
-        printf("Deserializing VkDescriptorSetLayoutSupport...\n");
+        debug_printf("Deserializing VkDescriptorSetLayoutSupport...\n");
         VkDescriptorSetLayoutSupport* result;
         [&]() {
 
@@ -27136,7 +27136,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorSetLayoutSupportKHR_pNext(json& name){
-        printf("Deserializing VkDescriptorSetLayoutSupportKHR...\n");
+        debug_printf("Deserializing VkDescriptorSetLayoutSupportKHR...\n");
         VkDescriptorSetLayoutSupportKHR* result;
         [&]() {
 
@@ -27153,7 +27153,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderDrawParametersFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderDrawParametersFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderDrawParametersFeatures...\n");
         VkPhysicalDeviceShaderDrawParametersFeatures* result;
         [&]() {
 
@@ -27170,7 +27170,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderDrawParameterFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderDrawParameterFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderDrawParameterFeatures...\n");
         VkPhysicalDeviceShaderDrawParameterFeatures* result;
         [&]() {
 
@@ -27187,7 +27187,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderFloat16Int8Features_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderFloat16Int8Features...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderFloat16Int8Features...\n");
         VkPhysicalDeviceShaderFloat16Int8Features* result;
         [&]() {
 
@@ -27204,7 +27204,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderFloat16Int8FeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderFloat16Int8FeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderFloat16Int8FeaturesKHR...\n");
         VkPhysicalDeviceShaderFloat16Int8FeaturesKHR* result;
         [&]() {
 
@@ -27221,7 +27221,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFloat16Int8FeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFloat16Int8FeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFloat16Int8FeaturesKHR...\n");
         VkPhysicalDeviceFloat16Int8FeaturesKHR* result;
         [&]() {
 
@@ -27238,7 +27238,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFloatControlsProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFloatControlsProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFloatControlsProperties...\n");
         VkPhysicalDeviceFloatControlsProperties* result;
         [&]() {
 
@@ -27255,7 +27255,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFloatControlsPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFloatControlsPropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFloatControlsPropertiesKHR...\n");
         VkPhysicalDeviceFloatControlsPropertiesKHR* result;
         [&]() {
 
@@ -27272,7 +27272,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceHostQueryResetFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceHostQueryResetFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceHostQueryResetFeatures...\n");
         VkPhysicalDeviceHostQueryResetFeatures* result;
         [&]() {
 
@@ -27289,7 +27289,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceHostQueryResetFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceHostQueryResetFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceHostQueryResetFeaturesEXT...\n");
         VkPhysicalDeviceHostQueryResetFeaturesEXT* result;
         [&]() {
 
@@ -27306,7 +27306,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkShaderResourceUsageAMD_pNext(json& name){
-        printf("Deserializing VkShaderResourceUsageAMD...\n");
+        debug_printf("Deserializing VkShaderResourceUsageAMD...\n");
         VkShaderResourceUsageAMD* result;
         [&]() {
 
@@ -27323,7 +27323,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkShaderStatisticsInfoAMD_pNext(json& name){
-        printf("Deserializing VkShaderStatisticsInfoAMD...\n");
+        debug_printf("Deserializing VkShaderStatisticsInfoAMD...\n");
         VkShaderStatisticsInfoAMD* result;
         [&]() {
 
@@ -27340,7 +27340,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceQueueGlobalPriorityCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkDeviceQueueGlobalPriorityCreateInfoKHR...\n");
+        debug_printf("Deserializing VkDeviceQueueGlobalPriorityCreateInfoKHR...\n");
         VkDeviceQueueGlobalPriorityCreateInfoKHR* result;
         [&]() {
 
@@ -27357,7 +27357,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceQueueGlobalPriorityCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkDeviceQueueGlobalPriorityCreateInfoEXT...\n");
+        debug_printf("Deserializing VkDeviceQueueGlobalPriorityCreateInfoEXT...\n");
         VkDeviceQueueGlobalPriorityCreateInfoEXT* result;
         [&]() {
 
@@ -27374,7 +27374,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR...\n");
         VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR* result;
         [&]() {
 
@@ -27391,7 +27391,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceGlobalPriorityQueryFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceGlobalPriorityQueryFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceGlobalPriorityQueryFeaturesEXT...\n");
         VkPhysicalDeviceGlobalPriorityQueryFeaturesEXT* result;
         [&]() {
 
@@ -27408,7 +27408,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkQueueFamilyGlobalPriorityPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkQueueFamilyGlobalPriorityPropertiesKHR...\n");
+        debug_printf("Deserializing VkQueueFamilyGlobalPriorityPropertiesKHR...\n");
         VkQueueFamilyGlobalPriorityPropertiesKHR* result;
         [&]() {
 
@@ -27425,7 +27425,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkQueueFamilyGlobalPriorityPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkQueueFamilyGlobalPriorityPropertiesEXT...\n");
+        debug_printf("Deserializing VkQueueFamilyGlobalPriorityPropertiesEXT...\n");
         VkQueueFamilyGlobalPriorityPropertiesEXT* result;
         [&]() {
 
@@ -27442,7 +27442,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDebugUtilsObjectNameInfoEXT_pNext(json& name){
-        printf("Deserializing VkDebugUtilsObjectNameInfoEXT...\n");
+        debug_printf("Deserializing VkDebugUtilsObjectNameInfoEXT...\n");
         VkDebugUtilsObjectNameInfoEXT* result;
         [&]() {
 
@@ -27459,7 +27459,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDebugUtilsObjectTagInfoEXT_pNext(json& name){
-        printf("Deserializing VkDebugUtilsObjectTagInfoEXT...\n");
+        debug_printf("Deserializing VkDebugUtilsObjectTagInfoEXT...\n");
         VkDebugUtilsObjectTagInfoEXT* result;
         [&]() {
 
@@ -27476,7 +27476,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDebugUtilsLabelEXT_pNext(json& name){
-        printf("Deserializing VkDebugUtilsLabelEXT...\n");
+        debug_printf("Deserializing VkDebugUtilsLabelEXT...\n");
         VkDebugUtilsLabelEXT* result;
         [&]() {
 
@@ -27493,7 +27493,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDebugUtilsMessengerCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkDebugUtilsMessengerCreateInfoEXT...\n");
+        debug_printf("Deserializing VkDebugUtilsMessengerCreateInfoEXT...\n");
         VkDebugUtilsMessengerCreateInfoEXT* result;
         [&]() {
 
@@ -27510,7 +27510,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDebugUtilsMessengerCallbackDataEXT_pNext(json& name){
-        printf("Deserializing VkDebugUtilsMessengerCallbackDataEXT...\n");
+        debug_printf("Deserializing VkDebugUtilsMessengerCallbackDataEXT...\n");
         VkDebugUtilsMessengerCallbackDataEXT* result;
         [&]() {
 
@@ -27527,7 +27527,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDeviceMemoryReportFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDeviceMemoryReportFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDeviceMemoryReportFeaturesEXT...\n");
         VkPhysicalDeviceDeviceMemoryReportFeaturesEXT* result;
         [&]() {
 
@@ -27544,7 +27544,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceDeviceMemoryReportCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkDeviceDeviceMemoryReportCreateInfoEXT...\n");
+        debug_printf("Deserializing VkDeviceDeviceMemoryReportCreateInfoEXT...\n");
         VkDeviceDeviceMemoryReportCreateInfoEXT* result;
         [&]() {
 
@@ -27561,7 +27561,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceMemoryReportCallbackDataEXT_pNext(json& name){
-        printf("Deserializing VkDeviceMemoryReportCallbackDataEXT...\n");
+        debug_printf("Deserializing VkDeviceMemoryReportCallbackDataEXT...\n");
         VkDeviceMemoryReportCallbackDataEXT* result;
         [&]() {
 
@@ -27578,7 +27578,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImportMemoryHostPointerInfoEXT_pNext(json& name){
-        printf("Deserializing VkImportMemoryHostPointerInfoEXT...\n");
+        debug_printf("Deserializing VkImportMemoryHostPointerInfoEXT...\n");
         VkImportMemoryHostPointerInfoEXT* result;
         [&]() {
 
@@ -27595,7 +27595,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryHostPointerPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkMemoryHostPointerPropertiesEXT...\n");
+        debug_printf("Deserializing VkMemoryHostPointerPropertiesEXT...\n");
         VkMemoryHostPointerPropertiesEXT* result;
         [&]() {
 
@@ -27612,7 +27612,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceExternalMemoryHostPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceExternalMemoryHostPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceExternalMemoryHostPropertiesEXT...\n");
         VkPhysicalDeviceExternalMemoryHostPropertiesEXT* result;
         [&]() {
 
@@ -27629,7 +27629,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceConservativeRasterizationPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceConservativeRasterizationPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceConservativeRasterizationPropertiesEXT...\n");
         VkPhysicalDeviceConservativeRasterizationPropertiesEXT* result;
         [&]() {
 
@@ -27646,7 +27646,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCalibratedTimestampInfoEXT_pNext(json& name){
-        printf("Deserializing VkCalibratedTimestampInfoEXT...\n");
+        debug_printf("Deserializing VkCalibratedTimestampInfoEXT...\n");
         VkCalibratedTimestampInfoEXT* result;
         [&]() {
 
@@ -27663,7 +27663,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderCorePropertiesAMD_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderCorePropertiesAMD...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderCorePropertiesAMD...\n");
         VkPhysicalDeviceShaderCorePropertiesAMD* result;
         [&]() {
 
@@ -27680,7 +27680,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderCoreProperties2AMD_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderCoreProperties2AMD...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderCoreProperties2AMD...\n");
         VkPhysicalDeviceShaderCoreProperties2AMD* result;
         [&]() {
 
@@ -27697,7 +27697,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineRasterizationConservativeStateCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkPipelineRasterizationConservativeStateCreateInfoEXT...\n");
+        debug_printf("Deserializing VkPipelineRasterizationConservativeStateCreateInfoEXT...\n");
         VkPipelineRasterizationConservativeStateCreateInfoEXT* result;
         [&]() {
 
@@ -27714,7 +27714,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDescriptorIndexingFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDescriptorIndexingFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDescriptorIndexingFeatures...\n");
         VkPhysicalDeviceDescriptorIndexingFeatures* result;
         [&]() {
 
@@ -27731,7 +27731,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDescriptorIndexingFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDescriptorIndexingFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDescriptorIndexingFeaturesEXT...\n");
         VkPhysicalDeviceDescriptorIndexingFeaturesEXT* result;
         [&]() {
 
@@ -27748,7 +27748,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDescriptorIndexingProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDescriptorIndexingProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDescriptorIndexingProperties...\n");
         VkPhysicalDeviceDescriptorIndexingProperties* result;
         [&]() {
 
@@ -27765,7 +27765,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDescriptorIndexingPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDescriptorIndexingPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDescriptorIndexingPropertiesEXT...\n");
         VkPhysicalDeviceDescriptorIndexingPropertiesEXT* result;
         [&]() {
 
@@ -27782,7 +27782,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorSetLayoutBindingFlagsCreateInfo_pNext(json& name){
-        printf("Deserializing VkDescriptorSetLayoutBindingFlagsCreateInfo...\n");
+        debug_printf("Deserializing VkDescriptorSetLayoutBindingFlagsCreateInfo...\n");
         VkDescriptorSetLayoutBindingFlagsCreateInfo* result;
         [&]() {
 
@@ -27799,7 +27799,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorSetLayoutBindingFlagsCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkDescriptorSetLayoutBindingFlagsCreateInfoEXT...\n");
+        debug_printf("Deserializing VkDescriptorSetLayoutBindingFlagsCreateInfoEXT...\n");
         VkDescriptorSetLayoutBindingFlagsCreateInfoEXT* result;
         [&]() {
 
@@ -27816,7 +27816,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorSetVariableDescriptorCountAllocateInfo_pNext(json& name){
-        printf("Deserializing VkDescriptorSetVariableDescriptorCountAllocateInfo...\n");
+        debug_printf("Deserializing VkDescriptorSetVariableDescriptorCountAllocateInfo...\n");
         VkDescriptorSetVariableDescriptorCountAllocateInfo* result;
         [&]() {
 
@@ -27833,7 +27833,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorSetVariableDescriptorCountAllocateInfoEXT_pNext(json& name){
-        printf("Deserializing VkDescriptorSetVariableDescriptorCountAllocateInfoEXT...\n");
+        debug_printf("Deserializing VkDescriptorSetVariableDescriptorCountAllocateInfoEXT...\n");
         VkDescriptorSetVariableDescriptorCountAllocateInfoEXT* result;
         [&]() {
 
@@ -27850,7 +27850,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorSetVariableDescriptorCountLayoutSupport_pNext(json& name){
-        printf("Deserializing VkDescriptorSetVariableDescriptorCountLayoutSupport...\n");
+        debug_printf("Deserializing VkDescriptorSetVariableDescriptorCountLayoutSupport...\n");
         VkDescriptorSetVariableDescriptorCountLayoutSupport* result;
         [&]() {
 
@@ -27867,7 +27867,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorSetVariableDescriptorCountLayoutSupportEXT_pNext(json& name){
-        printf("Deserializing VkDescriptorSetVariableDescriptorCountLayoutSupportEXT...\n");
+        debug_printf("Deserializing VkDescriptorSetVariableDescriptorCountLayoutSupportEXT...\n");
         VkDescriptorSetVariableDescriptorCountLayoutSupportEXT* result;
         [&]() {
 
@@ -27884,7 +27884,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAttachmentDescription2_pNext(json& name){
-        printf("Deserializing VkAttachmentDescription2...\n");
+        debug_printf("Deserializing VkAttachmentDescription2...\n");
         VkAttachmentDescription2* result;
         [&]() {
 
@@ -27901,7 +27901,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAttachmentDescription2KHR_pNext(json& name){
-        printf("Deserializing VkAttachmentDescription2KHR...\n");
+        debug_printf("Deserializing VkAttachmentDescription2KHR...\n");
         VkAttachmentDescription2KHR* result;
         [&]() {
 
@@ -27918,7 +27918,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAttachmentReference2_pNext(json& name){
-        printf("Deserializing VkAttachmentReference2...\n");
+        debug_printf("Deserializing VkAttachmentReference2...\n");
         VkAttachmentReference2* result;
         [&]() {
 
@@ -27935,7 +27935,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAttachmentReference2KHR_pNext(json& name){
-        printf("Deserializing VkAttachmentReference2KHR...\n");
+        debug_printf("Deserializing VkAttachmentReference2KHR...\n");
         VkAttachmentReference2KHR* result;
         [&]() {
 
@@ -27952,7 +27952,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubpassDescription2_pNext(json& name){
-        printf("Deserializing VkSubpassDescription2...\n");
+        debug_printf("Deserializing VkSubpassDescription2...\n");
         VkSubpassDescription2* result;
         [&]() {
 
@@ -27969,7 +27969,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubpassDescription2KHR_pNext(json& name){
-        printf("Deserializing VkSubpassDescription2KHR...\n");
+        debug_printf("Deserializing VkSubpassDescription2KHR...\n");
         VkSubpassDescription2KHR* result;
         [&]() {
 
@@ -27986,7 +27986,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubpassDependency2_pNext(json& name){
-        printf("Deserializing VkSubpassDependency2...\n");
+        debug_printf("Deserializing VkSubpassDependency2...\n");
         VkSubpassDependency2* result;
         [&]() {
 
@@ -28003,7 +28003,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubpassDependency2KHR_pNext(json& name){
-        printf("Deserializing VkSubpassDependency2KHR...\n");
+        debug_printf("Deserializing VkSubpassDependency2KHR...\n");
         VkSubpassDependency2KHR* result;
         [&]() {
 
@@ -28020,7 +28020,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassCreateInfo2_pNext(json& name){
-        printf("Deserializing VkRenderPassCreateInfo2...\n");
+        debug_printf("Deserializing VkRenderPassCreateInfo2...\n");
         VkRenderPassCreateInfo2* result;
         [&]() {
 
@@ -28037,7 +28037,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassCreateInfo2KHR_pNext(json& name){
-        printf("Deserializing VkRenderPassCreateInfo2KHR...\n");
+        debug_printf("Deserializing VkRenderPassCreateInfo2KHR...\n");
         VkRenderPassCreateInfo2KHR* result;
         [&]() {
 
@@ -28054,7 +28054,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubpassBeginInfo_pNext(json& name){
-        printf("Deserializing VkSubpassBeginInfo...\n");
+        debug_printf("Deserializing VkSubpassBeginInfo...\n");
         VkSubpassBeginInfo* result;
         [&]() {
 
@@ -28071,7 +28071,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubpassBeginInfoKHR_pNext(json& name){
-        printf("Deserializing VkSubpassBeginInfoKHR...\n");
+        debug_printf("Deserializing VkSubpassBeginInfoKHR...\n");
         VkSubpassBeginInfoKHR* result;
         [&]() {
 
@@ -28088,7 +28088,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubpassEndInfo_pNext(json& name){
-        printf("Deserializing VkSubpassEndInfo...\n");
+        debug_printf("Deserializing VkSubpassEndInfo...\n");
         VkSubpassEndInfo* result;
         [&]() {
 
@@ -28105,7 +28105,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubpassEndInfoKHR_pNext(json& name){
-        printf("Deserializing VkSubpassEndInfoKHR...\n");
+        debug_printf("Deserializing VkSubpassEndInfoKHR...\n");
         VkSubpassEndInfoKHR* result;
         [&]() {
 
@@ -28122,7 +28122,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceTimelineSemaphoreFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceTimelineSemaphoreFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceTimelineSemaphoreFeatures...\n");
         VkPhysicalDeviceTimelineSemaphoreFeatures* result;
         [&]() {
 
@@ -28139,7 +28139,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceTimelineSemaphoreFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceTimelineSemaphoreFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceTimelineSemaphoreFeaturesKHR...\n");
         VkPhysicalDeviceTimelineSemaphoreFeaturesKHR* result;
         [&]() {
 
@@ -28156,7 +28156,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceTimelineSemaphoreProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceTimelineSemaphoreProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceTimelineSemaphoreProperties...\n");
         VkPhysicalDeviceTimelineSemaphoreProperties* result;
         [&]() {
 
@@ -28173,7 +28173,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceTimelineSemaphorePropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceTimelineSemaphorePropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceTimelineSemaphorePropertiesKHR...\n");
         VkPhysicalDeviceTimelineSemaphorePropertiesKHR* result;
         [&]() {
 
@@ -28190,7 +28190,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSemaphoreTypeCreateInfo_pNext(json& name){
-        printf("Deserializing VkSemaphoreTypeCreateInfo...\n");
+        debug_printf("Deserializing VkSemaphoreTypeCreateInfo...\n");
         VkSemaphoreTypeCreateInfo* result;
         [&]() {
 
@@ -28207,7 +28207,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSemaphoreTypeCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkSemaphoreTypeCreateInfoKHR...\n");
+        debug_printf("Deserializing VkSemaphoreTypeCreateInfoKHR...\n");
         VkSemaphoreTypeCreateInfoKHR* result;
         [&]() {
 
@@ -28224,7 +28224,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkTimelineSemaphoreSubmitInfo_pNext(json& name){
-        printf("Deserializing VkTimelineSemaphoreSubmitInfo...\n");
+        debug_printf("Deserializing VkTimelineSemaphoreSubmitInfo...\n");
         VkTimelineSemaphoreSubmitInfo* result;
         [&]() {
 
@@ -28241,7 +28241,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkTimelineSemaphoreSubmitInfoKHR_pNext(json& name){
-        printf("Deserializing VkTimelineSemaphoreSubmitInfoKHR...\n");
+        debug_printf("Deserializing VkTimelineSemaphoreSubmitInfoKHR...\n");
         VkTimelineSemaphoreSubmitInfoKHR* result;
         [&]() {
 
@@ -28258,7 +28258,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSemaphoreWaitInfo_pNext(json& name){
-        printf("Deserializing VkSemaphoreWaitInfo...\n");
+        debug_printf("Deserializing VkSemaphoreWaitInfo...\n");
         VkSemaphoreWaitInfo* result;
         [&]() {
 
@@ -28275,7 +28275,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSemaphoreWaitInfoKHR_pNext(json& name){
-        printf("Deserializing VkSemaphoreWaitInfoKHR...\n");
+        debug_printf("Deserializing VkSemaphoreWaitInfoKHR...\n");
         VkSemaphoreWaitInfoKHR* result;
         [&]() {
 
@@ -28292,7 +28292,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSemaphoreSignalInfo_pNext(json& name){
-        printf("Deserializing VkSemaphoreSignalInfo...\n");
+        debug_printf("Deserializing VkSemaphoreSignalInfo...\n");
         VkSemaphoreSignalInfo* result;
         [&]() {
 
@@ -28309,7 +28309,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSemaphoreSignalInfoKHR_pNext(json& name){
-        printf("Deserializing VkSemaphoreSignalInfoKHR...\n");
+        debug_printf("Deserializing VkSemaphoreSignalInfoKHR...\n");
         VkSemaphoreSignalInfoKHR* result;
         [&]() {
 
@@ -28326,7 +28326,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVertexInputBindingDivisorDescriptionEXT_pNext(json& name){
-        printf("Deserializing VkVertexInputBindingDivisorDescriptionEXT...\n");
+        debug_printf("Deserializing VkVertexInputBindingDivisorDescriptionEXT...\n");
         VkVertexInputBindingDivisorDescriptionEXT* result;
         [&]() {
 
@@ -28343,7 +28343,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineVertexInputDivisorStateCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkPipelineVertexInputDivisorStateCreateInfoEXT...\n");
+        debug_printf("Deserializing VkPipelineVertexInputDivisorStateCreateInfoEXT...\n");
         VkPipelineVertexInputDivisorStateCreateInfoEXT* result;
         [&]() {
 
@@ -28360,7 +28360,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT...\n");
         VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT* result;
         [&]() {
 
@@ -28377,7 +28377,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePCIBusInfoPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePCIBusInfoPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDevicePCIBusInfoPropertiesEXT...\n");
         VkPhysicalDevicePCIBusInfoPropertiesEXT* result;
         [&]() {
 
@@ -28394,7 +28394,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCommandBufferInheritanceConditionalRenderingInfoEXT_pNext(json& name){
-        printf("Deserializing VkCommandBufferInheritanceConditionalRenderingInfoEXT...\n");
+        debug_printf("Deserializing VkCommandBufferInheritanceConditionalRenderingInfoEXT...\n");
         VkCommandBufferInheritanceConditionalRenderingInfoEXT* result;
         [&]() {
 
@@ -28411,7 +28411,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevice8BitStorageFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDevice8BitStorageFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDevice8BitStorageFeatures...\n");
         VkPhysicalDevice8BitStorageFeatures* result;
         [&]() {
 
@@ -28428,7 +28428,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevice8BitStorageFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDevice8BitStorageFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDevice8BitStorageFeaturesKHR...\n");
         VkPhysicalDevice8BitStorageFeaturesKHR* result;
         [&]() {
 
@@ -28445,7 +28445,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceConditionalRenderingFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceConditionalRenderingFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceConditionalRenderingFeaturesEXT...\n");
         VkPhysicalDeviceConditionalRenderingFeaturesEXT* result;
         [&]() {
 
@@ -28462,7 +28462,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceVulkanMemoryModelFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceVulkanMemoryModelFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceVulkanMemoryModelFeatures...\n");
         VkPhysicalDeviceVulkanMemoryModelFeatures* result;
         [&]() {
 
@@ -28479,7 +28479,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceVulkanMemoryModelFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceVulkanMemoryModelFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceVulkanMemoryModelFeaturesKHR...\n");
         VkPhysicalDeviceVulkanMemoryModelFeaturesKHR* result;
         [&]() {
 
@@ -28496,7 +28496,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderAtomicInt64Features_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderAtomicInt64Features...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderAtomicInt64Features...\n");
         VkPhysicalDeviceShaderAtomicInt64Features* result;
         [&]() {
 
@@ -28513,7 +28513,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderAtomicInt64FeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderAtomicInt64FeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderAtomicInt64FeaturesKHR...\n");
         VkPhysicalDeviceShaderAtomicInt64FeaturesKHR* result;
         [&]() {
 
@@ -28530,7 +28530,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderAtomicFloatFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderAtomicFloatFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderAtomicFloatFeaturesEXT...\n");
         VkPhysicalDeviceShaderAtomicFloatFeaturesEXT* result;
         [&]() {
 
@@ -28547,7 +28547,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT...\n");
         VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT* result;
         [&]() {
 
@@ -28564,7 +28564,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT...\n");
         VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT* result;
         [&]() {
 
@@ -28581,7 +28581,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkQueueFamilyCheckpointPropertiesNV_pNext(json& name){
-        printf("Deserializing VkQueueFamilyCheckpointPropertiesNV...\n");
+        debug_printf("Deserializing VkQueueFamilyCheckpointPropertiesNV...\n");
         VkQueueFamilyCheckpointPropertiesNV* result;
         [&]() {
 
@@ -28598,7 +28598,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCheckpointDataNV_pNext(json& name){
-        printf("Deserializing VkCheckpointDataNV...\n");
+        debug_printf("Deserializing VkCheckpointDataNV...\n");
         VkCheckpointDataNV* result;
         [&]() {
 
@@ -28615,7 +28615,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDepthStencilResolveProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDepthStencilResolveProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDepthStencilResolveProperties...\n");
         VkPhysicalDeviceDepthStencilResolveProperties* result;
         [&]() {
 
@@ -28632,7 +28632,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDepthStencilResolvePropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDepthStencilResolvePropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDepthStencilResolvePropertiesKHR...\n");
         VkPhysicalDeviceDepthStencilResolvePropertiesKHR* result;
         [&]() {
 
@@ -28649,7 +28649,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubpassDescriptionDepthStencilResolve_pNext(json& name){
-        printf("Deserializing VkSubpassDescriptionDepthStencilResolve...\n");
+        debug_printf("Deserializing VkSubpassDescriptionDepthStencilResolve...\n");
         VkSubpassDescriptionDepthStencilResolve* result;
         [&]() {
 
@@ -28666,7 +28666,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubpassDescriptionDepthStencilResolveKHR_pNext(json& name){
-        printf("Deserializing VkSubpassDescriptionDepthStencilResolveKHR...\n");
+        debug_printf("Deserializing VkSubpassDescriptionDepthStencilResolveKHR...\n");
         VkSubpassDescriptionDepthStencilResolveKHR* result;
         [&]() {
 
@@ -28683,7 +28683,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageViewASTCDecodeModeEXT_pNext(json& name){
-        printf("Deserializing VkImageViewASTCDecodeModeEXT...\n");
+        debug_printf("Deserializing VkImageViewASTCDecodeModeEXT...\n");
         VkImageViewASTCDecodeModeEXT* result;
         [&]() {
 
@@ -28700,7 +28700,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceASTCDecodeFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceASTCDecodeFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceASTCDecodeFeaturesEXT...\n");
         VkPhysicalDeviceASTCDecodeFeaturesEXT* result;
         [&]() {
 
@@ -28717,7 +28717,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceTransformFeedbackFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceTransformFeedbackFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceTransformFeedbackFeaturesEXT...\n");
         VkPhysicalDeviceTransformFeedbackFeaturesEXT* result;
         [&]() {
 
@@ -28734,7 +28734,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceTransformFeedbackPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceTransformFeedbackPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceTransformFeedbackPropertiesEXT...\n");
         VkPhysicalDeviceTransformFeedbackPropertiesEXT* result;
         [&]() {
 
@@ -28751,7 +28751,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineRasterizationStateStreamCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkPipelineRasterizationStateStreamCreateInfoEXT...\n");
+        debug_printf("Deserializing VkPipelineRasterizationStateStreamCreateInfoEXT...\n");
         VkPipelineRasterizationStateStreamCreateInfoEXT* result;
         [&]() {
 
@@ -28768,7 +28768,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV...\n");
         VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV* result;
         [&]() {
 
@@ -28785,7 +28785,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineRepresentativeFragmentTestStateCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkPipelineRepresentativeFragmentTestStateCreateInfoNV...\n");
+        debug_printf("Deserializing VkPipelineRepresentativeFragmentTestStateCreateInfoNV...\n");
         VkPipelineRepresentativeFragmentTestStateCreateInfoNV* result;
         [&]() {
 
@@ -28802,7 +28802,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceExclusiveScissorFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceExclusiveScissorFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceExclusiveScissorFeaturesNV...\n");
         VkPhysicalDeviceExclusiveScissorFeaturesNV* result;
         [&]() {
 
@@ -28819,7 +28819,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineViewportExclusiveScissorStateCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkPipelineViewportExclusiveScissorStateCreateInfoNV...\n");
+        debug_printf("Deserializing VkPipelineViewportExclusiveScissorStateCreateInfoNV...\n");
         VkPipelineViewportExclusiveScissorStateCreateInfoNV* result;
         [&]() {
 
@@ -28836,7 +28836,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceCornerSampledImageFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceCornerSampledImageFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceCornerSampledImageFeaturesNV...\n");
         VkPhysicalDeviceCornerSampledImageFeaturesNV* result;
         [&]() {
 
@@ -28853,7 +28853,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceComputeShaderDerivativesFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceComputeShaderDerivativesFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceComputeShaderDerivativesFeaturesNV...\n");
         VkPhysicalDeviceComputeShaderDerivativesFeaturesNV* result;
         [&]() {
 
@@ -28870,7 +28870,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderImageFootprintFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderImageFootprintFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderImageFootprintFeaturesNV...\n");
         VkPhysicalDeviceShaderImageFootprintFeaturesNV* result;
         [&]() {
 
@@ -28887,7 +28887,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV...\n");
         VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV* result;
         [&]() {
 
@@ -28904,7 +28904,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceCopyMemoryIndirectFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceCopyMemoryIndirectFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceCopyMemoryIndirectFeaturesNV...\n");
         VkPhysicalDeviceCopyMemoryIndirectFeaturesNV* result;
         [&]() {
 
@@ -28921,7 +28921,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceCopyMemoryIndirectPropertiesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceCopyMemoryIndirectPropertiesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceCopyMemoryIndirectPropertiesNV...\n");
         VkPhysicalDeviceCopyMemoryIndirectPropertiesNV* result;
         [&]() {
 
@@ -28938,7 +28938,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMemoryDecompressionFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMemoryDecompressionFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMemoryDecompressionFeaturesNV...\n");
         VkPhysicalDeviceMemoryDecompressionFeaturesNV* result;
         [&]() {
 
@@ -28955,7 +28955,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMemoryDecompressionPropertiesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMemoryDecompressionPropertiesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMemoryDecompressionPropertiesNV...\n");
         VkPhysicalDeviceMemoryDecompressionPropertiesNV* result;
         [&]() {
 
@@ -28972,7 +28972,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkShadingRatePaletteNV_pNext(json& name){
-        printf("Deserializing VkShadingRatePaletteNV...\n");
+        debug_printf("Deserializing VkShadingRatePaletteNV...\n");
         VkShadingRatePaletteNV* result;
         [&]() {
 
@@ -28989,7 +28989,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineViewportShadingRateImageStateCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkPipelineViewportShadingRateImageStateCreateInfoNV...\n");
+        debug_printf("Deserializing VkPipelineViewportShadingRateImageStateCreateInfoNV...\n");
         VkPipelineViewportShadingRateImageStateCreateInfoNV* result;
         [&]() {
 
@@ -29006,7 +29006,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShadingRateImageFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShadingRateImageFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShadingRateImageFeaturesNV...\n");
         VkPhysicalDeviceShadingRateImageFeaturesNV* result;
         [&]() {
 
@@ -29023,7 +29023,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShadingRateImagePropertiesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShadingRateImagePropertiesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShadingRateImagePropertiesNV...\n");
         VkPhysicalDeviceShadingRateImagePropertiesNV* result;
         [&]() {
 
@@ -29040,7 +29040,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceInvocationMaskFeaturesHUAWEI_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceInvocationMaskFeaturesHUAWEI...\n");
+        debug_printf("Deserializing VkPhysicalDeviceInvocationMaskFeaturesHUAWEI...\n");
         VkPhysicalDeviceInvocationMaskFeaturesHUAWEI* result;
         [&]() {
 
@@ -29057,7 +29057,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCoarseSampleLocationNV_pNext(json& name){
-        printf("Deserializing VkCoarseSampleLocationNV...\n");
+        debug_printf("Deserializing VkCoarseSampleLocationNV...\n");
         VkCoarseSampleLocationNV* result;
         [&]() {
 
@@ -29074,7 +29074,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCoarseSampleOrderCustomNV_pNext(json& name){
-        printf("Deserializing VkCoarseSampleOrderCustomNV...\n");
+        debug_printf("Deserializing VkCoarseSampleOrderCustomNV...\n");
         VkCoarseSampleOrderCustomNV* result;
         [&]() {
 
@@ -29091,7 +29091,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineViewportCoarseSampleOrderStateCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkPipelineViewportCoarseSampleOrderStateCreateInfoNV...\n");
+        debug_printf("Deserializing VkPipelineViewportCoarseSampleOrderStateCreateInfoNV...\n");
         VkPipelineViewportCoarseSampleOrderStateCreateInfoNV* result;
         [&]() {
 
@@ -29108,7 +29108,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMeshShaderFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMeshShaderFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMeshShaderFeaturesNV...\n");
         VkPhysicalDeviceMeshShaderFeaturesNV* result;
         [&]() {
 
@@ -29125,7 +29125,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMeshShaderPropertiesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMeshShaderPropertiesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMeshShaderPropertiesNV...\n");
         VkPhysicalDeviceMeshShaderPropertiesNV* result;
         [&]() {
 
@@ -29142,7 +29142,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDrawMeshTasksIndirectCommandNV_pNext(json& name){
-        printf("Deserializing VkDrawMeshTasksIndirectCommandNV...\n");
+        debug_printf("Deserializing VkDrawMeshTasksIndirectCommandNV...\n");
         VkDrawMeshTasksIndirectCommandNV* result;
         [&]() {
 
@@ -29159,7 +29159,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMeshShaderFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMeshShaderFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMeshShaderFeaturesEXT...\n");
         VkPhysicalDeviceMeshShaderFeaturesEXT* result;
         [&]() {
 
@@ -29176,7 +29176,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMeshShaderPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMeshShaderPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMeshShaderPropertiesEXT...\n");
         VkPhysicalDeviceMeshShaderPropertiesEXT* result;
         [&]() {
 
@@ -29193,7 +29193,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDrawMeshTasksIndirectCommandEXT_pNext(json& name){
-        printf("Deserializing VkDrawMeshTasksIndirectCommandEXT...\n");
+        debug_printf("Deserializing VkDrawMeshTasksIndirectCommandEXT...\n");
         VkDrawMeshTasksIndirectCommandEXT* result;
         [&]() {
 
@@ -29210,7 +29210,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRayTracingShaderGroupCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkRayTracingShaderGroupCreateInfoNV...\n");
+        debug_printf("Deserializing VkRayTracingShaderGroupCreateInfoNV...\n");
         VkRayTracingShaderGroupCreateInfoNV* result;
         [&]() {
 
@@ -29227,7 +29227,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRayTracingShaderGroupCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkRayTracingShaderGroupCreateInfoKHR...\n");
+        debug_printf("Deserializing VkRayTracingShaderGroupCreateInfoKHR...\n");
         VkRayTracingShaderGroupCreateInfoKHR* result;
         [&]() {
 
@@ -29244,7 +29244,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRayTracingPipelineCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkRayTracingPipelineCreateInfoNV...\n");
+        debug_printf("Deserializing VkRayTracingPipelineCreateInfoNV...\n");
         VkRayTracingPipelineCreateInfoNV* result;
         [&]() {
 
@@ -29261,7 +29261,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRayTracingPipelineCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkRayTracingPipelineCreateInfoKHR...\n");
+        debug_printf("Deserializing VkRayTracingPipelineCreateInfoKHR...\n");
         VkRayTracingPipelineCreateInfoKHR* result;
         [&]() {
 
@@ -29278,7 +29278,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkGeometryTrianglesNV_pNext(json& name){
-        printf("Deserializing VkGeometryTrianglesNV...\n");
+        debug_printf("Deserializing VkGeometryTrianglesNV...\n");
         VkGeometryTrianglesNV* result;
         [&]() {
 
@@ -29295,7 +29295,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkGeometryAABBNV_pNext(json& name){
-        printf("Deserializing VkGeometryAABBNV...\n");
+        debug_printf("Deserializing VkGeometryAABBNV...\n");
         VkGeometryAABBNV* result;
         [&]() {
 
@@ -29312,7 +29312,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkGeometryDataNV_pNext(json& name){
-        printf("Deserializing VkGeometryDataNV...\n");
+        debug_printf("Deserializing VkGeometryDataNV...\n");
         VkGeometryDataNV* result;
         [&]() {
 
@@ -29329,7 +29329,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkGeometryNV_pNext(json& name){
-        printf("Deserializing VkGeometryNV...\n");
+        debug_printf("Deserializing VkGeometryNV...\n");
         VkGeometryNV* result;
         [&]() {
 
@@ -29346,7 +29346,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureInfoNV_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureInfoNV...\n");
+        debug_printf("Deserializing VkAccelerationStructureInfoNV...\n");
         VkAccelerationStructureInfoNV* result;
         [&]() {
 
@@ -29363,7 +29363,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureCreateInfoNV...\n");
+        debug_printf("Deserializing VkAccelerationStructureCreateInfoNV...\n");
         VkAccelerationStructureCreateInfoNV* result;
         [&]() {
 
@@ -29380,7 +29380,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindAccelerationStructureMemoryInfoNV_pNext(json& name){
-        printf("Deserializing VkBindAccelerationStructureMemoryInfoNV...\n");
+        debug_printf("Deserializing VkBindAccelerationStructureMemoryInfoNV...\n");
         VkBindAccelerationStructureMemoryInfoNV* result;
         [&]() {
 
@@ -29397,7 +29397,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkWriteDescriptorSetAccelerationStructureKHR_pNext(json& name){
-        printf("Deserializing VkWriteDescriptorSetAccelerationStructureKHR...\n");
+        debug_printf("Deserializing VkWriteDescriptorSetAccelerationStructureKHR...\n");
         VkWriteDescriptorSetAccelerationStructureKHR* result;
         [&]() {
 
@@ -29414,7 +29414,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkWriteDescriptorSetAccelerationStructureNV_pNext(json& name){
-        printf("Deserializing VkWriteDescriptorSetAccelerationStructureNV...\n");
+        debug_printf("Deserializing VkWriteDescriptorSetAccelerationStructureNV...\n");
         VkWriteDescriptorSetAccelerationStructureNV* result;
         [&]() {
 
@@ -29431,7 +29431,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureMemoryRequirementsInfoNV_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureMemoryRequirementsInfoNV...\n");
+        debug_printf("Deserializing VkAccelerationStructureMemoryRequirementsInfoNV...\n");
         VkAccelerationStructureMemoryRequirementsInfoNV* result;
         [&]() {
 
@@ -29448,7 +29448,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceAccelerationStructureFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceAccelerationStructureFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceAccelerationStructureFeaturesKHR...\n");
         VkPhysicalDeviceAccelerationStructureFeaturesKHR* result;
         [&]() {
 
@@ -29465,7 +29465,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceRayTracingPipelineFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceRayTracingPipelineFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceRayTracingPipelineFeaturesKHR...\n");
         VkPhysicalDeviceRayTracingPipelineFeaturesKHR* result;
         [&]() {
 
@@ -29482,7 +29482,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceRayQueryFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceRayQueryFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceRayQueryFeaturesKHR...\n");
         VkPhysicalDeviceRayQueryFeaturesKHR* result;
         [&]() {
 
@@ -29499,7 +29499,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceAccelerationStructurePropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceAccelerationStructurePropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceAccelerationStructurePropertiesKHR...\n");
         VkPhysicalDeviceAccelerationStructurePropertiesKHR* result;
         [&]() {
 
@@ -29516,7 +29516,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceRayTracingPipelinePropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceRayTracingPipelinePropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceRayTracingPipelinePropertiesKHR...\n");
         VkPhysicalDeviceRayTracingPipelinePropertiesKHR* result;
         [&]() {
 
@@ -29533,7 +29533,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceRayTracingPropertiesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceRayTracingPropertiesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceRayTracingPropertiesNV...\n");
         VkPhysicalDeviceRayTracingPropertiesNV* result;
         [&]() {
 
@@ -29550,7 +29550,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkStridedDeviceAddressRegionKHR_pNext(json& name){
-        printf("Deserializing VkStridedDeviceAddressRegionKHR...\n");
+        debug_printf("Deserializing VkStridedDeviceAddressRegionKHR...\n");
         VkStridedDeviceAddressRegionKHR* result;
         [&]() {
 
@@ -29567,7 +29567,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkTraceRaysIndirectCommandKHR_pNext(json& name){
-        printf("Deserializing VkTraceRaysIndirectCommandKHR...\n");
+        debug_printf("Deserializing VkTraceRaysIndirectCommandKHR...\n");
         VkTraceRaysIndirectCommandKHR* result;
         [&]() {
 
@@ -29584,7 +29584,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkTraceRaysIndirectCommand2KHR_pNext(json& name){
-        printf("Deserializing VkTraceRaysIndirectCommand2KHR...\n");
+        debug_printf("Deserializing VkTraceRaysIndirectCommand2KHR...\n");
         VkTraceRaysIndirectCommand2KHR* result;
         [&]() {
 
@@ -29601,7 +29601,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR...\n");
         VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR* result;
         [&]() {
 
@@ -29618,7 +29618,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDrmFormatModifierPropertiesListEXT_pNext(json& name){
-        printf("Deserializing VkDrmFormatModifierPropertiesListEXT...\n");
+        debug_printf("Deserializing VkDrmFormatModifierPropertiesListEXT...\n");
         VkDrmFormatModifierPropertiesListEXT* result;
         [&]() {
 
@@ -29635,7 +29635,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDrmFormatModifierPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkDrmFormatModifierPropertiesEXT...\n");
+        debug_printf("Deserializing VkDrmFormatModifierPropertiesEXT...\n");
         VkDrmFormatModifierPropertiesEXT* result;
         [&]() {
 
@@ -29652,7 +29652,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceImageDrmFormatModifierInfoEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceImageDrmFormatModifierInfoEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceImageDrmFormatModifierInfoEXT...\n");
         VkPhysicalDeviceImageDrmFormatModifierInfoEXT* result;
         [&]() {
 
@@ -29669,7 +29669,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageDrmFormatModifierListCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkImageDrmFormatModifierListCreateInfoEXT...\n");
+        debug_printf("Deserializing VkImageDrmFormatModifierListCreateInfoEXT...\n");
         VkImageDrmFormatModifierListCreateInfoEXT* result;
         [&]() {
 
@@ -29686,7 +29686,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageDrmFormatModifierExplicitCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkImageDrmFormatModifierExplicitCreateInfoEXT...\n");
+        debug_printf("Deserializing VkImageDrmFormatModifierExplicitCreateInfoEXT...\n");
         VkImageDrmFormatModifierExplicitCreateInfoEXT* result;
         [&]() {
 
@@ -29703,7 +29703,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageDrmFormatModifierPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkImageDrmFormatModifierPropertiesEXT...\n");
+        debug_printf("Deserializing VkImageDrmFormatModifierPropertiesEXT...\n");
         VkImageDrmFormatModifierPropertiesEXT* result;
         [&]() {
 
@@ -29720,7 +29720,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageStencilUsageCreateInfo_pNext(json& name){
-        printf("Deserializing VkImageStencilUsageCreateInfo...\n");
+        debug_printf("Deserializing VkImageStencilUsageCreateInfo...\n");
         VkImageStencilUsageCreateInfo* result;
         [&]() {
 
@@ -29737,7 +29737,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageStencilUsageCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkImageStencilUsageCreateInfoEXT...\n");
+        debug_printf("Deserializing VkImageStencilUsageCreateInfoEXT...\n");
         VkImageStencilUsageCreateInfoEXT* result;
         [&]() {
 
@@ -29754,7 +29754,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceMemoryOverallocationCreateInfoAMD_pNext(json& name){
-        printf("Deserializing VkDeviceMemoryOverallocationCreateInfoAMD...\n");
+        debug_printf("Deserializing VkDeviceMemoryOverallocationCreateInfoAMD...\n");
         VkDeviceMemoryOverallocationCreateInfoAMD* result;
         [&]() {
 
@@ -29771,7 +29771,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFragmentDensityMapFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFragmentDensityMapFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFragmentDensityMapFeaturesEXT...\n");
         VkPhysicalDeviceFragmentDensityMapFeaturesEXT* result;
         [&]() {
 
@@ -29788,7 +29788,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFragmentDensityMap2FeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFragmentDensityMap2FeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFragmentDensityMap2FeaturesEXT...\n");
         VkPhysicalDeviceFragmentDensityMap2FeaturesEXT* result;
         [&]() {
 
@@ -29805,7 +29805,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM...\n");
         VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM* result;
         [&]() {
 
@@ -29822,7 +29822,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFragmentDensityMapPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFragmentDensityMapPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFragmentDensityMapPropertiesEXT...\n");
         VkPhysicalDeviceFragmentDensityMapPropertiesEXT* result;
         [&]() {
 
@@ -29839,7 +29839,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFragmentDensityMap2PropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFragmentDensityMap2PropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFragmentDensityMap2PropertiesEXT...\n");
         VkPhysicalDeviceFragmentDensityMap2PropertiesEXT* result;
         [&]() {
 
@@ -29856,7 +29856,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM...\n");
         VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM* result;
         [&]() {
 
@@ -29873,7 +29873,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassFragmentDensityMapCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkRenderPassFragmentDensityMapCreateInfoEXT...\n");
+        debug_printf("Deserializing VkRenderPassFragmentDensityMapCreateInfoEXT...\n");
         VkRenderPassFragmentDensityMapCreateInfoEXT* result;
         [&]() {
 
@@ -29890,7 +29890,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubpassFragmentDensityMapOffsetEndInfoQCOM_pNext(json& name){
-        printf("Deserializing VkSubpassFragmentDensityMapOffsetEndInfoQCOM...\n");
+        debug_printf("Deserializing VkSubpassFragmentDensityMapOffsetEndInfoQCOM...\n");
         VkSubpassFragmentDensityMapOffsetEndInfoQCOM* result;
         [&]() {
 
@@ -29907,7 +29907,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceScalarBlockLayoutFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceScalarBlockLayoutFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceScalarBlockLayoutFeatures...\n");
         VkPhysicalDeviceScalarBlockLayoutFeatures* result;
         [&]() {
 
@@ -29924,7 +29924,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceScalarBlockLayoutFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceScalarBlockLayoutFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceScalarBlockLayoutFeaturesEXT...\n");
         VkPhysicalDeviceScalarBlockLayoutFeaturesEXT* result;
         [&]() {
 
@@ -29941,7 +29941,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSurfaceProtectedCapabilitiesKHR_pNext(json& name){
-        printf("Deserializing VkSurfaceProtectedCapabilitiesKHR...\n");
+        debug_printf("Deserializing VkSurfaceProtectedCapabilitiesKHR...\n");
         VkSurfaceProtectedCapabilitiesKHR* result;
         [&]() {
 
@@ -29958,7 +29958,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceUniformBufferStandardLayoutFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceUniformBufferStandardLayoutFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceUniformBufferStandardLayoutFeatures...\n");
         VkPhysicalDeviceUniformBufferStandardLayoutFeatures* result;
         [&]() {
 
@@ -29975,7 +29975,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceUniformBufferStandardLayoutFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceUniformBufferStandardLayoutFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceUniformBufferStandardLayoutFeaturesKHR...\n");
         VkPhysicalDeviceUniformBufferStandardLayoutFeaturesKHR* result;
         [&]() {
 
@@ -29992,7 +29992,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDepthClipEnableFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDepthClipEnableFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDepthClipEnableFeaturesEXT...\n");
         VkPhysicalDeviceDepthClipEnableFeaturesEXT* result;
         [&]() {
 
@@ -30009,7 +30009,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineRasterizationDepthClipStateCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkPipelineRasterizationDepthClipStateCreateInfoEXT...\n");
+        debug_printf("Deserializing VkPipelineRasterizationDepthClipStateCreateInfoEXT...\n");
         VkPipelineRasterizationDepthClipStateCreateInfoEXT* result;
         [&]() {
 
@@ -30026,7 +30026,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMemoryBudgetPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMemoryBudgetPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMemoryBudgetPropertiesEXT...\n");
         VkPhysicalDeviceMemoryBudgetPropertiesEXT* result;
         [&]() {
 
@@ -30043,7 +30043,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMemoryPriorityFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMemoryPriorityFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMemoryPriorityFeaturesEXT...\n");
         VkPhysicalDeviceMemoryPriorityFeaturesEXT* result;
         [&]() {
 
@@ -30060,7 +30060,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryPriorityAllocateInfoEXT_pNext(json& name){
-        printf("Deserializing VkMemoryPriorityAllocateInfoEXT...\n");
+        debug_printf("Deserializing VkMemoryPriorityAllocateInfoEXT...\n");
         VkMemoryPriorityAllocateInfoEXT* result;
         [&]() {
 
@@ -30077,7 +30077,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT...\n");
         VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT* result;
         [&]() {
 
@@ -30094,7 +30094,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceBufferDeviceAddressFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceBufferDeviceAddressFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceBufferDeviceAddressFeatures...\n");
         VkPhysicalDeviceBufferDeviceAddressFeatures* result;
         [&]() {
 
@@ -30111,7 +30111,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceBufferDeviceAddressFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceBufferDeviceAddressFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceBufferDeviceAddressFeaturesKHR...\n");
         VkPhysicalDeviceBufferDeviceAddressFeaturesKHR* result;
         [&]() {
 
@@ -30128,7 +30128,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceBufferDeviceAddressFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceBufferDeviceAddressFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceBufferDeviceAddressFeaturesEXT...\n");
         VkPhysicalDeviceBufferDeviceAddressFeaturesEXT* result;
         [&]() {
 
@@ -30145,7 +30145,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceBufferAddressFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceBufferAddressFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceBufferAddressFeaturesEXT...\n");
         VkPhysicalDeviceBufferAddressFeaturesEXT* result;
         [&]() {
 
@@ -30162,7 +30162,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferDeviceAddressInfo_pNext(json& name){
-        printf("Deserializing VkBufferDeviceAddressInfo...\n");
+        debug_printf("Deserializing VkBufferDeviceAddressInfo...\n");
         VkBufferDeviceAddressInfo* result;
         [&]() {
 
@@ -30179,7 +30179,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferDeviceAddressInfoKHR_pNext(json& name){
-        printf("Deserializing VkBufferDeviceAddressInfoKHR...\n");
+        debug_printf("Deserializing VkBufferDeviceAddressInfoKHR...\n");
         VkBufferDeviceAddressInfoKHR* result;
         [&]() {
 
@@ -30196,7 +30196,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferDeviceAddressInfoEXT_pNext(json& name){
-        printf("Deserializing VkBufferDeviceAddressInfoEXT...\n");
+        debug_printf("Deserializing VkBufferDeviceAddressInfoEXT...\n");
         VkBufferDeviceAddressInfoEXT* result;
         [&]() {
 
@@ -30213,7 +30213,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferOpaqueCaptureAddressCreateInfo_pNext(json& name){
-        printf("Deserializing VkBufferOpaqueCaptureAddressCreateInfo...\n");
+        debug_printf("Deserializing VkBufferOpaqueCaptureAddressCreateInfo...\n");
         VkBufferOpaqueCaptureAddressCreateInfo* result;
         [&]() {
 
@@ -30230,7 +30230,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferOpaqueCaptureAddressCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkBufferOpaqueCaptureAddressCreateInfoKHR...\n");
+        debug_printf("Deserializing VkBufferOpaqueCaptureAddressCreateInfoKHR...\n");
         VkBufferOpaqueCaptureAddressCreateInfoKHR* result;
         [&]() {
 
@@ -30247,7 +30247,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferDeviceAddressCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkBufferDeviceAddressCreateInfoEXT...\n");
+        debug_printf("Deserializing VkBufferDeviceAddressCreateInfoEXT...\n");
         VkBufferDeviceAddressCreateInfoEXT* result;
         [&]() {
 
@@ -30264,7 +30264,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceImageViewImageFormatInfoEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceImageViewImageFormatInfoEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceImageViewImageFormatInfoEXT...\n");
         VkPhysicalDeviceImageViewImageFormatInfoEXT* result;
         [&]() {
 
@@ -30281,7 +30281,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkFilterCubicImageViewImageFormatPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkFilterCubicImageViewImageFormatPropertiesEXT...\n");
+        debug_printf("Deserializing VkFilterCubicImageViewImageFormatPropertiesEXT...\n");
         VkFilterCubicImageViewImageFormatPropertiesEXT* result;
         [&]() {
 
@@ -30298,7 +30298,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceImagelessFramebufferFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceImagelessFramebufferFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceImagelessFramebufferFeatures...\n");
         VkPhysicalDeviceImagelessFramebufferFeatures* result;
         [&]() {
 
@@ -30315,7 +30315,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceImagelessFramebufferFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceImagelessFramebufferFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceImagelessFramebufferFeaturesKHR...\n");
         VkPhysicalDeviceImagelessFramebufferFeaturesKHR* result;
         [&]() {
 
@@ -30332,7 +30332,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkFramebufferAttachmentsCreateInfo_pNext(json& name){
-        printf("Deserializing VkFramebufferAttachmentsCreateInfo...\n");
+        debug_printf("Deserializing VkFramebufferAttachmentsCreateInfo...\n");
         VkFramebufferAttachmentsCreateInfo* result;
         [&]() {
 
@@ -30349,7 +30349,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkFramebufferAttachmentsCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkFramebufferAttachmentsCreateInfoKHR...\n");
+        debug_printf("Deserializing VkFramebufferAttachmentsCreateInfoKHR...\n");
         VkFramebufferAttachmentsCreateInfoKHR* result;
         [&]() {
 
@@ -30366,7 +30366,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkFramebufferAttachmentImageInfo_pNext(json& name){
-        printf("Deserializing VkFramebufferAttachmentImageInfo...\n");
+        debug_printf("Deserializing VkFramebufferAttachmentImageInfo...\n");
         VkFramebufferAttachmentImageInfo* result;
         [&]() {
 
@@ -30383,7 +30383,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkFramebufferAttachmentImageInfoKHR_pNext(json& name){
-        printf("Deserializing VkFramebufferAttachmentImageInfoKHR...\n");
+        debug_printf("Deserializing VkFramebufferAttachmentImageInfoKHR...\n");
         VkFramebufferAttachmentImageInfoKHR* result;
         [&]() {
 
@@ -30400,7 +30400,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassAttachmentBeginInfo_pNext(json& name){
-        printf("Deserializing VkRenderPassAttachmentBeginInfo...\n");
+        debug_printf("Deserializing VkRenderPassAttachmentBeginInfo...\n");
         VkRenderPassAttachmentBeginInfo* result;
         [&]() {
 
@@ -30417,7 +30417,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassAttachmentBeginInfoKHR_pNext(json& name){
-        printf("Deserializing VkRenderPassAttachmentBeginInfoKHR...\n");
+        debug_printf("Deserializing VkRenderPassAttachmentBeginInfoKHR...\n");
         VkRenderPassAttachmentBeginInfoKHR* result;
         [&]() {
 
@@ -30434,7 +30434,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceTextureCompressionASTCHDRFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceTextureCompressionASTCHDRFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceTextureCompressionASTCHDRFeatures...\n");
         VkPhysicalDeviceTextureCompressionASTCHDRFeatures* result;
         [&]() {
 
@@ -30451,7 +30451,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT...\n");
         VkPhysicalDeviceTextureCompressionASTCHDRFeaturesEXT* result;
         [&]() {
 
@@ -30468,7 +30468,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceCooperativeMatrixFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceCooperativeMatrixFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceCooperativeMatrixFeaturesNV...\n");
         VkPhysicalDeviceCooperativeMatrixFeaturesNV* result;
         [&]() {
 
@@ -30485,7 +30485,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceCooperativeMatrixPropertiesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceCooperativeMatrixPropertiesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceCooperativeMatrixPropertiesNV...\n");
         VkPhysicalDeviceCooperativeMatrixPropertiesNV* result;
         [&]() {
 
@@ -30502,7 +30502,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCooperativeMatrixPropertiesNV_pNext(json& name){
-        printf("Deserializing VkCooperativeMatrixPropertiesNV...\n");
+        debug_printf("Deserializing VkCooperativeMatrixPropertiesNV...\n");
         VkCooperativeMatrixPropertiesNV* result;
         [&]() {
 
@@ -30519,7 +30519,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceYcbcrImageArraysFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceYcbcrImageArraysFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceYcbcrImageArraysFeaturesEXT...\n");
         VkPhysicalDeviceYcbcrImageArraysFeaturesEXT* result;
         [&]() {
 
@@ -30536,7 +30536,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageViewHandleInfoNVX_pNext(json& name){
-        printf("Deserializing VkImageViewHandleInfoNVX...\n");
+        debug_printf("Deserializing VkImageViewHandleInfoNVX...\n");
         VkImageViewHandleInfoNVX* result;
         [&]() {
 
@@ -30553,7 +30553,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageViewAddressPropertiesNVX_pNext(json& name){
-        printf("Deserializing VkImageViewAddressPropertiesNVX...\n");
+        debug_printf("Deserializing VkImageViewAddressPropertiesNVX...\n");
         VkImageViewAddressPropertiesNVX* result;
         [&]() {
 
@@ -30570,7 +30570,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineCreationFeedback_pNext(json& name){
-        printf("Deserializing VkPipelineCreationFeedback...\n");
+        debug_printf("Deserializing VkPipelineCreationFeedback...\n");
         VkPipelineCreationFeedback* result;
         [&]() {
 
@@ -30587,7 +30587,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineCreationFeedbackEXT_pNext(json& name){
-        printf("Deserializing VkPipelineCreationFeedbackEXT...\n");
+        debug_printf("Deserializing VkPipelineCreationFeedbackEXT...\n");
         VkPipelineCreationFeedbackEXT* result;
         [&]() {
 
@@ -30604,7 +30604,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineCreationFeedbackCreateInfo_pNext(json& name){
-        printf("Deserializing VkPipelineCreationFeedbackCreateInfo...\n");
+        debug_printf("Deserializing VkPipelineCreationFeedbackCreateInfo...\n");
         VkPipelineCreationFeedbackCreateInfo* result;
         [&]() {
 
@@ -30621,7 +30621,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineCreationFeedbackCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkPipelineCreationFeedbackCreateInfoEXT...\n");
+        debug_printf("Deserializing VkPipelineCreationFeedbackCreateInfoEXT...\n");
         VkPipelineCreationFeedbackCreateInfoEXT* result;
         [&]() {
 
@@ -30638,7 +30638,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePresentBarrierFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePresentBarrierFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDevicePresentBarrierFeaturesNV...\n");
         VkPhysicalDevicePresentBarrierFeaturesNV* result;
         [&]() {
 
@@ -30655,7 +30655,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSurfaceCapabilitiesPresentBarrierNV_pNext(json& name){
-        printf("Deserializing VkSurfaceCapabilitiesPresentBarrierNV...\n");
+        debug_printf("Deserializing VkSurfaceCapabilitiesPresentBarrierNV...\n");
         VkSurfaceCapabilitiesPresentBarrierNV* result;
         [&]() {
 
@@ -30672,7 +30672,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSwapchainPresentBarrierCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkSwapchainPresentBarrierCreateInfoNV...\n");
+        debug_printf("Deserializing VkSwapchainPresentBarrierCreateInfoNV...\n");
         VkSwapchainPresentBarrierCreateInfoNV* result;
         [&]() {
 
@@ -30689,7 +30689,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePerformanceQueryFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePerformanceQueryFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDevicePerformanceQueryFeaturesKHR...\n");
         VkPhysicalDevicePerformanceQueryFeaturesKHR* result;
         [&]() {
 
@@ -30706,7 +30706,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePerformanceQueryPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePerformanceQueryPropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDevicePerformanceQueryPropertiesKHR...\n");
         VkPhysicalDevicePerformanceQueryPropertiesKHR* result;
         [&]() {
 
@@ -30723,7 +30723,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPerformanceCounterKHR_pNext(json& name){
-        printf("Deserializing VkPerformanceCounterKHR...\n");
+        debug_printf("Deserializing VkPerformanceCounterKHR...\n");
         VkPerformanceCounterKHR* result;
         [&]() {
 
@@ -30740,7 +30740,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPerformanceCounterDescriptionKHR_pNext(json& name){
-        printf("Deserializing VkPerformanceCounterDescriptionKHR...\n");
+        debug_printf("Deserializing VkPerformanceCounterDescriptionKHR...\n");
         VkPerformanceCounterDescriptionKHR* result;
         [&]() {
 
@@ -30757,7 +30757,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkQueryPoolPerformanceCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkQueryPoolPerformanceCreateInfoKHR...\n");
+        debug_printf("Deserializing VkQueryPoolPerformanceCreateInfoKHR...\n");
         VkQueryPoolPerformanceCreateInfoKHR* result;
         [&]() {
 
@@ -30774,7 +30774,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPerformanceCounterResultKHR_pNext(json& name){
-        printf("Deserializing VkPerformanceCounterResultKHR...\n");
+        debug_printf("Deserializing VkPerformanceCounterResultKHR...\n");
         VkPerformanceCounterResultKHR* result;
         [&]() {
 
@@ -30791,7 +30791,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAcquireProfilingLockInfoKHR_pNext(json& name){
-        printf("Deserializing VkAcquireProfilingLockInfoKHR...\n");
+        debug_printf("Deserializing VkAcquireProfilingLockInfoKHR...\n");
         VkAcquireProfilingLockInfoKHR* result;
         [&]() {
 
@@ -30808,7 +30808,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPerformanceQuerySubmitInfoKHR_pNext(json& name){
-        printf("Deserializing VkPerformanceQuerySubmitInfoKHR...\n");
+        debug_printf("Deserializing VkPerformanceQuerySubmitInfoKHR...\n");
         VkPerformanceQuerySubmitInfoKHR* result;
         [&]() {
 
@@ -30825,7 +30825,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkHeadlessSurfaceCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkHeadlessSurfaceCreateInfoEXT...\n");
+        debug_printf("Deserializing VkHeadlessSurfaceCreateInfoEXT...\n");
         VkHeadlessSurfaceCreateInfoEXT* result;
         [&]() {
 
@@ -30842,7 +30842,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceCoverageReductionModeFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceCoverageReductionModeFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceCoverageReductionModeFeaturesNV...\n");
         VkPhysicalDeviceCoverageReductionModeFeaturesNV* result;
         [&]() {
 
@@ -30859,7 +30859,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineCoverageReductionStateCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkPipelineCoverageReductionStateCreateInfoNV...\n");
+        debug_printf("Deserializing VkPipelineCoverageReductionStateCreateInfoNV...\n");
         VkPipelineCoverageReductionStateCreateInfoNV* result;
         [&]() {
 
@@ -30876,7 +30876,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkFramebufferMixedSamplesCombinationNV_pNext(json& name){
-        printf("Deserializing VkFramebufferMixedSamplesCombinationNV...\n");
+        debug_printf("Deserializing VkFramebufferMixedSamplesCombinationNV...\n");
         VkFramebufferMixedSamplesCombinationNV* result;
         [&]() {
 
@@ -30893,7 +30893,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL...\n");
         VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL* result;
         [&]() {
 
@@ -30910,7 +30910,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPerformanceValueDataINTEL_pNext(json& name){
-        printf("Deserializing VkPerformanceValueDataINTEL...\n");
+        debug_printf("Deserializing VkPerformanceValueDataINTEL...\n");
         VkPerformanceValueDataINTEL* result;
         [&]() {
 
@@ -30927,7 +30927,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPerformanceValueINTEL_pNext(json& name){
-        printf("Deserializing VkPerformanceValueINTEL...\n");
+        debug_printf("Deserializing VkPerformanceValueINTEL...\n");
         VkPerformanceValueINTEL* result;
         [&]() {
 
@@ -30944,7 +30944,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkInitializePerformanceApiInfoINTEL_pNext(json& name){
-        printf("Deserializing VkInitializePerformanceApiInfoINTEL...\n");
+        debug_printf("Deserializing VkInitializePerformanceApiInfoINTEL...\n");
         VkInitializePerformanceApiInfoINTEL* result;
         [&]() {
 
@@ -30961,7 +30961,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkQueryPoolPerformanceQueryCreateInfoINTEL_pNext(json& name){
-        printf("Deserializing VkQueryPoolPerformanceQueryCreateInfoINTEL...\n");
+        debug_printf("Deserializing VkQueryPoolPerformanceQueryCreateInfoINTEL...\n");
         VkQueryPoolPerformanceQueryCreateInfoINTEL* result;
         [&]() {
 
@@ -30978,7 +30978,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkQueryPoolCreateInfoINTEL_pNext(json& name){
-        printf("Deserializing VkQueryPoolCreateInfoINTEL...\n");
+        debug_printf("Deserializing VkQueryPoolCreateInfoINTEL...\n");
         VkQueryPoolCreateInfoINTEL* result;
         [&]() {
 
@@ -30995,7 +30995,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPerformanceMarkerInfoINTEL_pNext(json& name){
-        printf("Deserializing VkPerformanceMarkerInfoINTEL...\n");
+        debug_printf("Deserializing VkPerformanceMarkerInfoINTEL...\n");
         VkPerformanceMarkerInfoINTEL* result;
         [&]() {
 
@@ -31012,7 +31012,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPerformanceStreamMarkerInfoINTEL_pNext(json& name){
-        printf("Deserializing VkPerformanceStreamMarkerInfoINTEL...\n");
+        debug_printf("Deserializing VkPerformanceStreamMarkerInfoINTEL...\n");
         VkPerformanceStreamMarkerInfoINTEL* result;
         [&]() {
 
@@ -31029,7 +31029,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPerformanceOverrideInfoINTEL_pNext(json& name){
-        printf("Deserializing VkPerformanceOverrideInfoINTEL...\n");
+        debug_printf("Deserializing VkPerformanceOverrideInfoINTEL...\n");
         VkPerformanceOverrideInfoINTEL* result;
         [&]() {
 
@@ -31046,7 +31046,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPerformanceConfigurationAcquireInfoINTEL_pNext(json& name){
-        printf("Deserializing VkPerformanceConfigurationAcquireInfoINTEL...\n");
+        debug_printf("Deserializing VkPerformanceConfigurationAcquireInfoINTEL...\n");
         VkPerformanceConfigurationAcquireInfoINTEL* result;
         [&]() {
 
@@ -31063,7 +31063,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderClockFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderClockFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderClockFeaturesKHR...\n");
         VkPhysicalDeviceShaderClockFeaturesKHR* result;
         [&]() {
 
@@ -31080,7 +31080,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceIndexTypeUint8FeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceIndexTypeUint8FeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceIndexTypeUint8FeaturesEXT...\n");
         VkPhysicalDeviceIndexTypeUint8FeaturesEXT* result;
         [&]() {
 
@@ -31097,7 +31097,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderSMBuiltinsPropertiesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderSMBuiltinsPropertiesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderSMBuiltinsPropertiesNV...\n");
         VkPhysicalDeviceShaderSMBuiltinsPropertiesNV* result;
         [&]() {
 
@@ -31114,7 +31114,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderSMBuiltinsFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderSMBuiltinsFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderSMBuiltinsFeaturesNV...\n");
         VkPhysicalDeviceShaderSMBuiltinsFeaturesNV* result;
         [&]() {
 
@@ -31131,7 +31131,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT...\n");
         VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT* result;
         [&]() {
 
@@ -31148,7 +31148,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures...\n");
         VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures* result;
         [&]() {
 
@@ -31165,7 +31165,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR...\n");
         VkPhysicalDeviceSeparateDepthStencilLayoutsFeaturesKHR* result;
         [&]() {
 
@@ -31182,7 +31182,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAttachmentReferenceStencilLayout_pNext(json& name){
-        printf("Deserializing VkAttachmentReferenceStencilLayout...\n");
+        debug_printf("Deserializing VkAttachmentReferenceStencilLayout...\n");
         VkAttachmentReferenceStencilLayout* result;
         [&]() {
 
@@ -31199,7 +31199,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT...\n");
         VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT* result;
         [&]() {
 
@@ -31216,7 +31216,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAttachmentReferenceStencilLayoutKHR_pNext(json& name){
-        printf("Deserializing VkAttachmentReferenceStencilLayoutKHR...\n");
+        debug_printf("Deserializing VkAttachmentReferenceStencilLayoutKHR...\n");
         VkAttachmentReferenceStencilLayoutKHR* result;
         [&]() {
 
@@ -31233,7 +31233,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAttachmentDescriptionStencilLayout_pNext(json& name){
-        printf("Deserializing VkAttachmentDescriptionStencilLayout...\n");
+        debug_printf("Deserializing VkAttachmentDescriptionStencilLayout...\n");
         VkAttachmentDescriptionStencilLayout* result;
         [&]() {
 
@@ -31250,7 +31250,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAttachmentDescriptionStencilLayoutKHR_pNext(json& name){
-        printf("Deserializing VkAttachmentDescriptionStencilLayoutKHR...\n");
+        debug_printf("Deserializing VkAttachmentDescriptionStencilLayoutKHR...\n");
         VkAttachmentDescriptionStencilLayoutKHR* result;
         [&]() {
 
@@ -31267,7 +31267,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR...\n");
         VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR* result;
         [&]() {
 
@@ -31284,7 +31284,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineInfoKHR_pNext(json& name){
-        printf("Deserializing VkPipelineInfoKHR...\n");
+        debug_printf("Deserializing VkPipelineInfoKHR...\n");
         VkPipelineInfoKHR* result;
         [&]() {
 
@@ -31301,7 +31301,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineInfoEXT_pNext(json& name){
-        printf("Deserializing VkPipelineInfoEXT...\n");
+        debug_printf("Deserializing VkPipelineInfoEXT...\n");
         VkPipelineInfoEXT* result;
         [&]() {
 
@@ -31318,7 +31318,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineExecutablePropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPipelineExecutablePropertiesKHR...\n");
+        debug_printf("Deserializing VkPipelineExecutablePropertiesKHR...\n");
         VkPipelineExecutablePropertiesKHR* result;
         [&]() {
 
@@ -31335,7 +31335,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineExecutableInfoKHR_pNext(json& name){
-        printf("Deserializing VkPipelineExecutableInfoKHR...\n");
+        debug_printf("Deserializing VkPipelineExecutableInfoKHR...\n");
         VkPipelineExecutableInfoKHR* result;
         [&]() {
 
@@ -31352,7 +31352,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineExecutableStatisticValueKHR_pNext(json& name){
-        printf("Deserializing VkPipelineExecutableStatisticValueKHR...\n");
+        debug_printf("Deserializing VkPipelineExecutableStatisticValueKHR...\n");
         VkPipelineExecutableStatisticValueKHR* result;
         [&]() {
 
@@ -31369,7 +31369,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineExecutableStatisticKHR_pNext(json& name){
-        printf("Deserializing VkPipelineExecutableStatisticKHR...\n");
+        debug_printf("Deserializing VkPipelineExecutableStatisticKHR...\n");
         VkPipelineExecutableStatisticKHR* result;
         [&]() {
 
@@ -31386,7 +31386,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineExecutableInternalRepresentationKHR_pNext(json& name){
-        printf("Deserializing VkPipelineExecutableInternalRepresentationKHR...\n");
+        debug_printf("Deserializing VkPipelineExecutableInternalRepresentationKHR...\n");
         VkPipelineExecutableInternalRepresentationKHR* result;
         [&]() {
 
@@ -31403,7 +31403,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures...\n");
         VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures* result;
         [&]() {
 
@@ -31420,7 +31420,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT...\n");
         VkPhysicalDeviceShaderDemoteToHelperInvocationFeaturesEXT* result;
         [&]() {
 
@@ -31437,7 +31437,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT...\n");
         VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT* result;
         [&]() {
 
@@ -31454,7 +31454,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceTexelBufferAlignmentProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceTexelBufferAlignmentProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceTexelBufferAlignmentProperties...\n");
         VkPhysicalDeviceTexelBufferAlignmentProperties* result;
         [&]() {
 
@@ -31471,7 +31471,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT...\n");
         VkPhysicalDeviceTexelBufferAlignmentPropertiesEXT* result;
         [&]() {
 
@@ -31488,7 +31488,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSubgroupSizeControlFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSubgroupSizeControlFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSubgroupSizeControlFeatures...\n");
         VkPhysicalDeviceSubgroupSizeControlFeatures* result;
         [&]() {
 
@@ -31505,7 +31505,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSubgroupSizeControlFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSubgroupSizeControlFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSubgroupSizeControlFeaturesEXT...\n");
         VkPhysicalDeviceSubgroupSizeControlFeaturesEXT* result;
         [&]() {
 
@@ -31522,7 +31522,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSubgroupSizeControlProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSubgroupSizeControlProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSubgroupSizeControlProperties...\n");
         VkPhysicalDeviceSubgroupSizeControlProperties* result;
         [&]() {
 
@@ -31539,7 +31539,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSubgroupSizeControlPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSubgroupSizeControlPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSubgroupSizeControlPropertiesEXT...\n");
         VkPhysicalDeviceSubgroupSizeControlPropertiesEXT* result;
         [&]() {
 
@@ -31556,7 +31556,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineShaderStageRequiredSubgroupSizeCreateInfo_pNext(json& name){
-        printf("Deserializing VkPipelineShaderStageRequiredSubgroupSizeCreateInfo...\n");
+        debug_printf("Deserializing VkPipelineShaderStageRequiredSubgroupSizeCreateInfo...\n");
         VkPipelineShaderStageRequiredSubgroupSizeCreateInfo* result;
         [&]() {
 
@@ -31573,7 +31573,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT...\n");
+        debug_printf("Deserializing VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT...\n");
         VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT* result;
         [&]() {
 
@@ -31590,7 +31590,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkShaderRequiredSubgroupSizeCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkShaderRequiredSubgroupSizeCreateInfoEXT...\n");
+        debug_printf("Deserializing VkShaderRequiredSubgroupSizeCreateInfoEXT...\n");
         VkShaderRequiredSubgroupSizeCreateInfoEXT* result;
         [&]() {
 
@@ -31607,7 +31607,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubpassShadingPipelineCreateInfoHUAWEI_pNext(json& name){
-        printf("Deserializing VkSubpassShadingPipelineCreateInfoHUAWEI...\n");
+        debug_printf("Deserializing VkSubpassShadingPipelineCreateInfoHUAWEI...\n");
         VkSubpassShadingPipelineCreateInfoHUAWEI* result;
         [&]() {
 
@@ -31624,7 +31624,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSubpassShadingPropertiesHUAWEI_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSubpassShadingPropertiesHUAWEI...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSubpassShadingPropertiesHUAWEI...\n");
         VkPhysicalDeviceSubpassShadingPropertiesHUAWEI* result;
         [&]() {
 
@@ -31641,7 +31641,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI...\n");
+        debug_printf("Deserializing VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI...\n");
         VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI* result;
         [&]() {
 
@@ -31658,7 +31658,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryOpaqueCaptureAddressAllocateInfo_pNext(json& name){
-        printf("Deserializing VkMemoryOpaqueCaptureAddressAllocateInfo...\n");
+        debug_printf("Deserializing VkMemoryOpaqueCaptureAddressAllocateInfo...\n");
         VkMemoryOpaqueCaptureAddressAllocateInfo* result;
         [&]() {
 
@@ -31675,7 +31675,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryOpaqueCaptureAddressAllocateInfoKHR_pNext(json& name){
-        printf("Deserializing VkMemoryOpaqueCaptureAddressAllocateInfoKHR...\n");
+        debug_printf("Deserializing VkMemoryOpaqueCaptureAddressAllocateInfoKHR...\n");
         VkMemoryOpaqueCaptureAddressAllocateInfoKHR* result;
         [&]() {
 
@@ -31692,7 +31692,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceMemoryOpaqueCaptureAddressInfo_pNext(json& name){
-        printf("Deserializing VkDeviceMemoryOpaqueCaptureAddressInfo...\n");
+        debug_printf("Deserializing VkDeviceMemoryOpaqueCaptureAddressInfo...\n");
         VkDeviceMemoryOpaqueCaptureAddressInfo* result;
         [&]() {
 
@@ -31709,7 +31709,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceMemoryOpaqueCaptureAddressInfoKHR_pNext(json& name){
-        printf("Deserializing VkDeviceMemoryOpaqueCaptureAddressInfoKHR...\n");
+        debug_printf("Deserializing VkDeviceMemoryOpaqueCaptureAddressInfoKHR...\n");
         VkDeviceMemoryOpaqueCaptureAddressInfoKHR* result;
         [&]() {
 
@@ -31726,7 +31726,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceLineRasterizationFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceLineRasterizationFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceLineRasterizationFeaturesEXT...\n");
         VkPhysicalDeviceLineRasterizationFeaturesEXT* result;
         [&]() {
 
@@ -31743,7 +31743,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceLineRasterizationPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceLineRasterizationPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceLineRasterizationPropertiesEXT...\n");
         VkPhysicalDeviceLineRasterizationPropertiesEXT* result;
         [&]() {
 
@@ -31760,7 +31760,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineRasterizationLineStateCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkPipelineRasterizationLineStateCreateInfoEXT...\n");
+        debug_printf("Deserializing VkPipelineRasterizationLineStateCreateInfoEXT...\n");
         VkPipelineRasterizationLineStateCreateInfoEXT* result;
         [&]() {
 
@@ -31777,7 +31777,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePipelineCreationCacheControlFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePipelineCreationCacheControlFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDevicePipelineCreationCacheControlFeatures...\n");
         VkPhysicalDevicePipelineCreationCacheControlFeatures* result;
         [&]() {
 
@@ -31794,7 +31794,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePipelineCreationCacheControlFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePipelineCreationCacheControlFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDevicePipelineCreationCacheControlFeaturesEXT...\n");
         VkPhysicalDevicePipelineCreationCacheControlFeaturesEXT* result;
         [&]() {
 
@@ -31811,7 +31811,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceVulkan11Features_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceVulkan11Features...\n");
+        debug_printf("Deserializing VkPhysicalDeviceVulkan11Features...\n");
         VkPhysicalDeviceVulkan11Features* result;
         [&]() {
 
@@ -31828,7 +31828,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceVulkan11Properties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceVulkan11Properties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceVulkan11Properties...\n");
         VkPhysicalDeviceVulkan11Properties* result;
         [&]() {
 
@@ -31845,7 +31845,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceVulkan12Features_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceVulkan12Features...\n");
+        debug_printf("Deserializing VkPhysicalDeviceVulkan12Features...\n");
         VkPhysicalDeviceVulkan12Features* result;
         [&]() {
 
@@ -31862,7 +31862,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceVulkan12Properties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceVulkan12Properties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceVulkan12Properties...\n");
         VkPhysicalDeviceVulkan12Properties* result;
         [&]() {
 
@@ -31879,7 +31879,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceVulkan13Features_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceVulkan13Features...\n");
+        debug_printf("Deserializing VkPhysicalDeviceVulkan13Features...\n");
         VkPhysicalDeviceVulkan13Features* result;
         [&]() {
 
@@ -31896,7 +31896,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceVulkan13Properties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceVulkan13Properties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceVulkan13Properties...\n");
         VkPhysicalDeviceVulkan13Properties* result;
         [&]() {
 
@@ -31913,7 +31913,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineCompilerControlCreateInfoAMD_pNext(json& name){
-        printf("Deserializing VkPipelineCompilerControlCreateInfoAMD...\n");
+        debug_printf("Deserializing VkPipelineCompilerControlCreateInfoAMD...\n");
         VkPipelineCompilerControlCreateInfoAMD* result;
         [&]() {
 
@@ -31930,7 +31930,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceCoherentMemoryFeaturesAMD_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceCoherentMemoryFeaturesAMD...\n");
+        debug_printf("Deserializing VkPhysicalDeviceCoherentMemoryFeaturesAMD...\n");
         VkPhysicalDeviceCoherentMemoryFeaturesAMD* result;
         [&]() {
 
@@ -31947,7 +31947,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceToolProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceToolProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceToolProperties...\n");
         VkPhysicalDeviceToolProperties* result;
         [&]() {
 
@@ -31964,7 +31964,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceToolPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceToolPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceToolPropertiesEXT...\n");
         VkPhysicalDeviceToolPropertiesEXT* result;
         [&]() {
 
@@ -31981,7 +31981,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSamplerCustomBorderColorCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkSamplerCustomBorderColorCreateInfoEXT...\n");
+        debug_printf("Deserializing VkSamplerCustomBorderColorCreateInfoEXT...\n");
         VkSamplerCustomBorderColorCreateInfoEXT* result;
         [&]() {
 
@@ -31998,7 +31998,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceCustomBorderColorPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceCustomBorderColorPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceCustomBorderColorPropertiesEXT...\n");
         VkPhysicalDeviceCustomBorderColorPropertiesEXT* result;
         [&]() {
 
@@ -32015,7 +32015,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceCustomBorderColorFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceCustomBorderColorFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceCustomBorderColorFeaturesEXT...\n");
         VkPhysicalDeviceCustomBorderColorFeaturesEXT* result;
         [&]() {
 
@@ -32032,7 +32032,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSamplerBorderColorComponentMappingCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkSamplerBorderColorComponentMappingCreateInfoEXT...\n");
+        debug_printf("Deserializing VkSamplerBorderColorComponentMappingCreateInfoEXT...\n");
         VkSamplerBorderColorComponentMappingCreateInfoEXT* result;
         [&]() {
 
@@ -32049,7 +32049,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceBorderColorSwizzleFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceBorderColorSwizzleFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceBorderColorSwizzleFeaturesEXT...\n");
         VkPhysicalDeviceBorderColorSwizzleFeaturesEXT* result;
         [&]() {
 
@@ -32066,7 +32066,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceOrHostAddressKHR_pNext(json& name){
-        printf("Deserializing VkDeviceOrHostAddressKHR...\n");
+        debug_printf("Deserializing VkDeviceOrHostAddressKHR...\n");
         VkDeviceOrHostAddressKHR* result;
         [&]() {
 
@@ -32083,7 +32083,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceOrHostAddressConstKHR_pNext(json& name){
-        printf("Deserializing VkDeviceOrHostAddressConstKHR...\n");
+        debug_printf("Deserializing VkDeviceOrHostAddressConstKHR...\n");
         VkDeviceOrHostAddressConstKHR* result;
         [&]() {
 
@@ -32100,7 +32100,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureGeometryTrianglesDataKHR_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureGeometryTrianglesDataKHR...\n");
+        debug_printf("Deserializing VkAccelerationStructureGeometryTrianglesDataKHR...\n");
         VkAccelerationStructureGeometryTrianglesDataKHR* result;
         [&]() {
 
@@ -32117,7 +32117,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureGeometryAabbsDataKHR_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureGeometryAabbsDataKHR...\n");
+        debug_printf("Deserializing VkAccelerationStructureGeometryAabbsDataKHR...\n");
         VkAccelerationStructureGeometryAabbsDataKHR* result;
         [&]() {
 
@@ -32134,7 +32134,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureGeometryInstancesDataKHR_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureGeometryInstancesDataKHR...\n");
+        debug_printf("Deserializing VkAccelerationStructureGeometryInstancesDataKHR...\n");
         VkAccelerationStructureGeometryInstancesDataKHR* result;
         [&]() {
 
@@ -32151,7 +32151,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureGeometryDataKHR_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureGeometryDataKHR...\n");
+        debug_printf("Deserializing VkAccelerationStructureGeometryDataKHR...\n");
         VkAccelerationStructureGeometryDataKHR* result;
         [&]() {
 
@@ -32168,7 +32168,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureGeometryKHR_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureGeometryKHR...\n");
+        debug_printf("Deserializing VkAccelerationStructureGeometryKHR...\n");
         VkAccelerationStructureGeometryKHR* result;
         [&]() {
 
@@ -32185,7 +32185,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureBuildGeometryInfoKHR_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureBuildGeometryInfoKHR...\n");
+        debug_printf("Deserializing VkAccelerationStructureBuildGeometryInfoKHR...\n");
         VkAccelerationStructureBuildGeometryInfoKHR* result;
         [&]() {
 
@@ -32202,7 +32202,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureBuildRangeInfoKHR_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureBuildRangeInfoKHR...\n");
+        debug_printf("Deserializing VkAccelerationStructureBuildRangeInfoKHR...\n");
         VkAccelerationStructureBuildRangeInfoKHR* result;
         [&]() {
 
@@ -32219,7 +32219,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureCreateInfoKHR...\n");
+        debug_printf("Deserializing VkAccelerationStructureCreateInfoKHR...\n");
         VkAccelerationStructureCreateInfoKHR* result;
         [&]() {
 
@@ -32236,7 +32236,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAabbPositionsKHR_pNext(json& name){
-        printf("Deserializing VkAabbPositionsKHR...\n");
+        debug_printf("Deserializing VkAabbPositionsKHR...\n");
         VkAabbPositionsKHR* result;
         [&]() {
 
@@ -32253,7 +32253,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAabbPositionsNV_pNext(json& name){
-        printf("Deserializing VkAabbPositionsNV...\n");
+        debug_printf("Deserializing VkAabbPositionsNV...\n");
         VkAabbPositionsNV* result;
         [&]() {
 
@@ -32270,7 +32270,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkTransformMatrixKHR_pNext(json& name){
-        printf("Deserializing VkTransformMatrixKHR...\n");
+        debug_printf("Deserializing VkTransformMatrixKHR...\n");
         VkTransformMatrixKHR* result;
         [&]() {
 
@@ -32287,7 +32287,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkTransformMatrixNV_pNext(json& name){
-        printf("Deserializing VkTransformMatrixNV...\n");
+        debug_printf("Deserializing VkTransformMatrixNV...\n");
         VkTransformMatrixNV* result;
         [&]() {
 
@@ -32304,7 +32304,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureInstanceKHR_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureInstanceKHR...\n");
+        debug_printf("Deserializing VkAccelerationStructureInstanceKHR...\n");
         VkAccelerationStructureInstanceKHR* result;
         [&]() {
 
@@ -32321,7 +32321,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureInstanceNV_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureInstanceNV...\n");
+        debug_printf("Deserializing VkAccelerationStructureInstanceNV...\n");
         VkAccelerationStructureInstanceNV* result;
         [&]() {
 
@@ -32338,7 +32338,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureDeviceAddressInfoKHR_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureDeviceAddressInfoKHR...\n");
+        debug_printf("Deserializing VkAccelerationStructureDeviceAddressInfoKHR...\n");
         VkAccelerationStructureDeviceAddressInfoKHR* result;
         [&]() {
 
@@ -32355,7 +32355,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureVersionInfoKHR_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureVersionInfoKHR...\n");
+        debug_printf("Deserializing VkAccelerationStructureVersionInfoKHR...\n");
         VkAccelerationStructureVersionInfoKHR* result;
         [&]() {
 
@@ -32372,7 +32372,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyAccelerationStructureInfoKHR_pNext(json& name){
-        printf("Deserializing VkCopyAccelerationStructureInfoKHR...\n");
+        debug_printf("Deserializing VkCopyAccelerationStructureInfoKHR...\n");
         VkCopyAccelerationStructureInfoKHR* result;
         [&]() {
 
@@ -32389,7 +32389,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyAccelerationStructureToMemoryInfoKHR_pNext(json& name){
-        printf("Deserializing VkCopyAccelerationStructureToMemoryInfoKHR...\n");
+        debug_printf("Deserializing VkCopyAccelerationStructureToMemoryInfoKHR...\n");
         VkCopyAccelerationStructureToMemoryInfoKHR* result;
         [&]() {
 
@@ -32406,7 +32406,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyMemoryToAccelerationStructureInfoKHR_pNext(json& name){
-        printf("Deserializing VkCopyMemoryToAccelerationStructureInfoKHR...\n");
+        debug_printf("Deserializing VkCopyMemoryToAccelerationStructureInfoKHR...\n");
         VkCopyMemoryToAccelerationStructureInfoKHR* result;
         [&]() {
 
@@ -32423,7 +32423,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRayTracingPipelineInterfaceCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkRayTracingPipelineInterfaceCreateInfoKHR...\n");
+        debug_printf("Deserializing VkRayTracingPipelineInterfaceCreateInfoKHR...\n");
         VkRayTracingPipelineInterfaceCreateInfoKHR* result;
         [&]() {
 
@@ -32440,7 +32440,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineLibraryCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkPipelineLibraryCreateInfoKHR...\n");
+        debug_printf("Deserializing VkPipelineLibraryCreateInfoKHR...\n");
         VkPipelineLibraryCreateInfoKHR* result;
         [&]() {
 
@@ -32457,7 +32457,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceExtendedDynamicStateFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceExtendedDynamicStateFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceExtendedDynamicStateFeaturesEXT...\n");
         VkPhysicalDeviceExtendedDynamicStateFeaturesEXT* result;
         [&]() {
 
@@ -32474,7 +32474,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceExtendedDynamicState2FeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceExtendedDynamicState2FeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceExtendedDynamicState2FeaturesEXT...\n");
         VkPhysicalDeviceExtendedDynamicState2FeaturesEXT* result;
         [&]() {
 
@@ -32491,7 +32491,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceExtendedDynamicState3FeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceExtendedDynamicState3FeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceExtendedDynamicState3FeaturesEXT...\n");
         VkPhysicalDeviceExtendedDynamicState3FeaturesEXT* result;
         [&]() {
 
@@ -32508,7 +32508,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceExtendedDynamicState3PropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceExtendedDynamicState3PropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceExtendedDynamicState3PropertiesEXT...\n");
         VkPhysicalDeviceExtendedDynamicState3PropertiesEXT* result;
         [&]() {
 
@@ -32525,7 +32525,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkColorBlendEquationEXT_pNext(json& name){
-        printf("Deserializing VkColorBlendEquationEXT...\n");
+        debug_printf("Deserializing VkColorBlendEquationEXT...\n");
         VkColorBlendEquationEXT* result;
         [&]() {
 
@@ -32542,7 +32542,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkColorBlendAdvancedEXT_pNext(json& name){
-        printf("Deserializing VkColorBlendAdvancedEXT...\n");
+        debug_printf("Deserializing VkColorBlendAdvancedEXT...\n");
         VkColorBlendAdvancedEXT* result;
         [&]() {
 
@@ -32559,7 +32559,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassTransformBeginInfoQCOM_pNext(json& name){
-        printf("Deserializing VkRenderPassTransformBeginInfoQCOM...\n");
+        debug_printf("Deserializing VkRenderPassTransformBeginInfoQCOM...\n");
         VkRenderPassTransformBeginInfoQCOM* result;
         [&]() {
 
@@ -32576,7 +32576,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyCommandTransformInfoQCOM_pNext(json& name){
-        printf("Deserializing VkCopyCommandTransformInfoQCOM...\n");
+        debug_printf("Deserializing VkCopyCommandTransformInfoQCOM...\n");
         VkCopyCommandTransformInfoQCOM* result;
         [&]() {
 
@@ -32593,7 +32593,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCommandBufferInheritanceRenderPassTransformInfoQCOM_pNext(json& name){
-        printf("Deserializing VkCommandBufferInheritanceRenderPassTransformInfoQCOM...\n");
+        debug_printf("Deserializing VkCommandBufferInheritanceRenderPassTransformInfoQCOM...\n");
         VkCommandBufferInheritanceRenderPassTransformInfoQCOM* result;
         [&]() {
 
@@ -32610,7 +32610,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDiagnosticsConfigFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDiagnosticsConfigFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDiagnosticsConfigFeaturesNV...\n");
         VkPhysicalDeviceDiagnosticsConfigFeaturesNV* result;
         [&]() {
 
@@ -32627,7 +32627,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceDiagnosticsConfigCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkDeviceDiagnosticsConfigCreateInfoNV...\n");
+        debug_printf("Deserializing VkDeviceDiagnosticsConfigCreateInfoNV...\n");
         VkDeviceDiagnosticsConfigCreateInfoNV* result;
         [&]() {
 
@@ -32644,7 +32644,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures...\n");
         VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures* result;
         [&]() {
 
@@ -32661,7 +32661,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR...\n");
         VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeaturesKHR* result;
         [&]() {
 
@@ -32678,7 +32678,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR...\n");
         VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR* result;
         [&]() {
 
@@ -32695,7 +32695,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceRobustness2FeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceRobustness2FeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceRobustness2FeaturesEXT...\n");
         VkPhysicalDeviceRobustness2FeaturesEXT* result;
         [&]() {
 
@@ -32712,7 +32712,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceRobustness2PropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceRobustness2PropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceRobustness2PropertiesEXT...\n");
         VkPhysicalDeviceRobustness2PropertiesEXT* result;
         [&]() {
 
@@ -32729,7 +32729,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceImageRobustnessFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceImageRobustnessFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceImageRobustnessFeatures...\n");
         VkPhysicalDeviceImageRobustnessFeatures* result;
         [&]() {
 
@@ -32746,7 +32746,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceImageRobustnessFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceImageRobustnessFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceImageRobustnessFeaturesEXT...\n");
         VkPhysicalDeviceImageRobustnessFeaturesEXT* result;
         [&]() {
 
@@ -32763,7 +32763,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR...\n");
         VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR* result;
         [&]() {
 
@@ -32780,7 +32780,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevice4444FormatsFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDevice4444FormatsFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDevice4444FormatsFeaturesEXT...\n");
         VkPhysicalDevice4444FormatsFeaturesEXT* result;
         [&]() {
 
@@ -32797,7 +32797,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSubpassShadingFeaturesHUAWEI_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSubpassShadingFeaturesHUAWEI...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSubpassShadingFeaturesHUAWEI...\n");
         VkPhysicalDeviceSubpassShadingFeaturesHUAWEI* result;
         [&]() {
 
@@ -32814,7 +32814,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI...\n");
+        debug_printf("Deserializing VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI...\n");
         VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI* result;
         [&]() {
 
@@ -32831,7 +32831,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferCopy2_pNext(json& name){
-        printf("Deserializing VkBufferCopy2...\n");
+        debug_printf("Deserializing VkBufferCopy2...\n");
         VkBufferCopy2* result;
         [&]() {
 
@@ -32848,7 +32848,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferCopy2KHR_pNext(json& name){
-        printf("Deserializing VkBufferCopy2KHR...\n");
+        debug_printf("Deserializing VkBufferCopy2KHR...\n");
         VkBufferCopy2KHR* result;
         [&]() {
 
@@ -32865,7 +32865,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageCopy2_pNext(json& name){
-        printf("Deserializing VkImageCopy2...\n");
+        debug_printf("Deserializing VkImageCopy2...\n");
         VkImageCopy2* result;
         [&]() {
 
@@ -32882,7 +32882,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageCopy2KHR_pNext(json& name){
-        printf("Deserializing VkImageCopy2KHR...\n");
+        debug_printf("Deserializing VkImageCopy2KHR...\n");
         VkImageCopy2KHR* result;
         [&]() {
 
@@ -32899,7 +32899,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageBlit2_pNext(json& name){
-        printf("Deserializing VkImageBlit2...\n");
+        debug_printf("Deserializing VkImageBlit2...\n");
         VkImageBlit2* result;
         [&]() {
 
@@ -32916,7 +32916,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageBlit2KHR_pNext(json& name){
-        printf("Deserializing VkImageBlit2KHR...\n");
+        debug_printf("Deserializing VkImageBlit2KHR...\n");
         VkImageBlit2KHR* result;
         [&]() {
 
@@ -32933,7 +32933,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferImageCopy2_pNext(json& name){
-        printf("Deserializing VkBufferImageCopy2...\n");
+        debug_printf("Deserializing VkBufferImageCopy2...\n");
         VkBufferImageCopy2* result;
         [&]() {
 
@@ -32950,7 +32950,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferImageCopy2KHR_pNext(json& name){
-        printf("Deserializing VkBufferImageCopy2KHR...\n");
+        debug_printf("Deserializing VkBufferImageCopy2KHR...\n");
         VkBufferImageCopy2KHR* result;
         [&]() {
 
@@ -32967,7 +32967,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageResolve2_pNext(json& name){
-        printf("Deserializing VkImageResolve2...\n");
+        debug_printf("Deserializing VkImageResolve2...\n");
         VkImageResolve2* result;
         [&]() {
 
@@ -32984,7 +32984,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageResolve2KHR_pNext(json& name){
-        printf("Deserializing VkImageResolve2KHR...\n");
+        debug_printf("Deserializing VkImageResolve2KHR...\n");
         VkImageResolve2KHR* result;
         [&]() {
 
@@ -33001,7 +33001,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyBufferInfo2_pNext(json& name){
-        printf("Deserializing VkCopyBufferInfo2...\n");
+        debug_printf("Deserializing VkCopyBufferInfo2...\n");
         VkCopyBufferInfo2* result;
         [&]() {
 
@@ -33018,7 +33018,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyBufferInfo2KHR_pNext(json& name){
-        printf("Deserializing VkCopyBufferInfo2KHR...\n");
+        debug_printf("Deserializing VkCopyBufferInfo2KHR...\n");
         VkCopyBufferInfo2KHR* result;
         [&]() {
 
@@ -33035,7 +33035,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyImageInfo2_pNext(json& name){
-        printf("Deserializing VkCopyImageInfo2...\n");
+        debug_printf("Deserializing VkCopyImageInfo2...\n");
         VkCopyImageInfo2* result;
         [&]() {
 
@@ -33052,7 +33052,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyImageInfo2KHR_pNext(json& name){
-        printf("Deserializing VkCopyImageInfo2KHR...\n");
+        debug_printf("Deserializing VkCopyImageInfo2KHR...\n");
         VkCopyImageInfo2KHR* result;
         [&]() {
 
@@ -33069,7 +33069,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBlitImageInfo2_pNext(json& name){
-        printf("Deserializing VkBlitImageInfo2...\n");
+        debug_printf("Deserializing VkBlitImageInfo2...\n");
         VkBlitImageInfo2* result;
         [&]() {
 
@@ -33086,7 +33086,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBlitImageInfo2KHR_pNext(json& name){
-        printf("Deserializing VkBlitImageInfo2KHR...\n");
+        debug_printf("Deserializing VkBlitImageInfo2KHR...\n");
         VkBlitImageInfo2KHR* result;
         [&]() {
 
@@ -33103,7 +33103,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyBufferToImageInfo2_pNext(json& name){
-        printf("Deserializing VkCopyBufferToImageInfo2...\n");
+        debug_printf("Deserializing VkCopyBufferToImageInfo2...\n");
         VkCopyBufferToImageInfo2* result;
         [&]() {
 
@@ -33120,7 +33120,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyBufferToImageInfo2KHR_pNext(json& name){
-        printf("Deserializing VkCopyBufferToImageInfo2KHR...\n");
+        debug_printf("Deserializing VkCopyBufferToImageInfo2KHR...\n");
         VkCopyBufferToImageInfo2KHR* result;
         [&]() {
 
@@ -33137,7 +33137,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyImageToBufferInfo2_pNext(json& name){
-        printf("Deserializing VkCopyImageToBufferInfo2...\n");
+        debug_printf("Deserializing VkCopyImageToBufferInfo2...\n");
         VkCopyImageToBufferInfo2* result;
         [&]() {
 
@@ -33154,7 +33154,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyImageToBufferInfo2KHR_pNext(json& name){
-        printf("Deserializing VkCopyImageToBufferInfo2KHR...\n");
+        debug_printf("Deserializing VkCopyImageToBufferInfo2KHR...\n");
         VkCopyImageToBufferInfo2KHR* result;
         [&]() {
 
@@ -33171,7 +33171,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkResolveImageInfo2_pNext(json& name){
-        printf("Deserializing VkResolveImageInfo2...\n");
+        debug_printf("Deserializing VkResolveImageInfo2...\n");
         VkResolveImageInfo2* result;
         [&]() {
 
@@ -33188,7 +33188,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkResolveImageInfo2KHR_pNext(json& name){
-        printf("Deserializing VkResolveImageInfo2KHR...\n");
+        debug_printf("Deserializing VkResolveImageInfo2KHR...\n");
         VkResolveImageInfo2KHR* result;
         [&]() {
 
@@ -33205,7 +33205,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT...\n");
         VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT* result;
         [&]() {
 
@@ -33222,7 +33222,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkFragmentShadingRateAttachmentInfoKHR_pNext(json& name){
-        printf("Deserializing VkFragmentShadingRateAttachmentInfoKHR...\n");
+        debug_printf("Deserializing VkFragmentShadingRateAttachmentInfoKHR...\n");
         VkFragmentShadingRateAttachmentInfoKHR* result;
         [&]() {
 
@@ -33239,7 +33239,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineFragmentShadingRateStateCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkPipelineFragmentShadingRateStateCreateInfoKHR...\n");
+        debug_printf("Deserializing VkPipelineFragmentShadingRateStateCreateInfoKHR...\n");
         VkPipelineFragmentShadingRateStateCreateInfoKHR* result;
         [&]() {
 
@@ -33256,7 +33256,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFragmentShadingRateFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFragmentShadingRateFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFragmentShadingRateFeaturesKHR...\n");
         VkPhysicalDeviceFragmentShadingRateFeaturesKHR* result;
         [&]() {
 
@@ -33273,7 +33273,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFragmentShadingRatePropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFragmentShadingRatePropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFragmentShadingRatePropertiesKHR...\n");
         VkPhysicalDeviceFragmentShadingRatePropertiesKHR* result;
         [&]() {
 
@@ -33290,7 +33290,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFragmentShadingRateKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFragmentShadingRateKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFragmentShadingRateKHR...\n");
         VkPhysicalDeviceFragmentShadingRateKHR* result;
         [&]() {
 
@@ -33307,7 +33307,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderTerminateInvocationFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderTerminateInvocationFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderTerminateInvocationFeatures...\n");
         VkPhysicalDeviceShaderTerminateInvocationFeatures* result;
         [&]() {
 
@@ -33324,7 +33324,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR...\n");
         VkPhysicalDeviceShaderTerminateInvocationFeaturesKHR* result;
         [&]() {
 
@@ -33341,7 +33341,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV...\n");
         VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV* result;
         [&]() {
 
@@ -33358,7 +33358,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV...\n");
         VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV* result;
         [&]() {
 
@@ -33375,7 +33375,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineFragmentShadingRateEnumStateCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkPipelineFragmentShadingRateEnumStateCreateInfoNV...\n");
+        debug_printf("Deserializing VkPipelineFragmentShadingRateEnumStateCreateInfoNV...\n");
         VkPipelineFragmentShadingRateEnumStateCreateInfoNV* result;
         [&]() {
 
@@ -33392,7 +33392,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureBuildSizesInfoKHR_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureBuildSizesInfoKHR...\n");
+        debug_printf("Deserializing VkAccelerationStructureBuildSizesInfoKHR...\n");
         VkAccelerationStructureBuildSizesInfoKHR* result;
         [&]() {
 
@@ -33409,7 +33409,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceImage2DViewOf3DFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceImage2DViewOf3DFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceImage2DViewOf3DFeaturesEXT...\n");
         VkPhysicalDeviceImage2DViewOf3DFeaturesEXT* result;
         [&]() {
 
@@ -33426,7 +33426,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT...\n");
         VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT* result;
         [&]() {
 
@@ -33443,7 +33443,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT...\n");
         VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT* result;
         [&]() {
 
@@ -33460,7 +33460,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT...\n");
         VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT* result;
         [&]() {
 
@@ -33477,7 +33477,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMutableDescriptorTypeFeaturesVALVE_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMutableDescriptorTypeFeaturesVALVE...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMutableDescriptorTypeFeaturesVALVE...\n");
         VkPhysicalDeviceMutableDescriptorTypeFeaturesVALVE* result;
         [&]() {
 
@@ -33494,7 +33494,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMutableDescriptorTypeListEXT_pNext(json& name){
-        printf("Deserializing VkMutableDescriptorTypeListEXT...\n");
+        debug_printf("Deserializing VkMutableDescriptorTypeListEXT...\n");
         VkMutableDescriptorTypeListEXT* result;
         [&]() {
 
@@ -33511,7 +33511,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMutableDescriptorTypeListVALVE_pNext(json& name){
-        printf("Deserializing VkMutableDescriptorTypeListVALVE...\n");
+        debug_printf("Deserializing VkMutableDescriptorTypeListVALVE...\n");
         VkMutableDescriptorTypeListVALVE* result;
         [&]() {
 
@@ -33528,7 +33528,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMutableDescriptorTypeCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkMutableDescriptorTypeCreateInfoEXT...\n");
+        debug_printf("Deserializing VkMutableDescriptorTypeCreateInfoEXT...\n");
         VkMutableDescriptorTypeCreateInfoEXT* result;
         [&]() {
 
@@ -33545,7 +33545,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMutableDescriptorTypeCreateInfoVALVE_pNext(json& name){
-        printf("Deserializing VkMutableDescriptorTypeCreateInfoVALVE...\n");
+        debug_printf("Deserializing VkMutableDescriptorTypeCreateInfoVALVE...\n");
         VkMutableDescriptorTypeCreateInfoVALVE* result;
         [&]() {
 
@@ -33562,7 +33562,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDepthClipControlFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDepthClipControlFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDepthClipControlFeaturesEXT...\n");
         VkPhysicalDeviceDepthClipControlFeaturesEXT* result;
         [&]() {
 
@@ -33579,7 +33579,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineViewportDepthClipControlCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkPipelineViewportDepthClipControlCreateInfoEXT...\n");
+        debug_printf("Deserializing VkPipelineViewportDepthClipControlCreateInfoEXT...\n");
         VkPipelineViewportDepthClipControlCreateInfoEXT* result;
         [&]() {
 
@@ -33596,7 +33596,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT...\n");
         VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT* result;
         [&]() {
 
@@ -33613,7 +33613,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceExternalMemoryRDMAFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceExternalMemoryRDMAFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceExternalMemoryRDMAFeaturesNV...\n");
         VkPhysicalDeviceExternalMemoryRDMAFeaturesNV* result;
         [&]() {
 
@@ -33630,7 +33630,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVertexInputBindingDescription2EXT_pNext(json& name){
-        printf("Deserializing VkVertexInputBindingDescription2EXT...\n");
+        debug_printf("Deserializing VkVertexInputBindingDescription2EXT...\n");
         VkVertexInputBindingDescription2EXT* result;
         [&]() {
 
@@ -33647,7 +33647,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVertexInputAttributeDescription2EXT_pNext(json& name){
-        printf("Deserializing VkVertexInputAttributeDescription2EXT...\n");
+        debug_printf("Deserializing VkVertexInputAttributeDescription2EXT...\n");
         VkVertexInputAttributeDescription2EXT* result;
         [&]() {
 
@@ -33664,7 +33664,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceColorWriteEnableFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceColorWriteEnableFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceColorWriteEnableFeaturesEXT...\n");
         VkPhysicalDeviceColorWriteEnableFeaturesEXT* result;
         [&]() {
 
@@ -33681,7 +33681,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineColorWriteCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkPipelineColorWriteCreateInfoEXT...\n");
+        debug_printf("Deserializing VkPipelineColorWriteCreateInfoEXT...\n");
         VkPipelineColorWriteCreateInfoEXT* result;
         [&]() {
 
@@ -33698,7 +33698,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryBarrier2_pNext(json& name){
-        printf("Deserializing VkMemoryBarrier2...\n");
+        debug_printf("Deserializing VkMemoryBarrier2...\n");
         VkMemoryBarrier2* result;
         [&]() {
 
@@ -33715,7 +33715,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryBarrier2KHR_pNext(json& name){
-        printf("Deserializing VkMemoryBarrier2KHR...\n");
+        debug_printf("Deserializing VkMemoryBarrier2KHR...\n");
         VkMemoryBarrier2KHR* result;
         [&]() {
 
@@ -33732,7 +33732,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageMemoryBarrier2_pNext(json& name){
-        printf("Deserializing VkImageMemoryBarrier2...\n");
+        debug_printf("Deserializing VkImageMemoryBarrier2...\n");
         VkImageMemoryBarrier2* result;
         [&]() {
 
@@ -33749,7 +33749,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageMemoryBarrier2KHR_pNext(json& name){
-        printf("Deserializing VkImageMemoryBarrier2KHR...\n");
+        debug_printf("Deserializing VkImageMemoryBarrier2KHR...\n");
         VkImageMemoryBarrier2KHR* result;
         [&]() {
 
@@ -33766,7 +33766,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferMemoryBarrier2_pNext(json& name){
-        printf("Deserializing VkBufferMemoryBarrier2...\n");
+        debug_printf("Deserializing VkBufferMemoryBarrier2...\n");
         VkBufferMemoryBarrier2* result;
         [&]() {
 
@@ -33783,7 +33783,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferMemoryBarrier2KHR_pNext(json& name){
-        printf("Deserializing VkBufferMemoryBarrier2KHR...\n");
+        debug_printf("Deserializing VkBufferMemoryBarrier2KHR...\n");
         VkBufferMemoryBarrier2KHR* result;
         [&]() {
 
@@ -33800,7 +33800,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDependencyInfo_pNext(json& name){
-        printf("Deserializing VkDependencyInfo...\n");
+        debug_printf("Deserializing VkDependencyInfo...\n");
         VkDependencyInfo* result;
         [&]() {
 
@@ -33817,7 +33817,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDependencyInfoKHR_pNext(json& name){
-        printf("Deserializing VkDependencyInfoKHR...\n");
+        debug_printf("Deserializing VkDependencyInfoKHR...\n");
         VkDependencyInfoKHR* result;
         [&]() {
 
@@ -33834,7 +33834,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSemaphoreSubmitInfo_pNext(json& name){
-        printf("Deserializing VkSemaphoreSubmitInfo...\n");
+        debug_printf("Deserializing VkSemaphoreSubmitInfo...\n");
         VkSemaphoreSubmitInfo* result;
         [&]() {
 
@@ -33851,7 +33851,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSemaphoreSubmitInfoKHR_pNext(json& name){
-        printf("Deserializing VkSemaphoreSubmitInfoKHR...\n");
+        debug_printf("Deserializing VkSemaphoreSubmitInfoKHR...\n");
         VkSemaphoreSubmitInfoKHR* result;
         [&]() {
 
@@ -33868,7 +33868,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCommandBufferSubmitInfo_pNext(json& name){
-        printf("Deserializing VkCommandBufferSubmitInfo...\n");
+        debug_printf("Deserializing VkCommandBufferSubmitInfo...\n");
         VkCommandBufferSubmitInfo* result;
         [&]() {
 
@@ -33885,7 +33885,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCommandBufferSubmitInfoKHR_pNext(json& name){
-        printf("Deserializing VkCommandBufferSubmitInfoKHR...\n");
+        debug_printf("Deserializing VkCommandBufferSubmitInfoKHR...\n");
         VkCommandBufferSubmitInfoKHR* result;
         [&]() {
 
@@ -33902,7 +33902,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubmitInfo2_pNext(json& name){
-        printf("Deserializing VkSubmitInfo2...\n");
+        debug_printf("Deserializing VkSubmitInfo2...\n");
         VkSubmitInfo2* result;
         [&]() {
 
@@ -33919,7 +33919,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubmitInfo2KHR_pNext(json& name){
-        printf("Deserializing VkSubmitInfo2KHR...\n");
+        debug_printf("Deserializing VkSubmitInfo2KHR...\n");
         VkSubmitInfo2KHR* result;
         [&]() {
 
@@ -33936,7 +33936,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkQueueFamilyCheckpointProperties2NV_pNext(json& name){
-        printf("Deserializing VkQueueFamilyCheckpointProperties2NV...\n");
+        debug_printf("Deserializing VkQueueFamilyCheckpointProperties2NV...\n");
         VkQueueFamilyCheckpointProperties2NV* result;
         [&]() {
 
@@ -33953,7 +33953,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCheckpointData2NV_pNext(json& name){
-        printf("Deserializing VkCheckpointData2NV...\n");
+        debug_printf("Deserializing VkCheckpointData2NV...\n");
         VkCheckpointData2NV* result;
         [&]() {
 
@@ -33970,7 +33970,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSynchronization2Features_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSynchronization2Features...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSynchronization2Features...\n");
         VkPhysicalDeviceSynchronization2Features* result;
         [&]() {
 
@@ -33987,7 +33987,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSynchronization2FeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSynchronization2FeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSynchronization2FeaturesKHR...\n");
         VkPhysicalDeviceSynchronization2FeaturesKHR* result;
         [&]() {
 
@@ -34004,7 +34004,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceHostImageCopyFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceHostImageCopyFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceHostImageCopyFeaturesEXT...\n");
         VkPhysicalDeviceHostImageCopyFeaturesEXT* result;
         [&]() {
 
@@ -34021,7 +34021,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceHostImageCopyPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceHostImageCopyPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceHostImageCopyPropertiesEXT...\n");
         VkPhysicalDeviceHostImageCopyPropertiesEXT* result;
         [&]() {
 
@@ -34038,7 +34038,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryToImageCopyEXT_pNext(json& name){
-        printf("Deserializing VkMemoryToImageCopyEXT...\n");
+        debug_printf("Deserializing VkMemoryToImageCopyEXT...\n");
         VkMemoryToImageCopyEXT* result;
         [&]() {
 
@@ -34055,7 +34055,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageToMemoryCopyEXT_pNext(json& name){
-        printf("Deserializing VkImageToMemoryCopyEXT...\n");
+        debug_printf("Deserializing VkImageToMemoryCopyEXT...\n");
         VkImageToMemoryCopyEXT* result;
         [&]() {
 
@@ -34072,7 +34072,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyMemoryToImageInfoEXT_pNext(json& name){
-        printf("Deserializing VkCopyMemoryToImageInfoEXT...\n");
+        debug_printf("Deserializing VkCopyMemoryToImageInfoEXT...\n");
         VkCopyMemoryToImageInfoEXT* result;
         [&]() {
 
@@ -34089,7 +34089,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyImageToMemoryInfoEXT_pNext(json& name){
-        printf("Deserializing VkCopyImageToMemoryInfoEXT...\n");
+        debug_printf("Deserializing VkCopyImageToMemoryInfoEXT...\n");
         VkCopyImageToMemoryInfoEXT* result;
         [&]() {
 
@@ -34106,7 +34106,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyImageToImageInfoEXT_pNext(json& name){
-        printf("Deserializing VkCopyImageToImageInfoEXT...\n");
+        debug_printf("Deserializing VkCopyImageToImageInfoEXT...\n");
         VkCopyImageToImageInfoEXT* result;
         [&]() {
 
@@ -34123,7 +34123,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkHostImageLayoutTransitionInfoEXT_pNext(json& name){
-        printf("Deserializing VkHostImageLayoutTransitionInfoEXT...\n");
+        debug_printf("Deserializing VkHostImageLayoutTransitionInfoEXT...\n");
         VkHostImageLayoutTransitionInfoEXT* result;
         [&]() {
 
@@ -34140,7 +34140,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubresourceHostMemcpySizeEXT_pNext(json& name){
-        printf("Deserializing VkSubresourceHostMemcpySizeEXT...\n");
+        debug_printf("Deserializing VkSubresourceHostMemcpySizeEXT...\n");
         VkSubresourceHostMemcpySizeEXT* result;
         [&]() {
 
@@ -34157,7 +34157,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkHostImageCopyDevicePerformanceQueryEXT_pNext(json& name){
-        printf("Deserializing VkHostImageCopyDevicePerformanceQueryEXT...\n");
+        debug_printf("Deserializing VkHostImageCopyDevicePerformanceQueryEXT...\n");
         VkHostImageCopyDevicePerformanceQueryEXT* result;
         [&]() {
 
@@ -34174,7 +34174,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT...\n");
         VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT* result;
         [&]() {
 
@@ -34191,7 +34191,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceLegacyDitheringFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceLegacyDitheringFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceLegacyDitheringFeaturesEXT...\n");
         VkPhysicalDeviceLegacyDitheringFeaturesEXT* result;
         [&]() {
 
@@ -34208,7 +34208,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT...\n");
         VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT* result;
         [&]() {
 
@@ -34225,7 +34225,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubpassResolvePerformanceQueryEXT_pNext(json& name){
-        printf("Deserializing VkSubpassResolvePerformanceQueryEXT...\n");
+        debug_printf("Deserializing VkSubpassResolvePerformanceQueryEXT...\n");
         VkSubpassResolvePerformanceQueryEXT* result;
         [&]() {
 
@@ -34242,7 +34242,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMultisampledRenderToSingleSampledInfoEXT_pNext(json& name){
-        printf("Deserializing VkMultisampledRenderToSingleSampledInfoEXT...\n");
+        debug_printf("Deserializing VkMultisampledRenderToSingleSampledInfoEXT...\n");
         VkMultisampledRenderToSingleSampledInfoEXT* result;
         [&]() {
 
@@ -34259,7 +34259,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePipelineProtectedAccessFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePipelineProtectedAccessFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDevicePipelineProtectedAccessFeaturesEXT...\n");
         VkPhysicalDevicePipelineProtectedAccessFeaturesEXT* result;
         [&]() {
 
@@ -34276,7 +34276,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkQueueFamilyVideoPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkQueueFamilyVideoPropertiesKHR...\n");
+        debug_printf("Deserializing VkQueueFamilyVideoPropertiesKHR...\n");
         VkQueueFamilyVideoPropertiesKHR* result;
         [&]() {
 
@@ -34293,7 +34293,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkQueueFamilyQueryResultStatusPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkQueueFamilyQueryResultStatusPropertiesKHR...\n");
+        debug_printf("Deserializing VkQueueFamilyQueryResultStatusPropertiesKHR...\n");
         VkQueueFamilyQueryResultStatusPropertiesKHR* result;
         [&]() {
 
@@ -34310,7 +34310,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoProfileListInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoProfileListInfoKHR...\n");
+        debug_printf("Deserializing VkVideoProfileListInfoKHR...\n");
         VkVideoProfileListInfoKHR* result;
         [&]() {
 
@@ -34327,7 +34327,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceVideoFormatInfoKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceVideoFormatInfoKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceVideoFormatInfoKHR...\n");
         VkPhysicalDeviceVideoFormatInfoKHR* result;
         [&]() {
 
@@ -34344,7 +34344,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoFormatPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkVideoFormatPropertiesKHR...\n");
+        debug_printf("Deserializing VkVideoFormatPropertiesKHR...\n");
         VkVideoFormatPropertiesKHR* result;
         [&]() {
 
@@ -34361,7 +34361,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoProfileInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoProfileInfoKHR...\n");
+        debug_printf("Deserializing VkVideoProfileInfoKHR...\n");
         VkVideoProfileInfoKHR* result;
         [&]() {
 
@@ -34378,7 +34378,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoCapabilitiesKHR_pNext(json& name){
-        printf("Deserializing VkVideoCapabilitiesKHR...\n");
+        debug_printf("Deserializing VkVideoCapabilitiesKHR...\n");
         VkVideoCapabilitiesKHR* result;
         [&]() {
 
@@ -34395,7 +34395,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoSessionMemoryRequirementsKHR_pNext(json& name){
-        printf("Deserializing VkVideoSessionMemoryRequirementsKHR...\n");
+        debug_printf("Deserializing VkVideoSessionMemoryRequirementsKHR...\n");
         VkVideoSessionMemoryRequirementsKHR* result;
         [&]() {
 
@@ -34412,7 +34412,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBindVideoSessionMemoryInfoKHR_pNext(json& name){
-        printf("Deserializing VkBindVideoSessionMemoryInfoKHR...\n");
+        debug_printf("Deserializing VkBindVideoSessionMemoryInfoKHR...\n");
         VkBindVideoSessionMemoryInfoKHR* result;
         [&]() {
 
@@ -34429,7 +34429,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoPictureResourceInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoPictureResourceInfoKHR...\n");
+        debug_printf("Deserializing VkVideoPictureResourceInfoKHR...\n");
         VkVideoPictureResourceInfoKHR* result;
         [&]() {
 
@@ -34446,7 +34446,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoReferenceSlotInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoReferenceSlotInfoKHR...\n");
+        debug_printf("Deserializing VkVideoReferenceSlotInfoKHR...\n");
         VkVideoReferenceSlotInfoKHR* result;
         [&]() {
 
@@ -34463,7 +34463,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoDecodeCapabilitiesKHR_pNext(json& name){
-        printf("Deserializing VkVideoDecodeCapabilitiesKHR...\n");
+        debug_printf("Deserializing VkVideoDecodeCapabilitiesKHR...\n");
         VkVideoDecodeCapabilitiesKHR* result;
         [&]() {
 
@@ -34480,7 +34480,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoDecodeUsageInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoDecodeUsageInfoKHR...\n");
+        debug_printf("Deserializing VkVideoDecodeUsageInfoKHR...\n");
         VkVideoDecodeUsageInfoKHR* result;
         [&]() {
 
@@ -34497,7 +34497,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoDecodeInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoDecodeInfoKHR...\n");
+        debug_printf("Deserializing VkVideoDecodeInfoKHR...\n");
         VkVideoDecodeInfoKHR* result;
         [&]() {
 
@@ -34514,7 +34514,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoDecodeH264ProfileInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoDecodeH264ProfileInfoKHR...\n");
+        debug_printf("Deserializing VkVideoDecodeH264ProfileInfoKHR...\n");
         VkVideoDecodeH264ProfileInfoKHR* result;
         [&]() {
 
@@ -34531,7 +34531,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoDecodeH264CapabilitiesKHR_pNext(json& name){
-        printf("Deserializing VkVideoDecodeH264CapabilitiesKHR...\n");
+        debug_printf("Deserializing VkVideoDecodeH264CapabilitiesKHR...\n");
         VkVideoDecodeH264CapabilitiesKHR* result;
         [&]() {
 
@@ -34548,7 +34548,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoDecodeH264SessionParametersAddInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoDecodeH264SessionParametersAddInfoKHR...\n");
+        debug_printf("Deserializing VkVideoDecodeH264SessionParametersAddInfoKHR...\n");
         VkVideoDecodeH264SessionParametersAddInfoKHR* result;
         [&]() {
 
@@ -34565,7 +34565,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoDecodeH264SessionParametersCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoDecodeH264SessionParametersCreateInfoKHR...\n");
+        debug_printf("Deserializing VkVideoDecodeH264SessionParametersCreateInfoKHR...\n");
         VkVideoDecodeH264SessionParametersCreateInfoKHR* result;
         [&]() {
 
@@ -34582,7 +34582,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoDecodeH264PictureInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoDecodeH264PictureInfoKHR...\n");
+        debug_printf("Deserializing VkVideoDecodeH264PictureInfoKHR...\n");
         VkVideoDecodeH264PictureInfoKHR* result;
         [&]() {
 
@@ -34599,7 +34599,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoDecodeH264DpbSlotInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoDecodeH264DpbSlotInfoKHR...\n");
+        debug_printf("Deserializing VkVideoDecodeH264DpbSlotInfoKHR...\n");
         VkVideoDecodeH264DpbSlotInfoKHR* result;
         [&]() {
 
@@ -34616,7 +34616,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoDecodeH265ProfileInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoDecodeH265ProfileInfoKHR...\n");
+        debug_printf("Deserializing VkVideoDecodeH265ProfileInfoKHR...\n");
         VkVideoDecodeH265ProfileInfoKHR* result;
         [&]() {
 
@@ -34633,7 +34633,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoDecodeH265CapabilitiesKHR_pNext(json& name){
-        printf("Deserializing VkVideoDecodeH265CapabilitiesKHR...\n");
+        debug_printf("Deserializing VkVideoDecodeH265CapabilitiesKHR...\n");
         VkVideoDecodeH265CapabilitiesKHR* result;
         [&]() {
 
@@ -34650,7 +34650,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoDecodeH265SessionParametersAddInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoDecodeH265SessionParametersAddInfoKHR...\n");
+        debug_printf("Deserializing VkVideoDecodeH265SessionParametersAddInfoKHR...\n");
         VkVideoDecodeH265SessionParametersAddInfoKHR* result;
         [&]() {
 
@@ -34667,7 +34667,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoDecodeH265SessionParametersCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoDecodeH265SessionParametersCreateInfoKHR...\n");
+        debug_printf("Deserializing VkVideoDecodeH265SessionParametersCreateInfoKHR...\n");
         VkVideoDecodeH265SessionParametersCreateInfoKHR* result;
         [&]() {
 
@@ -34684,7 +34684,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoDecodeH265PictureInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoDecodeH265PictureInfoKHR...\n");
+        debug_printf("Deserializing VkVideoDecodeH265PictureInfoKHR...\n");
         VkVideoDecodeH265PictureInfoKHR* result;
         [&]() {
 
@@ -34701,7 +34701,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoDecodeH265DpbSlotInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoDecodeH265DpbSlotInfoKHR...\n");
+        debug_printf("Deserializing VkVideoDecodeH265DpbSlotInfoKHR...\n");
         VkVideoDecodeH265DpbSlotInfoKHR* result;
         [&]() {
 
@@ -34718,7 +34718,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoSessionCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoSessionCreateInfoKHR...\n");
+        debug_printf("Deserializing VkVideoSessionCreateInfoKHR...\n");
         VkVideoSessionCreateInfoKHR* result;
         [&]() {
 
@@ -34735,7 +34735,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoSessionParametersCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoSessionParametersCreateInfoKHR...\n");
+        debug_printf("Deserializing VkVideoSessionParametersCreateInfoKHR...\n");
         VkVideoSessionParametersCreateInfoKHR* result;
         [&]() {
 
@@ -34752,7 +34752,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoSessionParametersUpdateInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoSessionParametersUpdateInfoKHR...\n");
+        debug_printf("Deserializing VkVideoSessionParametersUpdateInfoKHR...\n");
         VkVideoSessionParametersUpdateInfoKHR* result;
         [&]() {
 
@@ -34769,7 +34769,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoBeginCodingInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoBeginCodingInfoKHR...\n");
+        debug_printf("Deserializing VkVideoBeginCodingInfoKHR...\n");
         VkVideoBeginCodingInfoKHR* result;
         [&]() {
 
@@ -34786,7 +34786,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoEndCodingInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoEndCodingInfoKHR...\n");
+        debug_printf("Deserializing VkVideoEndCodingInfoKHR...\n");
         VkVideoEndCodingInfoKHR* result;
         [&]() {
 
@@ -34803,7 +34803,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkVideoCodingControlInfoKHR_pNext(json& name){
-        printf("Deserializing VkVideoCodingControlInfoKHR...\n");
+        debug_printf("Deserializing VkVideoCodingControlInfoKHR...\n");
         VkVideoCodingControlInfoKHR* result;
         [&]() {
 
@@ -34820,7 +34820,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceInheritedViewportScissorFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceInheritedViewportScissorFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceInheritedViewportScissorFeaturesNV...\n");
         VkPhysicalDeviceInheritedViewportScissorFeaturesNV* result;
         [&]() {
 
@@ -34837,7 +34837,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCommandBufferInheritanceViewportScissorInfoNV_pNext(json& name){
-        printf("Deserializing VkCommandBufferInheritanceViewportScissorInfoNV...\n");
+        debug_printf("Deserializing VkCommandBufferInheritanceViewportScissorInfoNV...\n");
         VkCommandBufferInheritanceViewportScissorInfoNV* result;
         [&]() {
 
@@ -34854,7 +34854,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT...\n");
         VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT* result;
         [&]() {
 
@@ -34871,7 +34871,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceProvokingVertexFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceProvokingVertexFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceProvokingVertexFeaturesEXT...\n");
         VkPhysicalDeviceProvokingVertexFeaturesEXT* result;
         [&]() {
 
@@ -34888,7 +34888,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceProvokingVertexPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceProvokingVertexPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceProvokingVertexPropertiesEXT...\n");
         VkPhysicalDeviceProvokingVertexPropertiesEXT* result;
         [&]() {
 
@@ -34905,7 +34905,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineRasterizationProvokingVertexStateCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkPipelineRasterizationProvokingVertexStateCreateInfoEXT...\n");
+        debug_printf("Deserializing VkPipelineRasterizationProvokingVertexStateCreateInfoEXT...\n");
         VkPipelineRasterizationProvokingVertexStateCreateInfoEXT* result;
         [&]() {
 
@@ -34922,7 +34922,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCuModuleCreateInfoNVX_pNext(json& name){
-        printf("Deserializing VkCuModuleCreateInfoNVX...\n");
+        debug_printf("Deserializing VkCuModuleCreateInfoNVX...\n");
         VkCuModuleCreateInfoNVX* result;
         [&]() {
 
@@ -34939,7 +34939,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCuFunctionCreateInfoNVX_pNext(json& name){
-        printf("Deserializing VkCuFunctionCreateInfoNVX...\n");
+        debug_printf("Deserializing VkCuFunctionCreateInfoNVX...\n");
         VkCuFunctionCreateInfoNVX* result;
         [&]() {
 
@@ -34956,7 +34956,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCuLaunchInfoNVX_pNext(json& name){
-        printf("Deserializing VkCuLaunchInfoNVX...\n");
+        debug_printf("Deserializing VkCuLaunchInfoNVX...\n");
         VkCuLaunchInfoNVX* result;
         [&]() {
 
@@ -34973,7 +34973,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDescriptorBufferFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDescriptorBufferFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDescriptorBufferFeaturesEXT...\n");
         VkPhysicalDeviceDescriptorBufferFeaturesEXT* result;
         [&]() {
 
@@ -34990,7 +34990,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDescriptorBufferPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDescriptorBufferPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDescriptorBufferPropertiesEXT...\n");
         VkPhysicalDeviceDescriptorBufferPropertiesEXT* result;
         [&]() {
 
@@ -35007,7 +35007,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT...\n");
         VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT* result;
         [&]() {
 
@@ -35024,7 +35024,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorAddressInfoEXT_pNext(json& name){
-        printf("Deserializing VkDescriptorAddressInfoEXT...\n");
+        debug_printf("Deserializing VkDescriptorAddressInfoEXT...\n");
         VkDescriptorAddressInfoEXT* result;
         [&]() {
 
@@ -35041,7 +35041,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorBufferBindingInfoEXT_pNext(json& name){
-        printf("Deserializing VkDescriptorBufferBindingInfoEXT...\n");
+        debug_printf("Deserializing VkDescriptorBufferBindingInfoEXT...\n");
         VkDescriptorBufferBindingInfoEXT* result;
         [&]() {
 
@@ -35058,7 +35058,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorBufferBindingPushDescriptorBufferHandleEXT_pNext(json& name){
-        printf("Deserializing VkDescriptorBufferBindingPushDescriptorBufferHandleEXT...\n");
+        debug_printf("Deserializing VkDescriptorBufferBindingPushDescriptorBufferHandleEXT...\n");
         VkDescriptorBufferBindingPushDescriptorBufferHandleEXT* result;
         [&]() {
 
@@ -35075,7 +35075,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorDataEXT_pNext(json& name){
-        printf("Deserializing VkDescriptorDataEXT...\n");
+        debug_printf("Deserializing VkDescriptorDataEXT...\n");
         VkDescriptorDataEXT* result;
         [&]() {
 
@@ -35092,7 +35092,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorGetInfoEXT_pNext(json& name){
-        printf("Deserializing VkDescriptorGetInfoEXT...\n");
+        debug_printf("Deserializing VkDescriptorGetInfoEXT...\n");
         VkDescriptorGetInfoEXT* result;
         [&]() {
 
@@ -35109,7 +35109,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBufferCaptureDescriptorDataInfoEXT_pNext(json& name){
-        printf("Deserializing VkBufferCaptureDescriptorDataInfoEXT...\n");
+        debug_printf("Deserializing VkBufferCaptureDescriptorDataInfoEXT...\n");
         VkBufferCaptureDescriptorDataInfoEXT* result;
         [&]() {
 
@@ -35126,7 +35126,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageCaptureDescriptorDataInfoEXT_pNext(json& name){
-        printf("Deserializing VkImageCaptureDescriptorDataInfoEXT...\n");
+        debug_printf("Deserializing VkImageCaptureDescriptorDataInfoEXT...\n");
         VkImageCaptureDescriptorDataInfoEXT* result;
         [&]() {
 
@@ -35143,7 +35143,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageViewCaptureDescriptorDataInfoEXT_pNext(json& name){
-        printf("Deserializing VkImageViewCaptureDescriptorDataInfoEXT...\n");
+        debug_printf("Deserializing VkImageViewCaptureDescriptorDataInfoEXT...\n");
         VkImageViewCaptureDescriptorDataInfoEXT* result;
         [&]() {
 
@@ -35160,7 +35160,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSamplerCaptureDescriptorDataInfoEXT_pNext(json& name){
-        printf("Deserializing VkSamplerCaptureDescriptorDataInfoEXT...\n");
+        debug_printf("Deserializing VkSamplerCaptureDescriptorDataInfoEXT...\n");
         VkSamplerCaptureDescriptorDataInfoEXT* result;
         [&]() {
 
@@ -35177,7 +35177,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureCaptureDescriptorDataInfoEXT_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureCaptureDescriptorDataInfoEXT...\n");
+        debug_printf("Deserializing VkAccelerationStructureCaptureDescriptorDataInfoEXT...\n");
         VkAccelerationStructureCaptureDescriptorDataInfoEXT* result;
         [&]() {
 
@@ -35194,7 +35194,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkOpaqueCaptureDescriptorDataCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkOpaqueCaptureDescriptorDataCreateInfoEXT...\n");
+        debug_printf("Deserializing VkOpaqueCaptureDescriptorDataCreateInfoEXT...\n");
         VkOpaqueCaptureDescriptorDataCreateInfoEXT* result;
         [&]() {
 
@@ -35211,7 +35211,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderIntegerDotProductFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderIntegerDotProductFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderIntegerDotProductFeatures...\n");
         VkPhysicalDeviceShaderIntegerDotProductFeatures* result;
         [&]() {
 
@@ -35228,7 +35228,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderIntegerDotProductFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderIntegerDotProductFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderIntegerDotProductFeaturesKHR...\n");
         VkPhysicalDeviceShaderIntegerDotProductFeaturesKHR* result;
         [&]() {
 
@@ -35245,7 +35245,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderIntegerDotProductProperties_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderIntegerDotProductProperties...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderIntegerDotProductProperties...\n");
         VkPhysicalDeviceShaderIntegerDotProductProperties* result;
         [&]() {
 
@@ -35262,7 +35262,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderIntegerDotProductPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderIntegerDotProductPropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderIntegerDotProductPropertiesKHR...\n");
         VkPhysicalDeviceShaderIntegerDotProductPropertiesKHR* result;
         [&]() {
 
@@ -35279,7 +35279,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDrmPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDrmPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDrmPropertiesEXT...\n");
         VkPhysicalDeviceDrmPropertiesEXT* result;
         [&]() {
 
@@ -35296,7 +35296,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR...\n");
         VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR* result;
         [&]() {
 
@@ -35313,7 +35313,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV...\n");
         VkPhysicalDeviceFragmentShaderBarycentricFeaturesNV* result;
         [&]() {
 
@@ -35330,7 +35330,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR...\n");
         VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR* result;
         [&]() {
 
@@ -35347,7 +35347,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceRayTracingMotionBlurFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceRayTracingMotionBlurFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceRayTracingMotionBlurFeaturesNV...\n");
         VkPhysicalDeviceRayTracingMotionBlurFeaturesNV* result;
         [&]() {
 
@@ -35364,7 +35364,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureGeometryMotionTrianglesDataNV_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureGeometryMotionTrianglesDataNV...\n");
+        debug_printf("Deserializing VkAccelerationStructureGeometryMotionTrianglesDataNV...\n");
         VkAccelerationStructureGeometryMotionTrianglesDataNV* result;
         [&]() {
 
@@ -35381,7 +35381,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureMotionInfoNV_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureMotionInfoNV...\n");
+        debug_printf("Deserializing VkAccelerationStructureMotionInfoNV...\n");
         VkAccelerationStructureMotionInfoNV* result;
         [&]() {
 
@@ -35398,7 +35398,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSRTDataNV_pNext(json& name){
-        printf("Deserializing VkSRTDataNV...\n");
+        debug_printf("Deserializing VkSRTDataNV...\n");
         VkSRTDataNV* result;
         [&]() {
 
@@ -35415,7 +35415,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureSRTMotionInstanceNV_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureSRTMotionInstanceNV...\n");
+        debug_printf("Deserializing VkAccelerationStructureSRTMotionInstanceNV...\n");
         VkAccelerationStructureSRTMotionInstanceNV* result;
         [&]() {
 
@@ -35432,7 +35432,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureMatrixMotionInstanceNV_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureMatrixMotionInstanceNV...\n");
+        debug_printf("Deserializing VkAccelerationStructureMatrixMotionInstanceNV...\n");
         VkAccelerationStructureMatrixMotionInstanceNV* result;
         [&]() {
 
@@ -35449,7 +35449,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureMotionInstanceDataNV_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureMotionInstanceDataNV...\n");
+        debug_printf("Deserializing VkAccelerationStructureMotionInstanceDataNV...\n");
         VkAccelerationStructureMotionInstanceDataNV* result;
         [&]() {
 
@@ -35466,7 +35466,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureMotionInstanceNV_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureMotionInstanceNV...\n");
+        debug_printf("Deserializing VkAccelerationStructureMotionInstanceNV...\n");
         VkAccelerationStructureMotionInstanceNV* result;
         [&]() {
 
@@ -35483,7 +35483,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryGetRemoteAddressInfoNV_pNext(json& name){
-        printf("Deserializing VkMemoryGetRemoteAddressInfoNV...\n");
+        debug_printf("Deserializing VkMemoryGetRemoteAddressInfoNV...\n");
         VkMemoryGetRemoteAddressInfoNV* result;
         [&]() {
 
@@ -35500,7 +35500,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT...\n");
         VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT* result;
         [&]() {
 
@@ -35517,7 +35517,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkFormatProperties3_pNext(json& name){
-        printf("Deserializing VkFormatProperties3...\n");
+        debug_printf("Deserializing VkFormatProperties3...\n");
         VkFormatProperties3* result;
         [&]() {
 
@@ -35534,7 +35534,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkFormatProperties3KHR_pNext(json& name){
-        printf("Deserializing VkFormatProperties3KHR...\n");
+        debug_printf("Deserializing VkFormatProperties3KHR...\n");
         VkFormatProperties3KHR* result;
         [&]() {
 
@@ -35551,7 +35551,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDrmFormatModifierPropertiesList2EXT_pNext(json& name){
-        printf("Deserializing VkDrmFormatModifierPropertiesList2EXT...\n");
+        debug_printf("Deserializing VkDrmFormatModifierPropertiesList2EXT...\n");
         VkDrmFormatModifierPropertiesList2EXT* result;
         [&]() {
 
@@ -35568,7 +35568,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDrmFormatModifierProperties2EXT_pNext(json& name){
-        printf("Deserializing VkDrmFormatModifierProperties2EXT...\n");
+        debug_printf("Deserializing VkDrmFormatModifierProperties2EXT...\n");
         VkDrmFormatModifierProperties2EXT* result;
         [&]() {
 
@@ -35585,7 +35585,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineRenderingCreateInfo_pNext(json& name){
-        printf("Deserializing VkPipelineRenderingCreateInfo...\n");
+        debug_printf("Deserializing VkPipelineRenderingCreateInfo...\n");
         VkPipelineRenderingCreateInfo* result;
         [&]() {
 
@@ -35602,7 +35602,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineRenderingCreateInfoKHR_pNext(json& name){
-        printf("Deserializing VkPipelineRenderingCreateInfoKHR...\n");
+        debug_printf("Deserializing VkPipelineRenderingCreateInfoKHR...\n");
         VkPipelineRenderingCreateInfoKHR* result;
         [&]() {
 
@@ -35619,7 +35619,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderingInfo_pNext(json& name){
-        printf("Deserializing VkRenderingInfo...\n");
+        debug_printf("Deserializing VkRenderingInfo...\n");
         VkRenderingInfo* result;
         [&]() {
 
@@ -35636,7 +35636,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderingInfoKHR_pNext(json& name){
-        printf("Deserializing VkRenderingInfoKHR...\n");
+        debug_printf("Deserializing VkRenderingInfoKHR...\n");
         VkRenderingInfoKHR* result;
         [&]() {
 
@@ -35653,7 +35653,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderingAttachmentInfo_pNext(json& name){
-        printf("Deserializing VkRenderingAttachmentInfo...\n");
+        debug_printf("Deserializing VkRenderingAttachmentInfo...\n");
         VkRenderingAttachmentInfo* result;
         [&]() {
 
@@ -35670,7 +35670,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderingAttachmentInfoKHR_pNext(json& name){
-        printf("Deserializing VkRenderingAttachmentInfoKHR...\n");
+        debug_printf("Deserializing VkRenderingAttachmentInfoKHR...\n");
         VkRenderingAttachmentInfoKHR* result;
         [&]() {
 
@@ -35687,7 +35687,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderingFragmentShadingRateAttachmentInfoKHR_pNext(json& name){
-        printf("Deserializing VkRenderingFragmentShadingRateAttachmentInfoKHR...\n");
+        debug_printf("Deserializing VkRenderingFragmentShadingRateAttachmentInfoKHR...\n");
         VkRenderingFragmentShadingRateAttachmentInfoKHR* result;
         [&]() {
 
@@ -35704,7 +35704,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderingFragmentDensityMapAttachmentInfoEXT_pNext(json& name){
-        printf("Deserializing VkRenderingFragmentDensityMapAttachmentInfoEXT...\n");
+        debug_printf("Deserializing VkRenderingFragmentDensityMapAttachmentInfoEXT...\n");
         VkRenderingFragmentDensityMapAttachmentInfoEXT* result;
         [&]() {
 
@@ -35721,7 +35721,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDynamicRenderingFeatures_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDynamicRenderingFeatures...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDynamicRenderingFeatures...\n");
         VkPhysicalDeviceDynamicRenderingFeatures* result;
         [&]() {
 
@@ -35738,7 +35738,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDynamicRenderingFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDynamicRenderingFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDynamicRenderingFeaturesKHR...\n");
         VkPhysicalDeviceDynamicRenderingFeaturesKHR* result;
         [&]() {
 
@@ -35755,7 +35755,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCommandBufferInheritanceRenderingInfo_pNext(json& name){
-        printf("Deserializing VkCommandBufferInheritanceRenderingInfo...\n");
+        debug_printf("Deserializing VkCommandBufferInheritanceRenderingInfo...\n");
         VkCommandBufferInheritanceRenderingInfo* result;
         [&]() {
 
@@ -35772,7 +35772,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCommandBufferInheritanceRenderingInfoKHR_pNext(json& name){
-        printf("Deserializing VkCommandBufferInheritanceRenderingInfoKHR...\n");
+        debug_printf("Deserializing VkCommandBufferInheritanceRenderingInfoKHR...\n");
         VkCommandBufferInheritanceRenderingInfoKHR* result;
         [&]() {
 
@@ -35789,7 +35789,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAttachmentSampleCountInfoAMD_pNext(json& name){
-        printf("Deserializing VkAttachmentSampleCountInfoAMD...\n");
+        debug_printf("Deserializing VkAttachmentSampleCountInfoAMD...\n");
         VkAttachmentSampleCountInfoAMD* result;
         [&]() {
 
@@ -35806,7 +35806,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAttachmentSampleCountInfoNV_pNext(json& name){
-        printf("Deserializing VkAttachmentSampleCountInfoNV...\n");
+        debug_printf("Deserializing VkAttachmentSampleCountInfoNV...\n");
         VkAttachmentSampleCountInfoNV* result;
         [&]() {
 
@@ -35823,7 +35823,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMultiviewPerViewAttributesInfoNVX_pNext(json& name){
-        printf("Deserializing VkMultiviewPerViewAttributesInfoNVX...\n");
+        debug_printf("Deserializing VkMultiviewPerViewAttributesInfoNVX...\n");
         VkMultiviewPerViewAttributesInfoNVX* result;
         [&]() {
 
@@ -35840,7 +35840,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceImageViewMinLodFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceImageViewMinLodFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceImageViewMinLodFeaturesEXT...\n");
         VkPhysicalDeviceImageViewMinLodFeaturesEXT* result;
         [&]() {
 
@@ -35857,7 +35857,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageViewMinLodCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkImageViewMinLodCreateInfoEXT...\n");
+        debug_printf("Deserializing VkImageViewMinLodCreateInfoEXT...\n");
         VkImageViewMinLodCreateInfoEXT* result;
         [&]() {
 
@@ -35874,7 +35874,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT...\n");
         VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT* result;
         [&]() {
 
@@ -35891,7 +35891,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM...\n");
+        debug_printf("Deserializing VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM...\n");
         VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesARM* result;
         [&]() {
 
@@ -35908,7 +35908,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceLinearColorAttachmentFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceLinearColorAttachmentFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceLinearColorAttachmentFeaturesNV...\n");
         VkPhysicalDeviceLinearColorAttachmentFeaturesNV* result;
         [&]() {
 
@@ -35925,7 +35925,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT...\n");
         VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT* result;
         [&]() {
 
@@ -35942,7 +35942,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT...\n");
         VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT* result;
         [&]() {
 
@@ -35959,7 +35959,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkGraphicsPipelineLibraryCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkGraphicsPipelineLibraryCreateInfoEXT...\n");
+        debug_printf("Deserializing VkGraphicsPipelineLibraryCreateInfoEXT...\n");
         VkGraphicsPipelineLibraryCreateInfoEXT* result;
         [&]() {
 
@@ -35976,7 +35976,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE...\n");
         VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE* result;
         [&]() {
 
@@ -35993,7 +35993,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorSetBindingReferenceVALVE_pNext(json& name){
-        printf("Deserializing VkDescriptorSetBindingReferenceVALVE...\n");
+        debug_printf("Deserializing VkDescriptorSetBindingReferenceVALVE...\n");
         VkDescriptorSetBindingReferenceVALVE* result;
         [&]() {
 
@@ -36010,7 +36010,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDescriptorSetLayoutHostMappingInfoVALVE_pNext(json& name){
-        printf("Deserializing VkDescriptorSetLayoutHostMappingInfoVALVE...\n");
+        debug_printf("Deserializing VkDescriptorSetLayoutHostMappingInfoVALVE...\n");
         VkDescriptorSetLayoutHostMappingInfoVALVE* result;
         [&]() {
 
@@ -36027,7 +36027,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT...\n");
         VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT* result;
         [&]() {
 
@@ -36044,7 +36044,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT...\n");
         VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT* result;
         [&]() {
 
@@ -36061,7 +36061,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineShaderStageModuleIdentifierCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkPipelineShaderStageModuleIdentifierCreateInfoEXT...\n");
+        debug_printf("Deserializing VkPipelineShaderStageModuleIdentifierCreateInfoEXT...\n");
         VkPipelineShaderStageModuleIdentifierCreateInfoEXT* result;
         [&]() {
 
@@ -36078,7 +36078,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkShaderModuleIdentifierEXT_pNext(json& name){
-        printf("Deserializing VkShaderModuleIdentifierEXT...\n");
+        debug_printf("Deserializing VkShaderModuleIdentifierEXT...\n");
         VkShaderModuleIdentifierEXT* result;
         [&]() {
 
@@ -36095,7 +36095,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageCompressionControlEXT_pNext(json& name){
-        printf("Deserializing VkImageCompressionControlEXT...\n");
+        debug_printf("Deserializing VkImageCompressionControlEXT...\n");
         VkImageCompressionControlEXT* result;
         [&]() {
 
@@ -36112,7 +36112,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceImageCompressionControlFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceImageCompressionControlFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceImageCompressionControlFeaturesEXT...\n");
         VkPhysicalDeviceImageCompressionControlFeaturesEXT* result;
         [&]() {
 
@@ -36129,7 +36129,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageCompressionPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkImageCompressionPropertiesEXT...\n");
+        debug_printf("Deserializing VkImageCompressionPropertiesEXT...\n");
         VkImageCompressionPropertiesEXT* result;
         [&]() {
 
@@ -36146,7 +36146,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT...\n");
         VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT* result;
         [&]() {
 
@@ -36163,7 +36163,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageSubresource2KHR_pNext(json& name){
-        printf("Deserializing VkImageSubresource2KHR...\n");
+        debug_printf("Deserializing VkImageSubresource2KHR...\n");
         VkImageSubresource2KHR* result;
         [&]() {
 
@@ -36180,7 +36180,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageSubresource2EXT_pNext(json& name){
-        printf("Deserializing VkImageSubresource2EXT...\n");
+        debug_printf("Deserializing VkImageSubresource2EXT...\n");
         VkImageSubresource2EXT* result;
         [&]() {
 
@@ -36197,7 +36197,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubresourceLayout2KHR_pNext(json& name){
-        printf("Deserializing VkSubresourceLayout2KHR...\n");
+        debug_printf("Deserializing VkSubresourceLayout2KHR...\n");
         VkSubresourceLayout2KHR* result;
         [&]() {
 
@@ -36214,7 +36214,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSubresourceLayout2EXT_pNext(json& name){
-        printf("Deserializing VkSubresourceLayout2EXT...\n");
+        debug_printf("Deserializing VkSubresourceLayout2EXT...\n");
         VkSubresourceLayout2EXT* result;
         [&]() {
 
@@ -36231,7 +36231,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassCreationControlEXT_pNext(json& name){
-        printf("Deserializing VkRenderPassCreationControlEXT...\n");
+        debug_printf("Deserializing VkRenderPassCreationControlEXT...\n");
         VkRenderPassCreationControlEXT* result;
         [&]() {
 
@@ -36248,7 +36248,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassCreationFeedbackInfoEXT_pNext(json& name){
-        printf("Deserializing VkRenderPassCreationFeedbackInfoEXT...\n");
+        debug_printf("Deserializing VkRenderPassCreationFeedbackInfoEXT...\n");
         VkRenderPassCreationFeedbackInfoEXT* result;
         [&]() {
 
@@ -36265,7 +36265,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassCreationFeedbackCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkRenderPassCreationFeedbackCreateInfoEXT...\n");
+        debug_printf("Deserializing VkRenderPassCreationFeedbackCreateInfoEXT...\n");
         VkRenderPassCreationFeedbackCreateInfoEXT* result;
         [&]() {
 
@@ -36282,7 +36282,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassSubpassFeedbackInfoEXT_pNext(json& name){
-        printf("Deserializing VkRenderPassSubpassFeedbackInfoEXT...\n");
+        debug_printf("Deserializing VkRenderPassSubpassFeedbackInfoEXT...\n");
         VkRenderPassSubpassFeedbackInfoEXT* result;
         [&]() {
 
@@ -36299,7 +36299,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkRenderPassSubpassFeedbackCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkRenderPassSubpassFeedbackCreateInfoEXT...\n");
+        debug_printf("Deserializing VkRenderPassSubpassFeedbackCreateInfoEXT...\n");
         VkRenderPassSubpassFeedbackCreateInfoEXT* result;
         [&]() {
 
@@ -36316,7 +36316,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT...\n");
         VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT* result;
         [&]() {
 
@@ -36333,7 +36333,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMicromapBuildInfoEXT_pNext(json& name){
-        printf("Deserializing VkMicromapBuildInfoEXT...\n");
+        debug_printf("Deserializing VkMicromapBuildInfoEXT...\n");
         VkMicromapBuildInfoEXT* result;
         [&]() {
 
@@ -36350,7 +36350,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMicromapCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkMicromapCreateInfoEXT...\n");
+        debug_printf("Deserializing VkMicromapCreateInfoEXT...\n");
         VkMicromapCreateInfoEXT* result;
         [&]() {
 
@@ -36367,7 +36367,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMicromapVersionInfoEXT_pNext(json& name){
-        printf("Deserializing VkMicromapVersionInfoEXT...\n");
+        debug_printf("Deserializing VkMicromapVersionInfoEXT...\n");
         VkMicromapVersionInfoEXT* result;
         [&]() {
 
@@ -36384,7 +36384,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyMicromapInfoEXT_pNext(json& name){
-        printf("Deserializing VkCopyMicromapInfoEXT...\n");
+        debug_printf("Deserializing VkCopyMicromapInfoEXT...\n");
         VkCopyMicromapInfoEXT* result;
         [&]() {
 
@@ -36401,7 +36401,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyMicromapToMemoryInfoEXT_pNext(json& name){
-        printf("Deserializing VkCopyMicromapToMemoryInfoEXT...\n");
+        debug_printf("Deserializing VkCopyMicromapToMemoryInfoEXT...\n");
         VkCopyMicromapToMemoryInfoEXT* result;
         [&]() {
 
@@ -36418,7 +36418,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCopyMemoryToMicromapInfoEXT_pNext(json& name){
-        printf("Deserializing VkCopyMemoryToMicromapInfoEXT...\n");
+        debug_printf("Deserializing VkCopyMemoryToMicromapInfoEXT...\n");
         VkCopyMemoryToMicromapInfoEXT* result;
         [&]() {
 
@@ -36435,7 +36435,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMicromapBuildSizesInfoEXT_pNext(json& name){
-        printf("Deserializing VkMicromapBuildSizesInfoEXT...\n");
+        debug_printf("Deserializing VkMicromapBuildSizesInfoEXT...\n");
         VkMicromapBuildSizesInfoEXT* result;
         [&]() {
 
@@ -36452,7 +36452,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMicromapUsageEXT_pNext(json& name){
-        printf("Deserializing VkMicromapUsageEXT...\n");
+        debug_printf("Deserializing VkMicromapUsageEXT...\n");
         VkMicromapUsageEXT* result;
         [&]() {
 
@@ -36469,7 +36469,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMicromapTriangleEXT_pNext(json& name){
-        printf("Deserializing VkMicromapTriangleEXT...\n");
+        debug_printf("Deserializing VkMicromapTriangleEXT...\n");
         VkMicromapTriangleEXT* result;
         [&]() {
 
@@ -36486,7 +36486,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceOpacityMicromapFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceOpacityMicromapFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceOpacityMicromapFeaturesEXT...\n");
         VkPhysicalDeviceOpacityMicromapFeaturesEXT* result;
         [&]() {
 
@@ -36503,7 +36503,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceOpacityMicromapPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceOpacityMicromapPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceOpacityMicromapPropertiesEXT...\n");
         VkPhysicalDeviceOpacityMicromapPropertiesEXT* result;
         [&]() {
 
@@ -36520,7 +36520,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAccelerationStructureTrianglesOpacityMicromapEXT_pNext(json& name){
-        printf("Deserializing VkAccelerationStructureTrianglesOpacityMicromapEXT...\n");
+        debug_printf("Deserializing VkAccelerationStructureTrianglesOpacityMicromapEXT...\n");
         VkAccelerationStructureTrianglesOpacityMicromapEXT* result;
         [&]() {
 
@@ -36537,7 +36537,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelinePropertiesIdentifierEXT_pNext(json& name){
-        printf("Deserializing VkPipelinePropertiesIdentifierEXT...\n");
+        debug_printf("Deserializing VkPipelinePropertiesIdentifierEXT...\n");
         VkPipelinePropertiesIdentifierEXT* result;
         [&]() {
 
@@ -36554,7 +36554,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePipelinePropertiesFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePipelinePropertiesFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDevicePipelinePropertiesFeaturesEXT...\n");
         VkPhysicalDevicePipelinePropertiesFeaturesEXT* result;
         [&]() {
 
@@ -36571,7 +36571,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD...\n");
         VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD* result;
         [&]() {
 
@@ -36588,7 +36588,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkExternalMemoryAcquireUnmodifiedEXT_pNext(json& name){
-        printf("Deserializing VkExternalMemoryAcquireUnmodifiedEXT...\n");
+        debug_printf("Deserializing VkExternalMemoryAcquireUnmodifiedEXT...\n");
         VkExternalMemoryAcquireUnmodifiedEXT* result;
         [&]() {
 
@@ -36605,7 +36605,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT...\n");
         VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT* result;
         [&]() {
 
@@ -36622,7 +36622,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePipelineRobustnessFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePipelineRobustnessFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDevicePipelineRobustnessFeaturesEXT...\n");
         VkPhysicalDevicePipelineRobustnessFeaturesEXT* result;
         [&]() {
 
@@ -36639,7 +36639,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPipelineRobustnessCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkPipelineRobustnessCreateInfoEXT...\n");
+        debug_printf("Deserializing VkPipelineRobustnessCreateInfoEXT...\n");
         VkPipelineRobustnessCreateInfoEXT* result;
         [&]() {
 
@@ -36656,7 +36656,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePipelineRobustnessPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePipelineRobustnessPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDevicePipelineRobustnessPropertiesEXT...\n");
         VkPhysicalDevicePipelineRobustnessPropertiesEXT* result;
         [&]() {
 
@@ -36673,7 +36673,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkImageViewSampleWeightCreateInfoQCOM_pNext(json& name){
-        printf("Deserializing VkImageViewSampleWeightCreateInfoQCOM...\n");
+        debug_printf("Deserializing VkImageViewSampleWeightCreateInfoQCOM...\n");
         VkImageViewSampleWeightCreateInfoQCOM* result;
         [&]() {
 
@@ -36690,7 +36690,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceImageProcessingFeaturesQCOM_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceImageProcessingFeaturesQCOM...\n");
+        debug_printf("Deserializing VkPhysicalDeviceImageProcessingFeaturesQCOM...\n");
         VkPhysicalDeviceImageProcessingFeaturesQCOM* result;
         [&]() {
 
@@ -36707,7 +36707,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceImageProcessingPropertiesQCOM_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceImageProcessingPropertiesQCOM...\n");
+        debug_printf("Deserializing VkPhysicalDeviceImageProcessingPropertiesQCOM...\n");
         VkPhysicalDeviceImageProcessingPropertiesQCOM* result;
         [&]() {
 
@@ -36724,7 +36724,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceTilePropertiesFeaturesQCOM_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceTilePropertiesFeaturesQCOM...\n");
+        debug_printf("Deserializing VkPhysicalDeviceTilePropertiesFeaturesQCOM...\n");
         VkPhysicalDeviceTilePropertiesFeaturesQCOM* result;
         [&]() {
 
@@ -36741,7 +36741,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkTilePropertiesQCOM_pNext(json& name){
-        printf("Deserializing VkTilePropertiesQCOM...\n");
+        debug_printf("Deserializing VkTilePropertiesQCOM...\n");
         VkTilePropertiesQCOM* result;
         [&]() {
 
@@ -36758,7 +36758,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceAmigoProfilingFeaturesSEC_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceAmigoProfilingFeaturesSEC...\n");
+        debug_printf("Deserializing VkPhysicalDeviceAmigoProfilingFeaturesSEC...\n");
         VkPhysicalDeviceAmigoProfilingFeaturesSEC* result;
         [&]() {
 
@@ -36775,7 +36775,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkAmigoProfilingSubmitInfoSEC_pNext(json& name){
-        printf("Deserializing VkAmigoProfilingSubmitInfoSEC...\n");
+        debug_printf("Deserializing VkAmigoProfilingSubmitInfoSEC...\n");
         VkAmigoProfilingSubmitInfoSEC* result;
         [&]() {
 
@@ -36792,7 +36792,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT...\n");
         VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT* result;
         [&]() {
 
@@ -36809,7 +36809,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDepthClampZeroOneFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDepthClampZeroOneFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDepthClampZeroOneFeaturesEXT...\n");
         VkPhysicalDeviceDepthClampZeroOneFeaturesEXT* result;
         [&]() {
 
@@ -36826,7 +36826,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceAddressBindingReportFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceAddressBindingReportFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceAddressBindingReportFeaturesEXT...\n");
         VkPhysicalDeviceAddressBindingReportFeaturesEXT* result;
         [&]() {
 
@@ -36843,7 +36843,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceAddressBindingCallbackDataEXT_pNext(json& name){
-        printf("Deserializing VkDeviceAddressBindingCallbackDataEXT...\n");
+        debug_printf("Deserializing VkDeviceAddressBindingCallbackDataEXT...\n");
         VkDeviceAddressBindingCallbackDataEXT* result;
         [&]() {
 
@@ -36860,7 +36860,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceOpticalFlowFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceOpticalFlowFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceOpticalFlowFeaturesNV...\n");
         VkPhysicalDeviceOpticalFlowFeaturesNV* result;
         [&]() {
 
@@ -36877,7 +36877,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceOpticalFlowPropertiesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceOpticalFlowPropertiesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceOpticalFlowPropertiesNV...\n");
         VkPhysicalDeviceOpticalFlowPropertiesNV* result;
         [&]() {
 
@@ -36894,7 +36894,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkOpticalFlowImageFormatInfoNV_pNext(json& name){
-        printf("Deserializing VkOpticalFlowImageFormatInfoNV...\n");
+        debug_printf("Deserializing VkOpticalFlowImageFormatInfoNV...\n");
         VkOpticalFlowImageFormatInfoNV* result;
         [&]() {
 
@@ -36911,7 +36911,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkOpticalFlowImageFormatPropertiesNV_pNext(json& name){
-        printf("Deserializing VkOpticalFlowImageFormatPropertiesNV...\n");
+        debug_printf("Deserializing VkOpticalFlowImageFormatPropertiesNV...\n");
         VkOpticalFlowImageFormatPropertiesNV* result;
         [&]() {
 
@@ -36928,7 +36928,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkOpticalFlowSessionCreateInfoNV_pNext(json& name){
-        printf("Deserializing VkOpticalFlowSessionCreateInfoNV...\n");
+        debug_printf("Deserializing VkOpticalFlowSessionCreateInfoNV...\n");
         VkOpticalFlowSessionCreateInfoNV* result;
         [&]() {
 
@@ -36945,7 +36945,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkOpticalFlowSessionCreatePrivateDataInfoNV_pNext(json& name){
-        printf("Deserializing VkOpticalFlowSessionCreatePrivateDataInfoNV...\n");
+        debug_printf("Deserializing VkOpticalFlowSessionCreatePrivateDataInfoNV...\n");
         VkOpticalFlowSessionCreatePrivateDataInfoNV* result;
         [&]() {
 
@@ -36962,7 +36962,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkOpticalFlowExecuteInfoNV_pNext(json& name){
-        printf("Deserializing VkOpticalFlowExecuteInfoNV...\n");
+        debug_printf("Deserializing VkOpticalFlowExecuteInfoNV...\n");
         VkOpticalFlowExecuteInfoNV* result;
         [&]() {
 
@@ -36979,7 +36979,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFaultFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFaultFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFaultFeaturesEXT...\n");
         VkPhysicalDeviceFaultFeaturesEXT* result;
         [&]() {
 
@@ -36996,7 +36996,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceFaultAddressInfoEXT_pNext(json& name){
-        printf("Deserializing VkDeviceFaultAddressInfoEXT...\n");
+        debug_printf("Deserializing VkDeviceFaultAddressInfoEXT...\n");
         VkDeviceFaultAddressInfoEXT* result;
         [&]() {
 
@@ -37013,7 +37013,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceFaultVendorInfoEXT_pNext(json& name){
-        printf("Deserializing VkDeviceFaultVendorInfoEXT...\n");
+        debug_printf("Deserializing VkDeviceFaultVendorInfoEXT...\n");
         VkDeviceFaultVendorInfoEXT* result;
         [&]() {
 
@@ -37030,7 +37030,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceFaultCountsEXT_pNext(json& name){
-        printf("Deserializing VkDeviceFaultCountsEXT...\n");
+        debug_printf("Deserializing VkDeviceFaultCountsEXT...\n");
         VkDeviceFaultCountsEXT* result;
         [&]() {
 
@@ -37047,7 +37047,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceFaultInfoEXT_pNext(json& name){
-        printf("Deserializing VkDeviceFaultInfoEXT...\n");
+        debug_printf("Deserializing VkDeviceFaultInfoEXT...\n");
         VkDeviceFaultInfoEXT* result;
         [&]() {
 
@@ -37064,7 +37064,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceFaultVendorBinaryHeaderVersionOneEXT_pNext(json& name){
-        printf("Deserializing VkDeviceFaultVendorBinaryHeaderVersionOneEXT...\n");
+        debug_printf("Deserializing VkDeviceFaultVendorBinaryHeaderVersionOneEXT...\n");
         VkDeviceFaultVendorBinaryHeaderVersionOneEXT* result;
         [&]() {
 
@@ -37081,7 +37081,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT...\n");
         VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT* result;
         [&]() {
 
@@ -37098,7 +37098,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDepthBiasInfoEXT_pNext(json& name){
-        printf("Deserializing VkDepthBiasInfoEXT...\n");
+        debug_printf("Deserializing VkDepthBiasInfoEXT...\n");
         VkDepthBiasInfoEXT* result;
         [&]() {
 
@@ -37115,7 +37115,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDepthBiasRepresentationInfoEXT_pNext(json& name){
-        printf("Deserializing VkDepthBiasRepresentationInfoEXT...\n");
+        debug_printf("Deserializing VkDepthBiasRepresentationInfoEXT...\n");
         VkDepthBiasRepresentationInfoEXT* result;
         [&]() {
 
@@ -37132,7 +37132,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDecompressMemoryRegionNV_pNext(json& name){
-        printf("Deserializing VkDecompressMemoryRegionNV...\n");
+        debug_printf("Deserializing VkDecompressMemoryRegionNV...\n");
         VkDecompressMemoryRegionNV* result;
         [&]() {
 
@@ -37149,7 +37149,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM...\n");
         VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM* result;
         [&]() {
 
@@ -37166,7 +37166,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM...\n");
         VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM* result;
         [&]() {
 
@@ -37183,7 +37183,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkFrameBoundaryEXT_pNext(json& name){
-        printf("Deserializing VkFrameBoundaryEXT...\n");
+        debug_printf("Deserializing VkFrameBoundaryEXT...\n");
         VkFrameBoundaryEXT* result;
         [&]() {
 
@@ -37200,7 +37200,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceFrameBoundaryFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceFrameBoundaryFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceFrameBoundaryFeaturesEXT...\n");
         VkPhysicalDeviceFrameBoundaryFeaturesEXT* result;
         [&]() {
 
@@ -37217,7 +37217,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT...\n");
         VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT* result;
         [&]() {
 
@@ -37234,7 +37234,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSurfacePresentModeEXT_pNext(json& name){
-        printf("Deserializing VkSurfacePresentModeEXT...\n");
+        debug_printf("Deserializing VkSurfacePresentModeEXT...\n");
         VkSurfacePresentModeEXT* result;
         [&]() {
 
@@ -37251,7 +37251,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSurfacePresentScalingCapabilitiesEXT_pNext(json& name){
-        printf("Deserializing VkSurfacePresentScalingCapabilitiesEXT...\n");
+        debug_printf("Deserializing VkSurfacePresentScalingCapabilitiesEXT...\n");
         VkSurfacePresentScalingCapabilitiesEXT* result;
         [&]() {
 
@@ -37268,7 +37268,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSurfacePresentModeCompatibilityEXT_pNext(json& name){
-        printf("Deserializing VkSurfacePresentModeCompatibilityEXT...\n");
+        debug_printf("Deserializing VkSurfacePresentModeCompatibilityEXT...\n");
         VkSurfacePresentModeCompatibilityEXT* result;
         [&]() {
 
@@ -37285,7 +37285,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT...\n");
         VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT* result;
         [&]() {
 
@@ -37302,7 +37302,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSwapchainPresentFenceInfoEXT_pNext(json& name){
-        printf("Deserializing VkSwapchainPresentFenceInfoEXT...\n");
+        debug_printf("Deserializing VkSwapchainPresentFenceInfoEXT...\n");
         VkSwapchainPresentFenceInfoEXT* result;
         [&]() {
 
@@ -37319,7 +37319,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSwapchainPresentModesCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkSwapchainPresentModesCreateInfoEXT...\n");
+        debug_printf("Deserializing VkSwapchainPresentModesCreateInfoEXT...\n");
         VkSwapchainPresentModesCreateInfoEXT* result;
         [&]() {
 
@@ -37336,7 +37336,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSwapchainPresentModeInfoEXT_pNext(json& name){
-        printf("Deserializing VkSwapchainPresentModeInfoEXT...\n");
+        debug_printf("Deserializing VkSwapchainPresentModeInfoEXT...\n");
         VkSwapchainPresentModeInfoEXT* result;
         [&]() {
 
@@ -37353,7 +37353,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSwapchainPresentScalingCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkSwapchainPresentScalingCreateInfoEXT...\n");
+        debug_printf("Deserializing VkSwapchainPresentScalingCreateInfoEXT...\n");
         VkSwapchainPresentScalingCreateInfoEXT* result;
         [&]() {
 
@@ -37370,7 +37370,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkReleaseSwapchainImagesInfoEXT_pNext(json& name){
-        printf("Deserializing VkReleaseSwapchainImagesInfoEXT...\n");
+        debug_printf("Deserializing VkReleaseSwapchainImagesInfoEXT...\n");
         VkReleaseSwapchainImagesInfoEXT* result;
         [&]() {
 
@@ -37387,7 +37387,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDepthBiasControlFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDepthBiasControlFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDepthBiasControlFeaturesEXT...\n");
         VkPhysicalDeviceDepthBiasControlFeaturesEXT* result;
         [&]() {
 
@@ -37404,7 +37404,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV...\n");
         VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV* result;
         [&]() {
 
@@ -37421,7 +37421,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV...\n");
         VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV* result;
         [&]() {
 
@@ -37438,7 +37438,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDirectDriverLoadingInfoLUNARG_pNext(json& name){
-        printf("Deserializing VkDirectDriverLoadingInfoLUNARG...\n");
+        debug_printf("Deserializing VkDirectDriverLoadingInfoLUNARG...\n");
         VkDirectDriverLoadingInfoLUNARG* result;
         [&]() {
 
@@ -37455,7 +37455,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDirectDriverLoadingListLUNARG_pNext(json& name){
-        printf("Deserializing VkDirectDriverLoadingListLUNARG...\n");
+        debug_printf("Deserializing VkDirectDriverLoadingListLUNARG...\n");
         VkDirectDriverLoadingListLUNARG* result;
         [&]() {
 
@@ -37472,7 +37472,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM...\n");
         VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM* result;
         [&]() {
 
@@ -37489,7 +37489,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR...\n");
         VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR* result;
         [&]() {
 
@@ -37506,7 +37506,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkDeviceImageSubresourceInfoKHR_pNext(json& name){
-        printf("Deserializing VkDeviceImageSubresourceInfoKHR...\n");
+        debug_printf("Deserializing VkDeviceImageSubresourceInfoKHR...\n");
         VkDeviceImageSubresourceInfoKHR* result;
         [&]() {
 
@@ -37523,7 +37523,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderCorePropertiesARM_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderCorePropertiesARM...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderCorePropertiesARM...\n");
         VkPhysicalDeviceShaderCorePropertiesARM* result;
         [&]() {
 
@@ -37540,7 +37540,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM...\n");
+        debug_printf("Deserializing VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM...\n");
         VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM* result;
         [&]() {
 
@@ -37557,7 +37557,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM_pNext(json& name){
-        printf("Deserializing VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM...\n");
+        debug_printf("Deserializing VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM...\n");
         VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM* result;
         [&]() {
 
@@ -37574,7 +37574,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkQueryLowLatencySupportNV_pNext(json& name){
-        printf("Deserializing VkQueryLowLatencySupportNV...\n");
+        debug_printf("Deserializing VkQueryLowLatencySupportNV...\n");
         VkQueryLowLatencySupportNV* result;
         [&]() {
 
@@ -37591,7 +37591,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryMapInfoKHR_pNext(json& name){
-        printf("Deserializing VkMemoryMapInfoKHR...\n");
+        debug_printf("Deserializing VkMemoryMapInfoKHR...\n");
         VkMemoryMapInfoKHR* result;
         [&]() {
 
@@ -37608,7 +37608,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkMemoryUnmapInfoKHR_pNext(json& name){
-        printf("Deserializing VkMemoryUnmapInfoKHR...\n");
+        debug_printf("Deserializing VkMemoryUnmapInfoKHR...\n");
         VkMemoryUnmapInfoKHR* result;
         [&]() {
 
@@ -37625,7 +37625,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderObjectFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderObjectFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderObjectFeaturesEXT...\n");
         VkPhysicalDeviceShaderObjectFeaturesEXT* result;
         [&]() {
 
@@ -37642,7 +37642,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderObjectPropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderObjectPropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderObjectPropertiesEXT...\n");
         VkPhysicalDeviceShaderObjectPropertiesEXT* result;
         [&]() {
 
@@ -37659,7 +37659,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkShaderCreateInfoEXT_pNext(json& name){
-        printf("Deserializing VkShaderCreateInfoEXT...\n");
+        debug_printf("Deserializing VkShaderCreateInfoEXT...\n");
         VkShaderCreateInfoEXT* result;
         [&]() {
 
@@ -37676,7 +37676,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderTileImageFeaturesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderTileImageFeaturesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderTileImageFeaturesEXT...\n");
         VkPhysicalDeviceShaderTileImageFeaturesEXT* result;
         [&]() {
 
@@ -37693,7 +37693,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceShaderTileImagePropertiesEXT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceShaderTileImagePropertiesEXT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceShaderTileImagePropertiesEXT...\n");
         VkPhysicalDeviceShaderTileImagePropertiesEXT* result;
         [&]() {
 
@@ -37710,7 +37710,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceCooperativeMatrixFeaturesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceCooperativeMatrixFeaturesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceCooperativeMatrixFeaturesKHR...\n");
         VkPhysicalDeviceCooperativeMatrixFeaturesKHR* result;
         [&]() {
 
@@ -37727,7 +37727,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkCooperativeMatrixPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkCooperativeMatrixPropertiesKHR...\n");
+        debug_printf("Deserializing VkCooperativeMatrixPropertiesKHR...\n");
         VkCooperativeMatrixPropertiesKHR* result;
         [&]() {
 
@@ -37744,7 +37744,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceCooperativeMatrixPropertiesKHR_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceCooperativeMatrixPropertiesKHR...\n");
+        debug_printf("Deserializing VkPhysicalDeviceCooperativeMatrixPropertiesKHR...\n");
         VkPhysicalDeviceCooperativeMatrixPropertiesKHR* result;
         [&]() {
 
@@ -37761,7 +37761,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceCubicClampFeaturesQCOM_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceCubicClampFeaturesQCOM...\n");
+        debug_printf("Deserializing VkPhysicalDeviceCubicClampFeaturesQCOM...\n");
         VkPhysicalDeviceCubicClampFeaturesQCOM* result;
         [&]() {
 
@@ -37778,7 +37778,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceYcbcrDegammaFeaturesQCOM_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceYcbcrDegammaFeaturesQCOM...\n");
+        debug_printf("Deserializing VkPhysicalDeviceYcbcrDegammaFeaturesQCOM...\n");
         VkPhysicalDeviceYcbcrDegammaFeaturesQCOM* result;
         [&]() {
 
@@ -37795,7 +37795,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM_pNext(json& name){
-        printf("Deserializing VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM...\n");
+        debug_printf("Deserializing VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM...\n");
         VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM* result;
         [&]() {
 
@@ -37812,7 +37812,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceCubicWeightsFeaturesQCOM_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceCubicWeightsFeaturesQCOM...\n");
+        debug_printf("Deserializing VkPhysicalDeviceCubicWeightsFeaturesQCOM...\n");
         VkPhysicalDeviceCubicWeightsFeaturesQCOM* result;
         [&]() {
 
@@ -37829,7 +37829,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSamplerCubicWeightsCreateInfoQCOM_pNext(json& name){
-        printf("Deserializing VkSamplerCubicWeightsCreateInfoQCOM...\n");
+        debug_printf("Deserializing VkSamplerCubicWeightsCreateInfoQCOM...\n");
         VkSamplerCubicWeightsCreateInfoQCOM* result;
         [&]() {
 
@@ -37846,7 +37846,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkBlitImageCubicWeightsInfoQCOM_pNext(json& name){
-        printf("Deserializing VkBlitImageCubicWeightsInfoQCOM...\n");
+        debug_printf("Deserializing VkBlitImageCubicWeightsInfoQCOM...\n");
         VkBlitImageCubicWeightsInfoQCOM* result;
         [&]() {
 
@@ -37863,7 +37863,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceImageProcessing2FeaturesQCOM_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceImageProcessing2FeaturesQCOM...\n");
+        debug_printf("Deserializing VkPhysicalDeviceImageProcessing2FeaturesQCOM...\n");
         VkPhysicalDeviceImageProcessing2FeaturesQCOM* result;
         [&]() {
 
@@ -37880,7 +37880,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceImageProcessing2PropertiesQCOM_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceImageProcessing2PropertiesQCOM...\n");
+        debug_printf("Deserializing VkPhysicalDeviceImageProcessing2PropertiesQCOM...\n");
         VkPhysicalDeviceImageProcessing2PropertiesQCOM* result;
         [&]() {
 
@@ -37897,7 +37897,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkSamplerBlockMatchWindowCreateInfoQCOM_pNext(json& name){
-        printf("Deserializing VkSamplerBlockMatchWindowCreateInfoQCOM...\n");
+        debug_printf("Deserializing VkSamplerBlockMatchWindowCreateInfoQCOM...\n");
         VkSamplerBlockMatchWindowCreateInfoQCOM* result;
         [&]() {
 
@@ -37914,7 +37914,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV...\n");
+        debug_printf("Deserializing VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV...\n");
         VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV* result;
         [&]() {
 
@@ -37931,7 +37931,7 @@ void* copyVkStruct (const void* data){
     
 
         void* deserialize_VkPhysicalDeviceLayeredDriverPropertiesMSFT_pNext(json& name){
-        printf("Deserializing VkPhysicalDeviceLayeredDriverPropertiesMSFT...\n");
+        debug_printf("Deserializing VkPhysicalDeviceLayeredDriverPropertiesMSFT...\n");
         VkPhysicalDeviceLayeredDriverPropertiesMSFT* result;
         [&]() {
 
@@ -45901,8 +45901,8 @@ result["members"]["pointSizeRange"]=[&]() {
         return return_YnFHven;
         }();
 
-            printf("%f\n",name.lineWidthRange[0]);
-            printf("%f\n",name.lineWidthRange[1]);
+            debug_printf("%f\n",name.lineWidthRange[0]);
+            debug_printf("%f\n",name.lineWidthRange[1]);
             
 result["members"]["lineWidthRange"]=[&]() {
     json return_AxKFcmN=json({});
@@ -98676,12 +98676,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkInstance_to_server_VkInstance.contains( (uintptr_t)data ))){
-                        printf("Panic: VkInstance %p not found!\n",data);
+                        debug_printf("Panic: VkInstance %p not found!\n",data);
                     }
-                     printf("Serializing VkInstance %p...\n",(VkInstance)client_VkInstance_to_server_VkInstance[(uintptr_t)data]);
+                     debug_printf("Serializing VkInstance %p...\n",(VkInstance)client_VkInstance_to_server_VkInstance[(uintptr_t)data]);
                     result["value"]=client_VkInstance_to_server_VkInstance[(uintptr_t)data];
                 }
             #else
@@ -98697,13 +98697,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkInstance result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkInstance)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkInstance)pointer);
                     if (server_VkInstance_to_client_VkInstance.contains(pointer)){
                         result=(VkInstance)server_VkInstance_to_client_VkInstance[pointer];
-                        printf("Deserializing to VkInstance %p...\n",result);
+                        debug_printf("Deserializing to VkInstance %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkInstance));
-                        printf("Mapping to VkInstance %p...\n",handle);
+                        debug_printf("Mapping to VkInstance %p...\n",handle);
                         server_VkInstance_to_client_VkInstance[pointer]=(uintptr_t)handle;
                         client_VkInstance_to_server_VkInstance[(uintptr_t)handle]=pointer;
                         
@@ -98728,12 +98728,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkPhysicalDevice_to_server_VkPhysicalDevice.contains( (uintptr_t)data ))){
-                        printf("Panic: VkPhysicalDevice %p not found!\n",data);
+                        debug_printf("Panic: VkPhysicalDevice %p not found!\n",data);
                     }
-                     printf("Serializing VkPhysicalDevice %p...\n",(VkPhysicalDevice)client_VkPhysicalDevice_to_server_VkPhysicalDevice[(uintptr_t)data]);
+                     debug_printf("Serializing VkPhysicalDevice %p...\n",(VkPhysicalDevice)client_VkPhysicalDevice_to_server_VkPhysicalDevice[(uintptr_t)data]);
                     result["value"]=client_VkPhysicalDevice_to_server_VkPhysicalDevice[(uintptr_t)data];
                 }
             #else
@@ -98749,13 +98749,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkPhysicalDevice result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkPhysicalDevice)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkPhysicalDevice)pointer);
                     if (server_VkPhysicalDevice_to_client_VkPhysicalDevice.contains(pointer)){
                         result=(VkPhysicalDevice)server_VkPhysicalDevice_to_client_VkPhysicalDevice[pointer];
-                        printf("Deserializing to VkPhysicalDevice %p...\n",result);
+                        debug_printf("Deserializing to VkPhysicalDevice %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkPhysicalDevice));
-                        printf("Mapping to VkPhysicalDevice %p...\n",handle);
+                        debug_printf("Mapping to VkPhysicalDevice %p...\n",handle);
                         server_VkPhysicalDevice_to_client_VkPhysicalDevice[pointer]=(uintptr_t)handle;
                         client_VkPhysicalDevice_to_server_VkPhysicalDevice[(uintptr_t)handle]=pointer;
                         
@@ -98780,12 +98780,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkDevice_to_server_VkDevice.contains( (uintptr_t)data ))){
-                        printf("Panic: VkDevice %p not found!\n",data);
+                        debug_printf("Panic: VkDevice %p not found!\n",data);
                     }
-                     printf("Serializing VkDevice %p...\n",(VkDevice)client_VkDevice_to_server_VkDevice[(uintptr_t)data]);
+                     debug_printf("Serializing VkDevice %p...\n",(VkDevice)client_VkDevice_to_server_VkDevice[(uintptr_t)data]);
                     result["value"]=client_VkDevice_to_server_VkDevice[(uintptr_t)data];
                 }
             #else
@@ -98801,13 +98801,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDevice result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkDevice)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkDevice)pointer);
                     if (server_VkDevice_to_client_VkDevice.contains(pointer)){
                         result=(VkDevice)server_VkDevice_to_client_VkDevice[pointer];
-                        printf("Deserializing to VkDevice %p...\n",result);
+                        debug_printf("Deserializing to VkDevice %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkDevice));
-                        printf("Mapping to VkDevice %p...\n",handle);
+                        debug_printf("Mapping to VkDevice %p...\n",handle);
                         server_VkDevice_to_client_VkDevice[pointer]=(uintptr_t)handle;
                         client_VkDevice_to_server_VkDevice[(uintptr_t)handle]=pointer;
                         
@@ -98832,12 +98832,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkQueue_to_server_VkQueue.contains( (uintptr_t)data ))){
-                        printf("Panic: VkQueue %p not found!\n",data);
+                        debug_printf("Panic: VkQueue %p not found!\n",data);
                     }
-                     printf("Serializing VkQueue %p...\n",(VkQueue)client_VkQueue_to_server_VkQueue[(uintptr_t)data]);
+                     debug_printf("Serializing VkQueue %p...\n",(VkQueue)client_VkQueue_to_server_VkQueue[(uintptr_t)data]);
                     result["value"]=client_VkQueue_to_server_VkQueue[(uintptr_t)data];
                 }
             #else
@@ -98853,13 +98853,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkQueue result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkQueue)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkQueue)pointer);
                     if (server_VkQueue_to_client_VkQueue.contains(pointer)){
                         result=(VkQueue)server_VkQueue_to_client_VkQueue[pointer];
-                        printf("Deserializing to VkQueue %p...\n",result);
+                        debug_printf("Deserializing to VkQueue %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkQueue));
-                        printf("Mapping to VkQueue %p...\n",handle);
+                        debug_printf("Mapping to VkQueue %p...\n",handle);
                         server_VkQueue_to_client_VkQueue[pointer]=(uintptr_t)handle;
                         client_VkQueue_to_server_VkQueue[(uintptr_t)handle]=pointer;
                         
@@ -98884,12 +98884,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkCommandBuffer_to_server_VkCommandBuffer.contains( (uintptr_t)data ))){
-                        printf("Panic: VkCommandBuffer %p not found!\n",data);
+                        debug_printf("Panic: VkCommandBuffer %p not found!\n",data);
                     }
-                     printf("Serializing VkCommandBuffer %p...\n",(VkCommandBuffer)client_VkCommandBuffer_to_server_VkCommandBuffer[(uintptr_t)data]);
+                     debug_printf("Serializing VkCommandBuffer %p...\n",(VkCommandBuffer)client_VkCommandBuffer_to_server_VkCommandBuffer[(uintptr_t)data]);
                     result["value"]=client_VkCommandBuffer_to_server_VkCommandBuffer[(uintptr_t)data];
                 }
             #else
@@ -98905,13 +98905,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkCommandBuffer result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkCommandBuffer)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkCommandBuffer)pointer);
                     if (server_VkCommandBuffer_to_client_VkCommandBuffer.contains(pointer)){
                         result=(VkCommandBuffer)server_VkCommandBuffer_to_client_VkCommandBuffer[pointer];
-                        printf("Deserializing to VkCommandBuffer %p...\n",result);
+                        debug_printf("Deserializing to VkCommandBuffer %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkCommandBuffer));
-                        printf("Mapping to VkCommandBuffer %p...\n",handle);
+                        debug_printf("Mapping to VkCommandBuffer %p...\n",handle);
                         server_VkCommandBuffer_to_client_VkCommandBuffer[pointer]=(uintptr_t)handle;
                         client_VkCommandBuffer_to_server_VkCommandBuffer[(uintptr_t)handle]=pointer;
                         
@@ -98936,12 +98936,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkDeviceMemory_to_server_VkDeviceMemory.contains( (uintptr_t)data ))){
-                        printf("Panic: VkDeviceMemory %p not found!\n",data);
+                        debug_printf("Panic: VkDeviceMemory %p not found!\n",data);
                     }
-                     printf("Serializing VkDeviceMemory %p...\n",(VkDeviceMemory)client_VkDeviceMemory_to_server_VkDeviceMemory[(uintptr_t)data]);
+                     debug_printf("Serializing VkDeviceMemory %p...\n",(VkDeviceMemory)client_VkDeviceMemory_to_server_VkDeviceMemory[(uintptr_t)data]);
                     result["value"]=client_VkDeviceMemory_to_server_VkDeviceMemory[(uintptr_t)data];
                 }
             #else
@@ -98957,13 +98957,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDeviceMemory result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkDeviceMemory)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkDeviceMemory)pointer);
                     if (server_VkDeviceMemory_to_client_VkDeviceMemory.contains(pointer)){
                         result=(VkDeviceMemory)server_VkDeviceMemory_to_client_VkDeviceMemory[pointer];
-                        printf("Deserializing to VkDeviceMemory %p...\n",result);
+                        debug_printf("Deserializing to VkDeviceMemory %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkDeviceMemory));
-                        printf("Mapping to VkDeviceMemory %p...\n",handle);
+                        debug_printf("Mapping to VkDeviceMemory %p...\n",handle);
                         server_VkDeviceMemory_to_client_VkDeviceMemory[pointer]=(uintptr_t)handle;
                         client_VkDeviceMemory_to_server_VkDeviceMemory[(uintptr_t)handle]=pointer;
                         
@@ -98988,12 +98988,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkCommandPool_to_server_VkCommandPool.contains( (uintptr_t)data ))){
-                        printf("Panic: VkCommandPool %p not found!\n",data);
+                        debug_printf("Panic: VkCommandPool %p not found!\n",data);
                     }
-                     printf("Serializing VkCommandPool %p...\n",(VkCommandPool)client_VkCommandPool_to_server_VkCommandPool[(uintptr_t)data]);
+                     debug_printf("Serializing VkCommandPool %p...\n",(VkCommandPool)client_VkCommandPool_to_server_VkCommandPool[(uintptr_t)data]);
                     result["value"]=client_VkCommandPool_to_server_VkCommandPool[(uintptr_t)data];
                 }
             #else
@@ -99009,13 +99009,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkCommandPool result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkCommandPool)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkCommandPool)pointer);
                     if (server_VkCommandPool_to_client_VkCommandPool.contains(pointer)){
                         result=(VkCommandPool)server_VkCommandPool_to_client_VkCommandPool[pointer];
-                        printf("Deserializing to VkCommandPool %p...\n",result);
+                        debug_printf("Deserializing to VkCommandPool %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkCommandPool));
-                        printf("Mapping to VkCommandPool %p...\n",handle);
+                        debug_printf("Mapping to VkCommandPool %p...\n",handle);
                         server_VkCommandPool_to_client_VkCommandPool[pointer]=(uintptr_t)handle;
                         client_VkCommandPool_to_server_VkCommandPool[(uintptr_t)handle]=pointer;
                         
@@ -99040,12 +99040,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkBuffer_to_server_VkBuffer.contains( (uintptr_t)data ))){
-                        printf("Panic: VkBuffer %p not found!\n",data);
+                        debug_printf("Panic: VkBuffer %p not found!\n",data);
                     }
-                     printf("Serializing VkBuffer %p...\n",(VkBuffer)client_VkBuffer_to_server_VkBuffer[(uintptr_t)data]);
+                     debug_printf("Serializing VkBuffer %p...\n",(VkBuffer)client_VkBuffer_to_server_VkBuffer[(uintptr_t)data]);
                     result["value"]=client_VkBuffer_to_server_VkBuffer[(uintptr_t)data];
                 }
             #else
@@ -99061,13 +99061,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkBuffer result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkBuffer)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkBuffer)pointer);
                     if (server_VkBuffer_to_client_VkBuffer.contains(pointer)){
                         result=(VkBuffer)server_VkBuffer_to_client_VkBuffer[pointer];
-                        printf("Deserializing to VkBuffer %p...\n",result);
+                        debug_printf("Deserializing to VkBuffer %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkBuffer));
-                        printf("Mapping to VkBuffer %p...\n",handle);
+                        debug_printf("Mapping to VkBuffer %p...\n",handle);
                         server_VkBuffer_to_client_VkBuffer[pointer]=(uintptr_t)handle;
                         client_VkBuffer_to_server_VkBuffer[(uintptr_t)handle]=pointer;
                         
@@ -99092,12 +99092,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkBufferView_to_server_VkBufferView.contains( (uintptr_t)data ))){
-                        printf("Panic: VkBufferView %p not found!\n",data);
+                        debug_printf("Panic: VkBufferView %p not found!\n",data);
                     }
-                     printf("Serializing VkBufferView %p...\n",(VkBufferView)client_VkBufferView_to_server_VkBufferView[(uintptr_t)data]);
+                     debug_printf("Serializing VkBufferView %p...\n",(VkBufferView)client_VkBufferView_to_server_VkBufferView[(uintptr_t)data]);
                     result["value"]=client_VkBufferView_to_server_VkBufferView[(uintptr_t)data];
                 }
             #else
@@ -99113,13 +99113,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkBufferView result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkBufferView)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkBufferView)pointer);
                     if (server_VkBufferView_to_client_VkBufferView.contains(pointer)){
                         result=(VkBufferView)server_VkBufferView_to_client_VkBufferView[pointer];
-                        printf("Deserializing to VkBufferView %p...\n",result);
+                        debug_printf("Deserializing to VkBufferView %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkBufferView));
-                        printf("Mapping to VkBufferView %p...\n",handle);
+                        debug_printf("Mapping to VkBufferView %p...\n",handle);
                         server_VkBufferView_to_client_VkBufferView[pointer]=(uintptr_t)handle;
                         client_VkBufferView_to_server_VkBufferView[(uintptr_t)handle]=pointer;
                         
@@ -99144,12 +99144,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkImage_to_server_VkImage.contains( (uintptr_t)data ))){
-                        printf("Panic: VkImage %p not found!\n",data);
+                        debug_printf("Panic: VkImage %p not found!\n",data);
                     }
-                     printf("Serializing VkImage %p...\n",(VkImage)client_VkImage_to_server_VkImage[(uintptr_t)data]);
+                     debug_printf("Serializing VkImage %p...\n",(VkImage)client_VkImage_to_server_VkImage[(uintptr_t)data]);
                     result["value"]=client_VkImage_to_server_VkImage[(uintptr_t)data];
                 }
             #else
@@ -99165,13 +99165,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkImage result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkImage)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkImage)pointer);
                     if (server_VkImage_to_client_VkImage.contains(pointer)){
                         result=(VkImage)server_VkImage_to_client_VkImage[pointer];
-                        printf("Deserializing to VkImage %p...\n",result);
+                        debug_printf("Deserializing to VkImage %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkImage));
-                        printf("Mapping to VkImage %p...\n",handle);
+                        debug_printf("Mapping to VkImage %p...\n",handle);
                         server_VkImage_to_client_VkImage[pointer]=(uintptr_t)handle;
                         client_VkImage_to_server_VkImage[(uintptr_t)handle]=pointer;
                         
@@ -99196,12 +99196,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkImageView_to_server_VkImageView.contains( (uintptr_t)data ))){
-                        printf("Panic: VkImageView %p not found!\n",data);
+                        debug_printf("Panic: VkImageView %p not found!\n",data);
                     }
-                     printf("Serializing VkImageView %p...\n",(VkImageView)client_VkImageView_to_server_VkImageView[(uintptr_t)data]);
+                     debug_printf("Serializing VkImageView %p...\n",(VkImageView)client_VkImageView_to_server_VkImageView[(uintptr_t)data]);
                     result["value"]=client_VkImageView_to_server_VkImageView[(uintptr_t)data];
                 }
             #else
@@ -99217,13 +99217,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkImageView result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkImageView)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkImageView)pointer);
                     if (server_VkImageView_to_client_VkImageView.contains(pointer)){
                         result=(VkImageView)server_VkImageView_to_client_VkImageView[pointer];
-                        printf("Deserializing to VkImageView %p...\n",result);
+                        debug_printf("Deserializing to VkImageView %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkImageView));
-                        printf("Mapping to VkImageView %p...\n",handle);
+                        debug_printf("Mapping to VkImageView %p...\n",handle);
                         server_VkImageView_to_client_VkImageView[pointer]=(uintptr_t)handle;
                         client_VkImageView_to_server_VkImageView[(uintptr_t)handle]=pointer;
                         
@@ -99248,12 +99248,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkShaderModule_to_server_VkShaderModule.contains( (uintptr_t)data ))){
-                        printf("Panic: VkShaderModule %p not found!\n",data);
+                        debug_printf("Panic: VkShaderModule %p not found!\n",data);
                     }
-                     printf("Serializing VkShaderModule %p...\n",(VkShaderModule)client_VkShaderModule_to_server_VkShaderModule[(uintptr_t)data]);
+                     debug_printf("Serializing VkShaderModule %p...\n",(VkShaderModule)client_VkShaderModule_to_server_VkShaderModule[(uintptr_t)data]);
                     result["value"]=client_VkShaderModule_to_server_VkShaderModule[(uintptr_t)data];
                 }
             #else
@@ -99269,13 +99269,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkShaderModule result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkShaderModule)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkShaderModule)pointer);
                     if (server_VkShaderModule_to_client_VkShaderModule.contains(pointer)){
                         result=(VkShaderModule)server_VkShaderModule_to_client_VkShaderModule[pointer];
-                        printf("Deserializing to VkShaderModule %p...\n",result);
+                        debug_printf("Deserializing to VkShaderModule %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkShaderModule));
-                        printf("Mapping to VkShaderModule %p...\n",handle);
+                        debug_printf("Mapping to VkShaderModule %p...\n",handle);
                         server_VkShaderModule_to_client_VkShaderModule[pointer]=(uintptr_t)handle;
                         client_VkShaderModule_to_server_VkShaderModule[(uintptr_t)handle]=pointer;
                         
@@ -99300,12 +99300,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkPipeline_to_server_VkPipeline.contains( (uintptr_t)data ))){
-                        printf("Panic: VkPipeline %p not found!\n",data);
+                        debug_printf("Panic: VkPipeline %p not found!\n",data);
                     }
-                     printf("Serializing VkPipeline %p...\n",(VkPipeline)client_VkPipeline_to_server_VkPipeline[(uintptr_t)data]);
+                     debug_printf("Serializing VkPipeline %p...\n",(VkPipeline)client_VkPipeline_to_server_VkPipeline[(uintptr_t)data]);
                     result["value"]=client_VkPipeline_to_server_VkPipeline[(uintptr_t)data];
                 }
             #else
@@ -99321,13 +99321,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkPipeline result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkPipeline)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkPipeline)pointer);
                     if (server_VkPipeline_to_client_VkPipeline.contains(pointer)){
                         result=(VkPipeline)server_VkPipeline_to_client_VkPipeline[pointer];
-                        printf("Deserializing to VkPipeline %p...\n",result);
+                        debug_printf("Deserializing to VkPipeline %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkPipeline));
-                        printf("Mapping to VkPipeline %p...\n",handle);
+                        debug_printf("Mapping to VkPipeline %p...\n",handle);
                         server_VkPipeline_to_client_VkPipeline[pointer]=(uintptr_t)handle;
                         client_VkPipeline_to_server_VkPipeline[(uintptr_t)handle]=pointer;
                         
@@ -99352,12 +99352,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkPipelineLayout_to_server_VkPipelineLayout.contains( (uintptr_t)data ))){
-                        printf("Panic: VkPipelineLayout %p not found!\n",data);
+                        debug_printf("Panic: VkPipelineLayout %p not found!\n",data);
                     }
-                     printf("Serializing VkPipelineLayout %p...\n",(VkPipelineLayout)client_VkPipelineLayout_to_server_VkPipelineLayout[(uintptr_t)data]);
+                     debug_printf("Serializing VkPipelineLayout %p...\n",(VkPipelineLayout)client_VkPipelineLayout_to_server_VkPipelineLayout[(uintptr_t)data]);
                     result["value"]=client_VkPipelineLayout_to_server_VkPipelineLayout[(uintptr_t)data];
                 }
             #else
@@ -99373,13 +99373,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkPipelineLayout result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkPipelineLayout)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkPipelineLayout)pointer);
                     if (server_VkPipelineLayout_to_client_VkPipelineLayout.contains(pointer)){
                         result=(VkPipelineLayout)server_VkPipelineLayout_to_client_VkPipelineLayout[pointer];
-                        printf("Deserializing to VkPipelineLayout %p...\n",result);
+                        debug_printf("Deserializing to VkPipelineLayout %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkPipelineLayout));
-                        printf("Mapping to VkPipelineLayout %p...\n",handle);
+                        debug_printf("Mapping to VkPipelineLayout %p...\n",handle);
                         server_VkPipelineLayout_to_client_VkPipelineLayout[pointer]=(uintptr_t)handle;
                         client_VkPipelineLayout_to_server_VkPipelineLayout[(uintptr_t)handle]=pointer;
                         
@@ -99404,12 +99404,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkSampler_to_server_VkSampler.contains( (uintptr_t)data ))){
-                        printf("Panic: VkSampler %p not found!\n",data);
+                        debug_printf("Panic: VkSampler %p not found!\n",data);
                     }
-                     printf("Serializing VkSampler %p...\n",(VkSampler)client_VkSampler_to_server_VkSampler[(uintptr_t)data]);
+                     debug_printf("Serializing VkSampler %p...\n",(VkSampler)client_VkSampler_to_server_VkSampler[(uintptr_t)data]);
                     result["value"]=client_VkSampler_to_server_VkSampler[(uintptr_t)data];
                 }
             #else
@@ -99425,13 +99425,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkSampler result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkSampler)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkSampler)pointer);
                     if (server_VkSampler_to_client_VkSampler.contains(pointer)){
                         result=(VkSampler)server_VkSampler_to_client_VkSampler[pointer];
-                        printf("Deserializing to VkSampler %p...\n",result);
+                        debug_printf("Deserializing to VkSampler %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkSampler));
-                        printf("Mapping to VkSampler %p...\n",handle);
+                        debug_printf("Mapping to VkSampler %p...\n",handle);
                         server_VkSampler_to_client_VkSampler[pointer]=(uintptr_t)handle;
                         client_VkSampler_to_server_VkSampler[(uintptr_t)handle]=pointer;
                         
@@ -99456,12 +99456,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkDescriptorSet_to_server_VkDescriptorSet.contains( (uintptr_t)data ))){
-                        printf("Panic: VkDescriptorSet %p not found!\n",data);
+                        debug_printf("Panic: VkDescriptorSet %p not found!\n",data);
                     }
-                     printf("Serializing VkDescriptorSet %p...\n",(VkDescriptorSet)client_VkDescriptorSet_to_server_VkDescriptorSet[(uintptr_t)data]);
+                     debug_printf("Serializing VkDescriptorSet %p...\n",(VkDescriptorSet)client_VkDescriptorSet_to_server_VkDescriptorSet[(uintptr_t)data]);
                     result["value"]=client_VkDescriptorSet_to_server_VkDescriptorSet[(uintptr_t)data];
                 }
             #else
@@ -99477,13 +99477,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDescriptorSet result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkDescriptorSet)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkDescriptorSet)pointer);
                     if (server_VkDescriptorSet_to_client_VkDescriptorSet.contains(pointer)){
                         result=(VkDescriptorSet)server_VkDescriptorSet_to_client_VkDescriptorSet[pointer];
-                        printf("Deserializing to VkDescriptorSet %p...\n",result);
+                        debug_printf("Deserializing to VkDescriptorSet %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkDescriptorSet));
-                        printf("Mapping to VkDescriptorSet %p...\n",handle);
+                        debug_printf("Mapping to VkDescriptorSet %p...\n",handle);
                         server_VkDescriptorSet_to_client_VkDescriptorSet[pointer]=(uintptr_t)handle;
                         client_VkDescriptorSet_to_server_VkDescriptorSet[(uintptr_t)handle]=pointer;
                         
@@ -99508,12 +99508,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout.contains( (uintptr_t)data ))){
-                        printf("Panic: VkDescriptorSetLayout %p not found!\n",data);
+                        debug_printf("Panic: VkDescriptorSetLayout %p not found!\n",data);
                     }
-                     printf("Serializing VkDescriptorSetLayout %p...\n",(VkDescriptorSetLayout)client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout[(uintptr_t)data]);
+                     debug_printf("Serializing VkDescriptorSetLayout %p...\n",(VkDescriptorSetLayout)client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout[(uintptr_t)data]);
                     result["value"]=client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout[(uintptr_t)data];
                 }
             #else
@@ -99529,13 +99529,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDescriptorSetLayout result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkDescriptorSetLayout)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkDescriptorSetLayout)pointer);
                     if (server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout.contains(pointer)){
                         result=(VkDescriptorSetLayout)server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout[pointer];
-                        printf("Deserializing to VkDescriptorSetLayout %p...\n",result);
+                        debug_printf("Deserializing to VkDescriptorSetLayout %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkDescriptorSetLayout));
-                        printf("Mapping to VkDescriptorSetLayout %p...\n",handle);
+                        debug_printf("Mapping to VkDescriptorSetLayout %p...\n",handle);
                         server_VkDescriptorSetLayout_to_client_VkDescriptorSetLayout[pointer]=(uintptr_t)handle;
                         client_VkDescriptorSetLayout_to_server_VkDescriptorSetLayout[(uintptr_t)handle]=pointer;
                         
@@ -99560,12 +99560,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkDescriptorPool_to_server_VkDescriptorPool.contains( (uintptr_t)data ))){
-                        printf("Panic: VkDescriptorPool %p not found!\n",data);
+                        debug_printf("Panic: VkDescriptorPool %p not found!\n",data);
                     }
-                     printf("Serializing VkDescriptorPool %p...\n",(VkDescriptorPool)client_VkDescriptorPool_to_server_VkDescriptorPool[(uintptr_t)data]);
+                     debug_printf("Serializing VkDescriptorPool %p...\n",(VkDescriptorPool)client_VkDescriptorPool_to_server_VkDescriptorPool[(uintptr_t)data]);
                     result["value"]=client_VkDescriptorPool_to_server_VkDescriptorPool[(uintptr_t)data];
                 }
             #else
@@ -99581,13 +99581,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDescriptorPool result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkDescriptorPool)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkDescriptorPool)pointer);
                     if (server_VkDescriptorPool_to_client_VkDescriptorPool.contains(pointer)){
                         result=(VkDescriptorPool)server_VkDescriptorPool_to_client_VkDescriptorPool[pointer];
-                        printf("Deserializing to VkDescriptorPool %p...\n",result);
+                        debug_printf("Deserializing to VkDescriptorPool %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkDescriptorPool));
-                        printf("Mapping to VkDescriptorPool %p...\n",handle);
+                        debug_printf("Mapping to VkDescriptorPool %p...\n",handle);
                         server_VkDescriptorPool_to_client_VkDescriptorPool[pointer]=(uintptr_t)handle;
                         client_VkDescriptorPool_to_server_VkDescriptorPool[(uintptr_t)handle]=pointer;
                         
@@ -99612,12 +99612,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkFence_to_server_VkFence.contains( (uintptr_t)data ))){
-                        printf("Panic: VkFence %p not found!\n",data);
+                        debug_printf("Panic: VkFence %p not found!\n",data);
                     }
-                     printf("Serializing VkFence %p...\n",(VkFence)client_VkFence_to_server_VkFence[(uintptr_t)data]);
+                     debug_printf("Serializing VkFence %p...\n",(VkFence)client_VkFence_to_server_VkFence[(uintptr_t)data]);
                     result["value"]=client_VkFence_to_server_VkFence[(uintptr_t)data];
                 }
             #else
@@ -99633,13 +99633,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkFence result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkFence)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkFence)pointer);
                     if (server_VkFence_to_client_VkFence.contains(pointer)){
                         result=(VkFence)server_VkFence_to_client_VkFence[pointer];
-                        printf("Deserializing to VkFence %p...\n",result);
+                        debug_printf("Deserializing to VkFence %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkFence));
-                        printf("Mapping to VkFence %p...\n",handle);
+                        debug_printf("Mapping to VkFence %p...\n",handle);
                         server_VkFence_to_client_VkFence[pointer]=(uintptr_t)handle;
                         client_VkFence_to_server_VkFence[(uintptr_t)handle]=pointer;
                         
@@ -99664,12 +99664,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkSemaphore_to_server_VkSemaphore.contains( (uintptr_t)data ))){
-                        printf("Panic: VkSemaphore %p not found!\n",data);
+                        debug_printf("Panic: VkSemaphore %p not found!\n",data);
                     }
-                     printf("Serializing VkSemaphore %p...\n",(VkSemaphore)client_VkSemaphore_to_server_VkSemaphore[(uintptr_t)data]);
+                     debug_printf("Serializing VkSemaphore %p...\n",(VkSemaphore)client_VkSemaphore_to_server_VkSemaphore[(uintptr_t)data]);
                     result["value"]=client_VkSemaphore_to_server_VkSemaphore[(uintptr_t)data];
                 }
             #else
@@ -99685,13 +99685,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkSemaphore result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkSemaphore)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkSemaphore)pointer);
                     if (server_VkSemaphore_to_client_VkSemaphore.contains(pointer)){
                         result=(VkSemaphore)server_VkSemaphore_to_client_VkSemaphore[pointer];
-                        printf("Deserializing to VkSemaphore %p...\n",result);
+                        debug_printf("Deserializing to VkSemaphore %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkSemaphore));
-                        printf("Mapping to VkSemaphore %p...\n",handle);
+                        debug_printf("Mapping to VkSemaphore %p...\n",handle);
                         server_VkSemaphore_to_client_VkSemaphore[pointer]=(uintptr_t)handle;
                         client_VkSemaphore_to_server_VkSemaphore[(uintptr_t)handle]=pointer;
                         
@@ -99716,12 +99716,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkEvent_to_server_VkEvent.contains( (uintptr_t)data ))){
-                        printf("Panic: VkEvent %p not found!\n",data);
+                        debug_printf("Panic: VkEvent %p not found!\n",data);
                     }
-                     printf("Serializing VkEvent %p...\n",(VkEvent)client_VkEvent_to_server_VkEvent[(uintptr_t)data]);
+                     debug_printf("Serializing VkEvent %p...\n",(VkEvent)client_VkEvent_to_server_VkEvent[(uintptr_t)data]);
                     result["value"]=client_VkEvent_to_server_VkEvent[(uintptr_t)data];
                 }
             #else
@@ -99737,13 +99737,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkEvent result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkEvent)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkEvent)pointer);
                     if (server_VkEvent_to_client_VkEvent.contains(pointer)){
                         result=(VkEvent)server_VkEvent_to_client_VkEvent[pointer];
-                        printf("Deserializing to VkEvent %p...\n",result);
+                        debug_printf("Deserializing to VkEvent %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkEvent));
-                        printf("Mapping to VkEvent %p...\n",handle);
+                        debug_printf("Mapping to VkEvent %p...\n",handle);
                         server_VkEvent_to_client_VkEvent[pointer]=(uintptr_t)handle;
                         client_VkEvent_to_server_VkEvent[(uintptr_t)handle]=pointer;
                         
@@ -99768,12 +99768,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkQueryPool_to_server_VkQueryPool.contains( (uintptr_t)data ))){
-                        printf("Panic: VkQueryPool %p not found!\n",data);
+                        debug_printf("Panic: VkQueryPool %p not found!\n",data);
                     }
-                     printf("Serializing VkQueryPool %p...\n",(VkQueryPool)client_VkQueryPool_to_server_VkQueryPool[(uintptr_t)data]);
+                     debug_printf("Serializing VkQueryPool %p...\n",(VkQueryPool)client_VkQueryPool_to_server_VkQueryPool[(uintptr_t)data]);
                     result["value"]=client_VkQueryPool_to_server_VkQueryPool[(uintptr_t)data];
                 }
             #else
@@ -99789,13 +99789,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkQueryPool result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkQueryPool)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkQueryPool)pointer);
                     if (server_VkQueryPool_to_client_VkQueryPool.contains(pointer)){
                         result=(VkQueryPool)server_VkQueryPool_to_client_VkQueryPool[pointer];
-                        printf("Deserializing to VkQueryPool %p...\n",result);
+                        debug_printf("Deserializing to VkQueryPool %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkQueryPool));
-                        printf("Mapping to VkQueryPool %p...\n",handle);
+                        debug_printf("Mapping to VkQueryPool %p...\n",handle);
                         server_VkQueryPool_to_client_VkQueryPool[pointer]=(uintptr_t)handle;
                         client_VkQueryPool_to_server_VkQueryPool[(uintptr_t)handle]=pointer;
                         
@@ -99820,12 +99820,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkFramebuffer_to_server_VkFramebuffer.contains( (uintptr_t)data ))){
-                        printf("Panic: VkFramebuffer %p not found!\n",data);
+                        debug_printf("Panic: VkFramebuffer %p not found!\n",data);
                     }
-                     printf("Serializing VkFramebuffer %p...\n",(VkFramebuffer)client_VkFramebuffer_to_server_VkFramebuffer[(uintptr_t)data]);
+                     debug_printf("Serializing VkFramebuffer %p...\n",(VkFramebuffer)client_VkFramebuffer_to_server_VkFramebuffer[(uintptr_t)data]);
                     result["value"]=client_VkFramebuffer_to_server_VkFramebuffer[(uintptr_t)data];
                 }
             #else
@@ -99841,13 +99841,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkFramebuffer result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkFramebuffer)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkFramebuffer)pointer);
                     if (server_VkFramebuffer_to_client_VkFramebuffer.contains(pointer)){
                         result=(VkFramebuffer)server_VkFramebuffer_to_client_VkFramebuffer[pointer];
-                        printf("Deserializing to VkFramebuffer %p...\n",result);
+                        debug_printf("Deserializing to VkFramebuffer %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkFramebuffer));
-                        printf("Mapping to VkFramebuffer %p...\n",handle);
+                        debug_printf("Mapping to VkFramebuffer %p...\n",handle);
                         server_VkFramebuffer_to_client_VkFramebuffer[pointer]=(uintptr_t)handle;
                         client_VkFramebuffer_to_server_VkFramebuffer[(uintptr_t)handle]=pointer;
                         
@@ -99872,12 +99872,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkRenderPass_to_server_VkRenderPass.contains( (uintptr_t)data ))){
-                        printf("Panic: VkRenderPass %p not found!\n",data);
+                        debug_printf("Panic: VkRenderPass %p not found!\n",data);
                     }
-                     printf("Serializing VkRenderPass %p...\n",(VkRenderPass)client_VkRenderPass_to_server_VkRenderPass[(uintptr_t)data]);
+                     debug_printf("Serializing VkRenderPass %p...\n",(VkRenderPass)client_VkRenderPass_to_server_VkRenderPass[(uintptr_t)data]);
                     result["value"]=client_VkRenderPass_to_server_VkRenderPass[(uintptr_t)data];
                 }
             #else
@@ -99893,13 +99893,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkRenderPass result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkRenderPass)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkRenderPass)pointer);
                     if (server_VkRenderPass_to_client_VkRenderPass.contains(pointer)){
                         result=(VkRenderPass)server_VkRenderPass_to_client_VkRenderPass[pointer];
-                        printf("Deserializing to VkRenderPass %p...\n",result);
+                        debug_printf("Deserializing to VkRenderPass %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkRenderPass));
-                        printf("Mapping to VkRenderPass %p...\n",handle);
+                        debug_printf("Mapping to VkRenderPass %p...\n",handle);
                         server_VkRenderPass_to_client_VkRenderPass[pointer]=(uintptr_t)handle;
                         client_VkRenderPass_to_server_VkRenderPass[(uintptr_t)handle]=pointer;
                         
@@ -99924,12 +99924,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkPipelineCache_to_server_VkPipelineCache.contains( (uintptr_t)data ))){
-                        printf("Panic: VkPipelineCache %p not found!\n",data);
+                        debug_printf("Panic: VkPipelineCache %p not found!\n",data);
                     }
-                     printf("Serializing VkPipelineCache %p...\n",(VkPipelineCache)client_VkPipelineCache_to_server_VkPipelineCache[(uintptr_t)data]);
+                     debug_printf("Serializing VkPipelineCache %p...\n",(VkPipelineCache)client_VkPipelineCache_to_server_VkPipelineCache[(uintptr_t)data]);
                     result["value"]=client_VkPipelineCache_to_server_VkPipelineCache[(uintptr_t)data];
                 }
             #else
@@ -99945,13 +99945,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkPipelineCache result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkPipelineCache)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkPipelineCache)pointer);
                     if (server_VkPipelineCache_to_client_VkPipelineCache.contains(pointer)){
                         result=(VkPipelineCache)server_VkPipelineCache_to_client_VkPipelineCache[pointer];
-                        printf("Deserializing to VkPipelineCache %p...\n",result);
+                        debug_printf("Deserializing to VkPipelineCache %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkPipelineCache));
-                        printf("Mapping to VkPipelineCache %p...\n",handle);
+                        debug_printf("Mapping to VkPipelineCache %p...\n",handle);
                         server_VkPipelineCache_to_client_VkPipelineCache[pointer]=(uintptr_t)handle;
                         client_VkPipelineCache_to_server_VkPipelineCache[(uintptr_t)handle]=pointer;
                         
@@ -99976,12 +99976,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV.contains( (uintptr_t)data ))){
-                        printf("Panic: VkIndirectCommandsLayoutNV %p not found!\n",data);
+                        debug_printf("Panic: VkIndirectCommandsLayoutNV %p not found!\n",data);
                     }
-                     printf("Serializing VkIndirectCommandsLayoutNV %p...\n",(VkIndirectCommandsLayoutNV)client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV[(uintptr_t)data]);
+                     debug_printf("Serializing VkIndirectCommandsLayoutNV %p...\n",(VkIndirectCommandsLayoutNV)client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV[(uintptr_t)data]);
                     result["value"]=client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV[(uintptr_t)data];
                 }
             #else
@@ -99997,13 +99997,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkIndirectCommandsLayoutNV result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkIndirectCommandsLayoutNV)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkIndirectCommandsLayoutNV)pointer);
                     if (server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV.contains(pointer)){
                         result=(VkIndirectCommandsLayoutNV)server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV[pointer];
-                        printf("Deserializing to VkIndirectCommandsLayoutNV %p...\n",result);
+                        debug_printf("Deserializing to VkIndirectCommandsLayoutNV %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkIndirectCommandsLayoutNV));
-                        printf("Mapping to VkIndirectCommandsLayoutNV %p...\n",handle);
+                        debug_printf("Mapping to VkIndirectCommandsLayoutNV %p...\n",handle);
                         server_VkIndirectCommandsLayoutNV_to_client_VkIndirectCommandsLayoutNV[pointer]=(uintptr_t)handle;
                         client_VkIndirectCommandsLayoutNV_to_server_VkIndirectCommandsLayoutNV[(uintptr_t)handle]=pointer;
                         
@@ -100028,12 +100028,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate.contains( (uintptr_t)data ))){
-                        printf("Panic: VkDescriptorUpdateTemplate %p not found!\n",data);
+                        debug_printf("Panic: VkDescriptorUpdateTemplate %p not found!\n",data);
                     }
-                     printf("Serializing VkDescriptorUpdateTemplate %p...\n",(VkDescriptorUpdateTemplate)client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate[(uintptr_t)data]);
+                     debug_printf("Serializing VkDescriptorUpdateTemplate %p...\n",(VkDescriptorUpdateTemplate)client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate[(uintptr_t)data]);
                     result["value"]=client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate[(uintptr_t)data];
                 }
             #else
@@ -100049,13 +100049,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDescriptorUpdateTemplate result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkDescriptorUpdateTemplate)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkDescriptorUpdateTemplate)pointer);
                     if (server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate.contains(pointer)){
                         result=(VkDescriptorUpdateTemplate)server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate[pointer];
-                        printf("Deserializing to VkDescriptorUpdateTemplate %p...\n",result);
+                        debug_printf("Deserializing to VkDescriptorUpdateTemplate %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkDescriptorUpdateTemplate));
-                        printf("Mapping to VkDescriptorUpdateTemplate %p...\n",handle);
+                        debug_printf("Mapping to VkDescriptorUpdateTemplate %p...\n",handle);
                         server_VkDescriptorUpdateTemplate_to_client_VkDescriptorUpdateTemplate[pointer]=(uintptr_t)handle;
                         client_VkDescriptorUpdateTemplate_to_server_VkDescriptorUpdateTemplate[(uintptr_t)handle]=pointer;
                         
@@ -100080,12 +100080,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR.contains( (uintptr_t)data ))){
-                        printf("Panic: VkDescriptorUpdateTemplateKHR %p not found!\n",data);
+                        debug_printf("Panic: VkDescriptorUpdateTemplateKHR %p not found!\n",data);
                     }
-                     printf("Serializing VkDescriptorUpdateTemplateKHR %p...\n",(VkDescriptorUpdateTemplateKHR)client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR[(uintptr_t)data]);
+                     debug_printf("Serializing VkDescriptorUpdateTemplateKHR %p...\n",(VkDescriptorUpdateTemplateKHR)client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR[(uintptr_t)data]);
                     result["value"]=client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR[(uintptr_t)data];
                 }
             #else
@@ -100101,13 +100101,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDescriptorUpdateTemplateKHR result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkDescriptorUpdateTemplateKHR)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkDescriptorUpdateTemplateKHR)pointer);
                     if (server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR.contains(pointer)){
                         result=(VkDescriptorUpdateTemplateKHR)server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR[pointer];
-                        printf("Deserializing to VkDescriptorUpdateTemplateKHR %p...\n",result);
+                        debug_printf("Deserializing to VkDescriptorUpdateTemplateKHR %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkDescriptorUpdateTemplateKHR));
-                        printf("Mapping to VkDescriptorUpdateTemplateKHR %p...\n",handle);
+                        debug_printf("Mapping to VkDescriptorUpdateTemplateKHR %p...\n",handle);
                         server_VkDescriptorUpdateTemplateKHR_to_client_VkDescriptorUpdateTemplateKHR[pointer]=(uintptr_t)handle;
                         client_VkDescriptorUpdateTemplateKHR_to_server_VkDescriptorUpdateTemplateKHR[(uintptr_t)handle]=pointer;
                         
@@ -100132,12 +100132,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion.contains( (uintptr_t)data ))){
-                        printf("Panic: VkSamplerYcbcrConversion %p not found!\n",data);
+                        debug_printf("Panic: VkSamplerYcbcrConversion %p not found!\n",data);
                     }
-                     printf("Serializing VkSamplerYcbcrConversion %p...\n",(VkSamplerYcbcrConversion)client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion[(uintptr_t)data]);
+                     debug_printf("Serializing VkSamplerYcbcrConversion %p...\n",(VkSamplerYcbcrConversion)client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion[(uintptr_t)data]);
                     result["value"]=client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion[(uintptr_t)data];
                 }
             #else
@@ -100153,13 +100153,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkSamplerYcbcrConversion result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkSamplerYcbcrConversion)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkSamplerYcbcrConversion)pointer);
                     if (server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion.contains(pointer)){
                         result=(VkSamplerYcbcrConversion)server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion[pointer];
-                        printf("Deserializing to VkSamplerYcbcrConversion %p...\n",result);
+                        debug_printf("Deserializing to VkSamplerYcbcrConversion %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkSamplerYcbcrConversion));
-                        printf("Mapping to VkSamplerYcbcrConversion %p...\n",handle);
+                        debug_printf("Mapping to VkSamplerYcbcrConversion %p...\n",handle);
                         server_VkSamplerYcbcrConversion_to_client_VkSamplerYcbcrConversion[pointer]=(uintptr_t)handle;
                         client_VkSamplerYcbcrConversion_to_server_VkSamplerYcbcrConversion[(uintptr_t)handle]=pointer;
                         
@@ -100184,12 +100184,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR.contains( (uintptr_t)data ))){
-                        printf("Panic: VkSamplerYcbcrConversionKHR %p not found!\n",data);
+                        debug_printf("Panic: VkSamplerYcbcrConversionKHR %p not found!\n",data);
                     }
-                     printf("Serializing VkSamplerYcbcrConversionKHR %p...\n",(VkSamplerYcbcrConversionKHR)client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR[(uintptr_t)data]);
+                     debug_printf("Serializing VkSamplerYcbcrConversionKHR %p...\n",(VkSamplerYcbcrConversionKHR)client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR[(uintptr_t)data]);
                     result["value"]=client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR[(uintptr_t)data];
                 }
             #else
@@ -100205,13 +100205,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkSamplerYcbcrConversionKHR result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkSamplerYcbcrConversionKHR)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkSamplerYcbcrConversionKHR)pointer);
                     if (server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR.contains(pointer)){
                         result=(VkSamplerYcbcrConversionKHR)server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR[pointer];
-                        printf("Deserializing to VkSamplerYcbcrConversionKHR %p...\n",result);
+                        debug_printf("Deserializing to VkSamplerYcbcrConversionKHR %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkSamplerYcbcrConversionKHR));
-                        printf("Mapping to VkSamplerYcbcrConversionKHR %p...\n",handle);
+                        debug_printf("Mapping to VkSamplerYcbcrConversionKHR %p...\n",handle);
                         server_VkSamplerYcbcrConversionKHR_to_client_VkSamplerYcbcrConversionKHR[pointer]=(uintptr_t)handle;
                         client_VkSamplerYcbcrConversionKHR_to_server_VkSamplerYcbcrConversionKHR[(uintptr_t)handle]=pointer;
                         
@@ -100236,12 +100236,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkValidationCacheEXT_to_server_VkValidationCacheEXT.contains( (uintptr_t)data ))){
-                        printf("Panic: VkValidationCacheEXT %p not found!\n",data);
+                        debug_printf("Panic: VkValidationCacheEXT %p not found!\n",data);
                     }
-                     printf("Serializing VkValidationCacheEXT %p...\n",(VkValidationCacheEXT)client_VkValidationCacheEXT_to_server_VkValidationCacheEXT[(uintptr_t)data]);
+                     debug_printf("Serializing VkValidationCacheEXT %p...\n",(VkValidationCacheEXT)client_VkValidationCacheEXT_to_server_VkValidationCacheEXT[(uintptr_t)data]);
                     result["value"]=client_VkValidationCacheEXT_to_server_VkValidationCacheEXT[(uintptr_t)data];
                 }
             #else
@@ -100257,13 +100257,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkValidationCacheEXT result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkValidationCacheEXT)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkValidationCacheEXT)pointer);
                     if (server_VkValidationCacheEXT_to_client_VkValidationCacheEXT.contains(pointer)){
                         result=(VkValidationCacheEXT)server_VkValidationCacheEXT_to_client_VkValidationCacheEXT[pointer];
-                        printf("Deserializing to VkValidationCacheEXT %p...\n",result);
+                        debug_printf("Deserializing to VkValidationCacheEXT %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkValidationCacheEXT));
-                        printf("Mapping to VkValidationCacheEXT %p...\n",handle);
+                        debug_printf("Mapping to VkValidationCacheEXT %p...\n",handle);
                         server_VkValidationCacheEXT_to_client_VkValidationCacheEXT[pointer]=(uintptr_t)handle;
                         client_VkValidationCacheEXT_to_server_VkValidationCacheEXT[(uintptr_t)handle]=pointer;
                         
@@ -100288,12 +100288,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR.contains( (uintptr_t)data ))){
-                        printf("Panic: VkAccelerationStructureKHR %p not found!\n",data);
+                        debug_printf("Panic: VkAccelerationStructureKHR %p not found!\n",data);
                     }
-                     printf("Serializing VkAccelerationStructureKHR %p...\n",(VkAccelerationStructureKHR)client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR[(uintptr_t)data]);
+                     debug_printf("Serializing VkAccelerationStructureKHR %p...\n",(VkAccelerationStructureKHR)client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR[(uintptr_t)data]);
                     result["value"]=client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR[(uintptr_t)data];
                 }
             #else
@@ -100309,13 +100309,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkAccelerationStructureKHR result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkAccelerationStructureKHR)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkAccelerationStructureKHR)pointer);
                     if (server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR.contains(pointer)){
                         result=(VkAccelerationStructureKHR)server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR[pointer];
-                        printf("Deserializing to VkAccelerationStructureKHR %p...\n",result);
+                        debug_printf("Deserializing to VkAccelerationStructureKHR %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkAccelerationStructureKHR));
-                        printf("Mapping to VkAccelerationStructureKHR %p...\n",handle);
+                        debug_printf("Mapping to VkAccelerationStructureKHR %p...\n",handle);
                         server_VkAccelerationStructureKHR_to_client_VkAccelerationStructureKHR[pointer]=(uintptr_t)handle;
                         client_VkAccelerationStructureKHR_to_server_VkAccelerationStructureKHR[(uintptr_t)handle]=pointer;
                         
@@ -100340,12 +100340,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV.contains( (uintptr_t)data ))){
-                        printf("Panic: VkAccelerationStructureNV %p not found!\n",data);
+                        debug_printf("Panic: VkAccelerationStructureNV %p not found!\n",data);
                     }
-                     printf("Serializing VkAccelerationStructureNV %p...\n",(VkAccelerationStructureNV)client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV[(uintptr_t)data]);
+                     debug_printf("Serializing VkAccelerationStructureNV %p...\n",(VkAccelerationStructureNV)client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV[(uintptr_t)data]);
                     result["value"]=client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV[(uintptr_t)data];
                 }
             #else
@@ -100361,13 +100361,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkAccelerationStructureNV result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkAccelerationStructureNV)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkAccelerationStructureNV)pointer);
                     if (server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV.contains(pointer)){
                         result=(VkAccelerationStructureNV)server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV[pointer];
-                        printf("Deserializing to VkAccelerationStructureNV %p...\n",result);
+                        debug_printf("Deserializing to VkAccelerationStructureNV %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkAccelerationStructureNV));
-                        printf("Mapping to VkAccelerationStructureNV %p...\n",handle);
+                        debug_printf("Mapping to VkAccelerationStructureNV %p...\n",handle);
                         server_VkAccelerationStructureNV_to_client_VkAccelerationStructureNV[pointer]=(uintptr_t)handle;
                         client_VkAccelerationStructureNV_to_server_VkAccelerationStructureNV[(uintptr_t)handle]=pointer;
                         
@@ -100392,12 +100392,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL.contains( (uintptr_t)data ))){
-                        printf("Panic: VkPerformanceConfigurationINTEL %p not found!\n",data);
+                        debug_printf("Panic: VkPerformanceConfigurationINTEL %p not found!\n",data);
                     }
-                     printf("Serializing VkPerformanceConfigurationINTEL %p...\n",(VkPerformanceConfigurationINTEL)client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL[(uintptr_t)data]);
+                     debug_printf("Serializing VkPerformanceConfigurationINTEL %p...\n",(VkPerformanceConfigurationINTEL)client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL[(uintptr_t)data]);
                     result["value"]=client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL[(uintptr_t)data];
                 }
             #else
@@ -100413,13 +100413,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkPerformanceConfigurationINTEL result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkPerformanceConfigurationINTEL)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkPerformanceConfigurationINTEL)pointer);
                     if (server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL.contains(pointer)){
                         result=(VkPerformanceConfigurationINTEL)server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL[pointer];
-                        printf("Deserializing to VkPerformanceConfigurationINTEL %p...\n",result);
+                        debug_printf("Deserializing to VkPerformanceConfigurationINTEL %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkPerformanceConfigurationINTEL));
-                        printf("Mapping to VkPerformanceConfigurationINTEL %p...\n",handle);
+                        debug_printf("Mapping to VkPerformanceConfigurationINTEL %p...\n",handle);
                         server_VkPerformanceConfigurationINTEL_to_client_VkPerformanceConfigurationINTEL[pointer]=(uintptr_t)handle;
                         client_VkPerformanceConfigurationINTEL_to_server_VkPerformanceConfigurationINTEL[(uintptr_t)handle]=pointer;
                         
@@ -100444,12 +100444,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR.contains( (uintptr_t)data ))){
-                        printf("Panic: VkDeferredOperationKHR %p not found!\n",data);
+                        debug_printf("Panic: VkDeferredOperationKHR %p not found!\n",data);
                     }
-                     printf("Serializing VkDeferredOperationKHR %p...\n",(VkDeferredOperationKHR)client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR[(uintptr_t)data]);
+                     debug_printf("Serializing VkDeferredOperationKHR %p...\n",(VkDeferredOperationKHR)client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR[(uintptr_t)data]);
                     result["value"]=client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR[(uintptr_t)data];
                 }
             #else
@@ -100465,13 +100465,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDeferredOperationKHR result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkDeferredOperationKHR)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkDeferredOperationKHR)pointer);
                     if (server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR.contains(pointer)){
                         result=(VkDeferredOperationKHR)server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR[pointer];
-                        printf("Deserializing to VkDeferredOperationKHR %p...\n",result);
+                        debug_printf("Deserializing to VkDeferredOperationKHR %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkDeferredOperationKHR));
-                        printf("Mapping to VkDeferredOperationKHR %p...\n",handle);
+                        debug_printf("Mapping to VkDeferredOperationKHR %p...\n",handle);
                         server_VkDeferredOperationKHR_to_client_VkDeferredOperationKHR[pointer]=(uintptr_t)handle;
                         client_VkDeferredOperationKHR_to_server_VkDeferredOperationKHR[(uintptr_t)handle]=pointer;
                         
@@ -100496,12 +100496,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkPrivateDataSlot_to_server_VkPrivateDataSlot.contains( (uintptr_t)data ))){
-                        printf("Panic: VkPrivateDataSlot %p not found!\n",data);
+                        debug_printf("Panic: VkPrivateDataSlot %p not found!\n",data);
                     }
-                     printf("Serializing VkPrivateDataSlot %p...\n",(VkPrivateDataSlot)client_VkPrivateDataSlot_to_server_VkPrivateDataSlot[(uintptr_t)data]);
+                     debug_printf("Serializing VkPrivateDataSlot %p...\n",(VkPrivateDataSlot)client_VkPrivateDataSlot_to_server_VkPrivateDataSlot[(uintptr_t)data]);
                     result["value"]=client_VkPrivateDataSlot_to_server_VkPrivateDataSlot[(uintptr_t)data];
                 }
             #else
@@ -100517,13 +100517,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkPrivateDataSlot result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkPrivateDataSlot)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkPrivateDataSlot)pointer);
                     if (server_VkPrivateDataSlot_to_client_VkPrivateDataSlot.contains(pointer)){
                         result=(VkPrivateDataSlot)server_VkPrivateDataSlot_to_client_VkPrivateDataSlot[pointer];
-                        printf("Deserializing to VkPrivateDataSlot %p...\n",result);
+                        debug_printf("Deserializing to VkPrivateDataSlot %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkPrivateDataSlot));
-                        printf("Mapping to VkPrivateDataSlot %p...\n",handle);
+                        debug_printf("Mapping to VkPrivateDataSlot %p...\n",handle);
                         server_VkPrivateDataSlot_to_client_VkPrivateDataSlot[pointer]=(uintptr_t)handle;
                         client_VkPrivateDataSlot_to_server_VkPrivateDataSlot[(uintptr_t)handle]=pointer;
                         
@@ -100548,12 +100548,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT.contains( (uintptr_t)data ))){
-                        printf("Panic: VkPrivateDataSlotEXT %p not found!\n",data);
+                        debug_printf("Panic: VkPrivateDataSlotEXT %p not found!\n",data);
                     }
-                     printf("Serializing VkPrivateDataSlotEXT %p...\n",(VkPrivateDataSlotEXT)client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT[(uintptr_t)data]);
+                     debug_printf("Serializing VkPrivateDataSlotEXT %p...\n",(VkPrivateDataSlotEXT)client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT[(uintptr_t)data]);
                     result["value"]=client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT[(uintptr_t)data];
                 }
             #else
@@ -100569,13 +100569,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkPrivateDataSlotEXT result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkPrivateDataSlotEXT)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkPrivateDataSlotEXT)pointer);
                     if (server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT.contains(pointer)){
                         result=(VkPrivateDataSlotEXT)server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT[pointer];
-                        printf("Deserializing to VkPrivateDataSlotEXT %p...\n",result);
+                        debug_printf("Deserializing to VkPrivateDataSlotEXT %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkPrivateDataSlotEXT));
-                        printf("Mapping to VkPrivateDataSlotEXT %p...\n",handle);
+                        debug_printf("Mapping to VkPrivateDataSlotEXT %p...\n",handle);
                         server_VkPrivateDataSlotEXT_to_client_VkPrivateDataSlotEXT[pointer]=(uintptr_t)handle;
                         client_VkPrivateDataSlotEXT_to_server_VkPrivateDataSlotEXT[(uintptr_t)handle]=pointer;
                         
@@ -100600,12 +100600,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkCuModuleNVX_to_server_VkCuModuleNVX.contains( (uintptr_t)data ))){
-                        printf("Panic: VkCuModuleNVX %p not found!\n",data);
+                        debug_printf("Panic: VkCuModuleNVX %p not found!\n",data);
                     }
-                     printf("Serializing VkCuModuleNVX %p...\n",(VkCuModuleNVX)client_VkCuModuleNVX_to_server_VkCuModuleNVX[(uintptr_t)data]);
+                     debug_printf("Serializing VkCuModuleNVX %p...\n",(VkCuModuleNVX)client_VkCuModuleNVX_to_server_VkCuModuleNVX[(uintptr_t)data]);
                     result["value"]=client_VkCuModuleNVX_to_server_VkCuModuleNVX[(uintptr_t)data];
                 }
             #else
@@ -100621,13 +100621,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkCuModuleNVX result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkCuModuleNVX)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkCuModuleNVX)pointer);
                     if (server_VkCuModuleNVX_to_client_VkCuModuleNVX.contains(pointer)){
                         result=(VkCuModuleNVX)server_VkCuModuleNVX_to_client_VkCuModuleNVX[pointer];
-                        printf("Deserializing to VkCuModuleNVX %p...\n",result);
+                        debug_printf("Deserializing to VkCuModuleNVX %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkCuModuleNVX));
-                        printf("Mapping to VkCuModuleNVX %p...\n",handle);
+                        debug_printf("Mapping to VkCuModuleNVX %p...\n",handle);
                         server_VkCuModuleNVX_to_client_VkCuModuleNVX[pointer]=(uintptr_t)handle;
                         client_VkCuModuleNVX_to_server_VkCuModuleNVX[(uintptr_t)handle]=pointer;
                         
@@ -100652,12 +100652,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkCuFunctionNVX_to_server_VkCuFunctionNVX.contains( (uintptr_t)data ))){
-                        printf("Panic: VkCuFunctionNVX %p not found!\n",data);
+                        debug_printf("Panic: VkCuFunctionNVX %p not found!\n",data);
                     }
-                     printf("Serializing VkCuFunctionNVX %p...\n",(VkCuFunctionNVX)client_VkCuFunctionNVX_to_server_VkCuFunctionNVX[(uintptr_t)data]);
+                     debug_printf("Serializing VkCuFunctionNVX %p...\n",(VkCuFunctionNVX)client_VkCuFunctionNVX_to_server_VkCuFunctionNVX[(uintptr_t)data]);
                     result["value"]=client_VkCuFunctionNVX_to_server_VkCuFunctionNVX[(uintptr_t)data];
                 }
             #else
@@ -100673,13 +100673,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkCuFunctionNVX result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkCuFunctionNVX)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkCuFunctionNVX)pointer);
                     if (server_VkCuFunctionNVX_to_client_VkCuFunctionNVX.contains(pointer)){
                         result=(VkCuFunctionNVX)server_VkCuFunctionNVX_to_client_VkCuFunctionNVX[pointer];
-                        printf("Deserializing to VkCuFunctionNVX %p...\n",result);
+                        debug_printf("Deserializing to VkCuFunctionNVX %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkCuFunctionNVX));
-                        printf("Mapping to VkCuFunctionNVX %p...\n",handle);
+                        debug_printf("Mapping to VkCuFunctionNVX %p...\n",handle);
                         server_VkCuFunctionNVX_to_client_VkCuFunctionNVX[pointer]=(uintptr_t)handle;
                         client_VkCuFunctionNVX_to_server_VkCuFunctionNVX[(uintptr_t)handle]=pointer;
                         
@@ -100704,12 +100704,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV.contains( (uintptr_t)data ))){
-                        printf("Panic: VkOpticalFlowSessionNV %p not found!\n",data);
+                        debug_printf("Panic: VkOpticalFlowSessionNV %p not found!\n",data);
                     }
-                     printf("Serializing VkOpticalFlowSessionNV %p...\n",(VkOpticalFlowSessionNV)client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV[(uintptr_t)data]);
+                     debug_printf("Serializing VkOpticalFlowSessionNV %p...\n",(VkOpticalFlowSessionNV)client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV[(uintptr_t)data]);
                     result["value"]=client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV[(uintptr_t)data];
                 }
             #else
@@ -100725,13 +100725,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkOpticalFlowSessionNV result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkOpticalFlowSessionNV)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkOpticalFlowSessionNV)pointer);
                     if (server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV.contains(pointer)){
                         result=(VkOpticalFlowSessionNV)server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV[pointer];
-                        printf("Deserializing to VkOpticalFlowSessionNV %p...\n",result);
+                        debug_printf("Deserializing to VkOpticalFlowSessionNV %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkOpticalFlowSessionNV));
-                        printf("Mapping to VkOpticalFlowSessionNV %p...\n",handle);
+                        debug_printf("Mapping to VkOpticalFlowSessionNV %p...\n",handle);
                         server_VkOpticalFlowSessionNV_to_client_VkOpticalFlowSessionNV[pointer]=(uintptr_t)handle;
                         client_VkOpticalFlowSessionNV_to_server_VkOpticalFlowSessionNV[(uintptr_t)handle]=pointer;
                         
@@ -100756,12 +100756,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkMicromapEXT_to_server_VkMicromapEXT.contains( (uintptr_t)data ))){
-                        printf("Panic: VkMicromapEXT %p not found!\n",data);
+                        debug_printf("Panic: VkMicromapEXT %p not found!\n",data);
                     }
-                     printf("Serializing VkMicromapEXT %p...\n",(VkMicromapEXT)client_VkMicromapEXT_to_server_VkMicromapEXT[(uintptr_t)data]);
+                     debug_printf("Serializing VkMicromapEXT %p...\n",(VkMicromapEXT)client_VkMicromapEXT_to_server_VkMicromapEXT[(uintptr_t)data]);
                     result["value"]=client_VkMicromapEXT_to_server_VkMicromapEXT[(uintptr_t)data];
                 }
             #else
@@ -100777,13 +100777,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkMicromapEXT result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkMicromapEXT)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkMicromapEXT)pointer);
                     if (server_VkMicromapEXT_to_client_VkMicromapEXT.contains(pointer)){
                         result=(VkMicromapEXT)server_VkMicromapEXT_to_client_VkMicromapEXT[pointer];
-                        printf("Deserializing to VkMicromapEXT %p...\n",result);
+                        debug_printf("Deserializing to VkMicromapEXT %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkMicromapEXT));
-                        printf("Mapping to VkMicromapEXT %p...\n",handle);
+                        debug_printf("Mapping to VkMicromapEXT %p...\n",handle);
                         server_VkMicromapEXT_to_client_VkMicromapEXT[pointer]=(uintptr_t)handle;
                         client_VkMicromapEXT_to_server_VkMicromapEXT[(uintptr_t)handle]=pointer;
                         
@@ -100808,12 +100808,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkShaderEXT_to_server_VkShaderEXT.contains( (uintptr_t)data ))){
-                        printf("Panic: VkShaderEXT %p not found!\n",data);
+                        debug_printf("Panic: VkShaderEXT %p not found!\n",data);
                     }
-                     printf("Serializing VkShaderEXT %p...\n",(VkShaderEXT)client_VkShaderEXT_to_server_VkShaderEXT[(uintptr_t)data]);
+                     debug_printf("Serializing VkShaderEXT %p...\n",(VkShaderEXT)client_VkShaderEXT_to_server_VkShaderEXT[(uintptr_t)data]);
                     result["value"]=client_VkShaderEXT_to_server_VkShaderEXT[(uintptr_t)data];
                 }
             #else
@@ -100829,13 +100829,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkShaderEXT result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkShaderEXT)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkShaderEXT)pointer);
                     if (server_VkShaderEXT_to_client_VkShaderEXT.contains(pointer)){
                         result=(VkShaderEXT)server_VkShaderEXT_to_client_VkShaderEXT[pointer];
-                        printf("Deserializing to VkShaderEXT %p...\n",result);
+                        debug_printf("Deserializing to VkShaderEXT %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkShaderEXT));
-                        printf("Mapping to VkShaderEXT %p...\n",handle);
+                        debug_printf("Mapping to VkShaderEXT %p...\n",handle);
                         server_VkShaderEXT_to_client_VkShaderEXT[pointer]=(uintptr_t)handle;
                         client_VkShaderEXT_to_server_VkShaderEXT[(uintptr_t)handle]=pointer;
                         
@@ -100860,12 +100860,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkDisplayKHR_to_server_VkDisplayKHR.contains( (uintptr_t)data ))){
-                        printf("Panic: VkDisplayKHR %p not found!\n",data);
+                        debug_printf("Panic: VkDisplayKHR %p not found!\n",data);
                     }
-                     printf("Serializing VkDisplayKHR %p...\n",(VkDisplayKHR)client_VkDisplayKHR_to_server_VkDisplayKHR[(uintptr_t)data]);
+                     debug_printf("Serializing VkDisplayKHR %p...\n",(VkDisplayKHR)client_VkDisplayKHR_to_server_VkDisplayKHR[(uintptr_t)data]);
                     result["value"]=client_VkDisplayKHR_to_server_VkDisplayKHR[(uintptr_t)data];
                 }
             #else
@@ -100881,13 +100881,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDisplayKHR result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkDisplayKHR)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkDisplayKHR)pointer);
                     if (server_VkDisplayKHR_to_client_VkDisplayKHR.contains(pointer)){
                         result=(VkDisplayKHR)server_VkDisplayKHR_to_client_VkDisplayKHR[pointer];
-                        printf("Deserializing to VkDisplayKHR %p...\n",result);
+                        debug_printf("Deserializing to VkDisplayKHR %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkDisplayKHR));
-                        printf("Mapping to VkDisplayKHR %p...\n",handle);
+                        debug_printf("Mapping to VkDisplayKHR %p...\n",handle);
                         server_VkDisplayKHR_to_client_VkDisplayKHR[pointer]=(uintptr_t)handle;
                         client_VkDisplayKHR_to_server_VkDisplayKHR[(uintptr_t)handle]=pointer;
                         
@@ -100912,12 +100912,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkDisplayModeKHR_to_server_VkDisplayModeKHR.contains( (uintptr_t)data ))){
-                        printf("Panic: VkDisplayModeKHR %p not found!\n",data);
+                        debug_printf("Panic: VkDisplayModeKHR %p not found!\n",data);
                     }
-                     printf("Serializing VkDisplayModeKHR %p...\n",(VkDisplayModeKHR)client_VkDisplayModeKHR_to_server_VkDisplayModeKHR[(uintptr_t)data]);
+                     debug_printf("Serializing VkDisplayModeKHR %p...\n",(VkDisplayModeKHR)client_VkDisplayModeKHR_to_server_VkDisplayModeKHR[(uintptr_t)data]);
                     result["value"]=client_VkDisplayModeKHR_to_server_VkDisplayModeKHR[(uintptr_t)data];
                 }
             #else
@@ -100933,13 +100933,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDisplayModeKHR result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkDisplayModeKHR)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkDisplayModeKHR)pointer);
                     if (server_VkDisplayModeKHR_to_client_VkDisplayModeKHR.contains(pointer)){
                         result=(VkDisplayModeKHR)server_VkDisplayModeKHR_to_client_VkDisplayModeKHR[pointer];
-                        printf("Deserializing to VkDisplayModeKHR %p...\n",result);
+                        debug_printf("Deserializing to VkDisplayModeKHR %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkDisplayModeKHR));
-                        printf("Mapping to VkDisplayModeKHR %p...\n",handle);
+                        debug_printf("Mapping to VkDisplayModeKHR %p...\n",handle);
                         server_VkDisplayModeKHR_to_client_VkDisplayModeKHR[pointer]=(uintptr_t)handle;
                         client_VkDisplayModeKHR_to_server_VkDisplayModeKHR[(uintptr_t)handle]=pointer;
                         
@@ -100964,12 +100964,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkSurfaceKHR_to_server_VkSurfaceKHR.contains( (uintptr_t)data ))){
-                        printf("Panic: VkSurfaceKHR %p not found!\n",data);
+                        debug_printf("Panic: VkSurfaceKHR %p not found!\n",data);
                     }
-                     printf("Serializing VkSurfaceKHR %p...\n",(VkSurfaceKHR)client_VkSurfaceKHR_to_server_VkSurfaceKHR[(uintptr_t)data]);
+                     debug_printf("Serializing VkSurfaceKHR %p...\n",(VkSurfaceKHR)client_VkSurfaceKHR_to_server_VkSurfaceKHR[(uintptr_t)data]);
                     result["value"]=client_VkSurfaceKHR_to_server_VkSurfaceKHR[(uintptr_t)data];
                 }
             #else
@@ -100985,13 +100985,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkSurfaceKHR result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkSurfaceKHR)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkSurfaceKHR)pointer);
                     if (server_VkSurfaceKHR_to_client_VkSurfaceKHR.contains(pointer)){
                         result=(VkSurfaceKHR)server_VkSurfaceKHR_to_client_VkSurfaceKHR[pointer];
-                        printf("Deserializing to VkSurfaceKHR %p...\n",result);
+                        debug_printf("Deserializing to VkSurfaceKHR %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkSurfaceKHR));
-                        printf("Mapping to VkSurfaceKHR %p...\n",handle);
+                        debug_printf("Mapping to VkSurfaceKHR %p...\n",handle);
                         server_VkSurfaceKHR_to_client_VkSurfaceKHR[pointer]=(uintptr_t)handle;
                         client_VkSurfaceKHR_to_server_VkSurfaceKHR[(uintptr_t)handle]=pointer;
                         
@@ -101016,12 +101016,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkSwapchainKHR_to_server_VkSwapchainKHR.contains( (uintptr_t)data ))){
-                        printf("Panic: VkSwapchainKHR %p not found!\n",data);
+                        debug_printf("Panic: VkSwapchainKHR %p not found!\n",data);
                     }
-                     printf("Serializing VkSwapchainKHR %p...\n",(VkSwapchainKHR)client_VkSwapchainKHR_to_server_VkSwapchainKHR[(uintptr_t)data]);
+                     debug_printf("Serializing VkSwapchainKHR %p...\n",(VkSwapchainKHR)client_VkSwapchainKHR_to_server_VkSwapchainKHR[(uintptr_t)data]);
                     result["value"]=client_VkSwapchainKHR_to_server_VkSwapchainKHR[(uintptr_t)data];
                 }
             #else
@@ -101037,13 +101037,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkSwapchainKHR result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkSwapchainKHR)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkSwapchainKHR)pointer);
                     if (server_VkSwapchainKHR_to_client_VkSwapchainKHR.contains(pointer)){
                         result=(VkSwapchainKHR)server_VkSwapchainKHR_to_client_VkSwapchainKHR[pointer];
-                        printf("Deserializing to VkSwapchainKHR %p...\n",result);
+                        debug_printf("Deserializing to VkSwapchainKHR %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkSwapchainKHR));
-                        printf("Mapping to VkSwapchainKHR %p...\n",handle);
+                        debug_printf("Mapping to VkSwapchainKHR %p...\n",handle);
                         server_VkSwapchainKHR_to_client_VkSwapchainKHR[pointer]=(uintptr_t)handle;
                         client_VkSwapchainKHR_to_server_VkSwapchainKHR[(uintptr_t)handle]=pointer;
                         
@@ -101068,12 +101068,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT.contains( (uintptr_t)data ))){
-                        printf("Panic: VkDebugReportCallbackEXT %p not found!\n",data);
+                        debug_printf("Panic: VkDebugReportCallbackEXT %p not found!\n",data);
                     }
-                     printf("Serializing VkDebugReportCallbackEXT %p...\n",(VkDebugReportCallbackEXT)client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT[(uintptr_t)data]);
+                     debug_printf("Serializing VkDebugReportCallbackEXT %p...\n",(VkDebugReportCallbackEXT)client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT[(uintptr_t)data]);
                     result["value"]=client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT[(uintptr_t)data];
                 }
             #else
@@ -101089,13 +101089,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDebugReportCallbackEXT result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkDebugReportCallbackEXT)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkDebugReportCallbackEXT)pointer);
                     if (server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT.contains(pointer)){
                         result=(VkDebugReportCallbackEXT)server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT[pointer];
-                        printf("Deserializing to VkDebugReportCallbackEXT %p...\n",result);
+                        debug_printf("Deserializing to VkDebugReportCallbackEXT %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkDebugReportCallbackEXT));
-                        printf("Mapping to VkDebugReportCallbackEXT %p...\n",handle);
+                        debug_printf("Mapping to VkDebugReportCallbackEXT %p...\n",handle);
                         server_VkDebugReportCallbackEXT_to_client_VkDebugReportCallbackEXT[pointer]=(uintptr_t)handle;
                         client_VkDebugReportCallbackEXT_to_server_VkDebugReportCallbackEXT[(uintptr_t)handle]=pointer;
                         
@@ -101120,12 +101120,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT.contains( (uintptr_t)data ))){
-                        printf("Panic: VkDebugUtilsMessengerEXT %p not found!\n",data);
+                        debug_printf("Panic: VkDebugUtilsMessengerEXT %p not found!\n",data);
                     }
-                     printf("Serializing VkDebugUtilsMessengerEXT %p...\n",(VkDebugUtilsMessengerEXT)client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT[(uintptr_t)data]);
+                     debug_printf("Serializing VkDebugUtilsMessengerEXT %p...\n",(VkDebugUtilsMessengerEXT)client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT[(uintptr_t)data]);
                     result["value"]=client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT[(uintptr_t)data];
                 }
             #else
@@ -101141,13 +101141,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDebugUtilsMessengerEXT result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkDebugUtilsMessengerEXT)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkDebugUtilsMessengerEXT)pointer);
                     if (server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT.contains(pointer)){
                         result=(VkDebugUtilsMessengerEXT)server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT[pointer];
-                        printf("Deserializing to VkDebugUtilsMessengerEXT %p...\n",result);
+                        debug_printf("Deserializing to VkDebugUtilsMessengerEXT %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkDebugUtilsMessengerEXT));
-                        printf("Mapping to VkDebugUtilsMessengerEXT %p...\n",handle);
+                        debug_printf("Mapping to VkDebugUtilsMessengerEXT %p...\n",handle);
                         server_VkDebugUtilsMessengerEXT_to_client_VkDebugUtilsMessengerEXT[pointer]=(uintptr_t)handle;
                         client_VkDebugUtilsMessengerEXT_to_server_VkDebugUtilsMessengerEXT[(uintptr_t)handle]=pointer;
                         
@@ -101172,12 +101172,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkVideoSessionKHR_to_server_VkVideoSessionKHR.contains( (uintptr_t)data ))){
-                        printf("Panic: VkVideoSessionKHR %p not found!\n",data);
+                        debug_printf("Panic: VkVideoSessionKHR %p not found!\n",data);
                     }
-                     printf("Serializing VkVideoSessionKHR %p...\n",(VkVideoSessionKHR)client_VkVideoSessionKHR_to_server_VkVideoSessionKHR[(uintptr_t)data]);
+                     debug_printf("Serializing VkVideoSessionKHR %p...\n",(VkVideoSessionKHR)client_VkVideoSessionKHR_to_server_VkVideoSessionKHR[(uintptr_t)data]);
                     result["value"]=client_VkVideoSessionKHR_to_server_VkVideoSessionKHR[(uintptr_t)data];
                 }
             #else
@@ -101193,13 +101193,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkVideoSessionKHR result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkVideoSessionKHR)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkVideoSessionKHR)pointer);
                     if (server_VkVideoSessionKHR_to_client_VkVideoSessionKHR.contains(pointer)){
                         result=(VkVideoSessionKHR)server_VkVideoSessionKHR_to_client_VkVideoSessionKHR[pointer];
-                        printf("Deserializing to VkVideoSessionKHR %p...\n",result);
+                        debug_printf("Deserializing to VkVideoSessionKHR %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkVideoSessionKHR));
-                        printf("Mapping to VkVideoSessionKHR %p...\n",handle);
+                        debug_printf("Mapping to VkVideoSessionKHR %p...\n",handle);
                         server_VkVideoSessionKHR_to_client_VkVideoSessionKHR[pointer]=(uintptr_t)handle;
                         client_VkVideoSessionKHR_to_server_VkVideoSessionKHR[(uintptr_t)handle]=pointer;
                         
@@ -101224,12 +101224,12 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
             #ifdef CLIENT
                 if (data==NULL){
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\n",NULL);
                 }else{
                     if(!(client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR.contains( (uintptr_t)data ))){
-                        printf("Panic: VkVideoSessionParametersKHR %p not found!\n",data);
+                        debug_printf("Panic: VkVideoSessionParametersKHR %p not found!\n",data);
                     }
-                     printf("Serializing VkVideoSessionParametersKHR %p...\n",(VkVideoSessionParametersKHR)client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR[(uintptr_t)data]);
+                     debug_printf("Serializing VkVideoSessionParametersKHR %p...\n",(VkVideoSessionParametersKHR)client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR[(uintptr_t)data]);
                     result["value"]=client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR[(uintptr_t)data];
                 }
             #else
@@ -101245,13 +101245,13 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                 auto pointer=data["value"].get<uintptr_t>();
                 VkVideoSessionParametersKHR result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\n",(VkVideoSessionParametersKHR)pointer);
+                    debug_printf("Handle server pointer %p:\n",(VkVideoSessionParametersKHR)pointer);
                     if (server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR.contains(pointer)){
                         result=(VkVideoSessionParametersKHR)server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR[pointer];
-                        printf("Deserializing to VkVideoSessionParametersKHR %p...\n",result);
+                        debug_printf("Deserializing to VkVideoSessionParametersKHR %p...\n",result);
                     }else{
                         auto handle=malloc(sizeof(VkVideoSessionParametersKHR));
-                        printf("Mapping to VkVideoSessionParametersKHR %p...\n",handle);
+                        debug_printf("Mapping to VkVideoSessionParametersKHR %p...\n",handle);
                         server_VkVideoSessionParametersKHR_to_client_VkVideoSessionParametersKHR[pointer]=(uintptr_t)handle;
                         client_VkVideoSessionParametersKHR_to_server_VkVideoSessionParametersKHR[(uintptr_t)handle]=pointer;
                         

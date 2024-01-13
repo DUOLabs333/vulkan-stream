@@ -21,6 +21,7 @@ typedef struct StreamStructure{
 } StreamStructure;
 """,header=True)
 
+write("#include <debug.hpp>",header=True)
 write("typedef void* pNext;",header=True)
 
 def struct_is_callback(struct):
@@ -48,7 +49,7 @@ for struct,members in parsed["structs"].items():
 
     write(f"""
         json serialize_{struct}_pNext(const void* name){{
-        printf("Serializing {struct}...\\n");
+        debug_printf("Serializing {struct}...\\n");
         json result;
         {serialize("result",member)}
         return result;
@@ -135,7 +136,7 @@ for struct,members in parsed["structs"].items():
 
     write(f"""
         void* deserialize_{struct}_pNext(json& name){{
-        printf("Deserializing {struct}...\\n");
+        debug_printf("Deserializing {struct}...\\n");
         {struct}* result;
         {deserialize("result",member,initialize=True)}
         return (void*)result;
@@ -185,8 +186,8 @@ for struct,members in parsed["structs"].items():
         
         if member_copy["name"]=="name.lineWidthRange":
             write("""
-            printf("%f\\n",name.lineWidthRange[0]);
-            printf("%f\\n",name.lineWidthRange[1]);
+            debug_printf("%f\\n",name.lineWidthRange[0]);
+            debug_printf("%f\\n",name.lineWidthRange[1]);
             """)
             
         write(serialize(f"""result["members"]["{member["name"]}"]""",member_copy))
@@ -508,12 +509,12 @@ for handle in parsed["handles"]:
             #ifdef CLIENT
                 if (data==NULL){{
                     result["value"]=(uintptr_t)NULL;
-                    printf("Handle is NULL, serializing to %p...\\n",NULL);
+                    debug_printf("Handle is NULL, serializing to %p...\\n",NULL);
                 }}else{{
                     if(!(client_{handle}_to_server_{handle}.contains( (uintptr_t)data ))){{
-                        printf("Panic: {handle} %p not found!\\n",data);
+                        debug_printf("Panic: {handle} %p not found!\\n",data);
                     }}
-                     printf("Serializing {handle} %p...\\n",({handle})client_{handle}_to_server_{handle}[(uintptr_t)data]);
+                     debug_printf("Serializing {handle} %p...\\n",({handle})client_{handle}_to_server_{handle}[(uintptr_t)data]);
                     result["value"]=client_{handle}_to_server_{handle}[(uintptr_t)data];
                 }}
             #else
@@ -532,13 +533,13 @@ for handle in parsed["handles"]:
                 auto pointer=data["value"].get<uintptr_t>();
                 {handle} result;
                 #ifdef CLIENT
-                    printf("Handle server pointer %p:\\n",({handle})pointer);
+                    debug_printf("Handle server pointer %p:\\n",({handle})pointer);
                     if (server_{handle}_to_client_{handle}.contains(pointer)){{
                         result=({handle})server_{handle}_to_client_{handle}[pointer];
-                        printf("Deserializing to {handle} %p...\\n",result);
+                        debug_printf("Deserializing to {handle} %p...\\n",result);
                     }}else{{
                         auto handle=malloc(sizeof({handle}));
-                        printf("Mapping to {handle} %p...\\n",handle);
+                        debug_printf("Mapping to {handle} %p...\\n",handle);
                         server_{handle}_to_client_{handle}[pointer]=(uintptr_t)handle;
                         client_{handle}_to_server_{handle}[(uintptr_t)handle]=pointer;
                         
