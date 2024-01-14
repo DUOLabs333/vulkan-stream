@@ -34,13 +34,38 @@ Lock MemoryMapLock;
 Lock MemoryOperationLock; //This is not needed (but may be preferred, at the expense of unneccessary locking)
 """)
 def registerDeviceMemoryMap(name,mem):
-    memory="memory"
-    size="size"
-    if "2" in name:
-        memory=f"pMemoryMapInfo->{memory}"
-        size=f"pMemoryMapInfo->{size}"
+    if name.startswith("vkMapMemory"):
+        memory="memory"
+        size="size"
         
-    return f"*ppData=registerDeviceMemoryMap({memory},{size},*ppData,{mem});"
+        if "2" in name:
+            memory=f"pMemoryMapInfo->{memory}"
+            size=f"pMemoryMapInfo->{size}"
+            
+        return f"""
+        
+        #ifdef CLIENT
+            auto server_memory=serialize_VkDeviceMemory({memory})["value"].get<uintptr_t>();
+        #else
+            auto server_memory=0;
+        #endif 
+        
+        *ppData=registerDeviceMemoryMap(server_memory, {memory},{size},*ppData,{mem});
+        #ifndef CLIENT
+            result["mem_ptr"]={mem};
+        #endif
+        """
+    else:
+        return ""
+
+def deregisterDeviceMemoryMap(name):
+    if name.startswith("vkUnmapMemory"):
+        memory="memory"
+        if "2" in name:
+            memory=f"pMemoryUnmapInfo->{memory}"
+        return f"deregisterDeviceMemoryMap({memory});"
+    else:
+        return ""
     
 write("#ifndef CLIENT")
 write("""
@@ -189,9 +214,9 @@ for name, command in parsed["commands"].items():
             }
             """)
 
-    if name.startswith("vkMapMemory"):
-       write(registerDeviceMemoryMap(name,"(uintptr_t)(*ppData)"))
-       write('result["mem_ptr"]=(uintptr_t)(*ppData);')
+    write(registerDeviceMemoryMap(name,"(uintptr_t)(*ppData)"))
+       
+    write(deregisterDeviceMemoryMap(name))
        
     write("""
         writeToConn(result);
@@ -249,7 +274,7 @@ write("""VKAPI_ATTR PFN_vkVoidFunction VKAPI_CALL vk_icdGetInstanceProcAddr(VkIn
 for name, command in parsed["commands"].items():
     memory_map_lock=0
     memory_operation_lock=False
-    if name.startswith("vkMapMemory"):
+    if re.match(r"^vk(Unmap|Map)Memory(|2KHR)$", name) is not None:
         memory_map_lock=1 #Lock for writing
         memory_operation_lock=True
     elif (name=="vkQueueSubmit") or (name=="vkWaitForFences"):
@@ -545,8 +570,10 @@ for name, command in parsed["commands"].items():
         write("registerDevice(*pDevice,physicalDevice);")
     elif name=="vkAllocateMemory":
         write("registerDeviceMemory(*pMemory, pAllocateInfo->allocationSize);")
-    elif name.startswith("vkMapMemory"):
-        write(registerDeviceMemoryMap(name,'result["mem_ptr"]'))
+    
+    write(registerDeviceMemoryMap(name,'result["mem_ptr"]'))
+    
+    write(deregisterDeviceMemoryMap(name))
     
     if memory_map_lock==1:
         write("MemoryMapLock.unlock();")

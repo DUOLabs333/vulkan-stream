@@ -4,6 +4,8 @@
 void handle_sync_init(json& data);
 void SyncAll();
 void SyncAllocations();
-void* registerDeviceMemoryMap(VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem);
+void* registerDeviceMemoryMap(uintptr_t server_memory, VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem);
+void deregisterDeviceMemoryMap(VkDeviceMemory memory);
 void registerAllocatedMem(void* mem, int size);
 void registerClientServerMemoryMapping(uintptr_t client_mem, uintptr_t server_mem);
+void deregisterClientServerMemoryMapping(uintptr_t client_mem);

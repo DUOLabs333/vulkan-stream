@@ -3,6 +3,7 @@
 #include <nlohmann/json.hpp>
 #include <Server.hpp>
 #include <vulkan/vulkan.h>
+#include <Serialization.hpp>
 
 extern "C" {
 #include <shm_open_anon.h>
@@ -24,6 +25,8 @@ typedef struct {
 int fd;
 VkDeviceSize size;
 void* mem;
+bool to_delete;
+uintptr_t server_devicememory;
 } MemInfo;
 
 std::map<uintptr_t,MemInfo*> devicememory_to_mem_info;
@@ -48,11 +51,22 @@ void registerClientServerMemoryMapping(uintptr_t client_mem, uintptr_t server_me
 
 }
 
-void* registerDeviceMemoryMap(VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem){
+void deregisterClientServerMemoryMapping(uintptr_t client_mem){
+    debug_printf("Memory unmapping in progress...\n");
+
+    auto server_mem=client_to_server_mem[client_mem];
+    
+    server_to_client_mem.erase(server_mem);
+    
+    client_to_server_mem.erase(client_mem);
+
+}
+
+void* registerDeviceMemoryMap(uintptr_t server_memory, VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem){
 debug_printf("DeviceMemory mapping in progress...\n");
 auto info=new MemInfo();
 info->size=size;
-
+info->to_delete=false;
 #ifdef CLIENT
     info->fd=shm_open_anon(); //Make new place for memory
     ftruncate(info->fd,info->size);
@@ -64,6 +78,8 @@ info->size=size;
     registerClientServerMemoryMapping(client_mem, server_mem);
     
     memcpy(info->mem,mem,info->size);
+    
+    info->server_devicememory=server_memory;
 #else
 info->mem=(void*)server_mem;
 #endif
@@ -75,10 +91,28 @@ devicememory_to_mem_info[(uintptr_t)memory]=info;
 return info->mem;
 }
 
+void deregisterDeviceMemoryMap(VkDeviceMemory memory){
+debug_printf("DeviceMemory unmapping in progress...\n");
+auto key=(uintptr_t)memory;
+auto info=devicememory_to_mem_info[key];
+if (!info->to_delete){
+    info->to_delete=true;
+    return;
+}
+#ifdef CLIENT
+    deregisterClientServerMemoryMapping((uintptr_t)(info->mem));
+    munmap(info->mem, info->size);
+    close(info->fd);
+#endif
+
+devicememory_to_mem_info.erase(key);
+delete info;
+
+}
+
 void registerAllocatedMem(void* mem, int size){
     allocated_mems[(uintptr_t)mem]=size;
 }
-
 void handle_sync_response(json& data){
     //Recieved the bytes. Send a notification that it finished sending the bytes.
     #ifdef CLIENT
@@ -109,6 +143,7 @@ void handle_sync_init(json& data){
         void* mem=(char*)server_to_client_mem[data["mem"]];
     #else
         void* mem=(void*)data["mem"].get<uintptr_t>();
+        auto devicememory = data["devicememory"].get<uintptr_t>();
     #endif
     
     json result=json({});
@@ -135,6 +170,13 @@ void handle_sync_init(json& data){
             break;
         }
     }
+    
+    #ifndef CLIENT
+        if (devicememory!=0 && (devicememory_to_mem_info[devicememory]->to_delete)){
+            deregisterDeviceMemoryMap((VkDeviceMemory)devicememory);
+        }
+    #endif
+        
     
 }
 
@@ -174,7 +216,7 @@ void handle_sync_request(json& data){
     }
 }
 
-void Sync(void* mem, size_t length){
+void Sync(uintptr_t devicememory, void* mem, size_t length){
 
     int parts=10;
     auto d=length/parts;
@@ -182,6 +224,7 @@ void Sync(void* mem, size_t length){
     
     json result=json({});
     result["type"]="sync_init";
+    result["devicememory"]=devicememory_to_mem_info[devicememory]->server_devicememory;
     result["starts"]={};
     result["lengths"]={};
     result["hashes"]={};
@@ -217,18 +260,24 @@ void Sync(void* mem, size_t length){
             break;
         }
     }
+    
+    #ifdef CLIENT
+        if (devicememory!=0 && (devicememory_to_mem_info[devicememory]->to_delete)){
+            deregisterDeviceMemoryMap((VkDeviceMemory)devicememory);
+        }
+    #endif
 }
 
 void SyncAll(){
 
 for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
-    Sync(mem_info->mem,mem_info->size);
+    Sync(devicememory, mem_info->mem,mem_info->size);
 }
 
 }
 
 void SyncAllocations(){
 for (auto& [mem, size] : allocated_mems){
-    Sync((void*)mem, size);
+    Sync(0, (void*)mem, size);
 }
 }
