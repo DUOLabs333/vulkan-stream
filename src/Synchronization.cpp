@@ -79,7 +79,7 @@ void registerAllocatedMem(void* mem, int size){
     allocated_mems[(uintptr_t)mem]=size;
 }
 
-void handle_sync_response(json data){
+void handle_sync_response(json& data){
     //Recieved the bytes. Send a notification that it finished sending the bytes.
     #ifdef CLIENT
         void* mem=(char*)server_to_client_mem[data["mem"]];
@@ -99,7 +99,7 @@ void handle_sync_response(json data){
     writeToConn(result);
 }
 
-void handle_sync_init(json data){
+void handle_sync_init(json& data){
     //Received an init, sent a request for bytes. Wait for bytes to be sent
    
     #ifdef CLIENT
@@ -138,7 +138,7 @@ void handle_sync_init(json data){
     
 }
 
-void handle_sync_request(json data){
+void handle_sync_request(json& data){
     //Recieved a request for bytes, sent the bytes. Wait for the recipient to set the bytes
     #ifdef CLIENT
         void* mem=(void*)server_to_client_mem[data["mem"]];

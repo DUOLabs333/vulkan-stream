@@ -77,7 +77,7 @@ json readFromConn(){
     }
 }
 
-void writeToConn(json data){
+void writeToConn(json& data){
     debug_printf("%s\n",data["type"].get<std::string>().c_str());
     currStruct()->conn->write(QByteArray::fromStdString(json(json::to_msgpack(data)).dump()+"\n"));
     currStruct()->conn->waitForBytesWritten(-1);

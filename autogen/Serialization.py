@@ -393,7 +393,7 @@ for funcpointer,function in parsed["funcpointers"].items():
         """)
         
         write(f"""
-            void handle_{funcpointer}_request(json data){{
+            void handle_{funcpointer}_request(json &data){{
             //Will only be called by the client
             // Recieved data from server's {funcpointer} wrapper, and will execute the actual function
             
@@ -444,10 +444,10 @@ for funcpointer,function in parsed["funcpointers"].items():
         write("};")
                 
         
-        write(f"void handle_{funcpointer}_request(json data);",header=True);
+        write(f"void handle_{funcpointer}_request(json &data);",header=True);
         
         write(f"""
-        {function["type"]}{'*'*function["num_indirection"]} handle_{funcpointer}_response(json data, {header.removeprefix("(")} {{
+        {function["type"]}{'*'*function["num_indirection"]} handle_{funcpointer}_response(json &data, {header.removeprefix("(")} {{
             //Will only be called by the server
             
             //Recieved result from client's {funcpointer}
@@ -482,7 +482,7 @@ for funcpointer,function in parsed["funcpointers"].items():
         write("return result;" if not is_void(function) else "")
         
         write("}")
-        write(f"""{function["type"]}{'*'*function["num_indirection"]} handle_{funcpointer}_response(json data, {header.removeprefix("(")};""",header=True)
+        write(f"""{function["type"]}{'*'*function["num_indirection"]} handle_{funcpointer}_response(json& data, {header.removeprefix("(")};""",header=True)
     else:
         write(f"""
         {funcpointer} deserialize_{funcpointer}(json &name){{
@@ -529,7 +529,7 @@ for handle in parsed["handles"]:
         write(f"""json serialize_{handle}({handle} data);""",header=True)
         
         write(f"""
-       {handle} deserialize_{handle}(json data){{
+       {handle} deserialize_{handle}(json &data){{
                 auto pointer=data["value"].get<uintptr_t>();
                 {handle} result;
                 #ifdef CLIENT
@@ -552,6 +552,6 @@ for handle in parsed["handles"]:
                 return result;
        }}""")
        
-        write(f"""{handle} deserialize_{handle}(json data);""",header=True)
+        write(f"""{handle} deserialize_{handle}(json& data);""",header=True)
               
           

@@ -6258,24 +6258,24 @@ void* copyVkStruct (const void* data);
         StdVideoDecodeH265ReferenceInfoFlags* deserialize_StdVideoDecodeH265ReferenceInfoFlags_p(json &name);
     
 json serialize_PFN_vkInternalAllocationNotification(PFN_vkInternalAllocationNotification name);
-void handle_PFN_vkInternalAllocationNotification_request(json data);
-void handle_PFN_vkInternalAllocationNotification_response(json data, 
+void handle_PFN_vkInternalAllocationNotification_request(json &data);
+void handle_PFN_vkInternalAllocationNotification_response(json& data, 
     void*                                       pUserData,
     size_t                                      size,
     VkInternalAllocationType                    allocationType,
     VkSystemAllocationScope                     allocationScope);
 PFN_vkInternalAllocationNotification deserialize_PFN_vkInternalAllocationNotification(json &name);
 json serialize_PFN_vkInternalFreeNotification(PFN_vkInternalFreeNotification name);
-void handle_PFN_vkInternalFreeNotification_request(json data);
-void handle_PFN_vkInternalFreeNotification_response(json data, 
+void handle_PFN_vkInternalFreeNotification_request(json &data);
+void handle_PFN_vkInternalFreeNotification_response(json& data, 
     void*                                       pUserData,
     size_t                                      size,
     VkInternalAllocationType                    allocationType,
     VkSystemAllocationScope                     allocationScope);
 PFN_vkInternalFreeNotification deserialize_PFN_vkInternalFreeNotification(json &name);
 json serialize_PFN_vkReallocationFunction(PFN_vkReallocationFunction name);
-void handle_PFN_vkReallocationFunction_request(json data);
-void* handle_PFN_vkReallocationFunction_response(json data, 
+void handle_PFN_vkReallocationFunction_request(json &data);
+void* handle_PFN_vkReallocationFunction_response(json& data, 
     void*                                       pUserData,
     void*                                       pOriginal,
     size_t                                      size,
@@ -6283,22 +6283,22 @@ void* handle_PFN_vkReallocationFunction_response(json data,
     VkSystemAllocationScope                     allocationScope);
 PFN_vkReallocationFunction deserialize_PFN_vkReallocationFunction(json &name);
 json serialize_PFN_vkAllocationFunction(PFN_vkAllocationFunction name);
-void handle_PFN_vkAllocationFunction_request(json data);
-void* handle_PFN_vkAllocationFunction_response(json data, 
+void handle_PFN_vkAllocationFunction_request(json &data);
+void* handle_PFN_vkAllocationFunction_response(json& data, 
     void*                                       pUserData,
     size_t                                      size,
     size_t                                      alignment,
     VkSystemAllocationScope                     allocationScope);
 PFN_vkAllocationFunction deserialize_PFN_vkAllocationFunction(json &name);
 json serialize_PFN_vkFreeFunction(PFN_vkFreeFunction name);
-void handle_PFN_vkFreeFunction_request(json data);
-void handle_PFN_vkFreeFunction_response(json data, 
+void handle_PFN_vkFreeFunction_request(json &data);
+void handle_PFN_vkFreeFunction_response(json& data, 
     void*                                       pUserData,
     void*                                       pMemory);
 PFN_vkFreeFunction deserialize_PFN_vkFreeFunction(json &name);
 json serialize_PFN_vkDebugReportCallbackEXT(PFN_vkDebugReportCallbackEXT name);
-void handle_PFN_vkDebugReportCallbackEXT_request(json data);
-VkBool32 handle_PFN_vkDebugReportCallbackEXT_response(json data, 
+void handle_PFN_vkDebugReportCallbackEXT_request(json &data);
+VkBool32 handle_PFN_vkDebugReportCallbackEXT_response(json& data, 
     VkDebugReportFlagsEXT                       flags,
     VkDebugReportObjectTypeEXT                  objectType,
     uint64_t                                    object,
@@ -6309,118 +6309,118 @@ VkBool32 handle_PFN_vkDebugReportCallbackEXT_response(json data,
     void*                                       pUserData);
 PFN_vkDebugReportCallbackEXT deserialize_PFN_vkDebugReportCallbackEXT(json &name);
 json serialize_PFN_vkDebugUtilsMessengerCallbackEXT(PFN_vkDebugUtilsMessengerCallbackEXT name);
-void handle_PFN_vkDebugUtilsMessengerCallbackEXT_request(json data);
-VkBool32 handle_PFN_vkDebugUtilsMessengerCallbackEXT_response(json data, 
+void handle_PFN_vkDebugUtilsMessengerCallbackEXT_request(json &data);
+VkBool32 handle_PFN_vkDebugUtilsMessengerCallbackEXT_response(json& data, 
     VkDebugUtilsMessageSeverityFlagBitsEXT           messageSeverity,
     VkDebugUtilsMessageTypeFlagsEXT                  messageTypes,
     const VkDebugUtilsMessengerCallbackDataEXT*      pCallbackData,
     void*                                            pUserData);
 PFN_vkDebugUtilsMessengerCallbackEXT deserialize_PFN_vkDebugUtilsMessengerCallbackEXT(json &name);
 json serialize_PFN_vkDeviceMemoryReportCallbackEXT(PFN_vkDeviceMemoryReportCallbackEXT name);
-void handle_PFN_vkDeviceMemoryReportCallbackEXT_request(json data);
-void handle_PFN_vkDeviceMemoryReportCallbackEXT_response(json data, 
+void handle_PFN_vkDeviceMemoryReportCallbackEXT_request(json &data);
+void handle_PFN_vkDeviceMemoryReportCallbackEXT_response(json& data, 
     const VkDeviceMemoryReportCallbackDataEXT*  pCallbackData,
     void*                                       pUserData);
 PFN_vkDeviceMemoryReportCallbackEXT deserialize_PFN_vkDeviceMemoryReportCallbackEXT(json &name);
 json serialize_PFN_vkGetInstanceProcAddrLUNARG(PFN_vkGetInstanceProcAddrLUNARG name);
 PFN_vkGetInstanceProcAddrLUNARG deserialize_PFN_vkGetInstanceProcAddrLUNARG(json &name);
 json serialize_VkInstance(VkInstance data);
-VkInstance deserialize_VkInstance(json data);
+VkInstance deserialize_VkInstance(json& data);
 json serialize_VkPhysicalDevice(VkPhysicalDevice data);
-VkPhysicalDevice deserialize_VkPhysicalDevice(json data);
+VkPhysicalDevice deserialize_VkPhysicalDevice(json& data);
 json serialize_VkDevice(VkDevice data);
-VkDevice deserialize_VkDevice(json data);
+VkDevice deserialize_VkDevice(json& data);
 json serialize_VkQueue(VkQueue data);
-VkQueue deserialize_VkQueue(json data);
+VkQueue deserialize_VkQueue(json& data);
 json serialize_VkCommandBuffer(VkCommandBuffer data);
-VkCommandBuffer deserialize_VkCommandBuffer(json data);
+VkCommandBuffer deserialize_VkCommandBuffer(json& data);
 json serialize_VkDeviceMemory(VkDeviceMemory data);
-VkDeviceMemory deserialize_VkDeviceMemory(json data);
+VkDeviceMemory deserialize_VkDeviceMemory(json& data);
 json serialize_VkCommandPool(VkCommandPool data);
-VkCommandPool deserialize_VkCommandPool(json data);
+VkCommandPool deserialize_VkCommandPool(json& data);
 json serialize_VkBuffer(VkBuffer data);
-VkBuffer deserialize_VkBuffer(json data);
+VkBuffer deserialize_VkBuffer(json& data);
 json serialize_VkBufferView(VkBufferView data);
-VkBufferView deserialize_VkBufferView(json data);
+VkBufferView deserialize_VkBufferView(json& data);
 json serialize_VkImage(VkImage data);
-VkImage deserialize_VkImage(json data);
+VkImage deserialize_VkImage(json& data);
 json serialize_VkImageView(VkImageView data);
-VkImageView deserialize_VkImageView(json data);
+VkImageView deserialize_VkImageView(json& data);
 json serialize_VkShaderModule(VkShaderModule data);
-VkShaderModule deserialize_VkShaderModule(json data);
+VkShaderModule deserialize_VkShaderModule(json& data);
 json serialize_VkPipeline(VkPipeline data);
-VkPipeline deserialize_VkPipeline(json data);
+VkPipeline deserialize_VkPipeline(json& data);
 json serialize_VkPipelineLayout(VkPipelineLayout data);
-VkPipelineLayout deserialize_VkPipelineLayout(json data);
+VkPipelineLayout deserialize_VkPipelineLayout(json& data);
 json serialize_VkSampler(VkSampler data);
-VkSampler deserialize_VkSampler(json data);
+VkSampler deserialize_VkSampler(json& data);
 json serialize_VkDescriptorSet(VkDescriptorSet data);
-VkDescriptorSet deserialize_VkDescriptorSet(json data);
+VkDescriptorSet deserialize_VkDescriptorSet(json& data);
 json serialize_VkDescriptorSetLayout(VkDescriptorSetLayout data);
-VkDescriptorSetLayout deserialize_VkDescriptorSetLayout(json data);
+VkDescriptorSetLayout deserialize_VkDescriptorSetLayout(json& data);
 json serialize_VkDescriptorPool(VkDescriptorPool data);
-VkDescriptorPool deserialize_VkDescriptorPool(json data);
+VkDescriptorPool deserialize_VkDescriptorPool(json& data);
 json serialize_VkFence(VkFence data);
-VkFence deserialize_VkFence(json data);
+VkFence deserialize_VkFence(json& data);
 json serialize_VkSemaphore(VkSemaphore data);
-VkSemaphore deserialize_VkSemaphore(json data);
+VkSemaphore deserialize_VkSemaphore(json& data);
 json serialize_VkEvent(VkEvent data);
-VkEvent deserialize_VkEvent(json data);
+VkEvent deserialize_VkEvent(json& data);
 json serialize_VkQueryPool(VkQueryPool data);
-VkQueryPool deserialize_VkQueryPool(json data);
+VkQueryPool deserialize_VkQueryPool(json& data);
 json serialize_VkFramebuffer(VkFramebuffer data);
-VkFramebuffer deserialize_VkFramebuffer(json data);
+VkFramebuffer deserialize_VkFramebuffer(json& data);
 json serialize_VkRenderPass(VkRenderPass data);
-VkRenderPass deserialize_VkRenderPass(json data);
+VkRenderPass deserialize_VkRenderPass(json& data);
 json serialize_VkPipelineCache(VkPipelineCache data);
-VkPipelineCache deserialize_VkPipelineCache(json data);
+VkPipelineCache deserialize_VkPipelineCache(json& data);
 json serialize_VkIndirectCommandsLayoutNV(VkIndirectCommandsLayoutNV data);
-VkIndirectCommandsLayoutNV deserialize_VkIndirectCommandsLayoutNV(json data);
+VkIndirectCommandsLayoutNV deserialize_VkIndirectCommandsLayoutNV(json& data);
 json serialize_VkDescriptorUpdateTemplate(VkDescriptorUpdateTemplate data);
-VkDescriptorUpdateTemplate deserialize_VkDescriptorUpdateTemplate(json data);
+VkDescriptorUpdateTemplate deserialize_VkDescriptorUpdateTemplate(json& data);
 json serialize_VkDescriptorUpdateTemplateKHR(VkDescriptorUpdateTemplateKHR data);
-VkDescriptorUpdateTemplateKHR deserialize_VkDescriptorUpdateTemplateKHR(json data);
+VkDescriptorUpdateTemplateKHR deserialize_VkDescriptorUpdateTemplateKHR(json& data);
 json serialize_VkSamplerYcbcrConversion(VkSamplerYcbcrConversion data);
-VkSamplerYcbcrConversion deserialize_VkSamplerYcbcrConversion(json data);
+VkSamplerYcbcrConversion deserialize_VkSamplerYcbcrConversion(json& data);
 json serialize_VkSamplerYcbcrConversionKHR(VkSamplerYcbcrConversionKHR data);
-VkSamplerYcbcrConversionKHR deserialize_VkSamplerYcbcrConversionKHR(json data);
+VkSamplerYcbcrConversionKHR deserialize_VkSamplerYcbcrConversionKHR(json& data);
 json serialize_VkValidationCacheEXT(VkValidationCacheEXT data);
-VkValidationCacheEXT deserialize_VkValidationCacheEXT(json data);
+VkValidationCacheEXT deserialize_VkValidationCacheEXT(json& data);
 json serialize_VkAccelerationStructureKHR(VkAccelerationStructureKHR data);
-VkAccelerationStructureKHR deserialize_VkAccelerationStructureKHR(json data);
+VkAccelerationStructureKHR deserialize_VkAccelerationStructureKHR(json& data);
 json serialize_VkAccelerationStructureNV(VkAccelerationStructureNV data);
-VkAccelerationStructureNV deserialize_VkAccelerationStructureNV(json data);
+VkAccelerationStructureNV deserialize_VkAccelerationStructureNV(json& data);
 json serialize_VkPerformanceConfigurationINTEL(VkPerformanceConfigurationINTEL data);
-VkPerformanceConfigurationINTEL deserialize_VkPerformanceConfigurationINTEL(json data);
+VkPerformanceConfigurationINTEL deserialize_VkPerformanceConfigurationINTEL(json& data);
 json serialize_VkDeferredOperationKHR(VkDeferredOperationKHR data);
-VkDeferredOperationKHR deserialize_VkDeferredOperationKHR(json data);
+VkDeferredOperationKHR deserialize_VkDeferredOperationKHR(json& data);
 json serialize_VkPrivateDataSlot(VkPrivateDataSlot data);
-VkPrivateDataSlot deserialize_VkPrivateDataSlot(json data);
+VkPrivateDataSlot deserialize_VkPrivateDataSlot(json& data);
 json serialize_VkPrivateDataSlotEXT(VkPrivateDataSlotEXT data);
-VkPrivateDataSlotEXT deserialize_VkPrivateDataSlotEXT(json data);
+VkPrivateDataSlotEXT deserialize_VkPrivateDataSlotEXT(json& data);
 json serialize_VkCuModuleNVX(VkCuModuleNVX data);
-VkCuModuleNVX deserialize_VkCuModuleNVX(json data);
+VkCuModuleNVX deserialize_VkCuModuleNVX(json& data);
 json serialize_VkCuFunctionNVX(VkCuFunctionNVX data);
-VkCuFunctionNVX deserialize_VkCuFunctionNVX(json data);
+VkCuFunctionNVX deserialize_VkCuFunctionNVX(json& data);
 json serialize_VkOpticalFlowSessionNV(VkOpticalFlowSessionNV data);
-VkOpticalFlowSessionNV deserialize_VkOpticalFlowSessionNV(json data);
+VkOpticalFlowSessionNV deserialize_VkOpticalFlowSessionNV(json& data);
 json serialize_VkMicromapEXT(VkMicromapEXT data);
-VkMicromapEXT deserialize_VkMicromapEXT(json data);
+VkMicromapEXT deserialize_VkMicromapEXT(json& data);
 json serialize_VkShaderEXT(VkShaderEXT data);
-VkShaderEXT deserialize_VkShaderEXT(json data);
+VkShaderEXT deserialize_VkShaderEXT(json& data);
 json serialize_VkDisplayKHR(VkDisplayKHR data);
-VkDisplayKHR deserialize_VkDisplayKHR(json data);
+VkDisplayKHR deserialize_VkDisplayKHR(json& data);
 json serialize_VkDisplayModeKHR(VkDisplayModeKHR data);
-VkDisplayModeKHR deserialize_VkDisplayModeKHR(json data);
+VkDisplayModeKHR deserialize_VkDisplayModeKHR(json& data);
 json serialize_VkSurfaceKHR(VkSurfaceKHR data);
-VkSurfaceKHR deserialize_VkSurfaceKHR(json data);
+VkSurfaceKHR deserialize_VkSurfaceKHR(json& data);
 json serialize_VkSwapchainKHR(VkSwapchainKHR data);
-VkSwapchainKHR deserialize_VkSwapchainKHR(json data);
+VkSwapchainKHR deserialize_VkSwapchainKHR(json& data);
 json serialize_VkDebugReportCallbackEXT(VkDebugReportCallbackEXT data);
-VkDebugReportCallbackEXT deserialize_VkDebugReportCallbackEXT(json data);
+VkDebugReportCallbackEXT deserialize_VkDebugReportCallbackEXT(json& data);
 json serialize_VkDebugUtilsMessengerEXT(VkDebugUtilsMessengerEXT data);
-VkDebugUtilsMessengerEXT deserialize_VkDebugUtilsMessengerEXT(json data);
+VkDebugUtilsMessengerEXT deserialize_VkDebugUtilsMessengerEXT(json& data);
 json serialize_VkVideoSessionKHR(VkVideoSessionKHR data);
-VkVideoSessionKHR deserialize_VkVideoSessionKHR(json data);
+VkVideoSessionKHR deserialize_VkVideoSessionKHR(json& data);
 json serialize_VkVideoSessionParametersKHR(VkVideoSessionParametersKHR data);
-VkVideoSessionParametersKHR deserialize_VkVideoSessionParametersKHR(json data);
+VkVideoSessionParametersKHR deserialize_VkVideoSessionParametersKHR(json& data);

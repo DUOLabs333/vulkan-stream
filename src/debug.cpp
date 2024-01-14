@@ -4,7 +4,7 @@ void debug_printf(const char* pString, ...){
     va_list args;
     va_start(args, pString);
     
-    #ifndef DISABLE_PRINTF
+    #ifdef DEBUG
         vprintf(pString, args);
     #endif
     

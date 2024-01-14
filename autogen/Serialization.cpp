@@ -96751,7 +96751,7 @@ break;
             };
         
 
-            void handle_PFN_vkInternalAllocationNotification_request(json data){
+            void handle_PFN_vkInternalAllocationNotification_request(json &data){
             //Will only be called by the client
             // Recieved data from server's PFN_vkInternalAllocationNotification wrapper, and will execute the actual function
             
@@ -96828,7 +96828,7 @@ result["members"]["allocationScope"]=[&]() {
 writeToConn(result);
 };
 
-        void handle_PFN_vkInternalAllocationNotification_response(json data, 
+        void handle_PFN_vkInternalAllocationNotification_response(json &data, 
     void*                                       pUserData,
     size_t                                      size,
     VkInternalAllocationType                    allocationType,
@@ -96947,7 +96947,7 @@ break;
             };
         
 
-            void handle_PFN_vkInternalFreeNotification_request(json data){
+            void handle_PFN_vkInternalFreeNotification_request(json &data){
             //Will only be called by the client
             // Recieved data from server's PFN_vkInternalFreeNotification wrapper, and will execute the actual function
             
@@ -97024,7 +97024,7 @@ result["members"]["allocationScope"]=[&]() {
 writeToConn(result);
 };
 
-        void handle_PFN_vkInternalFreeNotification_response(json data, 
+        void handle_PFN_vkInternalFreeNotification_response(json &data, 
     void*                                       pUserData,
     size_t                                      size,
     VkInternalAllocationType                    allocationType,
@@ -97170,7 +97170,7 @@ break;
             };
         
 
-            void handle_PFN_vkReallocationFunction_request(json data){
+            void handle_PFN_vkReallocationFunction_request(json &data){
             //Will only be called by the client
             // Recieved data from server's PFN_vkReallocationFunction wrapper, and will execute the actual function
             
@@ -97326,7 +97326,7 @@ writeToConn(result);
             
 };
 
-        void* handle_PFN_vkReallocationFunction_response(json data, 
+        void* handle_PFN_vkReallocationFunction_response(json &data, 
     void*                                       pUserData,
     void*                                       pOriginal,
     size_t                                      size,
@@ -97493,7 +97493,7 @@ break;
             };
         
 
-            void handle_PFN_vkAllocationFunction_request(json data){
+            void handle_PFN_vkAllocationFunction_request(json &data){
             //Will only be called by the client
             // Recieved data from server's PFN_vkAllocationFunction wrapper, and will execute the actual function
             
@@ -97604,7 +97604,7 @@ writeToConn(result);
             
 };
 
-        void* handle_PFN_vkAllocationFunction_response(json data, 
+        void* handle_PFN_vkAllocationFunction_response(json &data, 
     void*                                       pUserData,
     size_t                                      size,
     size_t                                      alignment,
@@ -97764,7 +97764,7 @@ break;
             };
         
 
-            void handle_PFN_vkFreeFunction_request(json data){
+            void handle_PFN_vkFreeFunction_request(json &data){
             //Will only be called by the client
             // Recieved data from server's PFN_vkFreeFunction wrapper, and will execute the actual function
             
@@ -97868,7 +97868,7 @@ result["members"]["pMemory"]=[&]() {
 writeToConn(result);
 };
 
-        void handle_PFN_vkFreeFunction_response(json data, 
+        void handle_PFN_vkFreeFunction_response(json &data, 
     void*                                       pUserData,
     void*                                       pMemory) {
             //Will only be called by the server
@@ -98030,7 +98030,7 @@ break;
             };
         
 
-            void handle_PFN_vkDebugReportCallbackEXT_request(json data){
+            void handle_PFN_vkDebugReportCallbackEXT_request(json &data){
             //Will only be called by the client
             // Recieved data from server's PFN_vkDebugReportCallbackEXT wrapper, and will execute the actual function
             
@@ -98170,7 +98170,7 @@ result["members"]["pUserData"]=[&]() {
 writeToConn(result);
 };
 
-        VkBool32 handle_PFN_vkDebugReportCallbackEXT_response(json data, 
+        VkBool32 handle_PFN_vkDebugReportCallbackEXT_response(json &data, 
     VkDebugReportFlagsEXT                       flags,
     VkDebugReportObjectTypeEXT                  objectType,
     uint64_t                                    object,
@@ -98311,7 +98311,7 @@ break;
             };
         
 
-            void handle_PFN_vkDebugUtilsMessengerCallbackEXT_request(json data){
+            void handle_PFN_vkDebugUtilsMessengerCallbackEXT_request(json &data){
             //Will only be called by the client
             // Recieved data from server's PFN_vkDebugUtilsMessengerCallbackEXT wrapper, and will execute the actual function
             
@@ -98410,7 +98410,7 @@ result["members"]["pUserData"]=[&]() {
 writeToConn(result);
 };
 
-        VkBool32 handle_PFN_vkDebugUtilsMessengerCallbackEXT_response(json data, 
+        VkBool32 handle_PFN_vkDebugUtilsMessengerCallbackEXT_response(json &data, 
     VkDebugUtilsMessageSeverityFlagBitsEXT           messageSeverity,
     VkDebugUtilsMessageTypeFlagsEXT                  messageTypes,
     const VkDebugUtilsMessengerCallbackDataEXT*      pCallbackData,
@@ -98532,7 +98532,7 @@ break;
             };
         
 
-            void handle_PFN_vkDeviceMemoryReportCallbackEXT_request(json data){
+            void handle_PFN_vkDeviceMemoryReportCallbackEXT_request(json &data){
             //Will only be called by the client
             // Recieved data from server's PFN_vkDeviceMemoryReportCallbackEXT wrapper, and will execute the actual function
             
@@ -98614,7 +98614,7 @@ result["members"]["pUserData"]=[&]() {
 writeToConn(result);
 };
 
-        void handle_PFN_vkDeviceMemoryReportCallbackEXT_response(json data, 
+        void handle_PFN_vkDeviceMemoryReportCallbackEXT_response(json &data, 
     const VkDeviceMemoryReportCallbackDataEXT*  pCallbackData,
     void*                                       pUserData) {
             //Will only be called by the server
@@ -98693,7 +98693,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkInstance deserialize_VkInstance(json data){
+       VkInstance deserialize_VkInstance(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkInstance result;
                 #ifdef CLIENT
@@ -98745,7 +98745,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkPhysicalDevice deserialize_VkPhysicalDevice(json data){
+       VkPhysicalDevice deserialize_VkPhysicalDevice(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkPhysicalDevice result;
                 #ifdef CLIENT
@@ -98797,7 +98797,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkDevice deserialize_VkDevice(json data){
+       VkDevice deserialize_VkDevice(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDevice result;
                 #ifdef CLIENT
@@ -98849,7 +98849,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkQueue deserialize_VkQueue(json data){
+       VkQueue deserialize_VkQueue(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkQueue result;
                 #ifdef CLIENT
@@ -98901,7 +98901,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkCommandBuffer deserialize_VkCommandBuffer(json data){
+       VkCommandBuffer deserialize_VkCommandBuffer(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkCommandBuffer result;
                 #ifdef CLIENT
@@ -98953,7 +98953,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkDeviceMemory deserialize_VkDeviceMemory(json data){
+       VkDeviceMemory deserialize_VkDeviceMemory(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDeviceMemory result;
                 #ifdef CLIENT
@@ -99005,7 +99005,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkCommandPool deserialize_VkCommandPool(json data){
+       VkCommandPool deserialize_VkCommandPool(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkCommandPool result;
                 #ifdef CLIENT
@@ -99057,7 +99057,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkBuffer deserialize_VkBuffer(json data){
+       VkBuffer deserialize_VkBuffer(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkBuffer result;
                 #ifdef CLIENT
@@ -99109,7 +99109,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkBufferView deserialize_VkBufferView(json data){
+       VkBufferView deserialize_VkBufferView(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkBufferView result;
                 #ifdef CLIENT
@@ -99161,7 +99161,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkImage deserialize_VkImage(json data){
+       VkImage deserialize_VkImage(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkImage result;
                 #ifdef CLIENT
@@ -99213,7 +99213,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkImageView deserialize_VkImageView(json data){
+       VkImageView deserialize_VkImageView(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkImageView result;
                 #ifdef CLIENT
@@ -99265,7 +99265,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkShaderModule deserialize_VkShaderModule(json data){
+       VkShaderModule deserialize_VkShaderModule(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkShaderModule result;
                 #ifdef CLIENT
@@ -99317,7 +99317,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkPipeline deserialize_VkPipeline(json data){
+       VkPipeline deserialize_VkPipeline(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkPipeline result;
                 #ifdef CLIENT
@@ -99369,7 +99369,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkPipelineLayout deserialize_VkPipelineLayout(json data){
+       VkPipelineLayout deserialize_VkPipelineLayout(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkPipelineLayout result;
                 #ifdef CLIENT
@@ -99421,7 +99421,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkSampler deserialize_VkSampler(json data){
+       VkSampler deserialize_VkSampler(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkSampler result;
                 #ifdef CLIENT
@@ -99473,7 +99473,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkDescriptorSet deserialize_VkDescriptorSet(json data){
+       VkDescriptorSet deserialize_VkDescriptorSet(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDescriptorSet result;
                 #ifdef CLIENT
@@ -99525,7 +99525,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkDescriptorSetLayout deserialize_VkDescriptorSetLayout(json data){
+       VkDescriptorSetLayout deserialize_VkDescriptorSetLayout(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDescriptorSetLayout result;
                 #ifdef CLIENT
@@ -99577,7 +99577,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkDescriptorPool deserialize_VkDescriptorPool(json data){
+       VkDescriptorPool deserialize_VkDescriptorPool(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDescriptorPool result;
                 #ifdef CLIENT
@@ -99629,7 +99629,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkFence deserialize_VkFence(json data){
+       VkFence deserialize_VkFence(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkFence result;
                 #ifdef CLIENT
@@ -99681,7 +99681,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkSemaphore deserialize_VkSemaphore(json data){
+       VkSemaphore deserialize_VkSemaphore(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkSemaphore result;
                 #ifdef CLIENT
@@ -99733,7 +99733,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkEvent deserialize_VkEvent(json data){
+       VkEvent deserialize_VkEvent(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkEvent result;
                 #ifdef CLIENT
@@ -99785,7 +99785,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkQueryPool deserialize_VkQueryPool(json data){
+       VkQueryPool deserialize_VkQueryPool(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkQueryPool result;
                 #ifdef CLIENT
@@ -99837,7 +99837,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkFramebuffer deserialize_VkFramebuffer(json data){
+       VkFramebuffer deserialize_VkFramebuffer(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkFramebuffer result;
                 #ifdef CLIENT
@@ -99889,7 +99889,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkRenderPass deserialize_VkRenderPass(json data){
+       VkRenderPass deserialize_VkRenderPass(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkRenderPass result;
                 #ifdef CLIENT
@@ -99941,7 +99941,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkPipelineCache deserialize_VkPipelineCache(json data){
+       VkPipelineCache deserialize_VkPipelineCache(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkPipelineCache result;
                 #ifdef CLIENT
@@ -99993,7 +99993,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkIndirectCommandsLayoutNV deserialize_VkIndirectCommandsLayoutNV(json data){
+       VkIndirectCommandsLayoutNV deserialize_VkIndirectCommandsLayoutNV(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkIndirectCommandsLayoutNV result;
                 #ifdef CLIENT
@@ -100045,7 +100045,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkDescriptorUpdateTemplate deserialize_VkDescriptorUpdateTemplate(json data){
+       VkDescriptorUpdateTemplate deserialize_VkDescriptorUpdateTemplate(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDescriptorUpdateTemplate result;
                 #ifdef CLIENT
@@ -100097,7 +100097,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkDescriptorUpdateTemplateKHR deserialize_VkDescriptorUpdateTemplateKHR(json data){
+       VkDescriptorUpdateTemplateKHR deserialize_VkDescriptorUpdateTemplateKHR(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDescriptorUpdateTemplateKHR result;
                 #ifdef CLIENT
@@ -100149,7 +100149,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkSamplerYcbcrConversion deserialize_VkSamplerYcbcrConversion(json data){
+       VkSamplerYcbcrConversion deserialize_VkSamplerYcbcrConversion(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkSamplerYcbcrConversion result;
                 #ifdef CLIENT
@@ -100201,7 +100201,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkSamplerYcbcrConversionKHR deserialize_VkSamplerYcbcrConversionKHR(json data){
+       VkSamplerYcbcrConversionKHR deserialize_VkSamplerYcbcrConversionKHR(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkSamplerYcbcrConversionKHR result;
                 #ifdef CLIENT
@@ -100253,7 +100253,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkValidationCacheEXT deserialize_VkValidationCacheEXT(json data){
+       VkValidationCacheEXT deserialize_VkValidationCacheEXT(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkValidationCacheEXT result;
                 #ifdef CLIENT
@@ -100305,7 +100305,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkAccelerationStructureKHR deserialize_VkAccelerationStructureKHR(json data){
+       VkAccelerationStructureKHR deserialize_VkAccelerationStructureKHR(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkAccelerationStructureKHR result;
                 #ifdef CLIENT
@@ -100357,7 +100357,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkAccelerationStructureNV deserialize_VkAccelerationStructureNV(json data){
+       VkAccelerationStructureNV deserialize_VkAccelerationStructureNV(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkAccelerationStructureNV result;
                 #ifdef CLIENT
@@ -100409,7 +100409,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkPerformanceConfigurationINTEL deserialize_VkPerformanceConfigurationINTEL(json data){
+       VkPerformanceConfigurationINTEL deserialize_VkPerformanceConfigurationINTEL(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkPerformanceConfigurationINTEL result;
                 #ifdef CLIENT
@@ -100461,7 +100461,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkDeferredOperationKHR deserialize_VkDeferredOperationKHR(json data){
+       VkDeferredOperationKHR deserialize_VkDeferredOperationKHR(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDeferredOperationKHR result;
                 #ifdef CLIENT
@@ -100513,7 +100513,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkPrivateDataSlot deserialize_VkPrivateDataSlot(json data){
+       VkPrivateDataSlot deserialize_VkPrivateDataSlot(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkPrivateDataSlot result;
                 #ifdef CLIENT
@@ -100565,7 +100565,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkPrivateDataSlotEXT deserialize_VkPrivateDataSlotEXT(json data){
+       VkPrivateDataSlotEXT deserialize_VkPrivateDataSlotEXT(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkPrivateDataSlotEXT result;
                 #ifdef CLIENT
@@ -100617,7 +100617,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkCuModuleNVX deserialize_VkCuModuleNVX(json data){
+       VkCuModuleNVX deserialize_VkCuModuleNVX(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkCuModuleNVX result;
                 #ifdef CLIENT
@@ -100669,7 +100669,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkCuFunctionNVX deserialize_VkCuFunctionNVX(json data){
+       VkCuFunctionNVX deserialize_VkCuFunctionNVX(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkCuFunctionNVX result;
                 #ifdef CLIENT
@@ -100721,7 +100721,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkOpticalFlowSessionNV deserialize_VkOpticalFlowSessionNV(json data){
+       VkOpticalFlowSessionNV deserialize_VkOpticalFlowSessionNV(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkOpticalFlowSessionNV result;
                 #ifdef CLIENT
@@ -100773,7 +100773,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkMicromapEXT deserialize_VkMicromapEXT(json data){
+       VkMicromapEXT deserialize_VkMicromapEXT(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkMicromapEXT result;
                 #ifdef CLIENT
@@ -100825,7 +100825,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkShaderEXT deserialize_VkShaderEXT(json data){
+       VkShaderEXT deserialize_VkShaderEXT(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkShaderEXT result;
                 #ifdef CLIENT
@@ -100877,7 +100877,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkDisplayKHR deserialize_VkDisplayKHR(json data){
+       VkDisplayKHR deserialize_VkDisplayKHR(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDisplayKHR result;
                 #ifdef CLIENT
@@ -100929,7 +100929,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkDisplayModeKHR deserialize_VkDisplayModeKHR(json data){
+       VkDisplayModeKHR deserialize_VkDisplayModeKHR(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDisplayModeKHR result;
                 #ifdef CLIENT
@@ -100981,7 +100981,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkSurfaceKHR deserialize_VkSurfaceKHR(json data){
+       VkSurfaceKHR deserialize_VkSurfaceKHR(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkSurfaceKHR result;
                 #ifdef CLIENT
@@ -101033,7 +101033,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkSwapchainKHR deserialize_VkSwapchainKHR(json data){
+       VkSwapchainKHR deserialize_VkSwapchainKHR(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkSwapchainKHR result;
                 #ifdef CLIENT
@@ -101085,7 +101085,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkDebugReportCallbackEXT deserialize_VkDebugReportCallbackEXT(json data){
+       VkDebugReportCallbackEXT deserialize_VkDebugReportCallbackEXT(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDebugReportCallbackEXT result;
                 #ifdef CLIENT
@@ -101137,7 +101137,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkDebugUtilsMessengerEXT deserialize_VkDebugUtilsMessengerEXT(json data){
+       VkDebugUtilsMessengerEXT deserialize_VkDebugUtilsMessengerEXT(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkDebugUtilsMessengerEXT result;
                 #ifdef CLIENT
@@ -101189,7 +101189,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkVideoSessionKHR deserialize_VkVideoSessionKHR(json data){
+       VkVideoSessionKHR deserialize_VkVideoSessionKHR(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkVideoSessionKHR result;
                 #ifdef CLIENT
@@ -101241,7 +101241,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-       VkVideoSessionParametersKHR deserialize_VkVideoSessionParametersKHR(json data){
+       VkVideoSessionParametersKHR deserialize_VkVideoSessionParametersKHR(json &data){
                 auto pointer=data["value"].get<uintptr_t>();
                 VkVideoSessionParametersKHR result;
                 #ifdef CLIENT
