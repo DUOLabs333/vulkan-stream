@@ -44,13 +44,10 @@ def registerDeviceMemoryMap(name,mem):
             
         return f"""
         
-        #ifdef CLIENT
-            auto server_memory=serialize_VkDeviceMemory({memory})["value"].get<uintptr_t>();
-        #else
-            auto server_memory=0;
-        #endif 
+        auto server_memory=serialize_VkDeviceMemory({memory})["value"].get<uintptr_t>(); 
         
         *ppData=registerDeviceMemoryMap(server_memory, {memory},{size},*ppData,{mem});
+        
         #ifndef CLIENT
             result["mem_ptr"]={mem};
         #endif
@@ -216,8 +213,6 @@ for name, command in parsed["commands"].items():
 
     write(registerDeviceMemoryMap(name,"(uintptr_t)(*ppData)"))
        
-    write(deregisterDeviceMemoryMap(name))
-       
     write("""
         writeToConn(result);
     }""")
@@ -286,7 +281,7 @@ for name, command in parsed["commands"].items():
     write("//Will only be called by the client")
     write(f'debug_printf("Executing {name}\\n");')
     
-    memory_operation_lock=False
+    #memory_operation_lock=False #Add this back once I determine the problem is
     if memory_operation_lock:
         write("MemoryOperationLock.lock();")
     if memory_map_lock==1:
@@ -436,7 +431,8 @@ for name, command in parsed["commands"].items():
     
     if name=="vkQueueSubmit":
         write("SyncAll();")
-    
+        
+    write(deregisterDeviceMemoryMap(name))
     write("""
         writeToConn(data_json);
         json result;
@@ -570,11 +566,12 @@ for name, command in parsed["commands"].items():
         write("registerDevice(*pDevice,physicalDevice);")
     elif name=="vkAllocateMemory":
         write("registerDeviceMemory(*pMemory, pAllocateInfo->allocationSize);")
-    
+
     write(registerDeviceMemoryMap(name,'result["mem_ptr"]'))
     
-    write(deregisterDeviceMemoryMap(name))
-    
+    if name=="vkDeviceWaitIdle":
+        write("waitForCounterIdle(device);")
+        
     if memory_map_lock==1:
         write("MemoryMapLock.unlock();")
     elif memory_map_lock==2:

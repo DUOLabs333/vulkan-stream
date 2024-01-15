@@ -1,4 +1,5 @@
 #include <cstddef>
+#include <cstdint>
 #include <picosha2.h>
 #include <nlohmann/json.hpp>
 #include <Server.hpp>
@@ -25,8 +26,7 @@ typedef struct {
 int fd;
 VkDeviceSize size;
 void* mem;
-bool to_delete;
-uintptr_t server_devicememory;
+uintptr_t server_devicememory; //So we can tell the server what deviceMemory to delete when unmapping
 } MemInfo;
 
 std::map<uintptr_t,MemInfo*> devicememory_to_mem_info;
@@ -66,7 +66,6 @@ void* registerDeviceMemoryMap(uintptr_t server_memory, VkDeviceMemory memory, Vk
 debug_printf("DeviceMemory mapping in progress...\n");
 auto info=new MemInfo();
 info->size=size;
-info->to_delete=false;
 #ifdef CLIENT
     info->fd=shm_open_anon(); //Make new place for memory
     ftruncate(info->fd,info->size);
@@ -91,15 +90,13 @@ devicememory_to_mem_info[(uintptr_t)memory]=info;
 return info->mem;
 }
 
+void Sync(uintptr_t, void*, size_t);
 void deregisterDeviceMemoryMap(VkDeviceMemory memory){
 debug_printf("DeviceMemory unmapping in progress...\n");
 auto key=(uintptr_t)memory;
 auto info=devicememory_to_mem_info[key];
-if (!info->to_delete){
-    info->to_delete=true;
-    return;
-}
 #ifdef CLIENT
+    Sync(key,info->mem, info->size);
     deregisterClientServerMemoryMapping((uintptr_t)(info->mem));
     munmap(info->mem, info->size);
     close(info->fd);
@@ -143,7 +140,6 @@ void handle_sync_init(json& data){
         void* mem=(char*)server_to_client_mem[data["mem"]];
     #else
         void* mem=(void*)data["mem"].get<uintptr_t>();
-        auto devicememory = data["devicememory"].get<uintptr_t>();
     #endif
     
     json result=json({});
@@ -172,7 +168,8 @@ void handle_sync_init(json& data){
     }
     
     #ifndef CLIENT
-        if (devicememory!=0 && (devicememory_to_mem_info[devicememory]->to_delete)){
+        if (data.contains("devicememory")){
+             auto devicememory = data["devicememory"].get<uintptr_t>();
             deregisterDeviceMemoryMap((VkDeviceMemory)devicememory);
         }
     #endif
@@ -224,7 +221,13 @@ void Sync(uintptr_t devicememory, void* mem, size_t length){
     
     json result=json({});
     result["type"]="sync_init";
-    result["devicememory"]=devicememory_to_mem_info[devicememory]->server_devicememory;
+    
+    #ifdef CLIENT
+        if (devicememory!=0){
+            result["devicememory"]=devicememory_to_mem_info[devicememory]->server_devicememory;
+        }
+    #endif
+    
     result["starts"]={};
     result["lengths"]={};
     result["hashes"]={};
@@ -260,20 +263,12 @@ void Sync(uintptr_t devicememory, void* mem, size_t length){
             break;
         }
     }
-    
-    #ifdef CLIENT
-        if (devicememory!=0 && (devicememory_to_mem_info[devicememory]->to_delete)){
-            deregisterDeviceMemoryMap((VkDeviceMemory)devicememory);
-        }
-    #endif
 }
 
 void SyncAll(){
-
 for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
-    Sync(devicememory, mem_info->mem,mem_info->size);
+    Sync(0, mem_info->mem,mem_info->size);
 }
-
 }
 
 void SyncAllocations(){

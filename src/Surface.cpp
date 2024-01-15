@@ -1,12 +1,20 @@
 #include "Surface.hpp"
+#include <condition_variable>
 #include <cstdint>
 #include <cstdio>
 #include <vector>
 #include <cstdlib>
 #include <vulkan/vulkan_core.h>
 #include <shared_mutex>
+#include <atomic>
 
 std::shared_mutex DisplayLock;
+
+typedef struct {
+std::atomic_int c;
+std::mutex mu;
+std::condition_variable cv;
+} CounterInfo;
 
 std::map<uintptr_t, SurfaceInfo> surface_to_info;
 
@@ -22,6 +30,7 @@ std::map<uintptr_t, VkCommandBuffer> device_to_command_buffer;
 std::map<uintptr_t, VkDeviceMemory> device_to_devicememory;
 std::map<uintptr_t, VkQueue> device_to_queue;
 std::map<uintptr_t, uint32_t> device_to_queue_family_index;
+std::map<uintptr_t, CounterInfo*> device_to_counter_info;
 
 void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
     auto surface_info=SurfaceInfo{.type=type};
@@ -62,8 +71,31 @@ void registerSwapchain(VkSwapchainKHR swapchain, VkDevice device, const VkSwapch
 
 void registerDevice(VkDevice device, VkPhysicalDevice phyiscal_device){
     device_to_phyiscal_device[(uintptr_t)device]=phyiscal_device;
+    
+    auto counter_info = new CounterInfo;
+    device_to_counter_info[(uintptr_t)device]=counter_info;
 }
 
+void updateCounter(VkDevice device, int direction){
+    auto info=device_to_counter_info[(uintptr_t)device];
+    
+    info->c+=direction;
+    
+    if ((direction==-1) && (info->c.load()==0)){
+        info->cv.notify_all();
+    }
+}
+ 
+void waitForCounterIdle(VkDevice device){
+    auto info=device_to_counter_info[(uintptr_t)device];
+    if (info->c.load()==0){ //Happens when there's no present currently enqueued.
+        return;
+    }
+    std::unique_lock<std::mutex> lk(info->mu);
+    
+    info->cv.wait(lk);
+}
+   
 VkQueue getQueue(VkDevice device,uint32_t* pIndex){
 auto key=(uintptr_t)device;
 if (device_to_queue.contains(key)){
@@ -307,6 +339,12 @@ return;
 }
 
 void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, const uint32_t* indices_list, uint32_t swapchain_count){
+    for(int i=0; i<swapchain_count; i++){
+        auto swapchain=swapchains_list[i];
+        auto device=swapchain_to_device[(uintptr_t)swapchain];
+        updateCounter(device, 1);
+    }
+    
     DisplayLock.lock(); //This is important --- otherwise, every thread will be stepping all over each other
     std::map<uintptr_t, std::vector<VkImage>> swapchain_to_images;
     
@@ -437,5 +475,10 @@ void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, c
         */
     }
     DisplayLock.unlock();
-
+    
+    for(int i=0; i<swapchain_count; i++){
+        auto swapchain=swapchains_list[i];
+        auto device=swapchain_to_device[(uintptr_t)swapchain];
+        updateCounter(device, -1);
+    }
 }
