@@ -566,7 +566,13 @@ for name, command in parsed["commands"].items():
         write("registerDevice(*pDevice,physicalDevice);")
     elif name=="vkAllocateMemory":
         write("registerDeviceMemory(*pMemory, pAllocateInfo->allocationSize);")
-
+    
+    if name=="vkGetPhysicalDeviceSurfaceCapabilitiesKHR":
+        write(r"""
+        printf("[INFO]: Current extent: %d, %d\n", pSurfaceCapabilities->currentExtent.width, pSurfaceCapabilities->currentExtent.height);
+        printf("[INFO]: Min extent: %d, %d\n", pSurfaceCapabilities->minImageExtent.width, pSurfaceCapabilities->minImageExtent.height);
+        printf("[INFO]: Max extent: %d, %d\n", pSurfaceCapabilities->maxImageExtent.width, pSurfaceCapabilities->maxImageExtent.height);
+        """)
     write(registerDeviceMemoryMap(name,'result["mem_ptr"]'))
     
     if name=="vkDeviceWaitIdle":

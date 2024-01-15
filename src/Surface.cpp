@@ -7,6 +7,8 @@
 #include <vulkan/vulkan_core.h>
 #include <shared_mutex>
 #include <atomic>
+#include <ranges>
+#include <algorithm>
 
 std::shared_mutex DisplayLock;
 
@@ -22,12 +24,19 @@ std::map<uintptr_t, VkSurfaceKHR> swapchain_to_surface;
 std::map<uintptr_t, VkDevice> swapchain_to_device;
 std::map<uintptr_t, VkExtent2D> swapchain_to_extent;
 
+//device maps to a map of different sized buffers
+//Each buffer maps to a devicememory
+//Each devicememory maps to a pointer
+
+std::map<uintptr_t, VkDeviceSize> image_to_size;
+
 std::map<uintptr_t, VkPhysicalDevice> device_to_phyiscal_device;
-std::map<uintptr_t, void*> device_to_mapped;
-std::map<uintptr_t, VkDeviceSize> device_to_mapped_size;
-std::map<uintptr_t, VkBuffer> device_to_buffer;
 std::map<uintptr_t, VkCommandBuffer> device_to_command_buffer;
-std::map<uintptr_t, VkDeviceMemory> device_to_devicememory;
+
+std::map<uintptr_t, std::map<VkDeviceSize,VkBuffer> > device_to_buffers;
+std::map<uintptr_t, VkDeviceMemory> buffer_to_devicememory;
+std::map<uintptr_t, void*> devicememory_to_mapped;
+
 std::map<uintptr_t, VkQueue> device_to_queue;
 std::map<uintptr_t, uint32_t> device_to_queue_family_index;
 std::map<uintptr_t, CounterInfo*> device_to_counter_info;
@@ -95,7 +104,28 @@ void waitForCounterIdle(VkDevice device){
     
     info->cv.wait(lk);
 }
-   
+
+VkDeviceSize getImageSize(VkDevice device, VkImage image){
+auto key = (uintptr_t)image;
+
+if (image_to_size.contains(key)){
+    return image_to_size[key];
+}
+auto subresource=VkImageSubresource{
+.aspectMask=VK_IMAGE_ASPECT_COLOR_BIT,
+.mipLevel=0,
+.arrayLayer=0
+};
+
+VkSubresourceLayout layout={};
+
+vkGetImageSubresourceLayout(device, image, &subresource, &layout);
+
+image_to_size[key]=layout.size;
+return layout.size;
+
+}
+
 VkQueue getQueue(VkDevice device,uint32_t* pIndex){
 auto key=(uintptr_t)device;
 if (device_to_queue.contains(key)){
@@ -166,16 +196,19 @@ device_to_command_buffer[key]=command_buffer;
 return command_buffer;
 }
 
-VkBuffer getBuffer(VkDevice device, VkDeviceSize* size){
-VkDeviceSize BUFFER_SIZE=1000000;
+VkBuffer getBuffer(VkDevice device, VkDeviceSize* size){ //Gets buffer that is at least as big as *size
 auto key=(uintptr_t)device;
 
-if (size!=NULL){
-    *size=BUFFER_SIZE;
-}
+auto kv=std::views::keys(device_to_buffers[key]);
+std::vector<VkDeviceSize> keys{ kv.begin(), kv.end() };
 
-if (device_to_buffer.contains(key)){
-    return device_to_buffer[key];
+std::sort(keys.begin(), keys.end());
+
+auto buffer_size=std::lower_bound(keys.begin(), keys.end(), *size);
+
+if (buffer_size!=keys.end()){
+    *size=*buffer_size;
+    return device_to_buffers[key][*buffer_size];
 }
 
 VkBuffer buffer;
@@ -183,7 +216,7 @@ auto buffer_create_info=VkBufferCreateInfo{
 .sType=VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO,
 .pNext=NULL,
 .flags=0,
-.size=BUFFER_SIZE,
+.size=*size,
 .usage=VK_BUFFER_USAGE_TRANSFER_DST_BIT,
 .sharingMode=VK_SHARING_MODE_EXCLUSIVE,
 .queueFamilyIndexCount=0,
@@ -191,7 +224,7 @@ auto buffer_create_info=VkBufferCreateInfo{
 };
 vkCreateBuffer(device,&buffer_create_info,NULL,&buffer);
 
-device_to_buffer[key]=buffer;
+device_to_buffers[key][*size]=buffer;
 
 
 auto memory_properties=VkPhysicalDeviceMemoryProperties{};
@@ -222,8 +255,7 @@ VkDeviceMemory memory;
 vkAllocateMemory(device,&memory_allocate_info,NULL, &memory);
 vkBindBufferMemory(device, buffer,memory,0);
 
-device_to_devicememory[key]=memory;
-
+buffer_to_devicememory[(uintptr_t)buffer]=memory;
 return buffer;      
 }
 
@@ -265,7 +297,7 @@ vkBeginCommandBuffer(command_buffer,&begin_command_buffer_info);
 
 transferImageToLayout(command_buffer,image,VK_IMAGE_LAYOUT_PRESENT_SRC_KHR, VK_IMAGE_LAYOUT_GENERAL);
 
-VkDeviceSize size;
+VkDeviceSize size=getImageSize(device, image);
 auto buffer=getBuffer(device,&size);
  
 auto region=VkBufferImageCopy{
@@ -311,28 +343,22 @@ if (vkWaitForFences(device,1,&fence,VK_TRUE, 5ULL*10000)!=VK_TIMEOUT){
 }
 
 
-void getImageData(VkDevice device, VkImage image, void** data, VkDeviceSize* pSize, VkExtent2D extent){
-auto key=(uintptr_t)device;
-
+void getImageData(VkDevice device, VkImage image, void** data, VkDeviceSize* size, VkExtent2D extent){
 copyImageToBuffer(device,image,extent);
 
-if (device_to_mapped.contains(key)){
-    *data=device_to_mapped[key];
-    *pSize=device_to_mapped_size[key];
+*size=getImageSize(device, image);
+
+VkDeviceSize buffer_size=*size;
+auto buffer=getBuffer(device,&buffer_size);
+
+auto memory=buffer_to_devicememory[(uintptr_t)buffer];
+auto key=(uintptr_t)memory;
+
+if (devicememory_to_mapped.contains(key)){
+    *data=devicememory_to_mapped[key];
 }else{
-    VkDeviceSize size;
-    
-    auto memory=device_to_devicememory[key];
-    getBuffer(device,&size);
-    
-    void* ppData=NULL;
-    vkMapMemory(device,memory,0,size,0,&ppData);
-    
-    device_to_mapped[key]=ppData;
-    device_to_mapped_size[key]=size;
-    
-    *data=ppData;
-    *pSize=size;
+    vkMapMemory(device,memory,0,buffer_size,0,data);
+    devicememory_to_mapped[key]=*data;
 }
 return;
 
