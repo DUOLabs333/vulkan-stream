@@ -1,17 +1,23 @@
-#include <QtNetwork/QTcpServer>
-#include <QtNetwork/QTcpSocket>
+#include <asio/ip/tcp.hpp>
+#include <asio/streambuf.hpp>
+
 #include <string>
 #include <set>
 #include <debug.hpp>
 
+using tcp = asio::ip::tcp;
+
 extern std::string address;
 
-extern int port;
+extern std::string port;
 
 
 typedef struct {
-    QTcpSocket* conn;
+    tcp::socket* conn;
     int uuid;
+    asio::streambuf buf;
+    std::istream* is;
+    
 } ThreadStruct;
     
 ThreadStruct* currStruct();

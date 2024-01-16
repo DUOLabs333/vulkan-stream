@@ -6,8 +6,8 @@
 #include <nlohmann/json.hpp>
 #include <sstream>
 #include <random>
-
-//Maybe use QT for JSON later
+#include <asio/read_until.hpp>
+#include <asio/write.hpp>
 
 int MAX=10000000;
 std::random_device rd;
@@ -15,25 +15,22 @@ std::mt19937 gen(rd());
 std::uniform_int_distribution<> distrib(1, MAX);
 auto uuid=distrib(gen);
 
-bool isConnConnected(){
-    //Will only be called by the server
-    return currStruct()->conn->state()==QAbstractSocket::ConnectedState;
-}
-
 #ifndef CLIENT
-    void handleConnection(qintptr socketDescriptor){
+    asio::io_context server_context;
+    void handleConnection(tcp::socket* socket){
         //Will only be called by the server
-        
-        auto socket=new QTcpSocket();
-        socket->setSocketDescriptor(socketDescriptor);
         
         currStruct()->conn=socket;
         
+        json data;
         while(true){
-            if(!isConnConnected()){
+            try{
+            data=readFromConn();
+            }
+            catch (const asio::system_error& e){
+                currStruct()->conn->close();
                 break;
             }
-            json data=readFromConn();
             
             if (currStruct()->uuid==-1){
                 currStruct()->uuid=data["uuid"];
@@ -42,7 +39,6 @@ bool isConnConnected(){
             std::string type=data["type"];
             if (type=="sync_init"){
                 handle_sync_init(data);
-                //Keep synced_memories (set) here: when sync point (eg, WaitForFences), sync all of them
             }
             else if (type.rfind("command_",0)==0){
                 handle_command(data);
@@ -50,48 +46,39 @@ bool isConnConnected(){
         }
     }
     
-    class StreamServer : public QTcpServer
-    {
-    protected:
-        void incomingConnection(qintptr socketDescriptor){
-                std::thread thread(handleConnection,socketDescriptor);
-                thread.detach();
-        }
-    };
-    
-    StreamServer* startServer(){
+    void startServer(){
         setAddressandPort();
-        auto server = new StreamServer();
-        server->listen(QHostAddress(QString::fromStdString(address)),port);
-        while(server->waitForNewConnection(-1)){
+        tcp::acceptor acceptor(server_context, tcp::endpoint(asio::ip::make_address(address), std::stoi(port)));
+       
+        for (;;){
+            auto socket=new tcp::socket(server_context);
+            
+            acceptor.accept(*socket);
+            std::thread(handleConnection, socket).detach();
         }
-        return server;
     }
     
 #endif
 
 
 json readFromConn(){
-    auto conn=currStruct()->conn;
-    
     //Hold an empty buffer, as it's possible a single read does not contain the entire response
-    std::stringstream line;
-    while(true){
-        conn->waitForReadyRead(-1);
-        line << conn->readLine().toStdString();
-        if ( json::accept(line.str()) ){
-            json result=json::from_msgpack(json::parse(line.str()).get<std::vector<uint8_t>>());
-            debug_printf("%s\n",result["type"].get<std::string>().c_str());
-           return result;
-        }
-
-    }
+    
+    auto curr=currStruct();
+    std::string line;
+        
+    asio::read_until(*(curr->conn), curr->buf, '\n');
+    std::getline(*(curr->is),line);
+    
+    json result=json::from_msgpack(json::parse(line).get<std::vector<uint8_t>>());
+    debug_printf("%s\n",result["type"].get<std::string>().c_str());
+    
+    return result;
 }
 
 void writeToConn(json& data){
     debug_printf("%s\n",data["type"].get<std::string>().c_str());
-    
     data["uuid"]=uuid;
-    currStruct()->conn->write(QByteArray::fromStdString(json(json::to_msgpack(data)).dump()+"\n"));
-    currStruct()->conn->waitForBytesWritten(-1);
+    
+    asio::write(*(currStruct()->conn), asio::buffer(json(json::to_msgpack(data)).dump()+"\n"));
 }

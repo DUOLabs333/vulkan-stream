@@ -1,10 +1,16 @@
 #include "ThreadStruct.hpp"
 #include <thread>
 #include <debug.hpp>
+#include <asio/io_context.hpp>
+#include <asio/connect.hpp>
+#include <map>
 
 std::string address;
-int port;
+std::string port;
 std::map<std::thread::id,ThreadStruct*> thread_to_struct;
+
+asio::io_context client_context;
+tcp::resolver resolver(client_context);
 
 void setAddressandPort(){
     const char* address_temp=std::getenv("STREAM_ADDRESS");
@@ -18,23 +24,28 @@ void setAddressandPort(){
         port_temp="2000";
     }
     address=address_temp;
-    port=std::stoi(port_temp);
+    port=port_temp;
 }
 
 ThreadStruct* currStruct(){
     auto thread_id=std::this_thread::get_id();
     if (!thread_to_struct.contains(thread_id)){
         auto result=new ThreadStruct();
-
-        #ifdef CLIENT
-            setAddressandPort();
-            result->conn=new QTcpSocket();
-            while(!result->conn->waitForConnected(-1)){
-                result->conn->connectToHost(QString::fromStdString(address),port);
-            }
-        #endif
+        
+        result->is=new std::istream(&result->buf);
         
         result->uuid=-1;
+        
+        #ifdef CLIENT
+            setAddressandPort();
+            
+            auto endpoints=resolver.resolve(address, port);
+            
+            result->conn= new tcp::socket(client_context);
+            
+            asio::connect(*(result->conn), endpoints);
+        #endif
+        
         
         thread_to_struct[thread_id]=result;
     }

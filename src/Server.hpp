@@ -6,5 +6,5 @@ using json = nlohmann::json;
 
 json readFromConn();
 void writeToConn(json& data);
-class StreamServer;
-StreamServer* startServer();
+
+void startServer();

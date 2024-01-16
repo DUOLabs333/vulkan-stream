@@ -602,7 +602,6 @@ write("""
 #ifndef CLIENT
 int main(int argc, char** argv){
     startServer();
-    std::promise<void>().get_future().wait(); //Wait forever
 }
 #endif
 """)

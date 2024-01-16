@@ -26,11 +26,16 @@ typedef struct {
 int fd;
 VkDeviceSize size;
 void* mem;
-int uuid;
 uintptr_t server_devicememory; //So we can tell the server what deviceMemory to delete when unmapping
 } MemInfo;
 
-std::map<uintptr_t,MemInfo*> devicememory_to_mem_info;
+typedef std::map<uintptr_t,MemInfo*> mem_info_map;
+#ifdef CLIENT
+    mem_info_map devicememory_to_mem_info;
+#else
+    std::map<int, mem_info_map> uuid_to_map;
+#endif
+
 
 std::string HashMem(void* mem, uintptr_t start, uintptr_t length){
     
@@ -80,14 +85,11 @@ info->size=size;
     memcpy(info->mem,mem,info->size);
     
     info->server_devicememory=server_memory;
+    devicememory_to_mem_info[(uintptr_t)memory]=info;
 #else
 info->mem=(void*)server_mem;
-info->uuid=currStruct()->uuid;
+uuid_to_map[currStruct()->uuid][(uintptr_t)memory]=info;
 #endif
-
-
-devicememory_to_mem_info[(uintptr_t)memory]=info;
-
 
 return info->mem;
 }
@@ -97,18 +99,25 @@ void deregisterDeviceMemoryMap(VkDeviceMemory memory){
 debug_printf("DeviceMemory unmapping in progress...\n");
 auto key=(uintptr_t)memory;
 
-if (!devicememory_to_mem_info.contains(key)){ //Already deregistered
-    return;
-}
-auto info=devicememory_to_mem_info[key];
 #ifdef CLIENT
+    if (!devicememory_to_mem_info.contains(key)){ //Already deregistered
+        return;
+    }
+    auto info=devicememory_to_mem_info[key];
     Sync(key,info->mem, info->size);
     deregisterClientServerMemoryMapping((uintptr_t)(info->mem));
     munmap(info->mem, info->size);
     close(info->fd);
+    devicememory_to_mem_info.erase(key);
+#else
+    if (!uuid_to_map.contains(currStruct()->uuid) || !uuid_to_map[currStruct()->uuid].contains(key) ){ //Already deregistered
+        return;
+    }
+    auto info=uuid_to_map[currStruct()->uuid][key];
+    uuid_to_map[currStruct()->uuid].erase(key);
 #endif
 
-devicememory_to_mem_info.erase(key);
+
 delete info;
 
 }
@@ -272,13 +281,12 @@ void Sync(uintptr_t devicememory, void* mem, size_t length){
 }
 
 void SyncAll(){
+#ifdef CLIENT
 for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
-    #ifndef CLIENT
-        if (mem_info->uuid!=currStruct()->uuid){ //Don't want to try to sync pointers across two different applications
-            continue;
-        }
-    #endif
-    
+#else
+for (auto& [devicememory, mem_info] : uuid_to_map[currStruct()->uuid]){
+#endif
+
     Sync(0, mem_info->mem,mem_info->size);
 }
 }
