@@ -94,6 +94,10 @@ void Sync(uintptr_t, void*, size_t);
 void deregisterDeviceMemoryMap(VkDeviceMemory memory){
 debug_printf("DeviceMemory unmapping in progress...\n");
 auto key=(uintptr_t)memory;
+
+if (!devicememory_to_mem_info.contains(key)){ //Already deregistered
+    return;
+}
 auto info=devicememory_to_mem_info[key];
 #ifdef CLIENT
     Sync(key,info->mem, info->size);

@@ -431,6 +431,9 @@ for name, command in parsed["commands"].items():
     
     if name=="vkQueueSubmit":
         write("SyncAll();")
+    
+    if name=="vkFreeMemory":
+        write("vkUnmapMemory(device,memory);")
         
     write(deregisterDeviceMemoryMap(name))
     write("""
