@@ -34,6 +34,8 @@ ThreadStruct* currStruct(){
             }
         #endif
         
+        result->uuid=-1;
+        
         thread_to_struct[thread_id]=result;
     }
     

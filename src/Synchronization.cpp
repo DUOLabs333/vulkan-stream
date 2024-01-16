@@ -26,6 +26,7 @@ typedef struct {
 int fd;
 VkDeviceSize size;
 void* mem;
+int uuid;
 uintptr_t server_devicememory; //So we can tell the server what deviceMemory to delete when unmapping
 } MemInfo;
 
@@ -81,6 +82,7 @@ info->size=size;
     info->server_devicememory=server_memory;
 #else
 info->mem=(void*)server_mem;
+info->uuid=currStruct()->uuid;
 #endif
 
 
@@ -271,6 +273,12 @@ void Sync(uintptr_t devicememory, void* mem, size_t length){
 
 void SyncAll(){
 for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
+    #ifndef CLIENT
+        if (mem_info->uuid!=currStruct()->uuid){ //Don't want to try to sync pointers across two different applications
+            continue;
+        }
+    #endif
+    
     Sync(0, mem_info->mem,mem_info->size);
 }
 }

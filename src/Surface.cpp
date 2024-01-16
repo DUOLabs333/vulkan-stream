@@ -7,7 +7,6 @@
 #include <vulkan/vulkan_core.h>
 #include <shared_mutex>
 #include <atomic>
-#include <ranges>
 #include <algorithm>
 
 std::shared_mutex DisplayLock;
@@ -199,8 +198,10 @@ return command_buffer;
 VkBuffer getBuffer(VkDevice device, VkDeviceSize* size){ //Gets buffer that is at least as big as *size
 auto key=(uintptr_t)device;
 
-auto kv=std::views::keys(device_to_buffers[key]);
-std::vector<VkDeviceSize> keys{ kv.begin(), kv.end() };
+std::vector<VkDeviceSize> keys;
+for (auto& [key, value] : device_to_buffers[key]){
+    keys.push_back(key);
+}
 
 std::sort(keys.begin(), keys.end());
 

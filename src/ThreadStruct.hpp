@@ -11,7 +11,7 @@ extern int port;
 
 typedef struct {
     QTcpSocket* conn;
-    
+    int uuid;
 } ThreadStruct;
     
 ThreadStruct* currStruct();

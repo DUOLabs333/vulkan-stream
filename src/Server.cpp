@@ -5,8 +5,15 @@
 #include <thread>
 #include <nlohmann/json.hpp>
 #include <sstream>
+#include <random>
 
 //Maybe use QT for JSON later
+
+int MAX=10000000;
+std::random_device rd;
+std::mt19937 gen(rd());
+std::uniform_int_distribution<> distrib(1, MAX);
+auto uuid=distrib(gen);
 
 bool isConnConnected(){
     //Will only be called by the server
@@ -27,6 +34,10 @@ bool isConnConnected(){
                 break;
             }
             json data=readFromConn();
+            
+            if (currStruct()->uuid==-1){
+                currStruct()->uuid=data["uuid"];
+            }
             
             std::string type=data["type"];
             if (type=="sync_init"){
@@ -79,6 +90,8 @@ json readFromConn(){
 
 void writeToConn(json& data){
     debug_printf("%s\n",data["type"].get<std::string>().c_str());
+    
+    data["uuid"]=uuid;
     currStruct()->conn->write(QByteArray::fromStdString(json(json::to_msgpack(data)).dump()+"\n"));
     currStruct()->conn->waitForBytesWritten(-1);
 }
