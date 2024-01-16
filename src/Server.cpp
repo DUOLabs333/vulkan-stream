@@ -26,11 +26,6 @@ auto uuid=distrib(gen);
         while(true){
             try{
             data=readFromConn();
-            }
-            catch (const asio::system_error& e){
-                currStruct()->conn->close();
-                break;
-            }
             
             if (currStruct()->uuid==-1){
                 currStruct()->uuid=data["uuid"];
@@ -43,6 +38,13 @@ auto uuid=distrib(gen);
             else if (type.rfind("command_",0)==0){
                 handle_command(data);
             }
+            
+            }
+            catch (const asio::system_error& e){
+                currStruct()->conn->close();
+                break;
+            }
+            
         }
     }
     
