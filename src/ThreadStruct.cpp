@@ -12,6 +12,7 @@ std::map<std::thread::id,ThreadStruct*> thread_to_struct;
 asio::io_context client_context;
 tcp::resolver resolver(client_context);
 
+
 void setAddressandPort(){
     const char* address_temp=std::getenv("STREAM_ADDRESS");
     const char* port_temp=std::getenv("STREAM_PORT");
@@ -43,7 +44,14 @@ ThreadStruct* currStruct(){
             
             result->conn= new tcp::socket(client_context);
             
-            asio::connect(*(result->conn), endpoints);
+            asio::error_code ec;
+            while (true){
+                asio::connect(*(result->conn), endpoints, ec);
+                if (!ec){
+                    break;
+                }
+            }
+            
         #endif
         
         

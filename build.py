@@ -12,12 +12,12 @@ DEBUG=os.environ.get("DEBUG","1")
 VK_LIB_PATH="/opt/homebrew/lib"
 
 SRC_FILES=["autogen/*","src/*","external/shm_open_anon/shm_open_anon.c"]
-INCLUDE_PATHS=["autogen","src", "external/json/single_include", "external/PicoSHA2", "external/shm_open_anon", "external/qtbase/build/include", "external/Vulkan-Headers/include","external/asio/asio/include"]
+INCLUDE_PATHS=["autogen","src", "external/json/single_include", "external/PicoSHA2", "external/shm_open_anon", "external/Vulkan-Headers/include","external/asio/asio/include"]
 FLAGS=(["-DCLIENT"] if CLIENT=="1" else []) + (["-g","-DDEBUG"] if DEBUG=="1" else ["-O3"]) + ["-Wfatal-errors","-fPIC","-Winvalid-pch"]+os.environ["VK_HEADER_FLAGS"].split(" ")
-STATIC_LIBS=["external/qtbase/build/lib/*"]
+STATIC_LIBS=[]
 SHARED_LIBS_PATHS=[VK_LIB_PATH]
-SHARED_LIBS=(["double-conversion"] if sys.platform=="linux" else ["resolv"])+(["vulkan"] if CLIENT=="0" else ["xcb","X11","xcb-image"])
-FRAMEWORKS=["CoreFoundation","CFNetwork","CoreServices","IOKit","AppKit","Foundation","SystemConfiguration","Security"]
+SHARED_LIBS=(["vulkan"] if CLIENT=="0" else ["xcb","X11","xcb-image"])
+FRAMEWORKS=[]
 
 def get_object_file(name):
     if not (name.endswith(".cpp") or name.endswith(".c")):

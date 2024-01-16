@@ -15,6 +15,17 @@ std::mt19937 gen(rd());
 std::uniform_int_distribution<> distrib(1, MAX);
 auto uuid=distrib(gen);
 
+class RWError : public std::exception {
+    std::string message;
+    public:
+    RWError (asio::error_code ec){
+        message=ec.message();
+    }
+    std::string what () {
+        return message;
+    }
+};
+
 #ifndef CLIENT
     asio::io_context server_context;
     void handleConnection(tcp::socket* socket){
@@ -40,7 +51,7 @@ auto uuid=distrib(gen);
             }
             
             }
-            catch (const asio::system_error& e){
+            catch (const RWError& e){
                 currStruct()->conn->close();
                 break;
             }
@@ -68,8 +79,13 @@ json readFromConn(){
     
     auto curr=currStruct();
     std::string line;
-        
-    asio::read_until(*(curr->conn), curr->buf, '\n');
+    
+    asio::error_code ec;
+    asio::read_until(*(curr->conn), curr->buf, '\n', ec);
+    if (ec){
+        throw RWError(ec);
+    }
+    
     std::getline(*(curr->is),line);
     
     json result=json::from_msgpack(json::parse(line).get<std::vector<uint8_t>>());
@@ -82,5 +98,10 @@ void writeToConn(json& data){
     debug_printf("%s\n",data["type"].get<std::string>().c_str());
     data["uuid"]=uuid;
     
-    asio::write(*(currStruct()->conn), asio::buffer(json(json::to_msgpack(data)).dump()+"\n"));
+    asio::error_code ec;
+    asio::write(*(currStruct()->conn), asio::buffer(json(json::to_msgpack(data)).dump()+"\n"), ec);
+    
+    if (ec){
+        throw RWError(ec);
+    }
 }
