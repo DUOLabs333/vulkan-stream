@@ -9,10 +9,10 @@
 #include <asio/read_until.hpp>
 #include <asio/write.hpp>
 
-int MAX=10000000;
+int UUID_MAX=10000000;
 std::random_device rd;
 std::mt19937 gen(rd());
-std::uniform_int_distribution<> distrib(1, MAX);
+std::uniform_int_distribution<> distrib(1, UUID_MAX);
 auto uuid=distrib(gen);
 
 class RWError : public std::exception {
@@ -75,8 +75,7 @@ class RWError : public std::exception {
 
 
 json readFromConn(){
-    //Hold an empty buffer, as it's possible a single read does not contain the entire response
-    
+
     auto curr=currStruct();
     std::string line;
     

@@ -281,7 +281,7 @@ for name, command in parsed["commands"].items():
     write("//Will only be called by the client")
     write(f'debug_printf("Executing {name}\\n");')
     
-    #memory_operation_lock=False #Add this back once I determine the problem is
+    memory_operation_lock=False #Add this back once I determine the problem is
     if memory_operation_lock:
         write("MemoryOperationLock.lock();")
     if memory_map_lock==1:
@@ -522,7 +522,7 @@ for name, command in parsed["commands"].items():
             """)
         write("""
             else {
-                debug_printf("%s\\n",(std::string("Unknown function: ")+pName).c_str());
+                debug_printf("Unknown function: %s\\n", pName);
                 return_value=NULL;
             }
             
