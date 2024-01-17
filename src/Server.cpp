@@ -90,7 +90,7 @@ object readFromConn(){
     
     std::getline(*(curr->is),line);
     
-    object result=parse(line,{}, {.allow_infinity_and_nan=true}).as_object();
+    object result=parse(line,{}, {.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).as_object();
     debug_printf("%s\n",value_to<std::string>(result["type"]).c_str());
     
     return result;
