@@ -11,6 +11,7 @@ using namespace boost::json;
 #include <Serialization.hpp>
 #include <Server.hpp>
 #include <Synchronization.hpp>
+#include <map>
 """)
 
 write("""
@@ -47,9 +48,9 @@ for struct,members in parsed["structs"].items():
     member["length"]=[]
 
     write(f"""
-        json serialize_{struct}_pNext(const void* name){{
+        object serialize_{struct}_pNext(const void* name){{
         debug_printf("Serializing {struct}...\\n");
-        json result;
+        object result;
         {serialize("result",member)}
         return result;
         }}
@@ -160,7 +161,7 @@ if (name.contains("null")){
     return result;
 }
 
-return deserialize_pNext_dispatch[(VkStructureType)name["members"].as_object()["sType"].as_object()["value"]](name);
+return deserialize_pNext_dispatch[(VkStructureType)value_to<int>(name["members"].as_object()["sType"].as_object()["value"])](name);
 }
 """)
 
@@ -212,7 +213,7 @@ for struct,members in parsed["structs"].items():
         write(f"auto _struct = new {struct}_struct;")
     for member in members:
         member_copy=copy.deepcopy(member)
-        member_copy["name"]=f"""name["members"].as_object()["{member["name"]}"]"""
+        member_copy["name"]=f"""name["members"].as_object()["{member["name"]}"].as_object()"""
         
         for i,e in enumerate(member_copy["length"]):
             member_copy["length"][i]=add_struct_name(e, "result")
@@ -221,7 +222,7 @@ for struct,members in parsed["structs"].items():
             
         if is_callback:
             if member["type"] in parsed["funcpointers"]:
-                write(f"""_struct->{member["type"]}_id={member_copy["name"]}.as_object()["id"];""") 
+                write(f"""_struct->{member["type"]}_id=value_to<uintptr_t>({member_copy["name"]}["id"]);""") 
     if is_callback:
         write("""_struct->pUserData=result.pUserData;
         result.pUserData=(void*)_struct;
@@ -241,11 +242,18 @@ for type in parsed["primitive_types"]:
             }};
         """)
         
-        write(f"""
-            {type} deserialize_{type}(object &name){{
-                return value_to<{type}>(name["value"]);
-            }};
-        """)
+        if type.startswith("Vk"):
+            write(f"""
+                {type} deserialize_{type}(object &name){{
+                    return ({type}) value_to<int>(name["value"]);
+                }};
+            """)
+        else:
+            write(f"""
+                {type} deserialize_{type}(object &name){{
+                    return value_to<{type}>(name["value"]);
+                }};
+            """)
         
         write(f"""
         object serialize_{type}({type} name);
@@ -335,9 +343,9 @@ for funcpointer,function in parsed["funcpointers"].items():
     
         write(f"""
         auto {funcpointer}_wrapper{header}{{
-            object data;
+            boost::json::object data;
             data["type"]="{funcpointer}_request";
-            data["members"]=object();
+            data["members"]=boost::json::object();
         """)
         
         if callback_struct:
@@ -408,7 +416,7 @@ for funcpointer,function in parsed["funcpointers"].items():
             write(param["header"]+";") #Initialize variable
             
             param_copy=param.copy()
-            param_copy["name"]=f"""data["members"].as_object()["{param["name"]}"]"""
+            param_copy["name"]=f"""data["members"].as_object()["{param["name"]}"].as_object()"""
             
             write(deserialize(param["name"],param_copy,initialize=True))
         
@@ -456,7 +464,7 @@ for funcpointer,function in parsed["funcpointers"].items():
         
         for param in function["params"]:
             param_copy=param.copy()
-            param_copy["name"]=f"""data["members"].as_object()["{param["name"]}"]"""
+            param_copy["name"]=f"""data["members"].as_object()["{param["name"]}"].as_object()"""
             
             write(deserialize(param["name"],param_copy))
         
@@ -464,7 +472,7 @@ for funcpointer,function in parsed["funcpointers"].items():
             write(function["type"]+("*"*function["num_indirection"])+" result;")
             
             function_copy=function.copy()
-            function_copy["name"]='data["result"]'
+            function_copy["name"]='data["result"].as_object()'
             function_copy["length"]=[]
             
             write(deserialize("result",function_copy))

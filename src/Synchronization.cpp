@@ -1,12 +1,12 @@
 #include <cstddef>
 #include <cstdint>
 #include <picosha2.h>
-#include <boost/json/src.hpp>
+#include <boost/json.hpp>
 using namespace boost::json;
 #include <Server.hpp>
 #include <vulkan/vulkan.h>
 #include <Serialization.hpp>
-
+#include <map>
 extern "C" {
 #include <shm_open_anon.h>
 }
@@ -138,7 +138,7 @@ void handle_sync_response(object& data){
     
     for(int i=0; i < data["starts"].as_array().size(); i++){
         debug_printf("Memory %p: Data has changed!\n",(char*)mem);
-        memcpy((char*)mem+data["starts"].as_array()[i].get<size_t>(),value_to<std::string>(data["buffers"].as_array()[i]).c_str(), value_to<size_t>(data["lengths"].as_array()[i]));
+        memcpy((char*)mem+value_to<size_t>(data["starts"].as_array()[i]),value_to<std::string>(data["buffers"].as_array()[i]).c_str(), value_to<size_t>(data["lengths"].as_array()[i]));
     }
     
     writeToConn(result);
@@ -214,7 +214,7 @@ void handle_sync_request(object& data){
         
         std::string buffer((char*)mem+start, (char*)mem+start+length);
         
-        result["buffers"].as_array().push_back(buffer);
+        result["buffers"].as_array().push_back(value_from(buffer));
     }
     
     writeToConn(result);
@@ -256,14 +256,14 @@ void Sync(uintptr_t devicememory, void* mem, size_t length){
     for (int i=0; i<remainder; i++){
         result["starts"].as_array().push_back(offset);
         result["lengths"].as_array().push_back(d+1);
-        result["hashes"].as_array()push_back(HashMem(mem,offset,d+1));
+        result["hashes"].as_array().push_back(value_from(HashMem(mem,offset,d+1)));
         offset+=(d+1);
     }
     
     for (int i=0; i<(parts-remainder); i++){
-        result["starts"].as_array()push_back(offset);
+        result["starts"].as_array().push_back(offset);
         result["lengths"].as_array().push_back(d);
-        result["hashes"].as_array().push_back(HashMem(mem,offset,d));
+        result["hashes"].as_array().push_back(value_from(HashMem(mem,offset,d)));
         offset+=d;
     }
     

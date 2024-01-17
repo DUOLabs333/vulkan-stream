@@ -33,7 +33,7 @@ def serialize(variable,value):
     type=val['type']
         
     result=f"""{variable}=[&]() {{
-    object {result_json};
+    boost::json::object {result_json};
     """
     if num_indirection>0:
         result+=f"""
@@ -69,9 +69,9 @@ def serialize(variable,value):
         result+=f"""
         {result_json}["members"]=array();
         for(int {temp_iterator}=0; {temp_iterator} < {length[-1]}; {temp_iterator}++){{
-            object temp;
+            boost::json::object temp;
             {serialize('temp',val)}
-            {result_json}["members"].push_back(temp);
+            {result_json}["members"].as_array().push_back(temp);
         }}
         return {result_json};
         """
@@ -157,7 +157,7 @@ def deserialize(variable,value,initialize=False):
             val["num_indirection"]-=1 
         
         temp_iterator=random_string(val)
-        val["name"]+=f"""["members"].as_array()[{temp_iterator}]"""
+        val["name"]+=f"""["members"].as_array()[{temp_iterator}].as_object()"""
         val["length"].pop()
         
         result+=f"""

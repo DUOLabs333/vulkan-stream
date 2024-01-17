@@ -1,11 +1,11 @@
+#include <boost/json.hpp>
+using namespace boost::json;
+
 #include "Server.hpp"
 #include <ThreadStruct.hpp>
 #include <Synchronization.hpp>
 #include <Commands.hpp>
 #include <thread>
-
-#include <boost/json/src.hpp>
-using namespace boost::json;
 
 #include <sstream>
 #include <random>
@@ -90,7 +90,7 @@ object readFromConn(){
     
     std::getline(*(curr->is),line);
     
-    object result=parse(line,{.allow_infinity_and_nan=true}).as_object();
+    object result=parse(line,{}, {.allow_infinity_and_nan=true}).as_object();
     debug_printf("%s\n",value_to<std::string>(result["type"]).c_str());
     
     return result;
@@ -101,7 +101,7 @@ void writeToConn(object& data){
     data["uuid"]=uuid;
     
     asio::error_code ec;
-    asio::write(*(currStruct()->conn), asio::buffer(serialize(data,{.allow_infinity_and_nan=true})+"\n"), ec);
+    asio::write(*(currStruct()->conn), asio::buffer(serialize(data,serialize_options{.allow_infinity_and_nan=true})+"\n"), ec);
     
     if (ec){
         throw RWError(ec);
