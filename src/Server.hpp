@@ -1,10 +1,7 @@
-#include <nlohmann/json_fwd.hpp>
+
 #include <debug.hpp>
 
-// for convenience
-using json = nlohmann::json;
-
-json readFromConn();
-void writeToConn(json& data);
+object readFromConn();
+void writeToConn(object& data);
 
 void startServer();

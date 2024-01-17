@@ -10,8 +10,8 @@ write("""
 #include <future>
 #include "vk_enum_string_helper.h"
 
-#include <nlohmann/json.hpp>
-using json = nlohmann::json;
+#include <boost/json/src.hpp>
+using namespace boost::json;
 
 #include <vulkan/vulkan.h>
 
@@ -44,7 +44,7 @@ def registerDeviceMemoryMap(name,mem):
             
         return f"""
         
-        auto server_memory=serialize_VkDeviceMemory({memory})["value"].get<uintptr_t>(); 
+        auto server_memory=value_to<uintptr_t>(serialize_VkDeviceMemory({memory})["value"]); 
         
         *ppData=registerDeviceMemoryMap(server_memory, {memory},{size},*ppData,{mem});
         
@@ -77,27 +77,27 @@ auto get_device_proc_addr=(PFN_vkGetDeviceProcAddr)dlsym(vulkan_library,"vkGetDe
 
 for name, command in parsed["commands"].items():
     write(f"""
-    void handle_{name}(json &data_json){{
+    void handle_{name}(object &data_json){{
     //Will only be called by the server
     """)
 
     for param in command["params"]:
         
         param_copy=param.copy()
-        param_copy["name"]=f"""data_json["members"]["{param["name"]}"]"""
+        param_copy["name"]=f"""data_json["members"].as_object()["{param["name"]}"]"""
     
         write(param["header"].replace("const ","",1)+";")
         write(deserialize(param["name"],param_copy,initialize=True))
 
     write(f"""
     PFN_{name} call_function;
-    if(data_json["parent"]["type"]=="Instance"){{
+    if(data_json["parent"].as_object()["type"]=="Instance"){{
         VkInstance parent;
-        {deserialize("parent",{"name":'data_json["parent"]["handle"]' ,"type":"VkInstance","num_indirection":0,"length":[]},initialize=True)}
+        {deserialize("parent",{"name":'data_json["parent"].as_object()["handle"]' ,"type":"VkInstance","num_indirection":0,"length":[]},initialize=True)}
         call_function=(PFN_{name})get_instance_proc_addr(parent,"{name}");
-    }}else if(data_json["parent"]["type"]=="Device"){{
+    }}else if(data_json["parent"].as_object()["type"]=="Device"){{
         VkDevice parent;
-        {deserialize("parent",{"name":'data_json["parent"]["handle"]' ,"type":"VkDevice","num_indirection":0,"length":[]},initialize=True)}
+        {deserialize("parent",{"name":'data_json["parent"].as_object()["handle"]' ,"type":"VkDevice","num_indirection":0,"length":[]},initialize=True)}
         call_function=(PFN_{name})get_device_proc_addr(parent,"{name}");
     }}  
     """
@@ -193,7 +193,7 @@ for name, command in parsed["commands"].items():
     return_value["name"]="return_value"
     return_value["length"]=[]
     
-    write("""json result=json({});
+    write("""object result;
         result["type"]="Response";
     """)
     if name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
@@ -201,8 +201,10 @@ for name, command in parsed["commands"].items():
     else:
         write(serialize('result["return"]',return_value))
     
+    write("""result["members"]=object();""")
+    
     for param in command["params"]:
-        write(serialize(f"""result["members"]["{param["name"]}"]""",param))
+        write(serialize(f"""result["members"].as_object()["{param["name"]}"]""",param))
             
     if name=="vkWaitForFences":
         write("""
@@ -217,21 +219,18 @@ for name, command in parsed["commands"].items():
         writeToConn(result);
     }""")
     
-    write(f"""void handle_{name}(json &data);""",header=True)
+    write(f"""void handle_{name}(object &data);""",header=True)
 
 write("""
-void handle_command(json &data){
+void handle_command(object &data){
 //Will only be called by the server
-std::string command=data["type"].get<std::string>().substr(std::string("command_").length());
+std::string command=value_to<std::string>(data["type"]).substr(std::string("command_").length());
 
 """)
 
 for command in parsed["commands"]:
     write(f"""
         if(command=="{command}"){{
-            if (command=="vkGetPhysicalDeviceProperties2"){{
-            ////debug_printf("%s\\n",data.dump().c_str());
-        }}
             handle_{command}(data);
             return;
         }}
@@ -239,7 +238,7 @@ for command in parsed["commands"]:
 
 write("}")
 
-write("void handle_command(json &data);",header=True)
+write("void handle_command(object &data);",header=True)
 
 write("#else") #Don't want server to get confused on which command we're talking about
 write("""
@@ -307,7 +306,7 @@ for name, command in parsed["commands"].items():
         """)
         continue
     
-    write("auto data_json=json({});")
+    write("auto data_json=object();")
     
     write(f"""data_json["type"]="command_{name}";""")
     
@@ -318,18 +317,22 @@ for name, command in parsed["commands"].items():
         #Use serialize, since we have to map
         write(f"""
         auto parent=handle_to_parent_handle_struct[(uintptr_t){head_name}];
+        
+        auto parent_json=object();
         if (parent.device!=NULL){{
-            data_json["parent"]["type"]="Device";
-            {serialize('data_json["parent"]["handle"]',{"name":"parent.device","type":"VkDevice","num_indirection":0,"length":[]})}
+            parent_json["type"]="Device";
+            {serialize('parent_json["handle"]',{"name":"parent.device","type":"VkDevice","num_indirection":0,"length":[]})}
         }}else{{
-            data_json["parent"]["type"]="Instance";
-            {serialize('data_json["parent"]["handle"]',{"name":"parent.instance","type":"VkInstance","num_indirection":0,"length":[]})}
+            parent_json["type"]="Instance";
+            {serialize('parent_json["handle"]',{"name":"parent.instance","type":"VkInstance","num_indirection":0,"length":[]})}
         }}
+        
+        data_json["parent"]=parent_json;
         """)
     else:
         write(f"""
-        data_json["parent"]["type"]="Instance";
-       {serialize('data_json["parent"]["handle"]',{"name":"NULL","type":"VkInstance","num_indirection":0,"length":[]})}
+        data_json["parent"].as_object()["type"]="Instance";
+       {serialize('data_json["parent"].as_object()["handle"]',{"name":"NULL","type":"VkInstance","num_indirection":0,"length":[]})}
         """)
     
     if name=="vkEnumerateInstanceExtensionProperties":
@@ -426,7 +429,7 @@ for name, command in parsed["commands"].items():
         pCreateInfo=&temp_info;
         """)
     for param in command["params"]:
-        write(serialize(f"""data_json["members"]["{param["name"]}"]""",param))
+        write(serialize(f"""data_json["members"].as_object()["{param["name"]}"]""",param))
     write("}")
     
     if name=="vkQueueSubmit":
@@ -441,7 +444,7 @@ for name, command in parsed["commands"].items():
         json result;
         while(true){
             result=readFromConn();
-            std::string result_type=result["type"];
+            std::string result_type=value_to<std::string>(result["type"]);
             if (result_type=="sync_init"){
                 handle_sync_init(result);
             }
@@ -462,7 +465,7 @@ for name, command in parsed["commands"].items():
     
     for param in command["params"]:
         param_copy=param.copy()
-        param_copy["name"]=f"""result["members"]["{param["name"]}"]"""
+        param_copy["name"]=f"""result["members"].as_object()["{param["name"]}"]"""
         
         write(deserialize(param["name"],param_copy))
     
@@ -516,7 +519,7 @@ for name, command in parsed["commands"].items():
             write(f"""
             else if (strcmp(pName,"{command_name}")==0){{
                 debug_printf("Retrieving {command_name}...\\n");
-                return_value= (result["return"]==true) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
+                return_value= (value_to<bool>*result["return"])==true) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
                 
             }}
             """)

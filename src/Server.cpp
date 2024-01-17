@@ -3,7 +3,10 @@
 #include <Synchronization.hpp>
 #include <Commands.hpp>
 #include <thread>
-#include <nlohmann/json.hpp>
+
+#include <boost/json/src.hpp>
+using namespace boost::json;
+
 #include <sstream>
 #include <random>
 #include <asio/read_until.hpp>
@@ -33,16 +36,16 @@ class RWError : public std::exception {
         
         currStruct()->conn=socket;
         
-        json data;
+        object data;
         while(true){
             try{
             data=readFromConn();
             
             if (currStruct()->uuid==-1){
-                currStruct()->uuid=data["uuid"];
+                currStruct()->uuid=value_to<int>(data["uuid"]);
             }
             
-            std::string type=data["type"];
+            auto type=value_to<std::string>(data["type"]);
             if (type=="sync_init"){
                 handle_sync_init(data);
             }
@@ -74,7 +77,7 @@ class RWError : public std::exception {
 #endif
 
 
-json readFromConn(){
+object readFromConn(){
 
     auto curr=currStruct();
     std::string line;
@@ -87,18 +90,18 @@ json readFromConn(){
     
     std::getline(*(curr->is),line);
     
-    json result=json::from_msgpack(json::parse(line).get<std::vector<uint8_t>>());
-    debug_printf("%s\n",result["type"].get<std::string>().c_str());
+    object result=parse(line,{.allow_infinity_and_nan=true}).as_object();
+    debug_printf("%s\n",value_to<std::string>(result["type"]).c_str());
     
     return result;
 }
 
-void writeToConn(json& data){
-    debug_printf("%s\n",data["type"].get<std::string>().c_str());
+void writeToConn(object& data){
+    debug_printf("%s\n",value_to<std::string>(data["type"]).c_str());
     data["uuid"]=uuid;
     
     asio::error_code ec;
-    asio::write(*(currStruct()->conn), asio::buffer(json(json::to_msgpack(data)).dump()+"\n"), ec);
+    asio::write(*(currStruct()->conn), asio::buffer(serialize(data,{.allow_infinity_and_nan=true})+"\n"), ec);
     
     if (ec){
         throw RWError(ec);

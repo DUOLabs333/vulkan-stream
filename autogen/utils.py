@@ -33,7 +33,7 @@ def serialize(variable,value):
     type=val['type']
         
     result=f"""{variable}=[&]() {{
-    json {result_json}=json({{}});
+    object {result_json};
     """
     if num_indirection>0:
         result+=f"""
@@ -67,9 +67,9 @@ def serialize(variable,value):
             length[-1]=f"strlen({name})+1"
             
         result+=f"""
-        {result_json}["members"]={{}};
+        {result_json}["members"]=array();
         for(int {temp_iterator}=0; {temp_iterator} < {length[-1]}; {temp_iterator}++){{
-            json temp;
+            object temp;
             {serialize('temp',val)}
             {result_json}["members"].push_back(temp);
         }}
@@ -149,7 +149,7 @@ def deserialize(variable,value,initialize=False):
                 result+=f"{variable}=deserialize_{type}_p({name});\n"
     elif (len(length)>0 and (length[-1]!="")):
         if length[-1]=="null-terminated":
-            length[-1]=f"""{name}["members"].size()"""
+            length[-1]=f"""{name}["members"].as_array().size()"""
             
         if num_indirection>0: #Dynamic array, so each element of char** would be char*
             if initialize:
@@ -157,7 +157,7 @@ def deserialize(variable,value,initialize=False):
             val["num_indirection"]-=1 
         
         temp_iterator=random_string(val)
-        val["name"]+=f"""["members"][{temp_iterator}]"""
+        val["name"]+=f"""["members"].as_array()[{temp_iterator}]"""
         val["length"].pop()
         
         result+=f"""
