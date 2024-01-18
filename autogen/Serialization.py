@@ -5,8 +5,7 @@ write("#include <vulkan/vulkan.h>",header=True)
 write(f"""
 #include <ThreadStruct.hpp>
 
-#include <boost/json/src.hpp>
-using namespace boost::json;
+#include <Json.hpp>
 
 #include <Serialization.hpp>
 #include <Server.hpp>
@@ -48,15 +47,15 @@ for struct,members in parsed["structs"].items():
     member["length"]=[]
 
     write(f"""
-        object serialize_{struct}_pNext(const void* name){{
+        wjson serialize_{struct}_pNext(const void* name){{
         debug_printf("Serializing {struct}...\\n");
-        object result;
+        wjson result;
         {serialize("result",member)}
         return result;
         }}
     """)
 
-write("std::map<VkStructureType, std::function<object(const void*)>> serialize_pNext_dispatch={")
+write("std::map<VkStructureType, std::function<wjson(const void*)>> serialize_pNext_dispatch={")
 for struct,members in parsed["structs"].items():
     type=members[0]["value"]
 
@@ -67,9 +66,9 @@ for struct,members in parsed["structs"].items():
 write("};")
 
 write("""
-object serialize_pNext(const void* name){
+wjson serialize_pNext(const void* name){
     if (name==NULL){
-        return object({{"null",true}});
+        return wjson({{"null",true}});
     }
 
     auto chain=((VkBaseInStructure*)name);
@@ -135,7 +134,7 @@ for struct,members in parsed["structs"].items():
     member["length"]=[]
 
     write(f"""
-        void* deserialize_{struct}_pNext(object& name){{
+        void* deserialize_{struct}_pNext(rjson& name){{
         debug_printf("Deserializing {struct}...\\n");
         {struct}* result;
         {deserialize("result",member,initialize=True)}
@@ -143,7 +142,7 @@ for struct,members in parsed["structs"].items():
         }}
     """)
 
-write("std::map<VkStructureType, std::function<void*(object&)>> deserialize_pNext_dispatch={")
+write("std::map<VkStructureType, std::function<void*(wjson&)>> deserialize_pNext_dispatch={")
 for struct,members in parsed["structs"].items():
     type=members[0]["value"]
 
@@ -154,22 +153,21 @@ for struct,members in parsed["structs"].items():
 write("};")
 
 write("""
-void* deserialize_pNext(object &name){
+void* deserialize_pNext(rjson &name){
 void* result;
-if (name.contains("null")){
+if (name["null"].is_true()){
     result=NULL;
     return result;
 }
 
-return deserialize_pNext_dispatch[(VkStructureType)value_to<int>(name["members"].as_object()["sType"].as_object()["value"])](name);
+return deserialize_pNext_dispatch[(VkStructureType)get_int(get_value(name, {"members", "sType", "value"}))];
 }
 """)
 
 for struct,members in parsed["structs"].items():
     write(f"""
-    object serialize_{struct}({struct} name){{
-        object result;
-        result["members"]=object();
+    wjson serialize_{struct}({struct} name){{
+        wjson result;
     """)
     
     members_names=[member["name"] for member in members]
@@ -190,7 +188,7 @@ for struct,members in parsed["structs"].items():
             debug_printf("%f\\n",name.lineWidthRange[1]);
             """)
             
-        write(serialize(f"""result["members"].as_object()["{member["name"]}"]""",member_copy))
+        write(serialize(f"""get_value(result, {{"members", {member["name"]} }})""",member_copy))
         
     write("return result;}")
     
@@ -206,14 +204,14 @@ for struct,members in parsed["structs"].items():
         write(f"}} {struct}_struct;")
         
     write(f"""
-    {struct} deserialize_{struct}(object &name){{
+    {struct} deserialize_{struct}(rjson &name){{
         auto result={struct}();
     """)
     if is_callback:
         write(f"auto _struct = new {struct}_struct;")
     for member in members:
         member_copy=copy.deepcopy(member)
-        member_copy["name"]=f"""name["members"].as_object()["{member["name"]}"].as_object()"""
+        member_copy["name"]=f"""get_object(get_value(name, {{ "members", {member["name"]} }}))"""
         
         for i,e in enumerate(member_copy["length"]):
             member_copy["length"][i]=add_struct_name(e, "result")
@@ -222,7 +220,7 @@ for struct,members in parsed["structs"].items():
             
         if is_callback:
             if member["type"] in parsed["funcpointers"]:
-                write(f"""_struct->{member["type"]}_id=value_to<uintptr_t>({member_copy["name"]}["id"]);""") 
+                write(f"""_struct->{member["type"]}_id=get_uint({member_copy["name"]}["id"]);""") 
     if is_callback:
         write("""_struct->pUserData=result.pUserData;
         result.pUserData=(void*)_struct;
@@ -230,89 +228,89 @@ for struct,members in parsed["structs"].items():
     write("return result;}")
     
     write(f"""
-        object serialize_{struct}({struct} name);
-        {struct} deserialize_{struct}(object &name);
+        wjson serialize_{struct}({struct} name);
+        {struct} deserialize_{struct}(rjson &name);
     """,header=True)
 
 for type in parsed["primitive_types"]:     
     if type not in ["void"]:
+        if type=="char" or type.startswith("uint"):
+            json_type="uint"
+        elif type in ["float", "double"]:
+            json_type="double"
+        else:
+            json_type="int"
+            
         write(f"""
-            object serialize_{type}({type} name){{
-                return object({{{{"value",name}}}});
+            wjson serialize_{type}({type} name){{
+                return wjson({{{{"value",name}}}});
             }};
         """)
         
-        if type.startswith("Vk"):
-            write(f"""
-                {type} deserialize_{type}(object &name){{
-                    return ({type}) value_to<int>(name["value"]);
-                }};
-            """)
-        else:
-            write(f"""
-                {type} deserialize_{type}(object &name){{
-                    return value_to<{type}>(name["value"]);
-                }};
-            """)
+        write(f"""
+            {type} deserialize_{type}(rjson &name){{
+                return ({type})get_{json_type}(name["value"]);
+            }};
+        """)
         
         write(f"""
-        object serialize_{type}({type} name);
-        {type} deserialize_{type}(object &name);
+        wjson serialize_{type}({type} name);
+        {type} deserialize_{type}(rjson &name);
     """,header=True)
 
 for type,is_always_pointer in parsed["external_handles"].items():
     
     write(f"""
-        object serialize_{type}_p(const {type}* name){{
-            return object({{{{"value",(uintptr_t)name}}}});
+        wjson serialize_{type}_p(const {type}* name){{
+            return wjson({{{{"value",(uintptr_t)name}}}});
         }};
     """)
     
     write(f"""
-        {type}* deserialize_{type}_p(object &name){{
-            return ({type}*)value_to<uintptr_t>(name["value"]);
+        {type}* deserialize_{type}_p(rjson &name){{
+            return ({type}*)get_uint(name["value"]);
         }};
     """)
     
     write(f"""
-        object serialize_{type}_p(const {type}* name);
-        {type}* deserialize_{type}_p(object &name);
+        wjson serialize_{type}_p(const {type}* name);
+        {type}* deserialize_{type}_p(rjson &name);
     """,header=True)
     
     if not is_always_pointer:
         write(f"""
-            object serialize_{type}(const {type} name){{
-                return object({{{{"value",(uintptr_t)name}}}});
+            wjson serialize_{type}(const {type} name){{
+                return wjson({{{{"value",(uintptr_t)name}}}});
             }};
         """)
         
         write(f"""
-            {type} deserialize_{type}(object &name){{
-                return ({type}) value_to<uintptr_t>(name["value"]);
+            {type} deserialize_{type}(rjson &name){{
+                return ({type})get_uint(name["value"]);
             }};
         """)
         
         write(f"""
-            object serialize_{type}(const {type} name);
-            {type} deserialize_{type}(object &name);
+            wjson serialize_{type}(const {type} name);
+            {type} deserialize_{type}(rjson &name);
         """,header=True)
 
 for type in parsed["pointer_types"]:
     write(f"""
-        object serialize_{type}(const {type} name){{
-            return object({{{{"value",(uintptr_t)name}}}});
+        wjson serialize_{type}(const {type} name){{
+            return wjson({{{{"value",(uintptr_t)name}}}});
         }};
     """)
     
     write(f"""
-        {type} deserialize_{type}(object &name){{
-            return ({type}) value_to<uintptr_t>(name["value"]);
+        {type} deserialize_{type}(rjson &name){{
+            return ({type})get_uint(name["value"]);
         }};
     """)
     
     write(f"""
-        object serialize_{type}(const {type} name);
-        {type} deserialize_{type}(object &name);
+        wjson serialize_{type}(const {type} name);
+        {type} deserialize_{type}(rjson &name);
     """,header=True)
 
 import re
@@ -327,25 +325,25 @@ for funcpointer,function in parsed["funcpointers"].items():
 
     write(f"std::map<uintptr_t,{funcpointer}> id_to_{funcpointer};")
     write(f"""
-    object serialize_{funcpointer}({funcpointer} name){{
+    wjson serialize_{funcpointer}({funcpointer} name){{
         //Will only be called by the client
         
-        object result;
+        wjson result=empty_object;
         result["id"]=(uintptr_t)name;
         id_to_{funcpointer}[(uintptr_t)name]=name;
         return result;
     }}
     """)
     
-    write(f"""object serialize_{funcpointer}({funcpointer} name);""",header=True)
+    write(f"""wjson serialize_{funcpointer}({funcpointer} name);""",header=True)
     
     if funcpointer!="PFN_vkGetInstanceProcAddrLUNARG": #PFN_vkGetInstanceProcAddrLUNARG is a pointer to the client's vkGetInstanceProcAddr. However, since the client's vkGetInstanceProcAddr is just a thin wrapper over the server's vkGetInstanceProcAddr (as well as that the client does not support recieving objects from the server outside of a command), we just return the server's vkGetInstanceProcAddr.
     
         write(f"""
         auto {funcpointer}_wrapper{header}{{
-            boost::json::object data;
+            wjson data;
             data["type"]="{funcpointer}_request";
-            data["members"]=boost::json::object();
+            data["members"]=empty_object;
         """)
         
         if callback_struct:
@@ -360,13 +358,13 @@ for funcpointer,function in parsed["funcpointers"].items():
                 if param["name"]=="pUserData":
                     param_copy["name"]="_struct->pUserData"
                     
-            write(serialize(f"""data["members"].as_object()["{param["name"]}"]""",param_copy))
+            write(serialize(f"""get_value(data, {{ "members", {param["name"]} }})""",param_copy))
         
         write(f"""
         writeToConn(data);
         while (true){{
             data=readFromConn();
-            if (value_to<std::string>(data["type"])=="{funcpointer}_response"){{
+            if (get_string(data["type"])=="{funcpointer}_response"){{
         """)
         
         response_header="data"
@@ -392,7 +390,7 @@ for funcpointer,function in parsed["funcpointers"].items():
         """)
     
         write(f"""
-        {funcpointer} deserialize_{funcpointer}(object &name){{
+        {funcpointer} deserialize_{funcpointer}(rjson &name){{
             //Will only be called by the server
             
             return {funcpointer}_wrapper;
@@ -400,15 +398,15 @@ for funcpointer,function in parsed["funcpointers"].items():
         """)
         
         write(f"""
-            void handle_{funcpointer}_request(object &data){{
+            void handle_{funcpointer}_request(rjson &data){{
             //Will only be called by the client
             // Recieved data from server's {funcpointer} wrapper, and will execute the actual function
             
-            object result;
-            auto funcpointer=id_to_{funcpointer}[value_to<uintptr_t>(data["id"])];
+            wjson result=empty_object;
+            auto funcpointer=id_to_{funcpointer}[get_uint(data["id"])];
             
             result["type"]="{funcpointer}_response";
-            result["members"]=object();
+            result["members"]=empty_object;
         """)
         
         #Just in case if they change when executing (none of the variables are const)
@@ -416,7 +414,7 @@ for funcpointer,function in parsed["funcpointers"].items():
             write(param["header"]+";") #Initialize variable
             
             param_copy=param.copy()
-            param_copy["name"]=f"""data["members"].as_object()["{param["name"]}"].as_object()"""
+            param_copy["name"]=f"""get_value(data, {{ "members", {param["name"]} }})"""
             
             write(deserialize(param["name"],param_copy,initialize=True))
         
@@ -433,7 +431,7 @@ for funcpointer,function in parsed["funcpointers"].items():
             write(funcpointer_call+";")
     
         for param in function["params"]:
-            write(serialize(f"""result["members"].as_object()["{param["name"]}"]""",param))
+            write(serialize(f"""get_value(result, {{ "members", {param["name"]} }})""",param))
         
         write("writeToConn(result);")
         
@@ -441,8 +439,8 @@ for funcpointer,function in parsed["funcpointers"].items():
             write(f"""
                 while(true){{
                     data=readFromConn();
-                    if (value_to<std::string>(data["type"])=="{funcpointer}_malloc"){{
-                        registerClientServerMemoryMapping(value_to<uintptr_t>(result["result"]), value_to<uintptr_t>(data["mem"]));
+                    if (get_string(data["type"])=="{funcpointer}_malloc"){{
+                        registerClientServerMemoryMapping(get_uint(result["result"]), get_uint(data["mem"]));
                         break;
                     }}
                 }}
@@ -451,10 +449,10 @@ for funcpointer,function in parsed["funcpointers"].items():
         write("};")
                 
         
-        write(f"void handle_{funcpointer}_request(object &data);",header=True);
+        write(f"void handle_{funcpointer}_request(rjson &data);",header=True);
         
         write(f"""
-        {function["type"]}{'*'*function["num_indirection"]} handle_{funcpointer}_response(object &data, {header.removeprefix("(")} {{
+        {function["type"]}{'*'*function["num_indirection"]} handle_{funcpointer}_response(rjson &data, {header.removeprefix("(")} {{
             //Will only be called by the server
             
             //Recieved result from client's {funcpointer}
@@ -464,7 +462,7 @@ for funcpointer,function in parsed["funcpointers"].items():
         
         for param in function["params"]:
             param_copy=param.copy()
-            param_copy["name"]=f"""data["members"].as_object()["{param["name"]}"].as_object()"""
+            param_copy["name"]=f"""get_value(data, {{ "members", {param["name"]} }})"""
             
             write(deserialize(param["name"],param_copy))
         
@@ -472,14 +470,14 @@ for funcpointer,function in parsed["funcpointers"].items():
             write(function["type"]+("*"*function["num_indirection"])+" result;")
             
             function_copy=function.copy()
-            function_copy["name"]='data["result"].as_object()'
+            function_copy["name"]='get_object(data["result"])'
             function_copy["length"]=[]
             
             write(deserialize("result",function_copy))
         
         if function["type"]=="void" and function["num_indirection"]==1:
             write(f"""
-            object _malloc;
+            wjson _malloc;
             _malloc["type"]="{funcpointer}_malloc";
             _malloc["mem"]=(uintptr_t)result;
             
@@ -489,17 +487,17 @@ for funcpointer,function in parsed["funcpointers"].items():
         write("return result;" if not is_void(function) else "")
         
         write("}")
-        write(f"""{function["type"]}{'*'*function["num_indirection"]} handle_{funcpointer}_response(object& data, {header.removeprefix("(")};""",header=True)
+        write(f"""{function["type"]}{'*'*function["num_indirection"]} handle_{funcpointer}_response(rjson& data, {header.removeprefix("(")};""",header=True)
     else:
         write(f"""
-        {funcpointer} deserialize_{funcpointer}(object &name){{
+        {funcpointer} deserialize_{funcpointer}(rjson &name){{
             //Will only be called by the server
             
             return vkGetInstanceProcAddr;
             }};
         """)
     
-    write(f"{funcpointer} deserialize_{funcpointer}(object &name);",header=True)
+    write(f"{funcpointer} deserialize_{funcpointer}(rjson &name);",header=True)
         
 for handle in parsed["handles"]:
         #The loader may want to write to this handle, so we make our own in our address space, so there won't be a semgnetation fault.
@@ -511,8 +509,8 @@ for handle in parsed["handles"]:
         #endif
         """)
         write(f"""
-        object serialize_{handle}({handle} data){{
-            object result;
+        wjson serialize_{handle}({handle} data){{
+            wjson result;
             #ifdef CLIENT
                 if (data==NULL){{
                     result["value"]=(uintptr_t)NULL;
@@ -533,11 +531,11 @@ for handle in parsed["handles"]:
         }
        """)
        
-        write(f"""object serialize_{handle}({handle} data);""",header=True)
+        write(f"""wjson serialize_{handle}({handle} data);""",header=True)
         
         write(f"""
-       {handle} deserialize_{handle}(object &data){{
-                auto pointer=value_to<uintptr_t>(data["value"]);
+       {handle} deserialize_{handle}(rjson &data){{
+                auto pointer=get_uint(data["value"]);
                 {handle} result;
                 #ifdef CLIENT
                     debug_printf("Handle server pointer %p:\\n",({handle})pointer);
@@ -559,6 +557,6 @@ for handle in parsed["handles"]:
                 return result;
        }}""")
        
-        write(f"""{handle} deserialize_{handle}(object& data);""",header=True)
+        write(f"""{handle} deserialize_{handle}(rjson& data);""",header=True)
               
           

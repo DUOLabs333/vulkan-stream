@@ -33,7 +33,7 @@ def serialize(variable,value):
     type=val['type']
         
     result=f"""{variable}=[&]() {{
-    boost::json::object {result_json};
+    wjson {result_json}=empty_object;
     """
     if num_indirection>0:
         result+=f"""
@@ -67,11 +67,11 @@ def serialize(variable,value):
             length[-1]=f"strlen({name})+1"
             
         result+=f"""
-        {result_json}["members"]=array();
+        {result_json}["members"]=empty_array;
         for(int {temp_iterator}=0; {temp_iterator} < {length[-1]}; {temp_iterator}++){{
-            boost::json::object temp;
+            wjson temp=empty_object;
             {serialize('temp',val)}
-            {result_json}["members"].as_array().push_back(temp);
+            get_array({result_json}["members"]).emplace_back(temp);
         }}
         return {result_json};
         """
@@ -122,7 +122,7 @@ def deserialize(variable,value,initialize=False):
 
     if num_indirection>0:
         result+=f"""
-        if ({name}.contains("null")){{
+        if ({name}["null"].as_bool().has_value()){{
         {variable}=NULL;
         return;
         }}
@@ -149,7 +149,7 @@ def deserialize(variable,value,initialize=False):
                 result+=f"{variable}=deserialize_{type}_p({name});\n"
     elif (len(length)>0 and (length[-1]!="")):
         if length[-1]=="null-terminated":
-            length[-1]=f"""{name}["members"].as_array().size()"""
+            length[-1]=f"""get_array({name}["members"]).size()"""
             
         if num_indirection>0: #Dynamic array, so each element of char** would be char*
             if initialize:
@@ -157,7 +157,7 @@ def deserialize(variable,value,initialize=False):
             val["num_indirection"]-=1 
         
         temp_iterator=random_string(val)
-        val["name"]+=f"""["members"].as_array()[{temp_iterator}].as_object()"""
+        val["name"]=f"""get_object(get_array({val["name"]}["members"])[{temp_iterator}])"""
         val["length"].pop()
         
         result+=f"""
