@@ -10,7 +10,8 @@ write("""
 #include <future>
 #include "vk_enum_string_helper.h"
 
-#include <Json.hpp>
+#include <boost/json.hpp>
+using namespace boost::json;
 
 #include <vulkan/vulkan.h>
 
@@ -43,7 +44,7 @@ def registerDeviceMemoryMap(name,mem):
             
         return f"""
         
-        auto server_memory=get_uint(serialize_VkDeviceMemory({memory})["value"]); 
+        auto server_memory=value_to<uintptr_t>(serialize_VkDeviceMemory({memory})["value"]); 
         
         *ppData=registerDeviceMemoryMap(server_memory, {memory},{size},*ppData,{mem});
         
@@ -76,27 +77,27 @@ auto get_device_proc_addr=(PFN_vkGetDeviceProcAddr)dlsym(vulkan_library,"vkGetDe
 
 for name, command in parsed["commands"].items():
     write(f"""
-    void handle_{name}(rjson &data_json){{
+    void handle_{name}(object &data_json){{
     //Will only be called by the server
     """)
 
     for param in command["params"]:
         
         param_copy=param.copy()
-        param_copy["name"]=f"""get_object(get_value(data_json, {{ "members", "{param["name"]}" }}))"""
+        param_copy["name"]=f"""data_json["members"].as_object()["{param["name"]}"].as_object()"""
     
         write(param["header"].replace("const ","",1)+";")
         write(deserialize(param["name"],param_copy,initialize=True))
 
     write(f"""
     PFN_{name} call_function;
-    if(get_string(get_value(data_json,{{ "parent", "type" }}))=="Instance"){{
+    if(value_to<std::string>(data_json["parent"].as_object()["type"])=="Instance"){{
         VkInstance parent;
-        {deserialize("parent",{"name":'get_object(get_value(data_json,{{ "parent", "handle" }}))' ,"type":"VkInstance","num_indirection":0,"length":[]},initialize=True)}
+        {deserialize("parent",{"name":'data_json["parent"].as_object()["handle"].as_object()' ,"type":"VkInstance","num_indirection":0,"length":[]},initialize=True)}
         call_function=(PFN_{name})get_instance_proc_addr(parent,"{name}");
-    }}else if(get_string(get_value(data_json,{{ "parent", "type" }}))=="Device"){{
+    }}else if(value_to<std::string>(data_json["parent"].as_object()["type"])=="Device"){{
         VkDevice parent;
-        {deserialize("parent",{"name":'get_object(get_value(data_json,{{ "parent", "handle" }}))' ,"type":"VkDevice","num_indirection":0,"length":[]},initialize=True)}
+        {deserialize("parent",{"name":'data_json["parent"].as_object()["handle"].as_object()' ,"type":"VkDevice","num_indirection":0,"length":[]},initialize=True)}
         call_function=(PFN_{name})get_device_proc_addr(parent,"{name}");
     }}  
     """
@@ -192,7 +193,7 @@ for name, command in parsed["commands"].items():
     return_value["name"]="return_value"
     return_value["length"]=[]
     
-    write("""yyjson::writer::object result;
+    write("""boost::json::object result;
         result["type"]="Response";
     """)
     if name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
@@ -200,8 +201,10 @@ for name, command in parsed["commands"].items():
     else:
         write(serialize('result["return"]',return_value))
     
+    write("""result["members"]=boost::json::object();""")
+    
     for param in command["params"]:
-        write(serialize(f"""get_value(result, {{ "members", "{param["name"]}" }})""",param))
+        write(serialize(f"""result["members"].as_object()["{param["name"]}"]""",param))
             
     if name=="vkWaitForFences":
         write("""
@@ -216,12 +219,12 @@ for name, command in parsed["commands"].items():
         writeToConn(result);
     }""")
     
-    write(f"""void handle_{name}(rjson &data);""",header=True)
+    write(f"""void handle_{name}(object &data);""",header=True)
 
 write("""
-void handle_command(rjson &data){
+void handle_command(object &data){
 //Will only be called by the server
-auto command=get_string(data["type"]).substr(std::string("command_").length());
+std::string command=value_to<std::string>(data["type"]).substr(std::string("command_").length());
 
 """)
 
@@ -235,7 +238,7 @@ for command in parsed["commands"]:
 
 write("}")
 
-write("void handle_command(rjson &data);",header=True)
+write("void handle_command(object &data);",header=True)
 
 write("#else") #Don't want server to get confused on which command we're talking about
 write("""
@@ -303,7 +306,7 @@ for name, command in parsed["commands"].items():
         """)
         continue
     
-    write("auto data_json=yyjson::writer::object();")
+    write("auto data_json=boost::json::object();")
     
     write(f"""data_json["type"]="command_{name}";""")
     
@@ -315,7 +318,7 @@ for name, command in parsed["commands"].items():
         write(f"""
         auto parent=handle_to_parent_handle_struct[(uintptr_t){head_name}];
         
-        auto parent_json=yyjson::writer::object();
+        auto parent_json=boost::json::object();
         if (parent.device!=NULL){{
             parent_json["type"]="Device";
             {serialize('parent_json["handle"]',{"name":"parent.device","type":"VkDevice","num_indirection":0,"length":[]})}
@@ -328,10 +331,9 @@ for name, command in parsed["commands"].items():
         """)
     else:
         write(f"""
-        data_json["parent"]=yyjson::writer::object();
-        get_value(data_json,{{ "parent", "type" }})="Instance";
-        
-       {serialize('get_value(data_json,{{ "parent", "handle" }})',{"name":"NULL","type":"VkInstance","num_indirection":0,"length":[]})}
+        data_json["parent"]=boost::json::object();
+        data_json["parent"].as_object()["type"]="Instance";
+       {serialize('data_json["parent"].as_object()["handle"]',{"name":"NULL","type":"VkInstance","num_indirection":0,"length":[]})}
         """)
     
     if name=="vkEnumerateInstanceExtensionProperties":
@@ -427,11 +429,11 @@ for name, command in parsed["commands"].items():
         
         pCreateInfo=&temp_info;
         """)
-    write("""data_json["members"]=yyjson::writer::object();""")
-    
+    write("""data_json["members"]=boost::json::object();""")
     for param in command["params"]:
-        write(serialize(f"""get_value(data_json, {{ "members", "{param["name"]}" }})""",param))
+        write(serialize(f"""data_json["members"].as_object()["{param["name"]}"]""",param))
     write("}")
+    
     if name=="vkQueueSubmit":
         write("SyncAll();")
     
@@ -441,16 +443,16 @@ for name, command in parsed["commands"].items():
     write(deregisterDeviceMemoryMap(name))
     write("""
         writeToConn(data_json);
-        rjson result= [&]() {
-            while(true){
-                auto result=readFromConn();
-                auto result_type=get_string(result["type"]);
-                if (result_type=="sync_init"){
-                    handle_sync_init(result);
-                }
-                else if (result_type=="Response"){
-                    return result;
-                }
+        boost::json::object result;
+        while(true){
+            result=readFromConn();
+            std::string result_type=value_to<std::string>(result["type"]);
+            if (result_type=="sync_init"){
+                handle_sync_init(result);
+            }
+            else if (result_type=="Response"){
+                break;
+            }  
     """)
     for funcpointer in parsed["funcpointers"]:
         if funcpointer=="PFN_vkGetInstanceProcAddrLUNARG": #This isn't a normal funcpointer --- only makes sense on the server
@@ -461,11 +463,11 @@ for name, command in parsed["commands"].items():
         }}
         """)
         
-    write("}}();")
+    write("}")
     
     for param in command["params"]:
         param_copy=param.copy()
-        param_copy["name"]=f"""get_object(get_value(result, {{ "members", "{param["name"]}" }}))"""
+        param_copy["name"]=f"""result["members"].as_object()["{param["name"]}"].as_object()"""
         
         write(deserialize(param["name"],param_copy))
     
@@ -519,7 +521,7 @@ for name, command in parsed["commands"].items():
             write(f"""
             else if (strcmp(pName,"{command_name}")==0){{
                 debug_printf("Retrieving {command_name}...\\n");
-                return_value= (result["return"].is_true()) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
+                return_value= (value_to<bool>(result["return"])==true) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
                 
             }}
             """)
@@ -534,7 +536,7 @@ for name, command in parsed["commands"].items():
     else:
         if not is_void(command):
             return_value=command.copy()
-            return_value["name"]='get_object(result["return"])'
+            return_value["name"]='result["return"].as_object()'
             return_value["length"]=[]
             write(command["type"]+"*"*command["num_indirection"]+" return_value;")
             write(deserialize("return_value",return_value))
@@ -579,7 +581,7 @@ for name, command in parsed["commands"].items():
         debug_printf("[INFO]: Min extent: %d, %d\n", pSurfaceCapabilities->minImageExtent.width, pSurfaceCapabilities->minImageExtent.height);
         debug_printf("[INFO]: Max extent: %d, %d\n", pSurfaceCapabilities->maxImageExtent.width, pSurfaceCapabilities->maxImageExtent.height);
         """)
-    write(registerDeviceMemoryMap(name,'get_uint(result["mem_ptr"])'))
+    write(registerDeviceMemoryMap(name,'value_to<uintptr_t>(result["mem_ptr"])'))
     
     if name=="vkDeviceWaitIdle":
         write("waitForCounterIdle(device);")

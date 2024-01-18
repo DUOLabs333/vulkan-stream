@@ -1,8 +1,8 @@
 #include <cstddef>
 #include <cstdint>
 #include <picosha2.h>
-#include <Json.hpp>
-
+#include <boost/json.hpp>
+using namespace boost::json;
 #include <Server.hpp>
 #include <vulkan/vulkan.h>
 #include <Serialization.hpp>
@@ -124,49 +124,49 @@ delete info;
 void registerAllocatedMem(void* mem, int size){
     allocated_mems[(uintptr_t)mem]=size;
 }
-void handle_sync_response(rjson& data){
+void handle_sync_response(object& data){
     //Recieved the bytes. Send a notification that it finished sending the bytes.
     #ifdef CLIENT
-        void* mem=(char*)server_to_client_mem[get_uint(data["mem"])];
+        void* mem=(char*)server_to_client_mem[value_to<uintptr_t>(data["mem"])];
     #else
-        void* mem=(void*)get_uint(data["mem"]);
+        void* mem=(void*)value_to<uintptr_t>(data["mem"]);
     #endif
     
-    yyjson::writer::object result;
+    object result;
     
     result["type"]="handle_sync_end";
     
-    for(int i=0; i < get_array(data["starts"]).size(); i++){
+    for(int i=0; i < data["starts"].as_array().size(); i++){
         debug_printf("Memory %p: Data has changed!\n",(char*)mem);
-        memcpy((char*)mem+get_uint(get_array(data["starts"])[i]), get_string(get_array(data["buffers"])[i]).data(), get_uint(get_array(data["lengths"])[i]));
+        memcpy((char*)mem+value_to<size_t>(data["starts"].as_array()[i]),value_to<std::string>(data["buffers"].as_array()[i]).c_str(), value_to<size_t>(data["lengths"].as_array()[i]));
     }
     
     writeToConn(result);
 }
 
-void handle_sync_init(rjson& data){
+void handle_sync_init(object& data){
     //Received an init, sent a request for bytes. Wait for bytes to be sent
    
     #ifdef CLIENT
-        if (!server_to_client_mem.contains(get_uint(data["mem"]))){
+        if (!server_to_client_mem.contains(value_to<uintptr_t>(data["mem"]))){
             debug_printf("Panic! It's not found!\n");
         }
-        void* mem=(char*)server_to_client_mem[get_uint(data["mem"])];
+        void* mem=(char*)server_to_client_mem[value_to<uintptr_t>(data["mem"])];
     #else
-        void* mem=(void*)get_uint(data["mem"]);
+        void* mem=(void*)value_to<uintptr_t>(data["mem"]);
     #endif
     
-    yyjson::writer::object result;
+    object result;
     
     result["type"]="sync_request";
-    result["starts"]=yyjson::writer::array();
-    result["lengths"]=yyjson::writer::array();
+    result["starts"]=array();
+    result["lengths"]=array();
     result["mem"]=data["mem"];
     
-    for (int i=0; i<get_array(data["starts"]).size(); i++){
-        if (HashMem(mem, get_uint(get_array(data["starts"])[i]), get_uint(get_array(data["lengths"])[i]))!= get_string(get_array(data["hashes"])[i])){
-            get_array(result["starts"]).emplace_back(get_array(data["starts"])[i]);
-            get_array(result["lengths"]).emplace_back(get_array(data["lengths"])[i]);
+    for (int i=0; i<data["starts"].as_array().size(); i++){
+        if (HashMem(mem,value_to<size_t>(data["starts"].as_array()[i]), value_to<size_t>(data["lengths"].as_array()[i]))!= value_to<std::string>(data["hashes"].as_array()[i])){
+            result["starts"].as_array().push_back(data["starts"].as_array()[i]);
+            result["lengths"].as_array().push_back(data["lengths"].as_array()[i]);
         }
     }
     
@@ -174,16 +174,16 @@ void handle_sync_init(rjson& data){
     
     
     while(true){
-        rjson result=readFromConn();
-        if (get_string(result["type"])=="sync_response"){
+        result=readFromConn();
+        if (value_to<std::string>(result["type"])=="sync_response"){
             handle_sync_response(result);
             break;
         }
     }
     
     #ifndef CLIENT
-        if (data["devicememory"].as_uint().has_value()){
-             auto devicememory = get_uint(data["devicememory"]);
+        if (data.contains("devicememory")){
+             auto devicememory = value_to<uintptr_t>(data["devicememory"]);
             deregisterDeviceMemoryMap((VkDeviceMemory)devicememory);
         }
     #endif
@@ -194,34 +194,34 @@ void handle_sync_init(rjson& data){
 void handle_sync_request(object& data){
     //Recieved a request for bytes, sent the bytes. Wait for the recipient to set the bytes
     #ifdef CLIENT
-        void* mem=(void*)server_to_client_mem[get_uint(data["mem"])];
+        void* mem=(void*)server_to_client_mem[value_to<uintptr_t>(data["mem"])];
     #else
-        void* mem=(void*)get_uint(data["mem"]);
+        void* mem=(void*)value_to<uintptr_t>(data["mem"]);
     #endif
     
-    yyjson::writer::object result;
+    object result;
     
     result["type"]="sync_response";
     result["starts"]=data["starts"];
     result["lengths"]=data["lengths"];
     result["mem"]=data["mem"];
     
-    result["buffers"]=yyjson::writer::array();
+    result["buffers"]=array();
     
-    for(int i=0; i<get_array(data["starts"]).size(); i++){
-        auto length=get_uint(get_array(data["lengths"])[i]);
-        auto start=get_uint(get_array(data["starts"])[i]);
+    for(int i=0; i<data["starts"].as_array().size(); i++){
+        auto length=value_to<size_t>(data["lengths"].as_array()[i]);
+        auto start=value_to<size_t>(data["starts"].as_array()[i]);
         
         std::string buffer((char*)mem+start, (char*)mem+start+length);
         
-        get_array(result["buffers"]).emplace_back(buffer);
+        result["buffers"].as_array().push_back(value_from(buffer));
     }
     
     writeToConn(result);
     
     while(true){
         result=readFromConn();
-        if(get_string(result["type"])=="handle_sync_end"){
+        if(value_to<std::string>(result["type"])=="handle_sync_end"){
            break;
         }
     }
@@ -233,7 +233,7 @@ void Sync(uintptr_t devicememory, void* mem, size_t length){
     auto d=length/parts;
     auto remainder=length%parts;
     
-    yyjson::writer::object result;
+    object result;
     result["type"]="sync_init";
     
     #ifdef CLIENT
@@ -242,9 +242,9 @@ void Sync(uintptr_t devicememory, void* mem, size_t length){
         }
     #endif
     
-    result["starts"]=yyjson::writer::array();
-    result["lengths"]=yyjson::writer::array();
-    result["hashes"]=yyjson::writer::array();
+    result["starts"]=array();
+    result["lengths"]=array();
+    result["hashes"]=array();
     
     #ifdef CLIENT
         result["mem"]=client_to_server_mem[(uintptr_t)mem];
@@ -254,16 +254,16 @@ void Sync(uintptr_t devicememory, void* mem, size_t length){
     
     auto offset=0;
     for (int i=0; i<remainder; i++){
-        get_array(result["starts"]).emplace_back(offset);
-        get_array(result["lengths"]).emplace_back(d+1);
-        get_array(result["hashes"]).emplace_back(HashMem(mem,offset,d+1));
+        result["starts"].as_array().push_back(offset);
+        result["lengths"].as_array().push_back(d+1);
+        result["hashes"].as_array().push_back(value_from(HashMem(mem,offset,d+1)));
         offset+=(d+1);
     }
     
     for (int i=0; i<(parts-remainder); i++){
-        get_array(result["starts"]).emplace_back(offset);
-        get_array(result["lengths"]).emplace_back(d);
-        get_array(result["hashes"]).emplace_back(HashMem(mem,offset,d));
+        result["starts"].as_array().push_back(offset);
+        result["lengths"].as_array().push_back(d);
+        result["hashes"].as_array().push_back(value_from(HashMem(mem,offset,d)));
         offset+=d;
     }
     
@@ -272,7 +272,7 @@ void Sync(uintptr_t devicememory, void* mem, size_t length){
     while(true){
         result=readFromConn();
         
-        if(get_string(result["type"])=="sync_request"){
+        if(value_to<std::string>(result["type"])=="sync_request"){
             handle_sync_request(result);
             break;
         }

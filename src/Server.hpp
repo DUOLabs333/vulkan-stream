@@ -1,6 +1,6 @@
 #include <debug.hpp>
 
-rjson readFromConn();
-void writeToConn(yyjson::writer::object& data);
+object readFromConn();
+void writeToConn(object& data);
 
 void startServer();
