@@ -1,12 +1,9 @@
-#include <boost/json.hpp>
-using namespace boost::json;
-
+#include <Json.hpp>
 #include "Server.hpp"
 #include <ThreadStruct.hpp>
 #include <Synchronization.hpp>
 #include <Commands.hpp>
 #include <thread>
-
 #include <sstream>
 #include <random>
 #include <asio/read_until.hpp>
@@ -36,16 +33,15 @@ class RWError : public std::exception {
         
         currStruct()->conn=socket;
         
-        object data;
         while(true){
             try{
-            data=readFromConn();
+            rjson data=readFromConn();
             
             if (currStruct()->uuid==-1){
-                currStruct()->uuid=value_to<int>(data["uuid"]);
+                currStruct()->uuid=get_int(data["uuid"]);
             }
             
-            auto type=value_to<std::string>(data["type"]);
+            auto type=get_string(data["type"]);
             if (type=="sync_init"){
                 handle_sync_init(data);
             }
@@ -77,7 +73,7 @@ class RWError : public std::exception {
 #endif
 
 
-object readFromConn(){
+rjson readFromConn(){
 
     auto curr=currStruct();
     std::string line;
@@ -90,18 +86,18 @@ object readFromConn(){
     
     std::getline(*(curr->is),line);
     
-    object result=parse(line,{}, {.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).as_object();
-    debug_printf("%s\n",value_to<std::string>(result["type"]).c_str());
+    auto result=get_object(read(line, yyjson::ReadFlag(YYJSON_READ_ALLOW_INF_AND_NAN | YYJSON_READ_ALLOW_INVALID_UNICODE)));
+    debug_printf("%s\n",get_string(result["type"]).data());
     
     return result;
 }
 
-void writeToConn(object& data){
-    debug_printf("%s\n",value_to<std::string>(data["type"]).c_str());
+void writeToConn(yyjson::writer::object& data){
+    debug_printf("%s\n",get_string(data["type"]).data());
     data["uuid"]=uuid;
     
     asio::error_code ec;
-    asio::write(*(currStruct()->conn), asio::buffer(serialize(data,serialize_options{.allow_infinity_and_nan=true})+"\n"), ec);
+    asio::write(*(currStruct()->conn), asio::buffer(std::string(data.write())+"\n"), ec);
     
     if (ec){
         throw RWError(ec);

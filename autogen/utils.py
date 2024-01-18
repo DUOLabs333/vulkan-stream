@@ -33,7 +33,7 @@ def serialize(variable,value):
     type=val['type']
         
     result=f"""{variable}=[&]() {{
-    wjson {result_json}=empty_object;
+    yyjson::writer::object {result_json};
     """
     if num_indirection>0:
         result+=f"""
@@ -67,9 +67,9 @@ def serialize(variable,value):
             length[-1]=f"strlen({name})+1"
             
         result+=f"""
-        {result_json}["members"]=empty_array;
+        {result_json}["members"]=array();
         for(int {temp_iterator}=0; {temp_iterator} < {length[-1]}; {temp_iterator}++){{
-            wjson temp=empty_object;
+            yyjson::writer::object temp;
             {serialize('temp',val)}
             get_array({result_json}["members"]).emplace_back(temp);
         }}

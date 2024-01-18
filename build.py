@@ -10,12 +10,13 @@ DEBUG=os.environ.get("DEBUG","1")
 #Proto-make (only recompile if changed), but don't want to deal with setting up make/cmake
 
 VK_LIB_PATH="/opt/homebrew/lib"
-
-SRC_FILES=["autogen/*","src/*","external/shm_open_anon/shm_open_anon.c"]
-INCLUDE_PATHS=["autogen","src", "external/json/single_include", "external/PicoSHA2", "external/shm_open_anon", "external/Vulkan-Headers/include","external/asio/asio/include","cpp-yyjson/include"]
-FLAGS=(["-DCLIENT"] if CLIENT=="1" else []) + (["-g","-DDEBUG"] if DEBUG=="1" else ["-O3"]) + ["-Wfatal-errors","-fPIC","-Winvalid-pch"]+os.environ["VK_HEADER_FLAGS"].split(" ")
+C=os.environ.get("C","gcc")
+CP=os.environ.get("CP","g++")
+SRC_FILES=["autogen/*","src/*","external/shm_open_anon/shm_open_anon.c","yyjson/src/yyjson.c"]
+INCLUDE_PATHS=["autogen","src", "external/json/single_include", "external/PicoSHA2", "external/shm_open_anon", "external/Vulkan-Headers/include","external/asio/asio/include","cpp-yyjson/include","nameof/include","fmt/include","yyjson/src"]
+FLAGS=(["-DCLIENT"] if CLIENT=="1" else []) + (["-g","-DDEBUG"] if DEBUG=="1" else ["-O3"]) + ["-Wfatal-errors","-fPIC","-Winvalid-pch"]+os.environ["VK_HEADER_FLAGS"].split(" ")+["-DFMT_HEADER_ONLY"]
 STATIC_LIBS=[]
-SHARED_LIBS_PATHS=[VK_LIB_PATH]
+SHARED_LIBS_PATHS=[VK_LIB_PATH,"/Users/system/.nix-profile/lib"]
 SHARED_LIBS=(["vulkan"] if CLIENT=="0" else ["xcb","X11","xcb-image"])
 FRAMEWORKS=[]
 
@@ -59,9 +60,9 @@ for file in SRC_FILES:
     modified_time=int(os.path.getmtime(file))
     CPP=file.endswith(".cpp")
 
-    subprocess.run([("g++" if CPP else "gcc")]+[("-std=c++20" if CPP else "-std=gnu99")]+ FLAGS+ ["-o",object_file,"-c",file]+ INCLUDE_PATHS)
+    subprocess.run([(CP if CPP else C)]+[("-std=c++20" if CPP else "-std=gnu99")]+ FLAGS+ ["-o",object_file,"-c",file]+ INCLUDE_PATHS)
     os.utime(object_file, (modified_time, modified_time))
 
 if os.environ.get("CLEAN","0")=="0":
-    subprocess.run(["g++"]+(["-shared","-o","vulkan_stream.so"] if CLIENT=="1" else ["-o","vulkan_stream"])+[get_object_file(_) for _ in SRC_FILES]+(FRAMEWORKS if sys.platform=="darwin" else [])+["-Wl,-rpath",(VK_LIB_PATH if sys.platform=="darwin" else "")]+FLAGS+STATIC_LIBS+SHARED_LIBS_PATHS+SHARED_LIBS)
+    subprocess.run([CP]+(["-shared","-o","vulkan_stream.so"] if CLIENT=="1" else ["-o","vulkan_stream"])+[get_object_file(_) for _ in SRC_FILES]+(FRAMEWORKS if sys.platform=="darwin" else [])+["-Wl,-rpath",(VK_LIB_PATH if sys.platform=="darwin" else "")]+FLAGS+STATIC_LIBS+SHARED_LIBS_PATHS+SHARED_LIBS)
 

@@ -5,3 +5,7 @@ external/asio
 *.a
 *.o
 Sync.json
+cpp-yyjson
+yyjson
+nameof
+fmt
