@@ -11,7 +11,7 @@ output={}
 def clean(string):
     return re.sub(r'[^a-zA-Z0-9]','',string)
     
-def get_length(item):
+def get_length(item,num_indirection):
     name_element=item.find("name")
     if name_element is None:
         result=None
@@ -36,8 +36,16 @@ def get_length(item):
         length=result
     else:
         length=""
-
-    return length.split(",")[::-1]
+    
+    result=[]
+    
+    if length!="":
+        result=length.split(",")[::-1]
+    
+    if result==[] and num_indirection>0:
+        result=[1]*num_indirection
+    return result
+    
 
 def get_schema_type(type):
     if type in ["char","size_t"] or type.startswith("uint"):
@@ -74,13 +82,13 @@ for item in vk.findall("./types/type"):
                 
                 member["name"]=elem.find("name").text
                 member["const"]=(elem.text or "").startswith("const")
-                member["length"]=get_length(elem)
                 member["relation"]="member"
                 _type=elem.find("type")
                 member["type"]=_type.text
                 member["schema"]=get_schema_type(member["type"])
                 
                 member["num_indirection"]=_type.tail.count("*")
+                member["length"]=get_length(elem,member["num_indirection"])
                 
                 if member["name"]=="sType":
                     result["sType"]=elem.attrib.get("values","")
@@ -137,7 +145,7 @@ for item in vk.findall("./types/type"):
             cur_tail=elem.tail
             param["name"]=clean(cur_tail.split(",")[0]) #Split from the head
             
-            param["length"]=get_length(elem)
+            param["length"]=get_length(elem,param["num_indirection"])
             
             param["header"]=qualifiers+" "+ET.tostring(elem, encoding='utf8', method='text').decode().strip().split(",")[0]
             
@@ -217,7 +225,7 @@ for item in vk.findall("./commands/command"):
             
             param["const"]=(elem.text or "").startswith("const")
             param["num_indirection"]=elem.find("type").tail.count("*")
-            param["length"]=get_length(elem)
+            param["length"]=get_length(elem,param["num_indirection"])
             param["relation"]="param"
             param["type"]=elem.find("type").text
             param["schema"]=get_schema_type(param["type"])

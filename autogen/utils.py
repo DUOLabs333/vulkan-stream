@@ -18,68 +18,68 @@ random_string = lambda seed: ''.join(random.Random(json.dumps(seed)).choices(str
 
 def is_void(name):
     return name["type"]=="void" and name["num_indirection"]==0
+
+def proto_concat(beginning, middle, end):
+    return beginning+"."middle+end.title()
+
+def native_concat(beginning, middle, end):
+    return beginning+("." if middle.get("relation","")=="member" else "")+end
     
-def serialize(variable,value):
-    
-    if is_void(value):
+def serialize(src,dest,attr,info): #From C++ object to Builder
+
+    if is_void(info):
         return ""
         
-    result_json="return_"+random_string(value)
-    val=copy.deepcopy(value)
+    val=copy.deepcopy(info)
     
-    name=val["name"]
     num_indirection=val["num_indirection"]
     length=val["length"].copy()
     type=val['type']
         
-    result=""
+    result="[&](){"
     
     if num_indirection>0:
         result+=f"""
-        if ({name}==NULL){{
-            {result_json}["null"]=true;
-            return {result_json};
+        if ({native_concat(src,info,attr)}==NULL){{
+            {proto_concat(dest,"disown",attr)}();
+            return;
         }}
         """
     if (type=="void" and num_indirection==1):
-        val["name"]=f"((char*)({val['name']}))"
         val["type"]="char"
-        if not(len(length)>0 and length[-1]!=""): #Doesn't have predefined length
+        if len(length)==0: #Doesn't have predefined length
             val["length"].append("null-terminated")
-        result+=serialize(result_json,val)
-        result+=f"return {result_json};"
+            
+        result+=serialize(f"(char*){src}",dest,attr,val)
+        result+="return;"
     
     elif (type in parsed["external_handles"] and num_indirection<2):
-            if num_indirection==0:
-                result+=f"return serialize_{type}({name});\n"
-            elif num_indirection==1:
-                result+=f"return serialize_{type}_p({name});\n"
+            result+=f"""
+            {proto_concat(dest,"set",attr)}((uintptr_t){native_concat(src,info,attr)});
+            return;
+            """
                 
-    elif (len(length)>0 and (length[-1]!="")):
-        
+    elif len(length)>0:
+        size=length[-1]
         temp_iterator=random_string(val)
-        val["name"]+=f"[{temp_iterator}]"
+        
         val["num_indirection"]-=1
         val["length"].pop()
         
-        if length[-1]=="null-terminated":
-            length[-1]=f"strlen({name})+1"
-            
+        if size=="null-terminated":
+            size=f"strlen({native_concat(src,info,attr)})+1"
+        
+        index=f"[{temp_iterator}]"
         result+=f"""
-        {result_json}["members"]=array();
-        for(int {temp_iterator}=0; {temp_iterator} < {length[-1]}; {temp_iterator}++){{
-            boost::json::object temp;
-            {serialize('temp',val)}
-            {result_json}["members"].as_array().push_back(temp);
+        auto arr={proto_concat(dest,"init",attr)}({size});
+        for(int {temp_iterator}=0; {temp_iterator} < {size}; {temp_iterator}++){{
+            auto temp=arr{index}; 
+            {serialize(native_concat(src,info,attr)+index,temp,val)}
         }}
-        return {result_json};
+        return;
         """
-    elif num_indirection>0:
-        val["name"]="*"+name
-        val["num_indirection"]-=1
-       
-        result+=(serialize(result_json,val)+"\n")
-        result+=("return "+result_json+";")
+    #For struct, pass to serialize_{type}(dest.get..., src
+    #Everything else, pass to set
     elif type in parsed["basic_types"]:
         val.update(parsed["basic_types"][type])
         result+=serialize(result_json,val)
