@@ -32,9 +32,8 @@ def serialize(variable,value):
     length=val["length"].copy()
     type=val['type']
         
-    result=f"""{variable}=[&]() {{
-    boost::json::object {result_json};
-    """
+    result=""
+    
     if num_indirection>0:
         result+=f"""
         if ({name}==NULL){{

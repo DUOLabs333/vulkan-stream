@@ -6,18 +6,7 @@ import json
 import textwrap
 vk=ET.parse("../external/Vulkan-Headers/registry/vk.xml").getroot()
 
-aliases={}
-
-handles={}
-external_handles={}
-
-primitive_types={"int":1,"void":1}
-basic_types={}
-pointer_types={}
-
-structs={}
-commands={}
-funcpointers={}
+output={}
 
 def clean(string):
     return re.sub(r'[^a-zA-Z0-9]','',string)
@@ -49,124 +38,128 @@ def get_length(item):
         length=""
 
     return length.split(",")[::-1]
-    
+
+def get_schema_type(type):
+    if type in ["char","size_t"] or type.startswith("uint"):
+        return "uint64"
+    elif type in ["float","double"]:
+        return type
+    else:
+        return "sint64"
+        
 for item in vk.findall("./types/type"):
+    result={}
     type=item.attrib.get("category","")
     
     if item.attrib.get("requires","").endswith(".h"):
-        external_handles[item.attrib["name"]]=True
-        continue
-        
-    if type in ["struct","union"]:
         name=item.attrib["name"]
+        result["type"]="external_handle"
+        result["schema"]=get_schema_type("uintptr_t")
+        
+    elif type in ["struct","union"]:
+        name=item.attrib["name"]
+        result["type"]="struct"
+        
         if "alias" in item.attrib:
             alias=item.attrib["alias"]
-            if alias not in structs: #For aliases that are defined before their parrent is defined (only one case though)
-                aliases[alias]=name
-                continue
-            else:
-                members=structs[alias]
+            result["alias"]=alias
         else:
-            members=item.findall("member")
+            members=[]
             
-            for i,member in enumerate(members):
-                if member.attrib.get("api","")=="vulkansc":
-                    members[i]=None
+            for i,elem in enumerate(item.findall("member")):
+                member={}
+                
+                if elem.attrib.get("api","")=="vulkansc":
                     continue
-                result={}
                 
-                result["name"]=member.find("name").text
-                result["const"]=(member.text or "").startswith("const")
+                member["name"]=elem.find("name").text
+                member["const"]=(elem.text or "").startswith("const")
+                member["length"]=get_length(elem)
+                member["relation"]="member"
+                _type=elem.find("type")
+                member["type"]=_type.text
+                member["schema"]=get_schema_type(member["type"])
                 
-                result["length"]=get_length(member)
-
-                _type=member.find("type")
-                result["type"]=_type.text
-                result["num_indirection"]=_type.tail.count("*")
+                member["num_indirection"]=_type.tail.count("*")
                 
-                result["value"]=member.attrib.get("values","")
+                if member["name"]=="sType":
+                    result["sType"]=elem.attrib.get("values","")
                 
+                member["header"]=ET.tostring(elem, encoding='utf8', method='text').decode()
                 
-                if (result["type"] in external_handles) and result["num_indirection"]==0 and (len(result["length"])==0 or result["length"][-1]==""):
-                        external_handles[result["type"]]=False #At least once case, it's not an pointer
+                if type=="struct" and member["name"]=="pNext" and member["type"]=="void" and member["num_indirection"]==1:
+                    member["type"]="pNext"
+                    member["num_indirection"]=0
                 
-                result["header"]=ET.tostring(member, encoding='utf8', method='text').decode()
-                
-                if type=="struct" and result["name"]=="pNext" and result["type"]=="void" and result["num_indirection"]==1:
-                    result["type"]="pNext"
-                    result["num_indirection"]=0
-                
-                if name=="VkImageToMemoryCopyEXT" and result["name"]=="pHostPointer":
-                    result["length"]=["100000"]
+                if name=="VkImageToMemoryCopyEXT" and member["name"]=="pHostPointer":
+                    member["length"]=["100000"]
                     
-                members[i]=result
-            members=[_ for _ in members if _ is not None]
-        structs[name]=members
-        if name in aliases:
-            structs[aliases[name]]=members
-            del aliases[name]
+                members.append(member)
+        result["members"]=members
         
     elif type=="handle":
-
+        
         if not(item.find("name") is None):
             name=item.find("name").text
         elif item.attrib.get("name",None):
             name=item.attrib["name"]
-        
-        handles[name]=1
+            
+        result["schema"]=get_schema_type("uintptr_t")
             
     elif type=="funcpointer":
         name=item.find("name").text
+        
         if name=="PFN_vkVoidFunction":
             continue
-            
-        funcpointer={}
         
         header=ET.tostring(item, encoding='utf8', method='text').decode()
         header=header.split("(")
         header[1]=name
-        funcpointer["header"]="(".join(header).replace("(","",1).strip().removeprefix("typedef").strip().removesuffix(";")
-        funcpointer["type"]=funcpointer["header"].split()[0] #Get return type. Split and get 0 when done
-        funcpointer["num_indirection"]=funcpointer["type"].count("*")
-
-        funcpointer["type"]=funcpointer["type"].replace("*","")
+        result["header"]="(".join(header).replace("(","",1).strip().removeprefix("typedef").strip().removesuffix(";")
         
-        members=item.findall("type")
+        result["return"]=result["header"].split()[0]
+        result["num_indirection"]=result["return"].count("*")
+
+        result["return"]=result["return"].replace("*","")
+        
+        params=[]
+        
         cur_tail=item.find("name").tail
-        for i,member in enumerate(members):
-            member_dict={}
+        for i,elem in enumerate(item.findall("type")):
+            param={}
             
             qualifiers=clean(cur_tail.split(",")[-1]) #Get previous tail and split from the back
-            member_dict["const"]=qualifiers.startswith("const")
+            param["const"]=qualifiers.startswith("const")
+            param["relation"]="param"
+            param["type"]=elem.text
+            param["num_indirection"]=elem.tail.lstrip().count("*")
             
-            member_dict["type"]=member.text
-            member_dict["num_indirection"]=member.tail.lstrip().count("*")
+            cur_tail=elem.tail
+            param["name"]=clean(cur_tail.split(",")[0]) #Split from the head
             
-            cur_tail=member.tail
-            member_dict["name"]=clean(cur_tail.split(",")[0]) #Split from the head
+            param["length"]=get_length(elem)
             
-            member_dict["length"]=get_length(member)
-            
-            member_dict["header"]=qualifiers+" "+ET.tostring(member, encoding='utf8', method='text').decode().strip().split(",")[0]
+            param["header"]=qualifiers+" "+ET.tostring(elem, encoding='utf8', method='text').decode().strip().split(",")[0]
             
             
-            if member_dict["header"].endswith(","):
-                member_dict["header"]=member_dict["header"].removesuffix(",")
-            elif member_dict["header"].endswith(");"):
-                member_dict["header"]=member_dict["header"].removesuffix(");")
+            if param["header"].endswith(","):
+                param["header"]=param["header"].removesuffix(",")
+            elif param["header"].endswith(");"):
+                param["header"]=param["header"].removesuffix(");")
             
-            members[i]=member_dict
-        funcpointer["params"]=members
-           
-        funcpointers[name]=funcpointer
+            params.append(param)
+        result["params"]=params
     
-    elif (item.attrib.get("requires",None)=="vk_platform") or (type in ["enum","bitmask"]):
+    elif (item.attrib.get("requires",None)=="vk_platform") or (type in ["enum","bitmask","int"]):
         if "name" in item.attrib:
             name=item.attrib["name"]
         else:
             name=item.find("name").text
-        primitive_types[name]=1
+        type="primitive"
+        result["schema"]=get_schema_type(type)
+        
     elif type=="basetype":
+        name=item.find("name").text
         if item.find("type") is None:
             #For MacOS types
             regex=r"""
@@ -178,75 +171,72 @@ for item in vk.findall("./types/type"):
             regex=regex.split("\n",1)[1].rsplit("\n",1)[0]
             regex=textwrap.dedent(regex)
             match=re.match(regex,item.text,flags=re.S)
+            
             if match is None:
                 match=re.match(r"^(\s*)typedef(.*)\*(\s*)$",item.text)
                 if match is None:
                     continue
-                pointer_types[item.find("name").text]=True
+                result["type"]="external_handle"
+                result["schema"]=get_schema_type("uintptr_t")
                 continue
+                
             match_type=match.groups(1)[0]
             child=ET.SubElement(item, 'type')
             child.text=match_type.replace("*","")
             child.tail=("*"*match_type.count("*"))
+        
+        result["alias"]=item.find("type").text
+        result["num_indirection"]=item.find("type").tail.count("*")
+    else:
+        continue
+    
+    if "type" not in result:
+        result["type"]=type
+        
+    output[name]=result
 
-        basic_types[item.find("name").text]={"type":item.find("type").text,"num_indirection":item.find("type").tail.count("*")}
         
 for item in vk.findall("./commands/command"):
-    command={}
+    result={}
+    result["type"]="command"
     if "alias" in item.attrib:
         name=item.attrib["name"]
-        alias=item.attrib["alias"]
-        if alias not in commands:
-            aliases[alias]=name #For aliases that are defined before their parrent is defined
-            continue
-        else:
-            command=commands[alias].copy()
-            command["header"]=command["header"].replace(alias,name,1)
+        result["alias"]=item.attrib["alias"]
     else:
         header=[]
         header.append(f"""{item.find("proto/type").text} {item.find("proto/name").text}(\n""")
         name=item.find("proto/name").text
-        if ("VK_TIMEOUT" in item.attrib.get("successcodes","").split()+item.attrib.get("errorcodes","").split()):
-            command["sync"]=True
-        else:
-            command["sync"]=False
     
-        command["type"]=item.find("proto/type").text
-        command["num_indirection"]=item.find("proto/type").tail.count("*")
+        result["return"]=item.find("proto/type").text
+        result["num_indirection"]=item.find("proto/type").tail.count("*")
         
-        params=item.findall("param")
-        
+        params=[]
         params_set=set()
-        for i, param in enumerate(params):
-            result={}
+        for i, elem in enumerate(item.findall("param")):
+            param={}
             
-            result["const"]=(param.text or "").startswith("const")
-            result["num_indirection"]=param.find("type").tail.count("*")
-            result["length"]=get_length(param)
+            param["const"]=(elem.text or "").startswith("const")
+            param["num_indirection"]=elem.find("type").tail.count("*")
+            param["length"]=get_length(elem)
+            param["relation"]="param"
+            param["type"]=elem.find("type").text
+            param["schema"]=get_schema_type(param["type"])
             
-            result["type"]=param.find("type").text
-            result["header"]=ET.tostring(param, encoding='utf8', method='text').decode()
+            param["header"]=ET.tostring(elem, encoding='utf8', method='text').decode()
             
-            result["name"]=param.find("name").text
+            param["name"]=elem.find("name").text
             
-            if name=="vkMapMemory" and result["name"]=="ppData":
-                result["length"]=["size","1"]
+            if name=="vkMapMemory" and param["name"]=="ppData":
+                param["length"]=["size","1"]
                 
-            if result["name"] in params_set: #Two instances of duplicates
-                params[i]=None
+            if param["name"] in params_set: #Two instances of duplicates
                 continue
             else:
-                params_set.add(result["name"])
+                params_set.add(param["name"])
                 
-            header.append("".join([(param.text or ""),param.find("type").text,(param.find("type").tail or ""),param.find("name").text,(param.find("name").tail or "")]))
+            header.append("".join([(elem.text or ""),elem.find("type").text,(elem.find("type").tail or ""),elem.find("name").text,(elem.find("name").tail or "")]))
             
-            if (result["type"] in external_handles) and result["num_indirection"]==0 and (len(result["length"])==0 or result["length"][-1]==""):
-                    external_handles[result["type"]]=False #At least once case, it's not an pointer
-                    
-                    
-            params[i]=result
-            
-        params = [param for param in params if param is not None]
+            params.append(param)
         
         for param in params:
             for i,length in enumerate(param["length"]):
@@ -257,14 +247,11 @@ for item in vk.findall("./commands/command"):
                         
         header.append(")")
         
-        command["header"]=header[0]+",\n ".join(header[1:-1])+"\n"+header[-1]
+        result["header"]=header[0]+",\n ".join(header[1:-1])+"\n"+header[-1]
         
-        command["params"]=params
-    commands[name]=command
-
-    if name in aliases:
-        commands[aliases[name]]=command
-        del aliases[name]
+        result["params"]=params
+        
+    output[name]=result
 
 from ahocorapy.keywordtree import KeywordTree
 import os, string
@@ -295,15 +282,12 @@ def are_features_implemented(features):
             break
     return result
             
-parsed_dict={}
+for feature,is_implemented in are_features_implemented(output.keys()).items():
+    if not is_implemented:
+        #print(feature)
+        del output[feature]
 
-for dict_name in ["external_handles","handles","primitive_types","basic_types","pointer_types","structs","commands","funcpointers"]:
-    global_dict=globals()[dict_name]
-    for feature,is_implemented in are_features_implemented(global_dict.keys()).items():
-        if not is_implemented:
-            #print(feature)
-            del global_dict[feature]
-            
-    parsed_dict[dict_name]=global_dict
+json.dump(output,open("parsed.json","w+"),indent=4)
 
-json.dump(parsed_dict,open("parsed.json","w+"),indent=4)
+
+#TODO: Autogenerate schema based on output dictionary
