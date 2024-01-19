@@ -20,10 +20,10 @@ def is_void(name):
     return name["type"]=="void" and name["num_indirection"]==0
 
 def proto_concat(beginning, middle, end):
-    return beginning+"."middle+end.title()
+    return beginning+"."+middle+end.title()
 
 def native_concat(beginning, middle, end):
-    return beginning+("." if middle.get("relation","")=="member" else "")+end
+    return "("+beginning+("." if middle.get("relation","")=="member" else "")+end+")"
     
 def serialize(src,dest,attr,info): #From C++ object to Builder
 
@@ -50,7 +50,7 @@ def serialize(src,dest,attr,info): #From C++ object to Builder
         if len(length)==0: #Doesn't have predefined length
             val["length"].append("null-terminated")
             
-        result+=serialize(f"(char*){src}",dest,attr,val)
+        result+=serialize(f"(char*){native_concat(src,info,attr)}",dest,attr,val)
         result+="return;"
     
     elif (type in parsed["external_handles"] and num_indirection<2):
@@ -74,10 +74,13 @@ def serialize(src,dest,attr,info): #From C++ object to Builder
         auto arr={proto_concat(dest,"init",attr)}({size});
         for(int {temp_iterator}=0; {temp_iterator} < {size}; {temp_iterator}++){{
             auto temp=arr{index}; 
-            {serialize(native_concat(src,info,attr)+index,temp,val)}
+            {serialize(native_concat(src,info,attr)+index,"temp",val)}
         }}
         return;
         """
+    
+    if type=="struct":
+        result+="ser
     #For struct, pass to serialize_{type}(dest.get..., src
     #Everything else, pass to set
     elif type in parsed["basic_types"]:

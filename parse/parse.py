@@ -57,16 +57,16 @@ def get_schema_type(type):
         
 for item in vk.findall("./types/type"):
     result={}
-    type=item.attrib.get("category","")
+    kind=item.attrib.get("category","")
     
     if item.attrib.get("requires","").endswith(".h"):
         name=item.attrib["name"]
-        result["type"]="external_handle"
+        kind="external_handle"
         result["schema"]=get_schema_type("uintptr_t")
         
-    elif type in ["struct","union"]:
+    elif kind in ["struct","union"]:
         name=item.attrib["name"]
-        result["type"]="struct"
+        kind="struct"
         
         if "alias" in item.attrib:
             alias=item.attrib["alias"]
@@ -83,11 +83,12 @@ for item in vk.findall("./types/type"):
                 member["name"]=elem.find("name").text
                 member["const"]=(elem.text or "").startswith("const")
                 member["relation"]="member"
-                _type=elem.find("type")
-                member["type"]=_type.text
-                member["schema"]=get_schema_type(member["type"])
                 
-                member["num_indirection"]=_type.tail.count("*")
+                type=elem.find("type")
+                member["type"]=type.text
+                
+                member["schema"]=get_schema_type(member["type"])
+                member["num_indirection"]=type.tail.count("*")
                 member["length"]=get_length(elem,member["num_indirection"])
                 
                 if member["name"]=="sType":
@@ -95,7 +96,7 @@ for item in vk.findall("./types/type"):
                 
                 member["header"]=ET.tostring(elem, encoding='utf8', method='text').decode()
                 
-                if type=="struct" and member["name"]=="pNext" and member["type"]=="void" and member["num_indirection"]==1:
+                if kind=="struct" and member["name"]=="pNext" and member["type"]=="void" and member["num_indirection"]==1:
                     member["type"]="pNext"
                     member["num_indirection"]=0
                 
@@ -105,7 +106,7 @@ for item in vk.findall("./types/type"):
                 members.append(member)
         result["members"]=members
         
-    elif type=="handle":
+    elif kind=="handle":
         
         if not(item.find("name") is None):
             name=item.find("name").text
@@ -114,7 +115,7 @@ for item in vk.findall("./types/type"):
             
         result["schema"]=get_schema_type("uintptr_t")
             
-    elif type=="funcpointer":
+    elif kind=="funcpointer":
         name=item.find("name").text
         
         if name=="PFN_vkVoidFunction":
@@ -158,15 +159,15 @@ for item in vk.findall("./types/type"):
             params.append(param)
         result["params"]=params
     
-    elif (item.attrib.get("requires",None)=="vk_platform") or (type in ["enum","bitmask","int"]):
+    elif (item.attrib.get("requires",None)=="vk_platform") or (kind in ["enum","bitmask","int"]):
         if "name" in item.attrib:
             name=item.attrib["name"]
         else:
             name=item.find("name").text
-        type="primitive"
-        result["schema"]=get_schema_type(type)
+        result["schema"]=get_schema_type(kind)
+        kind="primitive"
         
-    elif type=="basetype":
+    elif kind=="basetype":
         name=item.find("name").text
         if item.find("type") is None:
             #For MacOS types
@@ -184,7 +185,7 @@ for item in vk.findall("./types/type"):
                 match=re.match(r"^(\s*)typedef(.*)\*(\s*)$",item.text)
                 if match is None:
                     continue
-                result["type"]="external_handle"
+                result["kind"]="external_handle"
                 result["schema"]=get_schema_type("uintptr_t")
                 continue
                 
@@ -198,15 +199,15 @@ for item in vk.findall("./types/type"):
     else:
         continue
     
-    if "type" not in result:
-        result["type"]=type
+    if "kind" not in result:
+        result["kind"]=kind
         
     output[name]=result
 
         
 for item in vk.findall("./commands/command"):
     result={}
-    result["type"]="command"
+    result["kind"]="command"
     if "alias" in item.attrib:
         name=item.attrib["name"]
         result["alias"]=item.attrib["alias"]
