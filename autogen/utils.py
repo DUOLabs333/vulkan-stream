@@ -39,6 +39,8 @@ def convert(native,proto,attr,info, serialize, initialize=False):
     num_indirection=val["num_indirection"]
     length=val["length"].copy()
     type=val['type']
+    kind=parsed[type]["kind"]
+    
     deserialize=not serialize
     if serialize:
         initialize=False
@@ -53,6 +55,8 @@ def convert(native,proto,attr,info, serialize, initialize=False):
             val["const"]=False
             result+=convert(native,proto,attr,val,serialize,initialize)
             result+=f"{native_concat(native,info,attr)}={temp_variable};"
+            result+="}();"
+            return result
         else: #Not initializing, so won't make any sense to override
             return ""
     elif "alias" in val:
@@ -60,35 +64,44 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         val["num_indirection"]+=num_indirection
         result+=convert(native,proto, attr,val,serialize,initialize)
         
-    elif num_indirection>0:
+        result+="}();"
+        return result
+        
+    if num_indirection>0:
         if serialize:
             result+=f"""
             if ({native_concat(native,info,attr)}==NULL){{
                 {proto_concat(proto,"disown",attr)}();
-                return;
             }}
             """
         else:
             result+=f"""
             if (!{proto_concat(native,"has",attr)}()){{
                 {native_concat(native,info,attr)}=NULL;
-                return;
             }}
             """
-    
+        result +="return;"
+        
     if (type=="void" and num_indirection==1):
         val["type"]="char"
         if len(length)==0: #Doesn't have predefined length
             val["length"].append("null-terminated")
+        
+        if serialize:
+            temp=f"(char*){native_concat(native,val,attr)}"
+        else:
+            temp=f"{temp}_{random_string(val)}"
+            result+=f"char* {temp};"
             
-        result+=serialize(f"(char*){native_concat(native,info,attr)}",proto,attr,val)
-        result+="return;"
+        result+=convert(temp,proto,attr,val,serialize,initialize)
+        if not serialize:
+            result+=f"{native_concat(native,val,attr)}={temp};"
     
-    elif (type in parsed["external_handles"] and num_indirection<2):
-            result+=f"""
-            {proto_concat(proto,"set",attr)}((uintptr_t){native_concat(native,info,attr)});
-            return;
-            """
+    elif (info["kind"]=="external_handle" and num_indirection<2):
+            if serialize:
+                result+=f"""{proto_concat(proto,"set",attr)}((uintptr_t){native_concat(native,info,attr)});"""
+            else:
+                result+=f"""{native_concat(native,info,attr)}=(uintptr_t){proto_concat(proto,"get",attr)}();"""
                 
     elif len(length)>0:
         size=length[-1]
@@ -98,123 +111,58 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         val["length"].pop()
         
         if size=="null-terminated":
-            size=f"strlen({native_concat(native,info,attr)})+1"
-        
-        index=f"[{temp_iterator}]"
-        result+=f"""
-        auto arr={proto_concat(proto,"init",attr)}({size});
-        for(int {temp_iterator}=0; {temp_iterator} < {size}; {temp_iterator}++){{
-            auto temp=arr{index}; 
-            {serialize(native_concat(native,info,attr)+index,"temp",val)}
-        }}
-        return;
-        """
-    
-    elif output[type]["kind"]=="struct" or attr=="pNext": #pNext is handled specially as a union
-        result+=f"""
-        auto temp={proto_concat(proto,"init",attr)};
-        return serialize_{type}({native_concat(native,info,attr)}, temp);
-        """
-    else:
-        result+=f"""return {proto_concat(proto,"set",attr)}(serialize_{type}({native_concat(native,info,attr)});"""
-    result+="}();"
-    return result
-
-def deserialize(src,dest,attr,info,initialize=False): #From Reader to C++ obkect
-    #If const pointer is null, make a new variable that is the same without the const, copy the value of the non-const into it, then deserialize it. At the end, set const equal to the non-const
-    #If array pointer is null, malloc it, then continue
-    
-    if is_void(value):
-        return ""
-    
-    val=copy.deepcopy(value)
-
-    name=val["name"]
-    num_indirection=val["num_indirection"]
-    length=val["length"].copy()
-    type=val['type']
-    
-    result="[&]() {\n" #Should assign by reference, not value, so nothing should be returned.
-    
-    if value.get("const",False) and not(len(length)>0 and (length[-1]!="") and num_indirection==0):
-        if initialize:
-            temp_variable="temp_"+random_string(value)
-            result+=(value["type"]+"*"*value["num_indirection"]+" "+temp_variable+";")
-            
-            non_const=copy.deepcopy(value)
-            non_const["const"]=False
-            result+=deserialize(temp_variable,non_const,initialize)
-            result+=(variable+"="+temp_variable+";}();")
-            return result
-        else:
-            return ""
-
-
-    if num_indirection>0:
-        result+=f"""
-        if ({name}.contains("null")){{
-        {variable}=NULL;
-        return;
-        }}
-    """
-    if type in parsed["basic_types"]:
-        basic_type=parsed["basic_types"][type]
-        val["type"]=basic_type["type"]
-        val["num_indirection"]+=basic_type["num_indirection"]
-        result+=deserialize(variable,val,initialize)
-    elif (type=="void" and num_indirection==1):
-        val["type"]="char"
-        
-        if not(len(length)>0 and length[-1]!=""): #Doesn't have predefined length
-            val["length"].append("null-terminated")
-            
-        temp_temp="temp_"+random_string(value);
-        result+=f"char* {temp_temp};"
-        result+=deserialize(temp_temp,val,initialize=True)
-        result+=f"{variable}=(void*){temp_temp};\n"
-    elif (type in parsed["external_handles"] and num_indirection<2):
-            if num_indirection==0:
-                result+=f"{variable}=deserialize_{type}({name});\n"
-            elif num_indirection==1:
-                result+=f"{variable}=deserialize_{type}_p({name});\n"
-    elif (len(length)>0 and (length[-1]!="")):
-        if length[-1]=="null-terminated":
-            length[-1]=f"""{name}["members"].as_array().size()"""
-            
-        if num_indirection>0: #Dynamic array, so each element of char** would be char*
+            if serialize:
+                size=f"strlen({native_concat(native,info,attr)})+1"
+            else:
+                size=f"""{proto_concat(proto,"get",attr)}().size();"""
+                
+        if deserialize and num_indirection>0: #Dynamic array, so each element of char** would be char*
             if initialize:
-                result+=f"""{variable}=({type+("*"*num_indirection)})malloc({length[-1]}*sizeof({type+("*"*(num_indirection-1))}));"""
+                result+=f"""{{native_concat(native,val,attr)}}=({type+("*"*num_indirection)})malloc({size}*sizeof({type+("*"*(num_indirection-1))}));"""
             val["num_indirection"]-=1 
+            
+        index=f"[{temp_iterator}]"
         
-        temp_iterator=random_string(val)
-        val["name"]+=f"""["members"].as_array()[{temp_iterator}].as_object()"""
-        val["length"].pop()
+        native_arr=native_concat(native,info,attr)
         
+        if serialize:
+            proto_arr=f"""{proto_concat(proto,"init",attr)}({size})"""
+        else:
+            proto_arr=f"""{proto_concat(proto,"get",attr)}()"""
+            
         result+=f"""
-        for (int {temp_iterator}=0; {temp_iterator} < {length[-1]}; {temp_iterator}++){{
-            {deserialize(variable+f'[{temp_iterator}]',val,initialize)};
+        auto arr={proto_arr};
+        for(int {temp_iterator}=0; {temp_iterator} < {size}; {temp_iterator}++){{
+            auto temp=arr{index};
+            {convert(native_arr+index,"temp",attr,val,serialize,initialize)}
         }}
         """
-        
-    elif num_indirection>0:
-        val["num_indirection"]-=1
-        if initialize:
-            result+=f"""{variable}=({type}{"*"*num_indirection})malloc(sizeof({type}{"*"*(num_indirection-1)}));\n"""
-        result+=(deserialize(f"*({variable})",val,initialize)+"\n")
-
+    
+    elif kind in ["struct","funcpointer"] or type=="pNext": #pNext is handled specially as a union
+        if serialize:
+            result+=f"""
+            auto temp={proto_concat(proto,"init",attr)};
+            return serialize_{type}({native_concat(native,info,attr)}, temp);
+            """
+        else:
+            if kind=="funcpointer":
+                result+="#ifdef CLIENT"
+                
+            result+=f"""
+            auto temp={proto_concat(proto,"get",attr)};
+            {native_concat(native,info,attr)}=deserialize_{type}(temp);
+            """
+            if kind=="funcpointer":
+                result+="#endif"
+                
+    elif kind=="primitive": #Handle primitives inline
+        if serialize:
+            result+=f"""return {proto_concat(proto,"set",attr)}({native_concat(native,info,attr)});"""
+        else:
+            result+=f"""{native_concat(native,info,attr)}={proto_concat(proto,"get",attr)}();"""
     else:
-        result+=(f"""
-        #ifndef CLIENT
-        {variable}=deserialize_{type}({name});
-        #endif
-        """ 
-        if type in parsed["funcpointers"] #Only the server is deserializing funcpointers (in order to wrap them)
-        else
-        f"{variable}=deserialize_{type}({name});"
-        )
-    
+        raise ValueError("Unhandled type! This shouldn't happen")
     result+="}();"
-    
     return result
     
 def write(line,header=False):
