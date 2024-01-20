@@ -23,7 +23,7 @@ def proto_concat(beginning, middle, end):
     return beginning+"."+middle+end.title()
 
 def native_concat(beginning, middle, end):
-    return "("+beginning+("." if middle.get("kind","")=="member" else "")+end+")"
+    return "("+beginning+("." if middle["kind"]=="member" else "")+end+")"
     
 def convert(native,proto,attr,info, serialize, initialize=False):
     """
@@ -112,7 +112,7 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         
         if size=="null-terminated":
             if serialize:
-                size=f"strlen({native_concat(native,info,attr)})+1"
+                size=f"strlen({native_concat(native,val,attr)})+1"
             else:
                 size=f"""{proto_concat(proto,"get",attr)}().size();"""
                 
@@ -123,7 +123,7 @@ def convert(native,proto,attr,info, serialize, initialize=False):
             
         index=f"[{temp_iterator}]"
         
-        native_arr=native_concat(native,info,attr)
+        native_arr=native_concat(native,val,attr)
         
         if serialize:
             proto_arr=f"""{proto_concat(proto,"init",attr)}({size})"""
@@ -138,7 +138,7 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         }}
         """
     
-    elif kind in ["struct","funcpointer"] or type=="pNext": #pNext is handled specially as a union
+    elif kind in ["struct","funcpointer"]: #pNext is handled specially as a union
         if serialize:
             result+=f"""
             auto temp={proto_concat(proto,"init",attr)};

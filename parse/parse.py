@@ -278,6 +278,8 @@ for item in vk.findall("./commands/command"):
         
     output[name]=result
 
+output["pNext"]={"kind":"struct"} #Just a stub for a custom class we'll override
+
 #TODO: Autogenerate schema based on output dictionary (specifiically here, as all commands might be sent)
 
 from ahocorapy.keywordtree import KeywordTree

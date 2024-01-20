@@ -89809,5 +89809,8 @@
                 "name": "pProperties"
             }
         ]
+    },
+    "pNext": {
+        "kind": "struct"
     }
 }
