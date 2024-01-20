@@ -23,10 +23,14 @@ def proto_concat(beginning, middle, end):
     return beginning+"."+middle+end.title()
 
 def native_concat(beginning, middle, end):
-    return "("+beginning+("." if middle.get("relation","")=="member" else "")+end+")"
+    return "("+beginning+("." if middle.get("kind","")=="member" else "")+end+")"
     
-def serialize(src,dest,attr,info): #From C++ object to Builder
-
+def convert(native,proto,attr,info, serialize, initialize=False):
+    """
+    If serializing: C++ object to Builder
+    If not: Reader to C++ object
+    """
+    
     if is_void(info):
         return ""
         
@@ -35,27 +39,54 @@ def serialize(src,dest,attr,info): #From C++ object to Builder
     num_indirection=val["num_indirection"]
     length=val["length"].copy()
     type=val['type']
+    deserialize=not serialize
+    if serialize:
+        initialize=False
         
     result="[&](){"
     
-    if num_indirection>0:
-        result+=f"""
-        if ({native_concat(src,info,attr)}==NULL){{
-            {proto_concat(dest,"disown",attr)}();
-            return;
-        }}
-        """
+    if deserialize and val.get("const",False) and not(len(length)>0 and num_indirection==0): #Const pointer, which can be reassigned
+        if initialize:
+            temp_variable="temp_"+random_string(val)
+            result+=val["header"].replace("const","").replace(val["name"],temp_variable)
+            
+            val["const"]=False
+            result+=convert(native,proto,attr,val,serialize,initialize)
+            result+=f"{native_concat(native,info,attr)}={temp_variable};"
+        else: #Not initializing, so won't make any sense to override
+            return ""
+    elif "alias" in val:
+        val=parsed[val["alias"]]
+        val["num_indirection"]+=num_indirection
+        result+=convert(native,proto, attr,val,serialize,initialize)
+        
+    elif num_indirection>0:
+        if serialize:
+            result+=f"""
+            if ({native_concat(native,info,attr)}==NULL){{
+                {proto_concat(proto,"disown",attr)}();
+                return;
+            }}
+            """
+        else:
+            result+=f"""
+            if (!{proto_concat(native,"has",attr)}()){{
+                {native_concat(native,info,attr)}=NULL;
+                return;
+            }}
+            """
+    
     if (type=="void" and num_indirection==1):
         val["type"]="char"
         if len(length)==0: #Doesn't have predefined length
             val["length"].append("null-terminated")
             
-        result+=serialize(f"(char*){native_concat(src,info,attr)}",dest,attr,val)
+        result+=serialize(f"(char*){native_concat(native,info,attr)}",proto,attr,val)
         result+="return;"
     
     elif (type in parsed["external_handles"] and num_indirection<2):
             result+=f"""
-            {proto_concat(dest,"set",attr)}((uintptr_t){native_concat(src,info,attr)});
+            {proto_concat(proto,"set",attr)}((uintptr_t){native_concat(native,info,attr)});
             return;
             """
                 
@@ -67,35 +98,32 @@ def serialize(src,dest,attr,info): #From C++ object to Builder
         val["length"].pop()
         
         if size=="null-terminated":
-            size=f"strlen({native_concat(src,info,attr)})+1"
+            size=f"strlen({native_concat(native,info,attr)})+1"
         
         index=f"[{temp_iterator}]"
         result+=f"""
-        auto arr={proto_concat(dest,"init",attr)}({size});
+        auto arr={proto_concat(proto,"init",attr)}({size});
         for(int {temp_iterator}=0; {temp_iterator} < {size}; {temp_iterator}++){{
             auto temp=arr{index}; 
-            {serialize(native_concat(src,info,attr)+index,"temp",val)}
+            {serialize(native_concat(native,info,attr)+index,"temp",val)}
         }}
         return;
         """
     
-    if type=="struct":
-        result+="ser
-    #For struct, pass to serialize_{type}(dest.get..., src
-    #Everything else, pass to set
-    elif type in parsed["basic_types"]:
-        val.update(parsed["basic_types"][type])
-        result+=serialize(result_json,val)
-        result+=("return "+result_json+";")
+    elif output[type]["kind"]=="struct" or attr=="pNext": #pNext is handled specially as a union
+        result+=f"""
+        auto temp={proto_concat(proto,"init",attr)};
+        return serialize_{type}({native_concat(native,info,attr)}, temp);
+        """
     else:
-        result+=f"return serialize_{type}({name});"
-    
+        result+=f"""return {proto_concat(proto,"set",attr)}(serialize_{type}({native_concat(native,info,attr)});"""
     result+="}();"
     return result
 
-def deserialize(variable,value,initialize=False):
+def deserialize(src,dest,attr,info,initialize=False): #From Reader to C++ obkect
     #If const pointer is null, make a new variable that is the same without the const, copy the value of the non-const into it, then deserialize it. At the end, set const equal to the non-const
     #If array pointer is null, malloc it, then continue
+    
     if is_void(value):
         return ""
     

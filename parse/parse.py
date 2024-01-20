@@ -10,6 +10,10 @@ output={}
 
 def clean(string):
     return re.sub(r'[^a-zA-Z0-9]','',string)
+
+def clean_header(header):
+    header=header.replace("\n"," ")
+    return re.sub(r"\s+"," ", header).strip()
     
 def get_length(item,num_indirection):
     name_element=item.find("name")
@@ -49,11 +53,13 @@ def get_length(item,num_indirection):
 
 def get_schema_type(type):
     if type in ["char","size_t"] or type.startswith("uint"):
-        return "uint64"
-    elif type in ["float","double"]:
-        return type
+        return "UInt64"
+    elif type=="float":
+        return "Float32"
+    elif type=="double":
+        return "Float64"
     else:
-        return "sint64"
+        return "Int64"
         
 for item in vk.findall("./types/type"):
     result={}
@@ -77,12 +83,15 @@ for item in vk.findall("./types/type"):
             for i,elem in enumerate(item.findall("member")):
                 member={}
                 
+                for comment in elem.findall("comment"):
+                    elem.remove(comment)
+                    
                 if elem.attrib.get("api","")=="vulkansc":
                     continue
                 
                 member["name"]=elem.find("name").text
                 member["const"]=(elem.text or "").startswith("const")
-                member["relation"]="member"
+                member["kind"]="member"
                 
                 type=elem.find("type")
                 member["type"]=type.text
@@ -95,6 +104,8 @@ for item in vk.findall("./types/type"):
                     result["sType"]=elem.attrib.get("values","")
                 
                 member["header"]=ET.tostring(elem, encoding='utf8', method='text').decode()
+                
+                member["header"]=clean_header(member["header"])
                 
                 if kind=="struct" and member["name"]=="pNext" and member["type"]=="void" and member["num_indirection"]==1:
                     member["type"]="pNext"
@@ -126,6 +137,8 @@ for item in vk.findall("./types/type"):
         header[1]=name
         result["header"]="(".join(header).replace("(","",1).strip().removeprefix("typedef").strip().removesuffix(";")
         
+        result["header"]=clean_header(result["header"])
+        
         result["return"]=result["header"].split()[0]
         result["num_indirection"]=result["return"].count("*")
 
@@ -139,7 +152,7 @@ for item in vk.findall("./types/type"):
             
             qualifiers=clean(cur_tail.split(",")[-1]) #Get previous tail and split from the back
             param["const"]=qualifiers.startswith("const")
-            param["relation"]="param"
+            param["kind"]="param"
             param["type"]=elem.text
             param["num_indirection"]=elem.tail.lstrip().count("*")
             
@@ -150,6 +163,7 @@ for item in vk.findall("./types/type"):
             
             param["header"]=qualifiers+" "+ET.tostring(elem, encoding='utf8', method='text').decode().strip().split(",")[0]
             
+            param["header"]=clean_header(param["header"])
             
             if param["header"].endswith(","):
                 param["header"]=param["header"].removesuffix(",")
@@ -227,11 +241,12 @@ for item in vk.findall("./commands/command"):
             param["const"]=(elem.text or "").startswith("const")
             param["num_indirection"]=elem.find("type").tail.count("*")
             param["length"]=get_length(elem,param["num_indirection"])
-            param["relation"]="param"
+            param["kind"]="param"
             param["type"]=elem.find("type").text
             param["schema"]=get_schema_type(param["type"])
             
             param["header"]=ET.tostring(elem, encoding='utf8', method='text').decode()
+            param["header"]=clean_header(param["header"])
             
             param["name"]=elem.find("name").text
             
@@ -257,10 +272,13 @@ for item in vk.findall("./commands/command"):
         header.append(")")
         
         result["header"]=header[0]+",\n ".join(header[1:-1])+"\n"+header[-1]
+        result["header"]=clean_header(result["header"])
         
         result["params"]=params
         
     output[name]=result
+
+#TODO: Autogenerate schema based on output dictionary (specifiically here, as all commands might be sent)
 
 from ahocorapy.keywordtree import KeywordTree
 import os, string
@@ -297,6 +315,3 @@ for feature,is_implemented in are_features_implemented(output.keys()).items():
         del output[feature]
 
 json.dump(output,open("parsed.json","w+"),indent=4)
-
-
-#TODO: Autogenerate schema based on output dictionary
