@@ -52,7 +52,7 @@ def get_length(item,num_indirection):
     
 
 def get_schema_type(type):
-    if type in ["char","size_t"] or type.startswith("uint"):
+    if type in ["char","size_t","void"] or type.startswith("uint"):
         return "UInt64"
     elif type=="float":
         return "Float32"
@@ -67,8 +67,7 @@ for item in vk.findall("./types/type"):
     
     if item.attrib.get("requires","").endswith(".h"):
         name=item.attrib["name"]
-        kind="external_handle"
-        result["schema"]=get_schema_type("uintptr_t")
+        result["alias"]="uintptr_t"
         
     elif kind in ["struct","union"]:
         name=item.attrib["name"]
@@ -96,7 +95,6 @@ for item in vk.findall("./types/type"):
                 type=elem.find("type")
                 member["type"]=type.text
                 
-                member["schema"]=get_schema_type(member["type"])
                 member["num_indirection"]=type.tail.count("*")
                 member["length"]=get_length(elem,member["num_indirection"])
                 
@@ -124,7 +122,7 @@ for item in vk.findall("./types/type"):
         elif item.attrib.get("name",None):
             name=item.attrib["name"]
             
-        result["schema"]=get_schema_type("uintptr_t")
+        result["alias"]="uintptr_t"
             
     elif kind=="funcpointer":
         name=item.find("name").text
@@ -139,10 +137,10 @@ for item in vk.findall("./types/type"):
         
         result["header"]=clean_header(result["header"])
         
-        result["return"]=result["header"].split()[0]
-        result["num_indirection"]=result["return"].count("*")
+        result["type"]=result["header"].split()[0]
+        result["num_indirection"]=result["type"].count("*")
 
-        result["return"]=result["return"].replace("*","")
+        result["type"]=result["type"].replace("*","")
         
         params=[]
         
@@ -178,8 +176,7 @@ for item in vk.findall("./types/type"):
             name=item.attrib["name"]
         else:
             name=item.find("name").text
-        result["schema"]=get_schema_type(kind)
-        kind="primitive"
+        result["alias"]="int"
         
     elif kind=="basetype":
         name=item.find("name").text
@@ -200,7 +197,7 @@ for item in vk.findall("./types/type"):
                 if match is None:
                     continue
                 result["kind"]="external_handle"
-                result["schema"]=get_schema_type("uintptr_t")
+                result["alias"]="uintptr_t"
                 continue
                 
             match_type=match.groups(1)[0]
@@ -230,7 +227,7 @@ for item in vk.findall("./commands/command"):
         header.append(f"""{item.find("proto/type").text} {item.find("proto/name").text}(\n""")
         name=item.find("proto/name").text
     
-        result["return"]=item.find("proto/type").text
+        result["type"]=item.find("proto/type").text
         result["num_indirection"]=item.find("proto/type").tail.count("*")
         
         params=[]
@@ -243,7 +240,6 @@ for item in vk.findall("./commands/command"):
             param["length"]=get_length(elem,param["num_indirection"])
             param["relation"]="param"
             param["type"]=elem.find("type").text
-            param["schema"]=get_schema_type(param["type"])
             
             param["header"]=ET.tostring(elem, encoding='utf8', method='text').decode()
             param["header"]=clean_header(param["header"])
@@ -279,6 +275,10 @@ for item in vk.findall("./commands/command"):
     output[name]=result
 
 output["pNext"]={"kind":"struct"} #Just a stub for a custom class we'll override
+
+schemas={}
+
+
 
 #TODO: Autogenerate schema based on output dictionary (specifiically here, as all commands might be sent)
 
