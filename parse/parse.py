@@ -53,17 +53,6 @@ def get_length(item,info):
             result[0]="null-terminated"
     info["length"]=result
     
-
-def get_schema_type(type):
-    if type in ["char","size_t","void"] or type.startswith("uint"):
-        return "UInt64"
-    elif type=="float":
-        return "Float32"
-    elif type=="double":
-        return "Float64"
-    else:
-        return "Int64"
-        
 for item in vk.findall("./types/type"):
     result={}
     kind=item.attrib.get("category","")
@@ -129,9 +118,6 @@ for item in vk.findall("./types/type"):
             
     elif kind=="funcpointer":
         name=item.find("name").text
-        
-        if name=="PFN_vkVoidFunction":
-            continue
         
         header=ET.tostring(item, encoding='utf8', method='text').decode()
         header=header.split("(")
@@ -284,26 +270,46 @@ for item in vk.findall("./commands/command"):
     parsed[name]=result
 
 parsed["pNext"]={"kind":"struct"} #Just a stub for a custom class we'll override
+parsed["uintptr_t"]={"kind": "primitive"}
 
+def map_type_to_schema(type):
+    if type in ["char","size_t","void"] or type.startswith("uint"):
+        return "UInt64"
+    elif type=="float":
+        return "Float32"
+    elif type=="double":
+        return "Float64"
+    else:
+        return "Int64"
+        
 schemas={}
 
-def generate_schema(info, name=None):
-    if name is None:
-        name=info["name"]
-    
+def get_schema_type(info, name=None):
     if name in schemas:
         return schemas[name]
-        
+    
+    kind=info.get("kind","")
+    length=len(info.get("length",[]))
+    type=info.get("type","")
+    
     if "alias" in info:
         alias=info["alias"]
-        result=generate_schema(parsed[alias],alias)
+        result=get_schema_type(parsed[alias],alias)
     else:
-        pass
+        if kind=="primitive":
+            result=map_type_to_schema(name)
+        elif kind in ["struct","funcpointer"]:
+            result=name
+        else:
+            result=("List("*length)+get_schema_type(parsed[type],type)+(")"*length)
+            
+    if name is not None:           
+        schemas[name]=result
     
-    schemas[name]=result
+    return result
         
-
-#TODO: Autogenerate schema based on parsed dictionary (specifiically here, as all commands might be sent)
+    
+#TODO: Autogenerate schema based on parsed dictionary (specifiically here, as any command might be sent)
 
 from ahocorapy.keywordtree import KeywordTree
 import os, string
