@@ -91,7 +91,7 @@ for item in vk.findall("./types/type"):
                 
                 member["name"]=elem.find("name").text
                 member["const"]=(elem.text or "").startswith("const")
-                member["kind"]="member"
+                member["relation"]="member"
                 
                 type=elem.find("type")
                 member["type"]=type.text
@@ -152,7 +152,7 @@ for item in vk.findall("./types/type"):
             
             qualifiers=clean(cur_tail.split(",")[-1]) #Get previous tail and split from the back
             param["const"]=qualifiers.startswith("const")
-            param["kind"]="param"
+            param["relation"]="param"
             param["type"]=elem.text
             param["num_indirection"]=elem.tail.lstrip().count("*")
             
@@ -241,7 +241,7 @@ for item in vk.findall("./commands/command"):
             param["const"]=(elem.text or "").startswith("const")
             param["num_indirection"]=elem.find("type").tail.count("*")
             param["length"]=get_length(elem,param["num_indirection"])
-            param["kind"]="param"
+            param["relation"]="param"
             param["type"]=elem.find("type").text
             param["schema"]=get_schema_type(param["type"])
             

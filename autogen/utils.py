@@ -18,12 +18,6 @@ random_string = lambda seed: ''.join(random.Random(json.dumps(seed)).choices(str
 
 def is_void(name):
     return name["type"]=="void" and name["num_indirection"]==0
-
-def proto_concat(beginning, middle, end):
-    return beginning+"."+middle+end.title()
-
-def native_concat(beginning, middle, end):
-    return "("+beginning+("." if middle["kind"]=="member" else "")+end+")"
     
 def convert(native,proto,attr,info, serialize, initialize=False):
     """
@@ -31,15 +25,73 @@ def convert(native,proto,attr,info, serialize, initialize=False):
     If not: Reader to C++ object
     """
     
+    info=copy.deepcopy(info) #To avoid modifying the mutable arguments
+    
     if is_void(info):
         return ""
-        
-    val=copy.deepcopy(info)
     
-    num_indirection=val["num_indirection"]
-    length=val["length"].copy()
-    type=val['type']
+    #Make it easier to refer to
+    num_indirection=info["num_indirection"]
+    length=info["length"]
+    type=info['type']
     kind=parsed[type]["kind"]
+    
+    def proto_concat(action, argument=""):
+        relation=info["relation"]
+        args=([] if argument=="" else [argument])
+        
+        if relation=="index":
+            if action=="set":
+                child=f".{action}"
+                args.insert(0,attr)
+            elif action=="disown": #This is only used when dealing indices that points to a list
+                child=".init"
+                args.insert(0,attr)
+            elif action=="has":
+                child=f"[{attr}].size" #!size() is true when list is empty
+                args=None
+            elif action=="init":
+                if len(length)>0:
+                    if kind=="struct":
+                        child=f"[{attr}]" #When a list of structs are initialized, each element is also initialized, so nothing has to be done
+                        args=None
+                    else:
+                        child=f".{action}"
+                        args.insert(0,attr)
+                else:
+                    child=f"[{attr}]" #When a list of primitives are initialized, each element is also initialized, so nothing has to be done
+                    args=None
+            elif action=="get":
+                child=f"[{attr}]"
+                args=None
+            else:
+                raise ValueError("Unsupported action for Lists! Something has gone wrong.")
+                
+        else:
+            child=f".{action}{attr.title()}"
+        
+        if args is None:
+            args=""
+        else:
+            args=f"({','.join(args)})"
+            
+        return proto+child+args
+    
+    def native_concat():
+        relation=info["relation"]
+        
+        if relation=="index":
+            child=f"[{attr}]"
+        elif relation=="member":
+            child=f".{attr}"
+        elif relation=="param": #In this case, parent MUST be ""
+            child=attr
+            
+        return "("+native+child+")"
+    def args():
+        parent_function=inspect.getouterframes( inspect.currentframe() )[1]
+        args_tuple=parent_function.f_code.co_varnames
+        return [locals()[arg] for arg in args_tuple]
     
     deserialize=not serialize
     if serialize:
@@ -47,22 +99,22 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         
     result="[&](){"
     
-    if deserialize and val.get("const",False) and not(len(length)>0 and num_indirection==0): #Const pointer, which can be reassigned
+    if deserialize and info.get("const",False) and not(len(length)>0 and num_indirection==0): #Const pointer, which can be reassigned
         if initialize:
-            temp_variable="temp_"+random_string(val)
-            result+=val["header"].replace("const","").replace(val["name"],temp_variable)
+            temp_variable="temp_"+random_string(info)
+            result+=info["header"].replace("const","").replace(info["name"],temp_variable)
             
-            val["const"]=False
-            result+=convert(native,proto,attr,val,serialize,initialize)
-            result+=f"{native_concat(native,info,attr)}={temp_variable};"
+            info["const"]=False
+            result+=convert(*args())
+            result+=f"{native_concat()}={temp_variable};"
             result+="}();"
             return result
         else: #Not initializing, so won't make any sense to override
             return ""
-    elif "alias" in val:
-        val=parsed[val["alias"]]
-        val["num_indirection"]+=num_indirection
-        result+=convert(native,proto, attr,val,serialize,initialize)
+    elif "alias" in info:
+        info=parsed[info["alias"]]
+        info["num_indirection"]+=num_indirection
+        result+=convert(*args())
         
         result+="}();"
         return result
@@ -70,96 +122,96 @@ def convert(native,proto,attr,info, serialize, initialize=False):
     if num_indirection>0:
         if serialize:
             result+=f"""
-            if ({native_concat(native,info,attr)}==NULL){{
-                {proto_concat(proto,"disown",attr)}();
+            if ({native_concat()}==NULL){{
+                {proto_concat("disown")};
             }}
             """
         else:
             result+=f"""
-            if (!{proto_concat(native,"has",attr)}()){{
-                {native_concat(native,info,attr)}=NULL;
+            if (!{proto_concat("has")}){{
+                {native_concat()}=NULL;
             }}
             """
         result +="return;"
         
     if (type=="void" and num_indirection==1):
-        val["type"]="char"
+        info["type"]="char"
         if len(length)==0: #Doesn't have predefined length
-            val["length"].append("null-terminated")
+            info["length"].append("null-terminated")
         
         if serialize:
-            temp=f"(char*){native_concat(native,val,attr)}"
+            native=f"(char*){native_concat()}"
         else:
-            temp=f"{temp}_{random_string(val)}"
-            result+=f"char* {temp};"
+            native=f"{temp}_{random_string(info)}"
+            result+=f"char* {native};"
             
-        result+=convert(temp,proto,attr,val,serialize,initialize)
+        result+=convert(*args())
+        
         if not serialize:
-            result+=f"{native_concat(native,val,attr)}={temp};"
+            result+=f"{native_concat()}={temp};"
     
     elif (info["kind"]=="external_handle" and num_indirection<2):
             if serialize:
-                result+=f"""{proto_concat(proto,"set",attr)}((uintptr_t){native_concat(native,info,attr)});"""
+                result+=f"""{proto_concat("set","(uintptr_t)"+native_concat(native,attr,info))};"""
             else:
-                result+=f"""{native_concat(native,info,attr)}=(uintptr_t){proto_concat(proto,"get",attr)}();"""
+                result+=f"""{native_concat()}=(uintptr_t){proto_concat("get")};"""
                 
     elif len(length)>0:
-        size=length[-1]
-        temp_iterator=random_string(val)
-        
-        val["num_indirection"]-=1
-        val["length"].pop()
+        size=info["length"].pop()
+        temp_iterator=random_string(info)
         
         if size=="null-terminated":
             if serialize:
-                size=f"strlen({native_concat(native,val,attr)})+1"
+                size=f"strlen({native_concat()})+1"
             else:
-                size=f"""{proto_concat(proto,"get",attr)}().size();"""
+                size=f"""{proto_concat("get")}.size();"""
                 
         if deserialize and num_indirection>0: #Dynamic array, so each element of char** would be char*
             if initialize:
-                result+=f"""{{native_concat(native,val,attr)}}=({type+("*"*num_indirection)})malloc({size}*sizeof({type+("*"*(num_indirection-1))}));"""
-            val["num_indirection"]-=1 
-            
-        index=f"[{temp_iterator}]"
+                result+=f"""{{native_concat()}}=({type+("*"*num_indirection)})malloc({size}*sizeof({type+("*"*(num_indirection-1))}));"""
         
-        native_arr=native_concat(native,val,attr)
+        info["num_indirection"]-=1
+        
+        native=native_concat()
         
         if serialize:
-            proto_arr=f"""{proto_concat(proto,"init",attr)}({size})"""
+            proto_arr=f"""{proto_concat("init")}"""
         else:
-            proto_arr=f"""{proto_concat(proto,"get",attr)}()"""
-            
+            proto_arr=f"""{proto_concat("get",size)}"""
+        
+        attr=temp_iterator
+        info["relation"]="index"
+        proto="proto_arr"
+        
         result+=f"""
-        auto arr={proto_arr};
+        auto proto_arr={proto_arr};
         for(int {temp_iterator}=0; {temp_iterator} < {size}; {temp_iterator}++){{
-            auto temp=arr{index};
-            {convert(native_arr+index,"temp",attr,val,serialize,initialize)}
+            {convert(*args())}
         }}
         """
     
     elif kind in ["struct","funcpointer"]: #pNext is handled specially as a union
         if serialize:
             result+=f"""
-            auto temp={proto_concat(proto,"init",attr)};
-            return serialize_{type}({native_concat(native,info,attr)}, temp);
+            auto temp={proto_concat("init",attr)};
+            return serialize_{type}({native_concat()}, temp);
             """
         else:
             if kind=="funcpointer":
                 result+="#ifdef CLIENT"
                 
             result+=f"""
-            auto temp={proto_concat(proto,"get",attr)};
-            {native_concat(native,info,attr)}=deserialize_{type}(temp);
+            auto temp={proto_concat("get")};
+            {native_concat()}=deserialize_{type}(temp);
             """
             if kind=="funcpointer":
                 result+="#endif"
                 
     elif kind=="primitive": #Handle primitives inline
         if serialize:
-            result+=f"""return {proto_concat(proto,"set",attr)}({native_concat(native,info,attr)});"""
+            result+=f"""return {proto_concat("set")}({native_concat()});"""
         else:
-            result+=f"""{native_concat(native,info,attr)}={proto_concat(proto,"get",attr)}();"""
+            result+=f"""{native_concat()}={proto_concat("get")}();"""
     else:
         raise ValueError("Unhandled type! This shouldn't happen")
     result+="}();"
