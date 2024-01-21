@@ -6,7 +6,7 @@ import json
 import textwrap
 vk=ET.parse("../external/Vulkan-Headers/registry/vk.xml").getroot()
 
-output={}
+parsed={}
 
 def clean(string):
     return re.sub(r'[^a-zA-Z0-9]','',string)
@@ -15,8 +15,9 @@ def clean_header(header):
     header=header.replace("\n"," ")
     return re.sub(r"\s+"," ", header).strip()
     
-def get_length(item,num_indirection):
+def get_length(item,info):
     name_element=item.find("name")
+    num_indirection=info["num_indirection"]
     if name_element is None:
         result=None
     else:
@@ -48,6 +49,8 @@ def get_length(item,num_indirection):
     
     if result==[] and num_indirection>0:
         result=[1]*num_indirection
+        if info["type"] in ["void","char"]:
+            result[0]="null-terminated"
     return result
     
 
@@ -96,7 +99,7 @@ for item in vk.findall("./types/type"):
                 member["type"]=type.text
                 
                 member["num_indirection"]=type.tail.count("*")
-                member["length"]=get_length(elem,member["num_indirection"])
+                member["length"]=get_length(elem,member)
                 
                 if member["name"]=="sType":
                     result["sType"]=elem.attrib.get("values","")
@@ -157,7 +160,7 @@ for item in vk.findall("./types/type"):
             cur_tail=elem.tail
             param["name"]=clean(cur_tail.split(",")[0]) #Split from the head
             
-            param["length"]=get_length(elem,param["num_indirection"])
+            param["length"]=get_length(elem,param)
             
             param["header"]=qualifiers+" "+ET.tostring(elem, encoding='utf8', method='text').decode().strip().split(",")[0]
             
@@ -171,13 +174,17 @@ for item in vk.findall("./types/type"):
             params.append(param)
         result["params"]=params
     
-    elif (item.attrib.get("requires",None)=="vk_platform") or (kind in ["enum","bitmask","int"]):
+    elif (item.attrib.get("requires",None)=="vk_platform") or (kind in ["enum","bitmask"]) or item.attrib.get("name","")=="int":
         if "name" in item.attrib:
             name=item.attrib["name"]
         else:
             name=item.find("name").text
-        result["alias"]="int"
         
+        if kind!="":
+            result["alias"]="int"
+        else:
+            kind="primitive"
+            
     elif kind=="basetype":
         name=item.find("name").text
         if item.find("type") is None:
@@ -198,6 +205,7 @@ for item in vk.findall("./types/type"):
                     continue
                 result["kind"]="external_handle"
                 result["alias"]="uintptr_t"
+                parsed[name]=result
                 continue
                 
             match_type=match.groups(1)[0]
@@ -205,15 +213,16 @@ for item in vk.findall("./types/type"):
             child.text=match_type.replace("*","")
             child.tail=("*"*match_type.count("*"))
         
-        result["alias"]=item.find("type").text
+        result["type"]=item.find("type").text
         result["num_indirection"]=item.find("type").tail.count("*")
+        result["length"]=get_length(item,result)
     else:
         continue
     
     if "kind" not in result:
         result["kind"]=kind
         
-    output[name]=result
+    parsed[name]=result
 
         
 for item in vk.findall("./commands/command"):
@@ -237,9 +246,9 @@ for item in vk.findall("./commands/command"):
             
             param["const"]=(elem.text or "").startswith("const")
             param["num_indirection"]=elem.find("type").tail.count("*")
-            param["length"]=get_length(elem,param["num_indirection"])
             param["relation"]="param"
             param["type"]=elem.find("type").text
+            param["length"]=get_length(elem,param)
             
             param["header"]=ET.tostring(elem, encoding='utf8', method='text').decode()
             param["header"]=clean_header(param["header"])
@@ -272,15 +281,26 @@ for item in vk.findall("./commands/command"):
         
         result["params"]=params
         
-    output[name]=result
+    parsed[name]=result
 
-output["pNext"]={"kind":"struct"} #Just a stub for a custom class we'll override
+parsed["pNext"]={"kind":"struct"} #Just a stub for a custom class we'll override
 
 schemas={}
 
+def generate_schema(info, name=None):
+    if name is None:
+        name=info["name"]
+    
+    if name in schemas:
+        return schemas[name]
+        
+    if "alias" in info:
+        result=generate_schema(parsed[info["alias"]],info["alias"])
+    else:
+        pass
+        
 
-
-#TODO: Autogenerate schema based on output dictionary (specifiically here, as all commands might be sent)
+#TODO: Autogenerate schema based on parsed dictionary (specifiically here, as all commands might be sent)
 
 from ahocorapy.keywordtree import KeywordTree
 import os, string
@@ -311,9 +331,9 @@ def are_features_implemented(features):
             break
     return result
             
-for feature,is_implemented in are_features_implemented(output.keys()).items():
+for feature,is_implemented in are_features_implemented(parsed.keys()).items():
     if not is_implemented:
         #print(feature)
-        del output[feature]
+        del parsed[feature]
 
-json.dump(output,open("parsed.json","w+"),indent=4)
+json.dump(parsed,open("parsed.json","w+"),indent=4)

@@ -212,6 +212,10 @@ def convert(native,proto,attr,info, serialize, initialize=False):
             result+=f"""return {proto_concat("set")}({native_concat()});"""
         else:
             result+=f"""{native_concat()}={proto_concat("get")}();"""
+    elif kind=="basetype":
+        info=parsed[type]
+        info["num_indirection"]+=num_indirection
+        result+=convert(*args())
     else:
         raise ValueError("Unhandled type! This shouldn't happen")
     result+="}();"
