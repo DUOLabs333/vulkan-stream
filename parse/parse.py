@@ -51,7 +51,7 @@ def get_length(item,info):
         result=[1]*num_indirection
         if info["type"] in ["void","char"]:
             result[0]="null-terminated"
-    return result
+    info["length"]=result
     
 
 def get_schema_type(type):
@@ -99,7 +99,7 @@ for item in vk.findall("./types/type"):
                 member["type"]=type.text
                 
                 member["num_indirection"]=type.tail.count("*")
-                member["length"]=get_length(elem,member)
+                get_length(elem,member)
                 
                 if member["name"]=="sType":
                     result["sType"]=elem.attrib.get("values","")
@@ -160,7 +160,7 @@ for item in vk.findall("./types/type"):
             cur_tail=elem.tail
             param["name"]=clean(cur_tail.split(",")[0]) #Split from the head
             
-            param["length"]=get_length(elem,param)
+            get_length(elem,param)
             
             param["header"]=qualifiers+" "+ET.tostring(elem, encoding='utf8', method='text').decode().strip().split(",")[0]
             
@@ -215,7 +215,7 @@ for item in vk.findall("./types/type"):
         
         result["type"]=item.find("type").text
         result["num_indirection"]=item.find("type").tail.count("*")
-        result["length"]=get_length(item,result)
+        get_length(item,result)
     else:
         continue
     
@@ -248,7 +248,7 @@ for item in vk.findall("./commands/command"):
             param["num_indirection"]=elem.find("type").tail.count("*")
             param["relation"]="param"
             param["type"]=elem.find("type").text
-            param["length"]=get_length(elem,param)
+            get_length(elem,param)
             
             param["header"]=ET.tostring(elem, encoding='utf8', method='text').decode()
             param["header"]=clean_header(param["header"])
@@ -295,9 +295,12 @@ def generate_schema(info, name=None):
         return schemas[name]
         
     if "alias" in info:
-        result=generate_schema(parsed[info["alias"]],info["alias"])
+        alias=info["alias"]
+        result=generate_schema(parsed[alias],alias)
     else:
         pass
+    
+    schemas[name]=result
         
 
 #TODO: Autogenerate schema based on parsed dictionary (specifiically here, as all commands might be sent)

@@ -18,6 +18,17 @@ random_string = lambda seed: ''.join(random.Random(json.dumps(seed)).choices(str
 
 def is_void(name):
     return name["type"]=="void" and name["num_indirection"]==0
+
+def update_dict(info, alias):
+    alias=parsed[alias]
+    length=info["length"]
+    num_indirection=info["num_indirection"]
+    
+    info.clear()
+    info.update(alias)
+    
+    info["length"].extend(length)
+    info["num_indirection"]+=num_indirection
     
 def convert(native,proto,attr,info, serialize, initialize=False):
     """
@@ -112,8 +123,7 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         else: #Not initializing, so won't make any sense to override
             return ""
     elif "alias" in info:
-        info=parsed[info["alias"]]
-        info["num_indirection"]+=num_indirection
+        update_dict(info, info["alias"])
         result+=convert(*args())
         
         result+="}();"
@@ -213,8 +223,7 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         else:
             result+=f"""{native_concat()}={proto_concat("get")}();"""
     elif kind=="basetype":
-        info=parsed[type]
-        info["num_indirection"]+=num_indirection
+        update_dict(info, type)
         result+=convert(*args())
     else:
         raise ValueError("Unhandled type! This shouldn't happen")
