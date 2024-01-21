@@ -114,7 +114,7 @@ for item in vk.findall("./types/type"):
         elif item.attrib.get("name",None):
             name=item.attrib["name"]
             
-        result["alias"]="uintptr_t"
+        result["type"]="uintptr_t"
             
     elif kind=="funcpointer":
         name=item.find("name").text
@@ -282,11 +282,11 @@ def map_type_to_schema(type):
     else:
         return "Int64"
         
-schemas={}
+schema_types={}
 
 def get_schema_type(info, name=None):
-    if name in schemas:
-        return schemas[name]
+    if name in schema_types:
+        return schema_types[name]
     
     kind=info.get("kind","")
     length=len(info.get("length",[]))
@@ -304,11 +304,95 @@ def get_schema_type(info, name=None):
             result=("List("*length)+get_schema_type(parsed[type],type)+(")"*length)
             
     if name is not None:           
-        schemas[name]=result
+        schema_types[name]=result
     
     return result
-        
+
+schemas={}
+for name,obj in parsed.items():
+    kind=obj.get("kind","")
+    index=0
+    result=[f"struct {name} {{"]
     
+    if "alias" in obj: #If it is a function/funcpointer, when generating code we just return the result from calling the object it's aliased to. If it is a struct, then we don't need to do anything as it's already typedefed for us
+        continue
+    elif name=="pNext":
+        result.append("union {")
+        
+        for name in parsed:
+            if ("alias" in parsed[name]) or parsed.get("kind","")!="struct" or name=="pNext":
+                continue
+            else:
+                result.append(f"{name} @{index} :{name};")
+                index+=1
+        result.append("}")
+    
+    elif kind=="struct":
+        for name, member in obj["members"].items():
+            result.append(f"{name} @{index} :{get_schema_type(member)};")
+            index+=1
+    elif kind in ["command","funcpointer"]:
+        if kind=="command":
+            result.append("parent :union {")
+            result.append(f"device @{index} :{map_type_to_schema('uintptr_t')};")
+            index+=1
+            
+            result.append(f"instance @{index} :{map_type_to_schema('uintptr_t')};")
+            index+=1
+            
+            result.append("}")
+            
+            result.append(f"mem_ptr @{index} :{map_type_to_schema('uintptr_t')};")
+            index+=1
+        else:
+            result.append(f"id @{index} :{map_type_to_schema('int')};")
+            index+=1
+        
+        
+        result.append(f"return @{index} :{get_scheme_type(obj)};")
+        index+=1
+        
+        for name, param in obj["params"].items():
+            result.append(f"{name} @{index} :{get_schema_type(param)};")
+            index+=1
+    else:
+        continue
+    result.append("}")
+    schemas[name]="\n".join(result)
+
+schemas["Sync"]=f"""
+struct Sync {{
+    devicememory @0 :{get_schema_type(parsed["VkDeviceMemory"])};
+    mem @1 :{map_type_to_schema("uintptr_t")};
+    starts @2 :List({map_type_to_schema("size_t")});
+    lengths @3 :List({map_type_to_schema("size_t")});
+    hashes @4 :List(Text);
+    buffers @5 :List(Text);
+}}
+"""
+
+message_schema=[f"""
+struct Message {{
+    uuid @0 :{map_type_to_schema("int")};
+    union {{
+    Sync @0 :Sync;
+"""]
+index=1
+
+for name in parsed:
+    if ("alias" in parsed[name]) or parsed.get("kind","") not in ["command", "funcpointer"]:
+        continue
+    else:
+        message_schema.append(f"{name} @{index} :{name};")
+        index+=1
+
+schemas["Message"]="\n".join(message_schema)
+
+schema_file=open("schema.capnp","w+")
+for name, schema in schemas.items():
+    schema_file.write(schema)
+schema_file.close()
+
 #TODO: Autogenerate schema based on parsed dictionary (specifiically here, as any command might be sent)
 
 from ahocorapy.keywordtree import KeywordTree

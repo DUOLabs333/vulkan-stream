@@ -165,7 +165,7 @@ def convert(native,proto,attr,info, serialize, initialize=False):
                 result+=f"""{native_concat()}=(uintptr_t){proto_concat("get")};"""
                 
     elif len(length)>0:
-        size=info["length"].pop()
+        size=length.pop()
         temp_iterator=random_string(info)
         
         if size=="null-terminated":
@@ -202,7 +202,7 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         if serialize:
             result+=f"""
             auto temp={proto_concat("init",attr)};
-            return serialize_{type}({native_concat()}, temp);
+            return serialize_{kind}({native_concat()}, temp);
             """
         else:
             if kind=="funcpointer":
@@ -210,19 +210,24 @@ def convert(native,proto,attr,info, serialize, initialize=False):
                 
             result+=f"""
             auto temp={proto_concat("get")};
-            {native_concat()}=deserialize_{type}(temp);
+            {native_concat()}=deserialize_{kind}(temp);
             """
             if kind=="funcpointer":
                 result+="#endif"
                 
-    elif kind=="primitive": #Handle primitives inline
+    elif kind=="primitive":
         if serialize:
-            result+=f"""return {proto_concat("set")}({native_concat()});"""
+            result+=f"""return {proto_concat("set", native_concat())};"""
         else:
-            result+=f"""{native_concat()}={proto_concat("get")}();"""
+            result+=f"""{native_concat()}={proto_concat("get")};"""
     elif kind=="basetype":
         update_dict(info, type)
         result+=convert(*args())
+    elif kind=="handle":
+        if serialize:
+            result+=f"""return {proto_concat("set", f"serialize_handle{native_concat()}")};"""
+        else:
+            result+=f"""{native_concat()}=deserialize_{kind}({proto_concat("get")});"""
     else:
         raise ValueError("Unhandled type! This shouldn't happen")
     result+="}();"
