@@ -134,15 +134,13 @@ def convert(native,proto,attr,info, serialize, initialize=False):
             result+=f"""
             if ({native_concat()}==NULL){{
                 {proto_concat("disown")};
-            }}
             """
         else:
             result+=f"""
             if (!{proto_concat("has")}){{
                 {native_concat()}=NULL;
-            }}
             """
-        result +="return;"
+        result +="return; }"
         
     if (type=="void" and num_indirection==1):
         info["type"]="char"
