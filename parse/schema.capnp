@@ -178,7 +178,7 @@ description @3 :List(UInt64);
 
 struct VkApplicationInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pApplicationName @2 :List(UInt64);
 applicationVersion @3 :UInt64;
 pEngineName @4 :List(UInt64);
@@ -197,7 +197,7 @@ pfnInternalFree @5 :PFNvkInternalFreeNotification;
 
 struct VkDeviceQueueCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 queueFamilyIndex @3 :UInt64;
 queueCount @4 :UInt64;
@@ -206,7 +206,7 @@ pQueuePriorities @5 :List(Float32);
 
 struct VkDeviceCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 queueCreateInfoCount @3 :UInt64;
 pQueueCreateInfos @4 :List(VkDeviceQueueCreateInfo);
@@ -219,7 +219,7 @@ pEnabledFeatures @9 :List(VkPhysicalDeviceFeatures);
 
 struct VkInstanceCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 pApplicationInfo @3 :List(VkApplicationInfo);
 enabledLayerCount @4 :UInt64;
@@ -244,7 +244,7 @@ memoryHeaps @3 :List(VkMemoryHeap);
 
 struct VkMemoryAllocateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 allocationSize @2 :UInt64;
 memoryTypeIndex @3 :UInt64;
 }
@@ -281,7 +281,7 @@ flags @1 :Int64;
 
 struct VkMappedMemoryRange {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memory @2 :UInt64;
 offset @3 :UInt64;
 size @4 :UInt64;
@@ -315,7 +315,7 @@ imageLayout @2 :Int64;
 
 struct VkWriteDescriptorSet {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 dstSet @2 :UInt64;
 dstBinding @3 :UInt64;
 dstArrayElement @4 :UInt64;
@@ -328,7 +328,7 @@ pTexelBufferView @9 :List(UInt64);
 
 struct VkCopyDescriptorSet {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcSet @2 :UInt64;
 srcBinding @3 :UInt64;
 srcArrayElement @4 :UInt64;
@@ -340,13 +340,13 @@ descriptorCount @8 :UInt64;
 
 struct VkBufferUsageFlags2CreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 usage @2 :Int64;
 }
 
 struct VkBufferCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 size @3 :UInt64;
 usage @4 :Int64;
@@ -357,7 +357,7 @@ pQueueFamilyIndices @7 :List(UInt64);
 
 struct VkBufferViewCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 buffer @3 :UInt64;
 format @4 :Int64;
@@ -388,14 +388,14 @@ layerCount @4 :UInt64;
 
 struct VkMemoryBarrier {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcAccessMask @2 :Int64;
 dstAccessMask @3 :Int64;
 }
 
 struct VkBufferMemoryBarrier {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcAccessMask @2 :Int64;
 dstAccessMask @3 :Int64;
 srcQueueFamilyIndex @4 :UInt64;
@@ -407,7 +407,7 @@ size @8 :UInt64;
 
 struct VkImageMemoryBarrier {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcAccessMask @2 :Int64;
 dstAccessMask @3 :Int64;
 oldLayout @4 :Int64;
@@ -420,7 +420,7 @@ subresourceRange @9 :VkImageSubresourceRange;
 
 struct VkImageCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 imageType @3 :Int64;
 format @4 :Int64;
@@ -446,7 +446,7 @@ depthPitch @4 :UInt64;
 
 struct VkImageViewCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 image @3 :UInt64;
 viewType @4 :Int64;
@@ -498,7 +498,7 @@ pBinds @2 :List(VkSparseImageMemoryBind);
 
 struct VkBindSparseInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 waitSemaphoreCount @2 :UInt64;
 pWaitSemaphores @3 :List(UInt64);
 bufferBindCount @4 :UInt64;
@@ -560,7 +560,7 @@ extent @4 :VkExtent3D;
 
 struct VkShaderModuleCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 codeSize @3 :UInt64;
 pCode @4 :List(UInt64);
@@ -576,7 +576,7 @@ pImmutableSamplers @4 :List(UInt64);
 
 struct VkDescriptorSetLayoutCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 bindingCount @3 :UInt64;
 pBindings @4 :List(VkDescriptorSetLayoutBinding);
@@ -589,7 +589,7 @@ descriptorCount @1 :UInt64;
 
 struct VkDescriptorPoolCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 maxSets @3 :UInt64;
 poolSizeCount @4 :UInt64;
@@ -598,7 +598,7 @@ pPoolSizes @5 :List(VkDescriptorPoolSize);
 
 struct VkDescriptorSetAllocateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 descriptorPool @2 :UInt64;
 descriptorSetCount @3 :UInt64;
 pSetLayouts @4 :List(UInt64);
@@ -619,7 +619,7 @@ pData @3 :List(UInt64);
 
 struct VkPipelineShaderStageCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 stage @3 :Int64;
 module @4 :UInt64;
@@ -629,7 +629,7 @@ pSpecializationInfo @6 :List(VkSpecializationInfo);
 
 struct VkComputePipelineCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 stage @3 :VkPipelineShaderStageCreateInfo;
 layout @4 :UInt64;
@@ -639,7 +639,7 @@ basePipelineIndex @6 :Int64;
 
 struct VkComputePipelineIndirectBufferInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 deviceAddress @2 :UInt64;
 size @3 :UInt64;
 pipelineDeviceAddressCaptureReplay @4 :UInt64;
@@ -647,7 +647,7 @@ pipelineDeviceAddressCaptureReplay @4 :UInt64;
 
 struct VkPipelineCreateFlags2CreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 }
 
@@ -666,7 +666,7 @@ offset @3 :UInt64;
 
 struct VkPipelineVertexInputStateCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 vertexBindingDescriptionCount @3 :UInt64;
 pVertexBindingDescriptions @4 :List(VkVertexInputBindingDescription);
@@ -676,7 +676,7 @@ pVertexAttributeDescriptions @6 :List(VkVertexInputAttributeDescription);
 
 struct VkPipelineInputAssemblyStateCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 topology @3 :Int64;
 primitiveRestartEnable @4 :UInt64;
@@ -684,14 +684,14 @@ primitiveRestartEnable @4 :UInt64;
 
 struct VkPipelineTessellationStateCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 patchControlPoints @3 :UInt64;
 }
 
 struct VkPipelineViewportStateCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 viewportCount @3 :UInt64;
 pViewports @4 :List(VkViewport);
@@ -701,7 +701,7 @@ pScissors @6 :List(VkRect2D);
 
 struct VkPipelineRasterizationStateCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 depthClampEnable @3 :UInt64;
 rasterizerDiscardEnable @4 :UInt64;
@@ -717,7 +717,7 @@ lineWidth @12 :Float32;
 
 struct VkPipelineMultisampleStateCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 rasterizationSamples @3 :Int64;
 sampleShadingEnable @4 :UInt64;
@@ -740,7 +740,7 @@ colorWriteMask @7 :Int64;
 
 struct VkPipelineColorBlendStateCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 logicOpEnable @3 :UInt64;
 logicOp @4 :Int64;
@@ -751,7 +751,7 @@ blendConstants @7 :List(Float32);
 
 struct VkPipelineDynamicStateCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 dynamicStateCount @3 :UInt64;
 pDynamicStates @4 :List(Int64);
@@ -769,7 +769,7 @@ reference @6 :UInt64;
 
 struct VkPipelineDepthStencilStateCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 depthTestEnable @3 :UInt64;
 depthWriteEnable @4 :UInt64;
@@ -784,7 +784,7 @@ maxDepthBounds @11 :Float32;
 
 struct VkGraphicsPipelineCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 stageCount @3 :UInt64;
 pStages @4 :List(VkPipelineShaderStageCreateInfo);
@@ -806,7 +806,7 @@ basePipelineIndex @18 :Int64;
 
 struct VkPipelineCacheCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 initialDataSize @3 :UInt64;
 pInitialData @4 :List(UInt64);
@@ -852,7 +852,7 @@ size @2 :UInt64;
 
 struct VkPipelineLayoutCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 setLayoutCount @3 :UInt64;
 pSetLayouts @4 :List(UInt64);
@@ -862,7 +862,7 @@ pPushConstantRanges @6 :List(VkPushConstantRange);
 
 struct VkSamplerCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 magFilter @3 :Int64;
 minFilter @4 :Int64;
@@ -883,14 +883,14 @@ unnormalizedCoordinates @17 :UInt64;
 
 struct VkCommandPoolCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 queueFamilyIndex @3 :UInt64;
 }
 
 struct VkCommandBufferAllocateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 commandPool @2 :UInt64;
 level @3 :Int64;
 commandBufferCount @4 :UInt64;
@@ -898,7 +898,7 @@ commandBufferCount @4 :UInt64;
 
 struct VkCommandBufferInheritanceInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 renderPass @2 :UInt64;
 subpass @3 :UInt64;
 framebuffer @4 :UInt64;
@@ -909,14 +909,14 @@ pipelineStatistics @7 :Int64;
 
 struct VkCommandBufferBeginInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 pInheritanceInfo @3 :List(VkCommandBufferInheritanceInfo);
 }
 
 struct VkRenderPassBeginInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 renderPass @2 :UInt64;
 framebuffer @3 :UInt64;
 renderArea @4 :VkRect2D;
@@ -988,7 +988,7 @@ dependencyFlags @6 :Int64;
 
 struct VkRenderPassCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 attachmentCount @3 :UInt64;
 pAttachments @4 :List(VkAttachmentDescription);
@@ -1000,13 +1000,13 @@ pDependencies @8 :List(VkSubpassDependency);
 
 struct VkEventCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 }
 
 struct VkFenceCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 }
 
@@ -1187,13 +1187,13 @@ nonCoherentAtomSize @105 :UInt64;
 
 struct VkSemaphoreCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 }
 
 struct VkQueryPoolCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 queryType @3 :Int64;
 queryCount @4 :UInt64;
@@ -1202,7 +1202,7 @@ pipelineStatistics @5 :Int64;
 
 struct VkFramebufferCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 renderPass @3 :UInt64;
 attachmentCount @4 :UInt64;
@@ -1246,7 +1246,7 @@ vertexOffset @2 :Int64;
 
 struct VkSubmitInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 waitSemaphoreCount @2 :UInt64;
 pWaitSemaphores @3 :List(UInt64);
 pWaitDstStageMask @4 :List(Int64);
@@ -1283,7 +1283,7 @@ parameters @1 :VkDisplayModeParametersKHR;
 
 struct VkDisplayModeCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 parameters @3 :VkDisplayModeParametersKHR;
 }
@@ -1302,7 +1302,7 @@ maxDstExtent @8 :VkExtent2D;
 
 struct VkDisplaySurfaceCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 displayMode @3 :UInt64;
 planeIndex @4 :UInt64;
@@ -1315,7 +1315,7 @@ imageExtent @9 :VkExtent2D;
 
 struct VkDisplayPresentInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcRect @2 :VkRect2D;
 dstRect @3 :VkRect2D;
 persistent @4 :UInt64;
@@ -1336,21 +1336,21 @@ supportedUsageFlags @9 :Int64;
 
 struct VkAndroidSurfaceCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 window @3 :List(UInt64);
 }
 
 struct VkViSurfaceCreateInfoNN {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 window @3 :List(UInt64);
 }
 
 struct VkWaylandSurfaceCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 display @3 :List(UInt64);
 surface @4 :List(UInt64);
@@ -1358,7 +1358,7 @@ surface @4 :List(UInt64);
 
 struct VkWin32SurfaceCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 hinstance @3 :UInt64;
 hwnd @4 :UInt64;
@@ -1366,7 +1366,7 @@ hwnd @4 :UInt64;
 
 struct VkXlibSurfaceCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 dpy @3 :List(UInt64);
 window @4 :UInt64;
@@ -1374,7 +1374,7 @@ window @4 :UInt64;
 
 struct VkXcbSurfaceCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 connection @3 :List(UInt64);
 window @4 :UInt64;
@@ -1382,7 +1382,7 @@ window @4 :UInt64;
 
 struct VkDirectFBSurfaceCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 dfb @3 :List(UInt64);
 surface @4 :List(UInt64);
@@ -1390,21 +1390,21 @@ surface @4 :List(UInt64);
 
 struct VkImagePipeSurfaceCreateInfoFUCHSIA {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 imagePipeHandle @3 :UInt64;
 }
 
 struct VkStreamDescriptorSurfaceCreateInfoGGP {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 streamDescriptor @3 :UInt64;
 }
 
 struct VkScreenSurfaceCreateInfoQNX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 context @3 :List(UInt64);
 window @4 :List(UInt64);
@@ -1417,7 +1417,7 @@ colorSpace @1 :Int64;
 
 struct VkSwapchainCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 surface @3 :UInt64;
 minImageCount @4 :UInt64;
@@ -1438,7 +1438,7 @@ oldSwapchain @17 :UInt64;
 
 struct VkPresentInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 waitSemaphoreCount @2 :UInt64;
 pWaitSemaphores @3 :List(UInt64);
 swapchainCount @4 :UInt64;
@@ -1449,7 +1449,7 @@ pResults @7 :List(Int64);
 
 struct VkDebugReportCallbackCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 pfnCallback @3 :PFNvkDebugReportCallbackEXT;
 pUserData @4 :List(UInt64);
@@ -1457,14 +1457,14 @@ pUserData @4 :List(UInt64);
 
 struct VkValidationFlagsEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 disabledValidationCheckCount @2 :UInt64;
 pDisabledValidationChecks @3 :List(Int64);
 }
 
 struct VkValidationFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 enabledValidationFeatureCount @2 :UInt64;
 pEnabledValidationFeatures @3 :List(Int64);
 disabledValidationFeatureCount @4 :UInt64;
@@ -1473,7 +1473,7 @@ pDisabledValidationFeatures @5 :List(Int64);
 
 struct VkApplicationParametersEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 vendorID @2 :UInt64;
 deviceID @3 :UInt64;
 key @4 :UInt64;
@@ -1482,13 +1482,13 @@ value @5 :UInt64;
 
 struct VkPipelineRasterizationStateRasterizationOrderAMD {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 rasterizationOrder @2 :Int64;
 }
 
 struct VkDebugMarkerObjectNameInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 objectType @2 :Int64;
 object @3 :UInt64;
 pObjectName @4 :List(UInt64);
@@ -1496,7 +1496,7 @@ pObjectName @4 :List(UInt64);
 
 struct VkDebugMarkerObjectTagInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 objectType @2 :Int64;
 object @3 :UInt64;
 tagName @4 :UInt64;
@@ -1506,26 +1506,26 @@ pTag @6 :List(UInt64);
 
 struct VkDebugMarkerMarkerInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pMarkerName @2 :List(UInt64);
 color @3 :List(Float32);
 }
 
 struct VkDedicatedAllocationImageCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 dedicatedAllocation @2 :UInt64;
 }
 
 struct VkDedicatedAllocationBufferCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 dedicatedAllocation @2 :UInt64;
 }
 
 struct VkDedicatedAllocationMemoryAllocateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 image @2 :UInt64;
 buffer @3 :UInt64;
 }
@@ -1539,66 +1539,66 @@ compatibleHandleTypes @3 :Int64;
 
 struct VkExternalMemoryImageCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handleTypes @2 :Int64;
 }
 
 struct VkExportMemoryAllocateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handleTypes @2 :Int64;
 }
 
 struct VkImportMemoryWin32HandleInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handleType @2 :Int64;
 handle @3 :UInt64;
 }
 
 struct VkExportMemoryWin32HandleInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pAttributes @2 :List(UInt64);
 dwAccess @3 :UInt64;
 }
 
 struct VkExportMemorySciBufInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pAttributes @2 :UInt64;
 }
 
 struct VkImportMemorySciBufInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handleType @2 :Int64;
 handle @3 :UInt64;
 }
 
 struct VkMemoryGetSciBufInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memory @2 :UInt64;
 handleType @3 :Int64;
 }
 
 struct VkMemorySciBufPropertiesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memoryTypeBits @2 :UInt64;
 }
 
 struct VkPhysicalDeviceExternalMemorySciBufFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 sciBufImport @2 :UInt64;
 sciBufExport @3 :UInt64;
 }
 
 struct VkWin32KeyedMutexAcquireReleaseInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 acquireCount @2 :UInt64;
 pAcquireSyncs @3 :List(UInt64);
 pAcquireKeys @4 :List(UInt64);
@@ -1610,13 +1610,13 @@ pReleaseKeys @8 :List(UInt64);
 
 struct VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 deviceGeneratedCommands @2 :UInt64;
 }
 
 struct VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 deviceGeneratedCompute @2 :UInt64;
 deviceGeneratedComputePipelines @3 :UInt64;
 deviceGeneratedComputeCaptureReplay @4 :UInt64;
@@ -1624,25 +1624,25 @@ deviceGeneratedComputeCaptureReplay @4 :UInt64;
 
 struct VkDevicePrivateDataCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 privateDataSlotRequestCount @2 :UInt64;
 }
 
 struct VkPrivateDataSlotCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 }
 
 struct VkPhysicalDevicePrivateDataFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 privateData @2 :UInt64;
 }
 
 struct VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxGraphicsShaderGroupCount @2 :UInt64;
 maxIndirectSequenceCount @3 :UInt64;
 maxIndirectCommandsTokenCount @4 :UInt64;
@@ -1656,13 +1656,13 @@ minIndirectCommandsBufferOffsetAlignment @10 :UInt64;
 
 struct VkPhysicalDeviceMultiDrawPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxMultiDrawCount @2 :UInt64;
 }
 
 struct VkGraphicsShaderGroupCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 stageCount @2 :UInt64;
 pStages @3 :List(VkPipelineShaderStageCreateInfo);
 pVertexInputState @4 :List(VkPipelineVertexInputStateCreateInfo);
@@ -1671,7 +1671,7 @@ pTessellationState @5 :List(VkPipelineTessellationStateCreateInfo);
 
 struct VkGraphicsPipelineShaderGroupsCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 groupCount @2 :UInt64;
 pGroups @3 :List(VkGraphicsShaderGroupCreateInfoNV);
 pipelineCount @4 :UInt64;
@@ -1705,7 +1705,7 @@ offset @1 :UInt64;
 
 struct VkIndirectCommandsLayoutTokenNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 tokenType @2 :Int64;
 stream @3 :UInt64;
 offset @4 :UInt64;
@@ -1723,7 +1723,7 @@ pIndexTypeValues @14 :List(UInt64);
 
 struct VkIndirectCommandsLayoutCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 pipelineBindPoint @3 :Int64;
 tokenCount @4 :UInt64;
@@ -1734,7 +1734,7 @@ pStreamStrides @7 :List(UInt64);
 
 struct VkGeneratedCommandsInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pipelineBindPoint @2 :Int64;
 pipeline @3 :UInt64;
 indirectCommandsLayout @4 :UInt64;
@@ -1752,7 +1752,7 @@ sequencesIndexOffset @14 :UInt64;
 
 struct VkGeneratedCommandsMemoryRequirementsInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pipelineBindPoint @2 :Int64;
 pipeline @3 :UInt64;
 indirectCommandsLayout @4 :UInt64;
@@ -1761,7 +1761,7 @@ maxSequencesCount @5 :UInt64;
 
 struct VkPipelineIndirectDeviceAddressInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pipelineBindPoint @2 :Int64;
 pipeline @3 :UInt64;
 }
@@ -1772,31 +1772,31 @@ pipelineAddress @0 :UInt64;
 
 struct VkPhysicalDeviceFeatures2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 features @2 :VkPhysicalDeviceFeatures;
 }
 
 struct VkPhysicalDeviceProperties2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 properties @2 :VkPhysicalDeviceProperties;
 }
 
 struct VkFormatProperties2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 formatProperties @2 :VkFormatProperties;
 }
 
 struct VkImageFormatProperties2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 imageFormatProperties @2 :VkImageFormatProperties;
 }
 
 struct VkPhysicalDeviceImageFormatInfo2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 format @2 :Int64;
 type @3 :Int64;
 tiling @4 :Int64;
@@ -1806,25 +1806,25 @@ flags @6 :Int64;
 
 struct VkQueueFamilyProperties2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 queueFamilyProperties @2 :VkQueueFamilyProperties;
 }
 
 struct VkPhysicalDeviceMemoryProperties2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memoryProperties @2 :VkPhysicalDeviceMemoryProperties;
 }
 
 struct VkSparseImageFormatProperties2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 properties @2 :VkSparseImageFormatProperties;
 }
 
 struct VkPhysicalDeviceSparseImageFormatInfo2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 format @2 :Int64;
 type @3 :Int64;
 samples @4 :Int64;
@@ -1834,7 +1834,7 @@ tiling @6 :Int64;
 
 struct VkPhysicalDevicePushDescriptorPropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxPushDescriptors @2 :UInt64;
 }
 
@@ -1847,7 +1847,7 @@ patch @3 :UInt64;
 
 struct VkPhysicalDeviceDriverProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 driverID @2 :Int64;
 driverName @3 :List(UInt64);
 driverInfo @4 :List(UInt64);
@@ -1856,7 +1856,7 @@ conformanceVersion @5 :VkConformanceVersion;
 
 struct VkPresentRegionsKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 swapchainCount @2 :UInt64;
 pRegions @3 :List(VkPresentRegionKHR);
 }
@@ -1874,7 +1874,7 @@ layer @2 :UInt64;
 
 struct VkPhysicalDeviceVariablePointersFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 variablePointersStorageBuffer @2 :UInt64;
 variablePointers @3 :UInt64;
 }
@@ -1887,19 +1887,19 @@ compatibleHandleTypes @2 :Int64;
 
 struct VkPhysicalDeviceExternalImageFormatInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handleType @2 :Int64;
 }
 
 struct VkExternalImageFormatProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 externalMemoryProperties @2 :VkExternalMemoryProperties;
 }
 
 struct VkPhysicalDeviceExternalBufferInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 usage @3 :Int64;
 handleType @4 :Int64;
@@ -1907,13 +1907,13 @@ handleType @4 :Int64;
 
 struct VkExternalBufferProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 externalMemoryProperties @2 :VkExternalMemoryProperties;
 }
 
 struct VkPhysicalDeviceIDProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 deviceUUID @2 :List(UInt64);
 driverUUID @3 :List(UInt64);
 deviceLUID @4 :List(UInt64);
@@ -1923,25 +1923,25 @@ deviceLUIDValid @6 :UInt64;
 
 struct VkExternalMemoryImageCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handleTypes @2 :Int64;
 }
 
 struct VkExternalMemoryBufferCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handleTypes @2 :Int64;
 }
 
 struct VkExportMemoryAllocateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handleTypes @2 :Int64;
 }
 
 struct VkImportMemoryWin32HandleInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handleType @2 :Int64;
 handle @3 :UInt64;
 name @4 :UInt64;
@@ -1949,7 +1949,7 @@ name @4 :UInt64;
 
 struct VkExportMemoryWin32HandleInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pAttributes @2 :List(UInt64);
 dwAccess @3 :UInt64;
 name @4 :UInt64;
@@ -1957,60 +1957,60 @@ name @4 :UInt64;
 
 struct VkImportMemoryZirconHandleInfoFUCHSIA {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handleType @2 :Int64;
 handle @3 :UInt64;
 }
 
 struct VkMemoryZirconHandlePropertiesFUCHSIA {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memoryTypeBits @2 :UInt64;
 }
 
 struct VkMemoryGetZirconHandleInfoFUCHSIA {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memory @2 :UInt64;
 handleType @3 :Int64;
 }
 
 struct VkMemoryWin32HandlePropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memoryTypeBits @2 :UInt64;
 }
 
 struct VkMemoryGetWin32HandleInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memory @2 :UInt64;
 handleType @3 :Int64;
 }
 
 struct VkImportMemoryFdInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handleType @2 :Int64;
 fd @3 :Int64;
 }
 
 struct VkMemoryFdPropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memoryTypeBits @2 :UInt64;
 }
 
 struct VkMemoryGetFdInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memory @2 :UInt64;
 handleType @3 :Int64;
 }
 
 struct VkWin32KeyedMutexAcquireReleaseInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 acquireCount @2 :UInt64;
 pAcquireSyncs @3 :List(UInt64);
 pAcquireKeys @4 :List(UInt64);
@@ -2022,13 +2022,13 @@ pReleaseKeys @8 :List(UInt64);
 
 struct VkPhysicalDeviceExternalSemaphoreInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handleType @2 :Int64;
 }
 
 struct VkExternalSemaphoreProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 exportFromImportedHandleTypes @2 :Int64;
 compatibleHandleTypes @3 :Int64;
 externalSemaphoreFeatures @4 :Int64;
@@ -2036,13 +2036,13 @@ externalSemaphoreFeatures @4 :Int64;
 
 struct VkExportSemaphoreCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handleTypes @2 :Int64;
 }
 
 struct VkImportSemaphoreWin32HandleInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 semaphore @2 :UInt64;
 flags @3 :Int64;
 handleType @4 :Int64;
@@ -2052,7 +2052,7 @@ name @6 :UInt64;
 
 struct VkExportSemaphoreWin32HandleInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pAttributes @2 :List(UInt64);
 dwAccess @3 :UInt64;
 name @4 :UInt64;
@@ -2060,7 +2060,7 @@ name @4 :UInt64;
 
 struct VkD3D12FenceSubmitInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 waitSemaphoreValuesCount @2 :UInt64;
 pWaitSemaphoreValues @3 :List(UInt64);
 signalSemaphoreValuesCount @4 :UInt64;
@@ -2069,14 +2069,14 @@ pSignalSemaphoreValues @5 :List(UInt64);
 
 struct VkSemaphoreGetWin32HandleInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 semaphore @2 :UInt64;
 handleType @3 :Int64;
 }
 
 struct VkImportSemaphoreFdInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 semaphore @2 :UInt64;
 flags @3 :Int64;
 handleType @4 :Int64;
@@ -2085,14 +2085,14 @@ fd @5 :Int64;
 
 struct VkSemaphoreGetFdInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 semaphore @2 :UInt64;
 handleType @3 :Int64;
 }
 
 struct VkImportSemaphoreZirconHandleInfoFUCHSIA {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 semaphore @2 :UInt64;
 flags @3 :Int64;
 handleType @4 :Int64;
@@ -2101,20 +2101,20 @@ zirconHandle @5 :UInt64;
 
 struct VkSemaphoreGetZirconHandleInfoFUCHSIA {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 semaphore @2 :UInt64;
 handleType @3 :Int64;
 }
 
 struct VkPhysicalDeviceExternalFenceInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handleType @2 :Int64;
 }
 
 struct VkExternalFenceProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 exportFromImportedHandleTypes @2 :Int64;
 compatibleHandleTypes @3 :Int64;
 externalFenceFeatures @4 :Int64;
@@ -2122,13 +2122,13 @@ externalFenceFeatures @4 :Int64;
 
 struct VkExportFenceCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handleTypes @2 :Int64;
 }
 
 struct VkImportFenceWin32HandleInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fence @2 :UInt64;
 flags @3 :Int64;
 handleType @4 :Int64;
@@ -2138,7 +2138,7 @@ name @6 :UInt64;
 
 struct VkExportFenceWin32HandleInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pAttributes @2 :List(UInt64);
 dwAccess @3 :UInt64;
 name @4 :UInt64;
@@ -2146,14 +2146,14 @@ name @4 :UInt64;
 
 struct VkFenceGetWin32HandleInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fence @2 :UInt64;
 handleType @3 :Int64;
 }
 
 struct VkImportFenceFdInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fence @2 :UInt64;
 flags @3 :Int64;
 handleType @4 :Int64;
@@ -2162,20 +2162,20 @@ fd @5 :Int64;
 
 struct VkFenceGetFdInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fence @2 :UInt64;
 handleType @3 :Int64;
 }
 
 struct VkExportFenceSciSyncInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pAttributes @2 :UInt64;
 }
 
 struct VkImportFenceSciSyncInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fence @2 :UInt64;
 handleType @3 :Int64;
 handle @4 :List(UInt64);
@@ -2183,20 +2183,20 @@ handle @4 :List(UInt64);
 
 struct VkFenceGetSciSyncInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fence @2 :UInt64;
 handleType @3 :Int64;
 }
 
 struct VkExportSemaphoreSciSyncInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pAttributes @2 :UInt64;
 }
 
 struct VkImportSemaphoreSciSyncInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 semaphore @2 :UInt64;
 handleType @3 :Int64;
 handle @4 :List(UInt64);
@@ -2204,21 +2204,21 @@ handle @4 :List(UInt64);
 
 struct VkSemaphoreGetSciSyncInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 semaphore @2 :UInt64;
 handleType @3 :Int64;
 }
 
 struct VkSciSyncAttributesInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 clientType @2 :Int64;
 primitiveType @3 :Int64;
 }
 
 struct VkPhysicalDeviceExternalSciSyncFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 sciSyncFence @2 :UInt64;
 sciSyncSemaphore @3 :UInt64;
 sciSyncImport @4 :UInt64;
@@ -2227,7 +2227,7 @@ sciSyncExport @5 :UInt64;
 
 struct VkPhysicalDeviceExternalSciSync2FeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 sciSyncFence @2 :UInt64;
 sciSyncSemaphore2 @3 :UInt64;
 sciSyncImport @4 :UInt64;
@@ -2236,26 +2236,26 @@ sciSyncExport @5 :UInt64;
 
 struct VkSemaphoreSciSyncPoolCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handle @2 :UInt64;
 }
 
 struct VkSemaphoreSciSyncCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 semaphorePool @2 :UInt64;
 pFence @3 :List(UInt64);
 }
 
 struct VkDeviceSemaphoreSciSyncPoolReservationCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 semaphoreSciSyncPoolRequestCount @2 :UInt64;
 }
 
 struct VkPhysicalDeviceMultiviewFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 multiview @2 :UInt64;
 multiviewGeometryShader @3 :UInt64;
 multiviewTessellationShader @4 :UInt64;
@@ -2263,14 +2263,14 @@ multiviewTessellationShader @4 :UInt64;
 
 struct VkPhysicalDeviceMultiviewProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxMultiviewViewCount @2 :UInt64;
 maxMultiviewInstanceIndex @3 :UInt64;
 }
 
 struct VkRenderPassMultiviewCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 subpassCount @2 :UInt64;
 pViewMasks @3 :List(UInt64);
 dependencyCount @4 :UInt64;
@@ -2281,7 +2281,7 @@ pCorrelationMasks @7 :List(UInt64);
 
 struct VkSurfaceCapabilities2EXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 minImageCount @2 :UInt64;
 maxImageCount @3 :UInt64;
 currentExtent @4 :VkExtent2D;
@@ -2297,31 +2297,31 @@ supportedSurfaceCounters @12 :Int64;
 
 struct VkDisplayPowerInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 powerState @2 :Int64;
 }
 
 struct VkDeviceEventInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 deviceEvent @2 :Int64;
 }
 
 struct VkDisplayEventInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 displayEvent @2 :Int64;
 }
 
 struct VkSwapchainCounterCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 surfaceCounters @2 :Int64;
 }
 
 struct VkPhysicalDeviceGroupProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 physicalDeviceCount @2 :UInt64;
 physicalDevices @3 :List(UInt64);
 subsetAllocation @4 :UInt64;
@@ -2329,14 +2329,14 @@ subsetAllocation @4 :UInt64;
 
 struct VkMemoryAllocateFlagsInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 deviceMask @3 :UInt64;
 }
 
 struct VkBindBufferMemoryInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 buffer @2 :UInt64;
 memory @3 :UInt64;
 memoryOffset @4 :UInt64;
@@ -2344,14 +2344,14 @@ memoryOffset @4 :UInt64;
 
 struct VkBindBufferMemoryDeviceGroupInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 deviceIndexCount @2 :UInt64;
 pDeviceIndices @3 :List(UInt64);
 }
 
 struct VkBindImageMemoryInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 image @2 :UInt64;
 memory @3 :UInt64;
 memoryOffset @4 :UInt64;
@@ -2359,7 +2359,7 @@ memoryOffset @4 :UInt64;
 
 struct VkBindImageMemoryDeviceGroupInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 deviceIndexCount @2 :UInt64;
 pDeviceIndices @3 :List(UInt64);
 splitInstanceBindRegionCount @4 :UInt64;
@@ -2368,7 +2368,7 @@ pSplitInstanceBindRegions @5 :List(VkRect2D);
 
 struct VkDeviceGroupRenderPassBeginInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 deviceMask @2 :UInt64;
 deviceRenderAreaCount @3 :UInt64;
 pDeviceRenderAreas @4 :List(VkRect2D);
@@ -2376,13 +2376,13 @@ pDeviceRenderAreas @4 :List(VkRect2D);
 
 struct VkDeviceGroupCommandBufferBeginInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 deviceMask @2 :UInt64;
 }
 
 struct VkDeviceGroupSubmitInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 waitSemaphoreCount @2 :UInt64;
 pWaitSemaphoreDeviceIndices @3 :List(UInt64);
 commandBufferCount @4 :UInt64;
@@ -2393,34 +2393,34 @@ pSignalSemaphoreDeviceIndices @7 :List(UInt64);
 
 struct VkDeviceGroupBindSparseInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 resourceDeviceIndex @2 :UInt64;
 memoryDeviceIndex @3 :UInt64;
 }
 
 struct VkDeviceGroupPresentCapabilitiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 presentMask @2 :List(UInt64);
 modes @3 :Int64;
 }
 
 struct VkImageSwapchainCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 swapchain @2 :UInt64;
 }
 
 struct VkBindImageMemorySwapchainInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 swapchain @2 :UInt64;
 imageIndex @3 :UInt64;
 }
 
 struct VkAcquireNextImageInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 swapchain @2 :UInt64;
 timeout @3 :UInt64;
 semaphore @4 :UInt64;
@@ -2430,7 +2430,7 @@ deviceMask @6 :UInt64;
 
 struct VkDeviceGroupPresentInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 swapchainCount @2 :UInt64;
 pDeviceMasks @3 :List(UInt64);
 mode @4 :Int64;
@@ -2438,14 +2438,14 @@ mode @4 :Int64;
 
 struct VkDeviceGroupDeviceCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 physicalDeviceCount @2 :UInt64;
 pPhysicalDevices @3 :List(UInt64);
 }
 
 struct VkDeviceGroupSwapchainCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 modes @2 :Int64;
 }
 
@@ -2460,7 +2460,7 @@ stride @5 :UInt64;
 
 struct VkDescriptorUpdateTemplateCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 descriptorUpdateEntryCount @3 :UInt64;
 pDescriptorUpdateEntries @4 :List(VkDescriptorUpdateTemplateEntry);
@@ -2478,26 +2478,26 @@ y @1 :Float32;
 
 struct VkPhysicalDevicePresentIdFeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 presentId @2 :UInt64;
 }
 
 struct VkPresentIdKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 swapchainCount @2 :UInt64;
 pPresentIds @3 :List(UInt64);
 }
 
 struct VkPhysicalDevicePresentWaitFeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 presentWait @2 :UInt64;
 }
 
 struct VkHdrMetadataEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 displayPrimaryRed @2 :VkXYColorEXT;
 displayPrimaryGreen @3 :VkXYColorEXT;
 displayPrimaryBlue @4 :VkXYColorEXT;
@@ -2510,13 +2510,13 @@ maxFrameAverageLightLevel @9 :Float32;
 
 struct VkDisplayNativeHdrSurfaceCapabilitiesAMD {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 localDimmingSupport @2 :UInt64;
 }
 
 struct VkSwapchainDisplayNativeHdrCreateInfoAMD {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 localDimmingEnable @2 :UInt64;
 }
 
@@ -2534,7 +2534,7 @@ presentMargin @4 :UInt64;
 
 struct VkPresentTimesInfoGOOGLE {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 swapchainCount @2 :UInt64;
 pTimes @3 :List(VkPresentTimeGOOGLE);
 }
@@ -2546,21 +2546,21 @@ desiredPresentTime @1 :UInt64;
 
 struct VkIOSSurfaceCreateInfoMVK {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 pView @3 :List(UInt64);
 }
 
 struct VkMacOSSurfaceCreateInfoMVK {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 pView @3 :List(UInt64);
 }
 
 struct VkMetalSurfaceCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 pLayer @3 :List(UInt64);
 }
@@ -2572,7 +2572,7 @@ ycoeff @1 :Float32;
 
 struct VkPipelineViewportWScalingStateCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 viewportWScalingEnable @2 :UInt64;
 viewportCount @3 :UInt64;
 pViewportWScalings @4 :List(VkViewportWScalingNV);
@@ -2587,7 +2587,7 @@ w @3 :Int64;
 
 struct VkPipelineViewportSwizzleStateCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 viewportCount @3 :UInt64;
 pViewportSwizzles @4 :List(VkViewportSwizzleNV);
@@ -2595,13 +2595,13 @@ pViewportSwizzles @4 :List(VkViewportSwizzleNV);
 
 struct VkPhysicalDeviceDiscardRectanglePropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxDiscardRectangles @2 :UInt64;
 }
 
 struct VkPipelineDiscardRectangleStateCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 discardRectangleMode @3 :Int64;
 discardRectangleCount @4 :UInt64;
@@ -2610,7 +2610,7 @@ pDiscardRectangles @5 :List(VkRect2D);
 
 struct VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 perViewPositionAllComponents @2 :UInt64;
 }
 
@@ -2622,69 +2622,69 @@ aspectMask @2 :Int64;
 
 struct VkRenderPassInputAttachmentAspectCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 aspectReferenceCount @2 :UInt64;
 pAspectReferences @3 :List(VkInputAttachmentAspectReference);
 }
 
 struct VkPhysicalDeviceSurfaceInfo2KHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 surface @2 :UInt64;
 }
 
 struct VkSurfaceCapabilities2KHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 surfaceCapabilities @2 :VkSurfaceCapabilitiesKHR;
 }
 
 struct VkSurfaceFormat2KHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 surfaceFormat @2 :VkSurfaceFormatKHR;
 }
 
 struct VkDisplayProperties2KHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 displayProperties @2 :VkDisplayPropertiesKHR;
 }
 
 struct VkDisplayPlaneProperties2KHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 displayPlaneProperties @2 :VkDisplayPlanePropertiesKHR;
 }
 
 struct VkDisplayModeProperties2KHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 displayModeProperties @2 :VkDisplayModePropertiesKHR;
 }
 
 struct VkDisplayPlaneInfo2KHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 mode @2 :UInt64;
 planeIndex @3 :UInt64;
 }
 
 struct VkDisplayPlaneCapabilities2KHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 capabilities @2 :VkDisplayPlaneCapabilitiesKHR;
 }
 
 struct VkSharedPresentSurfaceCapabilitiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 sharedPresentSupportedUsageFlags @2 :Int64;
 }
 
 struct VkPhysicalDevice16BitStorageFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 storageBuffer16BitAccess @2 :UInt64;
 uniformAndStorageBuffer16BitAccess @3 :UInt64;
 storagePushConstant16 @4 :UInt64;
@@ -2693,7 +2693,7 @@ storageInputOutput16 @5 :UInt64;
 
 struct VkPhysicalDeviceSubgroupProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 subgroupSize @2 :UInt64;
 supportedStages @3 :Int64;
 supportedOperations @4 :Int64;
@@ -2702,101 +2702,101 @@ quadOperationsInAllStages @5 :UInt64;
 
 struct VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderSubgroupExtendedTypes @2 :UInt64;
 }
 
 struct VkBufferMemoryRequirementsInfo2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 buffer @2 :UInt64;
 }
 
 struct VkDeviceBufferMemoryRequirements {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pCreateInfo @2 :List(VkBufferCreateInfo);
 }
 
 struct VkImageMemoryRequirementsInfo2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 image @2 :UInt64;
 }
 
 struct VkImageSparseMemoryRequirementsInfo2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 image @2 :UInt64;
 }
 
 struct VkDeviceImageMemoryRequirements {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pCreateInfo @2 :List(VkImageCreateInfo);
 planeAspect @3 :Int64;
 }
 
 struct VkMemoryRequirements2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memoryRequirements @2 :VkMemoryRequirements;
 }
 
 struct VkSparseImageMemoryRequirements2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memoryRequirements @2 :VkSparseImageMemoryRequirements;
 }
 
 struct VkPhysicalDevicePointClippingProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pointClippingBehavior @2 :Int64;
 }
 
 struct VkMemoryDedicatedRequirements {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 prefersDedicatedAllocation @2 :UInt64;
 requiresDedicatedAllocation @3 :UInt64;
 }
 
 struct VkMemoryDedicatedAllocateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 image @2 :UInt64;
 buffer @3 :UInt64;
 }
 
 struct VkImageViewUsageCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 usage @2 :Int64;
 }
 
 struct VkImageViewSlicedCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 sliceOffset @2 :UInt64;
 sliceCount @3 :UInt64;
 }
 
 struct VkPipelineTessellationDomainOriginStateCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 domainOrigin @2 :Int64;
 }
 
 struct VkSamplerYcbcrConversionInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 conversion @2 :UInt64;
 }
 
 struct VkSamplerYcbcrConversionCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 format @2 :Int64;
 ycbcrModel @3 :Int64;
 ycbcrRange @4 :Int64;
@@ -2809,37 +2809,37 @@ forceExplicitReconstruction @9 :UInt64;
 
 struct VkBindImagePlaneMemoryInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 planeAspect @2 :Int64;
 }
 
 struct VkImagePlaneMemoryRequirementsInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 planeAspect @2 :Int64;
 }
 
 struct VkPhysicalDeviceSamplerYcbcrConversionFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 samplerYcbcrConversion @2 :UInt64;
 }
 
 struct VkSamplerYcbcrConversionImageFormatProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 combinedImageSamplerDescriptorCount @2 :UInt64;
 }
 
 struct VkTextureLODGatherFormatPropertiesAMD {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 supportsTextureGatherLODBiasAMD @2 :UInt64;
 }
 
 struct VkConditionalRenderingBeginInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 buffer @2 :UInt64;
 offset @3 :UInt64;
 flags @4 :Int64;
@@ -2847,25 +2847,25 @@ flags @4 :Int64;
 
 struct VkProtectedSubmitInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 protectedSubmit @2 :UInt64;
 }
 
 struct VkPhysicalDeviceProtectedMemoryFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 protectedMemory @2 :UInt64;
 }
 
 struct VkPhysicalDeviceProtectedMemoryProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 protectedNoFault @2 :UInt64;
 }
 
 struct VkDeviceQueueInfo2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 queueFamilyIndex @3 :UInt64;
 queueIndex @4 :UInt64;
@@ -2873,7 +2873,7 @@ queueIndex @4 :UInt64;
 
 struct VkPipelineCoverageToColorStateCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 coverageToColorEnable @3 :UInt64;
 coverageToColorLocation @4 :UInt64;
@@ -2881,7 +2881,7 @@ coverageToColorLocation @4 :UInt64;
 
 struct VkPhysicalDeviceSamplerFilterMinmaxProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 filterMinmaxSingleComponentFormats @2 :UInt64;
 filterMinmaxImageComponentMapping @3 :UInt64;
 }
@@ -2893,7 +2893,7 @@ y @1 :Float32;
 
 struct VkSampleLocationsInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 sampleLocationsPerPixel @2 :Int64;
 sampleLocationGridSize @3 :VkExtent2D;
 sampleLocationsCount @4 :UInt64;
@@ -2912,7 +2912,7 @@ sampleLocationsInfo @1 :VkSampleLocationsInfoEXT;
 
 struct VkRenderPassSampleLocationsBeginInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 attachmentInitialSampleLocationsCount @2 :UInt64;
 pAttachmentInitialSampleLocations @3 :List(VkAttachmentSampleLocationsEXT);
 postSubpassSampleLocationsCount @4 :UInt64;
@@ -2921,14 +2921,14 @@ pPostSubpassSampleLocations @5 :List(VkSubpassSampleLocationsEXT);
 
 struct VkPipelineSampleLocationsStateCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 sampleLocationsEnable @2 :UInt64;
 sampleLocationsInfo @3 :VkSampleLocationsInfoEXT;
 }
 
 struct VkPhysicalDeviceSampleLocationsPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 sampleLocationSampleCounts @2 :Int64;
 maxSampleLocationGridSize @3 :VkExtent2D;
 sampleLocationCoordinateRange @4 :List(Float32);
@@ -2938,31 +2938,31 @@ variableSampleLocations @6 :UInt64;
 
 struct VkMultisamplePropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxSampleLocationGridSize @2 :VkExtent2D;
 }
 
 struct VkSamplerReductionModeCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 reductionMode @2 :Int64;
 }
 
 struct VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 advancedBlendCoherentOperations @2 :UInt64;
 }
 
 struct VkPhysicalDeviceMultiDrawFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 multiDraw @2 :UInt64;
 }
 
 struct VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 advancedBlendMaxColorAttachments @2 :UInt64;
 advancedBlendIndependentBlend @3 :UInt64;
 advancedBlendNonPremultipliedSrcColor @4 :UInt64;
@@ -2973,7 +2973,7 @@ advancedBlendAllOperations @7 :UInt64;
 
 struct VkPipelineColorBlendAdvancedStateCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcPremultiplied @2 :UInt64;
 dstPremultiplied @3 :UInt64;
 blendOverlap @4 :Int64;
@@ -2981,14 +2981,14 @@ blendOverlap @4 :Int64;
 
 struct VkPhysicalDeviceInlineUniformBlockFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 inlineUniformBlock @2 :UInt64;
 descriptorBindingInlineUniformBlockUpdateAfterBind @3 :UInt64;
 }
 
 struct VkPhysicalDeviceInlineUniformBlockProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxInlineUniformBlockSize @2 :UInt64;
 maxPerStageDescriptorInlineUniformBlocks @3 :UInt64;
 maxPerStageDescriptorUpdateAfterBindInlineUniformBlocks @4 :UInt64;
@@ -2998,20 +2998,20 @@ maxDescriptorSetUpdateAfterBindInlineUniformBlocks @6 :UInt64;
 
 struct VkWriteDescriptorSetInlineUniformBlock {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 dataSize @2 :UInt64;
 pData @3 :List(UInt64);
 }
 
 struct VkDescriptorPoolInlineUniformBlockCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxInlineUniformBlockBindings @2 :UInt64;
 }
 
 struct VkPipelineCoverageModulationStateCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 coverageModulationMode @3 :Int64;
 coverageModulationTableEnable @4 :UInt64;
@@ -3021,14 +3021,14 @@ pCoverageModulationTable @6 :List(Float32);
 
 struct VkImageFormatListCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 viewFormatCount @2 :UInt64;
 pViewFormats @3 :List(Int64);
 }
 
 struct VkValidationCacheCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 initialDataSize @3 :UInt64;
 pInitialData @4 :List(UInt64);
@@ -3036,38 +3036,38 @@ pInitialData @4 :List(UInt64);
 
 struct VkShaderModuleValidationCacheCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 validationCache @2 :UInt64;
 }
 
 struct VkPhysicalDeviceMaintenance3Properties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxPerSetDescriptors @2 :UInt64;
 maxMemoryAllocationSize @3 :UInt64;
 }
 
 struct VkPhysicalDeviceMaintenance4Features {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maintenance4 @2 :UInt64;
 }
 
 struct VkPhysicalDeviceMaintenance4Properties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxBufferSize @2 :UInt64;
 }
 
 struct VkPhysicalDeviceMaintenance5FeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maintenance5 @2 :UInt64;
 }
 
 struct VkPhysicalDeviceMaintenance5PropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 earlyFragmentMultisampleCoverageAfterSampleCounting @2 :UInt64;
 earlyFragmentSampleMaskTestBeforeSampleCounting @3 :UInt64;
 depthStencilSwizzleOneSupport @4 :UInt64;
@@ -3078,7 +3078,7 @@ nonStrictWideLinesUseParallelogram @7 :UInt64;
 
 struct VkRenderingAreaInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 viewMask @2 :UInt64;
 colorAttachmentCount @3 :UInt64;
 pColorAttachmentFormats @4 :List(Int64);
@@ -3088,26 +3088,26 @@ stencilAttachmentFormat @6 :Int64;
 
 struct VkDescriptorSetLayoutSupport {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 supported @2 :UInt64;
 }
 
 struct VkPhysicalDeviceShaderDrawParametersFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderDrawParameters @2 :UInt64;
 }
 
 struct VkPhysicalDeviceShaderFloat16Int8Features {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderFloat16 @2 :UInt64;
 shaderInt8 @3 :UInt64;
 }
 
 struct VkPhysicalDeviceFloatControlsProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 denormBehaviorIndependence @2 :Int64;
 roundingModeIndependence @3 :Int64;
 shaderSignedZeroInfNanPreserveFloat16 @4 :UInt64;
@@ -3129,7 +3129,7 @@ shaderRoundingModeRTZFloat64 @18 :UInt64;
 
 struct VkPhysicalDeviceHostQueryResetFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 hostQueryReset @2 :UInt64;
 }
 
@@ -3140,7 +3140,7 @@ producer @1 :UInt64;
 
 struct VkNativeBufferANDROID {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handle @2 :List(UInt64);
 stride @3 :Int64;
 format @4 :Int64;
@@ -3150,13 +3150,13 @@ usage2 @6 :VkNativeBufferUsage2ANDROID;
 
 struct VkSwapchainImageCreateInfoANDROID {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 usage @2 :Int64;
 }
 
 struct VkPhysicalDevicePresentationPropertiesANDROID {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 sharedImage @2 :UInt64;
 }
 
@@ -3180,26 +3180,26 @@ computeWorkGroupSize @6 :List(UInt64);
 
 struct VkDeviceQueueGlobalPriorityCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 globalPriority @2 :Int64;
 }
 
 struct VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 globalPriorityQuery @2 :UInt64;
 }
 
 struct VkQueueFamilyGlobalPriorityPropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 priorityCount @2 :UInt64;
 priorities @3 :List(Int64);
 }
 
 struct VkDebugUtilsObjectNameInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 objectType @2 :Int64;
 objectHandle @3 :UInt64;
 pObjectName @4 :List(UInt64);
@@ -3207,7 +3207,7 @@ pObjectName @4 :List(UInt64);
 
 struct VkDebugUtilsObjectTagInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 objectType @2 :Int64;
 objectHandle @3 :UInt64;
 tagName @4 :UInt64;
@@ -3217,14 +3217,14 @@ pTag @6 :List(UInt64);
 
 struct VkDebugUtilsLabelEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pLabelName @2 :List(UInt64);
 color @3 :List(Float32);
 }
 
 struct VkDebugUtilsMessengerCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 messageSeverity @3 :Int64;
 messageType @4 :Int64;
@@ -3234,7 +3234,7 @@ pUserData @6 :List(UInt64);
 
 struct VkDebugUtilsMessengerCallbackDataEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 pMessageIdName @3 :List(UInt64);
 messageIdNumber @4 :Int64;
@@ -3249,13 +3249,13 @@ pObjects @11 :List(VkDebugUtilsObjectNameInfoEXT);
 
 struct VkPhysicalDeviceDeviceMemoryReportFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 deviceMemoryReport @2 :UInt64;
 }
 
 struct VkDeviceDeviceMemoryReportCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 pfnUserCallback @3 :PFNvkDeviceMemoryReportCallbackEXT;
 pUserData @4 :List(UInt64);
@@ -3263,7 +3263,7 @@ pUserData @4 :List(UInt64);
 
 struct VkDeviceMemoryReportCallbackDataEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 type @3 :Int64;
 memoryObjectId @4 :UInt64;
@@ -3275,26 +3275,26 @@ heapIndex @8 :UInt64;
 
 struct VkImportMemoryHostPointerInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 handleType @2 :Int64;
 pHostPointer @3 :List(UInt64);
 }
 
 struct VkMemoryHostPointerPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memoryTypeBits @2 :UInt64;
 }
 
 struct VkPhysicalDeviceExternalMemoryHostPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 minImportedHostPointerAlignment @2 :UInt64;
 }
 
 struct VkPhysicalDeviceConservativeRasterizationPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 primitiveOverestimationSize @2 :Float32;
 maxExtraPrimitiveOverestimationSize @3 :Float32;
 extraPrimitiveOverestimationSizeGranularity @4 :Float32;
@@ -3308,13 +3308,13 @@ conservativeRasterizationPostDepthCoverage @10 :UInt64;
 
 struct VkCalibratedTimestampInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 timeDomain @2 :Int64;
 }
 
 struct VkPhysicalDeviceShaderCorePropertiesAMD {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderEngineCount @2 :UInt64;
 shaderArraysPerEngineCount @3 :UInt64;
 computeUnitsPerShaderArray @4 :UInt64;
@@ -3333,14 +3333,14 @@ vgprAllocationGranularity @15 :UInt64;
 
 struct VkPhysicalDeviceShaderCoreProperties2AMD {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderCoreFeatures @2 :Int64;
 activeComputeUnitCount @3 :UInt64;
 }
 
 struct VkPipelineRasterizationConservativeStateCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 conservativeRasterizationMode @3 :Int64;
 extraPrimitiveOverestimationSize @4 :Float32;
@@ -3348,7 +3348,7 @@ extraPrimitiveOverestimationSize @4 :Float32;
 
 struct VkPhysicalDeviceDescriptorIndexingFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderInputAttachmentArrayDynamicIndexing @2 :UInt64;
 shaderUniformTexelBufferArrayDynamicIndexing @3 :UInt64;
 shaderStorageTexelBufferArrayDynamicIndexing @4 :UInt64;
@@ -3373,7 +3373,7 @@ runtimeDescriptorArray @21 :UInt64;
 
 struct VkPhysicalDeviceDescriptorIndexingProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxUpdateAfterBindDescriptorsInAllPools @2 :UInt64;
 shaderUniformBufferArrayNonUniformIndexingNative @3 :UInt64;
 shaderSampledImageArrayNonUniformIndexingNative @4 :UInt64;
@@ -3401,27 +3401,27 @@ maxDescriptorSetUpdateAfterBindInputAttachments @24 :UInt64;
 
 struct VkDescriptorSetLayoutBindingFlagsCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 bindingCount @2 :UInt64;
 pBindingFlags @3 :List(Int64);
 }
 
 struct VkDescriptorSetVariableDescriptorCountAllocateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 descriptorSetCount @2 :UInt64;
 pDescriptorCounts @3 :List(UInt64);
 }
 
 struct VkDescriptorSetVariableDescriptorCountLayoutSupport {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxVariableDescriptorCount @2 :UInt64;
 }
 
 struct VkAttachmentDescription2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 format @3 :Int64;
 samples @4 :Int64;
@@ -3435,7 +3435,7 @@ finalLayout @10 :Int64;
 
 struct VkAttachmentReference2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 attachment @2 :UInt64;
 layout @3 :Int64;
 aspectMask @4 :Int64;
@@ -3443,7 +3443,7 @@ aspectMask @4 :Int64;
 
 struct VkSubpassDescription2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 pipelineBindPoint @3 :Int64;
 viewMask @4 :UInt64;
@@ -3459,7 +3459,7 @@ pPreserveAttachments @12 :List(UInt64);
 
 struct VkSubpassDependency2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcSubpass @2 :UInt64;
 dstSubpass @3 :UInt64;
 srcStageMask @4 :Int64;
@@ -3472,7 +3472,7 @@ viewOffset @9 :Int64;
 
 struct VkRenderPassCreateInfo2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 attachmentCount @3 :UInt64;
 pAttachments @4 :List(VkAttachmentDescription2);
@@ -3486,37 +3486,37 @@ pCorrelatedViewMasks @10 :List(UInt64);
 
 struct VkSubpassBeginInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 contents @2 :Int64;
 }
 
 struct VkSubpassEndInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 }
 
 struct VkPhysicalDeviceTimelineSemaphoreFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 timelineSemaphore @2 :UInt64;
 }
 
 struct VkPhysicalDeviceTimelineSemaphoreProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxTimelineSemaphoreValueDifference @2 :UInt64;
 }
 
 struct VkSemaphoreTypeCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 semaphoreType @2 :Int64;
 initialValue @3 :UInt64;
 }
 
 struct VkTimelineSemaphoreSubmitInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 waitSemaphoreValueCount @2 :UInt64;
 pWaitSemaphoreValues @3 :List(UInt64);
 signalSemaphoreValueCount @4 :UInt64;
@@ -3525,7 +3525,7 @@ pSignalSemaphoreValues @5 :List(UInt64);
 
 struct VkSemaphoreWaitInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 semaphoreCount @3 :UInt64;
 pSemaphores @4 :List(UInt64);
@@ -3534,7 +3534,7 @@ pValues @5 :List(UInt64);
 
 struct VkSemaphoreSignalInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 semaphore @2 :UInt64;
 value @3 :UInt64;
 }
@@ -3546,20 +3546,20 @@ divisor @1 :UInt64;
 
 struct VkPipelineVertexInputDivisorStateCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 vertexBindingDivisorCount @2 :UInt64;
 pVertexBindingDivisors @3 :List(VkVertexInputBindingDivisorDescriptionEXT);
 }
 
 struct VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxVertexAttribDivisor @2 :UInt64;
 }
 
 struct VkPhysicalDevicePCIBusInfoPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pciDomain @2 :UInt64;
 pciBus @3 :UInt64;
 pciDevice @4 :UInt64;
@@ -3568,32 +3568,32 @@ pciFunction @5 :UInt64;
 
 struct VkImportAndroidHardwareBufferInfoANDROID {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 buffer @2 :List(UInt64);
 }
 
 struct VkAndroidHardwareBufferUsageANDROID {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 androidHardwareBufferUsage @2 :UInt64;
 }
 
 struct VkAndroidHardwareBufferPropertiesANDROID {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 allocationSize @2 :UInt64;
 memoryTypeBits @3 :UInt64;
 }
 
 struct VkMemoryGetAndroidHardwareBufferInfoANDROID {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memory @2 :UInt64;
 }
 
 struct VkAndroidHardwareBufferFormatPropertiesANDROID {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 format @2 :Int64;
 externalFormat @3 :UInt64;
 formatFeatures @4 :Int64;
@@ -3606,19 +3606,19 @@ suggestedYChromaOffset @9 :Int64;
 
 struct VkCommandBufferInheritanceConditionalRenderingInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 conditionalRenderingEnable @2 :UInt64;
 }
 
 struct VkExternalFormatANDROID {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 externalFormat @2 :UInt64;
 }
 
 struct VkPhysicalDevice8BitStorageFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 storageBuffer8BitAccess @2 :UInt64;
 uniformAndStorageBuffer8BitAccess @3 :UInt64;
 storagePushConstant8 @4 :UInt64;
@@ -3626,14 +3626,14 @@ storagePushConstant8 @4 :UInt64;
 
 struct VkPhysicalDeviceConditionalRenderingFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 conditionalRendering @2 :UInt64;
 inheritedConditionalRendering @3 :UInt64;
 }
 
 struct VkPhysicalDeviceVulkanMemoryModelFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 vulkanMemoryModel @2 :UInt64;
 vulkanMemoryModelDeviceScope @3 :UInt64;
 vulkanMemoryModelAvailabilityVisibilityChains @4 :UInt64;
@@ -3641,14 +3641,14 @@ vulkanMemoryModelAvailabilityVisibilityChains @4 :UInt64;
 
 struct VkPhysicalDeviceShaderAtomicInt64Features {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderBufferInt64Atomics @2 :UInt64;
 shaderSharedInt64Atomics @3 :UInt64;
 }
 
 struct VkPhysicalDeviceShaderAtomicFloatFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderBufferFloat32Atomics @2 :UInt64;
 shaderBufferFloat32AtomicAdd @3 :UInt64;
 shaderBufferFloat64Atomics @4 :UInt64;
@@ -3665,7 +3665,7 @@ sparseImageFloat32AtomicAdd @13 :UInt64;
 
 struct VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderBufferFloat16Atomics @2 :UInt64;
 shaderBufferFloat16AtomicAdd @3 :UInt64;
 shaderBufferFloat16AtomicMinMax @4 :UInt64;
@@ -3682,27 +3682,27 @@ sparseImageFloat32AtomicMinMax @13 :UInt64;
 
 struct VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 vertexAttributeInstanceRateDivisor @2 :UInt64;
 vertexAttributeInstanceRateZeroDivisor @3 :UInt64;
 }
 
 struct VkQueueFamilyCheckpointPropertiesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 checkpointExecutionStageMask @2 :Int64;
 }
 
 struct VkCheckpointDataNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 stage @2 :Int64;
 pCheckpointMarker @3 :List(UInt64);
 }
 
 struct VkPhysicalDeviceDepthStencilResolveProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 supportedDepthResolveModes @2 :Int64;
 supportedStencilResolveModes @3 :Int64;
 independentResolveNone @4 :UInt64;
@@ -3711,7 +3711,7 @@ independentResolve @5 :UInt64;
 
 struct VkSubpassDescriptionDepthStencilResolve {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 depthResolveMode @2 :Int64;
 stencilResolveMode @3 :Int64;
 pDepthStencilResolveAttachment @4 :List(VkAttachmentReference2);
@@ -3719,26 +3719,26 @@ pDepthStencilResolveAttachment @4 :List(VkAttachmentReference2);
 
 struct VkImageViewASTCDecodeModeEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 decodeMode @2 :Int64;
 }
 
 struct VkPhysicalDeviceASTCDecodeFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 decodeModeSharedExponent @2 :UInt64;
 }
 
 struct VkPhysicalDeviceTransformFeedbackFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 transformFeedback @2 :UInt64;
 geometryStreams @3 :UInt64;
 }
 
 struct VkPhysicalDeviceTransformFeedbackPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxTransformFeedbackStreams @2 :UInt64;
 maxTransformFeedbackBuffers @3 :UInt64;
 maxTransformFeedbackBufferSize @4 :UInt64;
@@ -3753,82 +3753,82 @@ transformFeedbackDraw @11 :UInt64;
 
 struct VkPipelineRasterizationStateStreamCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 rasterizationStream @3 :UInt64;
 }
 
 struct VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 representativeFragmentTest @2 :UInt64;
 }
 
 struct VkPipelineRepresentativeFragmentTestStateCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 representativeFragmentTestEnable @2 :UInt64;
 }
 
 struct VkPhysicalDeviceExclusiveScissorFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 exclusiveScissor @2 :UInt64;
 }
 
 struct VkPipelineViewportExclusiveScissorStateCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 exclusiveScissorCount @2 :UInt64;
 pExclusiveScissors @3 :List(VkRect2D);
 }
 
 struct VkPhysicalDeviceCornerSampledImageFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 cornerSampledImage @2 :UInt64;
 }
 
 struct VkPhysicalDeviceComputeShaderDerivativesFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 computeDerivativeGroupQuads @2 :UInt64;
 computeDerivativeGroupLinear @3 :UInt64;
 }
 
 struct VkPhysicalDeviceShaderImageFootprintFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 imageFootprint @2 :UInt64;
 }
 
 struct VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 dedicatedAllocationImageAliasing @2 :UInt64;
 }
 
 struct VkPhysicalDeviceCopyMemoryIndirectFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 indirectCopy @2 :UInt64;
 }
 
 struct VkPhysicalDeviceCopyMemoryIndirectPropertiesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 supportedQueues @2 :Int64;
 }
 
 struct VkPhysicalDeviceMemoryDecompressionFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memoryDecompression @2 :UInt64;
 }
 
 struct VkPhysicalDeviceMemoryDecompressionPropertiesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 decompressionMethods @2 :Int64;
 maxDecompressionIndirectCount @3 :UInt64;
 }
@@ -3840,7 +3840,7 @@ pShadingRatePaletteEntries @1 :List(Int64);
 
 struct VkPipelineViewportShadingRateImageStateCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shadingRateImageEnable @2 :UInt64;
 viewportCount @3 :UInt64;
 pShadingRatePalettes @4 :List(VkShadingRatePaletteNV);
@@ -3848,14 +3848,14 @@ pShadingRatePalettes @4 :List(VkShadingRatePaletteNV);
 
 struct VkPhysicalDeviceShadingRateImageFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shadingRateImage @2 :UInt64;
 shadingRateCoarseSampleOrder @3 :UInt64;
 }
 
 struct VkPhysicalDeviceShadingRateImagePropertiesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shadingRateTexelSize @2 :VkExtent2D;
 shadingRatePaletteSize @3 :UInt64;
 shadingRateMaxCoarseSamples @4 :UInt64;
@@ -3863,7 +3863,7 @@ shadingRateMaxCoarseSamples @4 :UInt64;
 
 struct VkPhysicalDeviceInvocationMaskFeaturesHUAWEI {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 invocationMask @2 :UInt64;
 }
 
@@ -3882,7 +3882,7 @@ pSampleLocations @3 :List(VkCoarseSampleLocationNV);
 
 struct VkPipelineViewportCoarseSampleOrderStateCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 sampleOrderType @2 :Int64;
 customSampleOrderCount @3 :UInt64;
 pCustomSampleOrders @4 :List(VkCoarseSampleOrderCustomNV);
@@ -3890,14 +3890,14 @@ pCustomSampleOrders @4 :List(VkCoarseSampleOrderCustomNV);
 
 struct VkPhysicalDeviceMeshShaderFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 taskShader @2 :UInt64;
 meshShader @3 :UInt64;
 }
 
 struct VkPhysicalDeviceMeshShaderPropertiesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxDrawMeshTasksCount @2 :UInt64;
 maxTaskWorkGroupInvocations @3 :UInt64;
 maxTaskWorkGroupSize @4 :List(UInt64);
@@ -3920,7 +3920,7 @@ firstTask @1 :UInt64;
 
 struct VkPhysicalDeviceMeshShaderFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 taskShader @2 :UInt64;
 meshShader @3 :UInt64;
 multiviewMeshShader @4 :UInt64;
@@ -3930,7 +3930,7 @@ meshShaderQueries @6 :UInt64;
 
 struct VkPhysicalDeviceMeshShaderPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxTaskWorkGroupTotalCount @2 :UInt64;
 maxTaskWorkGroupCount @3 :List(UInt64);
 maxTaskWorkGroupInvocations @4 :UInt64;
@@ -3969,7 +3969,7 @@ groupCountZ @2 :UInt64;
 
 struct VkRayTracingShaderGroupCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 type @2 :Int64;
 generalShader @3 :UInt64;
 closestHitShader @4 :UInt64;
@@ -3979,7 +3979,7 @@ intersectionShader @6 :UInt64;
 
 struct VkRayTracingShaderGroupCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 type @2 :Int64;
 generalShader @3 :UInt64;
 closestHitShader @4 :UInt64;
@@ -3990,7 +3990,7 @@ pShaderGroupCaptureReplayHandle @7 :List(UInt64);
 
 struct VkRayTracingPipelineCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 stageCount @3 :UInt64;
 pStages @4 :List(VkPipelineShaderStageCreateInfo);
@@ -4004,7 +4004,7 @@ basePipelineIndex @10 :Int64;
 
 struct VkRayTracingPipelineCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 stageCount @3 :UInt64;
 pStages @4 :List(VkPipelineShaderStageCreateInfo);
@@ -4021,7 +4021,7 @@ basePipelineIndex @13 :Int64;
 
 struct VkGeometryTrianglesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 vertexData @2 :UInt64;
 vertexOffset @3 :UInt64;
 vertexCount @4 :UInt64;
@@ -4037,7 +4037,7 @@ transformOffset @12 :UInt64;
 
 struct VkGeometryAABBNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 aabbData @2 :UInt64;
 numAABBs @3 :UInt64;
 stride @4 :UInt64;
@@ -4051,7 +4051,7 @@ aabbs @1 :VkGeometryAABBNV;
 
 struct VkGeometryNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 geometryType @2 :Int64;
 geometry @3 :VkGeometryDataNV;
 flags @4 :Int64;
@@ -4059,7 +4059,7 @@ flags @4 :Int64;
 
 struct VkAccelerationStructureInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 type @2 :Int64;
 flags @3 :Int64;
 instanceCount @4 :UInt64;
@@ -4069,14 +4069,14 @@ pGeometries @6 :List(VkGeometryNV);
 
 struct VkAccelerationStructureCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 compactedSize @2 :UInt64;
 info @3 :VkAccelerationStructureInfoNV;
 }
 
 struct VkBindAccelerationStructureMemoryInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 accelerationStructure @2 :UInt64;
 memory @3 :UInt64;
 memoryOffset @4 :UInt64;
@@ -4086,28 +4086,28 @@ pDeviceIndices @6 :List(UInt64);
 
 struct VkWriteDescriptorSetAccelerationStructureKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 accelerationStructureCount @2 :UInt64;
 pAccelerationStructures @3 :List(UInt64);
 }
 
 struct VkWriteDescriptorSetAccelerationStructureNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 accelerationStructureCount @2 :UInt64;
 pAccelerationStructures @3 :List(UInt64);
 }
 
 struct VkAccelerationStructureMemoryRequirementsInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 type @2 :Int64;
 accelerationStructure @3 :UInt64;
 }
 
 struct VkPhysicalDeviceAccelerationStructureFeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 accelerationStructure @2 :UInt64;
 accelerationStructureCaptureReplay @3 :UInt64;
 accelerationStructureIndirectBuild @4 :UInt64;
@@ -4117,7 +4117,7 @@ descriptorBindingAccelerationStructureUpdateAfterBind @6 :UInt64;
 
 struct VkPhysicalDeviceRayTracingPipelineFeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 rayTracingPipeline @2 :UInt64;
 rayTracingPipelineShaderGroupHandleCaptureReplay @3 :UInt64;
 rayTracingPipelineShaderGroupHandleCaptureReplayMixed @4 :UInt64;
@@ -4127,13 +4127,13 @@ rayTraversalPrimitiveCulling @6 :UInt64;
 
 struct VkPhysicalDeviceRayQueryFeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 rayQuery @2 :UInt64;
 }
 
 struct VkPhysicalDeviceAccelerationStructurePropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxGeometryCount @2 :UInt64;
 maxInstanceCount @3 :UInt64;
 maxPrimitiveCount @4 :UInt64;
@@ -4146,7 +4146,7 @@ minAccelerationStructureScratchOffsetAlignment @9 :UInt64;
 
 struct VkPhysicalDeviceRayTracingPipelinePropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderGroupHandleSize @2 :UInt64;
 maxRayRecursionDepth @3 :UInt64;
 maxShaderGroupStride @4 :UInt64;
@@ -4159,7 +4159,7 @@ maxRayHitAttributeSize @9 :UInt64;
 
 struct VkPhysicalDeviceRayTracingPropertiesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderGroupHandleSize @2 :UInt64;
 maxRecursionDepth @3 :UInt64;
 maxShaderGroupStride @4 :UInt64;
@@ -4201,14 +4201,14 @@ depth @13 :UInt64;
 
 struct VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 rayTracingMaintenance1 @2 :UInt64;
 rayTracingPipelineTraceRaysIndirect2 @3 :UInt64;
 }
 
 struct VkDrmFormatModifierPropertiesListEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 drmFormatModifierCount @2 :UInt64;
 pDrmFormatModifierProperties @3 :List(VkDrmFormatModifierPropertiesEXT);
 }
@@ -4221,7 +4221,7 @@ drmFormatModifierTilingFeatures @2 :Int64;
 
 struct VkPhysicalDeviceImageDrmFormatModifierInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 drmFormatModifier @2 :UInt64;
 sharingMode @3 :Int64;
 queueFamilyIndexCount @4 :UInt64;
@@ -4230,14 +4230,14 @@ pQueueFamilyIndices @5 :List(UInt64);
 
 struct VkImageDrmFormatModifierListCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 drmFormatModifierCount @2 :UInt64;
 pDrmFormatModifiers @3 :List(UInt64);
 }
 
 struct VkImageDrmFormatModifierExplicitCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 drmFormatModifier @2 :UInt64;
 drmFormatModifierPlaneCount @3 :UInt64;
 pPlaneLayouts @4 :List(VkSubresourceLayout);
@@ -4245,25 +4245,25 @@ pPlaneLayouts @4 :List(VkSubresourceLayout);
 
 struct VkImageDrmFormatModifierPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 drmFormatModifier @2 :UInt64;
 }
 
 struct VkImageStencilUsageCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 stencilUsage @2 :Int64;
 }
 
 struct VkDeviceMemoryOverallocationCreateInfoAMD {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 overallocationBehavior @2 :Int64;
 }
 
 struct VkPhysicalDeviceFragmentDensityMapFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fragmentDensityMap @2 :UInt64;
 fragmentDensityMapDynamic @3 :UInt64;
 fragmentDensityMapNonSubsampledImages @4 :UInt64;
@@ -4271,19 +4271,19 @@ fragmentDensityMapNonSubsampledImages @4 :UInt64;
 
 struct VkPhysicalDeviceFragmentDensityMap2FeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fragmentDensityMapDeferred @2 :UInt64;
 }
 
 struct VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fragmentDensityMapOffset @2 :UInt64;
 }
 
 struct VkPhysicalDeviceFragmentDensityMapPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 minFragmentDensityTexelSize @2 :VkExtent2D;
 maxFragmentDensityTexelSize @3 :VkExtent2D;
 fragmentDensityInvocations @4 :UInt64;
@@ -4291,7 +4291,7 @@ fragmentDensityInvocations @4 :UInt64;
 
 struct VkPhysicalDeviceFragmentDensityMap2PropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 subsampledLoads @2 :UInt64;
 subsampledCoarseReconstructionEarlyAccess @3 :UInt64;
 maxSubsampledArrayLayers @4 :UInt64;
@@ -4300,82 +4300,82 @@ maxDescriptorSetSubsampledSamplers @5 :UInt64;
 
 struct VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fragmentDensityOffsetGranularity @2 :VkExtent2D;
 }
 
 struct VkRenderPassFragmentDensityMapCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fragmentDensityMapAttachment @2 :VkAttachmentReference;
 }
 
 struct VkSubpassFragmentDensityMapOffsetEndInfoQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fragmentDensityOffsetCount @2 :UInt64;
 pFragmentDensityOffsets @3 :List(VkOffset2D);
 }
 
 struct VkPhysicalDeviceScalarBlockLayoutFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 scalarBlockLayout @2 :UInt64;
 }
 
 struct VkSurfaceProtectedCapabilitiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 supportsProtected @2 :UInt64;
 }
 
 struct VkPhysicalDeviceUniformBufferStandardLayoutFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 uniformBufferStandardLayout @2 :UInt64;
 }
 
 struct VkPhysicalDeviceDepthClipEnableFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 depthClipEnable @2 :UInt64;
 }
 
 struct VkPipelineRasterizationDepthClipStateCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 depthClipEnable @3 :UInt64;
 }
 
 struct VkPhysicalDeviceMemoryBudgetPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 heapBudget @2 :List(UInt64);
 heapUsage @3 :List(UInt64);
 }
 
 struct VkPhysicalDeviceMemoryPriorityFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memoryPriority @2 :UInt64;
 }
 
 struct VkMemoryPriorityAllocateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 priority @2 :Float32;
 }
 
 struct VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pageableDeviceLocalMemory @2 :UInt64;
 }
 
 struct VkPhysicalDeviceBufferDeviceAddressFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 bufferDeviceAddress @2 :UInt64;
 bufferDeviceAddressCaptureReplay @3 :UInt64;
 bufferDeviceAddressMultiDevice @4 :UInt64;
@@ -4383,7 +4383,7 @@ bufferDeviceAddressMultiDevice @4 :UInt64;
 
 struct VkPhysicalDeviceBufferDeviceAddressFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 bufferDeviceAddress @2 :UInt64;
 bufferDeviceAddressCaptureReplay @3 :UInt64;
 bufferDeviceAddressMultiDevice @4 :UInt64;
@@ -4391,51 +4391,51 @@ bufferDeviceAddressMultiDevice @4 :UInt64;
 
 struct VkBufferDeviceAddressInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 buffer @2 :UInt64;
 }
 
 struct VkBufferOpaqueCaptureAddressCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 opaqueCaptureAddress @2 :UInt64;
 }
 
 struct VkBufferDeviceAddressCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 deviceAddress @2 :UInt64;
 }
 
 struct VkPhysicalDeviceImageViewImageFormatInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 imageViewType @2 :Int64;
 }
 
 struct VkFilterCubicImageViewImageFormatPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 filterCubic @2 :UInt64;
 filterCubicMinmax @3 :UInt64;
 }
 
 struct VkPhysicalDeviceImagelessFramebufferFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 imagelessFramebuffer @2 :UInt64;
 }
 
 struct VkFramebufferAttachmentsCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 attachmentImageInfoCount @2 :UInt64;
 pAttachmentImageInfos @3 :List(VkFramebufferAttachmentImageInfo);
 }
 
 struct VkFramebufferAttachmentImageInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 usage @3 :Int64;
 width @4 :UInt64;
@@ -4447,33 +4447,33 @@ pViewFormats @8 :List(Int64);
 
 struct VkRenderPassAttachmentBeginInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 attachmentCount @2 :UInt64;
 pAttachments @3 :List(UInt64);
 }
 
 struct VkPhysicalDeviceTextureCompressionASTCHDRFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 textureCompressionASTCHDR @2 :UInt64;
 }
 
 struct VkPhysicalDeviceCooperativeMatrixFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 cooperativeMatrix @2 :UInt64;
 cooperativeMatrixRobustBufferAccess @3 :UInt64;
 }
 
 struct VkPhysicalDeviceCooperativeMatrixPropertiesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 cooperativeMatrixSupportedStages @2 :Int64;
 }
 
 struct VkCooperativeMatrixPropertiesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 mSize @2 :UInt64;
 nSize @3 :UInt64;
 kSize @4 :UInt64;
@@ -4486,13 +4486,13 @@ scope @9 :Int64;
 
 struct VkPhysicalDeviceYcbcrImageArraysFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 ycbcrImageArrays @2 :UInt64;
 }
 
 struct VkImageViewHandleInfoNVX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 imageView @2 :UInt64;
 descriptorType @3 :Int64;
 sampler @4 :UInt64;
@@ -4500,14 +4500,14 @@ sampler @4 :UInt64;
 
 struct VkImageViewAddressPropertiesNVX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 deviceAddress @2 :UInt64;
 size @3 :UInt64;
 }
 
 struct VkPresentFrameTokenGGP {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 frameToken @2 :UInt64;
 }
 
@@ -4518,7 +4518,7 @@ duration @1 :UInt64;
 
 struct VkPipelineCreationFeedbackCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pPipelineCreationFeedback @2 :List(VkPipelineCreationFeedback);
 pipelineStageCreationFeedbackCount @3 :UInt64;
 pPipelineStageCreationFeedbacks @4 :List(VkPipelineCreationFeedback);
@@ -4526,56 +4526,56 @@ pPipelineStageCreationFeedbacks @4 :List(VkPipelineCreationFeedback);
 
 struct VkSurfaceFullScreenExclusiveInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fullScreenExclusive @2 :Int64;
 }
 
 struct VkSurfaceFullScreenExclusiveWin32InfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 hmonitor @2 :UInt64;
 }
 
 struct VkSurfaceCapabilitiesFullScreenExclusiveEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fullScreenExclusiveSupported @2 :UInt64;
 }
 
 struct VkPhysicalDevicePresentBarrierFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 presentBarrier @2 :UInt64;
 }
 
 struct VkSurfaceCapabilitiesPresentBarrierNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 presentBarrierSupported @2 :UInt64;
 }
 
 struct VkSwapchainPresentBarrierCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 presentBarrierEnable @2 :UInt64;
 }
 
 struct VkPhysicalDevicePerformanceQueryFeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 performanceCounterQueryPools @2 :UInt64;
 performanceCounterMultipleQueryPools @3 :UInt64;
 }
 
 struct VkPhysicalDevicePerformanceQueryPropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 allowCommandBufferQueryCopies @2 :UInt64;
 }
 
 struct VkPerformanceCounterKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 unit @2 :Int64;
 scope @3 :Int64;
 storage @4 :Int64;
@@ -4584,7 +4584,7 @@ uuid @5 :List(UInt64);
 
 struct VkPerformanceCounterDescriptionKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 name @3 :List(UInt64);
 category @4 :List(UInt64);
@@ -4593,7 +4593,7 @@ description @5 :List(UInt64);
 
 struct VkQueryPoolPerformanceCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 queueFamilyIndex @2 :UInt64;
 counterIndexCount @3 :UInt64;
 pCounterIndices @4 :List(UInt64);
@@ -4610,45 +4610,45 @@ float64 @5 :Float64;
 
 struct VkAcquireProfilingLockInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 timeout @3 :UInt64;
 }
 
 struct VkPerformanceQuerySubmitInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 counterPassIndex @2 :UInt64;
 }
 
 struct VkPerformanceQueryReservationInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxPerformanceQueriesPerPool @2 :UInt64;
 }
 
 struct VkHeadlessSurfaceCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 }
 
 struct VkPhysicalDeviceCoverageReductionModeFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 coverageReductionMode @2 :UInt64;
 }
 
 struct VkPipelineCoverageReductionStateCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 coverageReductionMode @3 :Int64;
 }
 
 struct VkFramebufferMixedSamplesCombinationNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 coverageReductionMode @2 :Int64;
 rasterizationSamples @3 :Int64;
 depthStencilSamples @4 :Int64;
@@ -4657,7 +4657,7 @@ colorSamples @5 :Int64;
 
 struct VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderIntegerFunctions2 @2 :UInt64;
 }
 
@@ -4676,31 +4676,31 @@ data @1 :VkPerformanceValueDataINTEL;
 
 struct VkInitializePerformanceApiInfoINTEL {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pUserData @2 :List(UInt64);
 }
 
 struct VkQueryPoolPerformanceQueryCreateInfoINTEL {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 performanceCountersSampling @2 :Int64;
 }
 
 struct VkPerformanceMarkerInfoINTEL {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 marker @2 :UInt64;
 }
 
 struct VkPerformanceStreamMarkerInfoINTEL {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 marker @2 :UInt64;
 }
 
 struct VkPerformanceOverrideInfoINTEL {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 type @2 :Int64;
 enable @3 :UInt64;
 parameter @4 :UInt64;
@@ -4708,39 +4708,39 @@ parameter @4 :UInt64;
 
 struct VkPerformanceConfigurationAcquireInfoINTEL {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 type @2 :Int64;
 }
 
 struct VkPhysicalDeviceShaderClockFeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderSubgroupClock @2 :UInt64;
 shaderDeviceClock @3 :UInt64;
 }
 
 struct VkPhysicalDeviceIndexTypeUint8FeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 indexTypeUint8 @2 :UInt64;
 }
 
 struct VkPhysicalDeviceShaderSMBuiltinsPropertiesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderSMCount @2 :UInt64;
 shaderWarpsPerSM @3 :UInt64;
 }
 
 struct VkPhysicalDeviceShaderSMBuiltinsFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderSMBuiltins @2 :UInt64;
 }
 
 struct VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fragmentShaderSampleInterlock @2 :UInt64;
 fragmentShaderPixelInterlock @3 :UInt64;
 fragmentShaderShadingRateInterlock @4 :UInt64;
@@ -4748,45 +4748,45 @@ fragmentShaderShadingRateInterlock @4 :UInt64;
 
 struct VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 separateDepthStencilLayouts @2 :UInt64;
 }
 
 struct VkAttachmentReferenceStencilLayout {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 stencilLayout @2 :Int64;
 }
 
 struct VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 primitiveTopologyListRestart @2 :UInt64;
 primitiveTopologyPatchListRestart @3 :UInt64;
 }
 
 struct VkAttachmentDescriptionStencilLayout {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 stencilInitialLayout @2 :Int64;
 stencilFinalLayout @3 :Int64;
 }
 
 struct VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pipelineExecutableInfo @2 :UInt64;
 }
 
 struct VkPipelineInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pipeline @2 :UInt64;
 }
 
 struct VkPipelineExecutablePropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 stages @2 :Int64;
 name @3 :List(UInt64);
 description @4 :List(UInt64);
@@ -4795,7 +4795,7 @@ subgroupSize @5 :UInt64;
 
 struct VkPipelineExecutableInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pipeline @2 :UInt64;
 executableIndex @3 :UInt64;
 }
@@ -4809,7 +4809,7 @@ f64 @3 :Float64;
 
 struct VkPipelineExecutableStatisticKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 name @2 :List(UInt64);
 description @3 :List(UInt64);
 format @4 :Int64;
@@ -4818,7 +4818,7 @@ value @5 :VkPipelineExecutableStatisticValueKHR;
 
 struct VkPipelineExecutableInternalRepresentationKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 name @2 :List(UInt64);
 description @3 :List(UInt64);
 isText @4 :UInt64;
@@ -4828,19 +4828,19 @@ pData @6 :List(UInt64);
 
 struct VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderDemoteToHelperInvocation @2 :UInt64;
 }
 
 struct VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 texelBufferAlignment @2 :UInt64;
 }
 
 struct VkPhysicalDeviceTexelBufferAlignmentProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 storageTexelBufferOffsetAlignmentBytes @2 :UInt64;
 storageTexelBufferOffsetSingleTexelAlignment @3 :UInt64;
 uniformTexelBufferOffsetAlignmentBytes @4 :UInt64;
@@ -4849,14 +4849,14 @@ uniformTexelBufferOffsetSingleTexelAlignment @5 :UInt64;
 
 struct VkPhysicalDeviceSubgroupSizeControlFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 subgroupSizeControl @2 :UInt64;
 computeFullSubgroups @3 :UInt64;
 }
 
 struct VkPhysicalDeviceSubgroupSizeControlProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 minSubgroupSize @2 :UInt64;
 maxSubgroupSize @3 :UInt64;
 maxComputeWorkgroupSubgroups @4 :UInt64;
@@ -4865,26 +4865,26 @@ requiredSubgroupSizeStages @5 :Int64;
 
 struct VkPipelineShaderStageRequiredSubgroupSizeCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 requiredSubgroupSize @2 :UInt64;
 }
 
 struct VkSubpassShadingPipelineCreateInfoHUAWEI {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 renderPass @2 :UInt64;
 subpass @3 :UInt64;
 }
 
 struct VkPhysicalDeviceSubpassShadingPropertiesHUAWEI {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxSubpassShadingWorkgroupSizeAspectRatio @2 :UInt64;
 }
 
 struct VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxWorkGroupCount @2 :List(UInt64);
 maxWorkGroupSize @3 :List(UInt64);
 maxOutputClusterCount @4 :UInt64;
@@ -4893,19 +4893,19 @@ indirectBufferOffsetAlignment @5 :UInt64;
 
 struct VkMemoryOpaqueCaptureAddressAllocateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 opaqueCaptureAddress @2 :UInt64;
 }
 
 struct VkDeviceMemoryOpaqueCaptureAddressInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memory @2 :UInt64;
 }
 
 struct VkPhysicalDeviceLineRasterizationFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 rectangularLines @2 :UInt64;
 bresenhamLines @3 :UInt64;
 smoothLines @4 :UInt64;
@@ -4916,13 +4916,13 @@ stippledSmoothLines @7 :UInt64;
 
 struct VkPhysicalDeviceLineRasterizationPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 lineSubPixelPrecisionBits @2 :UInt64;
 }
 
 struct VkPipelineRasterizationLineStateCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 lineRasterizationMode @2 :Int64;
 stippledLineEnable @3 :UInt64;
 lineStippleFactor @4 :UInt64;
@@ -4931,13 +4931,13 @@ lineStipplePattern @5 :UInt64;
 
 struct VkPhysicalDevicePipelineCreationCacheControlFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pipelineCreationCacheControl @2 :UInt64;
 }
 
 struct VkPhysicalDeviceVulkan11Features {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 storageBuffer16BitAccess @2 :UInt64;
 uniformAndStorageBuffer16BitAccess @3 :UInt64;
 storagePushConstant16 @4 :UInt64;
@@ -4954,7 +4954,7 @@ shaderDrawParameters @13 :UInt64;
 
 struct VkPhysicalDeviceVulkan11Properties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 deviceUUID @2 :List(UInt64);
 driverUUID @3 :List(UInt64);
 deviceLUID @4 :List(UInt64);
@@ -4974,7 +4974,7 @@ maxMemoryAllocationSize @16 :UInt64;
 
 struct VkPhysicalDeviceVulkan12Features {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 samplerMirrorClampToEdge @2 :UInt64;
 drawIndirectCount @3 :UInt64;
 storageBuffer8BitAccess @4 :UInt64;
@@ -5026,7 +5026,7 @@ subgroupBroadcastDynamicId @48 :UInt64;
 
 struct VkPhysicalDeviceVulkan12Properties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 driverID @2 :Int64;
 driverName @3 :List(UInt64);
 driverInfo @4 :List(UInt64);
@@ -5083,7 +5083,7 @@ framebufferIntegerColorSampleCounts @53 :Int64;
 
 struct VkPhysicalDeviceVulkan13Features {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 robustImageAccess @2 :UInt64;
 inlineUniformBlock @3 :UInt64;
 descriptorBindingInlineUniformBlockUpdateAfterBind @4 :UInt64;
@@ -5103,7 +5103,7 @@ maintenance4 @16 :UInt64;
 
 struct VkPhysicalDeviceVulkan13Properties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 minSubgroupSize @2 :UInt64;
 maxSubgroupSize @3 :UInt64;
 maxComputeWorkgroupSubgroups @4 :UInt64;
@@ -5153,26 +5153,26 @@ maxBufferSize @46 :UInt64;
 
 struct VkPipelineCompilerControlCreateInfoAMD {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 compilerControlFlags @2 :Int64;
 }
 
 struct VkPhysicalDeviceCoherentMemoryFeaturesAMD {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 deviceCoherentMemory @2 :UInt64;
 }
 
 struct VkFaultData {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 faultLevel @2 :Int64;
 faultType @3 :Int64;
 }
 
 struct VkFaultCallbackInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 faultCount @2 :UInt64;
 pFaults @3 :List(VkFaultData);
 pfnFaultCallback @4 :PFNvkFaultCallbackFunction;
@@ -5180,7 +5180,7 @@ pfnFaultCallback @4 :PFNvkFaultCallbackFunction;
 
 struct VkPhysicalDeviceToolProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 name @2 :List(UInt64);
 version @3 :List(UInt64);
 purposes @4 :Int64;
@@ -5190,34 +5190,34 @@ layer @6 :List(UInt64);
 
 struct VkSamplerCustomBorderColorCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 customBorderColor @2 :VkClearColorValue;
 format @3 :Int64;
 }
 
 struct VkPhysicalDeviceCustomBorderColorPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxCustomBorderColorSamplers @2 :UInt64;
 }
 
 struct VkPhysicalDeviceCustomBorderColorFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 customBorderColors @2 :UInt64;
 customBorderColorWithoutFormat @3 :UInt64;
 }
 
 struct VkSamplerBorderColorComponentMappingCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 components @2 :VkComponentMapping;
 srgb @3 :UInt64;
 }
 
 struct VkPhysicalDeviceBorderColorSwizzleFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 borderColorSwizzle @2 :UInt64;
 borderColorSwizzleFromImage @3 :UInt64;
 }
@@ -5239,7 +5239,7 @@ hostAddress @1 :List(UInt64);
 
 struct VkAccelerationStructureGeometryTrianglesDataKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 vertexFormat @2 :Int64;
 vertexData @3 :VkDeviceOrHostAddressConstKHR;
 vertexStride @4 :UInt64;
@@ -5251,14 +5251,14 @@ transformData @8 :VkDeviceOrHostAddressConstKHR;
 
 struct VkAccelerationStructureGeometryAabbsDataKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 data @2 :VkDeviceOrHostAddressConstKHR;
 stride @3 :UInt64;
 }
 
 struct VkAccelerationStructureGeometryInstancesDataKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 arrayOfPointers @2 :UInt64;
 data @3 :VkDeviceOrHostAddressConstKHR;
 }
@@ -5271,7 +5271,7 @@ instances @2 :VkAccelerationStructureGeometryInstancesDataKHR;
 
 struct VkAccelerationStructureGeometryKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 geometryType @2 :Int64;
 geometry @3 :VkAccelerationStructureGeometryDataKHR;
 flags @4 :Int64;
@@ -5279,7 +5279,7 @@ flags @4 :Int64;
 
 struct VkAccelerationStructureBuildGeometryInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 type @2 :Int64;
 flags @3 :Int64;
 mode @4 :Int64;
@@ -5300,7 +5300,7 @@ transformOffset @3 :UInt64;
 
 struct VkAccelerationStructureCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 createFlags @2 :Int64;
 buffer @3 :UInt64;
 offset @4 :UInt64;
@@ -5333,19 +5333,19 @@ accelerationStructureReference @5 :UInt64;
 
 struct VkAccelerationStructureDeviceAddressInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 accelerationStructure @2 :UInt64;
 }
 
 struct VkAccelerationStructureVersionInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pVersionData @2 :List(UInt64);
 }
 
 struct VkCopyAccelerationStructureInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 src @2 :UInt64;
 dst @3 :UInt64;
 mode @4 :Int64;
@@ -5353,7 +5353,7 @@ mode @4 :Int64;
 
 struct VkCopyAccelerationStructureToMemoryInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 src @2 :UInt64;
 dst @3 :VkDeviceOrHostAddressKHR;
 mode @4 :Int64;
@@ -5361,7 +5361,7 @@ mode @4 :Int64;
 
 struct VkCopyMemoryToAccelerationStructureInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 src @2 :VkDeviceOrHostAddressConstKHR;
 dst @3 :UInt64;
 mode @4 :Int64;
@@ -5369,14 +5369,14 @@ mode @4 :Int64;
 
 struct VkRayTracingPipelineInterfaceCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxPipelineRayPayloadSize @2 :UInt64;
 maxPipelineRayHitAttributeSize @3 :UInt64;
 }
 
 struct VkPipelineLibraryCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 libraryCount @2 :UInt64;
 pLibraries @3 :List(UInt64);
 }
@@ -5389,20 +5389,20 @@ flags @2 :Int64;
 
 struct VkRefreshObjectListKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 objectCount @2 :UInt64;
 pObjects @3 :List(VkRefreshObjectKHR);
 }
 
 struct VkPhysicalDeviceExtendedDynamicStateFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 extendedDynamicState @2 :UInt64;
 }
 
 struct VkPhysicalDeviceExtendedDynamicState2FeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 extendedDynamicState2 @2 :UInt64;
 extendedDynamicState2LogicOp @3 :UInt64;
 extendedDynamicState2PatchControlPoints @4 :UInt64;
@@ -5410,7 +5410,7 @@ extendedDynamicState2PatchControlPoints @4 :UInt64;
 
 struct VkPhysicalDeviceExtendedDynamicState3FeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 extendedDynamicState3TessellationDomainOrigin @2 :UInt64;
 extendedDynamicState3DepthClampEnable @3 :UInt64;
 extendedDynamicState3PolygonMode @4 :UInt64;
@@ -5446,7 +5446,7 @@ extendedDynamicState3ShadingRateImageEnable @32 :UInt64;
 
 struct VkPhysicalDeviceExtendedDynamicState3PropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 dynamicPrimitiveTopologyUnrestricted @2 :UInt64;
 }
 
@@ -5469,38 +5469,38 @@ clampResults @4 :UInt64;
 
 struct VkRenderPassTransformBeginInfoQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 transform @2 :Int64;
 }
 
 struct VkCopyCommandTransformInfoQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 transform @2 :Int64;
 }
 
 struct VkCommandBufferInheritanceRenderPassTransformInfoQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 transform @2 :Int64;
 renderArea @3 :VkRect2D;
 }
 
 struct VkPhysicalDeviceDiagnosticsConfigFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 diagnosticsConfig @2 :UInt64;
 }
 
 struct VkDeviceDiagnosticsConfigCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 }
 
 struct VkPipelineOfflineCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pipelineIdentifier @2 :List(UInt64);
 matchControl @3 :Int64;
 poolEntrySize @4 :UInt64;
@@ -5508,19 +5508,19 @@ poolEntrySize @4 :UInt64;
 
 struct VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderZeroInitializeWorkgroupMemory @2 :UInt64;
 }
 
 struct VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderSubgroupUniformControlFlow @2 :UInt64;
 }
 
 struct VkPhysicalDeviceRobustness2FeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 robustBufferAccess2 @2 :UInt64;
 robustImageAccess2 @3 :UInt64;
 nullDescriptor @4 :UInt64;
@@ -5528,20 +5528,20 @@ nullDescriptor @4 :UInt64;
 
 struct VkPhysicalDeviceRobustness2PropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 robustStorageBufferAccessSizeAlignment @2 :UInt64;
 robustUniformBufferAccessSizeAlignment @3 :UInt64;
 }
 
 struct VkPhysicalDeviceImageRobustnessFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 robustImageAccess @2 :UInt64;
 }
 
 struct VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 workgroupMemoryExplicitLayout @2 :UInt64;
 workgroupMemoryExplicitLayoutScalarBlockLayout @3 :UInt64;
 workgroupMemoryExplicitLayout8BitAccess @4 :UInt64;
@@ -5550,7 +5550,7 @@ workgroupMemoryExplicitLayout16BitAccess @5 :UInt64;
 
 struct VkPhysicalDevicePortabilitySubsetFeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 constantAlphaColorBlendFactors @2 :UInt64;
 events @3 :UInt64;
 imageViewFormatReinterpretation @4 :UInt64;
@@ -5570,33 +5570,33 @@ vertexAttributeAccessBeyondStride @16 :UInt64;
 
 struct VkPhysicalDevicePortabilitySubsetPropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 minVertexInputBindingStrideAlignment @2 :UInt64;
 }
 
 struct VkPhysicalDevice4444FormatsFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 formatA4R4G4B4 @2 :UInt64;
 formatA4B4G4R4 @3 :UInt64;
 }
 
 struct VkPhysicalDeviceSubpassShadingFeaturesHUAWEI {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 subpassShading @2 :UInt64;
 }
 
 struct VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 clustercullingShader @2 :UInt64;
 multiviewClusterCullingShader @3 :UInt64;
 }
 
 struct VkBufferCopy2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcOffset @2 :UInt64;
 dstOffset @3 :UInt64;
 size @4 :UInt64;
@@ -5604,7 +5604,7 @@ size @4 :UInt64;
 
 struct VkImageCopy2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcSubresource @2 :VkImageSubresourceLayers;
 srcOffset @3 :VkOffset3D;
 dstSubresource @4 :VkImageSubresourceLayers;
@@ -5614,7 +5614,7 @@ extent @6 :VkExtent3D;
 
 struct VkImageBlit2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcSubresource @2 :VkImageSubresourceLayers;
 srcOffsets @3 :List(VkOffset3D);
 dstSubresource @4 :VkImageSubresourceLayers;
@@ -5623,7 +5623,7 @@ dstOffsets @5 :List(VkOffset3D);
 
 struct VkBufferImageCopy2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 bufferOffset @2 :UInt64;
 bufferRowLength @3 :UInt64;
 bufferImageHeight @4 :UInt64;
@@ -5634,7 +5634,7 @@ imageExtent @7 :VkExtent3D;
 
 struct VkImageResolve2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcSubresource @2 :VkImageSubresourceLayers;
 srcOffset @3 :VkOffset3D;
 dstSubresource @4 :VkImageSubresourceLayers;
@@ -5644,7 +5644,7 @@ extent @6 :VkExtent3D;
 
 struct VkCopyBufferInfo2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcBuffer @2 :UInt64;
 dstBuffer @3 :UInt64;
 regionCount @4 :UInt64;
@@ -5653,7 +5653,7 @@ pRegions @5 :List(VkBufferCopy2);
 
 struct VkCopyImageInfo2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcImage @2 :UInt64;
 srcImageLayout @3 :Int64;
 dstImage @4 :UInt64;
@@ -5664,7 +5664,7 @@ pRegions @7 :List(VkImageCopy2);
 
 struct VkBlitImageInfo2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcImage @2 :UInt64;
 srcImageLayout @3 :Int64;
 dstImage @4 :UInt64;
@@ -5676,7 +5676,7 @@ filter @8 :Int64;
 
 struct VkCopyBufferToImageInfo2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcBuffer @2 :UInt64;
 dstImage @3 :UInt64;
 dstImageLayout @4 :Int64;
@@ -5686,7 +5686,7 @@ pRegions @6 :List(VkBufferImageCopy2);
 
 struct VkCopyImageToBufferInfo2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcImage @2 :UInt64;
 srcImageLayout @3 :Int64;
 dstBuffer @4 :UInt64;
@@ -5696,7 +5696,7 @@ pRegions @6 :List(VkBufferImageCopy2);
 
 struct VkResolveImageInfo2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcImage @2 :UInt64;
 srcImageLayout @3 :Int64;
 dstImage @4 :UInt64;
@@ -5707,28 +5707,28 @@ pRegions @7 :List(VkImageResolve2);
 
 struct VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderImageInt64Atomics @2 :UInt64;
 sparseImageInt64Atomics @3 :UInt64;
 }
 
 struct VkFragmentShadingRateAttachmentInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pFragmentShadingRateAttachment @2 :List(VkAttachmentReference2);
 shadingRateAttachmentTexelSize @3 :VkExtent2D;
 }
 
 struct VkPipelineFragmentShadingRateStateCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fragmentSize @2 :VkExtent2D;
 combinerOps @3 :List(Int64);
 }
 
 struct VkPhysicalDeviceFragmentShadingRateFeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pipelineFragmentShadingRate @2 :UInt64;
 primitiveFragmentShadingRate @3 :UInt64;
 attachmentFragmentShadingRate @4 :UInt64;
@@ -5736,7 +5736,7 @@ attachmentFragmentShadingRate @4 :UInt64;
 
 struct VkPhysicalDeviceFragmentShadingRatePropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 minFragmentShadingRateAttachmentTexelSize @2 :VkExtent2D;
 maxFragmentShadingRateAttachmentTexelSize @3 :VkExtent2D;
 maxFragmentShadingRateAttachmentTexelSizeAspectRatio @4 :UInt64;
@@ -5758,20 +5758,20 @@ fragmentShadingRateStrictMultiplyCombiner @18 :UInt64;
 
 struct VkPhysicalDeviceFragmentShadingRateKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 sampleCounts @2 :Int64;
 fragmentSize @3 :VkExtent2D;
 }
 
 struct VkPhysicalDeviceShaderTerminateInvocationFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderTerminateInvocation @2 :UInt64;
 }
 
 struct VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fragmentShadingRateEnums @2 :UInt64;
 supersampleFragmentShadingRates @3 :UInt64;
 noInvocationFragmentShadingRates @4 :UInt64;
@@ -5779,13 +5779,13 @@ noInvocationFragmentShadingRates @4 :UInt64;
 
 struct VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxFragmentShadingRateInvocationCount @2 :Int64;
 }
 
 struct VkPipelineFragmentShadingRateEnumStateCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shadingRateType @2 :Int64;
 shadingRate @3 :Int64;
 combinerOps @4 :List(Int64);
@@ -5793,7 +5793,7 @@ combinerOps @4 :List(Int64);
 
 struct VkAccelerationStructureBuildSizesInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 accelerationStructureSize @2 :UInt64;
 updateScratchSize @3 :UInt64;
 buildScratchSize @4 :UInt64;
@@ -5801,26 +5801,26 @@ buildScratchSize @4 :UInt64;
 
 struct VkPhysicalDeviceImage2DViewOf3DFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 image2DViewOf3D @2 :UInt64;
 sampler2DViewOf3D @3 :UInt64;
 }
 
 struct VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 imageSlicedViewOf3D @2 :UInt64;
 }
 
 struct VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 attachmentFeedbackLoopDynamicState @2 :UInt64;
 }
 
 struct VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 mutableDescriptorType @2 :UInt64;
 }
 
@@ -5831,38 +5831,38 @@ pDescriptorTypes @1 :List(Int64);
 
 struct VkMutableDescriptorTypeCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 mutableDescriptorTypeListCount @2 :UInt64;
 pMutableDescriptorTypeLists @3 :List(VkMutableDescriptorTypeListEXT);
 }
 
 struct VkPhysicalDeviceDepthClipControlFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 depthClipControl @2 :UInt64;
 }
 
 struct VkPipelineViewportDepthClipControlCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 negativeOneToOne @2 :UInt64;
 }
 
 struct VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 vertexInputDynamicState @2 :UInt64;
 }
 
 struct VkPhysicalDeviceExternalMemoryRDMAFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 externalMemoryRDMA @2 :UInt64;
 }
 
 struct VkVertexInputBindingDescription2EXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 binding @2 :UInt64;
 stride @3 :UInt64;
 inputRate @4 :Int64;
@@ -5871,7 +5871,7 @@ divisor @5 :UInt64;
 
 struct VkVertexInputAttributeDescription2EXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 location @2 :UInt64;
 binding @3 :UInt64;
 format @4 :Int64;
@@ -5880,20 +5880,20 @@ offset @5 :UInt64;
 
 struct VkPhysicalDeviceColorWriteEnableFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 colorWriteEnable @2 :UInt64;
 }
 
 struct VkPipelineColorWriteCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 attachmentCount @2 :UInt64;
 pColorWriteEnables @3 :List(UInt64);
 }
 
 struct VkMemoryBarrier2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcStageMask @2 :Int64;
 srcAccessMask @3 :Int64;
 dstStageMask @4 :Int64;
@@ -5902,7 +5902,7 @@ dstAccessMask @5 :Int64;
 
 struct VkImageMemoryBarrier2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcStageMask @2 :Int64;
 srcAccessMask @3 :Int64;
 dstStageMask @4 :Int64;
@@ -5917,7 +5917,7 @@ subresourceRange @11 :VkImageSubresourceRange;
 
 struct VkBufferMemoryBarrier2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 srcStageMask @2 :Int64;
 srcAccessMask @3 :Int64;
 dstStageMask @4 :Int64;
@@ -5931,7 +5931,7 @@ size @10 :UInt64;
 
 struct VkDependencyInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 dependencyFlags @2 :Int64;
 memoryBarrierCount @3 :UInt64;
 pMemoryBarriers @4 :List(VkMemoryBarrier2);
@@ -5943,7 +5943,7 @@ pImageMemoryBarriers @8 :List(VkImageMemoryBarrier2);
 
 struct VkSemaphoreSubmitInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 semaphore @2 :UInt64;
 value @3 :UInt64;
 stageMask @4 :Int64;
@@ -5952,14 +5952,14 @@ deviceIndex @5 :UInt64;
 
 struct VkCommandBufferSubmitInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 commandBuffer @2 :UInt64;
 deviceMask @3 :UInt64;
 }
 
 struct VkSubmitInfo2 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 waitSemaphoreInfoCount @3 :UInt64;
 pWaitSemaphoreInfos @4 :List(VkSemaphoreSubmitInfo);
@@ -5971,32 +5971,32 @@ pSignalSemaphoreInfos @8 :List(VkSemaphoreSubmitInfo);
 
 struct VkQueueFamilyCheckpointProperties2NV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 checkpointExecutionStageMask @2 :Int64;
 }
 
 struct VkCheckpointData2NV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 stage @2 :Int64;
 pCheckpointMarker @3 :List(UInt64);
 }
 
 struct VkPhysicalDeviceSynchronization2Features {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 synchronization2 @2 :UInt64;
 }
 
 struct VkPhysicalDeviceHostImageCopyFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 hostImageCopy @2 :UInt64;
 }
 
 struct VkPhysicalDeviceHostImageCopyPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 copySrcLayoutCount @2 :UInt64;
 pCopySrcLayouts @3 :List(Int64);
 copyDstLayoutCount @4 :UInt64;
@@ -6007,7 +6007,7 @@ identicalMemoryTypeRequirements @7 :UInt64;
 
 struct VkMemoryToImageCopyEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pHostPointer @2 :List(UInt64);
 memoryRowLength @3 :UInt64;
 memoryImageHeight @4 :UInt64;
@@ -6018,7 +6018,7 @@ imageExtent @7 :VkExtent3D;
 
 struct VkImageToMemoryCopyEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pHostPointer @2 :List(UInt64);
 memoryRowLength @3 :UInt64;
 memoryImageHeight @4 :UInt64;
@@ -6029,7 +6029,7 @@ imageExtent @7 :VkExtent3D;
 
 struct VkCopyMemoryToImageInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 dstImage @3 :UInt64;
 dstImageLayout @4 :Int64;
@@ -6039,7 +6039,7 @@ pRegions @6 :List(VkMemoryToImageCopyEXT);
 
 struct VkCopyImageToMemoryInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 srcImage @3 :UInt64;
 srcImageLayout @4 :Int64;
@@ -6049,7 +6049,7 @@ pRegions @6 :List(VkImageToMemoryCopyEXT);
 
 struct VkCopyImageToImageInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 srcImage @3 :UInt64;
 srcImageLayout @4 :Int64;
@@ -6061,7 +6061,7 @@ pRegions @8 :List(VkImageCopy2);
 
 struct VkHostImageLayoutTransitionInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 image @2 :UInt64;
 oldLayout @3 :Int64;
 newLayout @4 :Int64;
@@ -6070,20 +6070,20 @@ subresourceRange @5 :VkImageSubresourceRange;
 
 struct VkSubresourceHostMemcpySizeEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 size @2 :UInt64;
 }
 
 struct VkHostImageCopyDevicePerformanceQueryEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 optimalDeviceAccess @2 :UInt64;
 identicalMemoryLayout @3 :UInt64;
 }
 
 struct VkPhysicalDeviceVulkanSC10Properties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 deviceNoDynamicHostAllocations @2 :UInt64;
 deviceDestroyFreesMemory @3 :UInt64;
 commandPoolMultipleCommandBuffersRecording @4 :UInt64;
@@ -6106,14 +6106,14 @@ maxCommandBufferSize @19 :UInt64;
 
 struct VkPipelinePoolSize {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 poolEntrySize @2 :UInt64;
 poolEntryCount @3 :UInt64;
 }
 
 struct VkDeviceObjectReservationCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pipelineCacheCreateInfoCount @2 :UInt64;
 pPipelineCacheCreateInfos @3 :List(VkPipelineCacheCreateInfo);
 pipelinePoolSizeCount @4 :UInt64;
@@ -6159,14 +6159,14 @@ maxImmutableSamplersPerDescriptorSetLayout @42 :UInt64;
 
 struct VkCommandPoolMemoryReservationCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 commandPoolReservedSize @2 :UInt64;
 commandPoolMaxCommandBuffers @3 :UInt64;
 }
 
 struct VkCommandPoolMemoryConsumption {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 commandPoolAllocated @2 :UInt64;
 commandPoolReservedSize @3 :UInt64;
 commandBufferAllocated @4 :UInt64;
@@ -6174,13 +6174,13 @@ commandBufferAllocated @4 :UInt64;
 
 struct VkPhysicalDeviceVulkanSC10Features {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderAtomicInstructions @2 :UInt64;
 }
 
 struct VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 primitivesGeneratedQuery @2 :UInt64;
 primitivesGeneratedQueryWithRasterizerDiscard @3 :UInt64;
 primitivesGeneratedQueryWithNonZeroStreams @4 :UInt64;
@@ -6188,63 +6188,63 @@ primitivesGeneratedQueryWithNonZeroStreams @4 :UInt64;
 
 struct VkPhysicalDeviceLegacyDitheringFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 legacyDithering @2 :UInt64;
 }
 
 struct VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 multisampledRenderToSingleSampled @2 :UInt64;
 }
 
 struct VkSubpassResolvePerformanceQueryEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 optimal @2 :UInt64;
 }
 
 struct VkMultisampledRenderToSingleSampledInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 multisampledRenderToSingleSampledEnable @2 :UInt64;
 rasterizationSamples @3 :Int64;
 }
 
 struct VkPhysicalDevicePipelineProtectedAccessFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pipelineProtectedAccess @2 :UInt64;
 }
 
 struct VkQueueFamilyVideoPropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 videoCodecOperations @2 :Int64;
 }
 
 struct VkQueueFamilyQueryResultStatusPropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 queryResultStatusSupport @2 :UInt64;
 }
 
 struct VkVideoProfileListInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 profileCount @2 :UInt64;
 pProfiles @3 :List(VkVideoProfileInfoKHR);
 }
 
 struct VkPhysicalDeviceVideoFormatInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 imageUsage @2 :Int64;
 }
 
 struct VkVideoFormatPropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 format @2 :Int64;
 componentMapping @3 :VkComponentMapping;
 imageCreateFlags @4 :Int64;
@@ -6255,7 +6255,7 @@ imageUsageFlags @7 :Int64;
 
 struct VkVideoProfileInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 videoCodecOperation @2 :Int64;
 chromaSubsampling @3 :Int64;
 lumaBitDepth @4 :Int64;
@@ -6264,7 +6264,7 @@ chromaBitDepth @5 :Int64;
 
 struct VkVideoCapabilitiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 minBitstreamBufferOffsetAlignment @3 :UInt64;
 minBitstreamBufferSizeAlignment @4 :UInt64;
@@ -6278,14 +6278,14 @@ stdHeaderVersion @10 :VkExtensionProperties;
 
 struct VkVideoSessionMemoryRequirementsKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memoryBindIndex @2 :UInt64;
 memoryRequirements @3 :VkMemoryRequirements;
 }
 
 struct VkBindVideoSessionMemoryInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memoryBindIndex @2 :UInt64;
 memory @3 :UInt64;
 memoryOffset @4 :UInt64;
@@ -6294,7 +6294,7 @@ memorySize @5 :UInt64;
 
 struct VkVideoPictureResourceInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 codedOffset @2 :VkOffset2D;
 codedExtent @3 :VkExtent2D;
 baseArrayLayer @4 :UInt64;
@@ -6303,26 +6303,26 @@ imageViewBinding @5 :UInt64;
 
 struct VkVideoReferenceSlotInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 slotIndex @2 :Int64;
 pPictureResource @3 :List(VkVideoPictureResourceInfoKHR);
 }
 
 struct VkVideoDecodeCapabilitiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 }
 
 struct VkVideoDecodeUsageInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 videoUsageHints @2 :Int64;
 }
 
 struct VkVideoDecodeInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 srcBuffer @3 :UInt64;
 srcBufferOffset @4 :UInt64;
@@ -6335,21 +6335,21 @@ pReferenceSlots @9 :List(VkVideoReferenceSlotInfoKHR);
 
 struct VkVideoDecodeH264ProfileInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 stdProfileIdc @2 :UInt64;
 pictureLayout @3 :Int64;
 }
 
 struct VkVideoDecodeH264CapabilitiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxLevelIdc @2 :UInt64;
 fieldOffsetGranularity @3 :VkOffset2D;
 }
 
 struct VkVideoDecodeH264SessionParametersAddInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 stdSPSCount @2 :UInt64;
 pStdSPSs @3 :List(UInt64);
 stdPPSCount @4 :UInt64;
@@ -6358,7 +6358,7 @@ pStdPPSs @5 :List(UInt64);
 
 struct VkVideoDecodeH264SessionParametersCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxStdSPSCount @2 :UInt64;
 maxStdPPSCount @3 :UInt64;
 pParametersAddInfo @4 :List(VkVideoDecodeH264SessionParametersAddInfoKHR);
@@ -6366,7 +6366,7 @@ pParametersAddInfo @4 :List(VkVideoDecodeH264SessionParametersAddInfoKHR);
 
 struct VkVideoDecodeH264PictureInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pStdPictureInfo @2 :List(UInt64);
 sliceCount @3 :UInt64;
 pSliceOffsets @4 :List(UInt64);
@@ -6374,25 +6374,25 @@ pSliceOffsets @4 :List(UInt64);
 
 struct VkVideoDecodeH264DpbSlotInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pStdReferenceInfo @2 :List(UInt64);
 }
 
 struct VkVideoDecodeH265ProfileInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 stdProfileIdc @2 :UInt64;
 }
 
 struct VkVideoDecodeH265CapabilitiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxLevelIdc @2 :UInt64;
 }
 
 struct VkVideoDecodeH265SessionParametersAddInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 stdVPSCount @2 :UInt64;
 pStdVPSs @3 :List(UInt64);
 stdSPSCount @4 :UInt64;
@@ -6403,7 +6403,7 @@ pStdPPSs @7 :List(UInt64);
 
 struct VkVideoDecodeH265SessionParametersCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxStdVPSCount @2 :UInt64;
 maxStdSPSCount @3 :UInt64;
 maxStdPPSCount @4 :UInt64;
@@ -6412,7 +6412,7 @@ pParametersAddInfo @5 :List(VkVideoDecodeH265SessionParametersAddInfoKHR);
 
 struct VkVideoDecodeH265PictureInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pStdPictureInfo @2 :List(UInt64);
 sliceSegmentCount @3 :UInt64;
 pSliceSegmentOffsets @4 :List(UInt64);
@@ -6420,13 +6420,13 @@ pSliceSegmentOffsets @4 :List(UInt64);
 
 struct VkVideoDecodeH265DpbSlotInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pStdReferenceInfo @2 :List(UInt64);
 }
 
 struct VkVideoSessionCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 queueFamilyIndex @2 :UInt64;
 flags @3 :Int64;
 pVideoProfile @4 :List(VkVideoProfileInfoKHR);
@@ -6440,7 +6440,7 @@ pStdHeaderVersion @10 :List(VkExtensionProperties);
 
 struct VkVideoSessionParametersCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 videoSessionParametersTemplate @3 :UInt64;
 videoSession @4 :UInt64;
@@ -6448,25 +6448,25 @@ videoSession @4 :UInt64;
 
 struct VkVideoSessionParametersUpdateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 updateSequenceCount @2 :UInt64;
 }
 
 struct VkVideoEncodeSessionParametersGetInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 videoSessionParameters @2 :UInt64;
 }
 
 struct VkVideoEncodeSessionParametersFeedbackInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 hasOverrides @2 :UInt64;
 }
 
 struct VkVideoBeginCodingInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 videoSession @3 :UInt64;
 videoSessionParameters @4 :UInt64;
@@ -6476,19 +6476,19 @@ pReferenceSlots @6 :List(VkVideoReferenceSlotInfoKHR);
 
 struct VkVideoEndCodingInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 }
 
 struct VkVideoCodingControlInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 }
 
 struct VkVideoEncodeUsageInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 videoUsageHints @2 :Int64;
 videoContentHints @3 :Int64;
 tuningMode @4 :Int64;
@@ -6496,7 +6496,7 @@ tuningMode @4 :Int64;
 
 struct VkVideoEncodeInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 dstBuffer @3 :UInt64;
 dstBufferOffset @4 :UInt64;
@@ -6510,33 +6510,33 @@ precedingExternallyEncodedBytes @10 :UInt64;
 
 struct VkQueryPoolVideoEncodeFeedbackCreateInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 encodeFeedbackFlags @2 :Int64;
 }
 
 struct VkVideoEncodeQualityLevelInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 qualityLevel @2 :UInt64;
 }
 
 struct VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pVideoProfile @2 :List(VkVideoProfileInfoKHR);
 qualityLevel @3 :UInt64;
 }
 
 struct VkVideoEncodeQualityLevelPropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 preferredRateControlMode @2 :Int64;
 preferredRateControlLayerCount @3 :UInt64;
 }
 
 struct VkVideoEncodeRateControlInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 rateControlMode @3 :Int64;
 layerCount @4 :UInt64;
@@ -6547,7 +6547,7 @@ initialVirtualBufferSizeInMs @7 :UInt64;
 
 struct VkVideoEncodeRateControlLayerInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 averageBitrate @2 :UInt64;
 maxBitrate @3 :UInt64;
 frameRateNumerator @4 :UInt64;
@@ -6556,7 +6556,7 @@ frameRateDenominator @5 :UInt64;
 
 struct VkVideoEncodeCapabilitiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 rateControlModes @3 :Int64;
 maxRateControlLayers @4 :UInt64;
@@ -6568,7 +6568,7 @@ supportedEncodeFeedbackFlags @8 :Int64;
 
 struct VkVideoEncodeH264CapabilitiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 maxLevelIdc @3 :UInt64;
 maxSliceCount @4 :UInt64;
@@ -6586,7 +6586,7 @@ stdSyntaxFlags @14 :Int64;
 
 struct VkVideoEncodeH264QualityLevelPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 preferredRateControlFlags @2 :Int64;
 preferredGopFrameCount @3 :UInt64;
 preferredIdrPeriod @4 :UInt64;
@@ -6600,14 +6600,14 @@ preferredStdEntropyCodingModeFlag @10 :UInt64;
 
 struct VkVideoEncodeH264SessionCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 useMaxLevelIdc @2 :UInt64;
 maxLevelIdc @3 :UInt64;
 }
 
 struct VkVideoEncodeH264SessionParametersAddInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 stdSPSCount @2 :UInt64;
 pStdSPSs @3 :List(UInt64);
 stdPPSCount @4 :UInt64;
@@ -6616,7 +6616,7 @@ pStdPPSs @5 :List(UInt64);
 
 struct VkVideoEncodeH264SessionParametersCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxStdSPSCount @2 :UInt64;
 maxStdPPSCount @3 :UInt64;
 pParametersAddInfo @4 :List(VkVideoEncodeH264SessionParametersAddInfoEXT);
@@ -6624,7 +6624,7 @@ pParametersAddInfo @4 :List(VkVideoEncodeH264SessionParametersAddInfoEXT);
 
 struct VkVideoEncodeH264SessionParametersGetInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 writeStdSPS @2 :UInt64;
 writeStdPPS @3 :UInt64;
 stdSPSId @4 :UInt64;
@@ -6633,20 +6633,20 @@ stdPPSId @5 :UInt64;
 
 struct VkVideoEncodeH264SessionParametersFeedbackInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 hasStdSPSOverrides @2 :UInt64;
 hasStdPPSOverrides @3 :UInt64;
 }
 
 struct VkVideoEncodeH264DpbSlotInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pStdReferenceInfo @2 :List(UInt64);
 }
 
 struct VkVideoEncodeH264PictureInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 naluSliceEntryCount @2 :UInt64;
 pNaluSliceEntries @3 :List(VkVideoEncodeH264NaluSliceInfoEXT);
 pStdPictureInfo @4 :List(UInt64);
@@ -6655,20 +6655,20 @@ generatePrefixNalu @5 :UInt64;
 
 struct VkVideoEncodeH264ProfileInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 stdProfileIdc @2 :UInt64;
 }
 
 struct VkVideoEncodeH264NaluSliceInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 constantQp @2 :Int64;
 pStdSliceHeader @3 :List(UInt64);
 }
 
 struct VkVideoEncodeH264RateControlInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 gopFrameCount @3 :UInt64;
 idrPeriod @4 :UInt64;
@@ -6690,7 +6690,7 @@ frameBSize @2 :UInt64;
 
 struct VkVideoEncodeH264GopRemainingFrameInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 useGopRemainingFrames @2 :UInt64;
 gopRemainingI @3 :UInt64;
 gopRemainingP @4 :UInt64;
@@ -6699,7 +6699,7 @@ gopRemainingB @5 :UInt64;
 
 struct VkVideoEncodeH264RateControlLayerInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 useMinQp @2 :UInt64;
 minQp @3 :VkVideoEncodeH264QpEXT;
 useMaxQp @4 :UInt64;
@@ -6710,7 +6710,7 @@ maxFrameSize @7 :VkVideoEncodeH264FrameSizeEXT;
 
 struct VkVideoEncodeH265CapabilitiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 maxLevelIdc @3 :UInt64;
 maxSliceSegmentCount @4 :UInt64;
@@ -6731,7 +6731,7 @@ stdSyntaxFlags @17 :Int64;
 
 struct VkVideoEncodeH265QualityLevelPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 preferredRateControlFlags @2 :Int64;
 preferredGopFrameCount @3 :UInt64;
 preferredIdrPeriod @4 :UInt64;
@@ -6744,14 +6744,14 @@ preferredMaxL1ReferenceCount @9 :UInt64;
 
 struct VkVideoEncodeH265SessionCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 useMaxLevelIdc @2 :UInt64;
 maxLevelIdc @3 :UInt64;
 }
 
 struct VkVideoEncodeH265SessionParametersAddInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 stdVPSCount @2 :UInt64;
 pStdVPSs @3 :List(UInt64);
 stdSPSCount @4 :UInt64;
@@ -6762,7 +6762,7 @@ pStdPPSs @7 :List(UInt64);
 
 struct VkVideoEncodeH265SessionParametersCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxStdVPSCount @2 :UInt64;
 maxStdSPSCount @3 :UInt64;
 maxStdPPSCount @4 :UInt64;
@@ -6771,7 +6771,7 @@ pParametersAddInfo @5 :List(VkVideoEncodeH265SessionParametersAddInfoEXT);
 
 struct VkVideoEncodeH265SessionParametersGetInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 writeStdVPS @2 :UInt64;
 writeStdSPS @3 :UInt64;
 writeStdPPS @4 :UInt64;
@@ -6782,7 +6782,7 @@ stdPPSId @7 :UInt64;
 
 struct VkVideoEncodeH265SessionParametersFeedbackInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 hasStdVPSOverrides @2 :UInt64;
 hasStdSPSOverrides @3 :UInt64;
 hasStdPPSOverrides @4 :UInt64;
@@ -6790,7 +6790,7 @@ hasStdPPSOverrides @4 :UInt64;
 
 struct VkVideoEncodeH265PictureInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 naluSliceSegmentEntryCount @2 :UInt64;
 pNaluSliceSegmentEntries @3 :List(VkVideoEncodeH265NaluSliceSegmentInfoEXT);
 pStdPictureInfo @4 :List(UInt64);
@@ -6798,14 +6798,14 @@ pStdPictureInfo @4 :List(UInt64);
 
 struct VkVideoEncodeH265NaluSliceSegmentInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 constantQp @2 :Int64;
 pStdSliceSegmentHeader @3 :List(UInt64);
 }
 
 struct VkVideoEncodeH265RateControlInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 gopFrameCount @3 :UInt64;
 idrPeriod @4 :UInt64;
@@ -6827,7 +6827,7 @@ frameBSize @2 :UInt64;
 
 struct VkVideoEncodeH265GopRemainingFrameInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 useGopRemainingFrames @2 :UInt64;
 gopRemainingI @3 :UInt64;
 gopRemainingP @4 :UInt64;
@@ -6836,7 +6836,7 @@ gopRemainingB @5 :UInt64;
 
 struct VkVideoEncodeH265RateControlLayerInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 useMinQp @2 :UInt64;
 minQp @3 :VkVideoEncodeH265QpEXT;
 useMaxQp @4 :UInt64;
@@ -6847,25 +6847,25 @@ maxFrameSize @7 :VkVideoEncodeH265FrameSizeEXT;
 
 struct VkVideoEncodeH265ProfileInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 stdProfileIdc @2 :UInt64;
 }
 
 struct VkVideoEncodeH265DpbSlotInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pStdReferenceInfo @2 :List(UInt64);
 }
 
 struct VkPhysicalDeviceInheritedViewportScissorFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 inheritedViewportScissor2D @2 :UInt64;
 }
 
 struct VkCommandBufferInheritanceViewportScissorInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 viewportScissor2D @2 :UInt64;
 viewportDepthCount @3 :UInt64;
 pViewportDepths @4 :List(VkViewport);
@@ -6873,47 +6873,47 @@ pViewportDepths @4 :List(VkViewport);
 
 struct VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 ycbcr2plane444Formats @2 :UInt64;
 }
 
 struct VkPhysicalDeviceProvokingVertexFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 provokingVertexLast @2 :UInt64;
 transformFeedbackPreservesProvokingVertex @3 :UInt64;
 }
 
 struct VkPhysicalDeviceProvokingVertexPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 provokingVertexModePerPipeline @2 :UInt64;
 transformFeedbackPreservesTriangleFanProvokingVertex @3 :UInt64;
 }
 
 struct VkPipelineRasterizationProvokingVertexStateCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 provokingVertexMode @2 :Int64;
 }
 
 struct VkCuModuleCreateInfoNVX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 dataSize @2 :UInt64;
 pData @3 :List(UInt64);
 }
 
 struct VkCuFunctionCreateInfoNVX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 module @2 :UInt64;
 pName @3 :List(UInt64);
 }
 
 struct VkCuLaunchInfoNVX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 function @2 :UInt64;
 gridDimX @3 :UInt64;
 gridDimY @4 :UInt64;
@@ -6930,7 +6930,7 @@ pExtras @13 :List(UInt64);
 
 struct VkPhysicalDeviceDescriptorBufferFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 descriptorBuffer @2 :UInt64;
 descriptorBufferCaptureReplay @3 :UInt64;
 descriptorBufferImageLayoutIgnored @4 :UInt64;
@@ -6939,7 +6939,7 @@ descriptorBufferPushDescriptors @5 :UInt64;
 
 struct VkPhysicalDeviceDescriptorBufferPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 combinedImageSamplerDescriptorSingleArray @2 :UInt64;
 bufferlessPushDescriptors @3 :UInt64;
 allowSamplerImageViewPostSubmitCreation @4 :UInt64;
@@ -6977,13 +6977,13 @@ descriptorBufferAddressSpaceSize @34 :UInt64;
 
 struct VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 combinedImageSamplerDensityMapDescriptorSize @2 :UInt64;
 }
 
 struct VkDescriptorAddressInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 address @2 :UInt64;
 range @3 :UInt64;
 format @4 :Int64;
@@ -6991,14 +6991,14 @@ format @4 :Int64;
 
 struct VkDescriptorBufferBindingInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 address @2 :UInt64;
 usage @3 :Int64;
 }
 
 struct VkDescriptorBufferBindingPushDescriptorBufferHandleEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 buffer @2 :UInt64;
 }
 
@@ -7017,57 +7017,57 @@ accelerationStructure @9 :UInt64;
 
 struct VkDescriptorGetInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 type @2 :Int64;
 data @3 :VkDescriptorDataEXT;
 }
 
 struct VkBufferCaptureDescriptorDataInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 buffer @2 :UInt64;
 }
 
 struct VkImageCaptureDescriptorDataInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 image @2 :UInt64;
 }
 
 struct VkImageViewCaptureDescriptorDataInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 imageView @2 :UInt64;
 }
 
 struct VkSamplerCaptureDescriptorDataInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 sampler @2 :UInt64;
 }
 
 struct VkAccelerationStructureCaptureDescriptorDataInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 accelerationStructure @2 :UInt64;
 accelerationStructureNV @3 :UInt64;
 }
 
 struct VkOpaqueCaptureDescriptorDataCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 opaqueCaptureDescriptorData @2 :List(UInt64);
 }
 
 struct VkPhysicalDeviceShaderIntegerDotProductFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderIntegerDotProduct @2 :UInt64;
 }
 
 struct VkPhysicalDeviceShaderIntegerDotProductProperties {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 integerDotProduct8BitUnsignedAccelerated @2 :UInt64;
 integerDotProduct8BitSignedAccelerated @3 :UInt64;
 integerDotProduct8BitMixedSignednessAccelerated @4 :UInt64;
@@ -7102,7 +7102,7 @@ integerDotProductAccumulatingSaturating64BitMixedSignednessAccelerated @31 :UInt
 
 struct VkPhysicalDeviceDrmPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 hasPrimary @2 :UInt64;
 hasRender @3 :UInt64;
 primaryMajor @4 :Int64;
@@ -7113,32 +7113,32 @@ renderMinor @7 :Int64;
 
 struct VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 fragmentShaderBarycentric @2 :UInt64;
 }
 
 struct VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 triStripVertexOrderIndependentOfProvokingVertex @2 :UInt64;
 }
 
 struct VkPhysicalDeviceRayTracingMotionBlurFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 rayTracingMotionBlur @2 :UInt64;
 rayTracingMotionBlurPipelineTraceRaysIndirect @3 :UInt64;
 }
 
 struct VkAccelerationStructureGeometryMotionTrianglesDataNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 vertexData @2 :VkDeviceOrHostAddressConstKHR;
 }
 
 struct VkAccelerationStructureMotionInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxInstances @2 :UInt64;
 flags @3 :Int64;
 }
@@ -7196,41 +7196,41 @@ data @2 :VkAccelerationStructureMotionInstanceDataNV;
 
 struct VkMemoryGetRemoteAddressInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memory @2 :UInt64;
 handleType @3 :Int64;
 }
 
 struct VkImportMemoryBufferCollectionFUCHSIA {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 collection @2 :UInt64;
 index @3 :UInt64;
 }
 
 struct VkBufferCollectionImageCreateInfoFUCHSIA {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 collection @2 :UInt64;
 index @3 :UInt64;
 }
 
 struct VkBufferCollectionBufferCreateInfoFUCHSIA {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 collection @2 :UInt64;
 index @3 :UInt64;
 }
 
 struct VkBufferCollectionCreateInfoFUCHSIA {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 collectionToken @2 :UInt64;
 }
 
 struct VkBufferCollectionPropertiesFUCHSIA {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memoryTypeBits @2 :UInt64;
 bufferCount @3 :UInt64;
 createInfoIndex @4 :UInt64;
@@ -7246,7 +7246,7 @@ suggestedYChromaOffset @12 :Int64;
 
 struct VkBufferConstraintsInfoFUCHSIA {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 createInfo @2 :VkBufferCreateInfo;
 requiredFormatFeatures @3 :Int64;
 bufferCollectionConstraints @4 :VkBufferCollectionConstraintsInfoFUCHSIA;
@@ -7254,13 +7254,13 @@ bufferCollectionConstraints @4 :VkBufferCollectionConstraintsInfoFUCHSIA;
 
 struct VkSysmemColorSpaceFUCHSIA {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 colorSpace @2 :UInt64;
 }
 
 struct VkImageFormatConstraintsInfoFUCHSIA {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 imageCreateInfo @2 :VkImageCreateInfo;
 requiredFormatFeatures @3 :Int64;
 flags @4 :Int64;
@@ -7271,7 +7271,7 @@ pColorSpaces @7 :List(VkSysmemColorSpaceFUCHSIA);
 
 struct VkImageConstraintsInfoFUCHSIA {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 formatConstraintsCount @2 :UInt64;
 pFormatConstraints @3 :List(VkImageFormatConstraintsInfoFUCHSIA);
 bufferCollectionConstraints @4 :VkBufferCollectionConstraintsInfoFUCHSIA;
@@ -7280,7 +7280,7 @@ flags @5 :Int64;
 
 struct VkBufferCollectionConstraintsInfoFUCHSIA {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 minBufferCount @2 :UInt64;
 maxBufferCount @3 :UInt64;
 minBufferCountForCamping @4 :UInt64;
@@ -7290,13 +7290,13 @@ minBufferCountForSharedSlack @6 :UInt64;
 
 struct VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 formatRgba10x6WithoutYCbCrSampler @2 :UInt64;
 }
 
 struct VkFormatProperties3 {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 linearTilingFeatures @2 :Int64;
 optimalTilingFeatures @3 :Int64;
 bufferFeatures @4 :Int64;
@@ -7304,7 +7304,7 @@ bufferFeatures @4 :Int64;
 
 struct VkDrmFormatModifierPropertiesList2EXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 drmFormatModifierCount @2 :UInt64;
 pDrmFormatModifierProperties @3 :List(VkDrmFormatModifierProperties2EXT);
 }
@@ -7317,7 +7317,7 @@ drmFormatModifierTilingFeatures @2 :Int64;
 
 struct VkAndroidHardwareBufferFormatProperties2ANDROID {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 format @2 :Int64;
 externalFormat @3 :UInt64;
 formatFeatures @4 :Int64;
@@ -7330,7 +7330,7 @@ suggestedYChromaOffset @9 :Int64;
 
 struct VkPipelineRenderingCreateInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 viewMask @2 :UInt64;
 colorAttachmentCount @3 :UInt64;
 pColorAttachmentFormats @4 :List(Int64);
@@ -7340,7 +7340,7 @@ stencilAttachmentFormat @6 :Int64;
 
 struct VkRenderingInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 renderArea @3 :VkRect2D;
 layerCount @4 :UInt64;
@@ -7353,7 +7353,7 @@ pStencilAttachment @9 :List(VkRenderingAttachmentInfo);
 
 struct VkRenderingAttachmentInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 imageView @2 :UInt64;
 imageLayout @3 :Int64;
 resolveMode @4 :Int64;
@@ -7366,7 +7366,7 @@ clearValue @9 :VkClearValue;
 
 struct VkRenderingFragmentShadingRateAttachmentInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 imageView @2 :UInt64;
 imageLayout @3 :Int64;
 shadingRateAttachmentTexelSize @4 :VkExtent2D;
@@ -7374,20 +7374,20 @@ shadingRateAttachmentTexelSize @4 :VkExtent2D;
 
 struct VkRenderingFragmentDensityMapAttachmentInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 imageView @2 :UInt64;
 imageLayout @3 :Int64;
 }
 
 struct VkPhysicalDeviceDynamicRenderingFeatures {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 dynamicRendering @2 :UInt64;
 }
 
 struct VkCommandBufferInheritanceRenderingInfo {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 viewMask @3 :UInt64;
 colorAttachmentCount @4 :UInt64;
@@ -7399,7 +7399,7 @@ rasterizationSamples @8 :Int64;
 
 struct VkAttachmentSampleCountInfoAMD {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 colorAttachmentCount @2 :UInt64;
 pColorAttachmentSamples @3 :List(Int64);
 depthStencilAttachmentSamples @4 :Int64;
@@ -7407,26 +7407,26 @@ depthStencilAttachmentSamples @4 :Int64;
 
 struct VkMultiviewPerViewAttributesInfoNVX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 perViewAttributes @2 :UInt64;
 perViewAttributesPositionXOnly @3 :UInt64;
 }
 
 struct VkPhysicalDeviceImageViewMinLodFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 minLod @2 :UInt64;
 }
 
 struct VkImageViewMinLodCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 minLod @2 :Float32;
 }
 
 struct VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 rasterizationOrderColorAttachmentAccess @2 :UInt64;
 rasterizationOrderDepthAttachmentAccess @3 :UInt64;
 rasterizationOrderStencilAttachmentAccess @4 :UInt64;
@@ -7434,78 +7434,78 @@ rasterizationOrderStencilAttachmentAccess @4 :UInt64;
 
 struct VkPhysicalDeviceLinearColorAttachmentFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 linearColorAttachment @2 :UInt64;
 }
 
 struct VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 graphicsPipelineLibrary @2 :UInt64;
 }
 
 struct VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 graphicsPipelineLibraryFastLinking @2 :UInt64;
 graphicsPipelineLibraryIndependentInterpolationDecoration @3 :UInt64;
 }
 
 struct VkGraphicsPipelineLibraryCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 }
 
 struct VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 descriptorSetHostMapping @2 :UInt64;
 }
 
 struct VkDescriptorSetBindingReferenceVALVE {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 descriptorSetLayout @2 :UInt64;
 binding @3 :UInt64;
 }
 
 struct VkDescriptorSetLayoutHostMappingInfoVALVE {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 descriptorOffset @2 :UInt64;
 descriptorSize @3 :UInt64;
 }
 
 struct VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderModuleIdentifier @2 :UInt64;
 }
 
 struct VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderModuleIdentifierAlgorithmUUID @2 :List(UInt64);
 }
 
 struct VkPipelineShaderStageModuleIdentifierCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 identifierSize @2 :UInt64;
 pIdentifier @3 :List(UInt64);
 }
 
 struct VkShaderModuleIdentifierEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 identifierSize @2 :UInt64;
 identifier @3 :List(UInt64);
 }
 
 struct VkImageCompressionControlEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 compressionControlPlaneCount @3 :UInt64;
 pFixedRateFlags @4 :List(Int64);
@@ -7513,38 +7513,38 @@ pFixedRateFlags @4 :List(Int64);
 
 struct VkPhysicalDeviceImageCompressionControlFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 imageCompressionControl @2 :UInt64;
 }
 
 struct VkImageCompressionPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 imageCompressionFlags @2 :Int64;
 imageCompressionFixedRateFlags @3 :Int64;
 }
 
 struct VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 imageCompressionControlSwapchain @2 :UInt64;
 }
 
 struct VkImageSubresource2KHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 imageSubresource @2 :VkImageSubresource;
 }
 
 struct VkSubresourceLayout2KHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 subresourceLayout @2 :VkSubresourceLayout;
 }
 
 struct VkRenderPassCreationControlEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 disallowMerging @2 :UInt64;
 }
 
@@ -7554,7 +7554,7 @@ postMergeSubpassCount @0 :UInt64;
 
 struct VkRenderPassCreationFeedbackCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pRenderPassFeedback @2 :List(VkRenderPassCreationFeedbackInfoEXT);
 }
 
@@ -7566,19 +7566,19 @@ postMergeIndex @2 :UInt64;
 
 struct VkRenderPassSubpassFeedbackCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pSubpassFeedback @2 :List(VkRenderPassSubpassFeedbackInfoEXT);
 }
 
 struct VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 subpassMergeFeedback @2 :UInt64;
 }
 
 struct VkMicromapBuildInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 type @2 :Int64;
 flags @3 :Int64;
 mode @4 :Int64;
@@ -7594,7 +7594,7 @@ triangleArrayStride @12 :UInt64;
 
 struct VkMicromapCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 createFlags @2 :Int64;
 buffer @3 :UInt64;
 offset @4 :UInt64;
@@ -7605,13 +7605,13 @@ deviceAddress @7 :UInt64;
 
 struct VkMicromapVersionInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pVersionData @2 :List(UInt64);
 }
 
 struct VkCopyMicromapInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 src @2 :UInt64;
 dst @3 :UInt64;
 mode @4 :Int64;
@@ -7619,7 +7619,7 @@ mode @4 :Int64;
 
 struct VkCopyMicromapToMemoryInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 src @2 :UInt64;
 dst @3 :VkDeviceOrHostAddressKHR;
 mode @4 :Int64;
@@ -7627,7 +7627,7 @@ mode @4 :Int64;
 
 struct VkCopyMemoryToMicromapInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 src @2 :VkDeviceOrHostAddressConstKHR;
 dst @3 :UInt64;
 mode @4 :Int64;
@@ -7635,7 +7635,7 @@ mode @4 :Int64;
 
 struct VkMicromapBuildSizesInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 micromapSize @2 :UInt64;
 buildScratchSize @3 :UInt64;
 discardable @4 :UInt64;
@@ -7655,7 +7655,7 @@ format @2 :UInt64;
 
 struct VkPhysicalDeviceOpacityMicromapFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 micromap @2 :UInt64;
 micromapCaptureReplay @3 :UInt64;
 micromapHostCommands @4 :UInt64;
@@ -7663,14 +7663,14 @@ micromapHostCommands @4 :UInt64;
 
 struct VkPhysicalDeviceOpacityMicromapPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxOpacity2StateSubdivisionLevel @2 :UInt64;
 maxOpacity4StateSubdivisionLevel @3 :UInt64;
 }
 
 struct VkAccelerationStructureTrianglesOpacityMicromapEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 indexType @2 :Int64;
 indexBuffer @3 :VkDeviceOrHostAddressConstKHR;
 indexStride @4 :UInt64;
@@ -7683,19 +7683,19 @@ micromap @9 :UInt64;
 
 struct VkPhysicalDeviceDisplacementMicromapFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 displacementMicromap @2 :UInt64;
 }
 
 struct VkPhysicalDeviceDisplacementMicromapPropertiesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxDisplacementMicromapSubdivisionLevel @2 :UInt64;
 }
 
 struct VkAccelerationStructureTrianglesDisplacementMicromapNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 displacementBiasAndScaleFormat @2 :Int64;
 displacementVectorFormat @3 :Int64;
 displacementBiasAndScaleBuffer @4 :VkDeviceOrHostAddressConstKHR;
@@ -7716,68 +7716,68 @@ micromap @17 :UInt64;
 
 struct VkPipelinePropertiesIdentifierEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pipelineIdentifier @2 :List(UInt64);
 }
 
 struct VkPhysicalDevicePipelinePropertiesFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pipelinePropertiesIdentifier @2 :UInt64;
 }
 
 struct VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderEarlyAndLateFragmentTests @2 :UInt64;
 }
 
 struct VkExternalMemoryAcquireUnmodifiedEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 acquireUnmodifiedMemory @2 :UInt64;
 }
 
 struct VkExportMetalObjectCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 exportObjectType @2 :Int64;
 }
 
 struct VkExportMetalObjectsInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 }
 
 struct VkExportMetalDeviceInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 mtlDevice @2 :UInt64;
 }
 
 struct VkExportMetalCommandQueueInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 queue @2 :UInt64;
 mtlCommandQueue @3 :UInt64;
 }
 
 struct VkExportMetalBufferInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 memory @2 :UInt64;
 mtlBuffer @3 :UInt64;
 }
 
 struct VkImportMetalBufferInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 mtlBuffer @2 :UInt64;
 }
 
 struct VkExportMetalTextureInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 image @2 :UInt64;
 imageView @3 :UInt64;
 bufferView @4 :UInt64;
@@ -7787,27 +7787,27 @@ mtlTexture @6 :UInt64;
 
 struct VkImportMetalTextureInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 plane @2 :Int64;
 mtlTexture @3 :UInt64;
 }
 
 struct VkExportMetalIOSurfaceInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 image @2 :UInt64;
 ioSurface @3 :UInt64;
 }
 
 struct VkImportMetalIOSurfaceInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 ioSurface @2 :UInt64;
 }
 
 struct VkExportMetalSharedEventInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 semaphore @2 :UInt64;
 event @3 :UInt64;
 mtlSharedEvent @4 :UInt64;
@@ -7815,25 +7815,25 @@ mtlSharedEvent @4 :UInt64;
 
 struct VkImportMetalSharedEventInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 mtlSharedEvent @2 :UInt64;
 }
 
 struct VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 nonSeamlessCubeMap @2 :UInt64;
 }
 
 struct VkPhysicalDevicePipelineRobustnessFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pipelineRobustness @2 :UInt64;
 }
 
 struct VkPipelineRobustnessCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 storageBuffers @2 :Int64;
 uniformBuffers @3 :Int64;
 vertexInputs @4 :Int64;
@@ -7842,7 +7842,7 @@ images @5 :Int64;
 
 struct VkPhysicalDevicePipelineRobustnessPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 defaultRobustnessStorageBuffers @2 :Int64;
 defaultRobustnessUniformBuffers @3 :Int64;
 defaultRobustnessVertexInputs @4 :Int64;
@@ -7851,7 +7851,7 @@ defaultRobustnessImages @5 :Int64;
 
 struct VkImageViewSampleWeightCreateInfoQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 filterCenter @2 :VkOffset2D;
 filterSize @3 :VkExtent2D;
 numPhases @4 :UInt64;
@@ -7859,7 +7859,7 @@ numPhases @4 :UInt64;
 
 struct VkPhysicalDeviceImageProcessingFeaturesQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 textureSampleWeighted @2 :UInt64;
 textureBoxFilter @3 :UInt64;
 textureBlockMatch @4 :UInt64;
@@ -7867,7 +7867,7 @@ textureBlockMatch @4 :UInt64;
 
 struct VkPhysicalDeviceImageProcessingPropertiesQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxWeightFilterPhases @2 :UInt64;
 maxWeightFilterDimension @3 :VkExtent2D;
 maxBlockMatchRegion @4 :VkExtent2D;
@@ -7876,13 +7876,13 @@ maxBoxFilterBlockSize @5 :VkExtent2D;
 
 struct VkPhysicalDeviceTilePropertiesFeaturesQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 tileProperties @2 :UInt64;
 }
 
 struct VkTilePropertiesQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 tileSize @2 :VkExtent3D;
 apronSize @3 :VkExtent2D;
 origin @4 :VkOffset2D;
@@ -7890,38 +7890,38 @@ origin @4 :VkOffset2D;
 
 struct VkPhysicalDeviceAmigoProfilingFeaturesSEC {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 amigoProfiling @2 :UInt64;
 }
 
 struct VkAmigoProfilingSubmitInfoSEC {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 firstDrawTimestamp @2 :UInt64;
 swapBufferTimestamp @3 :UInt64;
 }
 
 struct VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 attachmentFeedbackLoopLayout @2 :UInt64;
 }
 
 struct VkPhysicalDeviceDepthClampZeroOneFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 depthClampZeroOne @2 :UInt64;
 }
 
 struct VkPhysicalDeviceAddressBindingReportFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 reportAddressBinding @2 :UInt64;
 }
 
 struct VkDeviceAddressBindingCallbackDataEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 baseAddress @3 :UInt64;
 size @4 :UInt64;
@@ -7930,13 +7930,13 @@ bindingType @5 :Int64;
 
 struct VkPhysicalDeviceOpticalFlowFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 opticalFlow @2 :UInt64;
 }
 
 struct VkPhysicalDeviceOpticalFlowPropertiesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 supportedOutputGridSizes @2 :Int64;
 supportedHintGridSizes @3 :Int64;
 hintSupported @4 :UInt64;
@@ -7952,19 +7952,19 @@ maxNumRegionsOfInterest @12 :UInt64;
 
 struct VkOpticalFlowImageFormatInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 usage @2 :Int64;
 }
 
 struct VkOpticalFlowImageFormatPropertiesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 format @2 :Int64;
 }
 
 struct VkOpticalFlowSessionCreateInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 width @2 :UInt64;
 height @3 :UInt64;
 imageFormat @4 :Int64;
@@ -7978,7 +7978,7 @@ flags @10 :Int64;
 
 struct VkOpticalFlowSessionCreatePrivateDataInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 id @2 :UInt64;
 size @3 :UInt64;
 pPrivateData @4 :List(UInt64);
@@ -7986,7 +7986,7 @@ pPrivateData @4 :List(UInt64);
 
 struct VkOpticalFlowExecuteInfoNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 regionCount @3 :UInt64;
 pRegions @4 :List(VkRect2D);
@@ -7994,7 +7994,7 @@ pRegions @4 :List(VkRect2D);
 
 struct VkPhysicalDeviceFaultFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 deviceFault @2 :UInt64;
 deviceFaultVendorBinary @3 :UInt64;
 }
@@ -8013,7 +8013,7 @@ vendorFaultData @2 :UInt64;
 
 struct VkDeviceFaultCountsEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 addressInfoCount @2 :UInt64;
 vendorInfoCount @3 :UInt64;
 vendorBinarySize @4 :UInt64;
@@ -8021,7 +8021,7 @@ vendorBinarySize @4 :UInt64;
 
 struct VkDeviceFaultInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 description @2 :List(UInt64);
 pAddressInfos @3 :List(VkDeviceFaultAddressInfoEXT);
 pVendorInfos @4 :List(VkDeviceFaultVendorInfoEXT);
@@ -8044,13 +8044,13 @@ apiVersion @10 :UInt64;
 
 struct VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pipelineLibraryGroupHandles @2 :UInt64;
 }
 
 struct VkDepthBiasInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 depthBiasConstantFactor @2 :Float32;
 depthBiasClamp @3 :Float32;
 depthBiasSlopeFactor @4 :Float32;
@@ -8058,7 +8058,7 @@ depthBiasSlopeFactor @4 :Float32;
 
 struct VkDepthBiasRepresentationInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 depthBiasRepresentation @2 :Int64;
 depthBiasExact @3 :UInt64;
 }
@@ -8073,7 +8073,7 @@ decompressionMethod @4 :Int64;
 
 struct VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderCoreMask @2 :UInt64;
 shaderCoreCount @3 :UInt64;
 shaderWarpsPerCore @4 :UInt64;
@@ -8081,13 +8081,13 @@ shaderWarpsPerCore @4 :UInt64;
 
 struct VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderCoreBuiltins @2 :UInt64;
 }
 
 struct VkFrameBoundaryEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 frameID @3 :UInt64;
 imageCount @4 :UInt64;
@@ -8101,25 +8101,25 @@ pTag @10 :List(UInt64);
 
 struct VkPhysicalDeviceFrameBoundaryFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 frameBoundary @2 :UInt64;
 }
 
 struct VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 dynamicRenderingUnusedAttachments @2 :UInt64;
 }
 
 struct VkSurfacePresentModeEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 presentMode @2 :Int64;
 }
 
 struct VkSurfacePresentScalingCapabilitiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 supportedPresentScaling @2 :Int64;
 supportedPresentGravityX @3 :Int64;
 supportedPresentGravityY @4 :Int64;
@@ -8129,41 +8129,41 @@ maxScaledImageExtent @6 :VkExtent2D;
 
 struct VkSurfacePresentModeCompatibilityEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 presentModeCount @2 :UInt64;
 pPresentModes @3 :List(Int64);
 }
 
 struct VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 swapchainMaintenance1 @2 :UInt64;
 }
 
 struct VkSwapchainPresentFenceInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 swapchainCount @2 :UInt64;
 pFences @3 :List(UInt64);
 }
 
 struct VkSwapchainPresentModesCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 presentModeCount @2 :UInt64;
 pPresentModes @3 :List(Int64);
 }
 
 struct VkSwapchainPresentModeInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 swapchainCount @2 :UInt64;
 pPresentModes @3 :List(Int64);
 }
 
 struct VkSwapchainPresentScalingCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 scalingBehavior @2 :Int64;
 presentGravityX @3 :Int64;
 presentGravityY @4 :Int64;
@@ -8171,7 +8171,7 @@ presentGravityY @4 :Int64;
 
 struct VkReleaseSwapchainImagesInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 swapchain @2 :UInt64;
 imageIndexCount @3 :UInt64;
 pImageIndices @4 :List(UInt64);
@@ -8179,7 +8179,7 @@ pImageIndices @4 :List(UInt64);
 
 struct VkPhysicalDeviceDepthBiasControlFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 depthBiasControl @2 :UInt64;
 leastRepresentableValueForceUnormRepresentation @3 :UInt64;
 floatRepresentation @4 :UInt64;
@@ -8188,26 +8188,26 @@ depthBiasExact @5 :UInt64;
 
 struct VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 rayTracingInvocationReorder @2 :UInt64;
 }
 
 struct VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 rayTracingInvocationReorderReorderingHint @2 :Int64;
 }
 
 struct VkDirectDriverLoadingInfoLUNARG {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 pfnGetInstanceProcAddr @3 :PFNvkGetInstanceProcAddrLUNARG;
 }
 
 struct VkDirectDriverLoadingListLUNARG {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 mode @2 :Int64;
 driverCount @3 :UInt64;
 pDrivers @4 :List(VkDirectDriverLoadingInfoLUNARG);
@@ -8215,26 +8215,26 @@ pDrivers @4 :List(VkDirectDriverLoadingInfoLUNARG);
 
 struct VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 multiviewPerViewViewports @2 :UInt64;
 }
 
 struct VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 rayTracingPositionFetch @2 :UInt64;
 }
 
 struct VkDeviceImageSubresourceInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pCreateInfo @2 :List(VkImageCreateInfo);
 pSubresource @3 :List(VkImageSubresource2KHR);
 }
 
 struct VkPhysicalDeviceShaderCorePropertiesARM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pixelRate @2 :UInt64;
 texelRate @3 :UInt64;
 fmaRate @4 :UInt64;
@@ -8242,26 +8242,26 @@ fmaRate @4 :UInt64;
 
 struct VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 multiviewPerViewRenderAreas @2 :UInt64;
 }
 
 struct VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 perViewRenderAreaCount @2 :UInt64;
 pPerViewRenderAreas @3 :List(VkRect2D);
 }
 
 struct VkQueryLowLatencySupportNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pQueriedLowLatencyData @2 :List(UInt64);
 }
 
 struct VkMemoryMapInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 memory @3 :UInt64;
 offset @4 :UInt64;
@@ -8270,27 +8270,27 @@ size @5 :UInt64;
 
 struct VkMemoryUnmapInfoKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 memory @3 :UInt64;
 }
 
 struct VkPhysicalDeviceShaderObjectFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderObject @2 :UInt64;
 }
 
 struct VkPhysicalDeviceShaderObjectPropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderBinaryUUID @2 :List(UInt64);
 shaderBinaryVersion @3 :UInt64;
 }
 
 struct VkShaderCreateInfoEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 stage @3 :Int64;
 nextStage @4 :Int64;
@@ -8307,7 +8307,7 @@ pSpecializationInfo @13 :List(VkSpecializationInfo);
 
 struct VkPhysicalDeviceShaderTileImageFeaturesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderTileImageColorReadAccess @2 :UInt64;
 shaderTileImageDepthReadAccess @3 :UInt64;
 shaderTileImageStencilReadAccess @4 :UInt64;
@@ -8315,7 +8315,7 @@ shaderTileImageStencilReadAccess @4 :UInt64;
 
 struct VkPhysicalDeviceShaderTileImagePropertiesEXT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderTileImageCoherentReadAccelerated @2 :UInt64;
 shaderTileImageReadSampleFromPixelRateInvocation @3 :UInt64;
 shaderTileImageReadFromHelperInvocation @4 :UInt64;
@@ -8323,20 +8323,20 @@ shaderTileImageReadFromHelperInvocation @4 :UInt64;
 
 struct VkImportScreenBufferInfoQNX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 buffer @2 :List(UInt64);
 }
 
 struct VkScreenBufferPropertiesQNX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 allocationSize @2 :UInt64;
 memoryTypeBits @3 :UInt64;
 }
 
 struct VkScreenBufferFormatPropertiesQNX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 format @2 :Int64;
 externalFormat @3 :UInt64;
 screenUsage @4 :UInt64;
@@ -8350,26 +8350,26 @@ suggestedYChromaOffset @10 :Int64;
 
 struct VkExternalFormatQNX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 externalFormat @2 :UInt64;
 }
 
 struct VkPhysicalDeviceExternalMemoryScreenBufferFeaturesQNX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 screenBufferImport @2 :UInt64;
 }
 
 struct VkPhysicalDeviceCooperativeMatrixFeaturesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 cooperativeMatrix @2 :UInt64;
 cooperativeMatrixRobustBufferAccess @3 :UInt64;
 }
 
 struct VkCooperativeMatrixPropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 mSize @2 :UInt64;
 nSize @3 :UInt64;
 kSize @4 :UInt64;
@@ -8383,13 +8383,13 @@ scope @10 :Int64;
 
 struct VkPhysicalDeviceCooperativeMatrixPropertiesKHR {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 cooperativeMatrixSupportedStages @2 :Int64;
 }
 
 struct VkPhysicalDeviceShaderEnqueuePropertiesAMDX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxExecutionGraphDepth @2 :UInt64;
 maxExecutionGraphShaderOutputNodes @3 :UInt64;
 maxExecutionGraphShaderPayloadSize @4 :UInt64;
@@ -8399,13 +8399,13 @@ executionGraphDispatchAddressAlignment @6 :UInt64;
 
 struct VkPhysicalDeviceShaderEnqueueFeaturesAMDX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 shaderEnqueue @2 :UInt64;
 }
 
 struct VkExecutionGraphPipelineCreateInfoAMDX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 flags @2 :Int64;
 stageCount @3 :UInt64;
 pStages @4 :List(VkPipelineShaderStageCreateInfo);
@@ -8417,14 +8417,14 @@ basePipelineIndex @8 :Int64;
 
 struct VkPipelineShaderStageNodeCreateInfoAMDX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 pName @2 :List(UInt64);
 index @3 :UInt64;
 }
 
 struct VkExecutionGraphPipelineScratchSizeAMDX {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 size @2 :UInt64;
 }
 
@@ -8443,69 +8443,69 @@ stride @2 :UInt64;
 
 struct VkPhysicalDeviceCubicClampFeaturesQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 cubicRangeClamp @2 :UInt64;
 }
 
 struct VkPhysicalDeviceYcbcrDegammaFeaturesQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 ycbcrDegamma @2 :UInt64;
 }
 
 struct VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 enableYDegamma @2 :UInt64;
 enableCbCrDegamma @3 :UInt64;
 }
 
 struct VkPhysicalDeviceCubicWeightsFeaturesQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 selectableCubicWeights @2 :UInt64;
 }
 
 struct VkSamplerCubicWeightsCreateInfoQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 cubicWeights @2 :Int64;
 }
 
 struct VkBlitImageCubicWeightsInfoQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 cubicWeights @2 :Int64;
 }
 
 struct VkPhysicalDeviceImageProcessing2FeaturesQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 textureBlockMatch2 @2 :UInt64;
 }
 
 struct VkPhysicalDeviceImageProcessing2PropertiesQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 maxBlockMatchWindow @2 :VkExtent2D;
 }
 
 struct VkSamplerBlockMatchWindowCreateInfoQCOM {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 windowExtent @2 :VkExtent2D;
 windowCompareMode @3 :Int64;
 }
 
 struct VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 descriptorPoolOverallocation @2 :UInt64;
 }
 
 struct VkPhysicalDeviceLayeredDriverPropertiesMSFT {
 sType @0 :Int64;
-pNext @1 :List(PNext);
+pNext @1 :PNext;
 underlyingAPI @2 :Int64;
 }
 
@@ -16962,7 +16962,7 @@ struct Sync {
     starts @2 :List(UInt64);
     lengths @3 :List(UInt64);
     hashes @4 :List(Text);
-    buffers @5 :List(Text);
+    buffers @5 :List(Data);
 }
 
 

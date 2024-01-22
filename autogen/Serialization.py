@@ -5,8 +5,8 @@ write("#include <vulkan/vulkan.h>",header=True)
 write(f"""
 #include <ThreadStruct.hpp>
 
-#include <boost/json/src.hpp>
-using namespace boost::json;
+#include <schema.capnp.h>
+using namespace capnp;
 
 #include <Serialization.hpp>
 #include <Server.hpp>
@@ -25,70 +25,60 @@ write("#include <debug.hpp>",header=True)
 write("typedef void* pNext;",header=True)
 
 def struct_is_callback(struct):
-    members=parsed["structs"][struct]
+    members=parsed[struct]["members"]
     
-    return any(member["name"]=="pUserData" for member in members) and any(member["type"] in parsed["funcpointers"] for member in members)
+    return any(member["name"]=="pUserData" for member in members) and any(parsed[member["type"]]["kind"]=="funcpointer" for member in members)
 
 def funcpointer_in_callback(funcpointer):
-    for struct,members in parsed["structs"].items():
-        if not struct_is_callback(struct):
+    for name,obj in parsed.items():
+        if not (obj["kind"]=="struct" and struct_is_callback(name)):
             continue
         
+        members=obj["members"]
         if any(member["type"]==funcpointer for member in members):
             return struct
     return None
 
-
-#Use dispatch tables to avoid stack overflows
-for struct,members in parsed["structs"].items():
-    member={}
-    member["name"]=f"(({struct}*)(name))"
-    member["type"]=struct
-    member["num_indirection"]=1
-    member["length"]=[]
-
-    write(f"""
-        object serialize_{struct}_pNext(const void* name){{
-        debug_printf("Serializing {struct}...\\n");
-        object result;
-        {serialize("result",member)}
-        return result;
-        }}
-    """)
-
-write("std::map<VkStructureType, std::function<object(const void*)>> serialize_pNext_dispatch={")
-for struct,members in parsed["structs"].items():
-    type=members[0]["value"]
-
-    if type=="":
-        continue
-
-    write(f"{{{type},serialize_{struct}_pNext}},")
-write("};")
-
+def is_not_struct(name,struct):
+    return not(struct["kind"]=="struct" and ("alias" not in struct))
+    
 write("""
-object serialize_pNext(const void* name){
-    if (name==NULL){
-        return object({{"null",true}});
+void serialize_pNext(PNext::Builder builder, void* member){
+    if (member==NULL){
+        builder.initNone();
+        return;
     }
+    
+    auto chain=((VkBaseInStructure*)member);
+    switch(chain->sType){
+""")
 
-    auto chain=((VkBaseInStructure*)name);
-    if (serialize_pNext_dispatch.contains(chain->sType)){
-        return serialize_pNext_dispatch[chain->sType](name);
-    }else{
-        return serialize_pNext((void*)chain->pNext); //Ignore invalid sTypes
-    }
+for name, strict in parsed.items():
+    if is_not_struct(name, struct):
+        continue
+    write(f"""
+    case {struct["sType"]}:
+        return serialize_struct(builder.get{name.title()}(), (({name}*)(member))[0]);
+    """)
+    
+write("""
+default:
+    return serialize_pNext(builder, (void*)(chain->pNext)); //Ignore invalid sTypes
+}
 }
 """)
 
 write("std::map<VkStructureType, size_t> structure_type_to_size={")
-for struct,members in parsed["structs"].items():
-    type=members[0]["value"]
+for name, struct in parsed.items():
+    if is_not_struct(name,struct):
+        continue
+        
+    type=struct["sType"]
 
     if type=="":
         continue
 
-    write(f"{{{type}, sizeof({struct}) }},")
+    write(f"{{{type}, sizeof({name}) }},")
 write("};")
 
 write("""
@@ -108,7 +98,7 @@ write("""
 void* copyVkStruct (const void* data){
     auto curr=data;
     while (true){
-        if (data==NULL){
+        if (curr==NULL){
         return NULL;
         }
         auto structure_type=((StreamStructure*)curr)->sType;
@@ -127,49 +117,36 @@ void* copyVkStruct (const void* data){
 """)
 write("void* copyVkStruct (const void* data);",header=True)
 
-for struct,members in parsed["structs"].items():
-    member={}
-    member["name"]="name"
-    member["type"]=struct
-    member["num_indirection"]=1
-    member["length"]=[]
-
-    write(f"""
-        void* deserialize_{struct}_pNext(object& name){{
-        debug_printf("Deserializing {struct}...\\n");
-        {struct}* result;
-        {deserialize("result",member,initialize=True)}
-        return (void*)result;
-        }}
-    """)
-
-write("std::map<VkStructureType, std::function<void*(object&)>> deserialize_pNext_dispatch={")
-for struct,members in parsed["structs"].items():
-    type=members[0]["value"]
-
-    if type=="":
-        continue
-
-    write(f"{{{type},deserialize_{struct}_pNext}},")
-write("};")
-
 write("""
-void* deserialize_pNext(object &name){
-void* result;
-if (name.contains("null")){
-    result=NULL;
-    return result;
-}
-
-return deserialize_pNext_dispatch[(VkStructureType)value_to<int>(name["members"].as_object()["sType"].as_object()["value"])](name);
-}
+void* deserialize_pNext(PNext& builder){
+    if (builder.hasNone()){
+        return NULL;
+    }
+    
+    void* result;
+    switch (builder.which()){
 """)
-
-for struct,members in parsed["structs"].items():
+for struct, obj in parsed.items():
+    if is_not_struct(struct,obj):
+        continue
     write(f"""
-    object serialize_{struct}({struct} name){{
-        object result;
-        result["members"]=object();
+    case PNext::{struct.upper()}:
+        result=({struct}*)malloc(sizeof({struct}));
+        result[0]=deserialize_struct(builder.get{struct.title()}());
+        return result;
+    """)
+write("}}")
+
+
+for name, struct in parsed.items():
+    if is_not_struct(name, struct):
+        continue
+    
+    members=struct["members"]
+    
+    write(f"""
+    void serialize_struct({struct.title()}::Builder& builder, {struct} member){{
+        
     """)
     
     members_names=[member["name"] for member in members]
@@ -178,21 +155,14 @@ for struct,members in parsed["structs"].items():
         return re.sub(rf"\b({'|'.join(members_names)})\b",rf"{struct_name}.\1",name)
         
     for member in members:
-        member_copy=copy.deepcopy(member)
-       
-        member_copy["name"]="name."+member_copy["name"]
-        for i,e in enumerate(member_copy["length"]):
-            member_copy["length"][i]=add_struct_name(e, "name")
+        member=copy.deepcopy(member)
+
+        for i,e in enumerate(member["length"]):
+            member["length"][i]=add_struct_name(e, "member")
         
-        if member_copy["name"]=="name.lineWidthRange":
-            write("""
-            debug_printf("%f\\n",name.lineWidthRange[0]);
-            debug_printf("%f\\n",name.lineWidthRange[1]);
-            """)
-            
-        write(serialize(f"""result["members"].as_object()["{member["name"]}"]""",member_copy))
+        write(convert("member","builder",member["name"],member,serialize=True))
         
-    write("return result;}")
+    write("}")
     
     is_callback=struct_is_callback(struct)
     

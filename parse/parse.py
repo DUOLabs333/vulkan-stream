@@ -103,7 +103,6 @@ for item in vk.findall("./types/type"):
                 member["type"]=type.text
                 
                 member["num_indirection"]=type.tail.count("*")
-                get_length(elem,member)
                 
                 if member["name"]=="sType":
                     result["sType"]=elem.attrib.get("values","")
@@ -116,9 +115,12 @@ for item in vk.findall("./types/type"):
                     member["type"]="pNext"
                     member["num_indirection"]=0
                 
+                get_length(elem,member)
+                
                 if name=="VkImageToMemoryCopyEXT" and member["name"]=="pHostPointer":
                     member["length"]=["100000"]
-                    
+                 
+                  
                 members.append(member)
         result["members"]=members
         
@@ -312,6 +314,9 @@ for name,obj in parsed.items():
     elif name=="pNext":
         result.append("union {")
         
+        result.append(f"none @{index} :Void;")
+        index+=1
+        
         for name in parsed:
             if ("alias" in parsed[name]) or parsed[name].get("kind","")!="struct" or name=="pNext":
                 continue
@@ -360,7 +365,7 @@ struct Sync {{
     starts @2 :List({map_type_to_schema("size_t")});
     lengths @3 :List({map_type_to_schema("size_t")});
     hashes @4 :List(Text);
-    buffers @5 :List(Text);
+    buffers @5 :List(Data);
 }}
 """
 
@@ -390,6 +395,9 @@ for name, schema in schemas.items():
     schema_file.write(schema+"\n\n")
 schema_file.close()
 
+import subprocess
+subprocess.run(["capnp", "compile", "-oc++", "schema.capnp"])
+ 
 #TODO: Autogenerate schema based on parsed dictionary (specifiically here, as any command might be sent)
 
 from ahocorapy.keywordtree import KeywordTree
