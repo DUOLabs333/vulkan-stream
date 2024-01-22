@@ -40,8 +40,19 @@ def funcpointer_in_callback(funcpointer):
     return None
 
 def is_not_struct(name,struct):
-    return not(struct["kind"]=="struct" and ("alias" not in struct))
-    
+    return not(struct["kind"]=="struct" and ("alias" not in struct)) or ("ignore" in struct)
+
+pUserData_members=set([member["name"] for member in parsed["pUserData"]["members"]])
+
+write("""
+typedef struct {
+    void* pUserData;
+""")
+
+for member in pUserData_members:
+    write(f"uintptr_t {member};")
+write("} pUserData;")
+
 write("""
 void serialize_pNext(PNext::Builder builder, void* member){
     if (member==NULL){
@@ -67,6 +78,28 @@ default:
 }
 }
 """)
+
+write("""
+void* deserialize_pNext(PNext::Reader& reader){
+    if (reader.hasNone()){
+        return NULL;
+    }
+    
+    void* result;
+    switch (reader.which()){
+""")
+
+for struct, obj in parsed.items():
+    if is_not_struct(struct,obj):
+        continue
+    write(f"""
+    case PNext::{struct.upper()}:
+        result=({struct}*)malloc(sizeof({struct}));
+        result[0]=deserialize_struct(reader.get{struct.title()}());
+        return result;
+    """)
+write("}}")
+
 
 write("std::map<VkStructureType, size_t> structure_type_to_size={")
 for name, struct in parsed.items():
@@ -117,26 +150,6 @@ void* copyVkStruct (const void* data){
 """)
 write("void* copyVkStruct (const void* data);",header=True)
 
-write("""
-void* deserialize_pNext(PNext::Reader& reader){
-    if (reader.hasNone()){
-        return NULL;
-    }
-    
-    void* result;
-    switch (reader.which()){
-""")
-for struct, obj in parsed.items():
-    if is_not_struct(struct,obj):
-        continue
-    write(f"""
-    case PNext::{struct.upper()}:
-        result=({struct}*)malloc(sizeof({struct}));
-        result[0]=deserialize_struct(reader.get{struct.title()}());
-        return result;
-    """)
-write("}}")
-
 
 for name, struct in parsed.items():
     if is_not_struct(name, struct):
@@ -163,24 +176,11 @@ for name, struct in parsed.items():
         write(convert("member","builder",member["name"],member,serialize=True))
         
     write("}")
-    
-    is_callback=struct_is_callback(struct)
-    
-    if is_callback:
-        write("typedef struct {")
-        for member in members:
-            if member["name"]=="pUserData":
-                write("void* pUserData;")
-            else:
-                write(f"uintptr_t {member['type']}_id;")
-        write(f"}} {struct}_struct;")
         
     write(f"""
     {struct} deserialize_struct({struct.title()}::Reader reader){{
         auto result={struct}();
     """)
-    if is_callback:
-        write(f"auto _struct = new {struct}_struct;")
     for member in members:
         member=copy.deepcopy(member)
         
@@ -189,18 +189,22 @@ for name, struct in parsed.items():
         
         write(convert("result","reader",member["name"],member,serialize=False, initialize=True))
             
-        if is_callback:
-            if member["type"] in parsed["funcpointers"]:
-                write(f"""_struct->{member["type"]}_id=value_to<uintptr_t>({member_copy["name"]}["id"]);""") 
-    if is_callback:
-        write("""_struct->pUserData=result.pUserData;
-        result.pUserData=(void*)_struct;
-        """)
     write("return result;}")
     
+    pUserData_info={"relation":"member","type":"void","num_indirection":1, "length":["null-terminated"]}
+    
     write(f"""
-        object serialize_{struct}({struct} name);
-        {struct} deserialize_{struct}(object &name);
+    void serialize_pUserData(PUserData::Builder builder, {struct} member){{
+    """)
+    write(convert("member","builder","pUserData",pUserData_info,serialize=True))
+    for member in members:
+        if member["type"] in pUserData_members:
+            write(f"""builder.set{member["name"]}((uintptr_t)(member.{member["name"]}));""")
+    write("}")
+    
+    write(f"""
+        void serialize_struct({struct.title()}::Builder&, {struct});
+        {struct} deserialize_struct({struct.title()}::Reader&);
     """,header=True)
 
 for type in parsed["primitive_types"]:    

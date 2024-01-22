@@ -3105,12 +3105,10 @@
                 "name": "pUserData",
                 "const": false,
                 "relation": "member",
-                "type": "void",
-                "num_indirection": 1,
+                "type": "pUserData",
+                "num_indirection": 0,
                 "header": "void* pUserData",
-                "length": [
-                    "null-terminated"
-                ]
+                "length": []
             },
             {
                 "name": "pfnAllocation",
@@ -11399,12 +11397,10 @@
                 "name": "pUserData",
                 "const": false,
                 "relation": "member",
-                "type": "void",
-                "num_indirection": 1,
+                "type": "pUserData",
+                "num_indirection": 0,
                 "header": "void* pUserData",
-                "length": [
-                    "null-terminated"
-                ]
+                "length": []
             }
         ],
         "kind": "struct"
@@ -24254,12 +24250,10 @@
                 "name": "pUserData",
                 "const": false,
                 "relation": "member",
-                "type": "void",
-                "num_indirection": 1,
+                "type": "pUserData",
+                "num_indirection": 0,
                 "header": "void* pUserData",
-                "length": [
-                    "null-terminated"
-                ]
+                "length": []
             }
         ],
         "kind": "struct"
@@ -24464,12 +24458,10 @@
                 "name": "pUserData",
                 "const": false,
                 "relation": "member",
-                "type": "void",
-                "num_indirection": 1,
+                "type": "pUserData",
+                "num_indirection": 0,
                 "header": "void* pUserData",
-                "length": [
-                    "null-terminated"
-                ]
+                "length": []
             }
         ],
         "kind": "struct"
@@ -35584,12 +35576,10 @@
                 "name": "pUserData",
                 "const": false,
                 "relation": "member",
-                "type": "void",
-                "num_indirection": 1,
+                "type": "pUserData",
+                "num_indirection": 0,
                 "header": "void* pUserData",
-                "length": [
-                    "null-terminated"
-                ]
+                "length": []
             }
         ],
         "kind": "struct"
@@ -80792,7 +80782,80 @@
         ]
     },
     "pNext": {
-        "kind": "struct"
+        "kind": "struct",
+        "ignore": true
+    },
+    "pUserData": {
+        "kind": "struct",
+        "ignore": true,
+        "members": [
+            {
+                "name": "PFN_vkInternalAllocationNotification",
+                "type": "uintptr_t",
+                "num_indirection": 0,
+                "length": []
+            },
+            {
+                "name": "PFN_vkInternalFreeNotification",
+                "type": "uintptr_t",
+                "num_indirection": 0,
+                "length": []
+            },
+            {
+                "name": "PFN_vkReallocationFunction",
+                "type": "uintptr_t",
+                "num_indirection": 0,
+                "length": []
+            },
+            {
+                "name": "PFN_vkAllocationFunction",
+                "type": "uintptr_t",
+                "num_indirection": 0,
+                "length": []
+            },
+            {
+                "name": "PFN_vkFreeFunction",
+                "type": "uintptr_t",
+                "num_indirection": 0,
+                "length": []
+            },
+            {
+                "name": "PFN_vkVoidFunction",
+                "type": "uintptr_t",
+                "num_indirection": 0,
+                "length": []
+            },
+            {
+                "name": "PFN_vkDebugReportCallbackEXT",
+                "type": "uintptr_t",
+                "num_indirection": 0,
+                "length": []
+            },
+            {
+                "name": "PFN_vkDebugUtilsMessengerCallbackEXT",
+                "type": "uintptr_t",
+                "num_indirection": 0,
+                "length": []
+            },
+            {
+                "name": "PFN_vkFaultCallbackFunction",
+                "type": "uintptr_t",
+                "num_indirection": 0,
+                "length": []
+            },
+            {
+                "name": "PFN_vkDeviceMemoryReportCallbackEXT",
+                "type": "uintptr_t",
+                "num_indirection": 0,
+                "length": []
+            },
+            {
+                "name": "PFN_vkGetInstanceProcAddrLUNARG",
+                "type": "uintptr_t",
+                "num_indirection": 0,
+                "length": []
+            }
+        ]
     },
     "uintptr_t": {
         "kind": "primitive"

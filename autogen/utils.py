@@ -12,6 +12,8 @@ header_lines=[]
 import json
 import copy
 import random, string
+import sys
+
 parsed=json.load(open("../parse/parsed.json"))
 
 random_string = lambda seed: ''.join(random.Random(json.dumps(seed)).choices(string.ascii_uppercase + string.ascii_lowercase, k=7))
@@ -198,6 +200,19 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         }}
         """
     
+    elif kind=="pUserData": #Has to be handled specially as we are dealing with the parent, not just the child
+        #Deserializing on the client shouldn't do anything --- similarly on the server
+        if serialize: #On both sides, save userdata and funcpointers
+            result+=f"""
+            auto temp={proto_concat("init",attr)};
+            return serialize_{kind}({native}, temp);
+            """
+        else: #On client,  only save new pUserData. On server, save both userdata and funcpointer
+            result+=f"""
+            auto temp={proto_concat("get")};
+            {native_concat()}=deserialize_{kind}(temp);
+            """
+            
     elif kind in ["struct","funcpointer"]: #pNext is handled specially as a union
         if serialize:
             result+=f"""
