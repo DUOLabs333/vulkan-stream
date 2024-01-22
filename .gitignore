@@ -6,3 +6,5 @@ external/asio
 *.o
 Sync.json
 boost*
+*.capnp.c++
+*.capnp.h

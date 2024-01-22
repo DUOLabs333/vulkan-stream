@@ -8,6 +8,21 @@ vk=ET.parse("../external/Vulkan-Headers/registry/vk.xml").getroot()
 
 parsed={}
 
+
+def normalize_field(string):
+    string=string.replace("_","")
+    if string=="":
+        return ""
+    else:
+        return string[0].lower()+string[1:]
+        
+def normalize_type(string):
+    string=string.replace("_","")
+    if string=="":
+        return ""
+    else:
+        return string[0].upper()+string[1:]
+        
 def clean(string):
     return re.sub(r'[^a-zA-Z0-9]','',string)
 
@@ -277,7 +292,7 @@ def get_schema_type(info, name=None):
         if kind=="primitive":
             result=map_type_to_schema(name)
         elif kind in ["struct","funcpointer"] and (name is not None):
-            result=name
+            result=normalize_type(name)
         else:
             result=("List("*length)+get_schema_type(parsed[type],type)+(")"*length)
             
@@ -290,7 +305,7 @@ schemas={}
 for name,obj in parsed.items():
     kind=obj.get("kind","")
     index=0
-    result=[f"struct {name} {{"]
+    result=[f"struct {normalize_type(name)} {{"]
     
     if "alias" in obj: #If it is a function/funcpointer, when generating code we just return the result from calling the object it's aliased to. If it is a struct, then we don't need to do anything as it's already typedefed for us
         continue
@@ -298,16 +313,16 @@ for name,obj in parsed.items():
         result.append("union {")
         
         for name in parsed:
-            if ("alias" in parsed[name]) or parsed.get("kind","")!="struct" or name=="pNext":
+            if ("alias" in parsed[name]) or parsed[name].get("kind","")!="struct" or name=="pNext":
                 continue
             else:
-                result.append(f"{name} @{index} :{name};")
+                result.append(f"{normalize_field(name)} @{index} :{normalize_type(name)};")
                 index+=1
         result.append("}")
     
     elif kind=="struct":
         for member in obj["members"]:
-            result.append(f"{member['name']} @{index} :{get_schema_type(member)};")
+            result.append(f"{normalize_field(member['name'])} @{index} :{get_schema_type(member)};")
             index+=1
     elif kind in ["command","funcpointer"]:
         if kind=="command":
@@ -320,7 +335,7 @@ for name,obj in parsed.items():
             
             result.append("}")
             
-            result.append(f"mem_ptr @{index} :{map_type_to_schema('uintptr_t')};")
+            result.append(f"mem @{index} :{map_type_to_schema('uintptr_t')};")
             index+=1
         else:
             result.append(f"id @{index} :{map_type_to_schema('int')};")
@@ -331,7 +346,7 @@ for name,obj in parsed.items():
         index+=1
         
         for param in obj["params"]:
-            result.append(f"{param['name']} @{index} :{get_schema_type(param)};")
+            result.append(f"{normalize_field(param['name'])} @{index} :{get_schema_type(param)};")
             index+=1
     else:
         continue
@@ -353,15 +368,15 @@ message_schema=[f"""
 struct Message {{
     uuid @0 :{map_type_to_schema("int")};
     union {{
-    Sync @0 :Sync;
+    sync @1 :Sync;
 """]
-index=1
+index=2
 
 for name in parsed:
-    if ("alias" in parsed[name]) or parsed.get("kind","") not in ["command", "funcpointer"]:
+    if ("alias" in parsed[name]) or parsed[name].get("kind","") not in ["command", "funcpointer"]:
         continue
     else:
-        message_schema.append(f"{name} @{index} :{name};")
+        message_schema.append(f"{normalize_field(name)} @{index} :{normalize_type(name)};")
         index+=1
         
 message_schema.append("}}")
@@ -369,6 +384,8 @@ message_schema.append("}}")
 schemas["Message"]="\n".join(message_schema)
 
 schema_file=open("schema.capnp","w+")
+schema_file.write("@0xfccbbb584171b69d;\n\n")
+
 for name, schema in schemas.items():
     schema_file.write(schema+"\n\n")
 schema_file.close()
