@@ -834,203 +834,203 @@
         "kind": "bitmask"
     },
     "VkInstance": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkPhysicalDevice": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkDevice": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkQueue": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkCommandBuffer": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkDeviceMemory": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkCommandPool": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkBuffer": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkBufferView": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkImage": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkImageView": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkShaderModule": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkPipeline": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkPipelineLayout": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkSampler": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkDescriptorSet": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkDescriptorSetLayout": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkDescriptorPool": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkFence": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkSemaphore": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkEvent": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkQueryPool": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkFramebuffer": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkRenderPass": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkPipelineCache": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkIndirectCommandsLayoutNV": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkDescriptorUpdateTemplate": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkDescriptorUpdateTemplateKHR": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkSamplerYcbcrConversion": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkSamplerYcbcrConversionKHR": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkValidationCacheEXT": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkAccelerationStructureKHR": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkAccelerationStructureNV": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkPerformanceConfigurationINTEL": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkDeferredOperationKHR": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkPrivateDataSlot": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkPrivateDataSlotEXT": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkCuModuleNVX": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkCuFunctionNVX": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkOpticalFlowSessionNV": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkMicromapEXT": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkShaderEXT": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkDisplayKHR": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkDisplayModeKHR": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkSurfaceKHR": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkSwapchainKHR": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkDebugReportCallbackEXT": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkDebugUtilsMessengerEXT": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkVideoSessionKHR": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkVideoSessionParametersKHR": {
-        "alias": "uintptr_t",
+        "type": "uintptr_t",
         "kind": "handle"
     },
     "VkAttachmentLoadOp": {

@@ -158,7 +158,7 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         if not serialize:
             result+=f"{native_concat()}={temp};"
     
-    elif (info["kind"]=="external_handle" and num_indirection<2):
+    elif (kind=="external_handle" and num_indirection<2):
             if serialize:
                 result+=f"""{proto_concat("set","(uintptr_t)"+native_concat(native,attr,info))};"""
             else:

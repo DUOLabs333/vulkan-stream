@@ -174,34 +174,12 @@ for item in vk.findall("./types/type"):
     elif kind=="basetype":
         name=item.find("name").text
         if item.find("type") is None:
-            #For MacOS types
-            regex=r"""
-            ^(?:\s*)#ifdef(?:\s+)__OBJC__(?:\s*)
-            (?:.*)
-            (?:.*)#else(?:\s*)
-            (?:\s*)typedef(?:\s+)(.*?)(?:\s*)$
-            """
-            regex=regex.split("\n",1)[1].rsplit("\n",1)[0]
-            regex=textwrap.dedent(regex)
-            match=re.match(regex,item.text,flags=re.S)
-            
-            if match is None:
-                match=re.match(r"^(\s*)typedef(.*)\*(\s*)$",item.text)
-                if match is None:
-                    continue
-                result["kind"]="external_handle"
-                result["alias"]="uintptr_t"
-                parsed[name]=result
-                continue
-                
-            match_type=match.groups(1)[0]
-            child=ET.SubElement(item, 'type')
-            child.text=match_type.replace("*","")
-            child.tail=("*"*match_type.count("*"))
-        
-        result["type"]=item.find("type").text
-        result["num_indirection"]=item.find("type").tail.count("*")
-        get_length(item,result)
+            result["kind"]="external_handle"
+            result["alias"]="uintptr_t"
+        else:
+            result["type"]=item.find("type").text
+            result["num_indirection"]=item.find("type").tail.count("*")
+            get_length(item,result)
     else:
         continue
     
@@ -298,14 +276,14 @@ def get_schema_type(info, name=None):
     else:
         if kind=="primitive":
             result=map_type_to_schema(name)
-        elif kind in ["struct","funcpointer"]:
+        elif kind in ["struct","funcpointer"] and (name is not None):
             result=name
         else:
             result=("List("*length)+get_schema_type(parsed[type],type)+(")"*length)
             
     if name is not None:           
         schema_types[name]=result
-    
+        
     return result
 
 schemas={}
@@ -328,8 +306,8 @@ for name,obj in parsed.items():
         result.append("}")
     
     elif kind=="struct":
-        for name, member in obj["members"].items():
-            result.append(f"{name} @{index} :{get_schema_type(member)};")
+        for member in obj["members"]:
+            result.append(f"{member['name']} @{index} :{get_schema_type(member)};")
             index+=1
     elif kind in ["command","funcpointer"]:
         if kind=="command":
@@ -349,11 +327,11 @@ for name,obj in parsed.items():
             index+=1
         
         
-        result.append(f"return @{index} :{get_scheme_type(obj)};")
+        result.append(f"return @{index} :{get_schema_type(obj)};")
         index+=1
         
-        for name, param in obj["params"].items():
-            result.append(f"{name} @{index} :{get_schema_type(param)};")
+        for param in obj["params"]:
+            result.append(f"{param['name']} @{index} :{get_schema_type(param)};")
             index+=1
     else:
         continue
@@ -385,12 +363,14 @@ for name in parsed:
     else:
         message_schema.append(f"{name} @{index} :{name};")
         index+=1
+        
+message_schema.append("}}")
 
 schemas["Message"]="\n".join(message_schema)
 
 schema_file=open("schema.capnp","w+")
 for name, schema in schemas.items():
-    schema_file.write(schema)
+    schema_file.write(schema+"\n\n")
 schema_file.close()
 
 #TODO: Autogenerate schema based on parsed dictionary (specifiically here, as any command might be sent)
