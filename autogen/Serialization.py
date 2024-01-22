@@ -199,92 +199,31 @@ for name, struct in parsed.items():
     write(convert("member","builder","pUserData",pUserData_info,serialize=True))
     for member in members:
         if member["type"] in pUserData_members:
-            write(f"""builder.set{member["name"]}((uintptr_t)(member.{member["name"]}));""")
+            write(f"""builder.set{member["type"]}((uintptr_t)(member.{member["name"]}));""")
     write("}")
+    
+    write(f"""
+    void* deserialize_pUserData(PUserData::Reader& reader){{
+        #ifdef CLIENT
+           void* pUserData;
+           {write(convert("","reader","pUserData",pUserData_info| {"relation":"param"},serialize=False))}
+           return pUserData;
+        #else
+            auto result = new pUserData();
+    """)
+    write(convert("result","reader","pUserData",pUserData_info,serialize=False))
+    for member in members:
+        if member["type"] in pUserData_members:
+            write(f"""result.{member["name"]}=reader.get{member["type"]}();""")
+    write("""
+    return result;
+    #endif
+    }
+    """)
     
     write(f"""
         void serialize_struct({struct.title()}::Builder&, {struct});
         {struct} deserialize_struct({struct.title()}::Reader&);
-    """,header=True)
-
-for type in parsed["primitive_types"]:    
-    if type not in ["void"]:
-       if type=="char" or type.startswith("uint"):
-           json_type="uintmax_t"
-       elif type in ["float", "double"]:
-           json_type="double"
-       else:
-           json_type="intmax_t"
-       write(f"""
-        object serialize_{type}({type} name){{
-            return object({{{{"value",({json_type})name}}}});
-        }};
-    """)
-        
-       write(f"""
-            {type} deserialize_{type}(object &name){{
-                return ({type})value_to<{json_type}>(name["value"]);
-            }};
-        """)
-        
-       write(f"""
-        object serialize_{type}({type} name);
-        {type} deserialize_{type}(object &name);
-    """,header=True)
-
-for type,is_always_pointer in parsed["external_handles"].items():
-    
-    write(f"""
-        object serialize_{type}_p(const {type}* name){{
-            return object({{{{"value",(uintptr_t)name}}}});
-        }};
-    """)
-    
-    write(f"""
-        {type}* deserialize_{type}_p(object &name){{
-            return ({type}*)value_to<uintptr_t>(name["value"]);
-        }};
-    """)
-    
-    write(f"""
-        object serialize_{type}_p(const {type}* name);
-        {type}* deserialize_{type}_p(object &name);
-    """,header=True)
-    
-    if not is_always_pointer:
-        write(f"""
-            object serialize_{type}(const {type} name){{
-                return object({{{{"value",(uintptr_t)name}}}});
-            }};
-        """)
-        
-        write(f"""
-            {type} deserialize_{type}(object &name){{
-                return ({type}) value_to<uintptr_t>(name["value"]);
-            }};
-        """)
-        
-        write(f"""
-            object serialize_{type}(const {type} name);
-            {type} deserialize_{type}(object &name);
-        """,header=True)
-
-for type in parsed["pointer_types"]:
-    write(f"""
-        object serialize_{type}(const {type} name){{
-            return object({{{{"value",(uintptr_t)name}}}});
-        }};
-    """)
-    
-    write(f"""
-        {type} deserialize_{type}(object &name){{
-            return ({type}) value_to<uintptr_t>(name["value"]);
-        }};
-    """)
-    
-    write(f"""
-        object serialize_{type}(const {type} name);
-        {type} deserialize_{type}(object &name);
     """,header=True)
 
 import re

@@ -202,12 +202,12 @@ def convert(native,proto,attr,info, serialize, initialize=False):
     
     elif kind=="pUserData": #Has to be handled specially as we are dealing with the parent, not just the child
         #Deserializing on the client shouldn't do anything --- similarly on the server
-        if serialize: #On both sides, save userdata and funcpointers
+        if serialize:
             result+=f"""
             auto temp={proto_concat("init",attr)};
             return serialize_{kind}({native}, temp);
             """
-        else: #On client,  only save new pUserData. On server, save both userdata and funcpointer
+        else:
             result+=f"""
             auto temp={proto_concat("get")};
             {native_concat()}=deserialize_{kind}(temp);
