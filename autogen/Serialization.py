@@ -118,13 +118,13 @@ void* copyVkStruct (const void* data){
 write("void* copyVkStruct (const void* data);",header=True)
 
 write("""
-void* deserialize_pNext(PNext& builder){
-    if (builder.hasNone()){
+void* deserialize_pNext(PNext::Reader& reader){
+    if (reader.hasNone()){
         return NULL;
     }
     
     void* result;
-    switch (builder.which()){
+    switch (reader.which()){
 """)
 for struct, obj in parsed.items():
     if is_not_struct(struct,obj):
@@ -132,7 +132,7 @@ for struct, obj in parsed.items():
     write(f"""
     case PNext::{struct.upper()}:
         result=({struct}*)malloc(sizeof({struct}));
-        result[0]=deserialize_struct(builder.get{struct.title()}());
+        result[0]=deserialize_struct(reader.get{struct.title()}());
         return result;
     """)
 write("}}")
@@ -176,19 +176,18 @@ for name, struct in parsed.items():
         write(f"}} {struct}_struct;")
         
     write(f"""
-    {struct} deserialize_{struct}(object &name){{
+    {struct} deserialize_struct({struct.title()}::Reader reader){{
         auto result={struct}();
     """)
     if is_callback:
         write(f"auto _struct = new {struct}_struct;")
     for member in members:
-        member_copy=copy.deepcopy(member)
-        member_copy["name"]=f"""name["members"].as_object()["{member["name"]}"].as_object()"""
+        member=copy.deepcopy(member)
         
-        for i,e in enumerate(member_copy["length"]):
-            member_copy["length"][i]=add_struct_name(e, "result")
-            
-        write(deserialize("result."+member["name"],member_copy,initialize=True))
+        for i,e in enumerate(member["length"]):
+            member["length"][i]=add_struct_name(e, "result")
+        
+        write(convert("result","reader",member["name"],member,serialize=False, initialize=True))
             
         if is_callback:
             if member["type"] in parsed["funcpointers"]:
