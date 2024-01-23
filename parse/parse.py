@@ -63,7 +63,7 @@ if __name__=="__main__":
             result=length.split(",")[::-1]
         
         if result==[] and num_indirection>0:
-            result=[1]*num_indirection
+            result=["1"]*num_indirection
             if info["type"] in ["void","char"]:
                 result[0]="null-terminated"
         info["length"]=result
@@ -75,6 +75,7 @@ if __name__=="__main__":
         if item.attrib.get("requires","").endswith(".h"):
             name=item.attrib["name"]
             result["alias"]="uintptr_t"
+            kind="external_handle"
             
         elif kind in ["struct","union"]:
             name=item.attrib["name"]
@@ -151,6 +152,11 @@ if __name__=="__main__":
             result["type"]=result["type"].replace("*","")
             result["relation"]="return"
             
+            if name=="PFN_vkAllocationFunction":
+                result["length"]=["size"]
+            else:
+                result["length"]=[]
+                
             params=[]
             
             cur_tail=item.find("name").tail
@@ -190,6 +196,9 @@ if __name__=="__main__":
                 result["alias"]="int"
             else:
                 kind="primitive"
+            
+            result["num_indirection"]=0
+            result["length"]=[]
                 
         elif kind=="basetype":
             name=item.find("name").text

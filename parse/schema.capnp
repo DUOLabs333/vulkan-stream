@@ -34,7 +34,7 @@ allocationScope @7 :Int64;
 struct PFNvkAllocationFunction {
 id @0 :UInt64;
 mem @1 :UInt64;
-return @2 :UInt64;
+return @2 :List(UInt64);
 pUserData @3 :List(UInt64);
 size @4 :UInt64;
 alignment @5 :UInt64;

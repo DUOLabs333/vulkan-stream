@@ -19,18 +19,23 @@ parsed=json.load(open("../parse/parsed.json"))
 random_string = lambda seed: ''.join(random.Random(json.dumps(seed)).choices(string.ascii_uppercase + string.ascii_lowercase, k=7))
 
 def is_void(name):
-    return name["type"]=="void" and name["num_indirection"]==0
+    return name.get("type","")=="void" and name["num_indirection"]==0
 
 def update_dict(info, alias):
-    alias=parsed[alias]
-    length=info["length"]
-    num_indirection=info["num_indirection"]
+    alias_dict=parsed[alias]
     
-    info.clear()
-    info.update(alias)
+    info["length"]=alias_dict["length"]+info["length"]
+    info["num_indirection"]+=alias_dict["num_indirection"]
     
-    info["length"].extend(length)
-    info["num_indirection"]+=num_indirection
+    if alias_dict["kind"]=="primitive":
+        info["type"]=alias
+    else:
+        info["type"]=alias_dict["type"]
+        
+    if "alias" in alias_dict:
+        info["alias"]=alias_dict["alias"]
+    elif "alias" in info:
+        del info["alias"]
     
 def convert(native,proto,attr,info, serialize, initialize=False):
     """
@@ -81,7 +86,7 @@ def convert(native,proto,attr,info, serialize, initialize=False):
                 raise ValueError("Unsupported action for Lists! Something has gone wrong.")
                 
         else:
-            child=f".{action}{attr.title()}"
+            child=f".{action}{attr}"
         
         if args is None:
             args=""
@@ -102,9 +107,12 @@ def convert(native,proto,attr,info, serialize, initialize=False):
             
         return "("+native+child+")"
     def args():
-        parent_function=inspect.getouterframes( inspect.currentframe() )[1]
-        args_tuple=parent_function.f_code.co_varnames
-        return [locals()[arg] for arg in args_tuple]
+        curr_frame=inspect.currentframe()
+        parent_frame=curr_frame.f_back
+        parent_function=curr_frame.f_globals[parent_frame.f_code.co_name]
+        
+        args_dict=inspect.signature(parent_function,follow_wrapped=False).parameters
+        return [parent_frame.f_locals[arg] for arg in args_dict]
     
     deserialize=not serialize
     if serialize:
@@ -152,17 +160,21 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         if serialize:
             native=f"(char*){native_concat()}"
         else:
-            native=f"{temp}_{random_string(info)}"
+            old_native=native
+            new_native=f"temp_{random_string(info)}"
+            
+            native=new_native
             result+=f"char* {native};"
             
         result+=convert(*args())
         
         if not serialize:
-            result+=f"{native_concat()}={temp};"
+            native=old_native
+            result+=f"{native_concat()}={new_native};"
     
     elif (kind=="external_handle" and num_indirection<2):
             if serialize:
-                result+=f"""{proto_concat("set","(uintptr_t)"+native_concat(native,attr,info))};"""
+                result+=f"""{proto_concat("set","(uintptr_t)"+native_concat())};"""
             else:
                 result+=f"""{native_concat()}=(uintptr_t){proto_concat("get")};"""
                 
@@ -210,7 +222,7 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         else:
             result+=f"""
             auto temp={proto_concat("get")};
-            {native_concat()}=deserialize_{kind}(temp);
+            {native_concat()}=deserialize_{kind}(temp, native);
             """
             
     elif kind in ["struct","funcpointer"]: #pNext is handled specially as a union
@@ -247,7 +259,6 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         info["alias"]="int"
         result+=convert(*args())
     else:
-        print(info)
         raise ValueError("Unhandled type! This shouldn't happen")
     result+="}();"
     return result

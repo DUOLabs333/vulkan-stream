@@ -72,7 +72,7 @@ for name, struct in parsed.items():
         
     write(f"""
     case {struct["sType"]}:
-        return serialize_struct(builder.get{name.title()}(), (({name}*)(member))[0]);
+        return serialize_struct(builder.get{name}(), (({name}*)(member))[0]);
     """)
     
 write("""
@@ -92,13 +92,13 @@ void* deserialize_pNext(PNext::Reader& reader){
     switch (reader.which()){
 """)
 
-for struct, obj in parsed.items():
-    if is_not_struct(struct,obj):
+for name,struct in parsed.items():
+    if is_not_struct(name, struct):
         continue
     write(f"""
-    case PNext::{struct.upper()}:
-        result=({struct}*)malloc(sizeof({struct}));
-        result[0]=deserialize_struct(reader.get{struct.title()}());
+    case PNext::{name}:
+        result=({name}*)malloc(sizeof({name}));
+        result[0]=deserialize_struct(reader.get{name}());
         return result;
     """)
 write("}}")
@@ -180,8 +180,8 @@ for name, struct in parsed.items():
     write("}")
         
     write(f"""
-    {struct} deserialize_struct({struct.title()}::Reader reader){{
-        auto result={struct}();
+    {name} deserialize_struct({name}::Reader reader){{
+        auto result={name}();
     """)
     for member in members:
         member=copy.deepcopy(member)
@@ -196,7 +196,7 @@ for name, struct in parsed.items():
     pUserData_info={"relation":"member","type":"void","num_indirection":1, "length":["null-terminated"]}
     
     write(f"""
-    void serialize_pUserData(PUserData::Builder builder, {struct} member){{
+    void serialize_pUserData(PUserData::Builder builder, {name} member){{
     """)
     write(convert("member","builder","pUserData",pUserData_info,serialize=True))
     for member in members:
@@ -205,10 +205,10 @@ for name, struct in parsed.items():
     write("}")
     
     write(f"""
-    void* deserialize_pUserData(PUserData::Reader& reader){{
+    void* deserialize_pUserData(PUserData::Reader& reader, {name} member){{
         #ifdef CLIENT
            void* pUserData;
-           {write(convert("","reader","pUserData",pUserData_info| {"relation":"param"},serialize=False))}
+           {convert("","reader","pUserData",pUserData_info| {"relation":"param"},serialize=False)}
            return pUserData;
         #else
             auto result = new pUserData();
@@ -224,8 +224,8 @@ for name, struct in parsed.items():
     """)
     
     write(f"""
-        void serialize_struct({struct.title()}::Builder&, {struct});
-        {struct} deserialize_struct({struct.title()}::Reader&);
+        void serialize_struct({name}::Builder&, {name});
+        {name} deserialize_struct({name}::Reader&);
     """,header=True)
 
 import re
@@ -238,7 +238,7 @@ for name,funcpointer in parsed.items():
 
     header=re.sub(r"^(.*?)\(", "(", funcpointer["header"])
 
-    write(f"std::map<uintptr_t,{fname}> id_to_{name};")
+    write(f"std::map<uintptr_t,{name}> id_to_{name};")
     
     write(f"""
     void serialize_funcpointer({name}::Builder builder, {name} build){{
@@ -281,7 +281,7 @@ for name,funcpointer in parsed.items():
         auto builder=message.init{name}();
         """)
         
-        if function["type"]=="void" and function["num_indirection"]==1:
+        if funcpointer["type"]=="void" and funcpointer["num_indirection"]==1:
             write("registerAllocatedMem(result,size);")
             write("builder.setMem((uintptr_t)result);")
         else:
@@ -310,7 +310,7 @@ for name,funcpointer in parsed.items():
         write(f"""
             void handle_{name}_request({name}::Reader reader){{
             //Will only be called by the client
-            // Recieved data from server's {funcpointer} wrapper, and will execute the actual function
+            // Recieved data from server's {name} wrapper, and will execute the actual function
             auto funcpointer=id_to_{name}[reader.getId()];
         """)
         
@@ -339,7 +339,7 @@ for name,funcpointer in parsed.items():
         
         write("writeToConn(m);")
         
-        if function["type"]=="void" and function["num_indirection"]==1:
+        if funcpointer["type"]=="void" and funcpointer["num_indirection"]==1:
             write(f"""
             auto reader=readFromConn().get{name}();
             registerClientServerMemoryMapping((uintptr_t)result, (uintptr_t)(reader.getId()) );
@@ -366,7 +366,9 @@ for name,funcpointer in parsed.items():
     
     write(f"{name} deserialize_funcpointer({name}::Reader reader);",header=True)
         
-for handle in parsed["handles"]:
+for handle in parsed:
+        if "alias" in parsed[handle] or parsed[handle].get("kind","")!="handle":
+            continue
         #The loader may want to write to this handle, so we make our own in our address space, so there won't be a semgnetation fault.
         write(f"""
         #ifdef CLIENT
