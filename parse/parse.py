@@ -149,6 +149,7 @@ if __name__=="__main__":
             result["num_indirection"]=result["type"].count("*")
     
             result["type"]=result["type"].replace("*","")
+            result["relation"]="return"
             
             params=[]
             
@@ -211,6 +212,7 @@ if __name__=="__main__":
     for item in vk.findall("./commands/command"):
         result={}
         result["kind"]="command"
+        result["relation"]="return"
         if "alias" in item.attrib:
             name=item.attrib["name"]
             result["alias"]=item.attrib["alias"]
@@ -353,11 +355,8 @@ if __name__=="__main__":
                 
                 result.append("}")
                 
-                result.append(f"mem @{index} :{map_type_to_schema('uintptr_t')};")
-                index+=1
-            else:
-                result.append(f"id @{index} :{map_type_to_schema('int')};")
-                index+=1
+            result.append(f"mem @{index} :{map_type_to_schema('uintptr_t')};")
+            index+=1
             
             
             result.append(f"return @{index} :{get_schema_type(obj)};")

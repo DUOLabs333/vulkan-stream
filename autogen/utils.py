@@ -97,7 +97,7 @@ def convert(native,proto,attr,info, serialize, initialize=False):
             child=f"[{attr}]"
         elif relation=="member":
             child=f".{attr}"
-        elif relation=="param": #In this case, parent MUST be ""
+        elif relation in ["param", "return"]: #In this case, parent MUST be ""
             child=attr
             
         return "("+native+child+")"

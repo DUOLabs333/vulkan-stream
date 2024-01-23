@@ -227,86 +227,78 @@ for name, struct in parsed.items():
     """,header=True)
 
 import re
-for funcpointer,function in parsed["funcpointers"].items():
-    
-    if funcpointer=="PFN_vkVoidFunction": #Not used anywhere (we handle PFN_vkVoidFunction specially)
+for name,funcpointer in parsed.items():
+    if funcpointer["kind"]!="funcpointer":
         continue
     
-    callback_struct=funcpointer_in_callback(funcpointer)
+    if name=="PFN_vkVoidFunction": #Not used anywhere (we handle PFN_vkVoidFunction specially)
+        continue
 
-    header=re.sub(r"^(.*?)\(", "(", function["header"])
+    header=re.sub(r"^(.*?)\(", "(", funcpointer["header"])
 
-    write(f"std::map<uintptr_t,{funcpointer}> id_to_{funcpointer};")
+    write(f"std::map<uintptr_t,{fname}> id_to_{name};")
+    
     write(f"""
-    object serialize_{funcpointer}({funcpointer} name){{
+    void serialize_funcpointer({name}::Builder builder, {name} build){{
         //Will only be called by the client
-        
-        object result;
-        result["id"]=(uintptr_t)name;
-        id_to_{funcpointer}[(uintptr_t)name]=name;
-        return result;
+        return;
     }}
     """)
     
-    write(f"""object serialize_{funcpointer}({funcpointer} name);""",header=True)
+    write(f"""void serialize_funcpointer({name}::Builder, {name});""",header=True)
     
-    if funcpointer!="PFN_vkGetInstanceProcAddrLUNARG": #PFN_vkGetInstanceProcAddrLUNARG is a pointer to the client's vkGetInstanceProcAddr. However, since the client's vkGetInstanceProcAddr is just a thin wrapper over the server's vkGetInstanceProcAddr (as well as that the client does not support recieving objects from the server outside of a command), we just return the server's vkGetInstanceProcAddr.
+    if name!="PFN_vkGetInstanceProcAddrLUNARG": #PFN_vkGetInstanceProcAddrLUNARG is a pointer to the client's vkGetInstanceProcAddr. However, since the client's vkGetInstanceProcAddr is just a thin wrapper over the server's vkGetInstanceProcAddr (as well as that the client does not support recieving objects from the server outside of a command), we just return the server's vkGetInstanceProcAddr.
     
         write(f"""
-        auto {funcpointer}_wrapper{header}{{
-            boost::json::object data;
-            data["type"]="{funcpointer}_request";
-            data["members"]=boost::json::object();
+        auto {name}_wrapper{header}{{
+        //Will only be called by the server
+        
+        MallocMessageBuilder m;
+        auto message=m.initRoot<Message>();
+        auto builder=message.init{name}();
         """)
         
-        if callback_struct:
-            write(f"""
-                auto _struct=({callback_struct}_struct*)pUserData;
-                data["id"]=_struct->{funcpointer}_id;
-            """)
-        
-        for param in function["params"]:
-            param_copy=copy.deepcopy(param)
-            if callback_struct:
-                if param["name"]=="pUserData":
-                    param_copy["name"]="_struct->pUserData"
-                    
-            write(serialize(f"""data["members"].as_object()["{param["name"]}"]""",param_copy))
+        for param in funcpointer["params"]:
+            write(convert("","builcer",param["name"],param,serialize=True))
         
         write(f"""
-        writeToConn(data);
-        while (true){{
-            data=readFromConn();
-            if (value_to<std::string>(data["type"])=="{funcpointer}_response"){{
+        writeToConn(m); //Send request
+        auto reader=readFromConn().get{name}(); //Recieve response
+        {funcpointer["type"]}{"*"*funcpointer["num_indirection"]} result;
         """)
         
-        response_header="data"
-        for param in function["params"]:
-            name=param["name"]
-            if callback_struct:
-                if name=="pUserData":
-                    name=f"_struct->{name}"
-            response_header+=(", "+name)
-            
-        write(("auto result= " if not is_void(function) else '')+f"""handle_{funcpointer}_response({response_header});""")
+        for param in funcpointer["params"]+[funcpointer]:
+            write(convert("","reader",param["name"],param,serialize=False))
+        
+        write(f"""
+        MallocMessageBuilder m;
+        auto message=m.initRoot<Message>();
+        auto builder=message.init{name}();
+        """)
+        
         if function["type"]=="void" and function["num_indirection"]==1:
             write("registerAllocatedMem(result,size);")
+            write("builder.setMem((uintptr_t)result);")
+        else:
+            write("builder.setMem(0);")
+        
+        write("""
+        writeToConn(m); //Send (possible) memory to client so it can store it
+        readFromConn(); //Get the confirmation that the client has registered the memory
+        """)
+            
         write("SyncAllocations();")
         if not is_void(function):
             write("return result;")
         else:
             write("return;")
-        write("""break;
-            }
-        }
-        }
-        """)
+        write("}")
     
         write(f"""
-        {funcpointer} deserialize_{funcpointer}(object &name){{
+        {funcpointer} deserialize_funcpointer({name}::Reader reader){{
             //Will only be called by the server
             
-            return {funcpointer}_wrapper;
+            return {name}_wrapper;
             }};
         """)
         
