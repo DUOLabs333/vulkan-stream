@@ -1,8 +1,10 @@
 #include <cstddef>
 #include <cstdint>
 #include <picosha2.h>
-#include <boost/json.hpp>
-using namespace boost::json;
+
+#include <schema.capnp.h>
+using namespace capnp;
+
 #include <Server.hpp>
 #include <vulkan/vulkan.h>
 #include <Serialization.hpp>
@@ -124,7 +126,7 @@ delete info;
 void registerAllocatedMem(void* mem, int size){
     allocated_mems[(uintptr_t)mem]=size;
 }
-void handle_sync_response(object& data){
+void handle_sync_response(Sync::Reader& reader){
     //Recieved the bytes. Send a notification that it finished sending the bytes.
     #ifdef CLIENT
         void* mem=(char*)server_to_client_mem[value_to<uintptr_t>(data["mem"])];
@@ -132,53 +134,66 @@ void handle_sync_response(object& data){
         void* mem=(void*)value_to<uintptr_t>(data["mem"]);
     #endif
     
-    object result;
+    MallocMessageBuilder m;
+    auto message=m.initRoot<Message>();
+    auto builder=message.initSync();
     
-    result["type"]="handle_sync_end";
+    auto starts=reader.getStarts();
+    auto lengths=reader.getLengths();
+    auto buffers=reader.getBuffers();
     
-    for(int i=0; i < data["starts"].as_array().size(); i++){
+    for(int i=0; i < starts.size(); i++){
         debug_printf("Memory %p: Data has changed!\n",(char*)mem);
-        memcpy((char*)mem+value_to<size_t>(data["starts"].as_array()[i]),value_to<std::string>(data["buffers"].as_array()[i]).c_str(), value_to<size_t>(data["lengths"].as_array()[i]));
+        memcpy((char*)mem+starts[i],buffers[i].begin(), lengths[i]);
     }
     
-    writeToConn(result);
+    writeToConn(m);
 }
 
-void handle_sync_init(object& data){
+void handle_sync_init(Sync::Reader& reader){
     //Received an init, sent a request for bytes. Wait for bytes to be sent
    
     #ifdef CLIENT
-        if (!server_to_client_mem.contains(value_to<uintptr_t>(data["mem"]))){
+        if (!server_to_client_mem.contains(reader.getMem())){
             debug_printf("Panic! It's not found!\n");
         }
-        void* mem=(char*)server_to_client_mem[value_to<uintptr_t>(data["mem"])];
+        void* mem=(char*)server_to_client_mem[reader.getMem()];
     #else
-        void* mem=(void*)value_to<uintptr_t>(data["mem"]);
+        void* mem=(void*)(reader.getMem());
     #endif
     
-    object result;
+    MallocMessageBuilder m;
+    auto message=m.initRoot<Message>();
+    auto builder=message.initSync();
     
-    result["type"]="sync_request";
-    result["starts"]=array();
-    result["lengths"]=array();
-    result["mem"]=data["mem"];
+    auto readerStarts=reader.getStarts();
+    auto readerLengths=reader.getLengths();
+    auto readerHashes=reader.getHashes();
     
-    for (int i=0; i<data["starts"].as_array().size(); i++){
-        if (HashMem(mem,value_to<size_t>(data["starts"].as_array()[i]), value_to<size_t>(data["lengths"].as_array()[i]))!= value_to<std::string>(data["hashes"].as_array()[i])){
-            result["starts"].as_array().push_back(data["starts"].as_array()[i]);
-            result["lengths"].as_array().push_back(data["lengths"].as_array()[i]);
+    builder.setMem(reader.getMem());
+    
+    std::vector<std::array<size_t, 2>> sections;
+    
+    for (int i=0; i<readerStarts.size(); i++){
+        if (HashMem(mem, readerStarts[i], readerLengths[i])!= readerHashes[i]){
+            sections[i].push_back({readerStarts[i],readerLengths[i]});
         }
     }
     
-    writeToConn(result);
+    auto builderStarts=builder.initStarts(sections.size());
+    auto builderLengths=builder.initLengths(sections.size());
     
+    for (int i=0; i< sections.size(); i++){
+        builderStarts[i]=sections[i][0];
+        builderLengths[i]=sections[i][1];
+    }
+        
+    writeToConn(m);
     
     while(true){
-        result=readFromConn();
-        if (value_to<std::string>(result["type"])=="sync_response"){
-            handle_sync_response(result);
-            break;
-        }
+        auto reader=readFromConn().getRoot<Sync>();
+        handle_sync_response(reader);
+        break;
     }
     
     #ifndef CLIENT
@@ -191,39 +206,41 @@ void handle_sync_init(object& data){
     
 }
 
-void handle_sync_request(object& data){
+void handle_sync_request(Sync::Reader& reader){
     //Recieved a request for bytes, sent the bytes. Wait for the recipient to set the bytes
     #ifdef CLIENT
-        void* mem=(void*)server_to_client_mem[value_to<uintptr_t>(data["mem"])];
+        void* mem=(void*)server_to_client_mem[reader.getMem()];
     #else
-        void* mem=(void*)value_to<uintptr_t>(data["mem"]);
+        void* mem=(void*)(reader.getMem());
     #endif
     
-    object result;
+    MallocMessageBuilder m;
+    auto message=m.initRoot<Message>();
+    auto builder=message.initSync();
     
-    result["type"]="sync_response";
-    result["starts"]=data["starts"];
-    result["lengths"]=data["lengths"];
-    result["mem"]=data["mem"];
+    auto readerStarts=reader.getStarts();
+    auto readerLengths=reader.getLengths();
     
-    result["buffers"]=array();
+    builder.setStarts(readerStarts);
+    builder.setLengths(readerLengths);
+    builder.setMem(reader.getMem());
     
-    for(int i=0; i<data["starts"].as_array().size(); i++){
-        auto length=value_to<size_t>(data["lengths"].as_array()[i]);
-        auto start=value_to<size_t>(data["starts"].as_array()[i]);
+    auto builderBuffers=builder.initBuffers(readerStarts.size());
+    
+    for(int i=0; i<readerStarts.size(); i++){
+        auto length=readerLengths[i];
+        auto start=readerStarts[i];
         
         std::string buffer((char*)mem+start, (char*)mem+start+length);
         
-        result["buffers"].as_array().push_back(value_from(buffer));
+        builderBuffers.set(i, buffer);
     }
     
-    writeToConn(result);
+    writeToConn(m);
     
     while(true){
-        result=readFromConn();
-        if(value_to<std::string>(result["type"])=="handle_sync_end"){
-           break;
-        }
+        readFromConn(); //Wait for the other computer to return that it's finished setting the bytes.
+        break;
     }
 }
 
@@ -233,49 +250,47 @@ void Sync(uintptr_t devicememory, void* mem, size_t length){
     auto d=length/parts;
     auto remainder=length%parts;
     
-    object result;
-    result["type"]="sync_init";
+    MallocMessageBuilder m;
+    auto message=m.initRoot<Message>();
+    auto builder=message.initSync();
     
     #ifdef CLIENT
         if (devicememory!=0){
-            result["devicememory"]=devicememory_to_mem_info[devicememory]->server_devicememory;
+            builder.setDevicememory(devicememory_to_mem_info[devicememory]->server_devicememory);
         }
     #endif
     
-    result["starts"]=array();
-    result["lengths"]=array();
-    result["hashes"]=array();
+    auto starts=build.initStarts(parts);
+    auto lengths=build.initLengths(parts);
+    auto hashes=build.initHashes(parts);
     
     #ifdef CLIENT
-        result["mem"]=client_to_server_mem[(uintptr_t)mem];
+        builder.setMem(client_to_server_mem[(uintptr_t)mem]);
     #else
-        result["mem"]=(uintptr_t)mem;
+        builder.setMem((uintptr_t)mem);
     #endif
     
     auto offset=0;
     for (int i=0; i<remainder; i++){
-        result["starts"].as_array().push_back(offset);
-        result["lengths"].as_array().push_back(d+1);
-        result["hashes"].as_array().push_back(value_from(HashMem(mem,offset,d+1)));
+        starts.set(i,offset);
+        lengths.set(i,d+1);
+        hashes.set(i,HashMem(mem,offset,d+1));
         offset+=(d+1);
     }
     
     for (int i=0; i<(parts-remainder); i++){
-        result["starts"].as_array().push_back(offset);
-        result["lengths"].as_array().push_back(d);
-        result["hashes"].as_array().push_back(value_from(HashMem(mem,offset,d)));
+        starts.set(i,offset);
+        lengths.set(i,d);
+        hashes.set(i,HashMem(mem,offset,d));
         offset+=d;
     }
     
-    writeToConn(result);
+    writeToConn(m);
     
     while(true){
-        result=readFromConn();
-        
-        if(value_to<std::string>(result["type"])=="sync_request"){
-            handle_sync_request(result);
-            break;
-        }
+        auto reader=readFromConn();
+        handle_sync_request(reader);
+       break;
     }
 }
 
