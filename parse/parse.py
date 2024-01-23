@@ -354,6 +354,9 @@ if __name__=="__main__":
                 index+=1
                 
                 result.append("}")
+            else:
+                result.append(f"id @{index} :{map_type_to_schema('uintptr_t')};")
+                index+=1
                 
             result.append(f"mem @{index} :{map_type_to_schema('uintptr_t')};")
             index+=1

@@ -259,16 +259,19 @@ for name,funcpointer in parsed.items():
         """)
         
         for param in funcpointer["params"]:
-            write(convert("","builcer",param["name"],param,serialize=True))
+            write(convert("","builder",param["name"],param,serialize=True))
         
         write(f"""
+        builder.setId( ((pUserData*)pUserData)->{name} );
         writeToConn(m); //Send request
         auto reader=readFromConn().get{name}(); //Recieve response
         {funcpointer["type"]}{"*"*funcpointer["num_indirection"]} result;
         """)
         
-        for param in funcpointer["params"]+[funcpointer]:
+        for param in funcpointer["params"]:
             write(convert("","reader",param["name"],param,serialize=False))
+        
+        write(convert("","reader","result",funcpointer,serialize=False))
         
         write(f"""
         MallocMessageBuilder m;
@@ -288,14 +291,14 @@ for name,funcpointer in parsed.items():
         """)
             
         write("SyncAllocations();")
-        if not is_void(function):
+        if not is_void(funcpointer):
             write("return result;")
         else:
             write("return;")
         write("}")
     
         write(f"""
-        {funcpointer} deserialize_funcpointer({name}::Reader reader){{
+        {name} deserialize_funcpointer({name}::Reader reader){{
             //Will only be called by the server
             
             return {name}_wrapper;
@@ -303,106 +306,63 @@ for name,funcpointer in parsed.items():
         """)
         
         write(f"""
-            void handle_{funcpointer}_request(object &data){{
+            void handle_{name}_request({name}::Reader reader){{
             //Will only be called by the client
             // Recieved data from server's {funcpointer} wrapper, and will execute the actual function
-            
-            object result;
-            auto funcpointer=id_to_{funcpointer}[value_to<uintptr_t>(data["id"])];
-            
-            result["type"]="{funcpointer}_response";
-            result["members"]=object();
+            auto funcpointer=id_to_{name}[reader.getId()];
         """)
         
         #Just in case if they change when executing (none of the variables are const)
-        for param in function["params"]:
+        for param in funcpointer["params"]:
             write(param["header"]+";") #Initialize variable
-            
-            param_copy=param.copy()
-            param_copy["name"]=f"""data["members"].as_object()["{param["name"]}"].as_object()"""
-            
-            write(deserialize(param["name"],param_copy,initialize=True))
+            write(convert("","reader",param["name"], param, serialize=False, initialize=True))
         
-        funcpointer_call=f"""funcpointer({",".join([param["name"] for param in function["params"]])})"""
-        if not is_void(function):
-            write(f"""auto result_temp={funcpointer_call};""")
+        funcpointer_call=f"""funcpointer({",".join([param["name"] for param in funcpointer["params"]])})"""
         
-            function_copy=function.copy()
-            function_copy["name"]="result_temp"
-            function_copy["length"]=[];
-        
-            write(serialize('result["result"]',function_copy))
+        if not is_void(funcpointer):
+            write(f"""auto result={funcpointer_call};""")
         else:
             write(funcpointer_call+";")
-    
-        for param in function["params"]:
-            write(serialize(f"""result["members"].as_object()["{param["name"]}"]""",param))
         
-        write("writeToConn(result);")
+        write(f"""
+        MallocMessageBuilder m;
+        auto message=m.initRoot<Message>();
+        auto builder=message.init{name}();
+        """)
+        
+        for param in funcpointer["params"]:
+            write(convert("","builder",param["name"],param,serialize=True))
+        
+        write(convert("","builder","result",funcpointer,serialize=False))
+        
+        write("writeToConn(m);")
         
         if function["type"]=="void" and function["num_indirection"]==1:
             write(f"""
-                while(true){{
-                    data=readFromConn();
-                    if (value_to<std::string>(data["type"])=="{funcpointer}_malloc"){{
-                        registerClientServerMemoryMapping(value_to<uintptr_t>(result["result"]), value_to<uintptr_t>(data["mem"]));
-                        break;
-                    }}
-                }}
+            auto reader=readFromConn().get{name}();
+            registerClientServerMemoryMapping((uintptr_t)result, (uintptr_t)(reader.getId()) );
+            
+            MallocMessageBuilder m;
+            auto message=m.initRoot<Message>();
+            auto builder=message.init{name}();
+            writeConn(m); //Send empty message to signal to the server the mapping is done.
             """)
         
         write("};")
                 
         
-        write(f"void handle_{funcpointer}_request(object &data);",header=True);
+        write(f"void handle_{name}_request({name}::Reader);",header=True);
         
-        write(f"""
-        {function["type"]}{'*'*function["num_indirection"]} handle_{funcpointer}_response(object &data, {header.removeprefix("(")} {{
-            //Will only be called by the server
-            
-            //Recieved result from client's {funcpointer}
-            
-            //If there's any memory returned, send client the address so it can keep track of it
-        """)
-        
-        for param in function["params"]:
-            param_copy=param.copy()
-            param_copy["name"]=f"""data["members"].as_object()["{param["name"]}"].as_object()"""
-            
-            write(deserialize(param["name"],param_copy))
-        
-        if not is_void(function):
-            write(function["type"]+("*"*function["num_indirection"])+" result;")
-            
-            function_copy=function.copy()
-            function_copy["name"]='data["result"].as_object()'
-            function_copy["length"]=[]
-            
-            write(deserialize("result",function_copy))
-        
-        if function["type"]=="void" and function["num_indirection"]==1:
-            write(f"""
-            object _malloc;
-            _malloc["type"]="{funcpointer}_malloc";
-            _malloc["mem"]=(uintptr_t)result;
-            
-            writeToConn(_malloc);
-            """
-            )
-        write("return result;" if not is_void(function) else "")
-        
-        write("}")
-        write(f"""{function["type"]}{'*'*function["num_indirection"]} handle_{funcpointer}_response(object& data, {header.removeprefix("(")};""",header=True)
     else:
         write(f"""
-        {funcpointer} deserialize_{funcpointer}(object &name){{
+        {name} deserialize_funcpointer({name}::Reader reader){{
             //Will only be called by the server
             
             return vkGetInstanceProcAddr;
             }};
         """)
     
-    write(f"{funcpointer} deserialize_{funcpointer}(object &name);",header=True)
+    write(f"{name} deserialize_funcpointer({name}::Reader reader);",header=True)
         
 for handle in parsed["handles"]:
         #The loader may want to write to this handle, so we make our own in our address space, so there won't be a semgnetation fault.
