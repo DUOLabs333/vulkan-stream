@@ -220,23 +220,29 @@ for name, command in parsed.items():
     write(f"""void handle_command({name}::Reader& reader);""",header=True)
 
 write("""
-void handle_command(object &data){
+void handle_command(Message::Reader& reader){
 //Will only be called by the server
-std::string command=value_to<std::string>(data["type"]).substr(std::string("command_").length());
 
+switch (reader.which()){
 """)
 
-for command in parsed["commands"]:
+for name, command in parsed.items():
+    if command["kind"]!="command":
+        continue
+    
+    type=name
+    if "alias" in command:
+        type=command["alias"]
+        
     write(f"""
-        if(command=="{command}"){{
-            handle_{command}(data);
+        case (Message::{type.upper()}):
+            handle_command(reader.get{type}());
             return;
-        }}
     """)
 
 write("}")
 
-write("void handle_command(object &data);",header=True)
+write("void handle_command(Message::Reader&);", header=True)
 
 write("#else") #Don't want server to get confused on which command we're talking about
 write("""
