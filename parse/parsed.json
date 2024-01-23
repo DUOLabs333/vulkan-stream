@@ -59602,6 +59602,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateInstance( const VkInstanceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkInstance* pInstance )",
         "params": [
             {
@@ -59644,6 +59645,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyInstance( VkInstance instance, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -59673,6 +59675,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkEnumeratePhysicalDevices( VkInstance instance, uint32_t* pPhysicalDeviceCount, VkPhysicalDevice* pPhysicalDevices )",
         "params": [
             {
@@ -59713,6 +59716,7 @@
         "relation": "return",
         "type": "PFN_vkVoidFunction",
         "num_indirection": 0,
+        "length": [],
         "header": "PFN_vkVoidFunction vkGetDeviceProcAddr( VkDevice device, const char* pName )",
         "params": [
             {
@@ -59742,6 +59746,7 @@
         "relation": "return",
         "type": "PFN_vkVoidFunction",
         "num_indirection": 0,
+        "length": [],
         "header": "PFN_vkVoidFunction vkGetInstanceProcAddr( VkInstance instance, const char* pName )",
         "params": [
             {
@@ -59771,6 +59776,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPhysicalDeviceProperties( VkPhysicalDevice physicalDevice, VkPhysicalDeviceProperties* pProperties )",
         "params": [
             {
@@ -59800,6 +59806,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPhysicalDeviceQueueFamilyProperties( VkPhysicalDevice physicalDevice, uint32_t* pQueueFamilyPropertyCount, VkQueueFamilyProperties* pQueueFamilyProperties )",
         "params": [
             {
@@ -59840,6 +59847,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPhysicalDeviceMemoryProperties( VkPhysicalDevice physicalDevice, VkPhysicalDeviceMemoryProperties* pMemoryProperties )",
         "params": [
             {
@@ -59869,6 +59877,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPhysicalDeviceFeatures( VkPhysicalDevice physicalDevice, VkPhysicalDeviceFeatures* pFeatures )",
         "params": [
             {
@@ -59898,6 +59907,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPhysicalDeviceFormatProperties( VkPhysicalDevice physicalDevice, VkFormat format, VkFormatProperties* pFormatProperties )",
         "params": [
             {
@@ -59936,6 +59946,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceImageFormatProperties( VkPhysicalDevice physicalDevice, VkFormat format, VkImageType type, VkImageTiling tiling, VkImageUsageFlags usage, VkImageCreateFlags flags, VkImageFormatProperties* pImageFormatProperties )",
         "params": [
             {
@@ -60010,6 +60021,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateDevice( VkPhysicalDevice physicalDevice, const VkDeviceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDevice* pDevice )",
         "params": [
             {
@@ -60061,6 +60073,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyDevice( VkDevice device, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -60090,6 +60103,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkEnumerateInstanceVersion( uint32_t* pApiVersion )",
         "params": [
             {
@@ -60110,6 +60124,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkEnumerateInstanceLayerProperties( uint32_t* pPropertyCount, VkLayerProperties* pProperties )",
         "params": [
             {
@@ -60141,6 +60156,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkEnumerateInstanceExtensionProperties( const char* pLayerName, uint32_t* pPropertyCount, VkExtensionProperties* pProperties )",
         "params": [
             {
@@ -60183,6 +60199,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkEnumerateDeviceLayerProperties( VkPhysicalDevice physicalDevice, uint32_t* pPropertyCount, VkLayerProperties* pProperties )",
         "params": [
             {
@@ -60223,6 +60240,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkEnumerateDeviceExtensionProperties( VkPhysicalDevice physicalDevice, const char* pLayerName, uint32_t* pPropertyCount, VkExtensionProperties* pProperties )",
         "params": [
             {
@@ -60274,6 +60292,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetDeviceQueue( VkDevice device, uint32_t queueFamilyIndex, uint32_t queueIndex, VkQueue* pQueue )",
         "params": [
             {
@@ -60321,6 +60340,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkQueueSubmit( VkQueue queue, uint32_t submitCount, const VkSubmitInfo* pSubmits, VkFence fence )",
         "params": [
             {
@@ -60368,6 +60388,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkQueueWaitIdle( VkQueue queue )",
         "params": [
             {
@@ -60386,6 +60407,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkDeviceWaitIdle( VkDevice device )",
         "params": [
             {
@@ -60404,6 +60426,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkAllocateMemory( VkDevice device, const VkMemoryAllocateInfo* pAllocateInfo, const VkAllocationCallbacks* pAllocator, VkDeviceMemory* pMemory )",
         "params": [
             {
@@ -60455,6 +60478,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkFreeMemory( VkDevice device, VkDeviceMemory memory, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -60493,6 +60517,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkMapMemory( VkDevice device, VkDeviceMemory memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, void** ppData )",
         "params": [
             {
@@ -60559,6 +60584,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkUnmapMemory( VkDevice device, VkDeviceMemory memory )",
         "params": [
             {
@@ -60586,6 +60612,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkFlushMappedMemoryRanges( VkDevice device, uint32_t memoryRangeCount, const VkMappedMemoryRange* pMemoryRanges )",
         "params": [
             {
@@ -60624,6 +60651,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkInvalidateMappedMemoryRanges( VkDevice device, uint32_t memoryRangeCount, const VkMappedMemoryRange* pMemoryRanges )",
         "params": [
             {
@@ -60662,6 +60690,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetDeviceMemoryCommitment( VkDevice device, VkDeviceMemory memory, VkDeviceSize* pCommittedMemoryInBytes )",
         "params": [
             {
@@ -60700,6 +60729,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetBufferMemoryRequirements( VkDevice device, VkBuffer buffer, VkMemoryRequirements* pMemoryRequirements )",
         "params": [
             {
@@ -60738,6 +60768,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkBindBufferMemory( VkDevice device, VkBuffer buffer, VkDeviceMemory memory, VkDeviceSize memoryOffset )",
         "params": [
             {
@@ -60783,6 +60814,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetImageMemoryRequirements( VkDevice device, VkImage image, VkMemoryRequirements* pMemoryRequirements )",
         "params": [
             {
@@ -60821,6 +60853,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkBindImageMemory( VkDevice device, VkImage image, VkDeviceMemory memory, VkDeviceSize memoryOffset )",
         "params": [
             {
@@ -60866,6 +60899,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetImageSparseMemoryRequirements( VkDevice device, VkImage image, uint32_t* pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements* pSparseMemoryRequirements )",
         "params": [
             {
@@ -60915,6 +60949,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPhysicalDeviceSparseImageFormatProperties( VkPhysicalDevice physicalDevice, VkFormat format, VkImageType type, VkSampleCountFlagBits samples, VkImageUsageFlags usage, VkImageTiling tiling, uint32_t* pPropertyCount, VkSparseImageFormatProperties* pProperties )",
         "params": [
             {
@@ -61000,6 +61035,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkQueueBindSparse( VkQueue queue, uint32_t bindInfoCount, const VkBindSparseInfo* pBindInfo, VkFence fence )",
         "params": [
             {
@@ -61047,6 +61083,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateFence( VkDevice device, const VkFenceCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkFence* pFence )",
         "params": [
             {
@@ -61098,6 +61135,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyFence( VkDevice device, VkFence fence, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -61136,6 +61174,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkResetFences( VkDevice device, uint32_t fenceCount, const VkFence* pFences )",
         "params": [
             {
@@ -61174,6 +61213,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetFenceStatus( VkDevice device, VkFence fence )",
         "params": [
             {
@@ -61201,6 +61241,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkWaitForFences( VkDevice device, uint32_t fenceCount, const VkFence* pFences, VkBool32 waitAll, uint64_t timeout )",
         "params": [
             {
@@ -61257,6 +61298,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateSemaphore( VkDevice device, const VkSemaphoreCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSemaphore* pSemaphore )",
         "params": [
             {
@@ -61308,6 +61350,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroySemaphore( VkDevice device, VkSemaphore semaphore, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -61346,6 +61389,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateEvent( VkDevice device, const VkEventCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkEvent* pEvent )",
         "params": [
             {
@@ -61397,6 +61441,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyEvent( VkDevice device, VkEvent event, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -61435,6 +61480,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetEventStatus( VkDevice device, VkEvent event )",
         "params": [
             {
@@ -61462,6 +61508,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkSetEvent( VkDevice device, VkEvent event )",
         "params": [
             {
@@ -61489,6 +61536,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkResetEvent( VkDevice device, VkEvent event )",
         "params": [
             {
@@ -61516,6 +61564,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateQueryPool( VkDevice device, const VkQueryPoolCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkQueryPool* pQueryPool )",
         "params": [
             {
@@ -61567,6 +61616,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyQueryPool( VkDevice device, VkQueryPool queryPool, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -61605,6 +61655,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetQueryPoolResults( VkDevice device, VkQueryPool queryPool, uint32_t firstQuery, uint32_t queryCount, size_t dataSize, void* pData, VkDeviceSize stride, VkQueryResultFlags flags )",
         "params": [
             {
@@ -61688,6 +61739,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkResetQueryPool( VkDevice device, VkQueryPool queryPool, uint32_t firstQuery, uint32_t queryCount )",
         "params": [
             {
@@ -61738,6 +61790,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateBuffer( VkDevice device, const VkBufferCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkBuffer* pBuffer )",
         "params": [
             {
@@ -61789,6 +61842,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyBuffer( VkDevice device, VkBuffer buffer, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -61827,6 +61881,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateBufferView( VkDevice device, const VkBufferViewCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkBufferView* pView )",
         "params": [
             {
@@ -61878,6 +61933,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyBufferView( VkDevice device, VkBufferView bufferView, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -61916,6 +61972,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateImage( VkDevice device, const VkImageCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkImage* pImage )",
         "params": [
             {
@@ -61967,6 +62024,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyImage( VkDevice device, VkImage image, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -62005,6 +62063,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetImageSubresourceLayout( VkDevice device, VkImage image, const VkImageSubresource* pSubresource, VkSubresourceLayout* pLayout )",
         "params": [
             {
@@ -62054,6 +62113,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateImageView( VkDevice device, const VkImageViewCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkImageView* pView )",
         "params": [
             {
@@ -62105,6 +62165,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyImageView( VkDevice device, VkImageView imageView, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -62143,6 +62204,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateShaderModule( VkDevice device, const VkShaderModuleCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkShaderModule* pShaderModule )",
         "params": [
             {
@@ -62194,6 +62256,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyShaderModule( VkDevice device, VkShaderModule shaderModule, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -62232,6 +62295,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreatePipelineCache( VkDevice device, const VkPipelineCacheCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkPipelineCache* pPipelineCache )",
         "params": [
             {
@@ -62283,6 +62347,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyPipelineCache( VkDevice device, VkPipelineCache pipelineCache, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -62321,6 +62386,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPipelineCacheData( VkDevice device, VkPipelineCache pipelineCache, size_t* pDataSize, void* pData )",
         "params": [
             {
@@ -62370,6 +62436,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkMergePipelineCaches( VkDevice device, VkPipelineCache dstCache, uint32_t srcCacheCount, const VkPipelineCache* pSrcCaches )",
         "params": [
             {
@@ -62417,6 +62484,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateGraphicsPipelines( VkDevice device, VkPipelineCache pipelineCache, uint32_t createInfoCount, const VkGraphicsPipelineCreateInfo* pCreateInfos, const VkAllocationCallbacks* pAllocator, VkPipeline* pPipelines )",
         "params": [
             {
@@ -62486,6 +62554,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateComputePipelines( VkDevice device, VkPipelineCache pipelineCache, uint32_t createInfoCount, const VkComputePipelineCreateInfo* pCreateInfos, const VkAllocationCallbacks* pAllocator, VkPipeline* pPipelines )",
         "params": [
             {
@@ -62555,6 +62624,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI( VkDevice device, VkRenderPass renderpass, VkExtent2D* pMaxWorkgroupSize )",
         "params": [
             {
@@ -62593,6 +62663,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyPipeline( VkDevice device, VkPipeline pipeline, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -62631,6 +62702,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreatePipelineLayout( VkDevice device, const VkPipelineLayoutCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkPipelineLayout* pPipelineLayout )",
         "params": [
             {
@@ -62682,6 +62754,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyPipelineLayout( VkDevice device, VkPipelineLayout pipelineLayout, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -62720,6 +62793,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateSampler( VkDevice device, const VkSamplerCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSampler* pSampler )",
         "params": [
             {
@@ -62771,6 +62845,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroySampler( VkDevice device, VkSampler sampler, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -62809,6 +62884,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateDescriptorSetLayout( VkDevice device, const VkDescriptorSetLayoutCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDescriptorSetLayout* pSetLayout )",
         "params": [
             {
@@ -62860,6 +62936,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyDescriptorSetLayout( VkDevice device, VkDescriptorSetLayout descriptorSetLayout, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -62898,6 +62975,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateDescriptorPool( VkDevice device, const VkDescriptorPoolCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDescriptorPool* pDescriptorPool )",
         "params": [
             {
@@ -62949,6 +63027,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyDescriptorPool( VkDevice device, VkDescriptorPool descriptorPool, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -62987,6 +63066,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkResetDescriptorPool( VkDevice device, VkDescriptorPool descriptorPool, VkDescriptorPoolResetFlags flags )",
         "params": [
             {
@@ -63023,6 +63103,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkAllocateDescriptorSets( VkDevice device, const VkDescriptorSetAllocateInfo* pAllocateInfo, VkDescriptorSet* pDescriptorSets )",
         "params": [
             {
@@ -63063,6 +63144,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkFreeDescriptorSets( VkDevice device, VkDescriptorPool descriptorPool, uint32_t descriptorSetCount, const VkDescriptorSet* pDescriptorSets )",
         "params": [
             {
@@ -63110,6 +63192,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkUpdateDescriptorSets( VkDevice device, uint32_t descriptorWriteCount, const VkWriteDescriptorSet* pDescriptorWrites, uint32_t descriptorCopyCount, const VkCopyDescriptorSet* pDescriptorCopies )",
         "params": [
             {
@@ -63168,6 +63251,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateFramebuffer( VkDevice device, const VkFramebufferCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkFramebuffer* pFramebuffer )",
         "params": [
             {
@@ -63219,6 +63303,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyFramebuffer( VkDevice device, VkFramebuffer framebuffer, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -63257,6 +63342,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateRenderPass( VkDevice device, const VkRenderPassCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkRenderPass* pRenderPass )",
         "params": [
             {
@@ -63308,6 +63394,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyRenderPass( VkDevice device, VkRenderPass renderPass, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -63346,6 +63433,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetRenderAreaGranularity( VkDevice device, VkRenderPass renderPass, VkExtent2D* pGranularity )",
         "params": [
             {
@@ -63384,6 +63472,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetRenderingAreaGranularityKHR( VkDevice device, const VkRenderingAreaInfoKHR* pRenderingAreaInfo, VkExtent2D* pGranularity )",
         "params": [
             {
@@ -63424,6 +63513,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateCommandPool( VkDevice device, const VkCommandPoolCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkCommandPool* pCommandPool )",
         "params": [
             {
@@ -63475,6 +63565,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyCommandPool( VkDevice device, VkCommandPool commandPool, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -63513,6 +63604,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkResetCommandPool( VkDevice device, VkCommandPool commandPool, VkCommandPoolResetFlags flags )",
         "params": [
             {
@@ -63549,6 +63641,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkAllocateCommandBuffers( VkDevice device, const VkCommandBufferAllocateInfo* pAllocateInfo, VkCommandBuffer* pCommandBuffers )",
         "params": [
             {
@@ -63589,6 +63682,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkFreeCommandBuffers( VkDevice device, VkCommandPool commandPool, uint32_t commandBufferCount, const VkCommandBuffer* pCommandBuffers )",
         "params": [
             {
@@ -63636,6 +63730,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkBeginCommandBuffer( VkCommandBuffer commandBuffer, const VkCommandBufferBeginInfo* pBeginInfo )",
         "params": [
             {
@@ -63665,6 +63760,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkEndCommandBuffer( VkCommandBuffer commandBuffer )",
         "params": [
             {
@@ -63683,6 +63779,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkResetCommandBuffer( VkCommandBuffer commandBuffer, VkCommandBufferResetFlags flags )",
         "params": [
             {
@@ -63710,6 +63807,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBindPipeline( VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipeline pipeline )",
         "params": [
             {
@@ -63746,6 +63844,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetAttachmentFeedbackLoopEnableEXT( VkCommandBuffer commandBuffer, VkImageAspectFlags aspectMask )",
         "params": [
             {
@@ -63773,6 +63872,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetViewport( VkCommandBuffer commandBuffer, uint32_t firstViewport, uint32_t viewportCount, const VkViewport* pViewports )",
         "params": [
             {
@@ -63820,6 +63920,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetScissor( VkCommandBuffer commandBuffer, uint32_t firstScissor, uint32_t scissorCount, const VkRect2D* pScissors )",
         "params": [
             {
@@ -63867,6 +63968,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetLineWidth( VkCommandBuffer commandBuffer, float lineWidth )",
         "params": [
             {
@@ -63894,6 +63996,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetDepthBias( VkCommandBuffer commandBuffer, float depthBiasConstantFactor, float depthBiasClamp, float depthBiasSlopeFactor )",
         "params": [
             {
@@ -63939,6 +64042,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetBlendConstants( VkCommandBuffer commandBuffer, const float blendConstants[4] )",
         "params": [
             {
@@ -63968,6 +64072,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetDepthBounds( VkCommandBuffer commandBuffer, float minDepthBounds, float maxDepthBounds )",
         "params": [
             {
@@ -64004,6 +64109,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetStencilCompareMask( VkCommandBuffer commandBuffer, VkStencilFaceFlags faceMask, uint32_t compareMask )",
         "params": [
             {
@@ -64040,6 +64146,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetStencilWriteMask( VkCommandBuffer commandBuffer, VkStencilFaceFlags faceMask, uint32_t writeMask )",
         "params": [
             {
@@ -64076,6 +64183,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetStencilReference( VkCommandBuffer commandBuffer, VkStencilFaceFlags faceMask, uint32_t reference )",
         "params": [
             {
@@ -64112,6 +64220,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBindDescriptorSets( VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout layout, uint32_t firstSet, uint32_t descriptorSetCount, const VkDescriptorSet* pDescriptorSets, uint32_t dynamicOffsetCount, const uint32_t* pDynamicOffsets )",
         "params": [
             {
@@ -64197,6 +64306,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBindIndexBuffer( VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, VkIndexType indexType )",
         "params": [
             {
@@ -64242,6 +64352,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBindVertexBuffers( VkCommandBuffer commandBuffer, uint32_t firstBinding, uint32_t bindingCount, const VkBuffer* pBuffers, const VkDeviceSize* pOffsets )",
         "params": [
             {
@@ -64300,6 +64411,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDraw( VkCommandBuffer commandBuffer, uint32_t vertexCount, uint32_t instanceCount, uint32_t firstVertex, uint32_t firstInstance )",
         "params": [
             {
@@ -64354,6 +64466,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDrawIndexed( VkCommandBuffer commandBuffer, uint32_t indexCount, uint32_t instanceCount, uint32_t firstIndex, int32_t vertexOffset, uint32_t firstInstance )",
         "params": [
             {
@@ -64417,6 +64530,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDrawMultiEXT( VkCommandBuffer commandBuffer, uint32_t drawCount, const VkMultiDrawInfoEXT* pVertexInfo, uint32_t instanceCount, uint32_t firstInstance, uint32_t stride )",
         "params": [
             {
@@ -64482,6 +64596,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDrawMultiIndexedEXT( VkCommandBuffer commandBuffer, uint32_t drawCount, const VkMultiDrawIndexedInfoEXT* pIndexInfo, uint32_t instanceCount, uint32_t firstInstance, uint32_t stride, const int32_t* pVertexOffset )",
         "params": [
             {
@@ -64558,6 +64673,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDrawIndirect( VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, uint32_t drawCount, uint32_t stride )",
         "params": [
             {
@@ -64612,6 +64728,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDrawIndexedIndirect( VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, uint32_t drawCount, uint32_t stride )",
         "params": [
             {
@@ -64666,6 +64783,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDispatch( VkCommandBuffer commandBuffer, uint32_t groupCountX, uint32_t groupCountY, uint32_t groupCountZ )",
         "params": [
             {
@@ -64711,6 +64829,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDispatchIndirect( VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset )",
         "params": [
             {
@@ -64747,6 +64866,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSubpassShadingHUAWEI( VkCommandBuffer commandBuffer )",
         "params": [
             {
@@ -64765,6 +64885,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDrawClusterHUAWEI( VkCommandBuffer commandBuffer, uint32_t groupCountX, uint32_t groupCountY, uint32_t groupCountZ )",
         "params": [
             {
@@ -64810,6 +64931,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDrawClusterIndirectHUAWEI( VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset )",
         "params": [
             {
@@ -64846,6 +64968,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdUpdatePipelineIndirectBufferNV( VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipeline pipeline )",
         "params": [
             {
@@ -64882,6 +65005,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyBuffer( VkCommandBuffer commandBuffer, VkBuffer srcBuffer, VkBuffer dstBuffer, uint32_t regionCount, const VkBufferCopy* pRegions )",
         "params": [
             {
@@ -64938,6 +65062,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyImage( VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, uint32_t regionCount, const VkImageCopy* pRegions )",
         "params": [
             {
@@ -65012,6 +65137,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBlitImage( VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, uint32_t regionCount, const VkImageBlit* pRegions, VkFilter filter )",
         "params": [
             {
@@ -65095,6 +65221,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyBufferToImage( VkCommandBuffer commandBuffer, VkBuffer srcBuffer, VkImage dstImage, VkImageLayout dstImageLayout, uint32_t regionCount, const VkBufferImageCopy* pRegions )",
         "params": [
             {
@@ -65160,6 +65287,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyImageToBuffer( VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkBuffer dstBuffer, uint32_t regionCount, const VkBufferImageCopy* pRegions )",
         "params": [
             {
@@ -65225,6 +65353,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyMemoryIndirectNV( VkCommandBuffer commandBuffer, VkDeviceAddress copyBufferAddress, uint32_t copyCount, uint32_t stride )",
         "params": [
             {
@@ -65270,6 +65399,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyMemoryToImageIndirectNV( VkCommandBuffer commandBuffer, VkDeviceAddress copyBufferAddress, uint32_t copyCount, uint32_t stride, VkImage dstImage, VkImageLayout dstImageLayout, const VkImageSubresourceLayers* pImageSubresources )",
         "params": [
             {
@@ -65344,6 +65474,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdUpdateBuffer( VkCommandBuffer commandBuffer, VkBuffer dstBuffer, VkDeviceSize dstOffset, VkDeviceSize dataSize, const void* pData )",
         "params": [
             {
@@ -65400,6 +65531,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdFillBuffer( VkCommandBuffer commandBuffer, VkBuffer dstBuffer, VkDeviceSize dstOffset, VkDeviceSize size, uint32_t data )",
         "params": [
             {
@@ -65454,6 +65586,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdClearColorImage( VkCommandBuffer commandBuffer, VkImage image, VkImageLayout imageLayout, const VkClearColorValue* pColor, uint32_t rangeCount, const VkImageSubresourceRange* pRanges )",
         "params": [
             {
@@ -65521,6 +65654,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdClearDepthStencilImage( VkCommandBuffer commandBuffer, VkImage image, VkImageLayout imageLayout, const VkClearDepthStencilValue* pDepthStencil, uint32_t rangeCount, const VkImageSubresourceRange* pRanges )",
         "params": [
             {
@@ -65588,6 +65722,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdClearAttachments( VkCommandBuffer commandBuffer, uint32_t attachmentCount, const VkClearAttachment* pAttachments, uint32_t rectCount, const VkClearRect* pRects )",
         "params": [
             {
@@ -65646,6 +65781,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdResolveImage( VkCommandBuffer commandBuffer, VkImage srcImage, VkImageLayout srcImageLayout, VkImage dstImage, VkImageLayout dstImageLayout, uint32_t regionCount, const VkImageResolve* pRegions )",
         "params": [
             {
@@ -65720,6 +65856,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetEvent( VkCommandBuffer commandBuffer, VkEvent event, VkPipelineStageFlags stageMask )",
         "params": [
             {
@@ -65756,6 +65893,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdResetEvent( VkCommandBuffer commandBuffer, VkEvent event, VkPipelineStageFlags stageMask )",
         "params": [
             {
@@ -65792,6 +65930,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdWaitEvents( VkCommandBuffer commandBuffer, uint32_t eventCount, const VkEvent* pEvents, VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask, uint32_t memoryBarrierCount, const VkMemoryBarrier* pMemoryBarriers, uint32_t bufferMemoryBarrierCount, const VkBufferMemoryBarrier* pBufferMemoryBarriers, uint32_t imageMemoryBarrierCount, const VkImageMemoryBarrier* pImageMemoryBarriers )",
         "params": [
             {
@@ -65908,6 +66047,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdPipelineBarrier( VkCommandBuffer commandBuffer, VkPipelineStageFlags srcStageMask, VkPipelineStageFlags dstStageMask, VkDependencyFlags dependencyFlags, uint32_t memoryBarrierCount, const VkMemoryBarrier* pMemoryBarriers, uint32_t bufferMemoryBarrierCount, const VkBufferMemoryBarrier* pBufferMemoryBarriers, uint32_t imageMemoryBarrierCount, const VkImageMemoryBarrier* pImageMemoryBarriers )",
         "params": [
             {
@@ -66013,6 +66153,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBeginQuery( VkCommandBuffer commandBuffer, VkQueryPool queryPool, uint32_t query, VkQueryControlFlags flags )",
         "params": [
             {
@@ -66058,6 +66199,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdEndQuery( VkCommandBuffer commandBuffer, VkQueryPool queryPool, uint32_t query )",
         "params": [
             {
@@ -66094,6 +66236,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBeginConditionalRenderingEXT( VkCommandBuffer commandBuffer, const VkConditionalRenderingBeginInfoEXT* pConditionalRenderingBegin )",
         "params": [
             {
@@ -66123,6 +66266,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdEndConditionalRenderingEXT( VkCommandBuffer commandBuffer )",
         "params": [
             {
@@ -66141,6 +66285,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdResetQueryPool( VkCommandBuffer commandBuffer, VkQueryPool queryPool, uint32_t firstQuery, uint32_t queryCount )",
         "params": [
             {
@@ -66186,6 +66331,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdWriteTimestamp( VkCommandBuffer commandBuffer, VkPipelineStageFlagBits pipelineStage, VkQueryPool queryPool, uint32_t query )",
         "params": [
             {
@@ -66231,6 +66377,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyQueryPoolResults( VkCommandBuffer commandBuffer, VkQueryPool queryPool, uint32_t firstQuery, uint32_t queryCount, VkBuffer dstBuffer, VkDeviceSize dstOffset, VkDeviceSize stride, VkQueryResultFlags flags )",
         "params": [
             {
@@ -66312,6 +66459,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdPushConstants( VkCommandBuffer commandBuffer, VkPipelineLayout layout, VkShaderStageFlags stageFlags, uint32_t offset, uint32_t size, const void* pValues )",
         "params": [
             {
@@ -66377,6 +66525,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBeginRenderPass( VkCommandBuffer commandBuffer, const VkRenderPassBeginInfo* pRenderPassBegin, VkSubpassContents contents )",
         "params": [
             {
@@ -66415,6 +66564,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdNextSubpass( VkCommandBuffer commandBuffer, VkSubpassContents contents )",
         "params": [
             {
@@ -66442,6 +66592,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdEndRenderPass( VkCommandBuffer commandBuffer )",
         "params": [
             {
@@ -66460,6 +66611,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdExecuteCommands( VkCommandBuffer commandBuffer, uint32_t commandBufferCount, const VkCommandBuffer* pCommandBuffers )",
         "params": [
             {
@@ -66498,6 +66650,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceDisplayPropertiesKHR( VkPhysicalDevice physicalDevice, uint32_t* pPropertyCount, VkDisplayPropertiesKHR* pProperties )",
         "params": [
             {
@@ -66538,6 +66691,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceDisplayPlanePropertiesKHR( VkPhysicalDevice physicalDevice, uint32_t* pPropertyCount, VkDisplayPlanePropertiesKHR* pProperties )",
         "params": [
             {
@@ -66578,6 +66732,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetDisplayPlaneSupportedDisplaysKHR( VkPhysicalDevice physicalDevice, uint32_t planeIndex, uint32_t* pDisplayCount, VkDisplayKHR* pDisplays )",
         "params": [
             {
@@ -66627,6 +66782,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetDisplayModePropertiesKHR( VkPhysicalDevice physicalDevice, VkDisplayKHR display, uint32_t* pPropertyCount, VkDisplayModePropertiesKHR* pProperties )",
         "params": [
             {
@@ -66676,6 +66832,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateDisplayModeKHR( VkPhysicalDevice physicalDevice, VkDisplayKHR display, const VkDisplayModeCreateInfoKHR* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDisplayModeKHR* pMode )",
         "params": [
             {
@@ -66736,6 +66893,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetDisplayPlaneCapabilitiesKHR( VkPhysicalDevice physicalDevice, VkDisplayModeKHR mode, uint32_t planeIndex, VkDisplayPlaneCapabilitiesKHR* pCapabilities )",
         "params": [
             {
@@ -66783,6 +66941,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateDisplayPlaneSurfaceKHR( VkInstance instance, const VkDisplaySurfaceCreateInfoKHR* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface )",
         "params": [
             {
@@ -66834,6 +66993,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateSharedSwapchainsKHR( VkDevice device, uint32_t swapchainCount, const VkSwapchainCreateInfoKHR* pCreateInfos, const VkAllocationCallbacks* pAllocator, VkSwapchainKHR* pSwapchains )",
         "params": [
             {
@@ -66894,6 +67054,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroySurfaceKHR( VkInstance instance, VkSurfaceKHR surface, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -66932,6 +67093,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceSurfaceSupportKHR( VkPhysicalDevice physicalDevice, uint32_t queueFamilyIndex, VkSurfaceKHR surface, VkBool32* pSupported )",
         "params": [
             {
@@ -66979,6 +67141,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceSurfaceCapabilitiesKHR( VkPhysicalDevice physicalDevice, VkSurfaceKHR surface, VkSurfaceCapabilitiesKHR* pSurfaceCapabilities )",
         "params": [
             {
@@ -67017,6 +67180,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceSurfaceFormatsKHR( VkPhysicalDevice physicalDevice, VkSurfaceKHR surface, uint32_t* pSurfaceFormatCount, VkSurfaceFormatKHR* pSurfaceFormats )",
         "params": [
             {
@@ -67066,6 +67230,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceSurfacePresentModesKHR( VkPhysicalDevice physicalDevice, VkSurfaceKHR surface, uint32_t* pPresentModeCount, VkPresentModeKHR* pPresentModes )",
         "params": [
             {
@@ -67115,6 +67280,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateSwapchainKHR( VkDevice device, const VkSwapchainCreateInfoKHR* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSwapchainKHR* pSwapchain )",
         "params": [
             {
@@ -67166,6 +67332,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroySwapchainKHR( VkDevice device, VkSwapchainKHR swapchain, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -67204,6 +67371,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetSwapchainImagesKHR( VkDevice device, VkSwapchainKHR swapchain, uint32_t* pSwapchainImageCount, VkImage* pSwapchainImages )",
         "params": [
             {
@@ -67253,6 +67421,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkAcquireNextImageKHR( VkDevice device, VkSwapchainKHR swapchain, uint64_t timeout, VkSemaphore semaphore, VkFence fence, uint32_t* pImageIndex )",
         "params": [
             {
@@ -67318,6 +67487,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkQueuePresentKHR( VkQueue queue, const VkPresentInfoKHR* pPresentInfo )",
         "params": [
             {
@@ -67347,6 +67517,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateXlibSurfaceKHR( VkInstance instance, const VkXlibSurfaceCreateInfoKHR* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface )",
         "params": [
             {
@@ -67398,6 +67569,7 @@
         "relation": "return",
         "type": "VkBool32",
         "num_indirection": 0,
+        "length": [],
         "header": "VkBool32 vkGetPhysicalDeviceXlibPresentationSupportKHR( VkPhysicalDevice physicalDevice, uint32_t queueFamilyIndex, Display* dpy, VisualID visualID )",
         "params": [
             {
@@ -67445,6 +67617,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateXcbSurfaceKHR( VkInstance instance, const VkXcbSurfaceCreateInfoKHR* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface )",
         "params": [
             {
@@ -67496,6 +67669,7 @@
         "relation": "return",
         "type": "VkBool32",
         "num_indirection": 0,
+        "length": [],
         "header": "VkBool32 vkGetPhysicalDeviceXcbPresentationSupportKHR( VkPhysicalDevice physicalDevice, uint32_t queueFamilyIndex, xcb_connection_t* connection, xcb_visualid_t visual_id )",
         "params": [
             {
@@ -67543,6 +67717,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateDebugReportCallbackEXT( VkInstance instance, const VkDebugReportCallbackCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugReportCallbackEXT* pCallback )",
         "params": [
             {
@@ -67594,6 +67769,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyDebugReportCallbackEXT( VkInstance instance, VkDebugReportCallbackEXT callback, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -67632,6 +67808,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDebugReportMessageEXT( VkInstance instance, VkDebugReportFlagsEXT flags, VkDebugReportObjectTypeEXT objectType, uint64_t object, size_t location, int32_t messageCode, const char* pLayerPrefix, const char* pMessage )",
         "params": [
             {
@@ -67717,6 +67894,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkDebugMarkerSetObjectNameEXT( VkDevice device, const VkDebugMarkerObjectNameInfoEXT* pNameInfo )",
         "params": [
             {
@@ -67746,6 +67924,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkDebugMarkerSetObjectTagEXT( VkDevice device, const VkDebugMarkerObjectTagInfoEXT* pTagInfo )",
         "params": [
             {
@@ -67775,6 +67954,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDebugMarkerBeginEXT( VkCommandBuffer commandBuffer, const VkDebugMarkerMarkerInfoEXT* pMarkerInfo )",
         "params": [
             {
@@ -67804,6 +67984,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDebugMarkerEndEXT( VkCommandBuffer commandBuffer )",
         "params": [
             {
@@ -67822,6 +68003,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDebugMarkerInsertEXT( VkCommandBuffer commandBuffer, const VkDebugMarkerMarkerInfoEXT* pMarkerInfo )",
         "params": [
             {
@@ -67851,6 +68033,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceExternalImageFormatPropertiesNV( VkPhysicalDevice physicalDevice, VkFormat format, VkImageType type, VkImageTiling tiling, VkImageUsageFlags usage, VkImageCreateFlags flags, VkExternalMemoryHandleTypeFlagsNV externalHandleType, VkExternalImageFormatPropertiesNV* pExternalImageFormatProperties )",
         "params": [
             {
@@ -67934,6 +68117,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdExecuteGeneratedCommandsNV( VkCommandBuffer commandBuffer, VkBool32 isPreprocessed, const VkGeneratedCommandsInfoNV* pGeneratedCommandsInfo )",
         "params": [
             {
@@ -67972,6 +68156,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdPreprocessGeneratedCommandsNV( VkCommandBuffer commandBuffer, const VkGeneratedCommandsInfoNV* pGeneratedCommandsInfo )",
         "params": [
             {
@@ -68001,6 +68186,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBindPipelineShaderGroupNV( VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipeline pipeline, uint32_t groupIndex )",
         "params": [
             {
@@ -68046,6 +68232,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetGeneratedCommandsMemoryRequirementsNV( VkDevice device, const VkGeneratedCommandsMemoryRequirementsInfoNV* pInfo, VkMemoryRequirements2* pMemoryRequirements )",
         "params": [
             {
@@ -68086,6 +68273,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateIndirectCommandsLayoutNV( VkDevice device, const VkIndirectCommandsLayoutCreateInfoNV* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkIndirectCommandsLayoutNV* pIndirectCommandsLayout )",
         "params": [
             {
@@ -68137,6 +68325,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyIndirectCommandsLayoutNV( VkDevice device, VkIndirectCommandsLayoutNV indirectCommandsLayout, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -68175,6 +68364,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPhysicalDeviceFeatures2( VkPhysicalDevice physicalDevice, VkPhysicalDeviceFeatures2* pFeatures )",
         "params": [
             {
@@ -68209,6 +68399,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPhysicalDeviceProperties2( VkPhysicalDevice physicalDevice, VkPhysicalDeviceProperties2* pProperties )",
         "params": [
             {
@@ -68243,6 +68434,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPhysicalDeviceFormatProperties2( VkPhysicalDevice physicalDevice, VkFormat format, VkFormatProperties2* pFormatProperties )",
         "params": [
             {
@@ -68286,6 +68478,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceImageFormatProperties2( VkPhysicalDevice physicalDevice, const VkPhysicalDeviceImageFormatInfo2* pImageFormatInfo, VkImageFormatProperties2* pImageFormatProperties )",
         "params": [
             {
@@ -68331,6 +68524,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPhysicalDeviceQueueFamilyProperties2( VkPhysicalDevice physicalDevice, uint32_t* pQueueFamilyPropertyCount, VkQueueFamilyProperties2* pQueueFamilyProperties )",
         "params": [
             {
@@ -68376,6 +68570,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPhysicalDeviceMemoryProperties2( VkPhysicalDevice physicalDevice, VkPhysicalDeviceMemoryProperties2* pMemoryProperties )",
         "params": [
             {
@@ -68410,6 +68605,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPhysicalDeviceSparseImageFormatProperties2( VkPhysicalDevice physicalDevice, const VkPhysicalDeviceSparseImageFormatInfo2* pFormatInfo, uint32_t* pPropertyCount, VkSparseImageFormatProperties2* pProperties )",
         "params": [
             {
@@ -68466,6 +68662,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdPushDescriptorSetKHR( VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout layout, uint32_t set, uint32_t descriptorWriteCount, const VkWriteDescriptorSet* pDescriptorWrites )",
         "params": [
             {
@@ -68531,6 +68728,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkTrimCommandPool( VkDevice device, VkCommandPool commandPool, VkCommandPoolTrimFlags flags )",
         "params": [
             {
@@ -68572,6 +68770,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPhysicalDeviceExternalBufferProperties( VkPhysicalDevice physicalDevice, const VkPhysicalDeviceExternalBufferInfo* pExternalBufferInfo, VkExternalBufferProperties* pExternalBufferProperties )",
         "params": [
             {
@@ -68617,6 +68816,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetMemoryFdKHR( VkDevice device, const VkMemoryGetFdInfoKHR* pGetFdInfo, int* pFd )",
         "params": [
             {
@@ -68657,6 +68857,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetMemoryFdPropertiesKHR( VkDevice device, VkExternalMemoryHandleTypeFlagBits handleType, int fd, VkMemoryFdPropertiesKHR* pMemoryFdProperties )",
         "params": [
             {
@@ -68704,6 +68905,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetMemoryRemoteAddressNV( VkDevice device, const VkMemoryGetRemoteAddressInfoNV* pMemoryGetRemoteAddressInfo, VkRemoteAddressNV* pAddress )",
         "params": [
             {
@@ -68744,6 +68946,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPhysicalDeviceExternalSemaphoreProperties( VkPhysicalDevice physicalDevice, const VkPhysicalDeviceExternalSemaphoreInfo* pExternalSemaphoreInfo, VkExternalSemaphoreProperties* pExternalSemaphoreProperties )",
         "params": [
             {
@@ -68789,6 +68992,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetSemaphoreFdKHR( VkDevice device, const VkSemaphoreGetFdInfoKHR* pGetFdInfo, int* pFd )",
         "params": [
             {
@@ -68829,6 +69033,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkImportSemaphoreFdKHR( VkDevice device, const VkImportSemaphoreFdInfoKHR* pImportSemaphoreFdInfo )",
         "params": [
             {
@@ -68858,6 +69063,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPhysicalDeviceExternalFenceProperties( VkPhysicalDevice physicalDevice, const VkPhysicalDeviceExternalFenceInfo* pExternalFenceInfo, VkExternalFenceProperties* pExternalFenceProperties )",
         "params": [
             {
@@ -68903,6 +69109,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetFenceFdKHR( VkDevice device, const VkFenceGetFdInfoKHR* pGetFdInfo, int* pFd )",
         "params": [
             {
@@ -68943,6 +69150,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkImportFenceFdKHR( VkDevice device, const VkImportFenceFdInfoKHR* pImportFenceFdInfo )",
         "params": [
             {
@@ -68972,6 +69180,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkReleaseDisplayEXT( VkPhysicalDevice physicalDevice, VkDisplayKHR display )",
         "params": [
             {
@@ -68999,6 +69208,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkDisplayPowerControlEXT( VkDevice device, VkDisplayKHR display, const VkDisplayPowerInfoEXT* pDisplayPowerInfo )",
         "params": [
             {
@@ -69037,6 +69247,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkRegisterDeviceEventEXT( VkDevice device, const VkDeviceEventInfoEXT* pDeviceEventInfo, const VkAllocationCallbacks* pAllocator, VkFence* pFence )",
         "params": [
             {
@@ -69088,6 +69299,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkRegisterDisplayEventEXT( VkDevice device, VkDisplayKHR display, const VkDisplayEventInfoEXT* pDisplayEventInfo, const VkAllocationCallbacks* pAllocator, VkFence* pFence )",
         "params": [
             {
@@ -69148,6 +69360,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetSwapchainCounterEXT( VkDevice device, VkSwapchainKHR swapchain, VkSurfaceCounterFlagBitsEXT counter, uint64_t* pCounterValue )",
         "params": [
             {
@@ -69195,6 +69408,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceSurfaceCapabilities2EXT( VkPhysicalDevice physicalDevice, VkSurfaceKHR surface, VkSurfaceCapabilities2EXT* pSurfaceCapabilities )",
         "params": [
             {
@@ -69233,6 +69447,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkEnumeratePhysicalDeviceGroups( VkInstance instance, uint32_t* pPhysicalDeviceGroupCount, VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties )",
         "params": [
             {
@@ -69278,6 +69493,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetDeviceGroupPeerMemoryFeatures( VkDevice device, uint32_t heapIndex, uint32_t localDeviceIndex, uint32_t remoteDeviceIndex, VkPeerMemoryFeatureFlags* pPeerMemoryFeatures )",
         "params": [
             {
@@ -69339,6 +69555,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkBindBufferMemory2( VkDevice device, uint32_t bindInfoCount, const VkBindBufferMemoryInfo* pBindInfos )",
         "params": [
             {
@@ -69382,6 +69599,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkBindImageMemory2( VkDevice device, uint32_t bindInfoCount, const VkBindImageMemoryInfo* pBindInfos )",
         "params": [
             {
@@ -69425,6 +69643,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetDeviceMask( VkCommandBuffer commandBuffer, uint32_t deviceMask )",
         "params": [
             {
@@ -69457,6 +69676,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetDeviceGroupPresentCapabilitiesKHR( VkDevice device, VkDeviceGroupPresentCapabilitiesKHR* pDeviceGroupPresentCapabilities )",
         "params": [
             {
@@ -69486,6 +69706,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetDeviceGroupSurfacePresentModesKHR( VkDevice device, VkSurfaceKHR surface, VkDeviceGroupPresentModeFlagsKHR* pModes )",
         "params": [
             {
@@ -69524,6 +69745,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkAcquireNextImage2KHR( VkDevice device, const VkAcquireNextImageInfoKHR* pAcquireInfo, uint32_t* pImageIndex )",
         "params": [
             {
@@ -69564,6 +69786,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDispatchBase( VkCommandBuffer commandBuffer, uint32_t baseGroupX, uint32_t baseGroupY, uint32_t baseGroupZ, uint32_t groupCountX, uint32_t groupCountY, uint32_t groupCountZ )",
         "params": [
             {
@@ -69641,6 +69864,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDevicePresentRectanglesKHR( VkPhysicalDevice physicalDevice, VkSurfaceKHR surface, uint32_t* pRectCount, VkRect2D* pRects )",
         "params": [
             {
@@ -69690,6 +69914,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateDescriptorUpdateTemplate( VkDevice device, const VkDescriptorUpdateTemplateCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDescriptorUpdateTemplate* pDescriptorUpdateTemplate )",
         "params": [
             {
@@ -69746,6 +69971,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyDescriptorUpdateTemplate( VkDevice device, VkDescriptorUpdateTemplate descriptorUpdateTemplate, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -69789,6 +70015,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkUpdateDescriptorSetWithTemplate( VkDevice device, VkDescriptorSet descriptorSet, VkDescriptorUpdateTemplate descriptorUpdateTemplate, const void* pData )",
         "params": [
             {
@@ -69841,6 +70068,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdPushDescriptorSetWithTemplateKHR( VkCommandBuffer commandBuffer, VkDescriptorUpdateTemplate descriptorUpdateTemplate, VkPipelineLayout layout, uint32_t set, const void* pData )",
         "params": [
             {
@@ -69897,6 +70125,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkSetHdrMetadataEXT( VkDevice device, uint32_t swapchainCount, const VkSwapchainKHR* pSwapchains, const VkHdrMetadataEXT* pMetadata )",
         "params": [
             {
@@ -69946,6 +70175,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetSwapchainStatusKHR( VkDevice device, VkSwapchainKHR swapchain )",
         "params": [
             {
@@ -69973,6 +70203,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetRefreshCycleDurationGOOGLE( VkDevice device, VkSwapchainKHR swapchain, VkRefreshCycleDurationGOOGLE* pDisplayTimingProperties )",
         "params": [
             {
@@ -70011,6 +70242,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPastPresentationTimingGOOGLE( VkDevice device, VkSwapchainKHR swapchain, uint32_t* pPresentationTimingCount, VkPastPresentationTimingGOOGLE* pPresentationTimings )",
         "params": [
             {
@@ -70060,6 +70292,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetViewportWScalingNV( VkCommandBuffer commandBuffer, uint32_t firstViewport, uint32_t viewportCount, const VkViewportWScalingNV* pViewportWScalings )",
         "params": [
             {
@@ -70107,6 +70340,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetDiscardRectangleEXT( VkCommandBuffer commandBuffer, uint32_t firstDiscardRectangle, uint32_t discardRectangleCount, const VkRect2D* pDiscardRectangles )",
         "params": [
             {
@@ -70154,6 +70388,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetDiscardRectangleEnableEXT( VkCommandBuffer commandBuffer, VkBool32 discardRectangleEnable )",
         "params": [
             {
@@ -70181,6 +70416,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetDiscardRectangleModeEXT( VkCommandBuffer commandBuffer, VkDiscardRectangleModeEXT discardRectangleMode )",
         "params": [
             {
@@ -70208,6 +70444,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetSampleLocationsEXT( VkCommandBuffer commandBuffer, const VkSampleLocationsInfoEXT* pSampleLocationsInfo )",
         "params": [
             {
@@ -70237,6 +70474,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPhysicalDeviceMultisamplePropertiesEXT( VkPhysicalDevice physicalDevice, VkSampleCountFlagBits samples, VkMultisamplePropertiesEXT* pMultisampleProperties )",
         "params": [
             {
@@ -70275,6 +70513,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceSurfaceCapabilities2KHR( VkPhysicalDevice physicalDevice, const VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, VkSurfaceCapabilities2KHR* pSurfaceCapabilities )",
         "params": [
             {
@@ -70315,6 +70554,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceSurfaceFormats2KHR( VkPhysicalDevice physicalDevice, const VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo, uint32_t* pSurfaceFormatCount, VkSurfaceFormat2KHR* pSurfaceFormats )",
         "params": [
             {
@@ -70366,6 +70606,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceDisplayProperties2KHR( VkPhysicalDevice physicalDevice, uint32_t* pPropertyCount, VkDisplayProperties2KHR* pProperties )",
         "params": [
             {
@@ -70406,6 +70647,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceDisplayPlaneProperties2KHR( VkPhysicalDevice physicalDevice, uint32_t* pPropertyCount, VkDisplayPlaneProperties2KHR* pProperties )",
         "params": [
             {
@@ -70446,6 +70688,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetDisplayModeProperties2KHR( VkPhysicalDevice physicalDevice, VkDisplayKHR display, uint32_t* pPropertyCount, VkDisplayModeProperties2KHR* pProperties )",
         "params": [
             {
@@ -70495,6 +70738,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetDisplayPlaneCapabilities2KHR( VkPhysicalDevice physicalDevice, const VkDisplayPlaneInfo2KHR* pDisplayPlaneInfo, VkDisplayPlaneCapabilities2KHR* pCapabilities )",
         "params": [
             {
@@ -70535,6 +70779,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetBufferMemoryRequirements2( VkDevice device, const VkBufferMemoryRequirementsInfo2* pInfo, VkMemoryRequirements2* pMemoryRequirements )",
         "params": [
             {
@@ -70580,6 +70825,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetImageMemoryRequirements2( VkDevice device, const VkImageMemoryRequirementsInfo2* pInfo, VkMemoryRequirements2* pMemoryRequirements )",
         "params": [
             {
@@ -70625,6 +70871,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetImageSparseMemoryRequirements2( VkDevice device, const VkImageSparseMemoryRequirementsInfo2* pInfo, uint32_t* pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements2* pSparseMemoryRequirements )",
         "params": [
             {
@@ -70681,6 +70928,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetDeviceBufferMemoryRequirements( VkDevice device, const VkDeviceBufferMemoryRequirements* pInfo, VkMemoryRequirements2* pMemoryRequirements )",
         "params": [
             {
@@ -70726,6 +70974,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetDeviceImageMemoryRequirements( VkDevice device, const VkDeviceImageMemoryRequirements* pInfo, VkMemoryRequirements2* pMemoryRequirements )",
         "params": [
             {
@@ -70771,6 +71020,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetDeviceImageSparseMemoryRequirements( VkDevice device, const VkDeviceImageMemoryRequirements* pInfo, uint32_t* pSparseMemoryRequirementCount, VkSparseImageMemoryRequirements2* pSparseMemoryRequirements )",
         "params": [
             {
@@ -70827,6 +71077,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateSamplerYcbcrConversion( VkDevice device, const VkSamplerYcbcrConversionCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSamplerYcbcrConversion* pYcbcrConversion )",
         "params": [
             {
@@ -70883,6 +71134,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroySamplerYcbcrConversion( VkDevice device, VkSamplerYcbcrConversion ycbcrConversion, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -70926,6 +71178,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetDeviceQueue2( VkDevice device, const VkDeviceQueueInfo2* pQueueInfo, VkQueue* pQueue )",
         "params": [
             {
@@ -70966,6 +71219,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateValidationCacheEXT( VkDevice device, const VkValidationCacheCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkValidationCacheEXT* pValidationCache )",
         "params": [
             {
@@ -71017,6 +71271,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyValidationCacheEXT( VkDevice device, VkValidationCacheEXT validationCache, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -71055,6 +71310,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetValidationCacheDataEXT( VkDevice device, VkValidationCacheEXT validationCache, size_t* pDataSize, void* pData )",
         "params": [
             {
@@ -71104,6 +71360,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkMergeValidationCachesEXT( VkDevice device, VkValidationCacheEXT dstCache, uint32_t srcCacheCount, const VkValidationCacheEXT* pSrcCaches )",
         "params": [
             {
@@ -71151,6 +71408,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetDescriptorSetLayoutSupport( VkDevice device, const VkDescriptorSetLayoutCreateInfo* pCreateInfo, VkDescriptorSetLayoutSupport* pSupport )",
         "params": [
             {
@@ -71196,6 +71454,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetShaderInfoAMD( VkDevice device, VkPipeline pipeline, VkShaderStageFlagBits shaderStage, VkShaderInfoTypeAMD infoType, size_t* pInfoSize, void* pInfo )",
         "params": [
             {
@@ -71263,6 +71522,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkSetLocalDimmingAMD( VkDevice device, VkSwapchainKHR swapChain, VkBool32 localDimmingEnable )",
         "params": [
             {
@@ -71299,6 +71559,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceCalibrateableTimeDomainsEXT( VkPhysicalDevice physicalDevice, uint32_t* pTimeDomainCount, VkTimeDomainEXT* pTimeDomains )",
         "params": [
             {
@@ -71339,6 +71600,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetCalibratedTimestampsEXT( VkDevice device, uint32_t timestampCount, const VkCalibratedTimestampInfoEXT* pTimestampInfos, uint64_t* pTimestamps, uint64_t* pMaxDeviation )",
         "params": [
             {
@@ -71399,6 +71661,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkSetDebugUtilsObjectNameEXT( VkDevice device, const VkDebugUtilsObjectNameInfoEXT* pNameInfo )",
         "params": [
             {
@@ -71428,6 +71691,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkSetDebugUtilsObjectTagEXT( VkDevice device, const VkDebugUtilsObjectTagInfoEXT* pTagInfo )",
         "params": [
             {
@@ -71457,6 +71721,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkQueueBeginDebugUtilsLabelEXT( VkQueue queue, const VkDebugUtilsLabelEXT* pLabelInfo )",
         "params": [
             {
@@ -71486,6 +71751,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkQueueEndDebugUtilsLabelEXT( VkQueue queue )",
         "params": [
             {
@@ -71504,6 +71770,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkQueueInsertDebugUtilsLabelEXT( VkQueue queue, const VkDebugUtilsLabelEXT* pLabelInfo )",
         "params": [
             {
@@ -71533,6 +71800,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBeginDebugUtilsLabelEXT( VkCommandBuffer commandBuffer, const VkDebugUtilsLabelEXT* pLabelInfo )",
         "params": [
             {
@@ -71562,6 +71830,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdEndDebugUtilsLabelEXT( VkCommandBuffer commandBuffer )",
         "params": [
             {
@@ -71580,6 +71849,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdInsertDebugUtilsLabelEXT( VkCommandBuffer commandBuffer, const VkDebugUtilsLabelEXT* pLabelInfo )",
         "params": [
             {
@@ -71609,6 +71879,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateDebugUtilsMessengerEXT( VkInstance instance, const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT* pMessenger )",
         "params": [
             {
@@ -71660,6 +71931,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyDebugUtilsMessengerEXT( VkInstance instance, VkDebugUtilsMessengerEXT messenger, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -71698,6 +71970,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkSubmitDebugUtilsMessageEXT( VkInstance instance, VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageTypes, const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData )",
         "params": [
             {
@@ -71745,6 +72018,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetMemoryHostPointerPropertiesEXT( VkDevice device, VkExternalMemoryHandleTypeFlagBits handleType, const void* pHostPointer, VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties )",
         "params": [
             {
@@ -71794,6 +72068,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdWriteBufferMarkerAMD( VkCommandBuffer commandBuffer, VkPipelineStageFlagBits pipelineStage, VkBuffer dstBuffer, VkDeviceSize dstOffset, uint32_t marker )",
         "params": [
             {
@@ -71848,6 +72123,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateRenderPass2( VkDevice device, const VkRenderPassCreateInfo2* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkRenderPass* pRenderPass )",
         "params": [
             {
@@ -71904,6 +72180,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBeginRenderPass2( VkCommandBuffer commandBuffer, const VkRenderPassBeginInfo* pRenderPassBegin, const VkSubpassBeginInfo* pSubpassBeginInfo )",
         "params": [
             {
@@ -71949,6 +72226,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdNextSubpass2( VkCommandBuffer commandBuffer, const VkSubpassBeginInfo* pSubpassBeginInfo, const VkSubpassEndInfo* pSubpassEndInfo )",
         "params": [
             {
@@ -71994,6 +72272,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdEndRenderPass2( VkCommandBuffer commandBuffer, const VkSubpassEndInfo* pSubpassEndInfo )",
         "params": [
             {
@@ -72028,6 +72307,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetSemaphoreCounterValue( VkDevice device, VkSemaphore semaphore, uint64_t* pValue )",
         "params": [
             {
@@ -72071,6 +72351,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkWaitSemaphores( VkDevice device, const VkSemaphoreWaitInfo* pWaitInfo, uint64_t timeout )",
         "params": [
             {
@@ -72114,6 +72395,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkSignalSemaphore( VkDevice device, const VkSemaphoreSignalInfo* pSignalInfo )",
         "params": [
             {
@@ -72148,6 +72430,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDrawIndirectCount( VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, VkBuffer countBuffer, VkDeviceSize countBufferOffset, uint32_t maxDrawCount, uint32_t stride )",
         "params": [
             {
@@ -72230,6 +72513,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDrawIndexedIndirectCount( VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, VkBuffer countBuffer, VkDeviceSize countBufferOffset, uint32_t maxDrawCount, uint32_t stride )",
         "params": [
             {
@@ -72312,6 +72596,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetCheckpointNV( VkCommandBuffer commandBuffer, const void* pCheckpointMarker )",
         "params": [
             {
@@ -72341,6 +72626,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetQueueCheckpointDataNV( VkQueue queue, uint32_t* pCheckpointDataCount, VkCheckpointDataNV* pCheckpointData )",
         "params": [
             {
@@ -72381,6 +72667,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBindTransformFeedbackBuffersEXT( VkCommandBuffer commandBuffer, uint32_t firstBinding, uint32_t bindingCount, const VkBuffer* pBuffers, const VkDeviceSize* pOffsets, const VkDeviceSize* pSizes )",
         "params": [
             {
@@ -72450,6 +72737,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBeginTransformFeedbackEXT( VkCommandBuffer commandBuffer, uint32_t firstCounterBuffer, uint32_t counterBufferCount, const VkBuffer* pCounterBuffers, const VkDeviceSize* pCounterBufferOffsets )",
         "params": [
             {
@@ -72508,6 +72796,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdEndTransformFeedbackEXT( VkCommandBuffer commandBuffer, uint32_t firstCounterBuffer, uint32_t counterBufferCount, const VkBuffer* pCounterBuffers, const VkDeviceSize* pCounterBufferOffsets )",
         "params": [
             {
@@ -72566,6 +72855,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBeginQueryIndexedEXT( VkCommandBuffer commandBuffer, VkQueryPool queryPool, uint32_t query, VkQueryControlFlags flags, uint32_t index )",
         "params": [
             {
@@ -72620,6 +72910,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdEndQueryIndexedEXT( VkCommandBuffer commandBuffer, VkQueryPool queryPool, uint32_t query, uint32_t index )",
         "params": [
             {
@@ -72665,6 +72956,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDrawIndirectByteCountEXT( VkCommandBuffer commandBuffer, uint32_t instanceCount, uint32_t firstInstance, VkBuffer counterBuffer, VkDeviceSize counterBufferOffset, uint32_t counterOffset, uint32_t vertexStride )",
         "params": [
             {
@@ -72737,6 +73029,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetExclusiveScissorNV( VkCommandBuffer commandBuffer, uint32_t firstExclusiveScissor, uint32_t exclusiveScissorCount, const VkRect2D* pExclusiveScissors )",
         "params": [
             {
@@ -72784,6 +73077,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetExclusiveScissorEnableNV( VkCommandBuffer commandBuffer, uint32_t firstExclusiveScissor, uint32_t exclusiveScissorCount, const VkBool32* pExclusiveScissorEnables )",
         "params": [
             {
@@ -72831,6 +73125,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBindShadingRateImageNV( VkCommandBuffer commandBuffer, VkImageView imageView, VkImageLayout imageLayout )",
         "params": [
             {
@@ -72867,6 +73162,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetViewportShadingRatePaletteNV( VkCommandBuffer commandBuffer, uint32_t firstViewport, uint32_t viewportCount, const VkShadingRatePaletteNV* pShadingRatePalettes )",
         "params": [
             {
@@ -72914,6 +73210,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetCoarseSampleOrderNV( VkCommandBuffer commandBuffer, VkCoarseSampleOrderTypeNV sampleOrderType, uint32_t customSampleOrderCount, const VkCoarseSampleOrderCustomNV* pCustomSampleOrders )",
         "params": [
             {
@@ -72961,6 +73258,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDrawMeshTasksNV( VkCommandBuffer commandBuffer, uint32_t taskCount, uint32_t firstTask )",
         "params": [
             {
@@ -72997,6 +73295,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDrawMeshTasksIndirectNV( VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, uint32_t drawCount, uint32_t stride )",
         "params": [
             {
@@ -73051,6 +73350,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDrawMeshTasksIndirectCountNV( VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, VkBuffer countBuffer, VkDeviceSize countBufferOffset, uint32_t maxDrawCount, uint32_t stride )",
         "params": [
             {
@@ -73123,6 +73423,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDrawMeshTasksEXT( VkCommandBuffer commandBuffer, uint32_t groupCountX, uint32_t groupCountY, uint32_t groupCountZ )",
         "params": [
             {
@@ -73168,6 +73469,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDrawMeshTasksIndirectEXT( VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, uint32_t drawCount, uint32_t stride )",
         "params": [
             {
@@ -73222,6 +73524,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDrawMeshTasksIndirectCountEXT( VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, VkBuffer countBuffer, VkDeviceSize countBufferOffset, uint32_t maxDrawCount, uint32_t stride )",
         "params": [
             {
@@ -73294,6 +73597,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCompileDeferredNV( VkDevice device, VkPipeline pipeline, uint32_t shader )",
         "params": [
             {
@@ -73330,6 +73634,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateAccelerationStructureNV( VkDevice device, const VkAccelerationStructureCreateInfoNV* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkAccelerationStructureNV* pAccelerationStructure )",
         "params": [
             {
@@ -73381,6 +73686,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBindInvocationMaskHUAWEI( VkCommandBuffer commandBuffer, VkImageView imageView, VkImageLayout imageLayout )",
         "params": [
             {
@@ -73417,6 +73723,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyAccelerationStructureKHR( VkDevice device, VkAccelerationStructureKHR accelerationStructure, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -73455,6 +73762,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyAccelerationStructureNV( VkDevice device, VkAccelerationStructureNV accelerationStructure, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -73493,6 +73801,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetAccelerationStructureMemoryRequirementsNV( VkDevice device, const VkAccelerationStructureMemoryRequirementsInfoNV* pInfo, VkMemoryRequirements2KHR* pMemoryRequirements )",
         "params": [
             {
@@ -73533,6 +73842,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkBindAccelerationStructureMemoryNV( VkDevice device, uint32_t bindInfoCount, const VkBindAccelerationStructureMemoryInfoNV* pBindInfos )",
         "params": [
             {
@@ -73571,6 +73881,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyAccelerationStructureNV( VkCommandBuffer commandBuffer, VkAccelerationStructureNV dst, VkAccelerationStructureNV src, VkCopyAccelerationStructureModeKHR mode )",
         "params": [
             {
@@ -73616,6 +73927,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyAccelerationStructureKHR( VkCommandBuffer commandBuffer, const VkCopyAccelerationStructureInfoKHR* pInfo )",
         "params": [
             {
@@ -73645,6 +73957,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCopyAccelerationStructureKHR( VkDevice device, VkDeferredOperationKHR deferredOperation, const VkCopyAccelerationStructureInfoKHR* pInfo )",
         "params": [
             {
@@ -73683,6 +73996,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyAccelerationStructureToMemoryKHR( VkCommandBuffer commandBuffer, const VkCopyAccelerationStructureToMemoryInfoKHR* pInfo )",
         "params": [
             {
@@ -73712,6 +74026,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCopyAccelerationStructureToMemoryKHR( VkDevice device, VkDeferredOperationKHR deferredOperation, const VkCopyAccelerationStructureToMemoryInfoKHR* pInfo )",
         "params": [
             {
@@ -73750,6 +74065,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyMemoryToAccelerationStructureKHR( VkCommandBuffer commandBuffer, const VkCopyMemoryToAccelerationStructureInfoKHR* pInfo )",
         "params": [
             {
@@ -73779,6 +74095,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCopyMemoryToAccelerationStructureKHR( VkDevice device, VkDeferredOperationKHR deferredOperation, const VkCopyMemoryToAccelerationStructureInfoKHR* pInfo )",
         "params": [
             {
@@ -73817,6 +74134,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdWriteAccelerationStructuresPropertiesKHR( VkCommandBuffer commandBuffer, uint32_t accelerationStructureCount, const VkAccelerationStructureKHR* pAccelerationStructures, VkQueryType queryType, VkQueryPool queryPool, uint32_t firstQuery )",
         "params": [
             {
@@ -73882,6 +74200,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdWriteAccelerationStructuresPropertiesNV( VkCommandBuffer commandBuffer, uint32_t accelerationStructureCount, const VkAccelerationStructureNV* pAccelerationStructures, VkQueryType queryType, VkQueryPool queryPool, uint32_t firstQuery )",
         "params": [
             {
@@ -73947,6 +74266,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBuildAccelerationStructureNV( VkCommandBuffer commandBuffer, const VkAccelerationStructureInfoNV* pInfo, VkBuffer instanceData, VkDeviceSize instanceOffset, VkBool32 update, VkAccelerationStructureNV dst, VkAccelerationStructureNV src, VkBuffer scratch, VkDeviceSize scratchOffset )",
         "params": [
             {
@@ -74039,6 +74359,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkWriteAccelerationStructuresPropertiesKHR( VkDevice device, uint32_t accelerationStructureCount, const VkAccelerationStructureKHR* pAccelerationStructures, VkQueryType queryType, size_t dataSize, void* pData, size_t stride )",
         "params": [
             {
@@ -74115,6 +74436,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdTraceRaysKHR( VkCommandBuffer commandBuffer, const VkStridedDeviceAddressRegionKHR* pRaygenShaderBindingTable, const VkStridedDeviceAddressRegionKHR* pMissShaderBindingTable, const VkStridedDeviceAddressRegionKHR* pHitShaderBindingTable, const VkStridedDeviceAddressRegionKHR* pCallableShaderBindingTable, uint32_t width, uint32_t height, uint32_t depth )",
         "params": [
             {
@@ -74204,6 +74526,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdTraceRaysNV( VkCommandBuffer commandBuffer, VkBuffer raygenShaderBindingTableBuffer, VkDeviceSize raygenShaderBindingOffset, VkBuffer missShaderBindingTableBuffer, VkDeviceSize missShaderBindingOffset, VkDeviceSize missShaderBindingStride, VkBuffer hitShaderBindingTableBuffer, VkDeviceSize hitShaderBindingOffset, VkDeviceSize hitShaderBindingStride, VkBuffer callableShaderBindingTableBuffer, VkDeviceSize callableShaderBindingOffset, VkDeviceSize callableShaderBindingStride, uint32_t width, uint32_t height, uint32_t depth )",
         "params": [
             {
@@ -74348,6 +74671,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetRayTracingShaderGroupHandlesKHR( VkDevice device, VkPipeline pipeline, uint32_t firstGroup, uint32_t groupCount, size_t dataSize, void* pData )",
         "params": [
             {
@@ -74418,6 +74742,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetRayTracingCaptureReplayShaderGroupHandlesKHR( VkDevice device, VkPipeline pipeline, uint32_t firstGroup, uint32_t groupCount, size_t dataSize, void* pData )",
         "params": [
             {
@@ -74483,6 +74808,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetAccelerationStructureHandleNV( VkDevice device, VkAccelerationStructureNV accelerationStructure, size_t dataSize, void* pData )",
         "params": [
             {
@@ -74530,6 +74856,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateRayTracingPipelinesNV( VkDevice device, VkPipelineCache pipelineCache, uint32_t createInfoCount, const VkRayTracingPipelineCreateInfoNV* pCreateInfos, const VkAllocationCallbacks* pAllocator, VkPipeline* pPipelines )",
         "params": [
             {
@@ -74599,6 +74926,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateRayTracingPipelinesKHR( VkDevice device, VkDeferredOperationKHR deferredOperation, VkPipelineCache pipelineCache, uint32_t createInfoCount, const VkRayTracingPipelineCreateInfoKHR* pCreateInfos, const VkAllocationCallbacks* pAllocator, VkPipeline* pPipelines )",
         "params": [
             {
@@ -74677,6 +75005,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceCooperativeMatrixPropertiesNV( VkPhysicalDevice physicalDevice, uint32_t* pPropertyCount, VkCooperativeMatrixPropertiesNV* pProperties )",
         "params": [
             {
@@ -74717,6 +75046,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdTraceRaysIndirectKHR( VkCommandBuffer commandBuffer, const VkStridedDeviceAddressRegionKHR* pRaygenShaderBindingTable, const VkStridedDeviceAddressRegionKHR* pMissShaderBindingTable, const VkStridedDeviceAddressRegionKHR* pHitShaderBindingTable, const VkStridedDeviceAddressRegionKHR* pCallableShaderBindingTable, VkDeviceAddress indirectDeviceAddress )",
         "params": [
             {
@@ -74788,6 +75118,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdTraceRaysIndirect2KHR( VkCommandBuffer commandBuffer, VkDeviceAddress indirectDeviceAddress )",
         "params": [
             {
@@ -74815,6 +75146,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetDeviceAccelerationStructureCompatibilityKHR( VkDevice device, const VkAccelerationStructureVersionInfoKHR* pVersionInfo, VkAccelerationStructureCompatibilityKHR* pCompatibility )",
         "params": [
             {
@@ -74855,6 +75187,7 @@
         "relation": "return",
         "type": "VkDeviceSize",
         "num_indirection": 0,
+        "length": [],
         "header": "VkDeviceSize vkGetRayTracingShaderGroupStackSizeKHR( VkDevice device, VkPipeline pipeline, uint32_t group, VkShaderGroupShaderKHR groupShader )",
         "params": [
             {
@@ -74900,6 +75233,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetRayTracingPipelineStackSizeKHR( VkCommandBuffer commandBuffer, uint32_t pipelineStackSize )",
         "params": [
             {
@@ -74927,6 +75261,7 @@
         "relation": "return",
         "type": "uint32_t",
         "num_indirection": 0,
+        "length": [],
         "header": "uint32_t vkGetImageViewHandleNVX( VkDevice device, const VkImageViewHandleInfoNVX* pInfo )",
         "params": [
             {
@@ -74956,6 +75291,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetImageViewAddressNVX( VkDevice device, VkImageView imageView, VkImageViewAddressPropertiesNVX* pProperties )",
         "params": [
             {
@@ -74994,6 +75330,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR( VkPhysicalDevice physicalDevice, uint32_t queueFamilyIndex, uint32_t* pCounterCount, VkPerformanceCounterKHR* pCounters, VkPerformanceCounterDescriptionKHR* pCounterDescriptions )",
         "params": [
             {
@@ -75054,6 +75391,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR( VkPhysicalDevice physicalDevice, const VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo, uint32_t* pNumPasses )",
         "params": [
             {
@@ -75094,6 +75432,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkAcquireProfilingLockKHR( VkDevice device, const VkAcquireProfilingLockInfoKHR* pInfo )",
         "params": [
             {
@@ -75123,6 +75462,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkReleaseProfilingLockKHR( VkDevice device )",
         "params": [
             {
@@ -75141,6 +75481,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetImageDrmFormatModifierPropertiesEXT( VkDevice device, VkImage image, VkImageDrmFormatModifierPropertiesEXT* pProperties )",
         "params": [
             {
@@ -75179,6 +75520,7 @@
         "relation": "return",
         "type": "uint64_t",
         "num_indirection": 0,
+        "length": [],
         "header": "uint64_t vkGetBufferOpaqueCaptureAddress( VkDevice device, const VkBufferDeviceAddressInfo* pInfo )",
         "params": [
             {
@@ -75213,6 +75555,7 @@
         "relation": "return",
         "type": "VkDeviceAddress",
         "num_indirection": 0,
+        "length": [],
         "header": "VkDeviceAddress vkGetBufferDeviceAddress( VkDevice device, const VkBufferDeviceAddressInfo* pInfo )",
         "params": [
             {
@@ -75252,6 +75595,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateHeadlessSurfaceEXT( VkInstance instance, const VkHeadlessSurfaceCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface )",
         "params": [
             {
@@ -75303,6 +75647,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV( VkPhysicalDevice physicalDevice, uint32_t* pCombinationCount, VkFramebufferMixedSamplesCombinationNV* pCombinations )",
         "params": [
             {
@@ -75343,6 +75688,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkInitializePerformanceApiINTEL( VkDevice device, const VkInitializePerformanceApiInfoINTEL* pInitializeInfo )",
         "params": [
             {
@@ -75372,6 +75718,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkUninitializePerformanceApiINTEL( VkDevice device )",
         "params": [
             {
@@ -75390,6 +75737,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCmdSetPerformanceMarkerINTEL( VkCommandBuffer commandBuffer, const VkPerformanceMarkerInfoINTEL* pMarkerInfo )",
         "params": [
             {
@@ -75419,6 +75767,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCmdSetPerformanceStreamMarkerINTEL( VkCommandBuffer commandBuffer, const VkPerformanceStreamMarkerInfoINTEL* pMarkerInfo )",
         "params": [
             {
@@ -75448,6 +75797,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCmdSetPerformanceOverrideINTEL( VkCommandBuffer commandBuffer, const VkPerformanceOverrideInfoINTEL* pOverrideInfo )",
         "params": [
             {
@@ -75477,6 +75827,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkAcquirePerformanceConfigurationINTEL( VkDevice device, const VkPerformanceConfigurationAcquireInfoINTEL* pAcquireInfo, VkPerformanceConfigurationINTEL* pConfiguration )",
         "params": [
             {
@@ -75517,6 +75868,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkReleasePerformanceConfigurationINTEL( VkDevice device, VkPerformanceConfigurationINTEL configuration )",
         "params": [
             {
@@ -75544,6 +75896,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkQueueSetPerformanceConfigurationINTEL( VkQueue queue, VkPerformanceConfigurationINTEL configuration )",
         "params": [
             {
@@ -75571,6 +75924,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPerformanceParameterINTEL( VkDevice device, VkPerformanceParameterTypeINTEL parameter, VkPerformanceValueINTEL* pValue )",
         "params": [
             {
@@ -75609,6 +75963,7 @@
         "relation": "return",
         "type": "uint64_t",
         "num_indirection": 0,
+        "length": [],
         "header": "uint64_t vkGetDeviceMemoryOpaqueCaptureAddress( VkDevice device, const VkDeviceMemoryOpaqueCaptureAddressInfo* pInfo )",
         "params": [
             {
@@ -75643,6 +75998,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPipelineExecutablePropertiesKHR( VkDevice device, const VkPipelineInfoKHR* pPipelineInfo, uint32_t* pExecutableCount, VkPipelineExecutablePropertiesKHR* pProperties )",
         "params": [
             {
@@ -75694,6 +76050,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPipelineExecutableStatisticsKHR( VkDevice device, const VkPipelineExecutableInfoKHR* pExecutableInfo, uint32_t* pStatisticCount, VkPipelineExecutableStatisticKHR* pStatistics )",
         "params": [
             {
@@ -75745,6 +76102,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPipelineExecutableInternalRepresentationsKHR( VkDevice device, const VkPipelineExecutableInfoKHR* pExecutableInfo, uint32_t* pInternalRepresentationCount, VkPipelineExecutableInternalRepresentationKHR* pInternalRepresentations )",
         "params": [
             {
@@ -75796,6 +76154,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetLineStippleEXT( VkCommandBuffer commandBuffer, uint32_t lineStippleFactor, uint16_t lineStipplePattern )",
         "params": [
             {
@@ -75832,6 +76191,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceToolProperties( VkPhysicalDevice physicalDevice, uint32_t* pToolCount, VkPhysicalDeviceToolProperties* pToolProperties )",
         "params": [
             {
@@ -75877,6 +76237,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateAccelerationStructureKHR( VkDevice device, const VkAccelerationStructureCreateInfoKHR* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkAccelerationStructureKHR* pAccelerationStructure )",
         "params": [
             {
@@ -75928,6 +76289,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBuildAccelerationStructuresKHR( VkCommandBuffer commandBuffer, uint32_t infoCount, const VkAccelerationStructureBuildGeometryInfoKHR* pInfos, const VkAccelerationStructureBuildRangeInfoKHR* const* ppBuildRangeInfos )",
         "params": [
             {
@@ -75977,6 +76339,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBuildAccelerationStructuresIndirectKHR( VkCommandBuffer commandBuffer, uint32_t infoCount, const VkAccelerationStructureBuildGeometryInfoKHR* pInfos, const VkDeviceAddress* pIndirectDeviceAddresses, const uint32_t* pIndirectStrides, const uint32_t* const* ppMaxPrimitiveCounts )",
         "params": [
             {
@@ -76048,6 +76411,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkBuildAccelerationStructuresKHR( VkDevice device, VkDeferredOperationKHR deferredOperation, uint32_t infoCount, const VkAccelerationStructureBuildGeometryInfoKHR* pInfos, const VkAccelerationStructureBuildRangeInfoKHR* const* ppBuildRangeInfos )",
         "params": [
             {
@@ -76106,6 +76470,7 @@
         "relation": "return",
         "type": "VkDeviceAddress",
         "num_indirection": 0,
+        "length": [],
         "header": "VkDeviceAddress vkGetAccelerationStructureDeviceAddressKHR( VkDevice device, const VkAccelerationStructureDeviceAddressInfoKHR* pInfo )",
         "params": [
             {
@@ -76135,6 +76500,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateDeferredOperationKHR( VkDevice device, const VkAllocationCallbacks* pAllocator, VkDeferredOperationKHR* pDeferredOperation )",
         "params": [
             {
@@ -76175,6 +76541,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyDeferredOperationKHR( VkDevice device, VkDeferredOperationKHR operation, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -76213,6 +76580,7 @@
         "relation": "return",
         "type": "uint32_t",
         "num_indirection": 0,
+        "length": [],
         "header": "uint32_t vkGetDeferredOperationMaxConcurrencyKHR( VkDevice device, VkDeferredOperationKHR operation )",
         "params": [
             {
@@ -76240,6 +76608,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetDeferredOperationResultKHR( VkDevice device, VkDeferredOperationKHR operation )",
         "params": [
             {
@@ -76267,6 +76636,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkDeferredOperationJoinKHR( VkDevice device, VkDeferredOperationKHR operation )",
         "params": [
             {
@@ -76294,6 +76664,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPipelineIndirectMemoryRequirementsNV( VkDevice device, const VkComputePipelineCreateInfo* pCreateInfo, VkMemoryRequirements2* pMemoryRequirements )",
         "params": [
             {
@@ -76334,6 +76705,7 @@
         "relation": "return",
         "type": "VkDeviceAddress",
         "num_indirection": 0,
+        "length": [],
         "header": "VkDeviceAddress vkGetPipelineIndirectDeviceAddressNV( VkDevice device, const VkPipelineIndirectDeviceAddressInfoNV* pInfo )",
         "params": [
             {
@@ -76363,6 +76735,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetCullMode( VkCommandBuffer commandBuffer, VkCullModeFlags cullMode )",
         "params": [
             {
@@ -76395,6 +76768,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetFrontFace( VkCommandBuffer commandBuffer, VkFrontFace frontFace )",
         "params": [
             {
@@ -76427,6 +76801,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetPrimitiveTopology( VkCommandBuffer commandBuffer, VkPrimitiveTopology primitiveTopology )",
         "params": [
             {
@@ -76459,6 +76834,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetViewportWithCount( VkCommandBuffer commandBuffer, uint32_t viewportCount, const VkViewport* pViewports )",
         "params": [
             {
@@ -76502,6 +76878,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetScissorWithCount( VkCommandBuffer commandBuffer, uint32_t scissorCount, const VkRect2D* pScissors )",
         "params": [
             {
@@ -76545,6 +76922,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBindIndexBuffer2KHR( VkCommandBuffer commandBuffer, VkBuffer buffer, VkDeviceSize offset, VkDeviceSize size, VkIndexType indexType )",
         "params": [
             {
@@ -76599,6 +76977,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBindVertexBuffers2( VkCommandBuffer commandBuffer, uint32_t firstBinding, uint32_t bindingCount, const VkBuffer* pBuffers, const VkDeviceSize* pOffsets, const VkDeviceSize* pSizes, const VkDeviceSize* pStrides )",
         "params": [
             {
@@ -76684,6 +77063,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetDepthTestEnable( VkCommandBuffer commandBuffer, VkBool32 depthTestEnable )",
         "params": [
             {
@@ -76716,6 +77096,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetDepthWriteEnable( VkCommandBuffer commandBuffer, VkBool32 depthWriteEnable )",
         "params": [
             {
@@ -76748,6 +77129,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetDepthCompareOp( VkCommandBuffer commandBuffer, VkCompareOp depthCompareOp )",
         "params": [
             {
@@ -76780,6 +77162,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetDepthBoundsTestEnable( VkCommandBuffer commandBuffer, VkBool32 depthBoundsTestEnable )",
         "params": [
             {
@@ -76812,6 +77195,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetStencilTestEnable( VkCommandBuffer commandBuffer, VkBool32 stencilTestEnable )",
         "params": [
             {
@@ -76844,6 +77228,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetStencilOp( VkCommandBuffer commandBuffer, VkStencilFaceFlags faceMask, VkStencilOp failOp, VkStencilOp passOp, VkStencilOp depthFailOp, VkCompareOp compareOp )",
         "params": [
             {
@@ -76912,6 +77297,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetPatchControlPointsEXT( VkCommandBuffer commandBuffer, uint32_t patchControlPoints )",
         "params": [
             {
@@ -76939,6 +77325,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetRasterizerDiscardEnable( VkCommandBuffer commandBuffer, VkBool32 rasterizerDiscardEnable )",
         "params": [
             {
@@ -76971,6 +77358,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetDepthBiasEnable( VkCommandBuffer commandBuffer, VkBool32 depthBiasEnable )",
         "params": [
             {
@@ -77003,6 +77391,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetLogicOpEXT( VkCommandBuffer commandBuffer, VkLogicOp logicOp )",
         "params": [
             {
@@ -77030,6 +77419,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetPrimitiveRestartEnable( VkCommandBuffer commandBuffer, VkBool32 primitiveRestartEnable )",
         "params": [
             {
@@ -77062,6 +77452,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetTessellationDomainOriginEXT( VkCommandBuffer commandBuffer, VkTessellationDomainOrigin domainOrigin )",
         "params": [
             {
@@ -77089,6 +77480,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetDepthClampEnableEXT( VkCommandBuffer commandBuffer, VkBool32 depthClampEnable )",
         "params": [
             {
@@ -77116,6 +77508,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetPolygonModeEXT( VkCommandBuffer commandBuffer, VkPolygonMode polygonMode )",
         "params": [
             {
@@ -77143,6 +77536,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetRasterizationSamplesEXT( VkCommandBuffer commandBuffer, VkSampleCountFlagBits rasterizationSamples )",
         "params": [
             {
@@ -77170,6 +77564,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetSampleMaskEXT( VkCommandBuffer commandBuffer, VkSampleCountFlagBits samples, const VkSampleMask* pSampleMask )",
         "params": [
             {
@@ -77208,6 +77603,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetAlphaToCoverageEnableEXT( VkCommandBuffer commandBuffer, VkBool32 alphaToCoverageEnable )",
         "params": [
             {
@@ -77235,6 +77631,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetAlphaToOneEnableEXT( VkCommandBuffer commandBuffer, VkBool32 alphaToOneEnable )",
         "params": [
             {
@@ -77262,6 +77659,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetLogicOpEnableEXT( VkCommandBuffer commandBuffer, VkBool32 logicOpEnable )",
         "params": [
             {
@@ -77289,6 +77687,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetColorBlendEnableEXT( VkCommandBuffer commandBuffer, uint32_t firstAttachment, uint32_t attachmentCount, const VkBool32* pColorBlendEnables )",
         "params": [
             {
@@ -77336,6 +77735,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetColorBlendEquationEXT( VkCommandBuffer commandBuffer, uint32_t firstAttachment, uint32_t attachmentCount, const VkColorBlendEquationEXT* pColorBlendEquations )",
         "params": [
             {
@@ -77383,6 +77783,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetColorWriteMaskEXT( VkCommandBuffer commandBuffer, uint32_t firstAttachment, uint32_t attachmentCount, const VkColorComponentFlags* pColorWriteMasks )",
         "params": [
             {
@@ -77430,6 +77831,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetRasterizationStreamEXT( VkCommandBuffer commandBuffer, uint32_t rasterizationStream )",
         "params": [
             {
@@ -77457,6 +77859,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetConservativeRasterizationModeEXT( VkCommandBuffer commandBuffer, VkConservativeRasterizationModeEXT conservativeRasterizationMode )",
         "params": [
             {
@@ -77484,6 +77887,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetExtraPrimitiveOverestimationSizeEXT( VkCommandBuffer commandBuffer, float extraPrimitiveOverestimationSize )",
         "params": [
             {
@@ -77511,6 +77915,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetDepthClipEnableEXT( VkCommandBuffer commandBuffer, VkBool32 depthClipEnable )",
         "params": [
             {
@@ -77538,6 +77943,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetSampleLocationsEnableEXT( VkCommandBuffer commandBuffer, VkBool32 sampleLocationsEnable )",
         "params": [
             {
@@ -77565,6 +77971,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetColorBlendAdvancedEXT( VkCommandBuffer commandBuffer, uint32_t firstAttachment, uint32_t attachmentCount, const VkColorBlendAdvancedEXT* pColorBlendAdvanced )",
         "params": [
             {
@@ -77612,6 +78019,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetProvokingVertexModeEXT( VkCommandBuffer commandBuffer, VkProvokingVertexModeEXT provokingVertexMode )",
         "params": [
             {
@@ -77639,6 +78047,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetLineRasterizationModeEXT( VkCommandBuffer commandBuffer, VkLineRasterizationModeEXT lineRasterizationMode )",
         "params": [
             {
@@ -77666,6 +78075,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetLineStippleEnableEXT( VkCommandBuffer commandBuffer, VkBool32 stippledLineEnable )",
         "params": [
             {
@@ -77693,6 +78103,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetDepthClipNegativeOneToOneEXT( VkCommandBuffer commandBuffer, VkBool32 negativeOneToOne )",
         "params": [
             {
@@ -77720,6 +78131,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetViewportWScalingEnableNV( VkCommandBuffer commandBuffer, VkBool32 viewportWScalingEnable )",
         "params": [
             {
@@ -77747,6 +78159,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetViewportSwizzleNV( VkCommandBuffer commandBuffer, uint32_t firstViewport, uint32_t viewportCount, const VkViewportSwizzleNV* pViewportSwizzles )",
         "params": [
             {
@@ -77794,6 +78207,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetCoverageToColorEnableNV( VkCommandBuffer commandBuffer, VkBool32 coverageToColorEnable )",
         "params": [
             {
@@ -77821,6 +78235,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetCoverageToColorLocationNV( VkCommandBuffer commandBuffer, uint32_t coverageToColorLocation )",
         "params": [
             {
@@ -77848,6 +78263,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetCoverageModulationModeNV( VkCommandBuffer commandBuffer, VkCoverageModulationModeNV coverageModulationMode )",
         "params": [
             {
@@ -77875,6 +78291,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetCoverageModulationTableEnableNV( VkCommandBuffer commandBuffer, VkBool32 coverageModulationTableEnable )",
         "params": [
             {
@@ -77902,6 +78319,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetCoverageModulationTableNV( VkCommandBuffer commandBuffer, uint32_t coverageModulationTableCount, const float* pCoverageModulationTable )",
         "params": [
             {
@@ -77940,6 +78358,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetShadingRateImageEnableNV( VkCommandBuffer commandBuffer, VkBool32 shadingRateImageEnable )",
         "params": [
             {
@@ -77967,6 +78386,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetCoverageReductionModeNV( VkCommandBuffer commandBuffer, VkCoverageReductionModeNV coverageReductionMode )",
         "params": [
             {
@@ -77994,6 +78414,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetRepresentativeFragmentTestEnableNV( VkCommandBuffer commandBuffer, VkBool32 representativeFragmentTestEnable )",
         "params": [
             {
@@ -78021,6 +78442,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreatePrivateDataSlot( VkDevice device, const VkPrivateDataSlotCreateInfo* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkPrivateDataSlot* pPrivateDataSlot )",
         "params": [
             {
@@ -78077,6 +78499,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyPrivateDataSlot( VkDevice device, VkPrivateDataSlot privateDataSlot, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -78120,6 +78543,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkSetPrivateData( VkDevice device, VkObjectType objectType, uint64_t objectHandle, VkPrivateDataSlot privateDataSlot, uint64_t data )",
         "params": [
             {
@@ -78179,6 +78603,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetPrivateData( VkDevice device, VkObjectType objectType, uint64_t objectHandle, VkPrivateDataSlot privateDataSlot, uint64_t* pData )",
         "params": [
             {
@@ -78240,6 +78665,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyBuffer2( VkCommandBuffer commandBuffer, const VkCopyBufferInfo2* pCopyBufferInfo )",
         "params": [
             {
@@ -78274,6 +78700,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyImage2( VkCommandBuffer commandBuffer, const VkCopyImageInfo2* pCopyImageInfo )",
         "params": [
             {
@@ -78308,6 +78735,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBlitImage2( VkCommandBuffer commandBuffer, const VkBlitImageInfo2* pBlitImageInfo )",
         "params": [
             {
@@ -78342,6 +78770,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyBufferToImage2( VkCommandBuffer commandBuffer, const VkCopyBufferToImageInfo2* pCopyBufferToImageInfo )",
         "params": [
             {
@@ -78376,6 +78805,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyImageToBuffer2( VkCommandBuffer commandBuffer, const VkCopyImageToBufferInfo2* pCopyImageToBufferInfo )",
         "params": [
             {
@@ -78410,6 +78840,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdResolveImage2( VkCommandBuffer commandBuffer, const VkResolveImageInfo2* pResolveImageInfo )",
         "params": [
             {
@@ -78444,6 +78875,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetFragmentShadingRateKHR( VkCommandBuffer commandBuffer, const VkExtent2D* pFragmentSize, const VkFragmentShadingRateCombinerOpKHR combinerOps[2] )",
         "params": [
             {
@@ -78484,6 +78916,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceFragmentShadingRatesKHR( VkPhysicalDevice physicalDevice, uint32_t* pFragmentShadingRateCount, VkPhysicalDeviceFragmentShadingRateKHR* pFragmentShadingRates )",
         "params": [
             {
@@ -78524,6 +78957,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetFragmentShadingRateEnumNV( VkCommandBuffer commandBuffer, VkFragmentShadingRateNV shadingRate, const VkFragmentShadingRateCombinerOpKHR combinerOps[2] )",
         "params": [
             {
@@ -78562,6 +78996,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetAccelerationStructureBuildSizesKHR( VkDevice device, VkAccelerationStructureBuildTypeKHR buildType, const VkAccelerationStructureBuildGeometryInfoKHR* pBuildInfo, const uint32_t* pMaxPrimitiveCounts, VkAccelerationStructureBuildSizesInfoKHR* pSizeInfo )",
         "params": [
             {
@@ -78622,6 +79057,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetVertexInputEXT( VkCommandBuffer commandBuffer, uint32_t vertexBindingDescriptionCount, const VkVertexInputBindingDescription2EXT* pVertexBindingDescriptions, uint32_t vertexAttributeDescriptionCount, const VkVertexInputAttributeDescription2EXT* pVertexAttributeDescriptions )",
         "params": [
             {
@@ -78680,6 +79116,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetColorWriteEnableEXT( VkCommandBuffer commandBuffer, uint32_t attachmentCount, const VkBool32* pColorWriteEnables )",
         "params": [
             {
@@ -78718,6 +79155,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetEvent2( VkCommandBuffer commandBuffer, VkEvent event, const VkDependencyInfo* pDependencyInfo )",
         "params": [
             {
@@ -78761,6 +79199,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdResetEvent2( VkCommandBuffer commandBuffer, VkEvent event, VkPipelineStageFlags2 stageMask )",
         "params": [
             {
@@ -78802,6 +79241,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdWaitEvents2( VkCommandBuffer commandBuffer, uint32_t eventCount, const VkEvent* pEvents, const VkDependencyInfo* pDependencyInfos )",
         "params": [
             {
@@ -78856,6 +79296,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdPipelineBarrier2( VkCommandBuffer commandBuffer, const VkDependencyInfo* pDependencyInfo )",
         "params": [
             {
@@ -78890,6 +79331,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkQueueSubmit2( VkQueue queue, uint32_t submitCount, const VkSubmitInfo2* pSubmits, VkFence fence )",
         "params": [
             {
@@ -78942,6 +79384,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdWriteTimestamp2( VkCommandBuffer commandBuffer, VkPipelineStageFlags2 stage, VkQueryPool queryPool, uint32_t query )",
         "params": [
             {
@@ -78992,6 +79435,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdWriteBufferMarker2AMD( VkCommandBuffer commandBuffer, VkPipelineStageFlags2 stage, VkBuffer dstBuffer, VkDeviceSize dstOffset, uint32_t marker )",
         "params": [
             {
@@ -79046,6 +79490,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetQueueCheckpointData2NV( VkQueue queue, uint32_t* pCheckpointDataCount, VkCheckpointData2NV* pCheckpointData )",
         "params": [
             {
@@ -79086,6 +79531,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCopyMemoryToImageEXT( VkDevice device, const VkCopyMemoryToImageInfoEXT* pCopyMemoryToImageInfo )",
         "params": [
             {
@@ -79115,6 +79561,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCopyImageToMemoryEXT( VkDevice device, const VkCopyImageToMemoryInfoEXT* pCopyImageToMemoryInfo )",
         "params": [
             {
@@ -79144,6 +79591,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCopyImageToImageEXT( VkDevice device, const VkCopyImageToImageInfoEXT* pCopyImageToImageInfo )",
         "params": [
             {
@@ -79173,6 +79621,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkTransitionImageLayoutEXT( VkDevice device, uint32_t transitionCount, const VkHostImageLayoutTransitionInfoEXT* pTransitions )",
         "params": [
             {
@@ -79211,6 +79660,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceVideoCapabilitiesKHR( VkPhysicalDevice physicalDevice, const VkVideoProfileInfoKHR* pVideoProfile, VkVideoCapabilitiesKHR* pCapabilities )",
         "params": [
             {
@@ -79251,6 +79701,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceVideoFormatPropertiesKHR( VkPhysicalDevice physicalDevice, const VkPhysicalDeviceVideoFormatInfoKHR* pVideoFormatInfo, uint32_t* pVideoFormatPropertyCount, VkVideoFormatPropertiesKHR* pVideoFormatProperties )",
         "params": [
             {
@@ -79302,6 +79753,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateVideoSessionKHR( VkDevice device, const VkVideoSessionCreateInfoKHR* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkVideoSessionKHR* pVideoSession )",
         "params": [
             {
@@ -79353,6 +79805,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyVideoSessionKHR( VkDevice device, VkVideoSessionKHR videoSession, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -79391,6 +79844,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateVideoSessionParametersKHR( VkDevice device, const VkVideoSessionParametersCreateInfoKHR* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkVideoSessionParametersKHR* pVideoSessionParameters )",
         "params": [
             {
@@ -79442,6 +79896,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkUpdateVideoSessionParametersKHR( VkDevice device, VkVideoSessionParametersKHR videoSessionParameters, const VkVideoSessionParametersUpdateInfoKHR* pUpdateInfo )",
         "params": [
             {
@@ -79480,6 +79935,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyVideoSessionParametersKHR( VkDevice device, VkVideoSessionParametersKHR videoSessionParameters, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -79518,6 +79974,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetVideoSessionMemoryRequirementsKHR( VkDevice device, VkVideoSessionKHR videoSession, uint32_t* pMemoryRequirementsCount, VkVideoSessionMemoryRequirementsKHR* pMemoryRequirements )",
         "params": [
             {
@@ -79567,6 +80024,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkBindVideoSessionMemoryKHR( VkDevice device, VkVideoSessionKHR videoSession, uint32_t bindSessionMemoryInfoCount, const VkBindVideoSessionMemoryInfoKHR* pBindSessionMemoryInfos )",
         "params": [
             {
@@ -79614,6 +80072,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDecodeVideoKHR( VkCommandBuffer commandBuffer, const VkVideoDecodeInfoKHR* pDecodeInfo )",
         "params": [
             {
@@ -79643,6 +80102,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBeginVideoCodingKHR( VkCommandBuffer commandBuffer, const VkVideoBeginCodingInfoKHR* pBeginInfo )",
         "params": [
             {
@@ -79672,6 +80132,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdControlVideoCodingKHR( VkCommandBuffer commandBuffer, const VkVideoCodingControlInfoKHR* pCodingControlInfo )",
         "params": [
             {
@@ -79701,6 +80162,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdEndVideoCodingKHR( VkCommandBuffer commandBuffer, const VkVideoEndCodingInfoKHR* pEndCodingInfo )",
         "params": [
             {
@@ -79730,6 +80192,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDecompressMemoryNV( VkCommandBuffer commandBuffer, uint32_t decompressRegionCount, const VkDecompressMemoryRegionNV* pDecompressMemoryRegions )",
         "params": [
             {
@@ -79768,6 +80231,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdDecompressMemoryIndirectCountNV( VkCommandBuffer commandBuffer, VkDeviceAddress indirectCommandsAddress, VkDeviceAddress indirectCommandsCountAddress, uint32_t stride )",
         "params": [
             {
@@ -79813,6 +80277,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateCuModuleNVX( VkDevice device, const VkCuModuleCreateInfoNVX* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkCuModuleNVX* pModule )",
         "params": [
             {
@@ -79864,6 +80329,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateCuFunctionNVX( VkDevice device, const VkCuFunctionCreateInfoNVX* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkCuFunctionNVX* pFunction )",
         "params": [
             {
@@ -79915,6 +80381,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyCuModuleNVX( VkDevice device, VkCuModuleNVX module, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -79953,6 +80420,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyCuFunctionNVX( VkDevice device, VkCuFunctionNVX function, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -79991,6 +80459,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCuLaunchKernelNVX( VkCommandBuffer commandBuffer, const VkCuLaunchInfoNVX* pLaunchInfo )",
         "params": [
             {
@@ -80020,6 +80489,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetDescriptorSetLayoutSizeEXT( VkDevice device, VkDescriptorSetLayout layout, VkDeviceSize* pLayoutSizeInBytes )",
         "params": [
             {
@@ -80058,6 +80528,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetDescriptorSetLayoutBindingOffsetEXT( VkDevice device, VkDescriptorSetLayout layout, uint32_t binding, VkDeviceSize* pOffset )",
         "params": [
             {
@@ -80105,6 +80576,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetDescriptorEXT( VkDevice device, const VkDescriptorGetInfoEXT* pDescriptorInfo, size_t dataSize, void* pDescriptor )",
         "params": [
             {
@@ -80154,6 +80626,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBindDescriptorBuffersEXT( VkCommandBuffer commandBuffer, uint32_t bufferCount, const VkDescriptorBufferBindingInfoEXT* pBindingInfos )",
         "params": [
             {
@@ -80192,6 +80665,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetDescriptorBufferOffsetsEXT( VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout layout, uint32_t firstSet, uint32_t setCount, const uint32_t* pBufferIndices, const VkDeviceSize* pOffsets )",
         "params": [
             {
@@ -80268,6 +80742,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBindDescriptorBufferEmbeddedSamplersEXT( VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipelineLayout layout, uint32_t set )",
         "params": [
             {
@@ -80313,6 +80788,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetBufferOpaqueCaptureDescriptorDataEXT( VkDevice device, const VkBufferCaptureDescriptorDataInfoEXT* pInfo, void* pData )",
         "params": [
             {
@@ -80353,6 +80829,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetImageOpaqueCaptureDescriptorDataEXT( VkDevice device, const VkImageCaptureDescriptorDataInfoEXT* pInfo, void* pData )",
         "params": [
             {
@@ -80393,6 +80870,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetImageViewOpaqueCaptureDescriptorDataEXT( VkDevice device, const VkImageViewCaptureDescriptorDataInfoEXT* pInfo, void* pData )",
         "params": [
             {
@@ -80433,6 +80911,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetSamplerOpaqueCaptureDescriptorDataEXT( VkDevice device, const VkSamplerCaptureDescriptorDataInfoEXT* pInfo, void* pData )",
         "params": [
             {
@@ -80473,6 +80952,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT( VkDevice device, const VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo, void* pData )",
         "params": [
             {
@@ -80513,6 +80993,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkSetDeviceMemoryPriorityEXT( VkDevice device, VkDeviceMemory memory, float priority )",
         "params": [
             {
@@ -80549,6 +81030,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkAcquireDrmDisplayEXT( VkPhysicalDevice physicalDevice, int32_t drmFd, VkDisplayKHR display )",
         "params": [
             {
@@ -80585,6 +81067,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetDrmDisplayEXT( VkPhysicalDevice physicalDevice, int32_t drmFd, uint32_t connectorId, VkDisplayKHR* display )",
         "params": [
             {
@@ -80632,6 +81115,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkWaitForPresentKHR( VkDevice device, VkSwapchainKHR swapchain, uint64_t presentId, uint64_t timeout )",
         "params": [
             {
@@ -80677,6 +81161,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBeginRendering( VkCommandBuffer commandBuffer, const VkRenderingInfo* pRenderingInfo )",
         "params": [
             {
@@ -80711,6 +81196,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdEndRendering( VkCommandBuffer commandBuffer )",
         "params": [
             {
@@ -80734,6 +81220,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetDescriptorSetLayoutHostMappingInfoVALVE( VkDevice device, const VkDescriptorSetBindingReferenceVALVE* pBindingReference, VkDescriptorSetLayoutHostMappingInfoVALVE* pHostMapping )",
         "params": [
             {
@@ -80774,6 +81261,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetDescriptorSetHostMappingVALVE( VkDevice device, VkDescriptorSet descriptorSet, void** ppData )",
         "params": [
             {
@@ -80813,6 +81301,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateMicromapEXT( VkDevice device, const VkMicromapCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkMicromapEXT* pMicromap )",
         "params": [
             {
@@ -80864,6 +81353,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBuildMicromapsEXT( VkCommandBuffer commandBuffer, uint32_t infoCount, const VkMicromapBuildInfoEXT* pInfos )",
         "params": [
             {
@@ -80902,6 +81392,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkBuildMicromapsEXT( VkDevice device, VkDeferredOperationKHR deferredOperation, uint32_t infoCount, const VkMicromapBuildInfoEXT* pInfos )",
         "params": [
             {
@@ -80949,6 +81440,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyMicromapEXT( VkDevice device, VkMicromapEXT micromap, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -80987,6 +81479,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyMicromapEXT( VkCommandBuffer commandBuffer, const VkCopyMicromapInfoEXT* pInfo )",
         "params": [
             {
@@ -81016,6 +81509,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCopyMicromapEXT( VkDevice device, VkDeferredOperationKHR deferredOperation, const VkCopyMicromapInfoEXT* pInfo )",
         "params": [
             {
@@ -81054,6 +81548,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyMicromapToMemoryEXT( VkCommandBuffer commandBuffer, const VkCopyMicromapToMemoryInfoEXT* pInfo )",
         "params": [
             {
@@ -81083,6 +81578,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCopyMicromapToMemoryEXT( VkDevice device, VkDeferredOperationKHR deferredOperation, const VkCopyMicromapToMemoryInfoEXT* pInfo )",
         "params": [
             {
@@ -81121,6 +81617,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdCopyMemoryToMicromapEXT( VkCommandBuffer commandBuffer, const VkCopyMemoryToMicromapInfoEXT* pInfo )",
         "params": [
             {
@@ -81150,6 +81647,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCopyMemoryToMicromapEXT( VkDevice device, VkDeferredOperationKHR deferredOperation, const VkCopyMemoryToMicromapInfoEXT* pInfo )",
         "params": [
             {
@@ -81188,6 +81686,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdWriteMicromapsPropertiesEXT( VkCommandBuffer commandBuffer, uint32_t micromapCount, const VkMicromapEXT* pMicromaps, VkQueryType queryType, VkQueryPool queryPool, uint32_t firstQuery )",
         "params": [
             {
@@ -81253,6 +81752,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkWriteMicromapsPropertiesEXT( VkDevice device, uint32_t micromapCount, const VkMicromapEXT* pMicromaps, VkQueryType queryType, size_t dataSize, void* pData, size_t stride )",
         "params": [
             {
@@ -81329,6 +81829,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetDeviceMicromapCompatibilityEXT( VkDevice device, const VkMicromapVersionInfoEXT* pVersionInfo, VkAccelerationStructureCompatibilityKHR* pCompatibility )",
         "params": [
             {
@@ -81369,6 +81870,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetMicromapBuildSizesEXT( VkDevice device, VkAccelerationStructureBuildTypeKHR buildType, const VkMicromapBuildInfoEXT* pBuildInfo, VkMicromapBuildSizesInfoEXT* pSizeInfo )",
         "params": [
             {
@@ -81418,6 +81920,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetShaderModuleIdentifierEXT( VkDevice device, VkShaderModule shaderModule, VkShaderModuleIdentifierEXT* pIdentifier )",
         "params": [
             {
@@ -81456,6 +81959,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetShaderModuleCreateInfoIdentifierEXT( VkDevice device, const VkShaderModuleCreateInfo* pCreateInfo, VkShaderModuleIdentifierEXT* pIdentifier )",
         "params": [
             {
@@ -81496,6 +82000,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetImageSubresourceLayout2KHR( VkDevice device, VkImage image, const VkImageSubresource2KHR* pSubresource, VkSubresourceLayout2KHR* pLayout )",
         "params": [
             {
@@ -81550,6 +82055,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPipelinePropertiesEXT( VkDevice device, const VkPipelineInfoEXT* pPipelineInfo, VkBaseOutStructure* pPipelineProperties )",
         "params": [
             {
@@ -81590,6 +82096,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetFramebufferTilePropertiesQCOM( VkDevice device, VkFramebuffer framebuffer, uint32_t* pPropertiesCount, VkTilePropertiesQCOM* pProperties )",
         "params": [
             {
@@ -81639,6 +82146,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetDynamicRenderingTilePropertiesQCOM( VkDevice device, const VkRenderingInfo* pRenderingInfo, VkTilePropertiesQCOM* pProperties )",
         "params": [
             {
@@ -81679,6 +82187,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceOpticalFlowImageFormatsNV( VkPhysicalDevice physicalDevice, const VkOpticalFlowImageFormatInfoNV* pOpticalFlowImageFormatInfo, uint32_t* pFormatCount, VkOpticalFlowImageFormatPropertiesNV* pImageFormatProperties )",
         "params": [
             {
@@ -81730,6 +82239,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateOpticalFlowSessionNV( VkDevice device, const VkOpticalFlowSessionCreateInfoNV* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkOpticalFlowSessionNV* pSession )",
         "params": [
             {
@@ -81781,6 +82291,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyOpticalFlowSessionNV( VkDevice device, VkOpticalFlowSessionNV session, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -81819,6 +82330,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkBindOpticalFlowSessionImageNV( VkDevice device, VkOpticalFlowSessionNV session, VkOpticalFlowSessionBindingPointNV bindingPoint, VkImageView view, VkImageLayout layout )",
         "params": [
             {
@@ -81873,6 +82385,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdOpticalFlowExecuteNV( VkCommandBuffer commandBuffer, VkOpticalFlowSessionNV session, const VkOpticalFlowExecuteInfoNV* pExecuteInfo )",
         "params": [
             {
@@ -81911,6 +82424,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetDeviceFaultInfoEXT( VkDevice device, VkDeviceFaultCountsEXT* pFaultCounts, VkDeviceFaultInfoEXT* pFaultInfo )",
         "params": [
             {
@@ -81951,6 +82465,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdSetDepthBias2EXT( VkCommandBuffer commandBuffer, const VkDepthBiasInfoEXT* pDepthBiasInfo )",
         "params": [
             {
@@ -81980,6 +82495,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkReleaseSwapchainImagesEXT( VkDevice device, const VkReleaseSwapchainImagesInfoEXT* pReleaseInfo )",
         "params": [
             {
@@ -82009,6 +82525,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkGetDeviceImageSubresourceLayoutKHR( VkDevice device, const VkDeviceImageSubresourceInfoKHR* pInfo, VkSubresourceLayout2KHR* pLayout )",
         "params": [
             {
@@ -82049,6 +82566,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkMapMemory2KHR( VkDevice device, const VkMemoryMapInfoKHR* pMemoryMapInfo, void** ppData )",
         "params": [
             {
@@ -82090,6 +82608,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkUnmapMemory2KHR( VkDevice device, const VkMemoryUnmapInfoKHR* pMemoryUnmapInfo )",
         "params": [
             {
@@ -82119,6 +82638,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkCreateShadersEXT( VkDevice device, uint32_t createInfoCount, const VkShaderCreateInfoEXT* pCreateInfos, const VkAllocationCallbacks* pAllocator, VkShaderEXT* pShaders )",
         "params": [
             {
@@ -82179,6 +82699,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkDestroyShaderEXT( VkDevice device, VkShaderEXT shader, const VkAllocationCallbacks* pAllocator )",
         "params": [
             {
@@ -82217,6 +82738,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetShaderBinaryDataEXT( VkDevice device, VkShaderEXT shader, size_t* pDataSize, void* pData )",
         "params": [
             {
@@ -82266,6 +82788,7 @@
         "relation": "return",
         "type": "void",
         "num_indirection": 0,
+        "length": [],
         "header": "void vkCmdBindShadersEXT( VkCommandBuffer commandBuffer, uint32_t stageCount, const VkShaderStageFlagBits* pStages, const VkShaderEXT* pShaders )",
         "params": [
             {
@@ -82315,6 +82838,7 @@
         "relation": "return",
         "type": "VkResult",
         "num_indirection": 0,
+        "length": [],
         "header": "VkResult vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR( VkPhysicalDevice physicalDevice, uint32_t* pPropertyCount, VkCooperativeMatrixPropertiesKHR* pProperties )",
         "params": [
             {

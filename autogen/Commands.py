@@ -464,7 +464,9 @@ for name, command in parsed.items():
                     reader=m.getRoot<name>();
                     break; 
     """)
-    for funcpointer in parsed["funcpointers"]:
+    for funcpointer in parsed:
+        if parsed[funcpointer]["kind"]!="funcpointer":
+            continue
         if funcpointer=="PFN_vkGetInstanceProcAddrLUNARG": #This isn't a normal funcpointer --- only makes sense on the server
             continue
         write(f"""
@@ -524,7 +526,13 @@ for name, command in parsed.items():
             }}
         #endif
         """)
-        for command_name in parsed["commands"]:
+        for command_name in parsed:
+            if "alias" in parsed[command_name]:
+                command_name=parsed[command_name]["alias"]
+            
+            if parsed[command_name]["kind"]!="command":
+                continue
+                
             write(f"""
             else if (strcmp(pName,"{command_name}")==0){{
                 debug_printf("Retrieving {command_name}...\\n");
@@ -549,7 +557,7 @@ for name, command in parsed.items():
         if re.match(creation_function,name) is not None:
             matched=False
             for param in reversed(command["params"]):
-                if (param["type"] in parsed["handles"]) and (param["num_indirection"]==1):
+                if (parsed[param["type"]]["kind"]=="handle") and (param["num_indirection"]==1):
                     handle=param
                     matched=True
                     break

@@ -13,17 +13,17 @@ using namespace capnp;
 typedef struct {
     void* pUserData;
 
-uintptr_t PFN_vkFreeFunction;
-uintptr_t PFN_vkVoidFunction;
 uintptr_t PFN_vkFaultCallbackFunction;
+uintptr_t PFN_vkFreeFunction;
+uintptr_t PFN_vkReallocationFunction;
+uintptr_t PFN_vkInternalAllocationNotification;
+uintptr_t PFN_vkVoidFunction;
+uintptr_t PFN_vkDebugReportCallbackEXT;
+uintptr_t PFN_vkAllocationFunction;
+uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
+uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
 uintptr_t PFN_vkInternalFreeNotification;
 uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
-uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
-uintptr_t PFN_vkInternalAllocationNotification;
-uintptr_t PFN_vkReallocationFunction;
-uintptr_t PFN_vkDebugReportCallbackEXT;
-uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
-uintptr_t PFN_vkAllocationFunction;
 } pUserData;
 
 void serialize_pNext(PNext::Builder builder, void* member){
@@ -84538,7 +84538,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkInstance)handle; //This is highly dangerous -- I'm basically casting VkInstance* to VkInstance. I should do *((VkInstance*)alloc_icd_object())
                     }
                 #else
-                    result=(VkInstance)pointer;
+                    result=(VkInstance)data;
                 #endif
                 
                 return result;
@@ -84589,7 +84589,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkPhysicalDevice)handle; //This is highly dangerous -- I'm basically casting VkPhysicalDevice* to VkPhysicalDevice. I should do *((VkPhysicalDevice*)alloc_icd_object())
                     }
                 #else
-                    result=(VkPhysicalDevice)pointer;
+                    result=(VkPhysicalDevice)data;
                 #endif
                 
                 return result;
@@ -84640,7 +84640,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkDevice)handle; //This is highly dangerous -- I'm basically casting VkDevice* to VkDevice. I should do *((VkDevice*)alloc_icd_object())
                     }
                 #else
-                    result=(VkDevice)pointer;
+                    result=(VkDevice)data;
                 #endif
                 
                 return result;
@@ -84691,7 +84691,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkQueue)handle; //This is highly dangerous -- I'm basically casting VkQueue* to VkQueue. I should do *((VkQueue*)alloc_icd_object())
                     }
                 #else
-                    result=(VkQueue)pointer;
+                    result=(VkQueue)data;
                 #endif
                 
                 return result;
@@ -84742,7 +84742,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkCommandBuffer)handle; //This is highly dangerous -- I'm basically casting VkCommandBuffer* to VkCommandBuffer. I should do *((VkCommandBuffer*)alloc_icd_object())
                     }
                 #else
-                    result=(VkCommandBuffer)pointer;
+                    result=(VkCommandBuffer)data;
                 #endif
                 
                 return result;
@@ -84793,7 +84793,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkDeviceMemory)handle; //This is highly dangerous -- I'm basically casting VkDeviceMemory* to VkDeviceMemory. I should do *((VkDeviceMemory*)alloc_icd_object())
                     }
                 #else
-                    result=(VkDeviceMemory)pointer;
+                    result=(VkDeviceMemory)data;
                 #endif
                 
                 return result;
@@ -84844,7 +84844,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkCommandPool)handle; //This is highly dangerous -- I'm basically casting VkCommandPool* to VkCommandPool. I should do *((VkCommandPool*)alloc_icd_object())
                     }
                 #else
-                    result=(VkCommandPool)pointer;
+                    result=(VkCommandPool)data;
                 #endif
                 
                 return result;
@@ -84895,7 +84895,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkBuffer)handle; //This is highly dangerous -- I'm basically casting VkBuffer* to VkBuffer. I should do *((VkBuffer*)alloc_icd_object())
                     }
                 #else
-                    result=(VkBuffer)pointer;
+                    result=(VkBuffer)data;
                 #endif
                 
                 return result;
@@ -84946,7 +84946,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkBufferView)handle; //This is highly dangerous -- I'm basically casting VkBufferView* to VkBufferView. I should do *((VkBufferView*)alloc_icd_object())
                     }
                 #else
-                    result=(VkBufferView)pointer;
+                    result=(VkBufferView)data;
                 #endif
                 
                 return result;
@@ -84997,7 +84997,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkImage)handle; //This is highly dangerous -- I'm basically casting VkImage* to VkImage. I should do *((VkImage*)alloc_icd_object())
                     }
                 #else
-                    result=(VkImage)pointer;
+                    result=(VkImage)data;
                 #endif
                 
                 return result;
@@ -85048,7 +85048,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkImageView)handle; //This is highly dangerous -- I'm basically casting VkImageView* to VkImageView. I should do *((VkImageView*)alloc_icd_object())
                     }
                 #else
-                    result=(VkImageView)pointer;
+                    result=(VkImageView)data;
                 #endif
                 
                 return result;
@@ -85099,7 +85099,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkShaderModule)handle; //This is highly dangerous -- I'm basically casting VkShaderModule* to VkShaderModule. I should do *((VkShaderModule*)alloc_icd_object())
                     }
                 #else
-                    result=(VkShaderModule)pointer;
+                    result=(VkShaderModule)data;
                 #endif
                 
                 return result;
@@ -85150,7 +85150,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkPipeline)handle; //This is highly dangerous -- I'm basically casting VkPipeline* to VkPipeline. I should do *((VkPipeline*)alloc_icd_object())
                     }
                 #else
-                    result=(VkPipeline)pointer;
+                    result=(VkPipeline)data;
                 #endif
                 
                 return result;
@@ -85201,7 +85201,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkPipelineLayout)handle; //This is highly dangerous -- I'm basically casting VkPipelineLayout* to VkPipelineLayout. I should do *((VkPipelineLayout*)alloc_icd_object())
                     }
                 #else
-                    result=(VkPipelineLayout)pointer;
+                    result=(VkPipelineLayout)data;
                 #endif
                 
                 return result;
@@ -85252,7 +85252,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkSampler)handle; //This is highly dangerous -- I'm basically casting VkSampler* to VkSampler. I should do *((VkSampler*)alloc_icd_object())
                     }
                 #else
-                    result=(VkSampler)pointer;
+                    result=(VkSampler)data;
                 #endif
                 
                 return result;
@@ -85303,7 +85303,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkDescriptorSet)handle; //This is highly dangerous -- I'm basically casting VkDescriptorSet* to VkDescriptorSet. I should do *((VkDescriptorSet*)alloc_icd_object())
                     }
                 #else
-                    result=(VkDescriptorSet)pointer;
+                    result=(VkDescriptorSet)data;
                 #endif
                 
                 return result;
@@ -85354,7 +85354,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkDescriptorSetLayout)handle; //This is highly dangerous -- I'm basically casting VkDescriptorSetLayout* to VkDescriptorSetLayout. I should do *((VkDescriptorSetLayout*)alloc_icd_object())
                     }
                 #else
-                    result=(VkDescriptorSetLayout)pointer;
+                    result=(VkDescriptorSetLayout)data;
                 #endif
                 
                 return result;
@@ -85405,7 +85405,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkDescriptorPool)handle; //This is highly dangerous -- I'm basically casting VkDescriptorPool* to VkDescriptorPool. I should do *((VkDescriptorPool*)alloc_icd_object())
                     }
                 #else
-                    result=(VkDescriptorPool)pointer;
+                    result=(VkDescriptorPool)data;
                 #endif
                 
                 return result;
@@ -85456,7 +85456,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkFence)handle; //This is highly dangerous -- I'm basically casting VkFence* to VkFence. I should do *((VkFence*)alloc_icd_object())
                     }
                 #else
-                    result=(VkFence)pointer;
+                    result=(VkFence)data;
                 #endif
                 
                 return result;
@@ -85507,7 +85507,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkSemaphore)handle; //This is highly dangerous -- I'm basically casting VkSemaphore* to VkSemaphore. I should do *((VkSemaphore*)alloc_icd_object())
                     }
                 #else
-                    result=(VkSemaphore)pointer;
+                    result=(VkSemaphore)data;
                 #endif
                 
                 return result;
@@ -85558,7 +85558,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkEvent)handle; //This is highly dangerous -- I'm basically casting VkEvent* to VkEvent. I should do *((VkEvent*)alloc_icd_object())
                     }
                 #else
-                    result=(VkEvent)pointer;
+                    result=(VkEvent)data;
                 #endif
                 
                 return result;
@@ -85609,7 +85609,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkQueryPool)handle; //This is highly dangerous -- I'm basically casting VkQueryPool* to VkQueryPool. I should do *((VkQueryPool*)alloc_icd_object())
                     }
                 #else
-                    result=(VkQueryPool)pointer;
+                    result=(VkQueryPool)data;
                 #endif
                 
                 return result;
@@ -85660,7 +85660,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkFramebuffer)handle; //This is highly dangerous -- I'm basically casting VkFramebuffer* to VkFramebuffer. I should do *((VkFramebuffer*)alloc_icd_object())
                     }
                 #else
-                    result=(VkFramebuffer)pointer;
+                    result=(VkFramebuffer)data;
                 #endif
                 
                 return result;
@@ -85711,7 +85711,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkRenderPass)handle; //This is highly dangerous -- I'm basically casting VkRenderPass* to VkRenderPass. I should do *((VkRenderPass*)alloc_icd_object())
                     }
                 #else
-                    result=(VkRenderPass)pointer;
+                    result=(VkRenderPass)data;
                 #endif
                 
                 return result;
@@ -85762,7 +85762,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkPipelineCache)handle; //This is highly dangerous -- I'm basically casting VkPipelineCache* to VkPipelineCache. I should do *((VkPipelineCache*)alloc_icd_object())
                     }
                 #else
-                    result=(VkPipelineCache)pointer;
+                    result=(VkPipelineCache)data;
                 #endif
                 
                 return result;
@@ -85813,7 +85813,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkIndirectCommandsLayoutNV)handle; //This is highly dangerous -- I'm basically casting VkIndirectCommandsLayoutNV* to VkIndirectCommandsLayoutNV. I should do *((VkIndirectCommandsLayoutNV*)alloc_icd_object())
                     }
                 #else
-                    result=(VkIndirectCommandsLayoutNV)pointer;
+                    result=(VkIndirectCommandsLayoutNV)data;
                 #endif
                 
                 return result;
@@ -85864,7 +85864,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkDescriptorUpdateTemplate)handle; //This is highly dangerous -- I'm basically casting VkDescriptorUpdateTemplate* to VkDescriptorUpdateTemplate. I should do *((VkDescriptorUpdateTemplate*)alloc_icd_object())
                     }
                 #else
-                    result=(VkDescriptorUpdateTemplate)pointer;
+                    result=(VkDescriptorUpdateTemplate)data;
                 #endif
                 
                 return result;
@@ -85915,7 +85915,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkDescriptorUpdateTemplateKHR)handle; //This is highly dangerous -- I'm basically casting VkDescriptorUpdateTemplateKHR* to VkDescriptorUpdateTemplateKHR. I should do *((VkDescriptorUpdateTemplateKHR*)alloc_icd_object())
                     }
                 #else
-                    result=(VkDescriptorUpdateTemplateKHR)pointer;
+                    result=(VkDescriptorUpdateTemplateKHR)data;
                 #endif
                 
                 return result;
@@ -85966,7 +85966,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkSamplerYcbcrConversion)handle; //This is highly dangerous -- I'm basically casting VkSamplerYcbcrConversion* to VkSamplerYcbcrConversion. I should do *((VkSamplerYcbcrConversion*)alloc_icd_object())
                     }
                 #else
-                    result=(VkSamplerYcbcrConversion)pointer;
+                    result=(VkSamplerYcbcrConversion)data;
                 #endif
                 
                 return result;
@@ -86017,7 +86017,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkSamplerYcbcrConversionKHR)handle; //This is highly dangerous -- I'm basically casting VkSamplerYcbcrConversionKHR* to VkSamplerYcbcrConversionKHR. I should do *((VkSamplerYcbcrConversionKHR*)alloc_icd_object())
                     }
                 #else
-                    result=(VkSamplerYcbcrConversionKHR)pointer;
+                    result=(VkSamplerYcbcrConversionKHR)data;
                 #endif
                 
                 return result;
@@ -86068,7 +86068,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkValidationCacheEXT)handle; //This is highly dangerous -- I'm basically casting VkValidationCacheEXT* to VkValidationCacheEXT. I should do *((VkValidationCacheEXT*)alloc_icd_object())
                     }
                 #else
-                    result=(VkValidationCacheEXT)pointer;
+                    result=(VkValidationCacheEXT)data;
                 #endif
                 
                 return result;
@@ -86119,7 +86119,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkAccelerationStructureKHR)handle; //This is highly dangerous -- I'm basically casting VkAccelerationStructureKHR* to VkAccelerationStructureKHR. I should do *((VkAccelerationStructureKHR*)alloc_icd_object())
                     }
                 #else
-                    result=(VkAccelerationStructureKHR)pointer;
+                    result=(VkAccelerationStructureKHR)data;
                 #endif
                 
                 return result;
@@ -86170,7 +86170,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkAccelerationStructureNV)handle; //This is highly dangerous -- I'm basically casting VkAccelerationStructureNV* to VkAccelerationStructureNV. I should do *((VkAccelerationStructureNV*)alloc_icd_object())
                     }
                 #else
-                    result=(VkAccelerationStructureNV)pointer;
+                    result=(VkAccelerationStructureNV)data;
                 #endif
                 
                 return result;
@@ -86221,7 +86221,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkPerformanceConfigurationINTEL)handle; //This is highly dangerous -- I'm basically casting VkPerformanceConfigurationINTEL* to VkPerformanceConfigurationINTEL. I should do *((VkPerformanceConfigurationINTEL*)alloc_icd_object())
                     }
                 #else
-                    result=(VkPerformanceConfigurationINTEL)pointer;
+                    result=(VkPerformanceConfigurationINTEL)data;
                 #endif
                 
                 return result;
@@ -86272,7 +86272,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkDeferredOperationKHR)handle; //This is highly dangerous -- I'm basically casting VkDeferredOperationKHR* to VkDeferredOperationKHR. I should do *((VkDeferredOperationKHR*)alloc_icd_object())
                     }
                 #else
-                    result=(VkDeferredOperationKHR)pointer;
+                    result=(VkDeferredOperationKHR)data;
                 #endif
                 
                 return result;
@@ -86323,7 +86323,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkPrivateDataSlot)handle; //This is highly dangerous -- I'm basically casting VkPrivateDataSlot* to VkPrivateDataSlot. I should do *((VkPrivateDataSlot*)alloc_icd_object())
                     }
                 #else
-                    result=(VkPrivateDataSlot)pointer;
+                    result=(VkPrivateDataSlot)data;
                 #endif
                 
                 return result;
@@ -86374,7 +86374,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkPrivateDataSlotEXT)handle; //This is highly dangerous -- I'm basically casting VkPrivateDataSlotEXT* to VkPrivateDataSlotEXT. I should do *((VkPrivateDataSlotEXT*)alloc_icd_object())
                     }
                 #else
-                    result=(VkPrivateDataSlotEXT)pointer;
+                    result=(VkPrivateDataSlotEXT)data;
                 #endif
                 
                 return result;
@@ -86425,7 +86425,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkCuModuleNVX)handle; //This is highly dangerous -- I'm basically casting VkCuModuleNVX* to VkCuModuleNVX. I should do *((VkCuModuleNVX*)alloc_icd_object())
                     }
                 #else
-                    result=(VkCuModuleNVX)pointer;
+                    result=(VkCuModuleNVX)data;
                 #endif
                 
                 return result;
@@ -86476,7 +86476,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkCuFunctionNVX)handle; //This is highly dangerous -- I'm basically casting VkCuFunctionNVX* to VkCuFunctionNVX. I should do *((VkCuFunctionNVX*)alloc_icd_object())
                     }
                 #else
-                    result=(VkCuFunctionNVX)pointer;
+                    result=(VkCuFunctionNVX)data;
                 #endif
                 
                 return result;
@@ -86527,7 +86527,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkOpticalFlowSessionNV)handle; //This is highly dangerous -- I'm basically casting VkOpticalFlowSessionNV* to VkOpticalFlowSessionNV. I should do *((VkOpticalFlowSessionNV*)alloc_icd_object())
                     }
                 #else
-                    result=(VkOpticalFlowSessionNV)pointer;
+                    result=(VkOpticalFlowSessionNV)data;
                 #endif
                 
                 return result;
@@ -86578,7 +86578,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkMicromapEXT)handle; //This is highly dangerous -- I'm basically casting VkMicromapEXT* to VkMicromapEXT. I should do *((VkMicromapEXT*)alloc_icd_object())
                     }
                 #else
-                    result=(VkMicromapEXT)pointer;
+                    result=(VkMicromapEXT)data;
                 #endif
                 
                 return result;
@@ -86629,7 +86629,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkShaderEXT)handle; //This is highly dangerous -- I'm basically casting VkShaderEXT* to VkShaderEXT. I should do *((VkShaderEXT*)alloc_icd_object())
                     }
                 #else
-                    result=(VkShaderEXT)pointer;
+                    result=(VkShaderEXT)data;
                 #endif
                 
                 return result;
@@ -86680,7 +86680,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkDisplayKHR)handle; //This is highly dangerous -- I'm basically casting VkDisplayKHR* to VkDisplayKHR. I should do *((VkDisplayKHR*)alloc_icd_object())
                     }
                 #else
-                    result=(VkDisplayKHR)pointer;
+                    result=(VkDisplayKHR)data;
                 #endif
                 
                 return result;
@@ -86731,7 +86731,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkDisplayModeKHR)handle; //This is highly dangerous -- I'm basically casting VkDisplayModeKHR* to VkDisplayModeKHR. I should do *((VkDisplayModeKHR*)alloc_icd_object())
                     }
                 #else
-                    result=(VkDisplayModeKHR)pointer;
+                    result=(VkDisplayModeKHR)data;
                 #endif
                 
                 return result;
@@ -86782,7 +86782,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkSurfaceKHR)handle; //This is highly dangerous -- I'm basically casting VkSurfaceKHR* to VkSurfaceKHR. I should do *((VkSurfaceKHR*)alloc_icd_object())
                     }
                 #else
-                    result=(VkSurfaceKHR)pointer;
+                    result=(VkSurfaceKHR)data;
                 #endif
                 
                 return result;
@@ -86833,7 +86833,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkSwapchainKHR)handle; //This is highly dangerous -- I'm basically casting VkSwapchainKHR* to VkSwapchainKHR. I should do *((VkSwapchainKHR*)alloc_icd_object())
                     }
                 #else
-                    result=(VkSwapchainKHR)pointer;
+                    result=(VkSwapchainKHR)data;
                 #endif
                 
                 return result;
@@ -86884,7 +86884,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkDebugReportCallbackEXT)handle; //This is highly dangerous -- I'm basically casting VkDebugReportCallbackEXT* to VkDebugReportCallbackEXT. I should do *((VkDebugReportCallbackEXT*)alloc_icd_object())
                     }
                 #else
-                    result=(VkDebugReportCallbackEXT)pointer;
+                    result=(VkDebugReportCallbackEXT)data;
                 #endif
                 
                 return result;
@@ -86935,7 +86935,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkDebugUtilsMessengerEXT)handle; //This is highly dangerous -- I'm basically casting VkDebugUtilsMessengerEXT* to VkDebugUtilsMessengerEXT. I should do *((VkDebugUtilsMessengerEXT*)alloc_icd_object())
                     }
                 #else
-                    result=(VkDebugUtilsMessengerEXT)pointer;
+                    result=(VkDebugUtilsMessengerEXT)data;
                 #endif
                 
                 return result;
@@ -86986,7 +86986,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkVideoSessionKHR)handle; //This is highly dangerous -- I'm basically casting VkVideoSessionKHR* to VkVideoSessionKHR. I should do *((VkVideoSessionKHR*)alloc_icd_object())
                     }
                 #else
-                    result=(VkVideoSessionKHR)pointer;
+                    result=(VkVideoSessionKHR)data;
                 #endif
                 
                 return result;
@@ -87037,7 +87037,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
                         result=(VkVideoSessionParametersKHR)handle; //This is highly dangerous -- I'm basically casting VkVideoSessionParametersKHR* to VkVideoSessionParametersKHR. I should do *((VkVideoSessionParametersKHR*)alloc_icd_object())
                     }
                 #else
-                    result=(VkVideoSessionParametersKHR)pointer;
+                    result=(VkVideoSessionParametersKHR)data;
                 #endif
                 
                 return result;

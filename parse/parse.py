@@ -232,6 +232,7 @@ if __name__=="__main__":
         
             result["type"]=item.find("proto/type").text
             result["num_indirection"]=item.find("proto/type").tail.count("*")
+            result["length"]=["null-terminated"]*result["num_indirection"]
             
             params=[]
             params_set=set()
