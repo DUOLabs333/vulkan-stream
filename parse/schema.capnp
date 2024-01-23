@@ -3,7 +3,7 @@
 struct PFNvkInternalAllocationNotification {
 id @0 :UInt64;
 mem @1 :UInt64;
-return @2 :UInt64;
+result @2 :UInt64;
 pUserData @3 :List(UInt64);
 size @4 :UInt64;
 allocationType @5 :Int64;
@@ -13,7 +13,7 @@ allocationScope @6 :Int64;
 struct PFNvkInternalFreeNotification {
 id @0 :UInt64;
 mem @1 :UInt64;
-return @2 :UInt64;
+result @2 :UInt64;
 pUserData @3 :List(UInt64);
 size @4 :UInt64;
 allocationType @5 :Int64;
@@ -23,7 +23,7 @@ allocationScope @6 :Int64;
 struct PFNvkReallocationFunction {
 id @0 :UInt64;
 mem @1 :UInt64;
-return @2 :UInt64;
+result @2 :UInt64;
 pUserData @3 :List(UInt64);
 pOriginal @4 :List(UInt64);
 size @5 :UInt64;
@@ -34,7 +34,7 @@ allocationScope @7 :Int64;
 struct PFNvkAllocationFunction {
 id @0 :UInt64;
 mem @1 :UInt64;
-return @2 :List(UInt64);
+result @2 :List(UInt64);
 pUserData @3 :List(UInt64);
 size @4 :UInt64;
 alignment @5 :UInt64;
@@ -44,7 +44,7 @@ allocationScope @6 :Int64;
 struct PFNvkFreeFunction {
 id @0 :UInt64;
 mem @1 :UInt64;
-return @2 :UInt64;
+result @2 :UInt64;
 pUserData @3 :List(UInt64);
 pMemory @4 :List(UInt64);
 }
@@ -52,13 +52,13 @@ pMemory @4 :List(UInt64);
 struct PFNvkVoidFunction {
 id @0 :UInt64;
 mem @1 :UInt64;
-return @2 :UInt64;
+result @2 :UInt64;
 }
 
 struct PFNvkDebugReportCallbackEXT {
 id @0 :UInt64;
 mem @1 :UInt64;
-return @2 :UInt64;
+result @2 :UInt64;
 flags @3 :Int64;
 objectType @4 :Int64;
 object @5 :UInt64;
@@ -72,7 +72,7 @@ pUserData @10 :List(UInt64);
 struct PFNvkDebugUtilsMessengerCallbackEXT {
 id @0 :UInt64;
 mem @1 :UInt64;
-return @2 :UInt64;
+result @2 :UInt64;
 messageSeverity @3 :Int64;
 messageTypes @4 :Int64;
 pCallbackData @5 :List(VkDebugUtilsMessengerCallbackDataEXT);
@@ -82,7 +82,7 @@ pUserData @6 :List(UInt64);
 struct PFNvkFaultCallbackFunction {
 id @0 :UInt64;
 mem @1 :UInt64;
-return @2 :UInt64;
+result @2 :UInt64;
 unrecordedFaults @3 :UInt64;
 faultCount @4 :UInt64;
 pFaults @5 :List(VkFaultData);
@@ -91,7 +91,7 @@ pFaults @5 :List(VkFaultData);
 struct PFNvkDeviceMemoryReportCallbackEXT {
 id @0 :UInt64;
 mem @1 :UInt64;
-return @2 :UInt64;
+result @2 :UInt64;
 pCallbackData @3 :List(VkDeviceMemoryReportCallbackDataEXT);
 pUserData @4 :List(UInt64);
 }
@@ -99,7 +99,7 @@ pUserData @4 :List(UInt64);
 struct PFNvkGetInstanceProcAddrLUNARG {
 id @0 :UInt64;
 mem @1 :UInt64;
-return @2 :PFNvkVoidFunction;
+result @2 :PFNvkVoidFunction;
 instance @3 :UInt64;
 pName @4 :List(UInt64);
 }
@@ -8526,7 +8526,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 pCreateInfo @4 :List(VkInstanceCreateInfo);
 pAllocator @5 :List(VkAllocationCallbacks);
 pInstance @6 :List(UInt64);
@@ -8538,7 +8538,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 instance @4 :UInt64;
 pAllocator @5 :List(VkAllocationCallbacks);
 }
@@ -8549,7 +8549,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pPhysicalDeviceCount @5 :List(UInt64);
 pPhysicalDevices @6 :List(UInt64);
@@ -8561,7 +8561,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :PFNvkVoidFunction;
+result @3 :PFNvkVoidFunction;
 device @4 :UInt64;
 pName @5 :List(UInt64);
 }
@@ -8572,7 +8572,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :PFNvkVoidFunction;
+result @3 :PFNvkVoidFunction;
 instance @4 :UInt64;
 pName @5 :List(UInt64);
 }
@@ -8583,7 +8583,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 pProperties @5 :List(VkPhysicalDeviceProperties);
 }
@@ -8594,7 +8594,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 pQueueFamilyPropertyCount @5 :List(UInt64);
 pQueueFamilyProperties @6 :List(VkQueueFamilyProperties);
@@ -8606,7 +8606,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 pMemoryProperties @5 :List(VkPhysicalDeviceMemoryProperties);
 }
@@ -8617,7 +8617,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 pFeatures @5 :List(VkPhysicalDeviceFeatures);
 }
@@ -8628,7 +8628,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 format @5 :Int64;
 pFormatProperties @6 :List(VkFormatProperties);
@@ -8640,7 +8640,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 format @5 :Int64;
 type @6 :Int64;
@@ -8656,7 +8656,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pCreateInfo @5 :List(VkDeviceCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -8669,7 +8669,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pAllocator @5 :List(VkAllocationCallbacks);
 }
@@ -8680,7 +8680,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 pApiVersion @4 :List(UInt64);
 }
 
@@ -8690,7 +8690,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 pPropertyCount @4 :List(UInt64);
 pProperties @5 :List(VkLayerProperties);
 }
@@ -8701,7 +8701,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 pLayerName @4 :List(UInt64);
 pPropertyCount @5 :List(UInt64);
 pProperties @6 :List(VkExtensionProperties);
@@ -8713,7 +8713,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pPropertyCount @5 :List(UInt64);
 pProperties @6 :List(VkLayerProperties);
@@ -8725,7 +8725,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pLayerName @5 :List(UInt64);
 pPropertyCount @6 :List(UInt64);
@@ -8738,7 +8738,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 queueFamilyIndex @5 :UInt64;
 queueIndex @6 :UInt64;
@@ -8751,7 +8751,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 queue @4 :UInt64;
 submitCount @5 :UInt64;
 pSubmits @6 :List(VkSubmitInfo);
@@ -8764,7 +8764,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 queue @4 :UInt64;
 }
 
@@ -8774,7 +8774,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 }
 
@@ -8784,7 +8784,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pAllocateInfo @5 :List(VkMemoryAllocateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -8797,7 +8797,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 memory @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -8809,7 +8809,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 memory @5 :UInt64;
 offset @6 :UInt64;
@@ -8824,7 +8824,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 memory @5 :UInt64;
 }
@@ -8835,7 +8835,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 memoryRangeCount @5 :UInt64;
 pMemoryRanges @6 :List(VkMappedMemoryRange);
@@ -8847,7 +8847,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 memoryRangeCount @5 :UInt64;
 pMemoryRanges @6 :List(VkMappedMemoryRange);
@@ -8859,7 +8859,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 memory @5 :UInt64;
 pCommittedMemoryInBytes @6 :List(UInt64);
@@ -8871,7 +8871,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 buffer @5 :UInt64;
 pMemoryRequirements @6 :List(VkMemoryRequirements);
@@ -8883,7 +8883,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 buffer @5 :UInt64;
 memory @6 :UInt64;
@@ -8896,7 +8896,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 image @5 :UInt64;
 pMemoryRequirements @6 :List(VkMemoryRequirements);
@@ -8908,7 +8908,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 image @5 :UInt64;
 memory @6 :UInt64;
@@ -8921,7 +8921,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 image @5 :UInt64;
 pSparseMemoryRequirementCount @6 :List(UInt64);
@@ -8934,7 +8934,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 format @5 :Int64;
 type @6 :Int64;
@@ -8951,7 +8951,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 queue @4 :UInt64;
 bindInfoCount @5 :UInt64;
 pBindInfo @6 :List(VkBindSparseInfo);
@@ -8964,7 +8964,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkFenceCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -8977,7 +8977,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 fence @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -8989,7 +8989,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 fenceCount @5 :UInt64;
 pFences @6 :List(UInt64);
@@ -9001,7 +9001,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 fence @5 :UInt64;
 }
@@ -9012,7 +9012,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 fenceCount @5 :UInt64;
 pFences @6 :List(UInt64);
@@ -9026,7 +9026,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkSemaphoreCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9039,7 +9039,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 semaphore @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9051,7 +9051,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkEventCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9064,7 +9064,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 event @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9076,7 +9076,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 event @5 :UInt64;
 }
@@ -9087,7 +9087,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 event @5 :UInt64;
 }
@@ -9098,7 +9098,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 event @5 :UInt64;
 }
@@ -9109,7 +9109,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkQueryPoolCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9122,7 +9122,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 queryPool @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9134,7 +9134,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 queryPool @5 :UInt64;
 firstQuery @6 :UInt64;
@@ -9151,7 +9151,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 queryPool @5 :UInt64;
 firstQuery @6 :UInt64;
@@ -9164,7 +9164,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkBufferCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9177,7 +9177,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 buffer @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9189,7 +9189,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkBufferViewCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9202,7 +9202,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 bufferView @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9214,7 +9214,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkImageCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9227,7 +9227,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 image @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9239,7 +9239,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 image @5 :UInt64;
 pSubresource @6 :List(VkImageSubresource);
@@ -9252,7 +9252,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkImageViewCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9265,7 +9265,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 imageView @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9277,7 +9277,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkShaderModuleCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9290,7 +9290,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 shaderModule @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9302,7 +9302,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkPipelineCacheCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9315,7 +9315,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pipelineCache @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9327,7 +9327,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pipelineCache @5 :UInt64;
 pDataSize @6 :List(UInt64);
@@ -9340,7 +9340,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 dstCache @5 :UInt64;
 srcCacheCount @6 :UInt64;
@@ -9353,7 +9353,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pipelineCache @5 :UInt64;
 createInfoCount @6 :UInt64;
@@ -9368,7 +9368,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pipelineCache @5 :UInt64;
 createInfoCount @6 :UInt64;
@@ -9383,7 +9383,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 renderpass @5 :UInt64;
 pMaxWorkgroupSize @6 :List(VkExtent2D);
@@ -9395,7 +9395,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pipeline @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9407,7 +9407,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkPipelineLayoutCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9420,7 +9420,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pipelineLayout @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9432,7 +9432,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkSamplerCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9445,7 +9445,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 sampler @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9457,7 +9457,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkDescriptorSetLayoutCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9470,7 +9470,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 descriptorSetLayout @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9482,7 +9482,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkDescriptorPoolCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9495,7 +9495,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 descriptorPool @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9507,7 +9507,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 descriptorPool @5 :UInt64;
 flags @6 :Int64;
@@ -9519,7 +9519,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pAllocateInfo @5 :List(VkDescriptorSetAllocateInfo);
 pDescriptorSets @6 :List(UInt64);
@@ -9531,7 +9531,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 descriptorPool @5 :UInt64;
 descriptorSetCount @6 :UInt64;
@@ -9544,7 +9544,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 descriptorWriteCount @5 :UInt64;
 pDescriptorWrites @6 :List(VkWriteDescriptorSet);
@@ -9558,7 +9558,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkFramebufferCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9571,7 +9571,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 framebuffer @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9583,7 +9583,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkRenderPassCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9596,7 +9596,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 renderPass @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9608,7 +9608,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 renderPass @5 :UInt64;
 pGranularity @6 :List(VkExtent2D);
@@ -9620,7 +9620,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pRenderingAreaInfo @5 :List(VkRenderingAreaInfoKHR);
 pGranularity @6 :List(VkExtent2D);
@@ -9632,7 +9632,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkCommandPoolCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9645,7 +9645,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 commandPool @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -9657,7 +9657,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 commandPool @5 :UInt64;
 flags @6 :Int64;
@@ -9669,7 +9669,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pAllocateInfo @5 :List(VkCommandBufferAllocateInfo);
 pCommandBuffers @6 :List(UInt64);
@@ -9681,7 +9681,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 commandPool @5 :UInt64;
 commandBufferCount @6 :UInt64;
@@ -9694,7 +9694,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 commandBuffer @4 :UInt64;
 pBeginInfo @5 :List(VkCommandBufferBeginInfo);
 }
@@ -9705,7 +9705,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 commandBuffer @4 :UInt64;
 }
 
@@ -9715,7 +9715,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 commandBuffer @4 :UInt64;
 flags @5 :Int64;
 }
@@ -9726,7 +9726,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pipelineBindPoint @5 :Int64;
 pipeline @6 :UInt64;
@@ -9738,7 +9738,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 aspectMask @5 :Int64;
 }
@@ -9749,7 +9749,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 firstViewport @5 :UInt64;
 viewportCount @6 :UInt64;
@@ -9762,7 +9762,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 firstScissor @5 :UInt64;
 scissorCount @6 :UInt64;
@@ -9775,7 +9775,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 lineWidth @5 :Float32;
 }
@@ -9786,7 +9786,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 depthBiasConstantFactor @5 :Float32;
 depthBiasClamp @6 :Float32;
@@ -9799,7 +9799,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 blendConstants @5 :List(Float32);
 }
@@ -9810,7 +9810,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 minDepthBounds @5 :Float32;
 maxDepthBounds @6 :Float32;
@@ -9822,7 +9822,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 faceMask @5 :Int64;
 compareMask @6 :UInt64;
@@ -9834,7 +9834,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 faceMask @5 :Int64;
 writeMask @6 :UInt64;
@@ -9846,7 +9846,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 faceMask @5 :Int64;
 reference @6 :UInt64;
@@ -9858,7 +9858,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pipelineBindPoint @5 :Int64;
 layout @6 :UInt64;
@@ -9875,7 +9875,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 buffer @5 :UInt64;
 offset @6 :UInt64;
@@ -9888,7 +9888,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 firstBinding @5 :UInt64;
 bindingCount @6 :UInt64;
@@ -9902,7 +9902,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 vertexCount @5 :UInt64;
 instanceCount @6 :UInt64;
@@ -9916,7 +9916,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 indexCount @5 :UInt64;
 instanceCount @6 :UInt64;
@@ -9931,7 +9931,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 drawCount @5 :UInt64;
 pVertexInfo @6 :List(VkMultiDrawInfoEXT);
@@ -9946,7 +9946,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 drawCount @5 :UInt64;
 pIndexInfo @6 :List(VkMultiDrawIndexedInfoEXT);
@@ -9962,7 +9962,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 buffer @5 :UInt64;
 offset @6 :UInt64;
@@ -9976,7 +9976,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 buffer @5 :UInt64;
 offset @6 :UInt64;
@@ -9990,7 +9990,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 groupCountX @5 :UInt64;
 groupCountY @6 :UInt64;
@@ -10003,7 +10003,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 buffer @5 :UInt64;
 offset @6 :UInt64;
@@ -10015,7 +10015,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 }
 
@@ -10025,7 +10025,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 groupCountX @5 :UInt64;
 groupCountY @6 :UInt64;
@@ -10038,7 +10038,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 buffer @5 :UInt64;
 offset @6 :UInt64;
@@ -10050,7 +10050,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pipelineBindPoint @5 :Int64;
 pipeline @6 :UInt64;
@@ -10062,7 +10062,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 srcBuffer @5 :UInt64;
 dstBuffer @6 :UInt64;
@@ -10076,7 +10076,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 srcImage @5 :UInt64;
 srcImageLayout @6 :Int64;
@@ -10092,7 +10092,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 srcImage @5 :UInt64;
 srcImageLayout @6 :Int64;
@@ -10109,7 +10109,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 srcBuffer @5 :UInt64;
 dstImage @6 :UInt64;
@@ -10124,7 +10124,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 srcImage @5 :UInt64;
 srcImageLayout @6 :Int64;
@@ -10139,7 +10139,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 copyBufferAddress @5 :UInt64;
 copyCount @6 :UInt64;
@@ -10152,7 +10152,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 copyBufferAddress @5 :UInt64;
 copyCount @6 :UInt64;
@@ -10168,7 +10168,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 dstBuffer @5 :UInt64;
 dstOffset @6 :UInt64;
@@ -10182,7 +10182,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 dstBuffer @5 :UInt64;
 dstOffset @6 :UInt64;
@@ -10196,7 +10196,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 image @5 :UInt64;
 imageLayout @6 :Int64;
@@ -10211,7 +10211,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 image @5 :UInt64;
 imageLayout @6 :Int64;
@@ -10226,7 +10226,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 attachmentCount @5 :UInt64;
 pAttachments @6 :List(VkClearAttachment);
@@ -10240,7 +10240,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 srcImage @5 :UInt64;
 srcImageLayout @6 :Int64;
@@ -10256,7 +10256,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 event @5 :UInt64;
 stageMask @6 :Int64;
@@ -10268,7 +10268,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 event @5 :UInt64;
 stageMask @6 :Int64;
@@ -10280,7 +10280,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 eventCount @5 :UInt64;
 pEvents @6 :List(UInt64);
@@ -10300,7 +10300,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 srcStageMask @5 :Int64;
 dstStageMask @6 :Int64;
@@ -10319,7 +10319,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 queryPool @5 :UInt64;
 query @6 :UInt64;
@@ -10332,7 +10332,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 queryPool @5 :UInt64;
 query @6 :UInt64;
@@ -10344,7 +10344,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pConditionalRenderingBegin @5 :List(VkConditionalRenderingBeginInfoEXT);
 }
@@ -10355,7 +10355,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 }
 
@@ -10365,7 +10365,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 queryPool @5 :UInt64;
 firstQuery @6 :UInt64;
@@ -10378,7 +10378,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pipelineStage @5 :Int64;
 queryPool @6 :UInt64;
@@ -10391,7 +10391,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 queryPool @5 :UInt64;
 firstQuery @6 :UInt64;
@@ -10408,7 +10408,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 layout @5 :UInt64;
 stageFlags @6 :Int64;
@@ -10423,7 +10423,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pRenderPassBegin @5 :List(VkRenderPassBeginInfo);
 contents @6 :Int64;
@@ -10435,7 +10435,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 contents @5 :Int64;
 }
@@ -10446,7 +10446,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 }
 
@@ -10456,7 +10456,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 commandBufferCount @5 :UInt64;
 pCommandBuffers @6 :List(UInt64);
@@ -10468,7 +10468,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pCreateInfo @5 :List(VkAndroidSurfaceCreateInfoKHR);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -10481,7 +10481,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pPropertyCount @5 :List(UInt64);
 pProperties @6 :List(VkDisplayPropertiesKHR);
@@ -10493,7 +10493,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pPropertyCount @5 :List(UInt64);
 pProperties @6 :List(VkDisplayPlanePropertiesKHR);
@@ -10505,7 +10505,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 planeIndex @5 :UInt64;
 pDisplayCount @6 :List(UInt64);
@@ -10518,7 +10518,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 display @5 :UInt64;
 pPropertyCount @6 :List(UInt64);
@@ -10531,7 +10531,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 display @5 :UInt64;
 pCreateInfo @6 :List(VkDisplayModeCreateInfoKHR);
@@ -10545,7 +10545,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 mode @5 :UInt64;
 planeIndex @6 :UInt64;
@@ -10558,7 +10558,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pCreateInfo @5 :List(VkDisplaySurfaceCreateInfoKHR);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -10571,7 +10571,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 swapchainCount @5 :UInt64;
 pCreateInfos @6 :List(VkSwapchainCreateInfoKHR);
@@ -10585,7 +10585,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 instance @4 :UInt64;
 surface @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -10597,7 +10597,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 queueFamilyIndex @5 :UInt64;
 surface @6 :UInt64;
@@ -10610,7 +10610,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 surface @5 :UInt64;
 pSurfaceCapabilities @6 :List(VkSurfaceCapabilitiesKHR);
@@ -10622,7 +10622,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 surface @5 :UInt64;
 pSurfaceFormatCount @6 :List(UInt64);
@@ -10635,7 +10635,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 surface @5 :UInt64;
 pPresentModeCount @6 :List(UInt64);
@@ -10648,7 +10648,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkSwapchainCreateInfoKHR);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -10661,7 +10661,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 swapchain @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -10673,7 +10673,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 swapchain @5 :UInt64;
 pSwapchainImageCount @6 :List(UInt64);
@@ -10686,7 +10686,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 swapchain @5 :UInt64;
 timeout @6 :UInt64;
@@ -10701,7 +10701,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 queue @4 :UInt64;
 pPresentInfo @5 :List(VkPresentInfoKHR);
 }
@@ -10712,7 +10712,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pCreateInfo @5 :List(VkViSurfaceCreateInfoNN);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -10725,7 +10725,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pCreateInfo @5 :List(VkWaylandSurfaceCreateInfoKHR);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -10738,7 +10738,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 queueFamilyIndex @5 :UInt64;
 display @6 :List(UInt64);
@@ -10750,7 +10750,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pCreateInfo @5 :List(VkWin32SurfaceCreateInfoKHR);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -10763,7 +10763,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 queueFamilyIndex @5 :UInt64;
 }
@@ -10774,7 +10774,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pCreateInfo @5 :List(VkXlibSurfaceCreateInfoKHR);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -10787,7 +10787,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 queueFamilyIndex @5 :UInt64;
 dpy @6 :List(UInt64);
@@ -10800,7 +10800,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pCreateInfo @5 :List(VkXcbSurfaceCreateInfoKHR);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -10813,7 +10813,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 queueFamilyIndex @5 :UInt64;
 connection @6 :List(UInt64);
@@ -10826,7 +10826,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pCreateInfo @5 :List(VkDirectFBSurfaceCreateInfoEXT);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -10839,7 +10839,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 queueFamilyIndex @5 :UInt64;
 dfb @6 :List(UInt64);
@@ -10851,7 +10851,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pCreateInfo @5 :List(VkImagePipeSurfaceCreateInfoFUCHSIA);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -10864,7 +10864,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pCreateInfo @5 :List(VkStreamDescriptorSurfaceCreateInfoGGP);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -10877,7 +10877,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pCreateInfo @5 :List(VkScreenSurfaceCreateInfoQNX);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -10890,7 +10890,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 queueFamilyIndex @5 :UInt64;
 window @6 :List(UInt64);
@@ -10902,7 +10902,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pCreateInfo @5 :List(VkDebugReportCallbackCreateInfoEXT);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -10915,7 +10915,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 instance @4 :UInt64;
 callback @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -10927,7 +10927,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 instance @4 :UInt64;
 flags @5 :Int64;
 objectType @6 :Int64;
@@ -10944,7 +10944,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pNameInfo @5 :List(VkDebugMarkerObjectNameInfoEXT);
 }
@@ -10955,7 +10955,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pTagInfo @5 :List(VkDebugMarkerObjectTagInfoEXT);
 }
@@ -10966,7 +10966,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pMarkerInfo @5 :List(VkDebugMarkerMarkerInfoEXT);
 }
@@ -10977,7 +10977,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 }
 
@@ -10987,7 +10987,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pMarkerInfo @5 :List(VkDebugMarkerMarkerInfoEXT);
 }
@@ -10998,7 +10998,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 format @5 :Int64;
 type @6 :Int64;
@@ -11015,7 +11015,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 memory @5 :UInt64;
 handleType @6 :Int64;
@@ -11028,7 +11028,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 isPreprocessed @5 :UInt64;
 pGeneratedCommandsInfo @6 :List(VkGeneratedCommandsInfoNV);
@@ -11040,7 +11040,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pGeneratedCommandsInfo @5 :List(VkGeneratedCommandsInfoNV);
 }
@@ -11051,7 +11051,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pipelineBindPoint @5 :Int64;
 pipeline @6 :UInt64;
@@ -11064,7 +11064,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pInfo @5 :List(VkGeneratedCommandsMemoryRequirementsInfoNV);
 pMemoryRequirements @6 :List(VkMemoryRequirements2);
@@ -11076,7 +11076,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkIndirectCommandsLayoutCreateInfoNV);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -11089,7 +11089,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 indirectCommandsLayout @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -11101,7 +11101,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 pFeatures @5 :List(VkPhysicalDeviceFeatures2);
 }
@@ -11112,7 +11112,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 pProperties @5 :List(VkPhysicalDeviceProperties2);
 }
@@ -11123,7 +11123,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 format @5 :Int64;
 pFormatProperties @6 :List(VkFormatProperties2);
@@ -11135,7 +11135,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pImageFormatInfo @5 :List(VkPhysicalDeviceImageFormatInfo2);
 pImageFormatProperties @6 :List(VkImageFormatProperties2);
@@ -11147,7 +11147,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 pQueueFamilyPropertyCount @5 :List(UInt64);
 pQueueFamilyProperties @6 :List(VkQueueFamilyProperties2);
@@ -11159,7 +11159,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 pMemoryProperties @5 :List(VkPhysicalDeviceMemoryProperties2);
 }
@@ -11170,7 +11170,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 pFormatInfo @5 :List(VkPhysicalDeviceSparseImageFormatInfo2);
 pPropertyCount @6 :List(UInt64);
@@ -11183,7 +11183,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pipelineBindPoint @5 :Int64;
 layout @6 :UInt64;
@@ -11198,7 +11198,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 commandPool @5 :UInt64;
 flags @6 :Int64;
@@ -11210,7 +11210,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 pExternalBufferInfo @5 :List(VkPhysicalDeviceExternalBufferInfo);
 pExternalBufferProperties @6 :List(VkExternalBufferProperties);
@@ -11222,7 +11222,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pGetWin32HandleInfo @5 :List(VkMemoryGetWin32HandleInfoKHR);
 pHandle @6 :List(UInt64);
@@ -11234,7 +11234,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 handleType @5 :Int64;
 handle @6 :UInt64;
@@ -11247,7 +11247,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pGetFdInfo @5 :List(VkMemoryGetFdInfoKHR);
 pFd @6 :List(Int64);
@@ -11259,7 +11259,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 handleType @5 :Int64;
 fd @6 :Int64;
@@ -11272,7 +11272,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pGetZirconHandleInfo @5 :List(VkMemoryGetZirconHandleInfoFUCHSIA);
 pZirconHandle @6 :List(UInt64);
@@ -11284,7 +11284,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 handleType @5 :Int64;
 zirconHandle @6 :UInt64;
@@ -11297,7 +11297,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pMemoryGetRemoteAddressInfo @5 :List(VkMemoryGetRemoteAddressInfoNV);
 pAddress @6 :List(List(UInt64));
@@ -11309,7 +11309,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pGetSciBufInfo @5 :List(VkMemoryGetSciBufInfoNV);
 pHandle @6 :List(UInt64);
@@ -11321,7 +11321,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 handleType @5 :Int64;
 handle @6 :UInt64;
@@ -11334,7 +11334,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pAttributes @5 :UInt64;
 }
@@ -11345,7 +11345,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 pExternalSemaphoreInfo @5 :List(VkPhysicalDeviceExternalSemaphoreInfo);
 pExternalSemaphoreProperties @6 :List(VkExternalSemaphoreProperties);
@@ -11357,7 +11357,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pGetWin32HandleInfo @5 :List(VkSemaphoreGetWin32HandleInfoKHR);
 pHandle @6 :List(UInt64);
@@ -11369,7 +11369,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pImportSemaphoreWin32HandleInfo @5 :List(VkImportSemaphoreWin32HandleInfoKHR);
 }
@@ -11380,7 +11380,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pGetFdInfo @5 :List(VkSemaphoreGetFdInfoKHR);
 pFd @6 :List(Int64);
@@ -11392,7 +11392,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pImportSemaphoreFdInfo @5 :List(VkImportSemaphoreFdInfoKHR);
 }
@@ -11403,7 +11403,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pGetZirconHandleInfo @5 :List(VkSemaphoreGetZirconHandleInfoFUCHSIA);
 pZirconHandle @6 :List(UInt64);
@@ -11415,7 +11415,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pImportSemaphoreZirconHandleInfo @5 :List(VkImportSemaphoreZirconHandleInfoFUCHSIA);
 }
@@ -11426,7 +11426,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 pExternalFenceInfo @5 :List(VkPhysicalDeviceExternalFenceInfo);
 pExternalFenceProperties @6 :List(VkExternalFenceProperties);
@@ -11438,7 +11438,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pGetWin32HandleInfo @5 :List(VkFenceGetWin32HandleInfoKHR);
 pHandle @6 :List(UInt64);
@@ -11450,7 +11450,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pImportFenceWin32HandleInfo @5 :List(VkImportFenceWin32HandleInfoKHR);
 }
@@ -11461,7 +11461,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pGetFdInfo @5 :List(VkFenceGetFdInfoKHR);
 pFd @6 :List(Int64);
@@ -11473,7 +11473,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pImportFenceFdInfo @5 :List(VkImportFenceFdInfoKHR);
 }
@@ -11484,7 +11484,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pGetSciSyncHandleInfo @5 :List(VkFenceGetSciSyncInfoNV);
 pHandle @6 :List(UInt64);
@@ -11496,7 +11496,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pGetSciSyncHandleInfo @5 :List(VkFenceGetSciSyncInfoNV);
 pHandle @6 :List(UInt64);
@@ -11508,7 +11508,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pImportFenceSciSyncInfo @5 :List(VkImportFenceSciSyncInfoNV);
 }
@@ -11519,7 +11519,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pImportFenceSciSyncInfo @5 :List(VkImportFenceSciSyncInfoNV);
 }
@@ -11530,7 +11530,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pGetSciSyncInfo @5 :List(VkSemaphoreGetSciSyncInfoNV);
 pHandle @6 :List(UInt64);
@@ -11542,7 +11542,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pImportSemaphoreSciSyncInfo @5 :List(VkImportSemaphoreSciSyncInfoNV);
 }
@@ -11553,7 +11553,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pSciSyncAttributesInfo @5 :List(VkSciSyncAttributesInfoNV);
 pAttributes @6 :UInt64;
@@ -11565,7 +11565,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkSemaphoreSciSyncPoolCreateInfoNV);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -11578,7 +11578,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 semaphorePool @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -11590,7 +11590,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 display @5 :UInt64;
 }
@@ -11601,7 +11601,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 dpy @5 :List(UInt64);
 display @6 :UInt64;
@@ -11613,7 +11613,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 dpy @5 :List(UInt64);
 rrOutput @6 :UInt64;
@@ -11626,7 +11626,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 display @5 :UInt64;
 }
@@ -11637,7 +11637,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 deviceRelativeId @5 :UInt64;
 pDisplay @6 :List(UInt64);
@@ -11649,7 +11649,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 display @5 :UInt64;
 pDisplayPowerInfo @6 :List(VkDisplayPowerInfoEXT);
@@ -11661,7 +11661,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pDeviceEventInfo @5 :List(VkDeviceEventInfoEXT);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -11674,7 +11674,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 display @5 :UInt64;
 pDisplayEventInfo @6 :List(VkDisplayEventInfoEXT);
@@ -11688,7 +11688,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 swapchain @5 :UInt64;
 counter @6 :Int64;
@@ -11701,7 +11701,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 surface @5 :UInt64;
 pSurfaceCapabilities @6 :List(VkSurfaceCapabilities2EXT);
@@ -11713,7 +11713,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pPhysicalDeviceGroupCount @5 :List(UInt64);
 pPhysicalDeviceGroupProperties @6 :List(VkPhysicalDeviceGroupProperties);
@@ -11725,7 +11725,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 heapIndex @5 :UInt64;
 localDeviceIndex @6 :UInt64;
@@ -11739,7 +11739,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 bindInfoCount @5 :UInt64;
 pBindInfos @6 :List(VkBindBufferMemoryInfo);
@@ -11751,7 +11751,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 bindInfoCount @5 :UInt64;
 pBindInfos @6 :List(VkBindImageMemoryInfo);
@@ -11763,7 +11763,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 deviceMask @5 :UInt64;
 }
@@ -11774,7 +11774,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pDeviceGroupPresentCapabilities @5 :List(VkDeviceGroupPresentCapabilitiesKHR);
 }
@@ -11785,7 +11785,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 surface @5 :UInt64;
 pModes @6 :List(Int64);
@@ -11797,7 +11797,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pAcquireInfo @5 :List(VkAcquireNextImageInfoKHR);
 pImageIndex @6 :List(UInt64);
@@ -11809,7 +11809,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 baseGroupX @5 :UInt64;
 baseGroupY @6 :UInt64;
@@ -11825,7 +11825,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 surface @5 :UInt64;
 pRectCount @6 :List(UInt64);
@@ -11838,7 +11838,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkDescriptorUpdateTemplateCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -11851,7 +11851,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 descriptorUpdateTemplate @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -11863,7 +11863,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 descriptorSet @5 :UInt64;
 descriptorUpdateTemplate @6 :UInt64;
@@ -11876,7 +11876,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 descriptorUpdateTemplate @5 :UInt64;
 layout @6 :UInt64;
@@ -11890,7 +11890,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 swapchainCount @5 :UInt64;
 pSwapchains @6 :List(UInt64);
@@ -11903,7 +11903,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 swapchain @5 :UInt64;
 }
@@ -11914,7 +11914,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 swapchain @5 :UInt64;
 pDisplayTimingProperties @6 :List(VkRefreshCycleDurationGOOGLE);
@@ -11926,7 +11926,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 swapchain @5 :UInt64;
 pPresentationTimingCount @6 :List(UInt64);
@@ -11939,7 +11939,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pCreateInfo @5 :List(VkIOSSurfaceCreateInfoMVK);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -11952,7 +11952,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pCreateInfo @5 :List(VkMacOSSurfaceCreateInfoMVK);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -11965,7 +11965,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pCreateInfo @5 :List(VkMetalSurfaceCreateInfoEXT);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -11978,7 +11978,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 firstViewport @5 :UInt64;
 viewportCount @6 :UInt64;
@@ -11991,7 +11991,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 firstDiscardRectangle @5 :UInt64;
 discardRectangleCount @6 :UInt64;
@@ -12004,7 +12004,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 discardRectangleEnable @5 :UInt64;
 }
@@ -12015,7 +12015,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 discardRectangleMode @5 :Int64;
 }
@@ -12026,7 +12026,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pSampleLocationsInfo @5 :List(VkSampleLocationsInfoEXT);
 }
@@ -12037,7 +12037,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 samples @5 :Int64;
 pMultisampleProperties @6 :List(VkMultisamplePropertiesEXT);
@@ -12049,7 +12049,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pSurfaceInfo @5 :List(VkPhysicalDeviceSurfaceInfo2KHR);
 pSurfaceCapabilities @6 :List(VkSurfaceCapabilities2KHR);
@@ -12061,7 +12061,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pSurfaceInfo @5 :List(VkPhysicalDeviceSurfaceInfo2KHR);
 pSurfaceFormatCount @6 :List(UInt64);
@@ -12074,7 +12074,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pPropertyCount @5 :List(UInt64);
 pProperties @6 :List(VkDisplayProperties2KHR);
@@ -12086,7 +12086,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pPropertyCount @5 :List(UInt64);
 pProperties @6 :List(VkDisplayPlaneProperties2KHR);
@@ -12098,7 +12098,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 display @5 :UInt64;
 pPropertyCount @6 :List(UInt64);
@@ -12111,7 +12111,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pDisplayPlaneInfo @5 :List(VkDisplayPlaneInfo2KHR);
 pCapabilities @6 :List(VkDisplayPlaneCapabilities2KHR);
@@ -12123,7 +12123,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pInfo @5 :List(VkBufferMemoryRequirementsInfo2);
 pMemoryRequirements @6 :List(VkMemoryRequirements2);
@@ -12135,7 +12135,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pInfo @5 :List(VkImageMemoryRequirementsInfo2);
 pMemoryRequirements @6 :List(VkMemoryRequirements2);
@@ -12147,7 +12147,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pInfo @5 :List(VkImageSparseMemoryRequirementsInfo2);
 pSparseMemoryRequirementCount @6 :List(UInt64);
@@ -12160,7 +12160,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pInfo @5 :List(VkDeviceBufferMemoryRequirements);
 pMemoryRequirements @6 :List(VkMemoryRequirements2);
@@ -12172,7 +12172,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pInfo @5 :List(VkDeviceImageMemoryRequirements);
 pMemoryRequirements @6 :List(VkMemoryRequirements2);
@@ -12184,7 +12184,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pInfo @5 :List(VkDeviceImageMemoryRequirements);
 pSparseMemoryRequirementCount @6 :List(UInt64);
@@ -12197,7 +12197,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkSamplerYcbcrConversionCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -12210,7 +12210,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 ycbcrConversion @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -12222,7 +12222,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pQueueInfo @5 :List(VkDeviceQueueInfo2);
 pQueue @6 :List(UInt64);
@@ -12234,7 +12234,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkValidationCacheCreateInfoEXT);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -12247,7 +12247,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 validationCache @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -12259,7 +12259,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 validationCache @5 :UInt64;
 pDataSize @6 :List(UInt64);
@@ -12272,7 +12272,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 dstCache @5 :UInt64;
 srcCacheCount @6 :UInt64;
@@ -12285,7 +12285,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkDescriptorSetLayoutCreateInfo);
 pSupport @6 :List(VkDescriptorSetLayoutSupport);
@@ -12297,7 +12297,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 format @5 :Int64;
 imageUsage @6 :Int64;
@@ -12310,7 +12310,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 format @5 :Int64;
 imageUsage @6 :Int64;
@@ -12325,7 +12325,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 image @5 :UInt64;
 nativeFenceFd @6 :Int64;
@@ -12339,7 +12339,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 queue @4 :UInt64;
 waitSemaphoreCount @5 :UInt64;
 pWaitSemaphores @6 :List(UInt64);
@@ -12353,7 +12353,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pipeline @5 :UInt64;
 shaderStage @6 :Int64;
@@ -12368,7 +12368,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 swapChain @5 :UInt64;
 localDimmingEnable @6 :UInt64;
@@ -12380,7 +12380,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pTimeDomainCount @5 :List(UInt64);
 pTimeDomains @6 :List(Int64);
@@ -12392,7 +12392,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 timestampCount @5 :UInt64;
 pTimestampInfos @6 :List(VkCalibratedTimestampInfoEXT);
@@ -12406,7 +12406,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pNameInfo @5 :List(VkDebugUtilsObjectNameInfoEXT);
 }
@@ -12417,7 +12417,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pTagInfo @5 :List(VkDebugUtilsObjectTagInfoEXT);
 }
@@ -12428,7 +12428,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 queue @4 :UInt64;
 pLabelInfo @5 :List(VkDebugUtilsLabelEXT);
 }
@@ -12439,7 +12439,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 queue @4 :UInt64;
 }
 
@@ -12449,7 +12449,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 queue @4 :UInt64;
 pLabelInfo @5 :List(VkDebugUtilsLabelEXT);
 }
@@ -12460,7 +12460,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pLabelInfo @5 :List(VkDebugUtilsLabelEXT);
 }
@@ -12471,7 +12471,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 }
 
@@ -12481,7 +12481,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pLabelInfo @5 :List(VkDebugUtilsLabelEXT);
 }
@@ -12492,7 +12492,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pCreateInfo @5 :List(VkDebugUtilsMessengerCreateInfoEXT);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -12505,7 +12505,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 instance @4 :UInt64;
 messenger @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -12517,7 +12517,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 instance @4 :UInt64;
 messageSeverity @5 :Int64;
 messageTypes @6 :Int64;
@@ -12530,7 +12530,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 handleType @5 :Int64;
 pHostPointer @6 :List(UInt64);
@@ -12543,7 +12543,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pipelineStage @5 :Int64;
 dstBuffer @6 :UInt64;
@@ -12557,7 +12557,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkRenderPassCreateInfo2);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -12570,7 +12570,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pRenderPassBegin @5 :List(VkRenderPassBeginInfo);
 pSubpassBeginInfo @6 :List(VkSubpassBeginInfo);
@@ -12582,7 +12582,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pSubpassBeginInfo @5 :List(VkSubpassBeginInfo);
 pSubpassEndInfo @6 :List(VkSubpassEndInfo);
@@ -12594,7 +12594,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pSubpassEndInfo @5 :List(VkSubpassEndInfo);
 }
@@ -12605,7 +12605,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 semaphore @5 :UInt64;
 pValue @6 :List(UInt64);
@@ -12617,7 +12617,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pWaitInfo @5 :List(VkSemaphoreWaitInfo);
 timeout @6 :UInt64;
@@ -12629,7 +12629,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pSignalInfo @5 :List(VkSemaphoreSignalInfo);
 }
@@ -12640,7 +12640,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 buffer @5 :List(UInt64);
 pProperties @6 :List(VkAndroidHardwareBufferPropertiesANDROID);
@@ -12652,7 +12652,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pInfo @5 :List(VkMemoryGetAndroidHardwareBufferInfoANDROID);
 pBuffer @6 :List(List(UInt64));
@@ -12664,7 +12664,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 buffer @5 :UInt64;
 offset @6 :UInt64;
@@ -12680,7 +12680,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 buffer @5 :UInt64;
 offset @6 :UInt64;
@@ -12696,7 +12696,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pCheckpointMarker @5 :List(UInt64);
 }
@@ -12707,7 +12707,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 queue @4 :UInt64;
 pCheckpointDataCount @5 :List(UInt64);
 pCheckpointData @6 :List(VkCheckpointDataNV);
@@ -12719,7 +12719,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 firstBinding @5 :UInt64;
 bindingCount @6 :UInt64;
@@ -12734,7 +12734,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 firstCounterBuffer @5 :UInt64;
 counterBufferCount @6 :UInt64;
@@ -12748,7 +12748,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 firstCounterBuffer @5 :UInt64;
 counterBufferCount @6 :UInt64;
@@ -12762,7 +12762,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 queryPool @5 :UInt64;
 query @6 :UInt64;
@@ -12776,7 +12776,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 queryPool @5 :UInt64;
 query @6 :UInt64;
@@ -12789,7 +12789,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 instanceCount @5 :UInt64;
 firstInstance @6 :UInt64;
@@ -12805,7 +12805,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 firstExclusiveScissor @5 :UInt64;
 exclusiveScissorCount @6 :UInt64;
@@ -12818,7 +12818,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 firstExclusiveScissor @5 :UInt64;
 exclusiveScissorCount @6 :UInt64;
@@ -12831,7 +12831,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 imageView @5 :UInt64;
 imageLayout @6 :Int64;
@@ -12843,7 +12843,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 firstViewport @5 :UInt64;
 viewportCount @6 :UInt64;
@@ -12856,7 +12856,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 sampleOrderType @5 :Int64;
 customSampleOrderCount @6 :UInt64;
@@ -12869,7 +12869,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 taskCount @5 :UInt64;
 firstTask @6 :UInt64;
@@ -12881,7 +12881,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 buffer @5 :UInt64;
 offset @6 :UInt64;
@@ -12895,7 +12895,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 buffer @5 :UInt64;
 offset @6 :UInt64;
@@ -12911,7 +12911,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 groupCountX @5 :UInt64;
 groupCountY @6 :UInt64;
@@ -12924,7 +12924,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 buffer @5 :UInt64;
 offset @6 :UInt64;
@@ -12938,7 +12938,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 buffer @5 :UInt64;
 offset @6 :UInt64;
@@ -12954,7 +12954,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pipeline @5 :UInt64;
 shader @6 :UInt64;
@@ -12966,7 +12966,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkAccelerationStructureCreateInfoNV);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -12979,7 +12979,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 imageView @5 :UInt64;
 imageLayout @6 :Int64;
@@ -12991,7 +12991,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 accelerationStructure @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -13003,7 +13003,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 accelerationStructure @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -13015,7 +13015,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pInfo @5 :List(VkAccelerationStructureMemoryRequirementsInfoNV);
 pMemoryRequirements @6 :List(VkMemoryRequirements2);
@@ -13027,7 +13027,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 bindInfoCount @5 :UInt64;
 pBindInfos @6 :List(VkBindAccelerationStructureMemoryInfoNV);
@@ -13039,7 +13039,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 dst @5 :UInt64;
 src @6 :UInt64;
@@ -13052,7 +13052,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pInfo @5 :List(VkCopyAccelerationStructureInfoKHR);
 }
@@ -13063,7 +13063,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 deferredOperation @5 :UInt64;
 pInfo @6 :List(VkCopyAccelerationStructureInfoKHR);
@@ -13075,7 +13075,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pInfo @5 :List(VkCopyAccelerationStructureToMemoryInfoKHR);
 }
@@ -13086,7 +13086,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 deferredOperation @5 :UInt64;
 pInfo @6 :List(VkCopyAccelerationStructureToMemoryInfoKHR);
@@ -13098,7 +13098,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pInfo @5 :List(VkCopyMemoryToAccelerationStructureInfoKHR);
 }
@@ -13109,7 +13109,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 deferredOperation @5 :UInt64;
 pInfo @6 :List(VkCopyMemoryToAccelerationStructureInfoKHR);
@@ -13121,7 +13121,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 accelerationStructureCount @5 :UInt64;
 pAccelerationStructures @6 :List(UInt64);
@@ -13136,7 +13136,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 accelerationStructureCount @5 :UInt64;
 pAccelerationStructures @6 :List(UInt64);
@@ -13151,7 +13151,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pInfo @5 :List(VkAccelerationStructureInfoNV);
 instanceData @6 :UInt64;
@@ -13169,7 +13169,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 accelerationStructureCount @5 :UInt64;
 pAccelerationStructures @6 :List(UInt64);
@@ -13185,7 +13185,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pRaygenShaderBindingTable @5 :List(VkStridedDeviceAddressRegionKHR);
 pMissShaderBindingTable @6 :List(VkStridedDeviceAddressRegionKHR);
@@ -13202,7 +13202,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 raygenShaderBindingTableBuffer @5 :UInt64;
 raygenShaderBindingOffset @6 :UInt64;
@@ -13226,7 +13226,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pipeline @5 :UInt64;
 firstGroup @6 :UInt64;
@@ -13241,7 +13241,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pipeline @5 :UInt64;
 firstGroup @6 :UInt64;
@@ -13256,7 +13256,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 accelerationStructure @5 :UInt64;
 dataSize @6 :UInt64;
@@ -13269,7 +13269,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pipelineCache @5 :UInt64;
 createInfoCount @6 :UInt64;
@@ -13284,7 +13284,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 deferredOperation @5 :UInt64;
 pipelineCache @6 :UInt64;
@@ -13300,7 +13300,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pPropertyCount @5 :List(UInt64);
 pProperties @6 :List(VkCooperativeMatrixPropertiesNV);
@@ -13312,7 +13312,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pRaygenShaderBindingTable @5 :List(VkStridedDeviceAddressRegionKHR);
 pMissShaderBindingTable @6 :List(VkStridedDeviceAddressRegionKHR);
@@ -13327,7 +13327,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 indirectDeviceAddress @5 :UInt64;
 }
@@ -13338,7 +13338,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pVersionInfo @5 :List(VkAccelerationStructureVersionInfoKHR);
 pCompatibility @6 :List(Int64);
@@ -13350,7 +13350,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pipeline @5 :UInt64;
 group @6 :UInt64;
@@ -13363,7 +13363,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pipelineStackSize @5 :UInt64;
 }
@@ -13374,7 +13374,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pInfo @5 :List(VkImageViewHandleInfoNVX);
 }
@@ -13385,7 +13385,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 imageView @5 :UInt64;
 pProperties @6 :List(VkImageViewAddressPropertiesNVX);
@@ -13397,7 +13397,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pSurfaceInfo @5 :List(VkPhysicalDeviceSurfaceInfo2KHR);
 pPresentModeCount @6 :List(UInt64);
@@ -13410,7 +13410,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pSurfaceInfo @5 :List(VkPhysicalDeviceSurfaceInfo2KHR);
 pModes @6 :List(Int64);
@@ -13422,7 +13422,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 swapchain @5 :UInt64;
 }
@@ -13433,7 +13433,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 swapchain @5 :UInt64;
 }
@@ -13444,7 +13444,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 queueFamilyIndex @5 :UInt64;
 pCounterCount @6 :List(UInt64);
@@ -13458,7 +13458,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 physicalDevice @4 :UInt64;
 pPerformanceQueryCreateInfo @5 :List(VkQueryPoolPerformanceCreateInfoKHR);
 pNumPasses @6 :List(UInt64);
@@ -13470,7 +13470,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pInfo @5 :List(VkAcquireProfilingLockInfoKHR);
 }
@@ -13481,7 +13481,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 }
 
@@ -13491,7 +13491,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 image @5 :UInt64;
 pProperties @6 :List(VkImageDrmFormatModifierPropertiesEXT);
@@ -13503,7 +13503,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pInfo @5 :List(VkBufferDeviceAddressInfo);
 }
@@ -13514,7 +13514,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pInfo @5 :List(VkBufferDeviceAddressInfo);
 }
@@ -13525,7 +13525,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 instance @4 :UInt64;
 pCreateInfo @5 :List(VkHeadlessSurfaceCreateInfoEXT);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -13538,7 +13538,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pCombinationCount @5 :List(UInt64);
 pCombinations @6 :List(VkFramebufferMixedSamplesCombinationNV);
@@ -13550,7 +13550,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pInitializeInfo @5 :List(VkInitializePerformanceApiInfoINTEL);
 }
@@ -13561,7 +13561,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 }
 
@@ -13571,7 +13571,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 commandBuffer @4 :UInt64;
 pMarkerInfo @5 :List(VkPerformanceMarkerInfoINTEL);
 }
@@ -13582,7 +13582,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 commandBuffer @4 :UInt64;
 pMarkerInfo @5 :List(VkPerformanceStreamMarkerInfoINTEL);
 }
@@ -13593,7 +13593,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 commandBuffer @4 :UInt64;
 pOverrideInfo @5 :List(VkPerformanceOverrideInfoINTEL);
 }
@@ -13604,7 +13604,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pAcquireInfo @5 :List(VkPerformanceConfigurationAcquireInfoINTEL);
 pConfiguration @6 :List(UInt64);
@@ -13616,7 +13616,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 configuration @5 :UInt64;
 }
@@ -13627,7 +13627,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 queue @4 :UInt64;
 configuration @5 :UInt64;
 }
@@ -13638,7 +13638,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 parameter @5 :Int64;
 pValue @6 :List(VkPerformanceValueINTEL);
@@ -13650,7 +13650,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pInfo @5 :List(VkDeviceMemoryOpaqueCaptureAddressInfo);
 }
@@ -13661,7 +13661,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pPipelineInfo @5 :List(VkPipelineInfoKHR);
 pExecutableCount @6 :List(UInt64);
@@ -13674,7 +13674,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pExecutableInfo @5 :List(VkPipelineExecutableInfoKHR);
 pStatisticCount @6 :List(UInt64);
@@ -13687,7 +13687,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pExecutableInfo @5 :List(VkPipelineExecutableInfoKHR);
 pInternalRepresentationCount @6 :List(UInt64);
@@ -13700,7 +13700,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 lineStippleFactor @5 :UInt64;
 lineStipplePattern @6 :UInt64;
@@ -13712,7 +13712,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 faultQueryBehavior @5 :Int64;
 pUnrecordedFaults @6 :List(UInt64);
@@ -13726,7 +13726,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pToolCount @5 :List(UInt64);
 pToolProperties @6 :List(VkPhysicalDeviceToolProperties);
@@ -13738,7 +13738,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkAccelerationStructureCreateInfoKHR);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -13751,7 +13751,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 infoCount @5 :UInt64;
 pInfos @6 :List(VkAccelerationStructureBuildGeometryInfoKHR);
@@ -13764,7 +13764,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 infoCount @5 :UInt64;
 pInfos @6 :List(VkAccelerationStructureBuildGeometryInfoKHR);
@@ -13779,7 +13779,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 deferredOperation @5 :UInt64;
 infoCount @6 :UInt64;
@@ -13793,7 +13793,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pInfo @5 :List(VkAccelerationStructureDeviceAddressInfoKHR);
 }
@@ -13804,7 +13804,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pAllocator @5 :List(VkAllocationCallbacks);
 pDeferredOperation @6 :List(UInt64);
@@ -13816,7 +13816,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 operation @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -13828,7 +13828,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 operation @5 :UInt64;
 }
@@ -13839,7 +13839,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 operation @5 :UInt64;
 }
@@ -13850,7 +13850,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 operation @5 :UInt64;
 }
@@ -13861,7 +13861,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkComputePipelineCreateInfo);
 pMemoryRequirements @6 :List(VkMemoryRequirements2);
@@ -13873,7 +13873,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pInfo @5 :List(VkPipelineIndirectDeviceAddressInfoNV);
 }
@@ -13884,7 +13884,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 cullMode @5 :Int64;
 }
@@ -13895,7 +13895,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 frontFace @5 :Int64;
 }
@@ -13906,7 +13906,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 primitiveTopology @5 :Int64;
 }
@@ -13917,7 +13917,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 viewportCount @5 :UInt64;
 pViewports @6 :List(VkViewport);
@@ -13929,7 +13929,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 scissorCount @5 :UInt64;
 pScissors @6 :List(VkRect2D);
@@ -13941,7 +13941,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 buffer @5 :UInt64;
 offset @6 :UInt64;
@@ -13955,7 +13955,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 firstBinding @5 :UInt64;
 bindingCount @6 :UInt64;
@@ -13971,7 +13971,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 depthTestEnable @5 :UInt64;
 }
@@ -13982,7 +13982,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 depthWriteEnable @5 :UInt64;
 }
@@ -13993,7 +13993,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 depthCompareOp @5 :Int64;
 }
@@ -14004,7 +14004,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 depthBoundsTestEnable @5 :UInt64;
 }
@@ -14015,7 +14015,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 stencilTestEnable @5 :UInt64;
 }
@@ -14026,7 +14026,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 faceMask @5 :Int64;
 failOp @6 :Int64;
@@ -14041,7 +14041,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 patchControlPoints @5 :UInt64;
 }
@@ -14052,7 +14052,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 rasterizerDiscardEnable @5 :UInt64;
 }
@@ -14063,7 +14063,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 depthBiasEnable @5 :UInt64;
 }
@@ -14074,7 +14074,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 logicOp @5 :Int64;
 }
@@ -14085,7 +14085,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 primitiveRestartEnable @5 :UInt64;
 }
@@ -14096,7 +14096,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 domainOrigin @5 :Int64;
 }
@@ -14107,7 +14107,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 depthClampEnable @5 :UInt64;
 }
@@ -14118,7 +14118,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 polygonMode @5 :Int64;
 }
@@ -14129,7 +14129,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 rasterizationSamples @5 :Int64;
 }
@@ -14140,7 +14140,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 samples @5 :Int64;
 pSampleMask @6 :List(UInt64);
@@ -14152,7 +14152,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 alphaToCoverageEnable @5 :UInt64;
 }
@@ -14163,7 +14163,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 alphaToOneEnable @5 :UInt64;
 }
@@ -14174,7 +14174,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 logicOpEnable @5 :UInt64;
 }
@@ -14185,7 +14185,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 firstAttachment @5 :UInt64;
 attachmentCount @6 :UInt64;
@@ -14198,7 +14198,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 firstAttachment @5 :UInt64;
 attachmentCount @6 :UInt64;
@@ -14211,7 +14211,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 firstAttachment @5 :UInt64;
 attachmentCount @6 :UInt64;
@@ -14224,7 +14224,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 rasterizationStream @5 :UInt64;
 }
@@ -14235,7 +14235,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 conservativeRasterizationMode @5 :Int64;
 }
@@ -14246,7 +14246,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 extraPrimitiveOverestimationSize @5 :Float32;
 }
@@ -14257,7 +14257,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 depthClipEnable @5 :UInt64;
 }
@@ -14268,7 +14268,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 sampleLocationsEnable @5 :UInt64;
 }
@@ -14279,7 +14279,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 firstAttachment @5 :UInt64;
 attachmentCount @6 :UInt64;
@@ -14292,7 +14292,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 provokingVertexMode @5 :Int64;
 }
@@ -14303,7 +14303,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 lineRasterizationMode @5 :Int64;
 }
@@ -14314,7 +14314,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 stippledLineEnable @5 :UInt64;
 }
@@ -14325,7 +14325,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 negativeOneToOne @5 :UInt64;
 }
@@ -14336,7 +14336,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 viewportWScalingEnable @5 :UInt64;
 }
@@ -14347,7 +14347,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 firstViewport @5 :UInt64;
 viewportCount @6 :UInt64;
@@ -14360,7 +14360,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 coverageToColorEnable @5 :UInt64;
 }
@@ -14371,7 +14371,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 coverageToColorLocation @5 :UInt64;
 }
@@ -14382,7 +14382,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 coverageModulationMode @5 :Int64;
 }
@@ -14393,7 +14393,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 coverageModulationTableEnable @5 :UInt64;
 }
@@ -14404,7 +14404,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 coverageModulationTableCount @5 :UInt64;
 pCoverageModulationTable @6 :List(Float32);
@@ -14416,7 +14416,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 shadingRateImageEnable @5 :UInt64;
 }
@@ -14427,7 +14427,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 coverageReductionMode @5 :Int64;
 }
@@ -14438,7 +14438,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 representativeFragmentTestEnable @5 :UInt64;
 }
@@ -14449,7 +14449,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkPrivateDataSlotCreateInfo);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -14462,7 +14462,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 privateDataSlot @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -14474,7 +14474,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 objectType @5 :Int64;
 objectHandle @6 :UInt64;
@@ -14488,7 +14488,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 objectType @5 :Int64;
 objectHandle @6 :UInt64;
@@ -14502,7 +14502,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pCopyBufferInfo @5 :List(VkCopyBufferInfo2);
 }
@@ -14513,7 +14513,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pCopyImageInfo @5 :List(VkCopyImageInfo2);
 }
@@ -14524,7 +14524,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pBlitImageInfo @5 :List(VkBlitImageInfo2);
 }
@@ -14535,7 +14535,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pCopyBufferToImageInfo @5 :List(VkCopyBufferToImageInfo2);
 }
@@ -14546,7 +14546,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pCopyImageToBufferInfo @5 :List(VkCopyImageToBufferInfo2);
 }
@@ -14557,7 +14557,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pResolveImageInfo @5 :List(VkResolveImageInfo2);
 }
@@ -14568,7 +14568,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pRefreshObjects @5 :List(VkRefreshObjectListKHR);
 }
@@ -14579,7 +14579,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pRefreshableObjectTypeCount @5 :List(UInt64);
 pRefreshableObjectTypes @6 :List(Int64);
@@ -14591,7 +14591,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pFragmentSize @5 :List(VkExtent2D);
 combinerOps @6 :List(Int64);
@@ -14603,7 +14603,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pFragmentShadingRateCount @5 :List(UInt64);
 pFragmentShadingRates @6 :List(VkPhysicalDeviceFragmentShadingRateKHR);
@@ -14615,7 +14615,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 shadingRate @5 :Int64;
 combinerOps @6 :List(Int64);
@@ -14627,7 +14627,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 buildType @5 :Int64;
 pBuildInfo @6 :List(VkAccelerationStructureBuildGeometryInfoKHR);
@@ -14641,7 +14641,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 vertexBindingDescriptionCount @5 :UInt64;
 pVertexBindingDescriptions @6 :List(VkVertexInputBindingDescription2EXT);
@@ -14655,7 +14655,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 attachmentCount @5 :UInt64;
 pColorWriteEnables @6 :List(UInt64);
@@ -14667,7 +14667,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 event @5 :UInt64;
 pDependencyInfo @6 :List(VkDependencyInfo);
@@ -14679,7 +14679,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 event @5 :UInt64;
 stageMask @6 :Int64;
@@ -14691,7 +14691,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 eventCount @5 :UInt64;
 pEvents @6 :List(UInt64);
@@ -14704,7 +14704,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pDependencyInfo @5 :List(VkDependencyInfo);
 }
@@ -14715,7 +14715,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 queue @4 :UInt64;
 submitCount @5 :UInt64;
 pSubmits @6 :List(VkSubmitInfo2);
@@ -14728,7 +14728,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 stage @5 :Int64;
 queryPool @6 :UInt64;
@@ -14741,7 +14741,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 stage @5 :Int64;
 dstBuffer @6 :UInt64;
@@ -14755,7 +14755,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 queue @4 :UInt64;
 pCheckpointDataCount @5 :List(UInt64);
 pCheckpointData @6 :List(VkCheckpointData2NV);
@@ -14767,7 +14767,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCopyMemoryToImageInfo @5 :List(VkCopyMemoryToImageInfoEXT);
 }
@@ -14778,7 +14778,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCopyImageToMemoryInfo @5 :List(VkCopyImageToMemoryInfoEXT);
 }
@@ -14789,7 +14789,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCopyImageToImageInfo @5 :List(VkCopyImageToImageInfoEXT);
 }
@@ -14800,7 +14800,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 transitionCount @5 :UInt64;
 pTransitions @6 :List(VkHostImageLayoutTransitionInfoEXT);
@@ -14812,7 +14812,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 commandPool @5 :UInt64;
 commandBuffer @6 :UInt64;
@@ -14825,7 +14825,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pVideoProfile @5 :List(VkVideoProfileInfoKHR);
 pCapabilities @6 :List(VkVideoCapabilitiesKHR);
@@ -14837,7 +14837,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pVideoFormatInfo @5 :List(VkPhysicalDeviceVideoFormatInfoKHR);
 pVideoFormatPropertyCount @6 :List(UInt64);
@@ -14850,7 +14850,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pQualityLevelInfo @5 :List(VkPhysicalDeviceVideoEncodeQualityLevelInfoKHR);
 pQualityLevelProperties @6 :List(VkVideoEncodeQualityLevelPropertiesKHR);
@@ -14862,7 +14862,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkVideoSessionCreateInfoKHR);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -14875,7 +14875,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 videoSession @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -14887,7 +14887,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkVideoSessionParametersCreateInfoKHR);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -14900,7 +14900,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 videoSessionParameters @5 :UInt64;
 pUpdateInfo @6 :List(VkVideoSessionParametersUpdateInfoKHR);
@@ -14912,7 +14912,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pVideoSessionParametersInfo @5 :List(VkVideoEncodeSessionParametersGetInfoKHR);
 pFeedbackInfo @6 :List(VkVideoEncodeSessionParametersFeedbackInfoKHR);
@@ -14926,7 +14926,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 videoSessionParameters @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -14938,7 +14938,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 videoSession @5 :UInt64;
 pMemoryRequirementsCount @6 :List(UInt64);
@@ -14951,7 +14951,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 videoSession @5 :UInt64;
 bindSessionMemoryInfoCount @6 :UInt64;
@@ -14964,7 +14964,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pDecodeInfo @5 :List(VkVideoDecodeInfoKHR);
 }
@@ -14975,7 +14975,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pBeginInfo @5 :List(VkVideoBeginCodingInfoKHR);
 }
@@ -14986,7 +14986,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pCodingControlInfo @5 :List(VkVideoCodingControlInfoKHR);
 }
@@ -14997,7 +14997,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pEndCodingInfo @5 :List(VkVideoEndCodingInfoKHR);
 }
@@ -15008,7 +15008,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pEncodeInfo @5 :List(VkVideoEncodeInfoKHR);
 }
@@ -15019,7 +15019,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 decompressRegionCount @5 :UInt64;
 pDecompressMemoryRegions @6 :List(VkDecompressMemoryRegionNV);
@@ -15031,7 +15031,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 indirectCommandsAddress @5 :UInt64;
 indirectCommandsCountAddress @6 :UInt64;
@@ -15044,7 +15044,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkCuModuleCreateInfoNVX);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -15057,7 +15057,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkCuFunctionCreateInfoNVX);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -15070,7 +15070,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 module @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -15082,7 +15082,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 function @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -15094,7 +15094,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pLaunchInfo @5 :List(VkCuLaunchInfoNVX);
 }
@@ -15105,7 +15105,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 layout @5 :UInt64;
 pLayoutSizeInBytes @6 :List(UInt64);
@@ -15117,7 +15117,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 layout @5 :UInt64;
 binding @6 :UInt64;
@@ -15130,7 +15130,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pDescriptorInfo @5 :List(VkDescriptorGetInfoEXT);
 dataSize @6 :UInt64;
@@ -15143,7 +15143,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 bufferCount @5 :UInt64;
 pBindingInfos @6 :List(VkDescriptorBufferBindingInfoEXT);
@@ -15155,7 +15155,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pipelineBindPoint @5 :Int64;
 layout @6 :UInt64;
@@ -15171,7 +15171,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pipelineBindPoint @5 :Int64;
 layout @6 :UInt64;
@@ -15184,7 +15184,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pInfo @5 :List(VkBufferCaptureDescriptorDataInfoEXT);
 pData @6 :List(UInt64);
@@ -15196,7 +15196,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pInfo @5 :List(VkImageCaptureDescriptorDataInfoEXT);
 pData @6 :List(UInt64);
@@ -15208,7 +15208,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pInfo @5 :List(VkImageViewCaptureDescriptorDataInfoEXT);
 pData @6 :List(UInt64);
@@ -15220,7 +15220,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pInfo @5 :List(VkSamplerCaptureDescriptorDataInfoEXT);
 pData @6 :List(UInt64);
@@ -15232,7 +15232,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pInfo @5 :List(VkAccelerationStructureCaptureDescriptorDataInfoEXT);
 pData @6 :List(UInt64);
@@ -15244,7 +15244,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 memory @5 :UInt64;
 priority @6 :Float32;
@@ -15256,7 +15256,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 drmFd @5 :Int64;
 display @6 :UInt64;
@@ -15268,7 +15268,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 drmFd @5 :Int64;
 connectorId @6 :UInt64;
@@ -15281,7 +15281,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 swapchain @5 :UInt64;
 presentId @6 :UInt64;
@@ -15294,7 +15294,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkBufferCollectionCreateInfoFUCHSIA);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -15307,7 +15307,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 collection @5 :UInt64;
 pBufferConstraintsInfo @6 :List(VkBufferConstraintsInfoFUCHSIA);
@@ -15319,7 +15319,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 collection @5 :UInt64;
 pImageConstraintsInfo @6 :List(VkImageConstraintsInfoFUCHSIA);
@@ -15331,7 +15331,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 collection @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -15343,7 +15343,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 collection @5 :UInt64;
 pProperties @6 :List(VkBufferCollectionPropertiesFUCHSIA);
@@ -15355,7 +15355,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pRenderingInfo @5 :List(VkRenderingInfo);
 }
@@ -15366,7 +15366,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 }
 
@@ -15376,7 +15376,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pBindingReference @5 :List(VkDescriptorSetBindingReferenceVALVE);
 pHostMapping @6 :List(VkDescriptorSetLayoutHostMappingInfoVALVE);
@@ -15388,7 +15388,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 descriptorSet @5 :UInt64;
 ppData @6 :List(List(UInt64));
@@ -15400,7 +15400,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkMicromapCreateInfoEXT);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -15413,7 +15413,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 infoCount @5 :UInt64;
 pInfos @6 :List(VkMicromapBuildInfoEXT);
@@ -15425,7 +15425,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 deferredOperation @5 :UInt64;
 infoCount @6 :UInt64;
@@ -15438,7 +15438,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 micromap @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -15450,7 +15450,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pInfo @5 :List(VkCopyMicromapInfoEXT);
 }
@@ -15461,7 +15461,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 deferredOperation @5 :UInt64;
 pInfo @6 :List(VkCopyMicromapInfoEXT);
@@ -15473,7 +15473,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pInfo @5 :List(VkCopyMicromapToMemoryInfoEXT);
 }
@@ -15484,7 +15484,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 deferredOperation @5 :UInt64;
 pInfo @6 :List(VkCopyMicromapToMemoryInfoEXT);
@@ -15496,7 +15496,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pInfo @5 :List(VkCopyMemoryToMicromapInfoEXT);
 }
@@ -15507,7 +15507,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 deferredOperation @5 :UInt64;
 pInfo @6 :List(VkCopyMemoryToMicromapInfoEXT);
@@ -15519,7 +15519,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 micromapCount @5 :UInt64;
 pMicromaps @6 :List(UInt64);
@@ -15534,7 +15534,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 micromapCount @5 :UInt64;
 pMicromaps @6 :List(UInt64);
@@ -15550,7 +15550,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pVersionInfo @5 :List(VkMicromapVersionInfoEXT);
 pCompatibility @6 :List(Int64);
@@ -15562,7 +15562,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 buildType @5 :Int64;
 pBuildInfo @6 :List(VkMicromapBuildInfoEXT);
@@ -15575,7 +15575,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 shaderModule @5 :UInt64;
 pIdentifier @6 :List(VkShaderModuleIdentifierEXT);
@@ -15587,7 +15587,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkShaderModuleCreateInfo);
 pIdentifier @6 :List(VkShaderModuleIdentifierEXT);
@@ -15599,7 +15599,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 image @5 :UInt64;
 pSubresource @6 :List(VkImageSubresource2KHR);
@@ -15612,7 +15612,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pPipelineInfo @5 :List(VkPipelineInfoKHR);
 pPipelineProperties @6 :List(VkBaseOutStructure);
@@ -15624,7 +15624,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pMetalObjectsInfo @5 :List(VkExportMetalObjectsInfoEXT);
 }
@@ -15635,7 +15635,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 framebuffer @5 :UInt64;
 pPropertiesCount @6 :List(UInt64);
@@ -15648,7 +15648,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pRenderingInfo @5 :List(VkRenderingInfo);
 pProperties @6 :List(VkTilePropertiesQCOM);
@@ -15660,7 +15660,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pOpticalFlowImageFormatInfo @5 :List(VkOpticalFlowImageFormatInfoNV);
 pFormatCount @6 :List(UInt64);
@@ -15673,7 +15673,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pCreateInfo @5 :List(VkOpticalFlowSessionCreateInfoNV);
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -15686,7 +15686,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 session @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -15698,7 +15698,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 session @5 :UInt64;
 bindingPoint @6 :Int64;
@@ -15712,7 +15712,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 session @5 :UInt64;
 pExecuteInfo @6 :List(VkOpticalFlowExecuteInfoNV);
@@ -15724,7 +15724,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pFaultCounts @5 :List(VkDeviceFaultCountsEXT);
 pFaultInfo @6 :List(VkDeviceFaultInfoEXT);
@@ -15736,7 +15736,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 pDepthBiasInfo @5 :List(VkDepthBiasInfoEXT);
 }
@@ -15747,7 +15747,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pReleaseInfo @5 :List(VkReleaseSwapchainImagesInfoEXT);
 }
@@ -15758,7 +15758,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 pInfo @5 :List(VkDeviceImageSubresourceInfoKHR);
 pLayout @6 :List(VkSubresourceLayout2KHR);
@@ -15770,7 +15770,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pMemoryMapInfo @5 :List(VkMemoryMapInfoKHR);
 ppData @6 :List(List(UInt64));
@@ -15782,7 +15782,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pMemoryUnmapInfo @5 :List(VkMemoryUnmapInfoKHR);
 }
@@ -15793,7 +15793,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 createInfoCount @5 :UInt64;
 pCreateInfos @6 :List(VkShaderCreateInfoEXT);
@@ -15807,7 +15807,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 device @4 :UInt64;
 shader @5 :UInt64;
 pAllocator @6 :List(VkAllocationCallbacks);
@@ -15819,7 +15819,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 shader @5 :UInt64;
 pDataSize @6 :List(UInt64);
@@ -15832,7 +15832,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 stageCount @5 :UInt64;
 pStages @6 :List(Int64);
@@ -15845,7 +15845,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 buffer @5 :List(UInt64);
 pProperties @6 :List(VkScreenBufferPropertiesQNX);
@@ -15857,7 +15857,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 physicalDevice @4 :UInt64;
 pPropertyCount @5 :List(UInt64);
 pProperties @6 :List(VkCooperativeMatrixPropertiesKHR);
@@ -15869,7 +15869,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 executionGraph @5 :UInt64;
 pSizeInfo @6 :List(VkExecutionGraphPipelineScratchSizeAMDX);
@@ -15881,7 +15881,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 executionGraph @5 :UInt64;
 pNodeInfo @6 :List(VkPipelineShaderStageNodeCreateInfoAMDX);
@@ -15894,7 +15894,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :Int64;
+result @3 :Int64;
 device @4 :UInt64;
 pipelineCache @5 :UInt64;
 createInfoCount @6 :UInt64;
@@ -15909,7 +15909,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 scratch @5 :UInt64;
 }
@@ -15920,7 +15920,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 scratch @5 :UInt64;
 pCountInfo @6 :List(VkDispatchGraphCountInfoAMDX);
@@ -15932,7 +15932,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 scratch @5 :UInt64;
 pCountInfo @6 :List(VkDispatchGraphCountInfoAMDX);
@@ -15944,7 +15944,7 @@ device @0 :UInt64;
 instance @1 :UInt64;
 }
 mem @2 :UInt64;
-return @3 :UInt64;
+result @3 :UInt64;
 commandBuffer @4 :UInt64;
 scratch @5 :UInt64;
 countInfo @6 :UInt64;

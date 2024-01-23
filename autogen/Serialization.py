@@ -419,7 +419,7 @@ for handle in parsed:
                         result=({handle})handle; //This is highly dangerous -- I'm basically casting {handle}* to {handle}. I should do *(({handle}*)alloc_icd_object())
                     }}
                 #else
-                    result=({handle})pointer;
+                    result=({handle})data;
                 #endif
                 
                 return result;

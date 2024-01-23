@@ -371,7 +371,7 @@ if __name__=="__main__":
             index+=1
             
             
-            result.append(f"return @{index} :{get_schema_type(obj)};")
+            result.append(f"result @{index} :{get_schema_type(obj)};")
             index+=1
             
             for param in obj["params"]:

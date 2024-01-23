@@ -8,3 +8,4 @@ Sync.json
 boost*
 *.capnp.c++
 *.capnp.h
+parsed.json
