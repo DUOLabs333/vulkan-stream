@@ -13,7 +13,7 @@ VK_LIB_PATH="/opt/homebrew/lib"
 
 SRC_FILES=["autogen/*","src/*","external/shm_open_anon/shm_open_anon.c"]
 INCLUDE_PATHS=["autogen","src", "external/json/single_include", "external/PicoSHA2", "external/shm_open_anon", "external/Vulkan-Headers/include","external/asio/asio/include","boost_1_84_0"]
-FLAGS=(["-DCLIENT"] if CLIENT=="1" else []) + (["-g","-DDEBUG"] if DEBUG=="1" else ["-O3"]) + ["-Wfatal-errors","-fPIC","-Winvalid-pch"]+os.environ["VK_HEADER_FLAGS"].split(" ")
+FLAGS=(["-DCLIENT"] if CLIENT=="1" else []) + (["-g","-DDEBUG"] if DEBUG=="1" else ["-O3","-DNDEBUG"]) + ["-Wfatal-errors","-fPIC","-Winvalid-pch"]+os.environ["VK_HEADER_FLAGS"].split(" ")
 STATIC_LIBS=[]
 SHARED_LIBS_PATHS=[VK_LIB_PATH]
 SHARED_LIBS=(["vulkan"] if CLIENT=="0" else ["xcb","X11","xcb-image"])

@@ -269,7 +269,20 @@ write("""VKAPI_ATTR PFN_vkVoidFunction VKAPI_CALL vk_icdGetInstanceProcAddr(VkIn
     }
 """)
 
-for name, command in parsed["commands"].items():
+for name, command in parsed.items():
+    if command["kind"]!="command":
+        continue
+    
+    if "alias" in command:
+        alias=command["alias"]
+        command=parsed[alias]
+        write("__attribute__((visibility (\"hidden\"))) "+command["header"].replace(alias,name,1)+"{")
+        params_list=[param["name"] for param in command["params"]]
+        
+        write(f"return {alias}({', '.join(params_list)});")
+        write("}")
+        continue
+    
     memory_map_lock=0
     memory_operation_lock=False
     if re.match(r"^vk(Unmap|Map)Memory(|2KHR)$", name) is not None:
@@ -310,35 +323,26 @@ for name, command in parsed["commands"].items():
         """)
         continue
     
-    write("auto data_json=boost::json::object();")
-    
-    write(f"""data_json["type"]="command_{name}";""")
+    write(f"""
+    MallocMessageBuilder m;
+    auto message=m.initRoot<Message>();
+    auto builder=message.init{name}();
+    """)
     
     head=command["params"][0]
-    head_name=head["name"]
+    
     #Just set the children's struct to the parent
-    if head["type"] in parsed["handles"]:
-        #Use serialize, since we have to map
+    if parsed[head["type"]]["kind"]=="handle":
         write(f"""
-        auto parent=handle_to_parent_handle_struct[(uintptr_t){head_name}];
-        
-        auto parent_json=boost::json::object();
+        auto parent=handle_to_parent_handle_struct[(uintptr_t){head["name"]}];
         if (parent.device!=NULL){{
-            parent_json["type"]="Device";
-            {serialize('parent_json["handle"]',{"name":"parent.device","type":"VkDevice","num_indirection":0,"length":[]})}
+            builder.initParent().setDevice(serialize_handle(parent.device));
         }}else{{
-            parent_json["type"]="Instance";
-            {serialize('parent_json["handle"]',{"name":"parent.instance","type":"VkInstance","num_indirection":0,"length":[]})}
+            builder.initParent().setInstance(serialize_handle(parent.instance));
         }}
-        
-        data_json["parent"]=parent_json;
         """)
     else:
-        write(f"""
-        data_json["parent"]=boost::json::object();
-        data_json["parent"].as_object()["type"]="Instance";
-       {serialize('data_json["parent"].as_object()["handle"]',{"name":"NULL","type":"VkInstance","num_indirection":0,"length":[]})}
-        """)
+        write("builder.initParent().setInstance((uintptr_t)NULL);")
     
     if name=="vkEnumerateInstanceExtensionProperties":
         write("""
@@ -433,9 +437,9 @@ for name, command in parsed["commands"].items():
         
         pCreateInfo=&temp_info;
         """)
-    write("""data_json["members"]=boost::json::object();""")
+        
     for param in command["params"]:
-        write(serialize(f"""data_json["members"].as_object()["{param["name"]}"]""",param))
+        write(convert("","builder", param["name"], param, serialize=True))
     write("}")
     
     if name=="vkQueueSubmit":
@@ -445,35 +449,34 @@ for name, command in parsed["commands"].items():
         write("vkUnmapMemory(device,memory);")
         
     write(deregisterDeviceMemoryMap(name))
-    write("""
-        writeToConn(data_json);
-        boost::json::object result;
-        while(true){
-            result=readFromConn();
-            std::string result_type=value_to<std::string>(result["type"]);
-            if (result_type=="sync_init"){
-                handle_sync_init(result);
-            }
-            else if (result_type=="Response"){
-                break;
-            }  
+    write(f"""
+        writeToConn(m);
+        
+        {name}::Reader reader;
+        while(true){{
+            auto m=readFromConn();
+            
+            switch(m.which()){{
+                case (Message::SYNC):
+                    handle_sync_init(m.getRoot<Sync>());
+                    continue;
+                case (Message::{name}):
+                    reader=m.getRoot<name>();
+                    break; 
     """)
     for funcpointer in parsed["funcpointers"]:
         if funcpointer=="PFN_vkGetInstanceProcAddrLUNARG": #This isn't a normal funcpointer --- only makes sense on the server
             continue
         write(f"""
-        else if (result_type=="{funcpointer}_request"){{
-            handle_{funcpointer}_request(result);
-        }}
+         case (Message::{funcpointer.upper()}):
+            handle_funcpointer(m.getRoot<{funcpointer.upper()}>());
+            continue;
         """)
         
-    write("}")
+    write("break;}")
     
     for param in command["params"]:
-        param_copy=param.copy()
-        param_copy["name"]=f"""result["members"].as_object()["{param["name"]}"].as_object()"""
-        
-        write(deserialize(param["name"],param_copy))
+       write(convert("","reader",param["name"],param,serialize=False))
     
     if name=="vkEnumerateInstanceExtensionProperties":
         write("""
@@ -504,20 +507,20 @@ for name, command in parsed["commands"].items():
     
     if name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
       
-        write(f"{command['type']} return_value;")
+        write(f"{command['type']} result;")
         write(f"""
         if (strcmp(pName,"vk_icdNegotiateLoaderICDInterfaceVersion")==0){{
-            return_value=({command['type']})vk_icdNegotiateLoaderICDInterfaceVersion;
+            result=({command['type']})vk_icdNegotiateLoaderICDInterfaceVersion;
         }}
         #ifdef VK_USE_PLATFORM_XCB_KHR
             else if (strcmp(pName,"vkCreateXcbSurfaceKHR")==0){{
-                return_value=({command['type']})vkCreateXcbSurfaceKHR;
+                result=({command['type']})vkCreateXcbSurfaceKHR;
             }}
         #endif
         
         #ifdef VK_USE_PLATFORM_XLIB_KHR
             else if (strcmp(pName,"vkCreateXlibSurfaceKHR")==0){{
-                return_value=({command['type']})vkCreateXlibSurfaceKHR;
+                result=({command['type']})vkCreateXlibSurfaceKHR;
             }}
         #endif
         """)
@@ -525,25 +528,22 @@ for name, command in parsed["commands"].items():
             write(f"""
             else if (strcmp(pName,"{command_name}")==0){{
                 debug_printf("Retrieving {command_name}...\\n");
-                return_value= (value_to<bool>(result["return"])==true) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
+                result= (reader.hasResult()) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
                 
             }}
             """)
         write("""
             else {
                 debug_printf("Unknown function: %s\\n", pName);
-                return_value=NULL;
+                result=NULL;
             }
             
-            debug_printf("Address of ProcAddr: %p\\n",return_value);
+            debug_printf("Address of ProcAddr: %p\\n",result);
         """)
     else:
         if not is_void(command):
-            return_value=command.copy()
-            return_value["name"]='result["return"].as_object()'
-            return_value["length"]=[]
-            write(command["type"]+"*"*command["num_indirection"]+" return_value;")
-            write(deserialize("return_value",return_value))
+            write(command["type"]+"*"*command["num_indirection"]+" result;")
+            write(convert("","builder","result",command,serialize=False))
         
     for creation_function in ["^vkAllocate(.*)s$","^vkCreate(.*)$","^vkEnumerate(.*)s$","^vkGetDeviceQueue$"]:
         if re.match(creation_function,name) is not None:
@@ -585,7 +585,7 @@ for name, command in parsed["commands"].items():
         debug_printf("[INFO]: Min extent: %d, %d\n", pSurfaceCapabilities->minImageExtent.width, pSurfaceCapabilities->minImageExtent.height);
         debug_printf("[INFO]: Max extent: %d, %d\n", pSurfaceCapabilities->maxImageExtent.width, pSurfaceCapabilities->maxImageExtent.height);
         """)
-    write(registerDeviceMemoryMap(name,'value_to<uintptr_t>(result["mem_ptr"])'))
+    write(registerDeviceMemoryMap(name,"reader.getMem()"))
     
     if name=="vkDeviceWaitIdle":
         write("waitForCounterIdle(device);")
