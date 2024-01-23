@@ -243,7 +243,11 @@ def convert(native,proto,attr,info, serialize, initialize=False):
             result+=f"""return {proto_concat("set", f"serialize_handle{native_concat()}")};"""
         else:
             result+=f"""{native_concat()}=deserialize_{kind}({proto_concat("get")});"""
+    elif kind in ["enum", "bitmask"]:
+        info["alias"]="int"
+        result+=convert(*args())
     else:
+        print(info)
         raise ValueError("Unhandled type! This shouldn't happen")
     result+="}();"
     return result

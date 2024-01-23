@@ -1,96 +1,107 @@
 @0xfccbbb584171b69d;
 
 struct PFNvkInternalAllocationNotification {
-id @0 :Int64;
-return @1 :UInt64;
-pUserData @2 :List(UInt64);
-size @3 :UInt64;
-allocationType @4 :Int64;
-allocationScope @5 :Int64;
+id @0 :UInt64;
+mem @1 :UInt64;
+return @2 :UInt64;
+pUserData @3 :List(UInt64);
+size @4 :UInt64;
+allocationType @5 :Int64;
+allocationScope @6 :Int64;
 }
 
 struct PFNvkInternalFreeNotification {
-id @0 :Int64;
-return @1 :UInt64;
-pUserData @2 :List(UInt64);
-size @3 :UInt64;
-allocationType @4 :Int64;
-allocationScope @5 :Int64;
+id @0 :UInt64;
+mem @1 :UInt64;
+return @2 :UInt64;
+pUserData @3 :List(UInt64);
+size @4 :UInt64;
+allocationType @5 :Int64;
+allocationScope @6 :Int64;
 }
 
 struct PFNvkReallocationFunction {
-id @0 :Int64;
-return @1 :UInt64;
-pUserData @2 :List(UInt64);
-pOriginal @3 :List(UInt64);
+id @0 :UInt64;
+mem @1 :UInt64;
+return @2 :UInt64;
+pUserData @3 :List(UInt64);
+pOriginal @4 :List(UInt64);
+size @5 :UInt64;
+alignment @6 :UInt64;
+allocationScope @7 :Int64;
+}
+
+struct PFNvkAllocationFunction {
+id @0 :UInt64;
+mem @1 :UInt64;
+return @2 :UInt64;
+pUserData @3 :List(UInt64);
 size @4 :UInt64;
 alignment @5 :UInt64;
 allocationScope @6 :Int64;
 }
 
-struct PFNvkAllocationFunction {
-id @0 :Int64;
-return @1 :UInt64;
-pUserData @2 :List(UInt64);
-size @3 :UInt64;
-alignment @4 :UInt64;
-allocationScope @5 :Int64;
-}
-
 struct PFNvkFreeFunction {
-id @0 :Int64;
-return @1 :UInt64;
-pUserData @2 :List(UInt64);
-pMemory @3 :List(UInt64);
+id @0 :UInt64;
+mem @1 :UInt64;
+return @2 :UInt64;
+pUserData @3 :List(UInt64);
+pMemory @4 :List(UInt64);
 }
 
 struct PFNvkVoidFunction {
-id @0 :Int64;
-return @1 :UInt64;
+id @0 :UInt64;
+mem @1 :UInt64;
+return @2 :UInt64;
 }
 
 struct PFNvkDebugReportCallbackEXT {
-id @0 :Int64;
-return @1 :UInt64;
-flags @2 :Int64;
-objectType @3 :Int64;
-object @4 :UInt64;
-location @5 :UInt64;
-messageCode @6 :Int64;
-pLayerPrefix @7 :List(UInt64);
-pMessage @8 :List(UInt64);
-pUserData @9 :List(UInt64);
+id @0 :UInt64;
+mem @1 :UInt64;
+return @2 :UInt64;
+flags @3 :Int64;
+objectType @4 :Int64;
+object @5 :UInt64;
+location @6 :UInt64;
+messageCode @7 :Int64;
+pLayerPrefix @8 :List(UInt64);
+pMessage @9 :List(UInt64);
+pUserData @10 :List(UInt64);
 }
 
 struct PFNvkDebugUtilsMessengerCallbackEXT {
-id @0 :Int64;
-return @1 :UInt64;
-messageSeverity @2 :Int64;
-messageTypes @3 :Int64;
-pCallbackData @4 :List(VkDebugUtilsMessengerCallbackDataEXT);
-pUserData @5 :List(UInt64);
+id @0 :UInt64;
+mem @1 :UInt64;
+return @2 :UInt64;
+messageSeverity @3 :Int64;
+messageTypes @4 :Int64;
+pCallbackData @5 :List(VkDebugUtilsMessengerCallbackDataEXT);
+pUserData @6 :List(UInt64);
 }
 
 struct PFNvkFaultCallbackFunction {
-id @0 :Int64;
-return @1 :UInt64;
-unrecordedFaults @2 :UInt64;
-faultCount @3 :UInt64;
-pFaults @4 :List(VkFaultData);
+id @0 :UInt64;
+mem @1 :UInt64;
+return @2 :UInt64;
+unrecordedFaults @3 :UInt64;
+faultCount @4 :UInt64;
+pFaults @5 :List(VkFaultData);
 }
 
 struct PFNvkDeviceMemoryReportCallbackEXT {
-id @0 :Int64;
-return @1 :UInt64;
-pCallbackData @2 :List(VkDeviceMemoryReportCallbackDataEXT);
-pUserData @3 :List(UInt64);
+id @0 :UInt64;
+mem @1 :UInt64;
+return @2 :UInt64;
+pCallbackData @3 :List(VkDeviceMemoryReportCallbackDataEXT);
+pUserData @4 :List(UInt64);
 }
 
 struct PFNvkGetInstanceProcAddrLUNARG {
-id @0 :Int64;
-return @1 :PFNvkVoidFunction;
-instance @2 :UInt64;
-pName @3 :List(UInt64);
+id @0 :UInt64;
+mem @1 :UInt64;
+return @2 :PFNvkVoidFunction;
+instance @3 :UInt64;
+pName @4 :List(UInt64);
 }
 
 struct VkBaseOutStructure {
@@ -16971,22 +16982,22 @@ pFNvkGetInstanceProcAddrLUNARG @10 :UInt64;
 }
 
 
-struct Sync {
-    devicememory @0 :UInt64;
-    mem @1 :UInt64;
-    starts @2 :List(UInt64);
-    lengths @3 :List(UInt64);
-    hashes @4 :List(Text);
-    buffers @5 :List(Data);
-}
+    struct Sync {
+        devicememory @0 :UInt64;
+        mem @1 :UInt64;
+        starts @2 :List(UInt64);
+        lengths @3 :List(UInt64);
+        hashes @4 :List(Text);
+        buffers @5 :List(Data);
+    }
+    
 
 
-
-struct Message {
-    uuid @0 :Int64;
-    union {
-    sync @1 :Sync;
-
+    struct Message {
+        uuid @0 :Int64;
+        union {
+        sync @1 :Sync;
+    
 pFNvkInternalAllocationNotification @2 :PFNvkInternalAllocationNotification;
 pFNvkInternalFreeNotification @3 :PFNvkInternalFreeNotification;
 pFNvkReallocationFunction @4 :PFNvkReallocationFunction;

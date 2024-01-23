@@ -64,9 +64,12 @@ void serialize_pNext(PNext::Builder builder, void* member){
     switch(chain->sType){
 """)
 
-for name, strict in parsed.items():
+for name, struct in parsed.items():
     if is_not_struct(name, struct):
         continue
+    if "sType" not in struct:
+        continue
+        
     write(f"""
     case {struct["sType"]}:
         return serialize_struct(builder.get{name.title()}(), (({name}*)(member))[0]);
@@ -105,11 +108,10 @@ write("std::map<VkStructureType, size_t> structure_type_to_size={")
 for name, struct in parsed.items():
     if is_not_struct(name,struct):
         continue
-        
-    type=struct["sType"]
-
+    
+    type=struct.get("sType","")
     if type=="":
-        continue
+        continue   
 
     write(f"{{{type}, sizeof({name}) }},")
 write("};")
@@ -158,7 +160,7 @@ for name, struct in parsed.items():
     members=struct["members"]
     
     write(f"""
-    void serialize_struct({struct.title()}::Builder& builder, {struct} member){{
+    void serialize_struct({name}::Builder& builder, {name} member){{
         
     """)
     
@@ -374,21 +376,21 @@ for handle in parsed["handles"]:
         #endif
         """)
         write(f"""
-        object serialize_{handle}({handle} data){{
-            object result;
+        uintptr_t serialize_handle({handle} data){{
+            uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){{
-                    result["value"]=(uintptr_t)NULL;
-                    debug_printf("Handle is NULL, serializing to %p...\\n",NULL);
+                    result=(uintptr_t)NULL;
+                    debug_printf("Handle is NULL, serializing to %p...\\n",result);
                 }}else{{
                     if(!(client_{handle}_to_server_{handle}.contains( (uintptr_t)data ))){{
                         debug_printf("Panic: {handle} %p not found!\\n",data);
                     }}
                      debug_printf("Serializing {handle} %p...\\n",({handle})client_{handle}_to_server_{handle}[(uintptr_t)data]);
-                    result["value"]=client_{handle}_to_server_{handle}[(uintptr_t)data];
+                    result=client_{handle}_to_server_{handle}[(uintptr_t)data];
                 }}
             #else
-                result["value"]=(uintptr_t)data;
+                result=(uintptr_t)data;
             #endif
         """)
         write("""
@@ -396,22 +398,21 @@ for handle in parsed["handles"]:
         }
        """)
        
-        write(f"""object serialize_{handle}({handle} data);""",header=True)
+        write(f"""uintptr_t serialize_handle({handle} data);""",header=True)
         
         write(f"""
-       {handle} deserialize_{handle}(object &data){{
-                auto pointer=value_to<uintptr_t>(data["value"]);
+       {handle} deserialize_handle(uintptr_t data){{
                 {handle} result;
                 #ifdef CLIENT
-                    debug_printf("Handle server pointer %p:\\n",({handle})pointer);
-                    if (server_{handle}_to_client_{handle}.contains(pointer)){{
-                        result=({handle})server_{handle}_to_client_{handle}[pointer];
+                    debug_printf("Handling server pointer %p:\\n",({handle})data);
+                    if (server_{handle}_to_client_{handle}.contains(data)){{
+                        result=({handle})server_{handle}_to_client_{handle}[data];
                         debug_printf("Deserializing to {handle} %p...\\n",result);
                     }}else{{
                         auto handle=malloc(sizeof({handle}));
                         debug_printf("Mapping to {handle} %p...\\n",handle);
-                        server_{handle}_to_client_{handle}[pointer]=(uintptr_t)handle;
-                        client_{handle}_to_server_{handle}[(uintptr_t)handle]=pointer;
+                        server_{handle}_to_client_{handle}[data]=(uintptr_t)handle;
+                        client_{handle}_to_server_{handle}[(uintptr_t)handle]=data;
                         
                         result=({handle})handle; //This is highly dangerous -- I'm basically casting {handle}* to {handle}. I should do *(({handle}*)alloc_icd_object())
                     }}
@@ -422,6 +423,6 @@ for handle in parsed["handles"]:
                 return result;
        }}""")
        
-        write(f"""{handle} deserialize_{handle}(object& data);""",header=True)
+        write(f"""{handle} deserialize_handle(uintptr_t);""",header=True)
               
           
