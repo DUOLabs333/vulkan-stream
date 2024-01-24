@@ -87,7 +87,7 @@ uint32_t deserializeInt(uint8_t* buf){ //Deserialzes from little endian in endia
     return buf[0] | (buf[1] << 8) | (buf[2] << 16) | (buf[3] << 24);
 }
 
-Message::Reader readFromConn(){
+stream::Message::Reader readFromConn(){
     auto curr=currStruct();
     
     auto size_buf=(uint8_t*)malloc(4*sizeof(uint8_t)); //Buffer to hold the size to transfer

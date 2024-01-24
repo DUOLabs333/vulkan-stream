@@ -14,6 +14,9 @@ import copy
 import random, string
 import sys
 
+sys.path.append("../parse")
+from parse import normalize_field, normalize_type
+
 parsed=json.load(open("../parse/parsed.json"))
 
 random_string = lambda seed: ''.join(random.Random(json.dumps(seed)).choices(string.ascii_uppercase + string.ascii_lowercase, k=7))
@@ -36,6 +39,15 @@ def update_dict(info, alias):
         info["alias"]=alias_dict["alias"]
     elif "alias" in info:
         del info["alias"]
+
+def normalize_attr(string):
+    return normalize_type(string)
+
+import re
+def normalize_which(string):
+    string=string.replace("_","")
+    string=re.sub(r"(.)(?=([A-Z]))", r"\1_",string)
+    return string.upper()
     
 def convert(native,proto,attr,info, serialize, initialize=False):
     """
@@ -62,12 +74,6 @@ def convert(native,proto,attr,info, serialize, initialize=False):
             if action=="set":
                 child=f".{action}"
                 args.insert(0,attr)
-            elif action=="disown": #This is only used when dealing indices that points to a list
-                child=".init"
-                args.insert(0,attr)
-            elif action=="has":
-                child=f"[{attr}].size" #!size() is true when list is empty
-                args=None
             elif action=="init":
                 if len(length)>0:
                     if kind=="struct":
@@ -86,7 +92,9 @@ def convert(native,proto,attr,info, serialize, initialize=False):
                 raise ValueError("Unsupported action for Lists! Something has gone wrong.")
                 
         else:
-            child=f".{action}{attr}"
+            _attr=attr
+            _attr=normalize_attr(_attr)
+            child=f".{action}{_attr}"
         
         if args is None:
             args=""
@@ -139,15 +147,15 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         result+="}();"
         return result
         
-    if num_indirection>0:
+    if num_indirection>0: #Must be a list
         if serialize:
             result+=f"""
             if ({native_concat()}==NULL){{
-                {proto_concat("disown")};
+                {proto_concat("init","0")};
             """
         else:
             result+=f"""
-            if (!{proto_concat("has")}){{
+            if (!{proto_concat("get")}.size()==0){{
                 {native_concat()}=NULL;
             """
         result +="return; }"
@@ -197,7 +205,7 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         native=native_concat()
         
         if serialize:
-            proto_arr=f"""{proto_concat("init")}"""
+            proto_arr=f"""{proto_concat("init",size)}"""
         else:
             proto_arr=f"""{proto_concat("get",size)}"""
         
@@ -229,7 +237,7 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         if serialize:
             result+=f"""
             auto temp={proto_concat("init",attr)};
-            return serialize_{kind}({native_concat()}, temp);
+            return serialize_{kind}(temp, {native_concat()}, );
             """
         else:
             if kind=="funcpointer":
@@ -254,7 +262,7 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         if serialize:
             result+=f"""return {proto_concat("set", f"serialize_handle{native_concat()}")};"""
         else:
-            result+=f"""{native_concat()}=deserialize_{kind}({proto_concat("get")});"""
+            result+=f"""{native_concat()}=deserialize_{type}({proto_concat("get")});"""
     elif kind in ["enum", "bitmask"]:
         info["alias"]="int"
         result+=convert(*args())

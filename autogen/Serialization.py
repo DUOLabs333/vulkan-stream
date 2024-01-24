@@ -56,7 +56,7 @@ write("} pUserData;")
 write("""
 void serialize_pNext(stream::PNext::Builder builder, void* member){
     if (member==NULL){
-        builder.initNone();
+        builder.setNone();
         return;
     }
     
@@ -67,12 +67,15 @@ void serialize_pNext(stream::PNext::Builder builder, void* member){
 for name, struct in parsed.items():
     if is_not_struct(name, struct):
         continue
-    if "sType" not in struct:
+    if struct.get("sType","")=="":
         continue
         
     write(f"""
     case {struct["sType"]}:
-        return serialize_struct(builder.get{name}(), (({name}*)(member))[0]);
+        {{
+        auto temp=builder.get{name}();
+        return serialize_struct(temp, (({name}*)(member))[0]);
+        }}
     """)
     
 write("""
@@ -84,11 +87,10 @@ default:
 
 write("""
 void* deserialize_pNext(stream::PNext::Reader& reader){
-    if (reader.hasNone()){
+    if (reader.isNone()){
         return NULL;
     }
     
-    void* result;
     switch (reader.which()){
 """)
 
@@ -96,10 +98,13 @@ for name,struct in parsed.items():
     if is_not_struct(name, struct):
         continue
     write(f"""
-    case PNext::{name}:
-        result=({name}*)malloc(sizeof({name}));
-        result[0]=deserialize_struct(reader.get{name}());
+    case stream::PNext::{normalize_which(name)}:
+        {{
+        auto result=({name}*)malloc(sizeof({name}));
+        auto temp_struct=reader.get{normalize_attr(name)}();
+        result[0]=deserialize_struct(temp_struct);
         return result;
+        }}
     """)
 write("}}")
 
@@ -196,7 +201,7 @@ for name, struct in parsed.items():
     pUserData_info={"relation":"member","type":"void","num_indirection":1, "length":["null-terminated"]}
     
     write(f"""
-    void serialize_pUserData(PUserData::Builder builder, {name} member){{
+    void serialize_pUserData(stream::PUserData::Builder builder, {name} member){{
     """)
     write(convert("member","builder","pUserData",pUserData_info,serialize=True))
     for member in members:
@@ -241,13 +246,13 @@ for name,funcpointer in parsed.items():
     write(f"std::map<uintptr_t,{name}> id_to_{name};")
     
     write(f"""
-    void serialize_funcpointer({name}::Builder builder, {name} build){{
+    void serialize_funcpointer(stream::{normalize_type(name)}::Builder builder, {name} build){{
         //Will only be called by the client
         return;
     }}
     """)
     
-    write(f"""void serialize_funcpointer({name}::Builder, {name});""",header=True)
+    write(f"""void serialize_funcpointer(stream::{normalize_type(name)}::Builder, {name});""",header=True)
     
     if name!="PFN_vkGetInstanceProcAddrLUNARG": #PFN_vkGetInstanceProcAddrLUNARG is a pointer to the client's vkGetInstanceProcAddr. However, since the client's vkGetInstanceProcAddr is just a thin wrapper over the server's vkGetInstanceProcAddr (as well as that the client does not support recieving objects from the server outside of a command), we just return the server's vkGetInstanceProcAddr.
     
@@ -300,7 +305,7 @@ for name,funcpointer in parsed.items():
         write("}")
     
         write(f"""
-        {name} deserialize_funcpointer({name}::Reader reader){{
+        {name} deserialize_funcpointer(stream::{normalize_type(name)}::Reader reader){{
             //Will only be called by the server
             
             return {name}_wrapper;
@@ -308,7 +313,7 @@ for name,funcpointer in parsed.items():
         """)
         
         write(f"""
-            void handle_{name}_request({name}::Reader reader){{
+            void handle_{name}_request(stream::{normalize_type(name)}::Reader reader){{
             //Will only be called by the client
             // Recieved data from server's {name} wrapper, and will execute the actual function
             auto funcpointer=id_to_{name}[reader.getId()];
@@ -353,18 +358,18 @@ for name,funcpointer in parsed.items():
         write("};")
                 
         
-        write(f"void handle_{name}_request({name}::Reader);",header=True);
+        write(f"void handle_{name}_request(stream::{normalize_type(name)}::Reader);",header=True);
         
     else:
         write(f"""
-        {name} deserialize_funcpointer({name}::Reader reader){{
+        {name} deserialize_funcpointer(stream::{normalize_type(name)}::Reader reader){{
             //Will only be called by the server
             
             return vkGetInstanceProcAddr;
             }};
         """)
     
-    write(f"{name} deserialize_funcpointer({name}::Reader reader);",header=True)
+    write(f"{name} deserialize_funcpointer(stream::{normalize_type(name)}::Reader reader);",header=True)
         
 for handle in parsed:
         if "alias" in parsed[handle] or parsed[handle].get("kind","")!="handle":
@@ -403,7 +408,7 @@ for handle in parsed:
         write(f"""uintptr_t serialize_handle({handle} data);""",header=True)
         
         write(f"""
-       {handle} deserialize_handle(uintptr_t data){{
+       {handle} deserialize_{handle}(uintptr_t data){{
                 {handle} result;
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\\n",({handle})data);
@@ -425,6 +430,6 @@ for handle in parsed:
                 return result;
        }}""")
        
-        write(f"""{handle} deserialize_handle(uintptr_t);""",header=True)
+        write(f"""{handle} deserialize_{handle}(uintptr_t);""",header=True)
               
           

@@ -126,7 +126,7 @@ delete info;
 void registerAllocatedMem(void* mem, int size){
     allocated_mems[(uintptr_t)mem]=size;
 }
-void handle_sync_response(Sync::Reader& reader){
+void handle_sync_response(stream::Sync::Reader& reader){
     //Recieved the bytes. Send a notification that it finished sending the bytes.
     #ifdef CLIENT
         void* mem=(char*)server_to_client_mem[value_to<uintptr_t>(data["mem"])];
@@ -150,7 +150,7 @@ void handle_sync_response(Sync::Reader& reader){
     writeToConn(m);
 }
 
-void handle_sync_init(Sync::Reader& reader){
+void handle_sync_init(stream::Sync::Reader& reader){
     //Received an init, sent a request for bytes. Wait for bytes to be sent
    
     #ifdef CLIENT
@@ -206,7 +206,7 @@ void handle_sync_init(Sync::Reader& reader){
     
 }
 
-void handle_sync_request(Sync::Reader& reader){
+void handle_sync_request(stream::Sync::Reader& reader){
     //Recieved a request for bytes, sent the bytes. Wait for the recipient to set the bytes
     #ifdef CLIENT
         void* mem=(void*)server_to_client_mem[reader.getMem()];

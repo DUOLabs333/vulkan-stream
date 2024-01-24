@@ -11,7 +11,8 @@ def normalize_type(string):
         return ""
     else:
         return string[0].upper()+string[1:]
-    
+
+
 if __name__=="__main__":
     import xml.etree.ElementTree as ET
     
@@ -343,11 +344,11 @@ if __name__=="__main__":
             result.append(f"none @{index} :Void;")
             index+=1
             
-            for name in parsed:
-                if ("alias" in parsed[name]) or parsed[name].get("kind","")!="struct" or ("ignore" in parsed[name]):
+            for _name in parsed:
+                if ("alias" in parsed[_name]) or parsed[_name].get("kind","")!="struct" or ("ignore" in parsed[_name]):
                     continue
                 else:
-                    result.append(f"{normalize_field(name)} @{index} :{normalize_type(name)};")
+                    result.append(f"{normalize_field(_name)} @{index} :{normalize_type(_name)};")
                     index+=1
             result.append("}")
         elif kind=="struct":

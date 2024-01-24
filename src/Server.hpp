@@ -1,6 +1,6 @@
 #include <debug.hpp>
 
-Message::Reader readFromConn();
+stream::Message::Reader readFromConn();
 void writeToConn(MessageBuilder&);
 
 void startServer();
