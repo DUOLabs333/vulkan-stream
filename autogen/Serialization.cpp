@@ -13,17 +13,17 @@ using namespace capnp;
 typedef struct {
     void* pUserData;
 
-uintptr_t PFN_vkFaultCallbackFunction;
-uintptr_t PFN_vkFreeFunction;
-uintptr_t PFN_vkReallocationFunction;
-uintptr_t PFN_vkInternalAllocationNotification;
 uintptr_t PFN_vkVoidFunction;
-uintptr_t PFN_vkDebugReportCallbackEXT;
 uintptr_t PFN_vkAllocationFunction;
-uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
-uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
-uintptr_t PFN_vkInternalFreeNotification;
 uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
+uintptr_t PFN_vkReallocationFunction;
+uintptr_t PFN_vkDebugReportCallbackEXT;
+uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
+uintptr_t PFN_vkFreeFunction;
+uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
+uintptr_t PFN_vkInternalFreeNotification;
+uintptr_t PFN_vkFaultCallbackFunction;
+uintptr_t PFN_vkInternalAllocationNotification;
 } pUserData;
 
 void serialize_pNext(PNext::Builder builder, void* member){
@@ -9919,26 +9919,36 @@ return result;}
             auto temp=reader.getpUserData();
             (result.pUserData)=deserialize_struct(temp);
             }();
-[&](){#ifdef CLIENT
+[&](){
+#ifndef CLIENT
             auto temp=reader.getpfnAllocation();
             (result.pfnAllocation)=deserialize_funcpointer(temp);
-            #endif}();
-[&](){#ifdef CLIENT
+            #endif
+}();
+[&](){
+#ifndef CLIENT
             auto temp=reader.getpfnReallocation();
             (result.pfnReallocation)=deserialize_funcpointer(temp);
-            #endif}();
-[&](){#ifdef CLIENT
+            #endif
+}();
+[&](){
+#ifndef CLIENT
             auto temp=reader.getpfnFree();
             (result.pfnFree)=deserialize_funcpointer(temp);
-            #endif}();
-[&](){#ifdef CLIENT
+            #endif
+}();
+[&](){
+#ifndef CLIENT
             auto temp=reader.getpfnInternalAllocation();
             (result.pfnInternalAllocation)=deserialize_funcpointer(temp);
-            #endif}();
-[&](){#ifdef CLIENT
+            #endif
+}();
+[&](){
+#ifndef CLIENT
             auto temp=reader.getpfnInternalFree();
             (result.pfnInternalFree)=deserialize_funcpointer(temp);
-            #endif}();
+            #endif
+}();
 return result;}
 
     void serialize_pUserData(PUserData::Builder builder, VkAllocationCallbacks member){
@@ -21290,10 +21300,12 @@ return result;}
             (result.pNext)=deserialize_struct(temp);
             }();(result.pNext)=temp_pBVSXDo;}();
 [&](){[&](){[&](){(result.flags)=reader.getflags();}();}();}();
-[&](){#ifdef CLIENT
+[&](){
+#ifndef CLIENT
             auto temp=reader.getpfnCallback();
             (result.pfnCallback)=deserialize_funcpointer(temp);
-            #endif}();
+            #endif
+}();
 [&](){
             auto temp=reader.getpUserData();
             (result.pUserData)=deserialize_struct(temp);
@@ -37735,10 +37747,12 @@ return result;}
 [&](){[&](){[&](){(result.flags)=reader.getflags();}();}();}();
 [&](){[&](){[&](){(result.messageSeverity)=reader.getmessageSeverity();}();}();}();
 [&](){[&](){[&](){(result.messageType)=reader.getmessageType();}();}();}();
-[&](){#ifdef CLIENT
+[&](){
+#ifndef CLIENT
             auto temp=reader.getpfnUserCallback();
             (result.pfnUserCallback)=deserialize_funcpointer(temp);
-            #endif}();
+            #endif
+}();
 [&](){
             auto temp=reader.getpUserData();
             (result.pUserData)=deserialize_struct(temp);
@@ -38094,10 +38108,12 @@ return result;}
             (result.pNext)=deserialize_struct(temp);
             }();(result.pNext)=temp_pBVSXDo;}();
 [&](){[&](){[&](){(result.flags)=reader.getflags();}();}();}();
-[&](){#ifdef CLIENT
+[&](){
+#ifndef CLIENT
             auto temp=reader.getpfnUserCallback();
             (result.pfnUserCallback)=deserialize_funcpointer(temp);
-            #endif}();
+            #endif
+}();
 [&](){
             auto temp=reader.getpUserData();
             (result.pUserData)=deserialize_struct(temp);
@@ -80700,10 +80716,12 @@ return result;}
             (result.pNext)=deserialize_struct(temp);
             }();
 [&](){[&](){[&](){(result.flags)=reader.getflags();}();}();}();
-[&](){#ifdef CLIENT
+[&](){
+#ifndef CLIENT
             auto temp=reader.getpfnGetInstanceProcAddr();
             (result.pfnGetInstanceProcAddr)=deserialize_funcpointer(temp);
-            #endif}();
+            #endif
+}();
 return result;}
 
     void serialize_pUserData(PUserData::Builder builder, VkDirectDriverLoadingInfoLUNARG member){

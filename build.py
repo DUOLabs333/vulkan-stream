@@ -12,7 +12,7 @@ DEBUG=os.environ.get("DEBUG","1")
 VK_LIB_PATH="/opt/homebrew/lib"
 
 SRC_FILES=["autogen/*","src/*","external/shm_open_anon/shm_open_anon.c"]
-INCLUDE_PATHS=["autogen","src", "external/json/single_include", "external/PicoSHA2", "external/shm_open_anon", "external/Vulkan-Headers/include","external/asio/asio/include","boost_1_84_0"]
+INCLUDE_PATHS=["autogen","src", "external/PicoSHA2", "external/shm_open_anon", "external/Vulkan-Headers/include","external/asio/asio/include","parse"]
 FLAGS=(["-DCLIENT"] if CLIENT=="1" else []) + (["-g","-DDEBUG"] if DEBUG=="1" else ["-O3","-DNDEBUG"]) + ["-Wfatal-errors","-fPIC","-Winvalid-pch"]+os.environ["VK_HEADER_FLAGS"].split(" ")
 STATIC_LIBS=[]
 SHARED_LIBS_PATHS=[VK_LIB_PATH]
@@ -58,7 +58,8 @@ for file in SRC_FILES:
             
     modified_time=int(os.path.getmtime(file))
     CPP=file.endswith(".cpp")
-
+    
+    print(" ".join([("g++" if CPP else "gcc")]+[("-std=c++20" if CPP else "-std=gnu99")]+ FLAGS+ ["-o",object_file,"-c",file]+ INCLUDE_PATHS))
     subprocess.run([("g++" if CPP else "gcc")]+[("-std=c++20" if CPP else "-std=gnu99")]+ FLAGS+ ["-o",object_file,"-c",file]+ INCLUDE_PATHS)
     os.utime(object_file, (modified_time, modified_time))
 

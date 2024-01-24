@@ -233,14 +233,14 @@ def convert(native,proto,attr,info, serialize, initialize=False):
             """
         else:
             if kind=="funcpointer":
-                result+="#ifdef CLIENT"
+                result+="\n#ifndef CLIENT"
                 
             result+=f"""
             auto temp={proto_concat("get")};
             {native_concat()}=deserialize_{kind}(temp);
             """
             if kind=="funcpointer":
-                result+="#endif"
+                result+="#endif\n"
                 
     elif kind=="primitive":
         if serialize:

@@ -422,8 +422,6 @@ if __name__=="__main__":
     
     import subprocess
     subprocess.run(["capnp", "compile", "-oc++", "schema.capnp"])
-     
-    #TODO: Autogenerate schema based on parsed dictionary (specifiically here, as any command might be sent)
     
     from ahocorapy.keywordtree import KeywordTree
     import os, string
