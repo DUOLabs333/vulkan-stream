@@ -54,7 +54,7 @@ for member in pUserData_members:
 write("} pUserData;")
 
 write("""
-void serialize_pNext(PNext::Builder builder, void* member){
+void serialize_pNext(stream::PNext::Builder builder, void* member){
     if (member==NULL){
         builder.initNone();
         return;
@@ -83,7 +83,7 @@ default:
 """)
 
 write("""
-void* deserialize_pNext(PNext::Reader& reader){
+void* deserialize_pNext(stream::PNext::Reader& reader){
     if (reader.hasNone()){
         return NULL;
     }
@@ -160,7 +160,7 @@ for name, struct in parsed.items():
     members=struct["members"]
     
     write(f"""
-    void serialize_struct({name}::Builder& builder, {name} member){{
+    void serialize_struct(stream::{name}::Builder& builder, {name} member){{
         
     """)
     
@@ -180,7 +180,7 @@ for name, struct in parsed.items():
     write("}")
         
     write(f"""
-    {name} deserialize_struct({name}::Reader reader){{
+    {name} deserialize_struct(stream::{name}::Reader reader){{
         auto result={name}();
     """)
     for member in members:
@@ -205,7 +205,7 @@ for name, struct in parsed.items():
     write("}")
     
     write(f"""
-    void* deserialize_pUserData(PUserData::Reader& reader, {name} member){{
+    void* deserialize_pUserData(stream::PUserData::Reader& reader, {name} member){{
         #ifdef CLIENT
            void* pUserData;
            {convert("","reader","pUserData",pUserData_info| {"relation":"param"},serialize=False)}
@@ -224,8 +224,8 @@ for name, struct in parsed.items():
     """)
     
     write(f"""
-        void serialize_struct({name}::Builder&, {name});
-        {name} deserialize_struct({name}::Reader&);
+        void serialize_struct(stream::{name}::Builder&, {name});
+        {name} deserialize_struct(stream::{name}::Reader&);
     """,header=True)
 
 import re

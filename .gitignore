@@ -1,11 +1,9 @@
 external/*/.git
-external/json/single_include/nlohmann/json.hpp.gch
 external/asio
 *.so
 *.a
 *.o
 Sync.json
 boost*
-*.capnp.c++
-*.capnp.h
+*capnp*
 parsed.json

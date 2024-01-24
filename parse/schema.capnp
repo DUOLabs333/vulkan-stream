@@ -1,6 +1,7 @@
 @0xfccbbb584171b69d;
-
-struct PFNvkInternalAllocationNotification {
+    using Cxx = import "/capnp/c++.capnp";
+    $Cxx.namespace("stream");
+    struct PFNvkInternalAllocationNotification {
 id @0 :UInt64;
 mem @1 :UInt64;
 result @2 :UInt64;

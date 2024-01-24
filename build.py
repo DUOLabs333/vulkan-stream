@@ -59,7 +59,6 @@ for file in SRC_FILES:
     modified_time=int(os.path.getmtime(file))
     CPP=file.endswith(".cpp")
     
-    print(" ".join([("g++" if CPP else "gcc")]+[("-std=c++20" if CPP else "-std=gnu99")]+ FLAGS+ ["-o",object_file,"-c",file]+ INCLUDE_PATHS))
     subprocess.run([("g++" if CPP else "gcc")]+[("-std=c++20" if CPP else "-std=gnu99")]+ FLAGS+ ["-o",object_file,"-c",file]+ INCLUDE_PATHS)
     os.utime(object_file, (modified_time, modified_time))
 

@@ -414,7 +414,10 @@ if __name__=="__main__":
     schemas["Message"]="\n".join(message_schema)
     
     schema_file=open("schema.capnp","w+")
-    schema_file.write("@0xfccbbb584171b69d;\n\n")
+    schema_file.write("""@0xfccbbb584171b69d;
+    using Cxx = import "/capnp/c++.capnp";
+    $Cxx.namespace("stream");
+    """)
     
     for name, schema in schemas.items():
         schema_file.write(schema+"\n\n")
