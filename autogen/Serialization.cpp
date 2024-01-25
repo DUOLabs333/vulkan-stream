@@ -1,9 +1,6 @@
 
 #include <ThreadStruct.hpp>
 
-#include <schema.capnp.h>
-using namespace capnp;
-
 #include <Serialization.hpp>
 #include <Server.hpp>
 #include <Synchronization.hpp>
@@ -13,16 +10,16 @@ using namespace capnp;
 typedef struct {
     void* pUserData;
 
-uintptr_t PFN_vkAllocationFunction;
-uintptr_t PFN_vkFaultCallbackFunction;
 uintptr_t PFN_vkFreeFunction;
-uintptr_t PFN_vkReallocationFunction;
-uintptr_t PFN_vkVoidFunction;
 uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
-uintptr_t PFN_vkInternalAllocationNotification;
 uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
-uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
+uintptr_t PFN_vkInternalAllocationNotification;
+uintptr_t PFN_vkVoidFunction;
 uintptr_t PFN_vkDebugReportCallbackEXT;
+uintptr_t PFN_vkFaultCallbackFunction;
+uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
+uintptr_t PFN_vkReallocationFunction;
+uintptr_t PFN_vkAllocationFunction;
 uintptr_t PFN_vkInternalFreeNotification;
 } pUserData;
 
@@ -91595,7 +91592,7 @@ std::map<uintptr_t,PFN_vkInternalAllocationNotification> id_to_PFN_vkInternalAll
         //Will only be called by the server
         
         object& json;
-        json["type"]="PFN_vkInternalAllocationNotification";
+        json["type"]=PFN_VKINTERNALALLOCATIONNOTIFICATION;
         
 [&](){
             if (pUserData==NULL){
@@ -91709,7 +91706,7 @@ std::map<uintptr_t,PFN_vkInternalFreeNotification> id_to_PFN_vkInternalFreeNotif
         //Will only be called by the server
         
         object& json;
-        json["type"]="PFN_vkInternalFreeNotification";
+        json["type"]=PFN_VKINTERNALFREENOTIFICATION;
         
 [&](){
             if (pUserData==NULL){
@@ -91823,7 +91820,7 @@ std::map<uintptr_t,PFN_vkReallocationFunction> id_to_PFN_vkReallocationFunction;
         //Will only be called by the server
         
         object& json;
-        json["type"]="PFN_vkReallocationFunction";
+        json["type"]=PFN_VKREALLOCATIONFUNCTION;
         
 [&](){
             if (pUserData==NULL){
@@ -92016,7 +92013,7 @@ std::map<uintptr_t,PFN_vkAllocationFunction> id_to_PFN_vkAllocationFunction;
         //Will only be called by the server
         
         object& json;
-        json["type"]="PFN_vkAllocationFunction";
+        json["type"]=PFN_VKALLOCATIONFUNCTION;
         
 [&](){
             if (pUserData==NULL){
@@ -92160,7 +92157,7 @@ std::map<uintptr_t,PFN_vkFreeFunction> id_to_PFN_vkFreeFunction;
         //Will only be called by the server
         
         object& json;
-        json["type"]="PFN_vkFreeFunction";
+        json["type"]=PFN_VKFREEFUNCTION;
         
 [&](){
             if (pUserData==NULL){
@@ -92308,7 +92305,7 @@ std::map<uintptr_t,PFN_vkDebugReportCallbackEXT> id_to_PFN_vkDebugReportCallback
         //Will only be called by the server
         
         object& json;
-        json["type"]="PFN_vkDebugReportCallbackEXT";
+        json["type"]=PFN_VKDEBUGREPORTCALLBACKEXT;
         
 [&](){[&](){[&](){json["flags"]=flags;}();}();}();
 [&](){[&](){[&](){json["objectType"]=objectType;}();}();}();
@@ -92490,7 +92487,7 @@ std::map<uintptr_t,PFN_vkDebugUtilsMessengerCallbackEXT> id_to_PFN_vkDebugUtilsM
         //Will only be called by the server
         
         object& json;
-        json["type"]="PFN_vkDebugUtilsMessengerCallbackEXT";
+        json["type"]=PFN_VKDEBUGUTILSMESSENGERCALLBACKEXT;
         
 [&](){[&](){[&](){json["messageSeverity"]=messageSeverity;}();}();}();
 [&](){[&](){[&](){json["messageTypes"]=messageTypes;}();}();}();
@@ -92637,7 +92634,7 @@ std::map<uintptr_t,PFN_vkDeviceMemoryReportCallbackEXT> id_to_PFN_vkDeviceMemory
         //Will only be called by the server
         
         object& json;
-        json["type"]="PFN_vkDeviceMemoryReportCallbackEXT";
+        json["type"]=PFN_VKDEVICEMEMORYREPORTCALLBACKEXT;
         
 [&](){
             if (pCallbackData==NULL){

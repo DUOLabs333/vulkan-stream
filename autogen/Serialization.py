@@ -3,10 +3,8 @@ import copy, re
 
 write("#include <vulkan/vulkan.h>",header=True)
 write(f"""
-#include <ThreadStruct.hpp>
 
-#include <schema.capnp.h>
-using namespace capnp;
+#include <ThreadStruct.hpp>
 
 #include <Serialization.hpp>
 #include <Server.hpp>

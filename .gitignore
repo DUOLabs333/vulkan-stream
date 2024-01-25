@@ -1,9 +1,7 @@
 external/*/.git
-external/asio
+external/*
 *.so
 *.a
 *.o
 Sync.json
-boost*
-*capnp*
 parsed.json
