@@ -1,7 +1,7 @@
 #include <vulkan/vulkan.h>
 #include <debug.hpp>
 
-void handle_sync_init(stream::Sync::Reader&);
+void handle_sync_init(object&);
 void SyncAll();
 void SyncAllocations();
 void* registerDeviceMemoryMap(uintptr_t server_memory, VkDeviceMemory memory, VkDeviceSize size, void* mem, uintptr_t server_mem);

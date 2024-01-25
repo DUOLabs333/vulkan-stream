@@ -2,9 +2,6 @@
 #include <cstdint>
 #include <picosha2.h>
 
-#include <schema.capnp.h>
-using namespace capnp;
-
 #include <Server.hpp>
 #include <vulkan/vulkan.h>
 #include <Serialization.hpp>
@@ -126,122 +123,99 @@ delete info;
 void registerAllocatedMem(void* mem, int size){
     allocated_mems[(uintptr_t)mem]=size;
 }
-void handle_sync_response(stream::Sync::Reader& reader){
+void handle_sync_response(object& json){
     //Recieved the bytes. Send a notification that it finished sending the bytes.
+    
+    Sync sync;
+    deserialize_Sync(json, sync);
+    
     #ifdef CLIENT
-        void* mem=(char*)server_to_client_mem[value_to<uintptr_t>(data["mem"])];
+        void* mem=(char*)server_to_client_mem[sync.mem];
     #else
-        void* mem=(void*)value_to<uintptr_t>(data["mem"]);
+        void* mem=(void*)(sync.mem);
     #endif
     
-    MallocMessageBuilder m;
-    auto message=m.initRoot<Message>();
-    auto builder=message.initSync();
-    
-    auto starts=reader.getStarts();
-    auto lengths=reader.getLengths();
-    auto buffers=reader.getBuffers();
-    
-    for(int i=0; i < starts.size(); i++){
+    for(int i=0; i < sync.starts.size(); i++){
         debug_printf("Memory %p: Data has changed!\n",(char*)mem);
-        memcpy((char*)mem+starts[i],buffers[i].begin(), lengths[i]);
+        memcpy((char*)mem+sync.starts[i],sync.buffers[i].begin(), sync.lengths[i]);
     }
     
-    writeToConn(m);
+    writeToConn(json);
 }
 
-void handle_sync_init(stream::Sync::Reader& reader){
+void handle_sync_init(object& json){
     //Received an init, sent a request for bytes. Wait for bytes to be sent
-   
+    
+    Sync sync;
+    deserialize_Sync(json, sync);
+    
     #ifdef CLIENT
-        if (!server_to_client_mem.contains(reader.getMem())){
+        if (!server_to_client_mem.contains(sync.mem)){
             debug_printf("Panic! It's not found!\n");
         }
-        void* mem=(char*)server_to_client_mem[reader.getMem()];
+        void* mem=(char*)server_to_client_mem[sync.mem];
     #else
-        void* mem=(void*)(reader.getMem());
+        void* mem=(void*)(sync.mem);
     #endif
     
-    MallocMessageBuilder m;
-    auto message=m.initRoot<Message>();
-    auto builder=message.initSync();
+    auto starts=sync.starts;
+    auto lengths=sync.lengths;
+    auto hashes=sync.hashes;
+    //After serialize and deserialize, clear
     
-    auto readerStarts=reader.getStarts();
-    auto readerLengths=reader.getLengths();
-    auto readerHashes=reader.getHashes();
+    sync.starts.clear();
+    sync.lengths.clear();
+    sync.hashes.clear();
     
-    builder.setMem(reader.getMem());
-    
-    std::vector<std::array<size_t, 2>> sections;
-    
-    for (int i=0; i<readerStarts.size(); i++){
-        if (HashMem(mem, readerStarts[i], readerLengths[i])!= readerHashes[i]){
-            sections[i].push_back({readerStarts[i],readerLengths[i]});
+    for (int i=0; i<starts.size(); i++){
+        if (HashMem(mem, starts[i], lengths[i])!= hashes[i]){
+            sync.starts[i].push_back(starts[i]);
+            sync.lengths[i].push_back(lengths[i]);
         }
     }
     
-    auto builderStarts=builder.initStarts(sections.size());
-    auto builderLengths=builder.initLengths(sections.size());
+    serialize_Sync(json, sync);
+    writeToConn(json);
     
-    for (int i=0; i< sections.size(); i++){
-        builderStarts[i]=sections[i][0];
-        builderLengths[i]=sections[i][1];
-    }
-        
-    writeToConn(m);
-    
-    while(true){
-        auto reader=readFromConn().getRoot<Sync>();
-        handle_sync_response(reader);
-        break;
-    }
+    json=readFromConn();
+    handle_sync_response(json);
     
     #ifndef CLIENT
-        if (data.contains("devicememory")){
-             auto devicememory = value_to<uintptr_t>(data["devicememory"]);
-            deregisterDeviceMemoryMap((VkDeviceMemory)devicememory);
+        if (sync.devicememory!=(uintptr_t)NULL){
+             deregisterDeviceMemoryMap((VkDeviceMemory)(sync.devicememory));
         }
     #endif
         
     
 }
 
-void handle_sync_request(stream::Sync::Reader& reader){
+void handle_sync_request(object& json){
     //Recieved a request for bytes, sent the bytes. Wait for the recipient to set the bytes
+    
+    Sync sync;
+    deserialize_Sync(json, sync);
+    
     #ifdef CLIENT
-        void* mem=(void*)server_to_client_mem[reader.getMem()];
+        void* mem=(void*)server_to_client_mem[sync.mem];
     #else
-        void* mem=(void*)(reader.getMem());
+        void* mem=(void*)(sync.mem);
     #endif
     
-    MallocMessageBuilder m;
-    auto message=m.initRoot<Message>();
-    auto builder=message.initSync();
+    sync.buffers.resize(sync.starts.size());
     
-    auto readerStarts=reader.getStarts();
-    auto readerLengths=reader.getLengths();
-    
-    builder.setStarts(readerStarts);
-    builder.setLengths(readerLengths);
-    builder.setMem(reader.getMem());
-    
-    auto builderBuffers=builder.initBuffers(readerStarts.size());
-    
-    for(int i=0; i<readerStarts.size(); i++){
-        auto length=readerLengths[i];
-        auto start=readerStarts[i];
+    for(int i=0; i<sync.starts.size(); i++){
+        auto length=sync.lengths[i];
+        auto start=sync.starts[i];
         
         std::string buffer((char*)mem+start, (char*)mem+start+length);
         
-        builderBuffers.set(i, buffer);
+        sync.buffers[i]=buffer;
     }
     
-    writeToConn(m);
+    serialize_Sync(json, sync);
+    writeToConn(json);
     
-    while(true){
-        readFromConn(); //Wait for the other computer to return that it's finished setting the bytes.
-        break;
-    }
+    readFromConn(); //Wait for the other computer to return that it's finished setting the bytes.
 }
 
 void Sync(uintptr_t devicememory, void* mem, size_t length){
@@ -250,48 +224,44 @@ void Sync(uintptr_t devicememory, void* mem, size_t length){
     auto d=length/parts;
     auto remainder=length%parts;
     
-    MallocMessageBuilder m;
-    auto message=m.initRoot<Message>();
-    auto builder=message.initSync();
+    Sync sync;
     
     #ifdef CLIENT
         if (devicememory!=0){
-            builder.setDevicememory(devicememory_to_mem_info[devicememory]->server_devicememory);
+            sync.devicememory=devicememory_to_mem_info[devicememory]->server_devicememory;
         }
     #endif
     
-    auto starts=build.initStarts(parts);
-    auto lengths=build.initLengths(parts);
-    auto hashes=build.initHashes(parts);
+    sync.starts.resize(parts);
+    sync.lengths.resize(parts);
+    sync.hashes.resize(parts);
     
     #ifdef CLIENT
-        builder.setMem(client_to_server_mem[(uintptr_t)mem]);
+        sync.mem=client_to_server_mem[(uintptr_t)mem];
     #else
-        builder.setMem((uintptr_t)mem);
+        sync.mem=(uintptr_t)mem;
     #endif
     
     auto offset=0;
     for (int i=0; i<remainder; i++){
-        starts.set(i,offset);
-        lengths.set(i,d+1);
-        hashes.set(i,HashMem(mem,offset,d+1));
-        offset+=(d+1);
+        sync.starts[i]=offset;
+        sync.lengths[i]=d+1;
+        sync.hashes[i]=HashMem(mem,offset,d+1);
+        offset+=d+1;
     }
     
     for (int i=0; i<(parts-remainder); i++){
-        starts.set(i,offset);
-        lengths.set(i,d);
-        hashes.set(i,HashMem(mem,offset,d));
+        sync.starts[i]=offset;
+        sync.lengths[i]=d;
+        sync.hashes[i]=HashMem(mem,offset,d);
         offset+=d;
     }
     
-    writeToConn(m);
+    serialize_Sync(json, sync);
+    writeToConn(json);
     
-    while(true){
-        auto reader=readFromConn();
-        handle_sync_request(reader);
-       break;
-    }
+    json=readFromConn();
+    handle_sync_request(json);
 }
 
 void SyncAll(){
