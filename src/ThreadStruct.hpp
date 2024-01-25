@@ -11,14 +11,14 @@ extern std::string address;
 
 extern std::string port;
 
-int BUFFER_SIZE=1000000; //1 MB
+const int BUFFER_SIZE=1000000; //1 MB
 typedef struct {
     tcp::socket* conn;
     int uuid;
-    serializer serializer;
-    parser parser;
-    char[BUFFER_SIZE] data_buf;
-    char[4] size_buf; //Holding the size of the incoming message (32 bits should be good enough for everyone, right?)
+    boost::json::serializer serializer = {{.allow_infinity_and_nan=true}};
+    boost::json::parser parser = {{}, {.allow_invalid_utf8=true,.allow_infinity_and_nan=true}};
+    char data_buf[BUFFER_SIZE];
+    char size_buf[4]; //Holding the size of the incoming message (32 bits should be good enough for everyone, right?)
     
 } ThreadStruct;
     

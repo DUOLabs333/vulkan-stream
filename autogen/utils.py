@@ -129,7 +129,7 @@ def convert(variable, value, info, serialize, initialize=False):
             if serialize:
                 result+=f"""{value}=(uintptr_t){variable};"""
             else:
-                result+=f"""variable=value_to<uintptr_t>({value});"""
+                result+=f"""{variable}=value_to<uintptr_t>({value});"""
                 
     elif len(length)>0:
         size=length.pop()
