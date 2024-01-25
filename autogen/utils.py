@@ -12,10 +12,6 @@ header_lines=[]
 import json
 import copy
 import random, string
-import sys
-
-sys.path.append("../parse")
-from parse import normalize_field, normalize_type
 
 parsed=json.load(open("../parse/parsed.json"))
 
@@ -40,15 +36,6 @@ def update_dict(info, alias):
     elif "alias" in info:
         del info["alias"]
 
-def normalize_attr(string):
-    return normalize_type(string)
-
-import re
-def normalize_which(string):
-    string=string.replace("_","")
-    string=re.sub(r"(.)(?=([A-Z]))", r"\1_",string)
-    return string.upper()
-    
 def convert(variable, value, info, serialize, initialize=False):
     info=copy.deepcopy(info) #To avoid modifying the mutable arguments
     
@@ -169,7 +156,7 @@ def convert(variable, value, info, serialize, initialize=False):
         value+=f"[{temp_iterator}]"
         
         result+=f"""
-        auto arr={arr};
+        auto& arr={arr};
         for(int {temp_iterator}=0; {temp_iterator} < {size}; {temp_iterator}++){{
             {convert(*args())}
         }}
@@ -181,7 +168,7 @@ def convert(variable, value, info, serialize, initialize=False):
     elif kind in ["struct","funcpointer"]: #pNext is handled specially as a union
         if serialize:
             result+=f"""
-            auto temp={value}.emplace_object();
+            auto& temp={value}.emplace_object();
             return serialize_{kind}(temp, {variable});
             """
         else:
@@ -189,8 +176,8 @@ def convert(variable, value, info, serialize, initialize=False):
                 result+="\n#ifndef CLIENT"
                 
             result+=f"""
-            auto temp={value}.as_object();
-            {variable}=deserialize_{kind}(temp);
+            auto& temp={value}.as_object();
+            deserialize_{kind}(temp,{variable});
             """
             if kind=="funcpointer":
                 result+="#endif\n"
@@ -207,7 +194,7 @@ def convert(variable, value, info, serialize, initialize=False):
         if serialize:
             result+=f"{value}=static_cast<uintptr_t>serialize_handle({variable});"
         else:
-            result+=f"""{native_concat()}=deserialize_{type}({proto_concat("get")});"""
+            result+=f"""{variable}=deserialize_{type}(value_to<uintptr_t>({value}));"""
     elif kind in ["enum", "bitmask"]:
         info["alias"]="int"
         result+=convert(*args())

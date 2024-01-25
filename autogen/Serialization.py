@@ -54,9 +54,9 @@ for member in pUserData_members:
 write("} pUserData;")
 
 write("""
-void serialize_pNext(stream::PNext::Builder builder, void* member){
+void serialize_pNext(object& json, void* member){
     if (member==NULL){
-        builder.setNone();
+        json.erase("sType");
         return;
     }
     
@@ -73,37 +73,36 @@ for name, struct in parsed.items():
     write(f"""
     case {struct["sType"]}:
         {{
-        auto temp=builder.get{name}();
-        return serialize_struct(temp, (({name}*)(member))[0]);
+        return serialize_struct(json, (({name}*)(member))[0]);
         }}
     """)
     
 write("""
 default:
-    return serialize_pNext(builder, (void*)(chain->pNext)); //Ignore invalid sTypes
+    return serialize_pNext(json, (void*)(chain->pNext)); //Ignore invalid sTypes
 }
 }
 """)
 
 write("""
-void* deserialize_pNext(stream::PNext::Reader& reader){
-    if (reader.isNone()){
+void deserialize_pNext(object& json, void*& member ){
+    if (!json.contains("sType")){
         return NULL;
     }
     
-    switch (reader.which()){
+    switch (value_to<int>(json["sType"])){
 """)
 
 for name,struct in parsed.items():
     if is_not_struct(name, struct):
         continue
     write(f"""
-    case stream::PNext::{normalize_which(name)}:
+    case {struct["sType"]}:
         {{
-        auto result=({name}*)malloc(sizeof({name}));
-        auto temp_struct=reader.get{normalize_attr(name)}();
-        result[0]=deserialize_struct(temp_struct);
-        return result;
+        auto result= new {name};
+        deserialize_struct(json, result);
+        member=result;
+        return;
         }}
     """)
 write("}}")
@@ -164,73 +163,82 @@ for name, struct in parsed.items():
     
     members=struct["members"]
     
-    write(f"""
-    void serialize_struct(stream::{name}::Builder& builder, {name} member){{
-        
-    """)
-    
     members_names=[member["name"] for member in members]
     
     def add_struct_name(name,struct_name):
         return re.sub(rf"\b({'|'.join(members_names)})\b",rf"{struct_name}.\1",name)
+    
+    write(f"""
+    void serialize_struct(object& json, {name}& member){{
+        
+    """)
         
     for member in members:
         member=copy.deepcopy(member)
-
+        
+        write(f"""auto& json_value=json["{member["name"]}"];""")
+        
+        if member["type"]=="pUserData":
+            write(f"""serialize_pUserData(json_value, member);""")
+            continue
+            
         for i,e in enumerate(member["length"]):
             member["length"][i]=add_struct_name(e, "member")
         
-        write(convert("member","builder",member["name"],member,serialize=True))
+        write(convert(f"""member.{member["name"]}""","json_value",member,serialize=True))
         
     write("}")
         
-    write(f"""
-    {name} deserialize_struct(stream::{name}::Reader reader){{
-        auto result={name}();
-    """)
+    write(f"void deserialize_struct(object& json, {name}& member){{")
     for member in members:
         member=copy.deepcopy(member)
         
-        for i,e in enumerate(member["length"]):
-            member["length"][i]=add_struct_name(e, "result")
+        write(f"""auto& json_value=json["{member["name"]}"];""")
         
-        write(convert("result","reader",member["name"],member,serialize=False, initialize=True))
+        if member["type"]=="pUserData":
+            write(f"""deserialize_pUserData(json_value, member);""")
+            continue
+        
+        for i,e in enumerate(member["length"]):
+            member["length"][i]=add_struct_name(e, "member")
+        
+        write(convert(f"""member.{member["name"]}""","json_value",member,serialize=False, initialize=True))
             
-    write("return result;}")
+    write("}")
     
     pUserData_info={"relation":"member","type":"void","num_indirection":1, "length":["null-terminated"]}
     
     write(f"""
-    void serialize_pUserData(stream::PUserData::Builder builder, {name} member){{
+    void serialize_pUserData(object& json, {name}& member){{
     """)
-    write(convert("member","builder","pUserData",pUserData_info,serialize=True))
+    write(convert("member.pUserData","""json["pUserData"].emplace_object()""",pUserData_info,serialize=True))
+    
     for member in members:
         if member["type"] in pUserData_members:
-            write(f"""builder.set{member["type"]}((uintptr_t)(member.{member["name"]}));""")
+            write(f"""json["{member["type"]}"]=(uintptr_t)(member.{member["name"]});""")
     write("}")
     
     write(f"""
-    void* deserialize_pUserData(stream::PUserData::Reader& reader, {name} member){{
+    void deserialize_pUserData(object& json, {name}& member){{
         #ifdef CLIENT
            void* pUserData;
-           {convert("","reader","pUserData",pUserData_info| {"relation":"param"},serialize=False)}
-           return pUserData;
+           {convert("pUserData",'json["pUserData"]',pUserData_info, serialize=False,initialize=True)}
         #else
-            auto result = new pUserData();
+            pUserData=new pUserData();
     """)
-    write(convert("result","reader","pUserData",pUserData_info,serialize=False))
+    write(convert("pUserData.pUserData",'json["pUserData"]',pUserData_info,serialize=False,initialize=True))
     for member in members:
         if member["type"] in pUserData_members:
-            write(f"""result.{member["name"]}=reader.get{member["type"]}();""")
+            write(f"""pUserData.{member["name"]}=({member["type"]})(value_to<uintptr_t>(json["{member["type"]}"]));""")
     write("""
-    return result;
     #endif
+    member.pUserData=pUserData;
     }
     """)
     
     write(f"""
-        void serialize_struct(stream::{name}::Builder&, {name});
-        {name} deserialize_struct(stream::{name}::Reader&);
+        void serialize_struct(object&, {name}&);
+        void deserialize_struct(object&, {name}&);
     """,header=True)
 
 import re
@@ -246,13 +254,13 @@ for name,funcpointer in parsed.items():
     write(f"std::map<uintptr_t,{name}> id_to_{name};")
     
     write(f"""
-    void serialize_funcpointer(stream::{normalize_type(name)}::Builder builder, {name} build){{
+    void serialize_funcpointer(object&, {name}){{
         //Will only be called by the client
         return;
     }}
     """)
     
-    write(f"""void serialize_funcpointer(stream::{normalize_type(name)}::Builder, {name});""",header=True)
+    write(f"""void serialize_funcpointer(object&, {name});""",header=True)
     
     if name!="PFN_vkGetInstanceProcAddrLUNARG": #PFN_vkGetInstanceProcAddrLUNARG is a pointer to the client's vkGetInstanceProcAddr. However, since the client's vkGetInstanceProcAddr is just a thin wrapper over the server's vkGetInstanceProcAddr (as well as that the client does not support recieving objects from the server outside of a command), we just return the server's vkGetInstanceProcAddr.
     
