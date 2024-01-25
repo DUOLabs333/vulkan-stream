@@ -10,9 +10,6 @@ write("""
 #include <future>
 #include "vk_enum_string_helper.h"
 
-#include <schema.capnp.h>
-using namespace capnp;
-
 #include <vulkan/vulkan.h>
 
 #include <Serialization.hpp>
@@ -43,13 +40,15 @@ def registerDeviceMemoryMap(name,mem):
             size=f"pMemoryMapInfo->{size}"
             
         return f"""
+        value server_memory_json;
+        serialize_VkDeviceMemory(server_memory_json, {memory});
         
-        auto server_memory=value_to<uintptr_t>(serialize_VkDeviceMemory({memory})); 
+        auto server_memory=value_to<uintptr_t>(server_memory_json); 
         
         *ppData=registerDeviceMemoryMap(server_memory, {memory},{size},*ppData,{mem});
         
         #ifndef CLIENT
-            builder.setMem({mem});
+            json["mem"]={mem};
         #endif
         """
     else:
@@ -80,21 +79,26 @@ for name, command in parsed.items():
         continue
         
     write(f"""
-    void handle_command({name}::Reader& reader){{
+    void handle_{name}(object& json){{
     //Will only be called by the server
     """)
 
     for param in command["params"]:
         write(param["header"].replace("const ","",1)+";")
-        write(convert("","reader",param["name"],param,serialize=False,initialize=True))
+        write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=False,initialize=True))
 
     write(f"""
     PFN_{name} call_function;
-    if(reader.getParent().hasInstance()){{
-        VkInstance parent=deserialize_VkInstance(reader.getParent().getInstance());
+    
+    auto parent_json=json["parent"].as_object();
+    if(parent_json.contains("instance")){{
+        VkInstance parent;
+        deserialize_VkInstance(parent_json["instance"],parent);
+        
         call_function=(PFN_{name})get_instance_proc_addr(parent,"{name}");
-    }}else if(reader.getParent().hasDevice()){{
-        VkDevice parent=deserialize_VkDevice(reader.getParent().getDevice());
+    }}else if(parent_json.contains("device")){{
+        VkDevice parent;
+        deserialize_VkDevice(parent_json["device"],parent);
         call_function=(PFN_{name})get_device_proc_addr(parent,"{name}");
     }}  
     """
@@ -185,24 +189,15 @@ for name, command in parsed.items():
     if (name=="vkGetInstanceProcAddr"):
         write('debug_printf("Getting %s\\n",pName);')
     
-    write(f"""
-    MallocMessageBuilder m;
-    auto message=m.initRoot<Message>();
-    auto builder=message.init{name}();
-    """)
+    write("json.clear();")
+    
     if name in ["vkGetInstanceProcAddr","vkGetDeviceProcAddr"]:
-        write("""
-        if (result==NULL){
-            builder.disownResult();
-        else {
-            builder.initResult();
-        }
-        """)
+        write("""json["result"]=(uintptr_t)result;""")
     else:
-        write(convert("","builder","result",command, serialize=True))
+        write(convert("result","""json["result"]""",command, serialize=True))
     
     for param in command["params"]:
-        write(convert("","builder",param["name"], param, serialize=True))
+        write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=True))
             
     if name=="vkWaitForFences":
         write("""
@@ -214,16 +209,14 @@ for name, command in parsed.items():
     write(registerDeviceMemoryMap(name,"(uintptr_t)(*ppData)"))
        
     write("""
-        writeToConn(result);
+        writeToConn(json);
     }""")
-    
-    write(f"""void handle_command({name}::Reader& reader);""",header=True)
 
 write("""
-void handle_command(Message::Reader& reader){
+void handle_command(object json){
 //Will only be called by the server
 
-switch (reader.which()){
+switch (value_to<Command>(json["enum"])){
 """)
 
 for name, command in parsed.items():
@@ -235,14 +228,14 @@ for name, command in parsed.items():
         type=command["alias"]
         
     write(f"""
-        case (Message::{type.upper()}):
-            handle_command(reader.get{type}());
+        case ({type.upper()}):
+            handle_command(json);
             return;
     """)
 
 write("}")
 
-write("void handle_command(Message::Reader&);", header=True)
+write("void handle_command(object);", header=True)
 
 write("#else") #Don't want server to get confused on which command we're talking about
 write("""
@@ -324,9 +317,9 @@ for name, command in parsed.items():
         continue
     
     write(f"""
-    MallocMessageBuilder m;
-    auto message=m.initRoot<Message>();
-    auto builder=message.init{name}();
+    object json;
+    auto parent_json=json["parent"].emplace_object();
+    json["type"]={name.upper()};
     """)
     
     head=command["params"][0]
@@ -335,14 +328,15 @@ for name, command in parsed.items():
     if parsed[head["type"]]["kind"]=="handle":
         write(f"""
         auto parent=handle_to_parent_handle_struct[(uintptr_t){head["name"]}];
+        
         if (parent.device!=NULL){{
-            builder.initParent().setDevice(serialize_handle(parent.device));
+            serialize_handle(parent_json["device"], parent.device);
         }}else{{
-            builder.initParent().setInstance(serialize_handle(parent.instance));
+            serialize_handle(parent_json["instance"], parent.instance);
         }}
         """)
     else:
-        write("builder.initParent().setInstance((uintptr_t)NULL);")
+        write("""parent_json["instance"]=(uintptr_t)NULL;""")
     
     if name=="vkEnumerateInstanceExtensionProperties":
         write("""
@@ -439,7 +433,7 @@ for name, command in parsed.items():
         """)
         
     for param in command["params"]:
-        write(convert("","builder", param["name"], param, serialize=True))
+        write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=True))
     write("}")
     
     if name=="vkQueueSubmit":
@@ -450,18 +444,16 @@ for name, command in parsed.items():
         
     write(deregisterDeviceMemoryMap(name))
     write(f"""
-        writeToConn(m);
+        writeToConn(json);
         
-        {name}::Reader reader;
         while(true){{
-            auto m=readFromConn();
+            json=readFromConn();
             
-            switch(m.which()){{
-                case (Message::SYNC):
-                    handle_sync_init(m.getRoot<Sync>());
+            switch(value_to<StreamType>(json["type"])){{
+                case (SYNC):
+                    handle_sync_init(json);
                     continue;
-                case (Message::{name}):
-                    reader=m.getRoot<name>();
+                case ({name.upper()}):
                     break; 
     """)
     for funcpointer in parsed:
@@ -470,15 +462,15 @@ for name, command in parsed.items():
         if funcpointer=="PFN_vkGetInstanceProcAddrLUNARG": #This isn't a normal funcpointer --- only makes sense on the server
             continue
         write(f"""
-         case (Message::{funcpointer.upper()}):
-            handle_funcpointer(m.getRoot<{funcpointer.upper()}>());
+         case ({funcpointer.upper()}):
+            handle_{funcpointer}(json);
             continue;
         """)
         
     write("break;}")
     
     for param in command["params"]:
-       write(convert("","reader",param["name"],param,serialize=False))
+        write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=False))
     
     if name=="vkEnumerateInstanceExtensionProperties":
         write("""
@@ -536,7 +528,7 @@ for name, command in parsed.items():
             write(f"""
             else if (strcmp(pName,"{command_name}")==0){{
                 debug_printf("Retrieving {command_name}...\\n");
-                result= (reader.hasResult()) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
+                result= (value_to<uintptr_t>(json["result"])!=(uintptr_t)NULL) ? ({command['type']}){command_name} : NULL; //We keep track of dispatch separately
                 
             }}
             """)
@@ -551,7 +543,7 @@ for name, command in parsed.items():
     else:
         if not is_void(command):
             write(command["type"]+"*"*command["num_indirection"]+" result;")
-            write(convert("","builder","result",command,serialize=False))
+            write(convert("result",f"""json["result"]""",command | {"name":"result"},serialize=False,initialize=True))
         
     for creation_function in ["^vkAllocate(.*)s$","^vkCreate(.*)$","^vkEnumerate(.*)s$","^vkGetDeviceQueue$"]:
         if re.match(creation_function,name) is not None:

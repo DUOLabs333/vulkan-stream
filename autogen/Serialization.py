@@ -96,6 +96,9 @@ void deserialize_pNext(object& json, void*& member ){
 for name,struct in parsed.items():
     if is_not_struct(name, struct):
         continue
+    if struct.get("sType","")=="":
+        continue
+        
     write(f"""
     case {struct["sType"]}:
         {{
@@ -277,7 +280,7 @@ for name,funcpointer in parsed.items():
         //Will only be called by the server
         
         object& json;
-        json["type"]="{name}";
+        json["type"]={name.upper()};
         """)
         
         for param in funcpointer["params"]:
