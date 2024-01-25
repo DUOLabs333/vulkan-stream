@@ -192,9 +192,9 @@ def convert(variable, value, info, serialize, initialize=False):
         result+=convert(*args())
     elif kind=="handle":
         if serialize:
-            result+=f"{value}=static_cast<uintptr_t>serialize_handle({variable});"
+            result+=f"serialize_{kind}({value},{variable});"
         else:
-            result+=f"""{variable}=deserialize_{type}(value_to<uintptr_t>({value}));"""
+            result+=f"""deserialize_{kind}({value}, {variable});"""
     elif kind in ["enum", "bitmask"]:
         info["alias"]="int"
         result+=convert(*args())

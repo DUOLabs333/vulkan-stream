@@ -254,54 +254,58 @@ for name,funcpointer in parsed.items():
     write(f"std::map<uintptr_t,{name}> id_to_{name};")
     
     write(f"""
-    void serialize_funcpointer(object&, {name}){{
+    void serialize_funcpointer(object&, {name}&){{
         //Will only be called by the client
         return;
     }}
     """)
     
-    write(f"""void serialize_funcpointer(object&, {name});""",header=True)
+    write(f"""void serialize_funcpointer(object&, {name}&);""",header=True)
     
     if name!="PFN_vkGetInstanceProcAddrLUNARG": #PFN_vkGetInstanceProcAddrLUNARG is a pointer to the client's vkGetInstanceProcAddr. However, since the client's vkGetInstanceProcAddr is just a thin wrapper over the server's vkGetInstanceProcAddr (as well as that the client does not support recieving objects from the server outside of a command), we just return the server's vkGetInstanceProcAddr.
-    
+        
+        write(f"""
+        void deserialize_funcpointer(object& json, {name}& member){{
+            //Will only be called by the server
+            
+            member={name}_wrapper;
+            }};
+        """)
+        
         write(f"""
         auto {name}_wrapper{header}{{
         //Will only be called by the server
         
-        MallocMessageBuilder m;
-        auto message=m.initRoot<Message>();
-        auto builder=message.init{name}();
+        object& json;
+        json["type"]="{name}";
         """)
         
         for param in funcpointer["params"]:
-            write(convert("","builder",param["name"],param,serialize=True))
+            write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=True))
         
         write(f"""
-        builder.setId( ((pUserData*)pUserData)->{name} );
-        writeToConn(m); //Send request
-        auto reader=readFromConn().get{name}(); //Recieve response
+        json["id"]=((pUserData*)pUserData)->{name};
+        
+        writeToConn(json); //Send request
+        json=readFromConn(); //Recieve response
         {funcpointer["type"]}{"*"*funcpointer["num_indirection"]} result;
         """)
         
         for param in funcpointer["params"]:
-            write(convert("","reader",param["name"],param,serialize=False))
+            write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=False))
         
-        write(convert("","reader","result",funcpointer,serialize=False))
+        write(convert("result",'json["result"]',funcpointer,serialize=False))
         
-        write(f"""
-        MallocMessageBuilder m;
-        auto message=m.initRoot<Message>();
-        auto builder=message.init{name}();
-        """)
+        write("json.clear();")
         
         if funcpointer["type"]=="void" and funcpointer["num_indirection"]==1:
             write("registerAllocatedMem(result,size);")
-            write("builder.setMem((uintptr_t)result);")
+            write('json["mem"](uintptr_t)result;')
         else:
-            write("builder.setMem(0);")
+            write('json.erase("mem");')
         
         write("""
-        writeToConn(m); //Send (possible) memory to client so it can store it
+        writeToConn(json); //Send (possible) memory to client so it can store it
         readFromConn(); //Get the confirmation that the client has registered the memory
         """)
             
@@ -311,26 +315,19 @@ for name,funcpointer in parsed.items():
         else:
             write("return;")
         write("}")
-    
-        write(f"""
-        {name} deserialize_funcpointer(stream::{normalize_type(name)}::Reader reader){{
-            //Will only be called by the server
-            
-            return {name}_wrapper;
-            }};
-        """)
         
         write(f"""
-            void handle_{name}_request(stream::{normalize_type(name)}::Reader reader){{
+            void handle_{name}(object& json){{
             //Will only be called by the client
+            
             // Recieved data from server's {name} wrapper, and will execute the actual function
-            auto funcpointer=id_to_{name}[reader.getId()];
+            auto funcpointer=id_to_{name}[value_to<uintptr_t>(json["id"])];
         """)
         
         #Just in case if they change when executing (none of the variables are const)
         for param in funcpointer["params"]:
             write(param["header"]+";") #Initialize variable
-            write(convert("","reader",param["name"], param, serialize=False, initialize=True))
+            write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=False,initialize=True))
         
         funcpointer_call=f"""funcpointer({",".join([param["name"] for param in funcpointer["params"]])})"""
         
@@ -339,45 +336,39 @@ for name,funcpointer in parsed.items():
         else:
             write(funcpointer_call+";")
         
-        write(f"""
-        MallocMessageBuilder m;
-        auto message=m.initRoot<Message>();
-        auto builder=message.init{name}();
-        """)
+        write("json.clear();")
         
         for param in funcpointer["params"]:
-            write(convert("","builder",param["name"],param,serialize=True))
+            write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=True))
         
-        write(convert("","builder","result",funcpointer,serialize=False))
+        write(convert("result","""json["result"]""",funcpointer,serialize=True))
         
-        write("writeToConn(m);")
+        write("writeToConn(json);")
         
         if funcpointer["type"]=="void" and funcpointer["num_indirection"]==1:
             write(f"""
-            auto reader=readFromConn().get{name}();
-            registerClientServerMemoryMapping((uintptr_t)result, (uintptr_t)(reader.getId()) );
+            json=readFromConn();
+            registerClientServerMemoryMapping((uintptr_t)result, value_to<uintptr_t>(json["mem"]) );
             
-            MallocMessageBuilder m;
-            auto message=m.initRoot<Message>();
-            auto builder=message.init{name}();
-            writeConn(m); //Send empty message to signal to the server the mapping is done.
+            json.clear();
+            writeConn(json); //Send empty message to signal to the server the mapping is done.
             """)
         
         write("};")
                 
         
-        write(f"void handle_{name}_request(stream::{normalize_type(name)}::Reader);",header=True);
+        write(f"void handle_{name}(object&);",header=True);
         
     else:
         write(f"""
-        {name} deserialize_funcpointer(stream::{normalize_type(name)}::Reader reader){{
+            void deserialize_funcpointer(object& json, {name}& member){{
             //Will only be called by the server
             
-            return vkGetInstanceProcAddr;
+            member=vkGetInstanceProcAddr;
             }};
         """)
     
-    write(f"{name} deserialize_funcpointer(stream::{normalize_type(name)}::Reader reader);",header=True)
+    write(f"void deserialize_funcpointer(object&, {name}&);",header=True)
         
 for handle in parsed:
         if "alias" in parsed[handle] or parsed[handle].get("kind","")!="handle":
@@ -391,7 +382,7 @@ for handle in parsed:
         #endif
         """)
         write(f"""
-        uintptr_t serialize_handle({handle} data){{
+        void serialize_handle(object& json, {handle}& data){{
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){{
@@ -409,15 +400,17 @@ for handle in parsed:
             #endif
         """)
         write("""
-            return result;
+            json=result;
         }
        """)
        
-        write(f"""uintptr_t serialize_handle({handle} data);""",header=True)
+        write(f"""void serialize_handle(object&, {handle}&);""",header=True)
         
         write(f"""
-       {handle} deserialize_{handle}(uintptr_t data){{
+          void deserialize_handle(object& json, {handle}& member){{
                 {handle} result;
+                auto data=value_to<uintptr_t>(json);
+                
                 #ifdef CLIENT
                     debug_printf("Handling server pointer %p:\\n",({handle})data);
                     if (server_{handle}_to_client_{handle}.contains(data)){{
@@ -435,9 +428,9 @@ for handle in parsed:
                     result=({handle})data;
                 #endif
                 
-                return result;
+                member=result;
        }}""")
        
-        write(f"""{handle} deserialize_{handle}(uintptr_t);""",header=True)
+        write(f"""void deserialize_handle(object&, {handle}&);""",header=True)
               
           
