@@ -49,14 +49,13 @@ def normalize_which(string):
     string=re.sub(r"(.)(?=([A-Z]))", r"\1_",string)
     return string.upper()
     
-def convert(native,proto,attr,info, serialize, initialize=False):
-    """
-    If serializing: C++ object to Builder
-    If not: Reader to C++ object
-    """
-    
+def convert(variable, value, info, serialize, initialize=False):
     info=copy.deepcopy(info) #To avoid modifying the mutable arguments
     
+    """
+    variable is the C++ object
+    value is the JSON object
+    """
     if is_void(info):
         return ""
     
@@ -66,54 +65,6 @@ def convert(native,proto,attr,info, serialize, initialize=False):
     type=info['type']
     kind=parsed[type]["kind"]
     
-    def proto_concat(action, argument=""):
-        relation=info["relation"]
-        args=([] if argument=="" else [argument])
-        
-        if relation=="index":
-            if action=="set":
-                child=f".{action}"
-                args.insert(0,attr)
-            elif action=="init":
-                if len(length)>0:
-                    if kind=="struct":
-                        child=f"[{attr}]" #When a list of structs are initialized, each element is also initialized, so nothing has to be done
-                        args=None
-                    else:
-                        child=f".{action}"
-                        args.insert(0,attr)
-                else:
-                    child=f"[{attr}]" #When a list of primitives are initialized, each element is also initialized, so nothing has to be done
-                    args=None
-            elif action=="get":
-                child=f"[{attr}]"
-                args=None
-            else:
-                raise ValueError("Unsupported action for Lists! Something has gone wrong.")
-                
-        else:
-            _attr=attr
-            _attr=normalize_attr(_attr)
-            child=f".{action}{_attr}"
-        
-        if args is None:
-            args=""
-        else:
-            args=f"({','.join(args)})"
-            
-        return proto+child+args
-    
-    def native_concat():
-        relation=info["relation"]
-        
-        if relation=="index":
-            child=f"[{attr}]"
-        elif relation=="member":
-            child=f".{attr}"
-        elif relation in ["param", "return"]: #In this case, parent MUST be ""
-            child=attr
-            
-        return "("+native+child+")"
     def args():
         curr_frame=inspect.currentframe()
         parent_frame=curr_frame.f_back
@@ -125,38 +76,49 @@ def convert(native,proto,attr,info, serialize, initialize=False):
     deserialize=not serialize
     if serialize:
         initialize=False
+    
+    temp_variable="temp_"+random_string(info)
+    old_variable=variable
         
     result="[&](){"
     
     if deserialize and info.get("const",False) and not(len(length)>0 and num_indirection==0): #Const pointer, which can be reassigned
         if initialize:
-            temp_variable="temp_"+random_string(info)
+            variable=temp_variable
             result+=info["header"].replace("const","").replace(info["name"],temp_variable)
             
             info["const"]=False
             result+=convert(*args())
-            result+=f"{native_concat()}={temp_variable};"
+            result+=f"{old_variable}={temp_variable};"
             result+="}();"
             return result
         else: #Not initializing, so won't make any sense to override
             return ""
     elif "alias" in info:
         update_dict(info, info["alias"])
+        
+        if deserialize:
+            result+=info["header"].replace(info["name"],temp_variable)
+            variable=temp_variable
+            
         result+=convert(*args())
         
+        if deserialize:
+            result+=f"{old_variable}=({type}){temp_variable};"
+            
         result+="}();"
         return result
         
     if num_indirection>0: #Must be a list
         if serialize:
             result+=f"""
-            if ({native_concat()}==NULL){{
-                {proto_concat("init","0")};
+            if ({variable}==NULL){{
+                {value}=array();
             """
         else:
             result+=f"""
-            if (!{proto_concat("get")}.size()==0){{
-                {native_concat()}=NULL;
+            if (!{value}.as_array().size()==0){{
+                {variable}=NULL;
             """
         result +="return; }"
         
@@ -166,25 +128,21 @@ def convert(native,proto,attr,info, serialize, initialize=False):
             info["length"].append("null-terminated")
         
         if serialize:
-            native=f"(char*){native_concat()}"
+            variable=f"(char*)({variable})"
         else:
-            old_native=native
-            new_native=f"temp_{random_string(info)}"
-            
-            native=new_native
-            result+=f"char* {native};"
+            native=temp_variable
+            result+=f"char* {temp_variable};"
             
         result+=convert(*args())
         
-        if not serialize:
-            native=old_native
-            result+=f"{native_concat()}={new_native};"
+        if deserialize:
+            result+=f"{old_variable}={temp_variable};"
     
     elif (kind=="external_handle" and num_indirection<2):
             if serialize:
-                result+=f"""{proto_concat("set","(uintptr_t)"+native_concat())};"""
+                result+=f"""{value}=(uintptr_t){variable};"""
             else:
-                result+=f"""{native_concat()}=(uintptr_t){proto_concat("get")};"""
+                result+=f"""variable=value_to<uintptr_t>({value});"""
                 
     elif len(length)>0:
         size=length.pop()
@@ -192,29 +150,26 @@ def convert(native,proto,attr,info, serialize, initialize=False):
         
         if size=="null-terminated":
             if serialize:
-                size=f"strlen({native_concat()})+1"
+                size=f"strlen({variable})+1"
             else:
-                size=f"""{proto_concat("get")}.size();"""
+                size=f"""{variable}.as_array().size();"""
                 
         if deserialize and num_indirection>0: #Dynamic array, so each element of char** would be char*
             if initialize:
-                result+=f"""{{native_concat()}}=({type+("*"*num_indirection)})malloc({size}*sizeof({type+("*"*(num_indirection-1))}));"""
+                result+=f"""{variable}=({type+("*"*num_indirection)})malloc({size}*sizeof({type+("*"*(num_indirection-1))}));"""
         
         info["num_indirection"]-=1
         
-        native=native_concat()
-        
         if serialize:
-            proto_arr=f"""{proto_concat("init",size)}"""
+            arr=f"{value}.emplace_array()"
         else:
-            proto_arr=f"""{proto_concat("get",size)}"""
+            arr=f"{value}.as_array()"
         
-        attr=temp_iterator
-        info["relation"]="index"
-        proto="proto_arr"
+        variable+=f"[{temp_iterator}]"
+        value+=f"[{temp_iterator}]"
         
         result+=f"""
-        auto proto_arr={proto_arr};
+        auto arr={arr};
         for(int {temp_iterator}=0; {temp_iterator} < {size}; {temp_iterator}++){{
             {convert(*args())}
         }}
@@ -222,45 +177,35 @@ def convert(native,proto,attr,info, serialize, initialize=False):
     
     elif kind=="pUserData": #Has to be handled specially as we are dealing with the parent, not just the child
         #Deserializing on the client shouldn't do anything --- similarly on the server
-        if serialize:
-            result+=f"""
-            auto temp={proto_concat("init",attr)};
-            return serialize_{kind}({native}, temp);
-            """
-        else:
-            result+=f"""
-            auto temp={proto_concat("get")};
-            {native_concat()}=deserialize_{kind}(temp, native);
-            """
-            
+        return  
     elif kind in ["struct","funcpointer"]: #pNext is handled specially as a union
         if serialize:
             result+=f"""
-            auto temp={proto_concat("init",attr)};
-            return serialize_{kind}(temp, {native_concat()}, );
+            auto temp={value}.emplace_object();
+            return serialize_{kind}(temp, {variable});
             """
         else:
             if kind=="funcpointer":
                 result+="\n#ifndef CLIENT"
                 
             result+=f"""
-            auto temp={proto_concat("get")};
-            {native_concat()}=deserialize_{kind}(temp);
+            auto temp={value}.as_object();
+            {variable}=deserialize_{kind}(temp);
             """
             if kind=="funcpointer":
                 result+="#endif\n"
                 
     elif kind=="primitive":
         if serialize:
-            result+=f"""return {proto_concat("set", native_concat())};"""
+            result+=f"""{value}={variable};"""
         else:
-            result+=f"""{native_concat()}={proto_concat("get")};"""
+            result+=f"""{variable}=static_cast<{type}>(value_to<int>({value}));"""
     elif kind=="basetype":
         update_dict(info, type)
         result+=convert(*args())
     elif kind=="handle":
         if serialize:
-            result+=f"""return {proto_concat("set", f"serialize_handle{native_concat()}")};"""
+            result+=f"{value}=static_cast<uintptr_t>serialize_handle({variable});"
         else:
             result+=f"""{native_concat()}=deserialize_{type}({proto_concat("get")});"""
     elif kind in ["enum", "bitmask"]:
