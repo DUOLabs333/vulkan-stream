@@ -12,7 +12,6 @@ std::map<std::thread::id,ThreadStruct*> thread_to_struct;
 asio::io_context client_context;
 tcp::resolver resolver(client_context);
 
-
 void setAddressandPort(){
     const char* address_temp=std::getenv("STREAM_ADDRESS");
     const char* port_temp=std::getenv("STREAM_PORT");
@@ -32,8 +31,6 @@ ThreadStruct* currStruct(){
     auto thread_id=std::this_thread::get_id();
     if (!thread_to_struct.contains(thread_id)){
         auto result=new ThreadStruct();
-        
-        result->is=new std::istream(&result->buf);
         
         result->uuid=-1;
         

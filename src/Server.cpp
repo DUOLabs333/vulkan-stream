@@ -1,6 +1,3 @@
-#include <schema.capnp.h>
-using namespace capnp;
-
 #include "Server.hpp"
 #include <ThreadStruct.hpp>
 #include <Synchronization.hpp>
@@ -36,20 +33,20 @@ class RWError : public std::exception {
         
         currStruct()->conn=socket;
         
-        Message m;
+        object json;
         while(true){
             try{
-            message=readFromConn();
+            json=readFromConn();
             
             if (currStruct()->uuid==-1){
-                currStruct()->uuid=message.getUuid();
+                currStruct()->uuid=value_to<int>(json["uuid"]);
             }
             
-            if (message.which()==Message::SYNC){
-                handle_sync_init(message.getSync());
+            if (value_to<StreamType>(json)==SYNC){
+                handle_sync_init(json);
             }
             else{
-                handle_command(message);
+                handle_command(json);
             }
             
             }
@@ -87,38 +84,56 @@ uint32_t deserializeInt(uint8_t* buf){ //Deserialzes from little endian in endia
     return buf[0] | (buf[1] << 8) | (buf[2] << 16) | (buf[3] << 24);
 }
 
-stream::Message::Reader readFromConn(){
+object readFromConn(){
     auto curr=currStruct();
-    
-    auto size_buf=(uint8_t*)malloc(4*sizeof(uint8_t)); //Buffer to hold the size to transfer
-    
+      
     asio::error_code ec;
-    asio::read(*(curr->conn), asio::buffer(size_buf,4), asio::transfer_exactly(4), ec);
-    auto size=deserializeInt(size_buf);
+    
+    /*
+    asio::read(*(curr->conn), asio::buffer(cur->size_buf,4), asio::transfer_exactly(4), ec);
+    auto size=deserializeInt(curr->size_buf);
     
     if (ec){
         throw RWError(ec);
     }
-    free(size_buf);
+    */
     
-    asio::streambuf data_buf;
-    asio::read(*(curr->conn), data_buf, asio::transfer_exactly(size), ec);
+    auto buf = asio::buffer(curr->data_buf, BUFFER_SIZE);
+    
+    curr->parser.reset();
+    
+    while (true){
+    auto bytes_read = asio::read(*(curr->conn), buf, ec);
     if (ec){
         throw RWError(ec);
     }
     
-    MessageBuilder m;
-    std::istream data_is(&data_buf);
-    readMessageCopy(data_is, m);
+    if (bytes_read==0){
+        continue;
+    }
+    //size-=bytes_read;
     
-    return result.getRoot<Message>();
+    curr->parser.write(curr->data_buf, bytes_read);
+    
+    //if (size==0){ //All of the bytes have been read
+    try{
+        return curr->parser.release().as_object();
+    }
+    catch (system_error){ //Not done parsing yet
+        continue;
+    }
+    }
+
 }
 
-void writeToConn(MessageBuilder& m){
-    m.setUuid(uuid);
+void writeToConn(object& json){
+    
+    json["uuid"]=uuid;
     auto curr=currStruct();
     asio::error_code ec;
     
+    /*
+    std::size_t size = 0;
     auto size_buf=(uint8_t*)malloc(4*sizeof(uint8_t)); //Buffer to hold the size to transfer
     auto size=sizeof(capnp::word)*computeSerializedSizeInWords(m);
     serializeInt(size_buf, size);
@@ -127,10 +142,25 @@ void writeToConn(MessageBuilder& m){
     if (ec){
         throw RWError(ec);
     }
+    */
     
-    auto data=messageToFlatArray(m).asBytes();
-    asio::write(*(curr->conn), asio::buffer(data), ec);
-    if (ec){
-        throw RWError(ec);
+    curr->serializer.reset(json);
+    
+    std::size_t bytes_serialized=0; //Also serves to point to the first non-empty space in data_buf
+    
+    while(true){
+    bytes_serialized+=(curr->parser.read(curr->data_buf[bytes_serialized], BUFFER_SIZE-bytes_serialized).size());
+    
+    if (bytes_serialized==BUFFER_SIZE){
+        asio::write(*(curr->conn), asio::buffer(curr->data_buf,BUFFER_SIZE), ec);
+        if (ec){
+            throw RWError(ec);
+        }
+        bytes_serialized=0;
+        
+        if (curr->parser.done){
+            return;
+        }
+    }
     }
 }
