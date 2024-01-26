@@ -13,17 +13,17 @@
 typedef struct {
     void* pUserData;
 
-uintptr_t PFN_vkInternalFreeNotification;
-uintptr_t PFN_vkAllocationFunction;
-uintptr_t PFN_vkReallocationFunction;
-uintptr_t PFN_vkDebugReportCallbackEXT;
-uintptr_t PFN_vkFaultCallbackFunction;
-uintptr_t PFN_vkInternalAllocationNotification;
-uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
-uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
-uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
-uintptr_t PFN_vkFreeFunction;
 uintptr_t PFN_vkVoidFunction;
+uintptr_t PFN_vkFaultCallbackFunction;
+uintptr_t PFN_vkFreeFunction;
+uintptr_t PFN_vkReallocationFunction;
+uintptr_t PFN_vkInternalAllocationNotification;
+uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
+uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
+uintptr_t PFN_vkInternalFreeNotification;
+uintptr_t PFN_vkDebugReportCallbackEXT;
+uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
+uintptr_t PFN_vkAllocationFunction;
 } pUserData;
 
 void serialize_pNext(boost::json::object& json, void* member){
@@ -11459,7 +11459,7 @@ auto& pNext_json=json["pNext"];
         for(int WzFtmOV=0; WzFtmOV < 1; WzFtmOV++){
             [&](){
             auto& temp=arr[WzFtmOV].emplace_object();
-            return serialize_pNext(temp, member.pNext[WzFtmOV]);
+            return serialize_struct(temp, member.pNext[WzFtmOV]);
             }();
         }
         }();
@@ -11476,7 +11476,7 @@ auto& pNext_json=json["pNext"];
         for(int WzFtmOV=0; WzFtmOV < 1; WzFtmOV++){
             [&](){
             auto& temp=arr[WzFtmOV].as_object();
-            deserialize_pNext(temp,member.pNext[WzFtmOV]);
+            deserialize_struct(temp,member.pNext[WzFtmOV]);
             }();
         }
         }();
@@ -11496,7 +11496,7 @@ auto& pNext_json=json["pNext"];
         for(int zdqWKMj=0; zdqWKMj < 1; zdqWKMj++){
             [&](){
             auto& temp=arr[zdqWKMj].emplace_object();
-            return serialize_pNext(temp, member.pNext[zdqWKMj]);
+            return serialize_struct(temp, member.pNext[zdqWKMj]);
             }();
         }
         }();
@@ -11513,7 +11513,7 @@ auto& pNext_json=json["pNext"];
         for(int EZZVXew=0; EZZVXew < 1; EZZVXew++){
             [&](){
             auto& temp=arr[EZZVXew].as_object();
-            deserialize_pNext(temp,temp_xDlUMAh[EZZVXew]);
+            deserialize_struct(temp,temp_xDlUMAh[EZZVXew]);
             }();
         }
         }();member.pNext=temp_xDlUMAh;}();

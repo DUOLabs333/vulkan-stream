@@ -177,8 +177,8 @@ def convert(variable, value, info, serialize, initialize=False):
         #Deserializing on the client shouldn't do anything --- similarly on the server
         return  
     elif kind in ["struct","funcpointer"]:
-        if info["name"]=="pNext": #pNext is handled specially
-            kind=info["name"]
+        if info["type"]=="pNext": #pNext is handled specially
+            kind=info["type"]
             
         if serialize:
             result+=f"""
