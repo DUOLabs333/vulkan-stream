@@ -12,6 +12,7 @@ header_lines=[]
 import json
 import copy
 import random, string
+import re
 
 parsed=json.load(open("../parse/parsed.json"))
 
@@ -78,7 +79,9 @@ def convert(variable, value, info, serialize, initialize=False):
     if deserialize and info.get("const",False) and not(len(length)>0 and num_indirection==0): #Const pointer, which can be reassigned
         if initialize:
             variable=temp_variable
-            result+=info["header"].replace("const","").replace(info["name"],temp_variable)
+            info["header"]=info["header"].replace("const","")
+            
+            result+=info["header"].replace(info["name"],temp_variable)
             
             info["const"]=False
             result+=convert(*args())
@@ -87,25 +90,6 @@ def convert(variable, value, info, serialize, initialize=False):
             return result
         else: #Not initializing, so won't make any sense to override
             return ""
-    elif ("alias" in info) or (kind=="basetype"):
-        if "alias" in info:
-            type_to_replace=info["alias"]
-        else:
-            type_to_replace=type
-            
-        update_dict(info, type_to_replace)
-        
-        if deserialize:
-            result+=info["header"].replace(info["name"],temp_variable)
-            variable=temp_variable
-            
-        result+=convert(*args())
-        
-        if deserialize:
-            result+=f"{old_variable}=({type}){temp_variable};"
-            
-        result+="}();"
-        return result
         
     if num_indirection>0: #Must be a list
         if serialize:
@@ -115,7 +99,7 @@ def convert(variable, value, info, serialize, initialize=False):
             """
         else:
             result+=f"""
-            if (!{value}.as_array().size()==0){{
+            if ({value}.as_array().size()==0){{
                 {variable}=NULL;
             """
         result +="return; }"
@@ -126,9 +110,9 @@ def convert(variable, value, info, serialize, initialize=False):
             info["length"].append("null-terminated")
         
         if serialize:
-            variable=f"(char*)({variable})"
+            variable=f"((char*)({variable}))"
         else:
-            native=temp_variable
+            variable=temp_variable
             result+=f"char* {temp_variable};"
             
         result+=convert(*args())
@@ -140,7 +124,9 @@ def convert(variable, value, info, serialize, initialize=False):
             if serialize:
                 result+=f"""{value}=(uintptr_t){variable};"""
             else:
-                result+=f"""{variable}=value_to<uintptr_t>({value});"""
+                cast_header=re.sub(fr"""\b{info["name"]}\b""","",info["header"]).replace(";","")
+                
+                result+=f"""{variable}=({cast_header})(value_to<uintptr_t>({value}));"""
                 
     elif len(length)>0:
         size=length.pop()
@@ -150,7 +136,7 @@ def convert(variable, value, info, serialize, initialize=False):
             if serialize:
                 size=f"strlen({variable})+1"
             else:
-                size=f"""{variable}.as_array().size();"""
+                size=f"""{value}.as_array().size()"""
                 
         if deserialize and num_indirection>0: #Dynamic array, so each element of char** would be char*
             if initialize:
@@ -158,16 +144,22 @@ def convert(variable, value, info, serialize, initialize=False):
         
         info["num_indirection"]-=1
         
+        if "header" in info:
+            info["header"]=info["header"].replace("*","",1) #Since the the array is one smaller
+        
         if serialize:
             arr=f"{value}.emplace_array()"
         else:
             arr=f"{value}.as_array()"
         
         variable+=f"[{temp_iterator}]"
-        value=f"arr[{temp_iterator}]"
+        
+        arr_json=f"arr_{random_string(info)}"
+        
+        value=f"{arr_json}[{temp_iterator}]"
         
         result+=f"""
-        auto& arr={arr};
+        auto& {arr_json}={arr};
         for(int {temp_iterator}=0; {temp_iterator} < {size}; {temp_iterator}++){{
             {convert(*args())}
         }}
@@ -206,6 +198,26 @@ def convert(variable, value, info, serialize, initialize=False):
             result+=f"serialize_{kind}({value},{variable});"
         else:
             result+=f"""deserialize_{kind}({value}, {variable});"""
+    elif ("alias" in info) or (kind=="basetype"):
+        if "alias" in info:
+            type_to_replace=info["alias"]
+        else:
+            type_to_replace=type
+        
+        update_dict(info, type_to_replace)
+        
+        if deserialize:
+            result+=f"""{info["type"]}{"*"*info["num_indirection"]} {temp_variable};"""
+            variable=temp_variable
+            initialize=True
+            
+        result+=convert(*args())
+        
+        if deserialize:
+            result+=f"{old_variable}=({type}){temp_variable};"
+            
+        result+="}();"
+        return result
     elif kind in ["enum", "bitmask"]:
         info["alias"]="int"
         result+=convert(*args())

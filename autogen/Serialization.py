@@ -54,7 +54,7 @@ for member in pUserData_members:
 write("} pUserData;")
 
 write("""
-void serialize_pNext(boost::json::object& json, void* member){
+void serialize_pNext(boost::json::object& json, const void* member){
     if (member==NULL){
         json.erase("sType");
         return;
@@ -172,57 +172,14 @@ for name, struct in parsed.items():
     def add_struct_name(name,struct_name):
         return re.sub(rf"\b({'|'.join(members_names)})\b",rf"{struct_name}.\1",name)
     
-    write(f"""
-    void serialize_struct(boost::json::object& json, const {name}& member){{
-        
-    """)
-        
-    for member in members:
-        member=copy.deepcopy(member)
-        
-        member_name=member["name"]
-        member_json=f"{member_name}_json"
-        
-        write(f"""auto& {member_json}=json["{member_name}"];""")
-        
-        if member["type"]=="pUserData":
-            write(f"""serialize_pUserData({member_json}, member);""")
-            continue
-            
-        for i,e in enumerate(member["length"]):
-            member["length"][i]=add_struct_name(e, "member")
-        
-        write(convert(f"""member.{member_name}""",member_json,member,serialize=True))
-        
-    write("}")
-        
-    write(f"void deserialize_struct(boost::json::object& json, {name}& member){{")
-    for member in members:
-        member=copy.deepcopy(member)
-        
-        member_name=member["name"]
-        member_json=f"{member_name}_json"
-        
-        write(f"""auto& {member_json}=json["{member_name}"];""")
-        
-        if member["type"]=="pUserData":
-            write(f"""deserialize_pUserData({member_json}, member);""")
-            continue
-        
-        for i,e in enumerate(member["length"]):
-            member["length"][i]=add_struct_name(e, "member")
-        
-        write(convert(f"""member.{member_name}""",member_json,member,serialize=False, initialize=True))
-            
-    write("}")
-    
     if "pUserData" in members_names:
         pUserData_info={"relation":"member","type":"void","num_indirection":1, "length":["null-terminated"]}
         
         write(f"""
-        void serialize_pUserData(boost::json::object& json, {name}& member){{
+        void serialize_pUserData(boost::json::object& json, const {name}& member){{
+        auto& pUserData_json=json["pUserData"];
         """)
-        write(convert("member.pUserData","""json["pUserData"].emplace_object()""",pUserData_info,serialize=True))
+        write(convert("member.pUserData","pUserData_json",pUserData_info,serialize=True))
         
         for member in members:
             if member["type"] in pUserData_members:
@@ -248,6 +205,60 @@ for name, struct in parsed.items():
         """)
     
     write(f"""
+    void serialize_struct(boost::json::object& json, const {name}& member){{
+        
+    """)
+      
+    for member in members:
+        member=copy.deepcopy(member)
+        
+        member_name=member["name"]
+        member_json=f"{member_name}_json"
+        
+        write(f"""auto& {member_json}=json["{member_name}"];""")
+        
+        if member["type"]=="pUserData":
+            old_member_json=member_json
+            member_json=f"{member_json}_1"
+            write(f"""
+            auto& {member_json}={old_member_json}.emplace_object();
+            serialize_pUserData({member_json}, member);
+            """)
+            continue
+            
+        for i,e in enumerate(member["length"]):
+            member["length"][i]=add_struct_name(e, "member")
+        
+        write(convert(f"""member.{member_name}""",member_json,member,serialize=True))
+        
+    write("}")
+        
+    write(f"void deserialize_struct(boost::json::object& json, {name}& member){{")
+    for member in members:
+        member=copy.deepcopy(member)
+        
+        member_name=member["name"]
+        member_json=f"{member_name}_json"
+        
+        write(f"""auto& {member_json}=json["{member_name}"];""")
+        
+        if member["type"]=="pUserData":
+            old_member_json=member_json
+            member_json=f"{member_json}_1"
+            write(f"""
+            auto& {member_json}={old_member_json}.as_object();
+            deserialize_pUserData({member_json}, member);
+            """)
+            continue
+        
+        for i,e in enumerate(member["length"]):
+            member["length"][i]=add_struct_name(e, "member")
+        
+        write(convert(f"""member.{member_name}""",member_json,member,serialize=False, initialize=True))
+            
+    write("}")
+    
+    write(f"""
         void serialize_struct(boost::json::object&, const {name}&);
         void deserialize_struct(boost::json::object&, {name}&);
     """,header=True)
@@ -265,13 +276,13 @@ for name,funcpointer in parsed.items():
     write(f"std::map<uintptr_t,{name}> id_to_{name};")
     
     write(f"""
-    void serialize_funcpointer(boost::json::object&, {name}&){{
+    void serialize_funcpointer(boost::json::object&, const {name}&){{
         //Will only be called by the client
         return;
     }}
     """)
     
-    write(f"""void serialize_funcpointer(boost::json::object&, {name}&);""",header=True)
+    write(f"""void serialize_funcpointer(boost::json::object&, const {name}&);""",header=True)
     
     if name!="PFN_vkGetInstanceProcAddrLUNARG": #PFN_vkGetInstanceProcAddrLUNARG is a pointer to the client's vkGetInstanceProcAddr. However, since the client's vkGetInstanceProcAddr is just a thin wrapper over the server's vkGetInstanceProcAddr (as well as that the client does not support recieving objects from the server outside of a command), we just return the server's vkGetInstanceProcAddr.
         
@@ -393,7 +404,7 @@ for handle in parsed:
         #endif
         """)
         write(f"""
-        void serialize_handle(boost::json::object& json, {handle}& data){{
+        void serialize_handle(boost::json::value& json, const {handle}& data){{
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){{
@@ -415,10 +426,10 @@ for handle in parsed:
         }
        """)
        
-        write(f"""void serialize_handle(boost::json::object&, {handle}&);""",header=True)
+        write(f"""void serialize_handle(boost::json::value&, const {handle}&);""",header=True)
         
         write(f"""
-          void deserialize_handle(boost::json::object& json, {handle}& member){{
+          void deserialize_handle(boost::json::value& json, {handle}& member){{
                 {handle} result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -442,6 +453,6 @@ for handle in parsed:
                 member=result;
        }}""")
        
-        write(f"""void deserialize_handle(boost::json::object&, {handle}&);""",header=True)
+        write(f"""void deserialize_handle(boost::json::value&, {handle}&);""",header=True)
               
           
