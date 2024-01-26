@@ -173,23 +173,26 @@ for name, struct in parsed.items():
         return re.sub(rf"\b({'|'.join(members_names)})\b",rf"{struct_name}.\1",name)
     
     write(f"""
-    void serialize_struct(boost::json::object& json, {name}& member){{
+    void serialize_struct(boost::json::object& json, const {name}& member){{
         
     """)
         
     for member in members:
         member=copy.deepcopy(member)
         
-        write(f"""auto& json_value=json["{member["name"]}"];""")
+        member_name=member["name"]
+        member_json=f"{member_name}_json"
+        
+        write(f"""auto& {member_json}=json["{member_name}"];""")
         
         if member["type"]=="pUserData":
-            write(f"""serialize_pUserData(json_value, member);""")
+            write(f"""serialize_pUserData({member_json}, member);""")
             continue
             
         for i,e in enumerate(member["length"]):
             member["length"][i]=add_struct_name(e, "member")
         
-        write(convert(f"""member.{member["name"]}""","json_value",member,serialize=True))
+        write(convert(f"""member.{member_name}""",member_json,member,serialize=True))
         
     write("}")
         
@@ -197,51 +200,55 @@ for name, struct in parsed.items():
     for member in members:
         member=copy.deepcopy(member)
         
-        write(f"""auto& json_value=json["{member["name"]}"];""")
+        member_name=member["name"]
+        member_json=f"{member_name}_json"
+        
+        write(f"""auto& {member_json}=json["{member_name}"];""")
         
         if member["type"]=="pUserData":
-            write(f"""deserialize_pUserData(json_value, member);""")
+            write(f"""deserialize_pUserData({member_json}, member);""")
             continue
         
         for i,e in enumerate(member["length"]):
             member["length"][i]=add_struct_name(e, "member")
         
-        write(convert(f"""member.{member["name"]}""","json_value",member,serialize=False, initialize=True))
+        write(convert(f"""member.{member_name}""",member_json,member,serialize=False, initialize=True))
             
     write("}")
     
-    pUserData_info={"relation":"member","type":"void","num_indirection":1, "length":["null-terminated"]}
+    if "pUserData" in members_names:
+        pUserData_info={"relation":"member","type":"void","num_indirection":1, "length":["null-terminated"]}
+        
+        write(f"""
+        void serialize_pUserData(boost::json::object& json, {name}& member){{
+        """)
+        write(convert("member.pUserData","""json["pUserData"].emplace_object()""",pUserData_info,serialize=True))
+        
+        for member in members:
+            if member["type"] in pUserData_members:
+                write(f"""json["{member["type"]}"]=(uintptr_t)(member.{member["name"]});""")
+        write("}")
+        
+        write(f"""
+        void deserialize_pUserData(boost::json::object& json, {name}& member){{
+            #ifdef CLIENT
+               void* pUserData;
+               {convert("pUserData",'json["pUserData"]',pUserData_info, serialize=False,initialize=True)}
+            #else
+                pUserData=new pUserData();
+        """)
+        write(convert("pUserData.pUserData",'json["pUserData"]',pUserData_info,serialize=False,initialize=True))
+        for member in members:
+            if member["type"] in pUserData_members:
+                write(f"""pUserData.{member["name"]}=({member["type"]})(value_to<uintptr_t>(json["{member["type"]}"]));""")
+        write("""
+        #endif
+        member.pUserData=pUserData;
+        }
+        """)
     
     write(f"""
-    void serialize_pUserData(boost::json::object& json, {name}& member){{
-    """)
-    write(convert("member.pUserData","""json["pUserData"].emplace_object()""",pUserData_info,serialize=True))
-    
-    for member in members:
-        if member["type"] in pUserData_members:
-            write(f"""json["{member["type"]}"]=(uintptr_t)(member.{member["name"]});""")
-    write("}")
-    
-    write(f"""
-    void deserialize_pUserData(boost::json::object& json, {name}& member){{
-        #ifdef CLIENT
-           void* pUserData;
-           {convert("pUserData",'json["pUserData"]',pUserData_info, serialize=False,initialize=True)}
-        #else
-            pUserData=new pUserData();
-    """)
-    write(convert("pUserData.pUserData",'json["pUserData"]',pUserData_info,serialize=False,initialize=True))
-    for member in members:
-        if member["type"] in pUserData_members:
-            write(f"""pUserData.{member["name"]}=({member["type"]})(value_to<uintptr_t>(json["{member["type"]}"]));""")
-    write("""
-    #endif
-    member.pUserData=pUserData;
-    }
-    """)
-    
-    write(f"""
-        void serialize_struct(boost::json::object&, {name}&);
+        void serialize_struct(boost::json::object&, const {name}&);
         void deserialize_struct(boost::json::object&, {name}&);
     """,header=True)
 

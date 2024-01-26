@@ -96,7 +96,7 @@ for item in vk.findall("./types/type"):
                 
                 member["header"]=ET.tostring(elem, encoding='utf8', method='text').decode()
                 
-                member["header"]=clean_header(member["header"])
+                member["header"]=clean_header(member["header"])+";"
                 
                 for special in ["pNext","pUserData"]:
                     if kind=="struct" and member["name"]==special and member["type"]=="void" and member["num_indirection"]==1:

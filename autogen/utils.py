@@ -23,6 +23,9 @@ def is_void(name):
 def update_dict(info, alias):
     alias_dict=parsed[alias]
     
+    old_type=info["type"]
+    alias_num_indirection=alias_dict["num_indirection"]
+    
     info["length"]=alias_dict["length"]+info["length"]
     info["num_indirection"]+=alias_dict["num_indirection"]
     
@@ -30,11 +33,14 @@ def update_dict(info, alias):
         info["type"]=alias
     else:
         info["type"]=alias_dict["type"]
+    new_type=info["type"]
         
     if "alias" in alias_dict:
         info["alias"]=alias_dict["alias"]
     elif "alias" in info:
         del info["alias"]
+    
+    info["header"]=info["header"].replace(old_type, new_type+("*"*alias_num_indirection))
 
 def convert(variable, value, info, serialize, initialize=False):
     info=copy.deepcopy(info) #To avoid modifying the mutable arguments
@@ -81,8 +87,13 @@ def convert(variable, value, info, serialize, initialize=False):
             return result
         else: #Not initializing, so won't make any sense to override
             return ""
-    elif "alias" in info:
-        update_dict(info, info["alias"])
+    elif ("alias" in info) or (kind=="basetype"):
+        if "alias" in info:
+            type_to_replace=info["alias"]
+        else:
+            type_to_replace=type
+            
+        update_dict(info, type_to_replace)
         
         if deserialize:
             result+=info["header"].replace(info["name"],temp_variable)
@@ -100,7 +111,7 @@ def convert(variable, value, info, serialize, initialize=False):
         if serialize:
             result+=f"""
             if ({variable}==NULL){{
-                {value}=array();
+                {value}=boost::json::array();
             """
         else:
             result+=f"""
@@ -153,7 +164,7 @@ def convert(variable, value, info, serialize, initialize=False):
             arr=f"{value}.as_array()"
         
         variable+=f"[{temp_iterator}]"
-        value+=f"[{temp_iterator}]"
+        value=f"arr[{temp_iterator}]"
         
         result+=f"""
         auto& arr={arr};
@@ -165,7 +176,10 @@ def convert(variable, value, info, serialize, initialize=False):
     elif kind=="pUserData": #Has to be handled specially as we are dealing with the parent, not just the child
         #Deserializing on the client shouldn't do anything --- similarly on the server
         return  
-    elif kind in ["struct","funcpointer"]: #pNext is handled specially as a union
+    elif kind in ["struct","funcpointer"]:
+        if info["name"]=="pNext": #pNext is handled specially
+            kind=info["name"]
+            
         if serialize:
             result+=f"""
             auto& temp={value}.emplace_object();
@@ -187,9 +201,6 @@ def convert(variable, value, info, serialize, initialize=False):
             result+=f"""{value}={variable};"""
         else:
             result+=f"""{variable}=static_cast<{type}>(value_to<int>({value}));"""
-    elif kind=="basetype":
-        update_dict(info, type)
-        result+=convert(*args())
     elif kind=="handle":
         if serialize:
             result+=f"serialize_{kind}({value},{variable});"
