@@ -148,9 +148,9 @@ def convert(variable, value, info, serialize, initialize=False):
             info["header"]=info["header"].replace("*","",1) #Since the the array is one smaller
         
         if serialize:
-            arr=f"{value}.emplace_array()"
-        else:
-            arr=f"{value}.as_array()"
+            result+=f"{value}=boost::json::array({size});"
+            
+        arr=f"{value}.as_array()"
         
         variable+=f"[{temp_iterator}]"
         

@@ -32,17 +32,17 @@ void deserialize_Sync(boost::json::object& json, Sync& sync){
 typedef struct {
     void* pUserData;
 
-uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
 uintptr_t PFN_vkFreeFunction;
-uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
-uintptr_t PFN_vkAllocationFunction;
 uintptr_t PFN_vkFaultCallbackFunction;
+uintptr_t PFN_vkReallocationFunction;
 uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
-uintptr_t PFN_vkInternalFreeNotification;
-uintptr_t PFN_vkVoidFunction;
 uintptr_t PFN_vkInternalAllocationNotification;
 uintptr_t PFN_vkDebugReportCallbackEXT;
-uintptr_t PFN_vkReallocationFunction;
+uintptr_t PFN_vkInternalFreeNotification;
+uintptr_t PFN_vkAllocationFunction;
+uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
+uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
+uintptr_t PFN_vkVoidFunction;
 } pUserData_struct;
 
 void serialize_pNext(boost::json::object& json, const void* member){
@@ -11473,8 +11473,8 @@ auto& pNext_json=json["pNext"];
 [&](){
             if (member.pNext==NULL){
                 pNext_json=boost::json::array();
-            return; }
-        auto& arr_jFqDlbO=pNext_json.emplace_array();
+            return; }pNext_json=boost::json::array(1);
+        auto& arr_jFqDlbO=pNext_json.as_array();
         for(int WzFtmOV=0; WzFtmOV < 1; WzFtmOV++){
             [&](){
             auto& temp=arr_jFqDlbO[WzFtmOV].emplace_object();
@@ -11510,8 +11510,8 @@ auto& pNext_json=json["pNext"];
 [&](){
             if (member.pNext==NULL){
                 pNext_json=boost::json::array();
-            return; }
-        auto& arr_iGEwXrX=pNext_json.emplace_array();
+            return; }pNext_json=boost::json::array(1);
+        auto& arr_iGEwXrX=pNext_json.as_array();
         for(int zdqWKMj=0; zdqWKMj < 1; zdqWKMj++){
             [&](){
             auto& temp=arr_iGEwXrX[zdqWKMj].emplace_object();
@@ -11726,15 +11726,15 @@ auto& deviceID_json=json["deviceID"];
 auto& deviceType_json=json["deviceType"];
 [&](){[&](){[&](){deviceType_json=member.deviceType;}();}();}();
 auto& deviceName_json=json["deviceName"];
-[&](){
-        auto& arr_kmIfUOc=deviceName_json.emplace_array();
+[&](){deviceName_json=boost::json::array(VK_MAX_PHYSICAL_DEVICE_NAME_SIZE);
+        auto& arr_kmIfUOc=deviceName_json.as_array();
         for(int VhmOmiG=0; VhmOmiG < VK_MAX_PHYSICAL_DEVICE_NAME_SIZE; VhmOmiG++){
             [&](){arr_kmIfUOc[VhmOmiG]=member.deviceName[VhmOmiG];}();
         }
         }();
 auto& pipelineCacheUUID_json=json["pipelineCacheUUID"];
-[&](){
-        auto& arr_Pmzgxjw=pipelineCacheUUID_json.emplace_array();
+[&](){pipelineCacheUUID_json=boost::json::array(VK_UUID_SIZE);
+        auto& arr_Pmzgxjw=pipelineCacheUUID_json.as_array();
         for(int tnNOYvF=0; tnNOYvF < VK_UUID_SIZE; tnNOYvF++){
             [&](){arr_Pmzgxjw[tnNOYvF]=member.pipelineCacheUUID[tnNOYvF];}();
         }
@@ -11791,8 +11791,8 @@ auto& sparseProperties_json=json["sparseProperties"];
         
     
 auto& extensionName_json=json["extensionName"];
-[&](){
-        auto& arr_YNfDvCM=extensionName_json.emplace_array();
+[&](){extensionName_json=boost::json::array(VK_MAX_EXTENSION_NAME_SIZE);
+        auto& arr_YNfDvCM=extensionName_json.as_array();
         for(int QYXuVZG=0; QYXuVZG < VK_MAX_EXTENSION_NAME_SIZE; QYXuVZG++){
             [&](){arr_YNfDvCM[QYXuVZG]=member.extensionName[QYXuVZG];}();
         }
@@ -11816,8 +11816,8 @@ auto& specVersion_json=json["specVersion"];
         
     
 auto& layerName_json=json["layerName"];
-[&](){
-        auto& arr_ZiTebIw=layerName_json.emplace_array();
+[&](){layerName_json=boost::json::array(VK_MAX_EXTENSION_NAME_SIZE);
+        auto& arr_ZiTebIw=layerName_json.as_array();
         for(int xlfEifc=0; xlfEifc < VK_MAX_EXTENSION_NAME_SIZE; xlfEifc++){
             [&](){arr_ZiTebIw[xlfEifc]=member.layerName[xlfEifc];}();
         }
@@ -11827,8 +11827,8 @@ auto& specVersion_json=json["specVersion"];
 auto& implementationVersion_json=json["implementationVersion"];
 [&](){implementationVersion_json=member.implementationVersion;}();
 auto& description_json=json["description"];
-[&](){
-        auto& arr_GFqEyUG=description_json.emplace_array();
+[&](){description_json=boost::json::array(VK_MAX_DESCRIPTION_SIZE);
+        auto& arr_GFqEyUG=description_json.as_array();
         for(int xOHuflK=0; xOHuflK < VK_MAX_DESCRIPTION_SIZE; xOHuflK++){
             [&](){arr_GFqEyUG[xOHuflK]=member.description[xOHuflK];}();
         }
@@ -11869,8 +11869,8 @@ auto& pApplicationName_json=json["pApplicationName"];
 [&](){
             if (member.pApplicationName==NULL){
                 pApplicationName_json=boost::json::array();
-            return; }
-        auto& arr_CeSclhO=pApplicationName_json.emplace_array();
+            return; }pApplicationName_json=boost::json::array(strlen(member.pApplicationName)+1);
+        auto& arr_CeSclhO=pApplicationName_json.as_array();
         for(int orjtDoi=0; orjtDoi < strlen(member.pApplicationName)+1; orjtDoi++){
             [&](){arr_CeSclhO[orjtDoi]=member.pApplicationName[orjtDoi];}();
         }
@@ -11881,8 +11881,8 @@ auto& pEngineName_json=json["pEngineName"];
 [&](){
             if (member.pEngineName==NULL){
                 pEngineName_json=boost::json::array();
-            return; }
-        auto& arr_kPbMKnf=pEngineName_json.emplace_array();
+            return; }pEngineName_json=boost::json::array(strlen(member.pEngineName)+1);
+        auto& arr_kPbMKnf=pEngineName_json.as_array();
         for(int GsJQVyn=0; GsJQVyn < strlen(member.pEngineName)+1; GsJQVyn++){
             [&](){arr_kPbMKnf[GsJQVyn]=member.pEngineName[GsJQVyn];}();
         }
@@ -11937,8 +11937,8 @@ auto& apiVersion_json=json["apiVersion"];
             return; }[&](){
             if (((char*)(member.pUserData))==NULL){
                 pUserData_json=boost::json::array();
-            return; }
-        auto& arr_svgqjpy=pUserData_json.emplace_array();
+            return; }pUserData_json=boost::json::array(strlen(((char*)(member.pUserData)))+1);
+        auto& arr_svgqjpy=pUserData_json.as_array();
         for(int lQswvtW=0; lQswvtW < strlen(((char*)(member.pUserData)))+1; lQswvtW++){
             [&](){arr_svgqjpy[lQswvtW]=((char*)(member.pUserData))[lQswvtW];}();
         }
@@ -12078,8 +12078,8 @@ auto& pQueuePriorities_json=json["pQueuePriorities"];
 [&](){
             if (member.pQueuePriorities==NULL){
                 pQueuePriorities_json=boost::json::array();
-            return; }
-        auto& arr_cuzPEWi=pQueuePriorities_json.emplace_array();
+            return; }pQueuePriorities_json=boost::json::array(member.queueCount);
+        auto& arr_cuzPEWi=pQueuePriorities_json.as_array();
         for(int fezqjeq=0; fezqjeq < member.queueCount; fezqjeq++){
             [&](){arr_cuzPEWi[fezqjeq]=member.pQueuePriorities[fezqjeq];}();
         }
@@ -12129,8 +12129,8 @@ auto& pQueueCreateInfos_json=json["pQueueCreateInfos"];
 [&](){
             if (member.pQueueCreateInfos==NULL){
                 pQueueCreateInfos_json=boost::json::array();
-            return; }
-        auto& arr_AyQtGcu=pQueueCreateInfos_json.emplace_array();
+            return; }pQueueCreateInfos_json=boost::json::array(member.queueCreateInfoCount);
+        auto& arr_AyQtGcu=pQueueCreateInfos_json.as_array();
         for(int sagHnZa=0; sagHnZa < member.queueCreateInfoCount; sagHnZa++){
             [&](){
             auto& temp=arr_AyQtGcu[sagHnZa].emplace_object();
@@ -12144,14 +12144,14 @@ auto& ppEnabledLayerNames_json=json["ppEnabledLayerNames"];
 [&](){
             if (member.ppEnabledLayerNames==NULL){
                 ppEnabledLayerNames_json=boost::json::array();
-            return; }
-        auto& arr_UZrMnJA=ppEnabledLayerNames_json.emplace_array();
+            return; }ppEnabledLayerNames_json=boost::json::array(member.enabledLayerCount);
+        auto& arr_UZrMnJA=ppEnabledLayerNames_json.as_array();
         for(int TvVfmLO=0; TvVfmLO < member.enabledLayerCount; TvVfmLO++){
             [&](){
             if (member.ppEnabledLayerNames[TvVfmLO]==NULL){
                 arr_UZrMnJA[TvVfmLO]=boost::json::array();
-            return; }
-        auto& arr_viCTnOh=arr_UZrMnJA[TvVfmLO].emplace_array();
+            return; }arr_UZrMnJA[TvVfmLO]=boost::json::array(strlen(member.ppEnabledLayerNames[TvVfmLO])+1);
+        auto& arr_viCTnOh=arr_UZrMnJA[TvVfmLO].as_array();
         for(int xZQtAKv=0; xZQtAKv < strlen(member.ppEnabledLayerNames[TvVfmLO])+1; xZQtAKv++){
             [&](){arr_viCTnOh[xZQtAKv]=member.ppEnabledLayerNames[TvVfmLO][xZQtAKv];}();
         }
@@ -12164,14 +12164,14 @@ auto& ppEnabledExtensionNames_json=json["ppEnabledExtensionNames"];
 [&](){
             if (member.ppEnabledExtensionNames==NULL){
                 ppEnabledExtensionNames_json=boost::json::array();
-            return; }
-        auto& arr_wQHCCIM=ppEnabledExtensionNames_json.emplace_array();
+            return; }ppEnabledExtensionNames_json=boost::json::array(member.enabledExtensionCount);
+        auto& arr_wQHCCIM=ppEnabledExtensionNames_json.as_array();
         for(int fwWaJEH=0; fwWaJEH < member.enabledExtensionCount; fwWaJEH++){
             [&](){
             if (member.ppEnabledExtensionNames[fwWaJEH]==NULL){
                 arr_wQHCCIM[fwWaJEH]=boost::json::array();
-            return; }
-        auto& arr_FVhnxCX=arr_wQHCCIM[fwWaJEH].emplace_array();
+            return; }arr_wQHCCIM[fwWaJEH]=boost::json::array(strlen(member.ppEnabledExtensionNames[fwWaJEH])+1);
+        auto& arr_FVhnxCX=arr_wQHCCIM[fwWaJEH].as_array();
         for(int YrHftsW=0; YrHftsW < strlen(member.ppEnabledExtensionNames[fwWaJEH])+1; YrHftsW++){
             [&](){arr_FVhnxCX[YrHftsW]=member.ppEnabledExtensionNames[fwWaJEH][YrHftsW];}();
         }
@@ -12182,8 +12182,8 @@ auto& pEnabledFeatures_json=json["pEnabledFeatures"];
 [&](){
             if (member.pEnabledFeatures==NULL){
                 pEnabledFeatures_json=boost::json::array();
-            return; }
-        auto& arr_dmLnFnT=pEnabledFeatures_json.emplace_array();
+            return; }pEnabledFeatures_json=boost::json::array(1);
+        auto& arr_dmLnFnT=pEnabledFeatures_json.as_array();
         for(int ojHmheI=0; ojHmheI < 1; ojHmheI++){
             [&](){
             auto& temp=arr_dmLnFnT[ojHmheI].emplace_object();
@@ -12288,8 +12288,8 @@ auto& pApplicationInfo_json=json["pApplicationInfo"];
 [&](){
             if (member.pApplicationInfo==NULL){
                 pApplicationInfo_json=boost::json::array();
-            return; }
-        auto& arr_ZBfqvMJ=pApplicationInfo_json.emplace_array();
+            return; }pApplicationInfo_json=boost::json::array(1);
+        auto& arr_ZBfqvMJ=pApplicationInfo_json.as_array();
         for(int fUoumfM=0; fUoumfM < 1; fUoumfM++){
             [&](){
             auto& temp=arr_ZBfqvMJ[fUoumfM].emplace_object();
@@ -12303,14 +12303,14 @@ auto& ppEnabledLayerNames_json=json["ppEnabledLayerNames"];
 [&](){
             if (member.ppEnabledLayerNames==NULL){
                 ppEnabledLayerNames_json=boost::json::array();
-            return; }
-        auto& arr_UZrMnJA=ppEnabledLayerNames_json.emplace_array();
+            return; }ppEnabledLayerNames_json=boost::json::array(member.enabledLayerCount);
+        auto& arr_UZrMnJA=ppEnabledLayerNames_json.as_array();
         for(int TvVfmLO=0; TvVfmLO < member.enabledLayerCount; TvVfmLO++){
             [&](){
             if (member.ppEnabledLayerNames[TvVfmLO]==NULL){
                 arr_UZrMnJA[TvVfmLO]=boost::json::array();
-            return; }
-        auto& arr_viCTnOh=arr_UZrMnJA[TvVfmLO].emplace_array();
+            return; }arr_UZrMnJA[TvVfmLO]=boost::json::array(strlen(member.ppEnabledLayerNames[TvVfmLO])+1);
+        auto& arr_viCTnOh=arr_UZrMnJA[TvVfmLO].as_array();
         for(int xZQtAKv=0; xZQtAKv < strlen(member.ppEnabledLayerNames[TvVfmLO])+1; xZQtAKv++){
             [&](){arr_viCTnOh[xZQtAKv]=member.ppEnabledLayerNames[TvVfmLO][xZQtAKv];}();
         }
@@ -12323,14 +12323,14 @@ auto& ppEnabledExtensionNames_json=json["ppEnabledExtensionNames"];
 [&](){
             if (member.ppEnabledExtensionNames==NULL){
                 ppEnabledExtensionNames_json=boost::json::array();
-            return; }
-        auto& arr_wQHCCIM=ppEnabledExtensionNames_json.emplace_array();
+            return; }ppEnabledExtensionNames_json=boost::json::array(member.enabledExtensionCount);
+        auto& arr_wQHCCIM=ppEnabledExtensionNames_json.as_array();
         for(int fwWaJEH=0; fwWaJEH < member.enabledExtensionCount; fwWaJEH++){
             [&](){
             if (member.ppEnabledExtensionNames[fwWaJEH]==NULL){
                 arr_wQHCCIM[fwWaJEH]=boost::json::array();
-            return; }
-        auto& arr_FVhnxCX=arr_wQHCCIM[fwWaJEH].emplace_array();
+            return; }arr_wQHCCIM[fwWaJEH]=boost::json::array(strlen(member.ppEnabledExtensionNames[fwWaJEH])+1);
+        auto& arr_FVhnxCX=arr_wQHCCIM[fwWaJEH].as_array();
         for(int YrHftsW=0; YrHftsW < strlen(member.ppEnabledExtensionNames[fwWaJEH])+1; YrHftsW++){
             [&](){arr_FVhnxCX[YrHftsW]=member.ppEnabledExtensionNames[fwWaJEH][YrHftsW];}();
         }
@@ -12438,8 +12438,8 @@ auto& minImageTransferGranularity_json=json["minImageTransferGranularity"];
 auto& memoryTypeCount_json=json["memoryTypeCount"];
 [&](){memoryTypeCount_json=member.memoryTypeCount;}();
 auto& memoryTypes_json=json["memoryTypes"];
-[&](){
-        auto& arr_IJeMcJI=memoryTypes_json.emplace_array();
+[&](){memoryTypes_json=boost::json::array(VK_MAX_MEMORY_TYPES);
+        auto& arr_IJeMcJI=memoryTypes_json.as_array();
         for(int oIrFYub=0; oIrFYub < VK_MAX_MEMORY_TYPES; oIrFYub++){
             [&](){
             auto& temp=arr_IJeMcJI[oIrFYub].emplace_object();
@@ -12450,8 +12450,8 @@ auto& memoryTypes_json=json["memoryTypes"];
 auto& memoryHeapCount_json=json["memoryHeapCount"];
 [&](){memoryHeapCount_json=member.memoryHeapCount;}();
 auto& memoryHeaps_json=json["memoryHeaps"];
-[&](){
-        auto& arr_MwiDREs=memoryHeaps_json.emplace_array();
+[&](){memoryHeaps_json=boost::json::array(VK_MAX_MEMORY_HEAPS);
+        auto& arr_MwiDREs=memoryHeaps_json.as_array();
         for(int ByzKyHe=0; ByzKyHe < VK_MAX_MEMORY_HEAPS; ByzKyHe++){
             [&](){
             auto& temp=arr_MwiDREs[ByzKyHe].emplace_object();
@@ -12770,8 +12770,8 @@ auto& pImageInfo_json=json["pImageInfo"];
 [&](){
             if (member.pImageInfo==NULL){
                 pImageInfo_json=boost::json::array();
-            return; }
-        auto& arr_hKyqMBA=pImageInfo_json.emplace_array();
+            return; }pImageInfo_json=boost::json::array(member.descriptorCount);
+        auto& arr_hKyqMBA=pImageInfo_json.as_array();
         for(int JKGzUnw=0; JKGzUnw < member.descriptorCount; JKGzUnw++){
             [&](){
             auto& temp=arr_hKyqMBA[JKGzUnw].emplace_object();
@@ -12783,8 +12783,8 @@ auto& pBufferInfo_json=json["pBufferInfo"];
 [&](){
             if (member.pBufferInfo==NULL){
                 pBufferInfo_json=boost::json::array();
-            return; }
-        auto& arr_kkLJfgf=pBufferInfo_json.emplace_array();
+            return; }pBufferInfo_json=boost::json::array(member.descriptorCount);
+        auto& arr_kkLJfgf=pBufferInfo_json.as_array();
         for(int HSNwtZm=0; HSNwtZm < member.descriptorCount; HSNwtZm++){
             [&](){
             auto& temp=arr_kkLJfgf[HSNwtZm].emplace_object();
@@ -12796,8 +12796,8 @@ auto& pTexelBufferView_json=json["pTexelBufferView"];
 [&](){
             if (member.pTexelBufferView==NULL){
                 pTexelBufferView_json=boost::json::array();
-            return; }
-        auto& arr_aeRJWrd=pTexelBufferView_json.emplace_array();
+            return; }pTexelBufferView_json=boost::json::array(member.descriptorCount);
+        auto& arr_aeRJWrd=pTexelBufferView_json.as_array();
         for(int zPsmhBm=0; zPsmhBm < member.descriptorCount; zPsmhBm++){
             [&](){serialize_VkBufferView(arr_aeRJWrd[zPsmhBm],member.pTexelBufferView[zPsmhBm]);}();
         }
@@ -12957,8 +12957,8 @@ auto& pQueueFamilyIndices_json=json["pQueueFamilyIndices"];
 [&](){
             if (member.pQueueFamilyIndices==NULL){
                 pQueueFamilyIndices_json=boost::json::array();
-            return; }
-        auto& arr_miZGtyX=pQueueFamilyIndices_json.emplace_array();
+            return; }pQueueFamilyIndices_json=boost::json::array(member.queueFamilyIndexCount);
+        auto& arr_miZGtyX=pQueueFamilyIndices_json.as_array();
         for(int VJZTqbB=0; VJZTqbB < member.queueFamilyIndexCount; VJZTqbB++){
             [&](){arr_miZGtyX[VJZTqbB]=member.pQueueFamilyIndices[VJZTqbB];}();
         }
@@ -13280,8 +13280,8 @@ auto& pQueueFamilyIndices_json=json["pQueueFamilyIndices"];
 [&](){
             if (member.pQueueFamilyIndices==NULL){
                 pQueueFamilyIndices_json=boost::json::array();
-            return; }
-        auto& arr_miZGtyX=pQueueFamilyIndices_json.emplace_array();
+            return; }pQueueFamilyIndices_json=boost::json::array(member.queueFamilyIndexCount);
+        auto& arr_miZGtyX=pQueueFamilyIndices_json.as_array();
         for(int VJZTqbB=0; VJZTqbB < member.queueFamilyIndexCount; VJZTqbB++){
             [&](){arr_miZGtyX[VJZTqbB]=member.pQueueFamilyIndices[VJZTqbB];}();
         }
@@ -13526,8 +13526,8 @@ auto& pBinds_json=json["pBinds"];
 [&](){
             if (member.pBinds==NULL){
                 pBinds_json=boost::json::array();
-            return; }
-        auto& arr_lMooBUR=pBinds_json.emplace_array();
+            return; }pBinds_json=boost::json::array(member.bindCount);
+        auto& arr_lMooBUR=pBinds_json.as_array();
         for(int BPPAqwp=0; BPPAqwp < member.bindCount; BPPAqwp++){
             [&](){
             auto& temp=arr_lMooBUR[BPPAqwp].emplace_object();
@@ -13567,8 +13567,8 @@ auto& pBinds_json=json["pBinds"];
 [&](){
             if (member.pBinds==NULL){
                 pBinds_json=boost::json::array();
-            return; }
-        auto& arr_lMooBUR=pBinds_json.emplace_array();
+            return; }pBinds_json=boost::json::array(member.bindCount);
+        auto& arr_lMooBUR=pBinds_json.as_array();
         for(int BPPAqwp=0; BPPAqwp < member.bindCount; BPPAqwp++){
             [&](){
             auto& temp=arr_lMooBUR[BPPAqwp].emplace_object();
@@ -13608,8 +13608,8 @@ auto& pBinds_json=json["pBinds"];
 [&](){
             if (member.pBinds==NULL){
                 pBinds_json=boost::json::array();
-            return; }
-        auto& arr_mRRaRZD=pBinds_json.emplace_array();
+            return; }pBinds_json=boost::json::array(member.bindCount);
+        auto& arr_mRRaRZD=pBinds_json.as_array();
         for(int ThKtLXw=0; ThKtLXw < member.bindCount; ThKtLXw++){
             [&](){
             auto& temp=arr_mRRaRZD[ThKtLXw].emplace_object();
@@ -13654,8 +13654,8 @@ auto& pWaitSemaphores_json=json["pWaitSemaphores"];
 [&](){
             if (member.pWaitSemaphores==NULL){
                 pWaitSemaphores_json=boost::json::array();
-            return; }
-        auto& arr_AxVizBE=pWaitSemaphores_json.emplace_array();
+            return; }pWaitSemaphores_json=boost::json::array(member.waitSemaphoreCount);
+        auto& arr_AxVizBE=pWaitSemaphores_json.as_array();
         for(int XBpvDer=0; XBpvDer < member.waitSemaphoreCount; XBpvDer++){
             [&](){serialize_VkSemaphore(arr_AxVizBE[XBpvDer],member.pWaitSemaphores[XBpvDer]);}();
         }
@@ -13666,8 +13666,8 @@ auto& pBufferBinds_json=json["pBufferBinds"];
 [&](){
             if (member.pBufferBinds==NULL){
                 pBufferBinds_json=boost::json::array();
-            return; }
-        auto& arr_GgaLeag=pBufferBinds_json.emplace_array();
+            return; }pBufferBinds_json=boost::json::array(member.bufferBindCount);
+        auto& arr_GgaLeag=pBufferBinds_json.as_array();
         for(int pwrymEJ=0; pwrymEJ < member.bufferBindCount; pwrymEJ++){
             [&](){
             auto& temp=arr_GgaLeag[pwrymEJ].emplace_object();
@@ -13681,8 +13681,8 @@ auto& pImageOpaqueBinds_json=json["pImageOpaqueBinds"];
 [&](){
             if (member.pImageOpaqueBinds==NULL){
                 pImageOpaqueBinds_json=boost::json::array();
-            return; }
-        auto& arr_uxLuNbq=pImageOpaqueBinds_json.emplace_array();
+            return; }pImageOpaqueBinds_json=boost::json::array(member.imageOpaqueBindCount);
+        auto& arr_uxLuNbq=pImageOpaqueBinds_json.as_array();
         for(int HfKQHJK=0; HfKQHJK < member.imageOpaqueBindCount; HfKQHJK++){
             [&](){
             auto& temp=arr_uxLuNbq[HfKQHJK].emplace_object();
@@ -13696,8 +13696,8 @@ auto& pImageBinds_json=json["pImageBinds"];
 [&](){
             if (member.pImageBinds==NULL){
                 pImageBinds_json=boost::json::array();
-            return; }
-        auto& arr_DFKvcex=pImageBinds_json.emplace_array();
+            return; }pImageBinds_json=boost::json::array(member.imageBindCount);
+        auto& arr_DFKvcex=pImageBinds_json.as_array();
         for(int amSYQzr=0; amSYQzr < member.imageBindCount; amSYQzr++){
             [&](){
             auto& temp=arr_DFKvcex[amSYQzr].emplace_object();
@@ -13711,8 +13711,8 @@ auto& pSignalSemaphores_json=json["pSignalSemaphores"];
 [&](){
             if (member.pSignalSemaphores==NULL){
                 pSignalSemaphores_json=boost::json::array();
-            return; }
-        auto& arr_wTKZAbP=pSignalSemaphores_json.emplace_array();
+            return; }pSignalSemaphores_json=boost::json::array(member.signalSemaphoreCount);
+        auto& arr_wTKZAbP=pSignalSemaphores_json.as_array();
         for(int zRpxMAc=0; zRpxMAc < member.signalSemaphoreCount; zRpxMAc++){
             [&](){serialize_VkSemaphore(arr_wTKZAbP[zRpxMAc],member.pSignalSemaphores[zRpxMAc]);}();
         }
@@ -13863,8 +13863,8 @@ auto& srcSubresource_json=json["srcSubresource"];
             return serialize_struct(temp, member.srcSubresource);
             }();
 auto& srcOffsets_json=json["srcOffsets"];
-[&](){
-        auto& arr_mKtJGhO=srcOffsets_json.emplace_array();
+[&](){srcOffsets_json=boost::json::array(2);
+        auto& arr_mKtJGhO=srcOffsets_json.as_array();
         for(int cffHdsm=0; cffHdsm < 2; cffHdsm++){
             [&](){
             auto& temp=arr_mKtJGhO[cffHdsm].emplace_object();
@@ -13878,8 +13878,8 @@ auto& dstSubresource_json=json["dstSubresource"];
             return serialize_struct(temp, member.dstSubresource);
             }();
 auto& dstOffsets_json=json["dstOffsets"];
-[&](){
-        auto& arr_vRqZKuS=dstOffsets_json.emplace_array();
+[&](){dstOffsets_json=boost::json::array(2);
+        auto& arr_vRqZKuS=dstOffsets_json.as_array();
         for(int YmWWFoI=0; YmWWFoI < 2; YmWWFoI++){
             [&](){
             auto& temp=arr_vRqZKuS[YmWWFoI].emplace_object();
@@ -14113,8 +14113,8 @@ auto& pCode_json=json["pCode"];
 [&](){
             if (member.pCode==NULL){
                 pCode_json=boost::json::array();
-            return; }
-        auto& arr_mBCUFUl=pCode_json.emplace_array();
+            return; }pCode_json=boost::json::array(member.codeSize / 4);
+        auto& arr_mBCUFUl=pCode_json.as_array();
         for(int bOevcKL=0; bOevcKL < member.codeSize / 4; bOevcKL++){
             [&](){arr_mBCUFUl[bOevcKL]=member.pCode[bOevcKL];}();
         }
@@ -14159,8 +14159,8 @@ auto& pImmutableSamplers_json=json["pImmutableSamplers"];
 [&](){
             if (member.pImmutableSamplers==NULL){
                 pImmutableSamplers_json=boost::json::array();
-            return; }
-        auto& arr_xcuoJXE=pImmutableSamplers_json.emplace_array();
+            return; }pImmutableSamplers_json=boost::json::array(member.descriptorCount);
+        auto& arr_xcuoJXE=pImmutableSamplers_json.as_array();
         for(int jbnNzhV=0; jbnNzhV < member.descriptorCount; jbnNzhV++){
             [&](){serialize_VkSampler(arr_xcuoJXE[jbnNzhV],member.pImmutableSamplers[jbnNzhV]);}();
         }
@@ -14205,8 +14205,8 @@ auto& pBindings_json=json["pBindings"];
 [&](){
             if (member.pBindings==NULL){
                 pBindings_json=boost::json::array();
-            return; }
-        auto& arr_nJbEkUh=pBindings_json.emplace_array();
+            return; }pBindings_json=boost::json::array(member.bindingCount);
+        auto& arr_nJbEkUh=pBindings_json.as_array();
         for(int AzgmBbR=0; AzgmBbR < member.bindingCount; AzgmBbR++){
             [&](){
             auto& temp=arr_nJbEkUh[AzgmBbR].emplace_object();
@@ -14277,8 +14277,8 @@ auto& pPoolSizes_json=json["pPoolSizes"];
 [&](){
             if (member.pPoolSizes==NULL){
                 pPoolSizes_json=boost::json::array();
-            return; }
-        auto& arr_LuBsymd=pPoolSizes_json.emplace_array();
+            return; }pPoolSizes_json=boost::json::array(member.poolSizeCount);
+        auto& arr_LuBsymd=pPoolSizes_json.as_array();
         for(int YQeezfi=0; YQeezfi < member.poolSizeCount; YQeezfi++){
             [&](){
             auto& temp=arr_LuBsymd[YQeezfi].emplace_object();
@@ -14334,8 +14334,8 @@ auto& pSetLayouts_json=json["pSetLayouts"];
 [&](){
             if (member.pSetLayouts==NULL){
                 pSetLayouts_json=boost::json::array();
-            return; }
-        auto& arr_zVMtIaT=pSetLayouts_json.emplace_array();
+            return; }pSetLayouts_json=boost::json::array(member.descriptorSetCount);
+        auto& arr_zVMtIaT=pSetLayouts_json.as_array();
         for(int uklMdkt=0; uklMdkt < member.descriptorSetCount; uklMdkt++){
             [&](){serialize_VkDescriptorSetLayout(arr_zVMtIaT[uklMdkt],member.pSetLayouts[uklMdkt]);}();
         }
@@ -14393,8 +14393,8 @@ auto& pMapEntries_json=json["pMapEntries"];
 [&](){
             if (member.pMapEntries==NULL){
                 pMapEntries_json=boost::json::array();
-            return; }
-        auto& arr_yuDvmVn=pMapEntries_json.emplace_array();
+            return; }pMapEntries_json=boost::json::array(member.mapEntryCount);
+        auto& arr_yuDvmVn=pMapEntries_json.as_array();
         for(int kycorOP=0; kycorOP < member.mapEntryCount; kycorOP++){
             [&](){
             auto& temp=arr_yuDvmVn[kycorOP].emplace_object();
@@ -14411,8 +14411,8 @@ auto& pData_json=json["pData"];
             return; }[&](){
             if (((char*)(member.pData))==NULL){
                 pData_json=boost::json::array();
-            return; }
-        auto& arr_cukaPTa=pData_json.emplace_array();
+            return; }pData_json=boost::json::array(member.dataSize);
+        auto& arr_cukaPTa=pData_json.as_array();
         for(int UqwNSOA=0; UqwNSOA < member.dataSize; UqwNSOA++){
             [&](){arr_cukaPTa[UqwNSOA]=((char*)(member.pData))[UqwNSOA];}();
         }
@@ -14471,8 +14471,8 @@ auto& pName_json=json["pName"];
 [&](){
             if (member.pName==NULL){
                 pName_json=boost::json::array();
-            return; }
-        auto& arr_RNtEgHa=pName_json.emplace_array();
+            return; }pName_json=boost::json::array(strlen(member.pName)+1);
+        auto& arr_RNtEgHa=pName_json.as_array();
         for(int JRJzPhN=0; JRJzPhN < strlen(member.pName)+1; JRJzPhN++){
             [&](){arr_RNtEgHa[JRJzPhN]=member.pName[JRJzPhN];}();
         }
@@ -14481,8 +14481,8 @@ auto& pSpecializationInfo_json=json["pSpecializationInfo"];
 [&](){
             if (member.pSpecializationInfo==NULL){
                 pSpecializationInfo_json=boost::json::array();
-            return; }
-        auto& arr_AfbichW=pSpecializationInfo_json.emplace_array();
+            return; }pSpecializationInfo_json=boost::json::array(1);
+        auto& arr_AfbichW=pSpecializationInfo_json.as_array();
         for(int lSuLhWh=0; lSuLhWh < 1; lSuLhWh++){
             [&](){
             auto& temp=arr_AfbichW[lSuLhWh].emplace_object();
@@ -14695,8 +14695,8 @@ auto& pVertexBindingDescriptions_json=json["pVertexBindingDescriptions"];
 [&](){
             if (member.pVertexBindingDescriptions==NULL){
                 pVertexBindingDescriptions_json=boost::json::array();
-            return; }
-        auto& arr_lPaHSpH=pVertexBindingDescriptions_json.emplace_array();
+            return; }pVertexBindingDescriptions_json=boost::json::array(member.vertexBindingDescriptionCount);
+        auto& arr_lPaHSpH=pVertexBindingDescriptions_json.as_array();
         for(int YjWVYZF=0; YjWVYZF < member.vertexBindingDescriptionCount; YjWVYZF++){
             [&](){
             auto& temp=arr_lPaHSpH[YjWVYZF].emplace_object();
@@ -14710,8 +14710,8 @@ auto& pVertexAttributeDescriptions_json=json["pVertexAttributeDescriptions"];
 [&](){
             if (member.pVertexAttributeDescriptions==NULL){
                 pVertexAttributeDescriptions_json=boost::json::array();
-            return; }
-        auto& arr_vcvXgKV=pVertexAttributeDescriptions_json.emplace_array();
+            return; }pVertexAttributeDescriptions_json=boost::json::array(member.vertexAttributeDescriptionCount);
+        auto& arr_vcvXgKV=pVertexAttributeDescriptions_json.as_array();
         for(int bjIoEiI=0; bjIoEiI < member.vertexAttributeDescriptionCount; bjIoEiI++){
             [&](){
             auto& temp=arr_vcvXgKV[bjIoEiI].emplace_object();
@@ -14842,8 +14842,8 @@ auto& pViewports_json=json["pViewports"];
 [&](){
             if (member.pViewports==NULL){
                 pViewports_json=boost::json::array();
-            return; }
-        auto& arr_HeuXxgA=pViewports_json.emplace_array();
+            return; }pViewports_json=boost::json::array(member.viewportCount);
+        auto& arr_HeuXxgA=pViewports_json.as_array();
         for(int pPPmjfh=0; pPPmjfh < member.viewportCount; pPPmjfh++){
             [&](){
             auto& temp=arr_HeuXxgA[pPPmjfh].emplace_object();
@@ -14857,8 +14857,8 @@ auto& pScissors_json=json["pScissors"];
 [&](){
             if (member.pScissors==NULL){
                 pScissors_json=boost::json::array();
-            return; }
-        auto& arr_jBCJAGW=pScissors_json.emplace_array();
+            return; }pScissors_json=boost::json::array(member.scissorCount);
+        auto& arr_jBCJAGW=pScissors_json.as_array();
         for(int pCcccJg=0; pCcccJg < member.scissorCount; pCcccJg++){
             [&](){
             auto& temp=arr_jBCJAGW[pCcccJg].emplace_object();
@@ -14996,8 +14996,8 @@ auto& pSampleMask_json=json["pSampleMask"];
 [&](){
             if (member.pSampleMask==NULL){
                 pSampleMask_json=boost::json::array();
-            return; }
-        auto& arr_SWdjBPW=pSampleMask_json.emplace_array();
+            return; }pSampleMask_json=boost::json::array((member.rasterizationSamples + 31) / 32);
+        auto& arr_SWdjBPW=pSampleMask_json.as_array();
         for(int vLiHEkD=0; vLiHEkD < (member.rasterizationSamples + 31) / 32; vLiHEkD++){
             [&](){[&](){arr_SWdjBPW[vLiHEkD]=member.pSampleMask[vLiHEkD];}();}();
         }
@@ -15100,8 +15100,8 @@ auto& pAttachments_json=json["pAttachments"];
 [&](){
             if (member.pAttachments==NULL){
                 pAttachments_json=boost::json::array();
-            return; }
-        auto& arr_OXJBqJu=pAttachments_json.emplace_array();
+            return; }pAttachments_json=boost::json::array(member.attachmentCount);
+        auto& arr_OXJBqJu=pAttachments_json.as_array();
         for(int oTEAAhc=0; oTEAAhc < member.attachmentCount; oTEAAhc++){
             [&](){
             auto& temp=arr_OXJBqJu[oTEAAhc].emplace_object();
@@ -15110,8 +15110,8 @@ auto& pAttachments_json=json["pAttachments"];
         }
         }();
 auto& blendConstants_json=json["blendConstants"];
-[&](){
-        auto& arr_iCDxmHG=blendConstants_json.emplace_array();
+[&](){blendConstants_json=boost::json::array(4);
+        auto& arr_iCDxmHG=blendConstants_json.as_array();
         for(int axAsZTW=0; axAsZTW < 4; axAsZTW++){
             [&](){arr_iCDxmHG[axAsZTW]=member.blendConstants[axAsZTW];}();
         }
@@ -15173,8 +15173,8 @@ auto& pDynamicStates_json=json["pDynamicStates"];
 [&](){
             if (member.pDynamicStates==NULL){
                 pDynamicStates_json=boost::json::array();
-            return; }
-        auto& arr_evgSeON=pDynamicStates_json.emplace_array();
+            return; }pDynamicStates_json=boost::json::array(member.dynamicStateCount);
+        auto& arr_evgSeON=pDynamicStates_json.as_array();
         for(int PwhzoKV=0; PwhzoKV < member.dynamicStateCount; PwhzoKV++){
             [&](){[&](){[&](){arr_evgSeON[PwhzoKV]=member.pDynamicStates[PwhzoKV];}();}();}();
         }
@@ -15330,8 +15330,8 @@ auto& pStages_json=json["pStages"];
 [&](){
             if (member.pStages==NULL){
                 pStages_json=boost::json::array();
-            return; }
-        auto& arr_wJXHhmh=pStages_json.emplace_array();
+            return; }pStages_json=boost::json::array(member.stageCount);
+        auto& arr_wJXHhmh=pStages_json.as_array();
         for(int AsBfcSb=0; AsBfcSb < member.stageCount; AsBfcSb++){
             [&](){
             auto& temp=arr_wJXHhmh[AsBfcSb].emplace_object();
@@ -15343,8 +15343,8 @@ auto& pVertexInputState_json=json["pVertexInputState"];
 [&](){
             if (member.pVertexInputState==NULL){
                 pVertexInputState_json=boost::json::array();
-            return; }
-        auto& arr_HopKlOv=pVertexInputState_json.emplace_array();
+            return; }pVertexInputState_json=boost::json::array(1);
+        auto& arr_HopKlOv=pVertexInputState_json.as_array();
         for(int tqmlCna=0; tqmlCna < 1; tqmlCna++){
             [&](){
             auto& temp=arr_HopKlOv[tqmlCna].emplace_object();
@@ -15356,8 +15356,8 @@ auto& pInputAssemblyState_json=json["pInputAssemblyState"];
 [&](){
             if (member.pInputAssemblyState==NULL){
                 pInputAssemblyState_json=boost::json::array();
-            return; }
-        auto& arr_XjVdyCj=pInputAssemblyState_json.emplace_array();
+            return; }pInputAssemblyState_json=boost::json::array(1);
+        auto& arr_XjVdyCj=pInputAssemblyState_json.as_array();
         for(int kCbcYVf=0; kCbcYVf < 1; kCbcYVf++){
             [&](){
             auto& temp=arr_XjVdyCj[kCbcYVf].emplace_object();
@@ -15369,8 +15369,8 @@ auto& pTessellationState_json=json["pTessellationState"];
 [&](){
             if (member.pTessellationState==NULL){
                 pTessellationState_json=boost::json::array();
-            return; }
-        auto& arr_tdhGlVI=pTessellationState_json.emplace_array();
+            return; }pTessellationState_json=boost::json::array(1);
+        auto& arr_tdhGlVI=pTessellationState_json.as_array();
         for(int IWxBQoq=0; IWxBQoq < 1; IWxBQoq++){
             [&](){
             auto& temp=arr_tdhGlVI[IWxBQoq].emplace_object();
@@ -15382,8 +15382,8 @@ auto& pViewportState_json=json["pViewportState"];
 [&](){
             if (member.pViewportState==NULL){
                 pViewportState_json=boost::json::array();
-            return; }
-        auto& arr_cLLBOfS=pViewportState_json.emplace_array();
+            return; }pViewportState_json=boost::json::array(1);
+        auto& arr_cLLBOfS=pViewportState_json.as_array();
         for(int ZpMCSfw=0; ZpMCSfw < 1; ZpMCSfw++){
             [&](){
             auto& temp=arr_cLLBOfS[ZpMCSfw].emplace_object();
@@ -15395,8 +15395,8 @@ auto& pRasterizationState_json=json["pRasterizationState"];
 [&](){
             if (member.pRasterizationState==NULL){
                 pRasterizationState_json=boost::json::array();
-            return; }
-        auto& arr_BUWxCGe=pRasterizationState_json.emplace_array();
+            return; }pRasterizationState_json=boost::json::array(1);
+        auto& arr_BUWxCGe=pRasterizationState_json.as_array();
         for(int kapFwwJ=0; kapFwwJ < 1; kapFwwJ++){
             [&](){
             auto& temp=arr_BUWxCGe[kapFwwJ].emplace_object();
@@ -15408,8 +15408,8 @@ auto& pMultisampleState_json=json["pMultisampleState"];
 [&](){
             if (member.pMultisampleState==NULL){
                 pMultisampleState_json=boost::json::array();
-            return; }
-        auto& arr_oxWWlVc=pMultisampleState_json.emplace_array();
+            return; }pMultisampleState_json=boost::json::array(1);
+        auto& arr_oxWWlVc=pMultisampleState_json.as_array();
         for(int plsEKGt=0; plsEKGt < 1; plsEKGt++){
             [&](){
             auto& temp=arr_oxWWlVc[plsEKGt].emplace_object();
@@ -15421,8 +15421,8 @@ auto& pDepthStencilState_json=json["pDepthStencilState"];
 [&](){
             if (member.pDepthStencilState==NULL){
                 pDepthStencilState_json=boost::json::array();
-            return; }
-        auto& arr_CoCyuaF=pDepthStencilState_json.emplace_array();
+            return; }pDepthStencilState_json=boost::json::array(1);
+        auto& arr_CoCyuaF=pDepthStencilState_json.as_array();
         for(int bzaPfwe=0; bzaPfwe < 1; bzaPfwe++){
             [&](){
             auto& temp=arr_CoCyuaF[bzaPfwe].emplace_object();
@@ -15434,8 +15434,8 @@ auto& pColorBlendState_json=json["pColorBlendState"];
 [&](){
             if (member.pColorBlendState==NULL){
                 pColorBlendState_json=boost::json::array();
-            return; }
-        auto& arr_fflbfZo=pColorBlendState_json.emplace_array();
+            return; }pColorBlendState_json=boost::json::array(1);
+        auto& arr_fflbfZo=pColorBlendState_json.as_array();
         for(int bapCcQg=0; bapCcQg < 1; bapCcQg++){
             [&](){
             auto& temp=arr_fflbfZo[bapCcQg].emplace_object();
@@ -15447,8 +15447,8 @@ auto& pDynamicState_json=json["pDynamicState"];
 [&](){
             if (member.pDynamicState==NULL){
                 pDynamicState_json=boost::json::array();
-            return; }
-        auto& arr_iDMMizu=pDynamicState_json.emplace_array();
+            return; }pDynamicState_json=boost::json::array(1);
+        auto& arr_iDMMizu=pDynamicState_json.as_array();
         for(int RNPowsf=0; RNPowsf < 1; RNPowsf++){
             [&](){
             auto& temp=arr_iDMMizu[RNPowsf].emplace_object();
@@ -15642,8 +15642,8 @@ auto& pInitialData_json=json["pInitialData"];
             return; }[&](){
             if (((char*)(member.pInitialData))==NULL){
                 pInitialData_json=boost::json::array();
-            return; }
-        auto& arr_cScJjND=pInitialData_json.emplace_array();
+            return; }pInitialData_json=boost::json::array(member.initialDataSize);
+        auto& arr_cScJjND=pInitialData_json.as_array();
         for(int iGwyJEq=0; iGwyJEq < member.initialDataSize; iGwyJEq++){
             [&](){arr_cScJjND[iGwyJEq]=((char*)(member.pInitialData))[iGwyJEq];}();
         }
@@ -15688,8 +15688,8 @@ auto& vendorID_json=json["vendorID"];
 auto& deviceID_json=json["deviceID"];
 [&](){deviceID_json=member.deviceID;}();
 auto& pipelineCacheUUID_json=json["pipelineCacheUUID"];
-[&](){
-        auto& arr_Pmzgxjw=pipelineCacheUUID_json.emplace_array();
+[&](){pipelineCacheUUID_json=boost::json::array(VK_UUID_SIZE);
+        auto& arr_Pmzgxjw=pipelineCacheUUID_json.as_array();
         for(int tnNOYvF=0; tnNOYvF < VK_UUID_SIZE; tnNOYvF++){
             [&](){arr_Pmzgxjw[tnNOYvF]=member.pipelineCacheUUID[tnNOYvF];}();
         }
@@ -15750,8 +15750,8 @@ auto& pSetLayouts_json=json["pSetLayouts"];
 [&](){
             if (member.pSetLayouts==NULL){
                 pSetLayouts_json=boost::json::array();
-            return; }
-        auto& arr_zVMtIaT=pSetLayouts_json.emplace_array();
+            return; }pSetLayouts_json=boost::json::array(member.setLayoutCount);
+        auto& arr_zVMtIaT=pSetLayouts_json.as_array();
         for(int uklMdkt=0; uklMdkt < member.setLayoutCount; uklMdkt++){
             [&](){serialize_VkDescriptorSetLayout(arr_zVMtIaT[uklMdkt],member.pSetLayouts[uklMdkt]);}();
         }
@@ -15762,8 +15762,8 @@ auto& pPushConstantRanges_json=json["pPushConstantRanges"];
 [&](){
             if (member.pPushConstantRanges==NULL){
                 pPushConstantRanges_json=boost::json::array();
-            return; }
-        auto& arr_doTQoKZ=pPushConstantRanges_json.emplace_array();
+            return; }pPushConstantRanges_json=boost::json::array(member.pushConstantRangeCount);
+        auto& arr_doTQoKZ=pPushConstantRanges_json.as_array();
         for(int IhaFWFv=0; IhaFWFv < member.pushConstantRangeCount; IhaFWFv++){
             [&](){
             auto& temp=arr_doTQoKZ[IhaFWFv].emplace_object();
@@ -16019,8 +16019,8 @@ auto& pInheritanceInfo_json=json["pInheritanceInfo"];
 [&](){
             if (member.pInheritanceInfo==NULL){
                 pInheritanceInfo_json=boost::json::array();
-            return; }
-        auto& arr_PAjnrNx=pInheritanceInfo_json.emplace_array();
+            return; }pInheritanceInfo_json=boost::json::array(1);
+        auto& arr_PAjnrNx=pInheritanceInfo_json.as_array();
         for(int bGTbYrK=0; bGTbYrK < 1; bGTbYrK++){
             [&](){
             auto& temp=arr_PAjnrNx[bGTbYrK].emplace_object();
@@ -16079,8 +16079,8 @@ auto& pClearValues_json=json["pClearValues"];
 [&](){
             if (member.pClearValues==NULL){
                 pClearValues_json=boost::json::array();
-            return; }
-        auto& arr_EjHFbnM=pClearValues_json.emplace_array();
+            return; }pClearValues_json=boost::json::array(member.clearValueCount);
+        auto& arr_EjHFbnM=pClearValues_json.as_array();
         for(int rfbiVln=0; rfbiVln < member.clearValueCount; rfbiVln++){
             [&](){
             auto& temp=arr_EjHFbnM[rfbiVln].emplace_object();
@@ -16127,22 +16127,22 @@ auto& pClearValues_json=json["pClearValues"];
         
     
 auto& float32_json=json["float32"];
-[&](){
-        auto& arr_dTfrVgK=float32_json.emplace_array();
+[&](){float32_json=boost::json::array(4);
+        auto& arr_dTfrVgK=float32_json.as_array();
         for(int RHZEIfX=0; RHZEIfX < 4; RHZEIfX++){
             [&](){arr_dTfrVgK[RHZEIfX]=member.float32[RHZEIfX];}();
         }
         }();
 auto& int32_json=json["int32"];
-[&](){
-        auto& arr_QYooDmm=int32_json.emplace_array();
+[&](){int32_json=boost::json::array(4);
+        auto& arr_QYooDmm=int32_json.as_array();
         for(int numzepE=0; numzepE < 4; numzepE++){
             [&](){arr_QYooDmm[numzepE]=member.int32[numzepE];}();
         }
         }();
 auto& uint32_json=json["uint32"];
-[&](){
-        auto& arr_TXNbAyj=uint32_json.emplace_array();
+[&](){uint32_json=boost::json::array(4);
+        auto& arr_TXNbAyj=uint32_json.as_array();
         for(int uljKkhi=0; uljKkhi < 4; uljKkhi++){
             [&](){arr_TXNbAyj[uljKkhi]=member.uint32[uljKkhi];}();
         }
@@ -16310,8 +16310,8 @@ auto& pInputAttachments_json=json["pInputAttachments"];
 [&](){
             if (member.pInputAttachments==NULL){
                 pInputAttachments_json=boost::json::array();
-            return; }
-        auto& arr_KLGwzOx=pInputAttachments_json.emplace_array();
+            return; }pInputAttachments_json=boost::json::array(member.inputAttachmentCount);
+        auto& arr_KLGwzOx=pInputAttachments_json.as_array();
         for(int fcmsdlH=0; fcmsdlH < member.inputAttachmentCount; fcmsdlH++){
             [&](){
             auto& temp=arr_KLGwzOx[fcmsdlH].emplace_object();
@@ -16325,8 +16325,8 @@ auto& pColorAttachments_json=json["pColorAttachments"];
 [&](){
             if (member.pColorAttachments==NULL){
                 pColorAttachments_json=boost::json::array();
-            return; }
-        auto& arr_PChCviG=pColorAttachments_json.emplace_array();
+            return; }pColorAttachments_json=boost::json::array(member.colorAttachmentCount);
+        auto& arr_PChCviG=pColorAttachments_json.as_array();
         for(int NEsWaUO=0; NEsWaUO < member.colorAttachmentCount; NEsWaUO++){
             [&](){
             auto& temp=arr_PChCviG[NEsWaUO].emplace_object();
@@ -16338,8 +16338,8 @@ auto& pResolveAttachments_json=json["pResolveAttachments"];
 [&](){
             if (member.pResolveAttachments==NULL){
                 pResolveAttachments_json=boost::json::array();
-            return; }
-        auto& arr_YtbBtCp=pResolveAttachments_json.emplace_array();
+            return; }pResolveAttachments_json=boost::json::array(member.colorAttachmentCount);
+        auto& arr_YtbBtCp=pResolveAttachments_json.as_array();
         for(int HXoIIAZ=0; HXoIIAZ < member.colorAttachmentCount; HXoIIAZ++){
             [&](){
             auto& temp=arr_YtbBtCp[HXoIIAZ].emplace_object();
@@ -16351,8 +16351,8 @@ auto& pDepthStencilAttachment_json=json["pDepthStencilAttachment"];
 [&](){
             if (member.pDepthStencilAttachment==NULL){
                 pDepthStencilAttachment_json=boost::json::array();
-            return; }
-        auto& arr_irkynNl=pDepthStencilAttachment_json.emplace_array();
+            return; }pDepthStencilAttachment_json=boost::json::array(1);
+        auto& arr_irkynNl=pDepthStencilAttachment_json.as_array();
         for(int CQzmEZj=0; CQzmEZj < 1; CQzmEZj++){
             [&](){
             auto& temp=arr_irkynNl[CQzmEZj].emplace_object();
@@ -16366,8 +16366,8 @@ auto& pPreserveAttachments_json=json["pPreserveAttachments"];
 [&](){
             if (member.pPreserveAttachments==NULL){
                 pPreserveAttachments_json=boost::json::array();
-            return; }
-        auto& arr_JglfHnP=pPreserveAttachments_json.emplace_array();
+            return; }pPreserveAttachments_json=boost::json::array(member.preserveAttachmentCount);
+        auto& arr_JglfHnP=pPreserveAttachments_json.as_array();
         for(int GdjjjYx=0; GdjjjYx < member.preserveAttachmentCount; GdjjjYx++){
             [&](){arr_JglfHnP[GdjjjYx]=member.pPreserveAttachments[GdjjjYx];}();
         }
@@ -16501,8 +16501,8 @@ auto& pAttachments_json=json["pAttachments"];
 [&](){
             if (member.pAttachments==NULL){
                 pAttachments_json=boost::json::array();
-            return; }
-        auto& arr_eNXksbn=pAttachments_json.emplace_array();
+            return; }pAttachments_json=boost::json::array(member.attachmentCount);
+        auto& arr_eNXksbn=pAttachments_json.as_array();
         for(int EAnEZOy=0; EAnEZOy < member.attachmentCount; EAnEZOy++){
             [&](){
             auto& temp=arr_eNXksbn[EAnEZOy].emplace_object();
@@ -16516,8 +16516,8 @@ auto& pSubpasses_json=json["pSubpasses"];
 [&](){
             if (member.pSubpasses==NULL){
                 pSubpasses_json=boost::json::array();
-            return; }
-        auto& arr_TnSUMFM=pSubpasses_json.emplace_array();
+            return; }pSubpasses_json=boost::json::array(member.subpassCount);
+        auto& arr_TnSUMFM=pSubpasses_json.as_array();
         for(int fNtyFzh=0; fNtyFzh < member.subpassCount; fNtyFzh++){
             [&](){
             auto& temp=arr_TnSUMFM[fNtyFzh].emplace_object();
@@ -16531,8 +16531,8 @@ auto& pDependencies_json=json["pDependencies"];
 [&](){
             if (member.pDependencies==NULL){
                 pDependencies_json=boost::json::array();
-            return; }
-        auto& arr_IXOqlEN=pDependencies_json.emplace_array();
+            return; }pDependencies_json=boost::json::array(member.dependencyCount);
+        auto& arr_IXOqlEN=pDependencies_json.as_array();
         for(int ivzxefA=0; ivzxefA < member.dependencyCount; ivzxefA++){
             [&](){
             auto& temp=arr_IXOqlEN[ivzxefA].emplace_object();
@@ -17010,8 +17010,8 @@ auto& maxFragmentCombinedOutputResources_json=json["maxFragmentCombinedOutputRes
 auto& maxComputeSharedMemorySize_json=json["maxComputeSharedMemorySize"];
 [&](){maxComputeSharedMemorySize_json=member.maxComputeSharedMemorySize;}();
 auto& maxComputeWorkGroupCount_json=json["maxComputeWorkGroupCount"];
-[&](){
-        auto& arr_gsbaoCx=maxComputeWorkGroupCount_json.emplace_array();
+[&](){maxComputeWorkGroupCount_json=boost::json::array(3);
+        auto& arr_gsbaoCx=maxComputeWorkGroupCount_json.as_array();
         for(int kHbpeVx=0; kHbpeVx < 3; kHbpeVx++){
             [&](){arr_gsbaoCx[kHbpeVx]=member.maxComputeWorkGroupCount[kHbpeVx];}();
         }
@@ -17019,8 +17019,8 @@ auto& maxComputeWorkGroupCount_json=json["maxComputeWorkGroupCount"];
 auto& maxComputeWorkGroupInvocations_json=json["maxComputeWorkGroupInvocations"];
 [&](){maxComputeWorkGroupInvocations_json=member.maxComputeWorkGroupInvocations;}();
 auto& maxComputeWorkGroupSize_json=json["maxComputeWorkGroupSize"];
-[&](){
-        auto& arr_fLmgBun=maxComputeWorkGroupSize_json.emplace_array();
+[&](){maxComputeWorkGroupSize_json=boost::json::array(3);
+        auto& arr_fLmgBun=maxComputeWorkGroupSize_json.as_array();
         for(int crVwwSK=0; crVwwSK < 3; crVwwSK++){
             [&](){arr_fLmgBun[crVwwSK]=member.maxComputeWorkGroupSize[crVwwSK];}();
         }
@@ -17042,15 +17042,15 @@ auto& maxSamplerAnisotropy_json=json["maxSamplerAnisotropy"];
 auto& maxViewports_json=json["maxViewports"];
 [&](){maxViewports_json=member.maxViewports;}();
 auto& maxViewportDimensions_json=json["maxViewportDimensions"];
-[&](){
-        auto& arr_LSvUSqa=maxViewportDimensions_json.emplace_array();
+[&](){maxViewportDimensions_json=boost::json::array(2);
+        auto& arr_LSvUSqa=maxViewportDimensions_json.as_array();
         for(int ycCCCsN=0; ycCCCsN < 2; ycCCCsN++){
             [&](){arr_LSvUSqa[ycCCCsN]=member.maxViewportDimensions[ycCCCsN];}();
         }
         }();
 auto& viewportBoundsRange_json=json["viewportBoundsRange"];
-[&](){
-        auto& arr_awCrgMa=viewportBoundsRange_json.emplace_array();
+[&](){viewportBoundsRange_json=boost::json::array(2);
+        auto& arr_awCrgMa=viewportBoundsRange_json.as_array();
         for(int PARUdVU=0; PARUdVU < 2; PARUdVU++){
             [&](){arr_awCrgMa[PARUdVU]=member.viewportBoundsRange[PARUdVU];}();
         }
@@ -17120,15 +17120,15 @@ auto& maxCombinedClipAndCullDistances_json=json["maxCombinedClipAndCullDistances
 auto& discreteQueuePriorities_json=json["discreteQueuePriorities"];
 [&](){discreteQueuePriorities_json=member.discreteQueuePriorities;}();
 auto& pointSizeRange_json=json["pointSizeRange"];
-[&](){
-        auto& arr_yZiXMsp=pointSizeRange_json.emplace_array();
+[&](){pointSizeRange_json=boost::json::array(2);
+        auto& arr_yZiXMsp=pointSizeRange_json.as_array();
         for(int DtetcFR=0; DtetcFR < 2; DtetcFR++){
             [&](){arr_yZiXMsp[DtetcFR]=member.pointSizeRange[DtetcFR];}();
         }
         }();
 auto& lineWidthRange_json=json["lineWidthRange"];
-[&](){
-        auto& arr_FpWybPQ=lineWidthRange_json.emplace_array();
+[&](){lineWidthRange_json=boost::json::array(2);
+        auto& arr_FpWybPQ=lineWidthRange_json.as_array();
         for(int mAcInEU=0; mAcInEU < 2; mAcInEU++){
             [&](){arr_FpWybPQ[mAcInEU]=member.lineWidthRange[mAcInEU];}();
         }
@@ -17475,8 +17475,8 @@ auto& pAttachments_json=json["pAttachments"];
 [&](){
             if (member.pAttachments==NULL){
                 pAttachments_json=boost::json::array();
-            return; }
-        auto& arr_XUnbodX=pAttachments_json.emplace_array();
+            return; }pAttachments_json=boost::json::array(member.attachmentCount);
+        auto& arr_XUnbodX=pAttachments_json.as_array();
         for(int FOVxLSQ=0; FOVxLSQ < member.attachmentCount; FOVxLSQ++){
             [&](){serialize_VkImageView(arr_XUnbodX[FOVxLSQ],member.pAttachments[FOVxLSQ]);}();
         }
@@ -17639,8 +17639,8 @@ auto& pWaitSemaphores_json=json["pWaitSemaphores"];
 [&](){
             if (member.pWaitSemaphores==NULL){
                 pWaitSemaphores_json=boost::json::array();
-            return; }
-        auto& arr_AxVizBE=pWaitSemaphores_json.emplace_array();
+            return; }pWaitSemaphores_json=boost::json::array(member.waitSemaphoreCount);
+        auto& arr_AxVizBE=pWaitSemaphores_json.as_array();
         for(int XBpvDer=0; XBpvDer < member.waitSemaphoreCount; XBpvDer++){
             [&](){serialize_VkSemaphore(arr_AxVizBE[XBpvDer],member.pWaitSemaphores[XBpvDer]);}();
         }
@@ -17649,8 +17649,8 @@ auto& pWaitDstStageMask_json=json["pWaitDstStageMask"];
 [&](){
             if (member.pWaitDstStageMask==NULL){
                 pWaitDstStageMask_json=boost::json::array();
-            return; }
-        auto& arr_oQyrzEm=pWaitDstStageMask_json.emplace_array();
+            return; }pWaitDstStageMask_json=boost::json::array(member.waitSemaphoreCount);
+        auto& arr_oQyrzEm=pWaitDstStageMask_json.as_array();
         for(int fKVRNjr=0; fKVRNjr < member.waitSemaphoreCount; fKVRNjr++){
             [&](){[&](){[&](){arr_oQyrzEm[fKVRNjr]=member.pWaitDstStageMask[fKVRNjr];}();}();}();
         }
@@ -17661,8 +17661,8 @@ auto& pCommandBuffers_json=json["pCommandBuffers"];
 [&](){
             if (member.pCommandBuffers==NULL){
                 pCommandBuffers_json=boost::json::array();
-            return; }
-        auto& arr_gceABMa=pCommandBuffers_json.emplace_array();
+            return; }pCommandBuffers_json=boost::json::array(member.commandBufferCount);
+        auto& arr_gceABMa=pCommandBuffers_json.as_array();
         for(int EViCAMU=0; EViCAMU < member.commandBufferCount; EViCAMU++){
             [&](){serialize_VkCommandBuffer(arr_gceABMa[EViCAMU],member.pCommandBuffers[EViCAMU]);}();
         }
@@ -17673,8 +17673,8 @@ auto& pSignalSemaphores_json=json["pSignalSemaphores"];
 [&](){
             if (member.pSignalSemaphores==NULL){
                 pSignalSemaphores_json=boost::json::array();
-            return; }
-        auto& arr_wTKZAbP=pSignalSemaphores_json.emplace_array();
+            return; }pSignalSemaphores_json=boost::json::array(member.signalSemaphoreCount);
+        auto& arr_wTKZAbP=pSignalSemaphores_json.as_array();
         for(int zRpxMAc=0; zRpxMAc < member.signalSemaphoreCount; zRpxMAc++){
             [&](){serialize_VkSemaphore(arr_wTKZAbP[zRpxMAc],member.pSignalSemaphores[zRpxMAc]);}();
         }
@@ -17745,8 +17745,8 @@ auto& displayName_json=json["displayName"];
 [&](){
             if (member.displayName==NULL){
                 displayName_json=boost::json::array();
-            return; }
-        auto& arr_GUVDjBh=displayName_json.emplace_array();
+            return; }displayName_json=boost::json::array(strlen(member.displayName)+1);
+        auto& arr_GUVDjBh=displayName_json.as_array();
         for(int BsvzZKW=0; BsvzZKW < strlen(member.displayName)+1; BsvzZKW++){
             [&](){arr_GUVDjBh[BsvzZKW]=member.displayName[BsvzZKW];}();
         }
@@ -18281,8 +18281,8 @@ auto& pQueueFamilyIndices_json=json["pQueueFamilyIndices"];
 [&](){
             if (member.pQueueFamilyIndices==NULL){
                 pQueueFamilyIndices_json=boost::json::array();
-            return; }
-        auto& arr_miZGtyX=pQueueFamilyIndices_json.emplace_array();
+            return; }pQueueFamilyIndices_json=boost::json::array(member.queueFamilyIndexCount);
+        auto& arr_miZGtyX=pQueueFamilyIndices_json.as_array();
         for(int VJZTqbB=0; VJZTqbB < member.queueFamilyIndexCount; VJZTqbB++){
             [&](){arr_miZGtyX[VJZTqbB]=member.pQueueFamilyIndices[VJZTqbB];}();
         }
@@ -18367,8 +18367,8 @@ auto& pWaitSemaphores_json=json["pWaitSemaphores"];
 [&](){
             if (member.pWaitSemaphores==NULL){
                 pWaitSemaphores_json=boost::json::array();
-            return; }
-        auto& arr_AxVizBE=pWaitSemaphores_json.emplace_array();
+            return; }pWaitSemaphores_json=boost::json::array(member.waitSemaphoreCount);
+        auto& arr_AxVizBE=pWaitSemaphores_json.as_array();
         for(int XBpvDer=0; XBpvDer < member.waitSemaphoreCount; XBpvDer++){
             [&](){serialize_VkSemaphore(arr_AxVizBE[XBpvDer],member.pWaitSemaphores[XBpvDer]);}();
         }
@@ -18379,8 +18379,8 @@ auto& pSwapchains_json=json["pSwapchains"];
 [&](){
             if (member.pSwapchains==NULL){
                 pSwapchains_json=boost::json::array();
-            return; }
-        auto& arr_rmsPqbh=pSwapchains_json.emplace_array();
+            return; }pSwapchains_json=boost::json::array(member.swapchainCount);
+        auto& arr_rmsPqbh=pSwapchains_json.as_array();
         for(int BUaLlYr=0; BUaLlYr < member.swapchainCount; BUaLlYr++){
             [&](){serialize_VkSwapchainKHR(arr_rmsPqbh[BUaLlYr],member.pSwapchains[BUaLlYr]);}();
         }
@@ -18389,8 +18389,8 @@ auto& pImageIndices_json=json["pImageIndices"];
 [&](){
             if (member.pImageIndices==NULL){
                 pImageIndices_json=boost::json::array();
-            return; }
-        auto& arr_fmPZCwp=pImageIndices_json.emplace_array();
+            return; }pImageIndices_json=boost::json::array(member.swapchainCount);
+        auto& arr_fmPZCwp=pImageIndices_json.as_array();
         for(int lfPeqDF=0; lfPeqDF < member.swapchainCount; lfPeqDF++){
             [&](){arr_fmPZCwp[lfPeqDF]=member.pImageIndices[lfPeqDF];}();
         }
@@ -18399,8 +18399,8 @@ auto& pResults_json=json["pResults"];
 [&](){
             if (member.pResults==NULL){
                 pResults_json=boost::json::array();
-            return; }
-        auto& arr_CaahsAP=pResults_json.emplace_array();
+            return; }pResults_json=boost::json::array(member.swapchainCount);
+        auto& arr_CaahsAP=pResults_json.as_array();
         for(int nYCZlMn=0; nYCZlMn < member.swapchainCount; nYCZlMn++){
             [&](){[&](){[&](){arr_CaahsAP[nYCZlMn]=member.pResults[nYCZlMn];}();}();}();
         }
@@ -18469,8 +18469,8 @@ auto& pResults_json=json["pResults"];
             return; }[&](){
             if (((char*)(member.pUserData))==NULL){
                 pUserData_json=boost::json::array();
-            return; }
-        auto& arr_svgqjpy=pUserData_json.emplace_array();
+            return; }pUserData_json=boost::json::array(strlen(((char*)(member.pUserData)))+1);
+        auto& arr_svgqjpy=pUserData_json.as_array();
         for(int lQswvtW=0; lQswvtW < strlen(((char*)(member.pUserData)))+1; lQswvtW++){
             [&](){arr_svgqjpy[lQswvtW]=((char*)(member.pUserData))[lQswvtW];}();
         }
@@ -18576,8 +18576,8 @@ auto& pDisabledValidationChecks_json=json["pDisabledValidationChecks"];
 [&](){
             if (member.pDisabledValidationChecks==NULL){
                 pDisabledValidationChecks_json=boost::json::array();
-            return; }
-        auto& arr_gHxKdJg=pDisabledValidationChecks_json.emplace_array();
+            return; }pDisabledValidationChecks_json=boost::json::array(member.disabledValidationCheckCount);
+        auto& arr_gHxKdJg=pDisabledValidationChecks_json.as_array();
         for(int bduqxYp=0; bduqxYp < member.disabledValidationCheckCount; bduqxYp++){
             [&](){[&](){[&](){arr_gHxKdJg[bduqxYp]=member.pDisabledValidationChecks[bduqxYp];}();}();}();
         }
@@ -18621,8 +18621,8 @@ auto& pEnabledValidationFeatures_json=json["pEnabledValidationFeatures"];
 [&](){
             if (member.pEnabledValidationFeatures==NULL){
                 pEnabledValidationFeatures_json=boost::json::array();
-            return; }
-        auto& arr_yicbfVL=pEnabledValidationFeatures_json.emplace_array();
+            return; }pEnabledValidationFeatures_json=boost::json::array(member.enabledValidationFeatureCount);
+        auto& arr_yicbfVL=pEnabledValidationFeatures_json.as_array();
         for(int CXiLeqh=0; CXiLeqh < member.enabledValidationFeatureCount; CXiLeqh++){
             [&](){[&](){[&](){arr_yicbfVL[CXiLeqh]=member.pEnabledValidationFeatures[CXiLeqh];}();}();}();
         }
@@ -18633,8 +18633,8 @@ auto& pDisabledValidationFeatures_json=json["pDisabledValidationFeatures"];
 [&](){
             if (member.pDisabledValidationFeatures==NULL){
                 pDisabledValidationFeatures_json=boost::json::array();
-            return; }
-        auto& arr_MvjaOlv=pDisabledValidationFeatures_json.emplace_array();
+            return; }pDisabledValidationFeatures_json=boost::json::array(member.disabledValidationFeatureCount);
+        auto& arr_MvjaOlv=pDisabledValidationFeatures_json.as_array();
         for(int JQPktzh=0; JQPktzh < member.disabledValidationFeatureCount; JQPktzh++){
             [&](){[&](){[&](){arr_MvjaOlv[JQPktzh]=member.pDisabledValidationFeatures[JQPktzh];}();}();}();
         }
@@ -18717,8 +18717,8 @@ auto& pObjectName_json=json["pObjectName"];
 [&](){
             if (member.pObjectName==NULL){
                 pObjectName_json=boost::json::array();
-            return; }
-        auto& arr_iVlKnsS=pObjectName_json.emplace_array();
+            return; }pObjectName_json=boost::json::array(strlen(member.pObjectName)+1);
+        auto& arr_iVlKnsS=pObjectName_json.as_array();
         for(int ScjeCfd=0; ScjeCfd < strlen(member.pObjectName)+1; ScjeCfd++){
             [&](){arr_iVlKnsS[ScjeCfd]=member.pObjectName[ScjeCfd];}();
         }
@@ -18773,8 +18773,8 @@ auto& pTag_json=json["pTag"];
             return; }[&](){
             if (((char*)(member.pTag))==NULL){
                 pTag_json=boost::json::array();
-            return; }
-        auto& arr_FJzNXuD=pTag_json.emplace_array();
+            return; }pTag_json=boost::json::array(member.tagSize);
+        auto& arr_FJzNXuD=pTag_json.as_array();
         for(int LCdjkoW=0; LCdjkoW < member.tagSize; LCdjkoW++){
             [&](){arr_FJzNXuD[LCdjkoW]=((char*)(member.pTag))[LCdjkoW];}();
         }
@@ -18825,15 +18825,15 @@ auto& pMarkerName_json=json["pMarkerName"];
 [&](){
             if (member.pMarkerName==NULL){
                 pMarkerName_json=boost::json::array();
-            return; }
-        auto& arr_pcGlkUX=pMarkerName_json.emplace_array();
+            return; }pMarkerName_json=boost::json::array(strlen(member.pMarkerName)+1);
+        auto& arr_pcGlkUX=pMarkerName_json.as_array();
         for(int LXIerUb=0; LXIerUb < strlen(member.pMarkerName)+1; LXIerUb++){
             [&](){arr_pcGlkUX[LXIerUb]=member.pMarkerName[LXIerUb];}();
         }
         }();
 auto& color_json=json["color"];
-[&](){
-        auto& arr_sZQFATI=color_json.emplace_array();
+[&](){color_json=boost::json::array(4);
+        auto& arr_sZQFATI=color_json.as_array();
         for(int oOlCIuz=0; oOlCIuz < 4; oOlCIuz++){
             [&](){arr_sZQFATI[oOlCIuz]=member.color[oOlCIuz];}();
         }
@@ -19255,8 +19255,8 @@ auto& pStages_json=json["pStages"];
 [&](){
             if (member.pStages==NULL){
                 pStages_json=boost::json::array();
-            return; }
-        auto& arr_wJXHhmh=pStages_json.emplace_array();
+            return; }pStages_json=boost::json::array(member.stageCount);
+        auto& arr_wJXHhmh=pStages_json.as_array();
         for(int AsBfcSb=0; AsBfcSb < member.stageCount; AsBfcSb++){
             [&](){
             auto& temp=arr_wJXHhmh[AsBfcSb].emplace_object();
@@ -19268,8 +19268,8 @@ auto& pVertexInputState_json=json["pVertexInputState"];
 [&](){
             if (member.pVertexInputState==NULL){
                 pVertexInputState_json=boost::json::array();
-            return; }
-        auto& arr_HopKlOv=pVertexInputState_json.emplace_array();
+            return; }pVertexInputState_json=boost::json::array(1);
+        auto& arr_HopKlOv=pVertexInputState_json.as_array();
         for(int tqmlCna=0; tqmlCna < 1; tqmlCna++){
             [&](){
             auto& temp=arr_HopKlOv[tqmlCna].emplace_object();
@@ -19281,8 +19281,8 @@ auto& pTessellationState_json=json["pTessellationState"];
 [&](){
             if (member.pTessellationState==NULL){
                 pTessellationState_json=boost::json::array();
-            return; }
-        auto& arr_tdhGlVI=pTessellationState_json.emplace_array();
+            return; }pTessellationState_json=boost::json::array(1);
+        auto& arr_tdhGlVI=pTessellationState_json.as_array();
         for(int IWxBQoq=0; IWxBQoq < 1; IWxBQoq++){
             [&](){
             auto& temp=arr_tdhGlVI[IWxBQoq].emplace_object();
@@ -19358,8 +19358,8 @@ auto& pGroups_json=json["pGroups"];
 [&](){
             if (member.pGroups==NULL){
                 pGroups_json=boost::json::array();
-            return; }
-        auto& arr_xbmYEqu=pGroups_json.emplace_array();
+            return; }pGroups_json=boost::json::array(member.groupCount);
+        auto& arr_xbmYEqu=pGroups_json.as_array();
         for(int DKdqHYk=0; DKdqHYk < member.groupCount; DKdqHYk++){
             [&](){
             auto& temp=arr_xbmYEqu[DKdqHYk].emplace_object();
@@ -19373,8 +19373,8 @@ auto& pPipelines_json=json["pPipelines"];
 [&](){
             if (member.pPipelines==NULL){
                 pPipelines_json=boost::json::array();
-            return; }
-        auto& arr_ykCmxiL=pPipelines_json.emplace_array();
+            return; }pPipelines_json=boost::json::array(member.pipelineCount);
+        auto& arr_ykCmxiL=pPipelines_json.as_array();
         for(int HgcTYHx=0; HgcTYHx < member.pipelineCount; HgcTYHx++){
             [&](){serialize_VkPipeline(arr_ykCmxiL[HgcTYHx],member.pPipelines[HgcTYHx]);}();
         }
@@ -19528,8 +19528,8 @@ auto& pIndexTypes_json=json["pIndexTypes"];
 [&](){
             if (member.pIndexTypes==NULL){
                 pIndexTypes_json=boost::json::array();
-            return; }
-        auto& arr_UgjmpPY=pIndexTypes_json.emplace_array();
+            return; }pIndexTypes_json=boost::json::array(member.indexTypeCount);
+        auto& arr_UgjmpPY=pIndexTypes_json.as_array();
         for(int ZAMvbKq=0; ZAMvbKq < member.indexTypeCount; ZAMvbKq++){
             [&](){[&](){[&](){arr_UgjmpPY[ZAMvbKq]=member.pIndexTypes[ZAMvbKq];}();}();}();
         }
@@ -19538,8 +19538,8 @@ auto& pIndexTypeValues_json=json["pIndexTypeValues"];
 [&](){
             if (member.pIndexTypeValues==NULL){
                 pIndexTypeValues_json=boost::json::array();
-            return; }
-        auto& arr_RSRnOkD=pIndexTypeValues_json.emplace_array();
+            return; }pIndexTypeValues_json=boost::json::array(member.indexTypeCount);
+        auto& arr_RSRnOkD=pIndexTypeValues_json.as_array();
         for(int EEhOagC=0; EEhOagC < member.indexTypeCount; EEhOagC++){
             [&](){arr_RSRnOkD[EEhOagC]=member.pIndexTypeValues[EEhOagC];}();
         }
@@ -19617,8 +19617,8 @@ auto& pTokens_json=json["pTokens"];
 [&](){
             if (member.pTokens==NULL){
                 pTokens_json=boost::json::array();
-            return; }
-        auto& arr_fUkYdRn=pTokens_json.emplace_array();
+            return; }pTokens_json=boost::json::array(member.tokenCount);
+        auto& arr_fUkYdRn=pTokens_json.as_array();
         for(int PBaXRHm=0; PBaXRHm < member.tokenCount; PBaXRHm++){
             [&](){
             auto& temp=arr_fUkYdRn[PBaXRHm].emplace_object();
@@ -19632,8 +19632,8 @@ auto& pStreamStrides_json=json["pStreamStrides"];
 [&](){
             if (member.pStreamStrides==NULL){
                 pStreamStrides_json=boost::json::array();
-            return; }
-        auto& arr_MlWxCCh=pStreamStrides_json.emplace_array();
+            return; }pStreamStrides_json=boost::json::array(member.streamCount);
+        auto& arr_MlWxCCh=pStreamStrides_json.as_array();
         for(int ESgdJDg=0; ESgdJDg < member.streamCount; ESgdJDg++){
             [&](){arr_MlWxCCh[ESgdJDg]=member.pStreamStrides[ESgdJDg];}();
         }
@@ -19702,8 +19702,8 @@ auto& pStreams_json=json["pStreams"];
 [&](){
             if (member.pStreams==NULL){
                 pStreams_json=boost::json::array();
-            return; }
-        auto& arr_hAgHXtW=pStreams_json.emplace_array();
+            return; }pStreams_json=boost::json::array(member.streamCount);
+        auto& arr_hAgHXtW=pStreams_json.as_array();
         for(int DPlUWAU=0; DPlUWAU < member.streamCount; DPlUWAU++){
             [&](){
             auto& temp=arr_hAgHXtW[DPlUWAU].emplace_object();
@@ -20212,15 +20212,15 @@ auto& pNext_json=json["pNext"];
 auto& driverID_json=json["driverID"];
 [&](){[&](){[&](){driverID_json=member.driverID;}();}();}();
 auto& driverName_json=json["driverName"];
-[&](){
-        auto& arr_zxRQdKB=driverName_json.emplace_array();
+[&](){driverName_json=boost::json::array(VK_MAX_DRIVER_NAME_SIZE);
+        auto& arr_zxRQdKB=driverName_json.as_array();
         for(int vSFArQc=0; vSFArQc < VK_MAX_DRIVER_NAME_SIZE; vSFArQc++){
             [&](){arr_zxRQdKB[vSFArQc]=member.driverName[vSFArQc];}();
         }
         }();
 auto& driverInfo_json=json["driverInfo"];
-[&](){
-        auto& arr_PNwpkIj=driverInfo_json.emplace_array();
+[&](){driverInfo_json=boost::json::array(VK_MAX_DRIVER_INFO_SIZE);
+        auto& arr_PNwpkIj=driverInfo_json.as_array();
         for(int ZmulTHh=0; ZmulTHh < VK_MAX_DRIVER_INFO_SIZE; ZmulTHh++){
             [&](){arr_PNwpkIj[ZmulTHh]=member.driverInfo[ZmulTHh];}();
         }
@@ -20278,8 +20278,8 @@ auto& pRegions_json=json["pRegions"];
 [&](){
             if (member.pRegions==NULL){
                 pRegions_json=boost::json::array();
-            return; }
-        auto& arr_odKhLjV=pRegions_json.emplace_array();
+            return; }pRegions_json=boost::json::array(member.swapchainCount);
+        auto& arr_odKhLjV=pRegions_json.as_array();
         for(int FrDcLRd=0; FrDcLRd < member.swapchainCount; FrDcLRd++){
             [&](){
             auto& temp=arr_odKhLjV[FrDcLRd].emplace_object();
@@ -20322,8 +20322,8 @@ auto& pRectangles_json=json["pRectangles"];
 [&](){
             if (member.pRectangles==NULL){
                 pRectangles_json=boost::json::array();
-            return; }
-        auto& arr_mTDiSim=pRectangles_json.emplace_array();
+            return; }pRectangles_json=boost::json::array(member.rectangleCount);
+        auto& arr_mTDiSim=pRectangles_json.as_array();
         for(int vGVwhpO=0; vGVwhpO < member.rectangleCount; vGVwhpO++){
             [&](){
             auto& temp=arr_mTDiSim[vGVwhpO].emplace_object();
@@ -20560,22 +20560,22 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& deviceUUID_json=json["deviceUUID"];
-[&](){
-        auto& arr_akaOupa=deviceUUID_json.emplace_array();
+[&](){deviceUUID_json=boost::json::array(VK_UUID_SIZE);
+        auto& arr_akaOupa=deviceUUID_json.as_array();
         for(int ysVOqaa=0; ysVOqaa < VK_UUID_SIZE; ysVOqaa++){
             [&](){arr_akaOupa[ysVOqaa]=member.deviceUUID[ysVOqaa];}();
         }
         }();
 auto& driverUUID_json=json["driverUUID"];
-[&](){
-        auto& arr_rgDAcPl=driverUUID_json.emplace_array();
+[&](){driverUUID_json=boost::json::array(VK_UUID_SIZE);
+        auto& arr_rgDAcPl=driverUUID_json.as_array();
         for(int mkRKwTt=0; mkRKwTt < VK_UUID_SIZE; mkRKwTt++){
             [&](){arr_rgDAcPl[mkRKwTt]=member.driverUUID[mkRKwTt];}();
         }
         }();
 auto& deviceLUID_json=json["deviceLUID"];
-[&](){
-        auto& arr_KcGOzfA=deviceLUID_json.emplace_array();
+[&](){deviceLUID_json=boost::json::array(VK_LUID_SIZE);
+        auto& arr_KcGOzfA=deviceLUID_json.as_array();
         for(int LcxBcjU=0; LcxBcjU < VK_LUID_SIZE; LcxBcjU++){
             [&](){arr_KcGOzfA[LcxBcjU]=member.deviceLUID[LcxBcjU];}();
         }
@@ -21154,8 +21154,8 @@ auto& pViewMasks_json=json["pViewMasks"];
 [&](){
             if (member.pViewMasks==NULL){
                 pViewMasks_json=boost::json::array();
-            return; }
-        auto& arr_kvxvbTW=pViewMasks_json.emplace_array();
+            return; }pViewMasks_json=boost::json::array(member.subpassCount);
+        auto& arr_kvxvbTW=pViewMasks_json.as_array();
         for(int QCxnKEd=0; QCxnKEd < member.subpassCount; QCxnKEd++){
             [&](){arr_kvxvbTW[QCxnKEd]=member.pViewMasks[QCxnKEd];}();
         }
@@ -21166,8 +21166,8 @@ auto& pViewOffsets_json=json["pViewOffsets"];
 [&](){
             if (member.pViewOffsets==NULL){
                 pViewOffsets_json=boost::json::array();
-            return; }
-        auto& arr_dfjKMWh=pViewOffsets_json.emplace_array();
+            return; }pViewOffsets_json=boost::json::array(member.dependencyCount);
+        auto& arr_dfjKMWh=pViewOffsets_json.as_array();
         for(int toBzgRl=0; toBzgRl < member.dependencyCount; toBzgRl++){
             [&](){arr_dfjKMWh[toBzgRl]=member.pViewOffsets[toBzgRl];}();
         }
@@ -21178,8 +21178,8 @@ auto& pCorrelationMasks_json=json["pCorrelationMasks"];
 [&](){
             if (member.pCorrelationMasks==NULL){
                 pCorrelationMasks_json=boost::json::array();
-            return; }
-        auto& arr_JMONgUj=pCorrelationMasks_json.emplace_array();
+            return; }pCorrelationMasks_json=boost::json::array(member.correlationMaskCount);
+        auto& arr_JMONgUj=pCorrelationMasks_json.as_array();
         for(int lhTmhiZ=0; lhTmhiZ < member.correlationMaskCount; lhTmhiZ++){
             [&](){arr_JMONgUj[lhTmhiZ]=member.pCorrelationMasks[lhTmhiZ];}();
         }
@@ -21427,8 +21427,8 @@ auto& pNext_json=json["pNext"];
 auto& physicalDeviceCount_json=json["physicalDeviceCount"];
 [&](){physicalDeviceCount_json=member.physicalDeviceCount;}();
 auto& physicalDevices_json=json["physicalDevices"];
-[&](){
-        auto& arr_KgvFvmf=physicalDevices_json.emplace_array();
+[&](){physicalDevices_json=boost::json::array(VK_MAX_DEVICE_GROUP_SIZE);
+        auto& arr_KgvFvmf=physicalDevices_json.as_array();
         for(int irLzMAt=0; irLzMAt < VK_MAX_DEVICE_GROUP_SIZE; irLzMAt++){
             [&](){serialize_VkPhysicalDevice(arr_KgvFvmf[irLzMAt],member.physicalDevices[irLzMAt]);}();
         }
@@ -21535,8 +21535,8 @@ auto& pDeviceIndices_json=json["pDeviceIndices"];
 [&](){
             if (member.pDeviceIndices==NULL){
                 pDeviceIndices_json=boost::json::array();
-            return; }
-        auto& arr_ljPbTMN=pDeviceIndices_json.emplace_array();
+            return; }pDeviceIndices_json=boost::json::array(member.deviceIndexCount);
+        auto& arr_ljPbTMN=pDeviceIndices_json.as_array();
         for(int MmIaHqo=0; MmIaHqo < member.deviceIndexCount; MmIaHqo++){
             [&](){arr_ljPbTMN[MmIaHqo]=member.pDeviceIndices[MmIaHqo];}();
         }
@@ -21613,8 +21613,8 @@ auto& pDeviceIndices_json=json["pDeviceIndices"];
 [&](){
             if (member.pDeviceIndices==NULL){
                 pDeviceIndices_json=boost::json::array();
-            return; }
-        auto& arr_ljPbTMN=pDeviceIndices_json.emplace_array();
+            return; }pDeviceIndices_json=boost::json::array(member.deviceIndexCount);
+        auto& arr_ljPbTMN=pDeviceIndices_json.as_array();
         for(int MmIaHqo=0; MmIaHqo < member.deviceIndexCount; MmIaHqo++){
             [&](){arr_ljPbTMN[MmIaHqo]=member.pDeviceIndices[MmIaHqo];}();
         }
@@ -21625,8 +21625,8 @@ auto& pSplitInstanceBindRegions_json=json["pSplitInstanceBindRegions"];
 [&](){
             if (member.pSplitInstanceBindRegions==NULL){
                 pSplitInstanceBindRegions_json=boost::json::array();
-            return; }
-        auto& arr_FsMIswf=pSplitInstanceBindRegions_json.emplace_array();
+            return; }pSplitInstanceBindRegions_json=boost::json::array(member.splitInstanceBindRegionCount);
+        auto& arr_FsMIswf=pSplitInstanceBindRegions_json.as_array();
         for(int iUbVYoM=0; iUbVYoM < member.splitInstanceBindRegionCount; iUbVYoM++){
             [&](){
             auto& temp=arr_FsMIswf[iUbVYoM].emplace_object();
@@ -21690,8 +21690,8 @@ auto& pDeviceRenderAreas_json=json["pDeviceRenderAreas"];
 [&](){
             if (member.pDeviceRenderAreas==NULL){
                 pDeviceRenderAreas_json=boost::json::array();
-            return; }
-        auto& arr_FLwGcSx=pDeviceRenderAreas_json.emplace_array();
+            return; }pDeviceRenderAreas_json=boost::json::array(member.deviceRenderAreaCount);
+        auto& arr_FLwGcSx=pDeviceRenderAreas_json.as_array();
         for(int EOKQvdK=0; EOKQvdK < member.deviceRenderAreaCount; EOKQvdK++){
             [&](){
             auto& temp=arr_FLwGcSx[EOKQvdK].emplace_object();
@@ -21768,8 +21768,8 @@ auto& pWaitSemaphoreDeviceIndices_json=json["pWaitSemaphoreDeviceIndices"];
 [&](){
             if (member.pWaitSemaphoreDeviceIndices==NULL){
                 pWaitSemaphoreDeviceIndices_json=boost::json::array();
-            return; }
-        auto& arr_iAzsMfo=pWaitSemaphoreDeviceIndices_json.emplace_array();
+            return; }pWaitSemaphoreDeviceIndices_json=boost::json::array(member.waitSemaphoreCount);
+        auto& arr_iAzsMfo=pWaitSemaphoreDeviceIndices_json.as_array();
         for(int vMaGqQO=0; vMaGqQO < member.waitSemaphoreCount; vMaGqQO++){
             [&](){arr_iAzsMfo[vMaGqQO]=member.pWaitSemaphoreDeviceIndices[vMaGqQO];}();
         }
@@ -21780,8 +21780,8 @@ auto& pCommandBufferDeviceMasks_json=json["pCommandBufferDeviceMasks"];
 [&](){
             if (member.pCommandBufferDeviceMasks==NULL){
                 pCommandBufferDeviceMasks_json=boost::json::array();
-            return; }
-        auto& arr_DUTiEGO=pCommandBufferDeviceMasks_json.emplace_array();
+            return; }pCommandBufferDeviceMasks_json=boost::json::array(member.commandBufferCount);
+        auto& arr_DUTiEGO=pCommandBufferDeviceMasks_json.as_array();
         for(int jqFUlKM=0; jqFUlKM < member.commandBufferCount; jqFUlKM++){
             [&](){arr_DUTiEGO[jqFUlKM]=member.pCommandBufferDeviceMasks[jqFUlKM];}();
         }
@@ -21792,8 +21792,8 @@ auto& pSignalSemaphoreDeviceIndices_json=json["pSignalSemaphoreDeviceIndices"];
 [&](){
             if (member.pSignalSemaphoreDeviceIndices==NULL){
                 pSignalSemaphoreDeviceIndices_json=boost::json::array();
-            return; }
-        auto& arr_ILMUvlb=pSignalSemaphoreDeviceIndices_json.emplace_array();
+            return; }pSignalSemaphoreDeviceIndices_json=boost::json::array(member.signalSemaphoreCount);
+        auto& arr_ILMUvlb=pSignalSemaphoreDeviceIndices_json.as_array();
         for(int KGcJCbp=0; KGcJCbp < member.signalSemaphoreCount; KGcJCbp++){
             [&](){arr_ILMUvlb[KGcJCbp]=member.pSignalSemaphoreDeviceIndices[KGcJCbp];}();
         }
@@ -21885,8 +21885,8 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& presentMask_json=json["presentMask"];
-[&](){
-        auto& arr_Ezhqjkp=presentMask_json.emplace_array();
+[&](){presentMask_json=boost::json::array(VK_MAX_DEVICE_GROUP_SIZE);
+        auto& arr_Ezhqjkp=presentMask_json.as_array();
         for(int DNQcEdD=0; DNQcEdD < VK_MAX_DEVICE_GROUP_SIZE; DNQcEdD++){
             [&](){arr_Ezhqjkp[DNQcEdD]=member.presentMask[DNQcEdD];}();
         }
@@ -22024,8 +22024,8 @@ auto& pDeviceMasks_json=json["pDeviceMasks"];
 [&](){
             if (member.pDeviceMasks==NULL){
                 pDeviceMasks_json=boost::json::array();
-            return; }
-        auto& arr_wjDKIas=pDeviceMasks_json.emplace_array();
+            return; }pDeviceMasks_json=boost::json::array(member.swapchainCount);
+        auto& arr_wjDKIas=pDeviceMasks_json.as_array();
         for(int pSguQXR=0; pSguQXR < member.swapchainCount; pSguQXR++){
             [&](){arr_wjDKIas[pSguQXR]=member.pDeviceMasks[pSguQXR];}();
         }
@@ -22073,8 +22073,8 @@ auto& pPhysicalDevices_json=json["pPhysicalDevices"];
 [&](){
             if (member.pPhysicalDevices==NULL){
                 pPhysicalDevices_json=boost::json::array();
-            return; }
-        auto& arr_JJiHDoF=pPhysicalDevices_json.emplace_array();
+            return; }pPhysicalDevices_json=boost::json::array(member.physicalDeviceCount);
+        auto& arr_JJiHDoF=pPhysicalDevices_json.as_array();
         for(int oqOlCTN=0; oqOlCTN < member.physicalDeviceCount; oqOlCTN++){
             [&](){serialize_VkPhysicalDevice(arr_JJiHDoF[oqOlCTN],member.pPhysicalDevices[oqOlCTN]);}();
         }
@@ -22176,8 +22176,8 @@ auto& pDescriptorUpdateEntries_json=json["pDescriptorUpdateEntries"];
 [&](){
             if (member.pDescriptorUpdateEntries==NULL){
                 pDescriptorUpdateEntries_json=boost::json::array();
-            return; }
-        auto& arr_BLOEwgs=pDescriptorUpdateEntries_json.emplace_array();
+            return; }pDescriptorUpdateEntries_json=boost::json::array(member.descriptorUpdateEntryCount);
+        auto& arr_BLOEwgs=pDescriptorUpdateEntries_json.as_array();
         for(int WgnFqqF=0; WgnFqqF < member.descriptorUpdateEntryCount; WgnFqqF++){
             [&](){
             auto& temp=arr_BLOEwgs[WgnFqqF].emplace_object();
@@ -22289,8 +22289,8 @@ auto& pPresentIds_json=json["pPresentIds"];
 [&](){
             if (member.pPresentIds==NULL){
                 pPresentIds_json=boost::json::array();
-            return; }
-        auto& arr_JbMyrXK=pPresentIds_json.emplace_array();
+            return; }pPresentIds_json=boost::json::array(member.swapchainCount);
+        auto& arr_JbMyrXK=pPresentIds_json.as_array();
         for(int KzCxaLT=0; KzCxaLT < member.swapchainCount; KzCxaLT++){
             [&](){arr_JbMyrXK[KzCxaLT]=member.pPresentIds[KzCxaLT];}();
         }
@@ -22524,8 +22524,8 @@ auto& pTimes_json=json["pTimes"];
 [&](){
             if (member.pTimes==NULL){
                 pTimes_json=boost::json::array();
-            return; }
-        auto& arr_bWdteDC=pTimes_json.emplace_array();
+            return; }pTimes_json=boost::json::array(member.swapchainCount);
+        auto& arr_bWdteDC=pTimes_json.as_array();
         for(int rQvvJDb=0; rQvvJDb < member.swapchainCount; rQvvJDb++){
             [&](){
             auto& temp=arr_bWdteDC[rQvvJDb].emplace_object();
@@ -22607,8 +22607,8 @@ auto& pViewportWScalings_json=json["pViewportWScalings"];
 [&](){
             if (member.pViewportWScalings==NULL){
                 pViewportWScalings_json=boost::json::array();
-            return; }
-        auto& arr_mPSOmwe=pViewportWScalings_json.emplace_array();
+            return; }pViewportWScalings_json=boost::json::array(member.viewportCount);
+        auto& arr_mPSOmwe=pViewportWScalings_json.as_array();
         for(int ApYwLDM=0; ApYwLDM < member.viewportCount; ApYwLDM++){
             [&](){
             auto& temp=arr_mPSOmwe[ApYwLDM].emplace_object();
@@ -22685,8 +22685,8 @@ auto& pViewportSwizzles_json=json["pViewportSwizzles"];
 [&](){
             if (member.pViewportSwizzles==NULL){
                 pViewportSwizzles_json=boost::json::array();
-            return; }
-        auto& arr_SkrWsuC=pViewportSwizzles_json.emplace_array();
+            return; }pViewportSwizzles_json=boost::json::array(member.viewportCount);
+        auto& arr_SkrWsuC=pViewportSwizzles_json.as_array();
         for(int ftRPdsX=0; ftRPdsX < member.viewportCount; ftRPdsX++){
             [&](){
             auto& temp=arr_SkrWsuC[ftRPdsX].emplace_object();
@@ -22767,8 +22767,8 @@ auto& pDiscardRectangles_json=json["pDiscardRectangles"];
 [&](){
             if (member.pDiscardRectangles==NULL){
                 pDiscardRectangles_json=boost::json::array();
-            return; }
-        auto& arr_ZVpWtvh=pDiscardRectangles_json.emplace_array();
+            return; }pDiscardRectangles_json=boost::json::array(member.discardRectangleCount);
+        auto& arr_ZVpWtvh=pDiscardRectangles_json.as_array();
         for(int tYocrha=0; tYocrha < member.discardRectangleCount; tYocrha++){
             [&](){
             auto& temp=arr_ZVpWtvh[tYocrha].emplace_object();
@@ -22866,8 +22866,8 @@ auto& pAspectReferences_json=json["pAspectReferences"];
 [&](){
             if (member.pAspectReferences==NULL){
                 pAspectReferences_json=boost::json::array();
-            return; }
-        auto& arr_oSwzVqm=pAspectReferences_json.emplace_array();
+            return; }pAspectReferences_json=boost::json::array(member.aspectReferenceCount);
+        auto& arr_oSwzVqm=pAspectReferences_json.as_array();
         for(int uEBOsiT=0; uEBOsiT < member.aspectReferenceCount; uEBOsiT++){
             [&](){
             auto& temp=arr_oSwzVqm[uEBOsiT].emplace_object();
@@ -23304,8 +23304,8 @@ auto& pCreateInfo_json=json["pCreateInfo"];
 [&](){
             if (member.pCreateInfo==NULL){
                 pCreateInfo_json=boost::json::array();
-            return; }
-        auto& arr_RLcYbMX=pCreateInfo_json.emplace_array();
+            return; }pCreateInfo_json=boost::json::array(1);
+        auto& arr_RLcYbMX=pCreateInfo_json.as_array();
         for(int iwONMow=0; iwONMow < 1; iwONMow++){
             [&](){
             auto& temp=arr_RLcYbMX[iwONMow].emplace_object();
@@ -23401,8 +23401,8 @@ auto& pCreateInfo_json=json["pCreateInfo"];
 [&](){
             if (member.pCreateInfo==NULL){
                 pCreateInfo_json=boost::json::array();
-            return; }
-        auto& arr_ZehFYFR=pCreateInfo_json.emplace_array();
+            return; }pCreateInfo_json=boost::json::array(1);
+        auto& arr_ZehFYFR=pCreateInfo_json.as_array();
         for(int WlalFpx=0; WlalFpx < 1; WlalFpx++){
             [&](){
             auto& temp=arr_ZehFYFR[WlalFpx].emplace_object();
@@ -24112,8 +24112,8 @@ auto& pSampleLocations_json=json["pSampleLocations"];
 [&](){
             if (member.pSampleLocations==NULL){
                 pSampleLocations_json=boost::json::array();
-            return; }
-        auto& arr_hcJZIRe=pSampleLocations_json.emplace_array();
+            return; }pSampleLocations_json=boost::json::array(member.sampleLocationsCount);
+        auto& arr_hcJZIRe=pSampleLocations_json.as_array();
         for(int WDzeUCV=0; WDzeUCV < member.sampleLocationsCount; WDzeUCV++){
             [&](){
             auto& temp=arr_hcJZIRe[WDzeUCV].emplace_object();
@@ -24212,8 +24212,8 @@ auto& pAttachmentInitialSampleLocations_json=json["pAttachmentInitialSampleLocat
 [&](){
             if (member.pAttachmentInitialSampleLocations==NULL){
                 pAttachmentInitialSampleLocations_json=boost::json::array();
-            return; }
-        auto& arr_uoyEAIr=pAttachmentInitialSampleLocations_json.emplace_array();
+            return; }pAttachmentInitialSampleLocations_json=boost::json::array(member.attachmentInitialSampleLocationsCount);
+        auto& arr_uoyEAIr=pAttachmentInitialSampleLocations_json.as_array();
         for(int DOhkhGy=0; DOhkhGy < member.attachmentInitialSampleLocationsCount; DOhkhGy++){
             [&](){
             auto& temp=arr_uoyEAIr[DOhkhGy].emplace_object();
@@ -24227,8 +24227,8 @@ auto& pPostSubpassSampleLocations_json=json["pPostSubpassSampleLocations"];
 [&](){
             if (member.pPostSubpassSampleLocations==NULL){
                 pPostSubpassSampleLocations_json=boost::json::array();
-            return; }
-        auto& arr_Xxtsvew=pPostSubpassSampleLocations_json.emplace_array();
+            return; }pPostSubpassSampleLocations_json=boost::json::array(member.postSubpassSampleLocationsCount);
+        auto& arr_Xxtsvew=pPostSubpassSampleLocations_json.as_array();
         for(int jURSdBS=0; jURSdBS < member.postSubpassSampleLocationsCount; jURSdBS++){
             [&](){
             auto& temp=arr_Xxtsvew[jURSdBS].emplace_object();
@@ -24330,8 +24330,8 @@ auto& maxSampleLocationGridSize_json=json["maxSampleLocationGridSize"];
             return serialize_struct(temp, member.maxSampleLocationGridSize);
             }();
 auto& sampleLocationCoordinateRange_json=json["sampleLocationCoordinateRange"];
-[&](){
-        auto& arr_vUUvdCl=sampleLocationCoordinateRange_json.emplace_array();
+[&](){sampleLocationCoordinateRange_json=boost::json::array(2);
+        auto& arr_vUUvdCl=sampleLocationCoordinateRange_json.as_array();
         for(int Heuchfn=0; Heuchfn < 2; Heuchfn++){
             [&](){arr_vUUvdCl[Heuchfn]=member.sampleLocationCoordinateRange[Heuchfn];}();
         }
@@ -24642,8 +24642,8 @@ auto& pData_json=json["pData"];
             return; }[&](){
             if (((char*)(member.pData))==NULL){
                 pData_json=boost::json::array();
-            return; }
-        auto& arr_cukaPTa=pData_json.emplace_array();
+            return; }pData_json=boost::json::array(member.dataSize);
+        auto& arr_cukaPTa=pData_json.as_array();
         for(int UqwNSOA=0; UqwNSOA < member.dataSize; UqwNSOA++){
             [&](){arr_cukaPTa[UqwNSOA]=((char*)(member.pData))[UqwNSOA];}();
         }
@@ -24721,8 +24721,8 @@ auto& pCoverageModulationTable_json=json["pCoverageModulationTable"];
 [&](){
             if (member.pCoverageModulationTable==NULL){
                 pCoverageModulationTable_json=boost::json::array();
-            return; }
-        auto& arr_FjPQHFM=pCoverageModulationTable_json.emplace_array();
+            return; }pCoverageModulationTable_json=boost::json::array(member.coverageModulationTableCount);
+        auto& arr_FjPQHFM=pCoverageModulationTable_json.as_array();
         for(int XyJiZTx=0; XyJiZTx < member.coverageModulationTableCount; XyJiZTx++){
             [&](){arr_FjPQHFM[XyJiZTx]=member.pCoverageModulationTable[XyJiZTx];}();
         }
@@ -24772,8 +24772,8 @@ auto& pViewFormats_json=json["pViewFormats"];
 [&](){
             if (member.pViewFormats==NULL){
                 pViewFormats_json=boost::json::array();
-            return; }
-        auto& arr_WbFQnzp=pViewFormats_json.emplace_array();
+            return; }pViewFormats_json=boost::json::array(member.viewFormatCount);
+        auto& arr_WbFQnzp=pViewFormats_json.as_array();
         for(int fIUeIsy=0; fIUeIsy < member.viewFormatCount; fIUeIsy++){
             [&](){[&](){[&](){arr_WbFQnzp[fIUeIsy]=member.pViewFormats[fIUeIsy];}();}();}();
         }
@@ -24822,8 +24822,8 @@ auto& pInitialData_json=json["pInitialData"];
             return; }[&](){
             if (((char*)(member.pInitialData))==NULL){
                 pInitialData_json=boost::json::array();
-            return; }
-        auto& arr_cScJjND=pInitialData_json.emplace_array();
+            return; }pInitialData_json=boost::json::array(member.initialDataSize);
+        auto& arr_cScJjND=pInitialData_json.as_array();
         for(int iGwyJEq=0; iGwyJEq < member.initialDataSize; iGwyJEq++){
             [&](){arr_cScJjND[iGwyJEq]=((char*)(member.pInitialData))[iGwyJEq];}();
         }
@@ -25048,8 +25048,8 @@ auto& pColorAttachmentFormats_json=json["pColorAttachmentFormats"];
 [&](){
             if (member.pColorAttachmentFormats==NULL){
                 pColorAttachmentFormats_json=boost::json::array();
-            return; }
-        auto& arr_rhmCrPX=pColorAttachmentFormats_json.emplace_array();
+            return; }pColorAttachmentFormats_json=boost::json::array(member.colorAttachmentCount);
+        auto& arr_rhmCrPX=pColorAttachmentFormats_json.as_array();
         for(int yamBoue=0; yamBoue < member.colorAttachmentCount; yamBoue++){
             [&](){[&](){[&](){arr_rhmCrPX[yamBoue]=member.pColorAttachmentFormats[yamBoue];}();}();}();
         }
@@ -25326,8 +25326,8 @@ auto& numAvailableVgprs_json=json["numAvailableVgprs"];
 auto& numAvailableSgprs_json=json["numAvailableSgprs"];
 [&](){numAvailableSgprs_json=member.numAvailableSgprs;}();
 auto& computeWorkGroupSize_json=json["computeWorkGroupSize"];
-[&](){
-        auto& arr_Zzqcxsc=computeWorkGroupSize_json.emplace_array();
+[&](){computeWorkGroupSize_json=boost::json::array(3);
+        auto& arr_Zzqcxsc=computeWorkGroupSize_json.as_array();
         for(int OPIgNhg=0; OPIgNhg < 3; OPIgNhg++){
             [&](){arr_Zzqcxsc[OPIgNhg]=member.computeWorkGroupSize[OPIgNhg];}();
         }
@@ -25421,8 +25421,8 @@ auto& pNext_json=json["pNext"];
 auto& priorityCount_json=json["priorityCount"];
 [&](){priorityCount_json=member.priorityCount;}();
 auto& priorities_json=json["priorities"];
-[&](){
-        auto& arr_epGCpaE=priorities_json.emplace_array();
+[&](){priorities_json=boost::json::array(VK_MAX_GLOBAL_PRIORITY_SIZE_KHR);
+        auto& arr_epGCpaE=priorities_json.as_array();
         for(int wieuBKX=0; wieuBKX < VK_MAX_GLOBAL_PRIORITY_SIZE_KHR; wieuBKX++){
             [&](){[&](){[&](){arr_epGCpaE[wieuBKX]=member.priorities[wieuBKX];}();}();}();
         }
@@ -25465,8 +25465,8 @@ auto& pObjectName_json=json["pObjectName"];
 [&](){
             if (member.pObjectName==NULL){
                 pObjectName_json=boost::json::array();
-            return; }
-        auto& arr_iVlKnsS=pObjectName_json.emplace_array();
+            return; }pObjectName_json=boost::json::array(strlen(member.pObjectName)+1);
+        auto& arr_iVlKnsS=pObjectName_json.as_array();
         for(int ScjeCfd=0; ScjeCfd < strlen(member.pObjectName)+1; ScjeCfd++){
             [&](){arr_iVlKnsS[ScjeCfd]=member.pObjectName[ScjeCfd];}();
         }
@@ -25521,8 +25521,8 @@ auto& pTag_json=json["pTag"];
             return; }[&](){
             if (((char*)(member.pTag))==NULL){
                 pTag_json=boost::json::array();
-            return; }
-        auto& arr_FJzNXuD=pTag_json.emplace_array();
+            return; }pTag_json=boost::json::array(member.tagSize);
+        auto& arr_FJzNXuD=pTag_json.as_array();
         for(int LCdjkoW=0; LCdjkoW < member.tagSize; LCdjkoW++){
             [&](){arr_FJzNXuD[LCdjkoW]=((char*)(member.pTag))[LCdjkoW];}();
         }
@@ -25573,15 +25573,15 @@ auto& pLabelName_json=json["pLabelName"];
 [&](){
             if (member.pLabelName==NULL){
                 pLabelName_json=boost::json::array();
-            return; }
-        auto& arr_yQnoqFI=pLabelName_json.emplace_array();
+            return; }pLabelName_json=boost::json::array(strlen(member.pLabelName)+1);
+        auto& arr_yQnoqFI=pLabelName_json.as_array();
         for(int RYyWHAs=0; RYyWHAs < strlen(member.pLabelName)+1; RYyWHAs++){
             [&](){arr_yQnoqFI[RYyWHAs]=member.pLabelName[RYyWHAs];}();
         }
         }();
 auto& color_json=json["color"];
-[&](){
-        auto& arr_sZQFATI=color_json.emplace_array();
+[&](){color_json=boost::json::array(4);
+        auto& arr_sZQFATI=color_json.as_array();
         for(int oOlCIuz=0; oOlCIuz < 4; oOlCIuz++){
             [&](){arr_sZQFATI[oOlCIuz]=member.color[oOlCIuz];}();
         }
@@ -25623,8 +25623,8 @@ auto& color_json=json["color"];
             return; }[&](){
             if (((char*)(member.pUserData))==NULL){
                 pUserData_json=boost::json::array();
-            return; }
-        auto& arr_svgqjpy=pUserData_json.emplace_array();
+            return; }pUserData_json=boost::json::array(strlen(((char*)(member.pUserData)))+1);
+        auto& arr_svgqjpy=pUserData_json.as_array();
         for(int lQswvtW=0; lQswvtW < strlen(((char*)(member.pUserData)))+1; lQswvtW++){
             [&](){arr_svgqjpy[lQswvtW]=((char*)(member.pUserData))[lQswvtW];}();
         }
@@ -25738,8 +25738,8 @@ auto& pMessageIdName_json=json["pMessageIdName"];
 [&](){
             if (member.pMessageIdName==NULL){
                 pMessageIdName_json=boost::json::array();
-            return; }
-        auto& arr_UGznVRE=pMessageIdName_json.emplace_array();
+            return; }pMessageIdName_json=boost::json::array(strlen(member.pMessageIdName)+1);
+        auto& arr_UGznVRE=pMessageIdName_json.as_array();
         for(int KdHGzSs=0; KdHGzSs < strlen(member.pMessageIdName)+1; KdHGzSs++){
             [&](){arr_UGznVRE[KdHGzSs]=member.pMessageIdName[KdHGzSs];}();
         }
@@ -25750,8 +25750,8 @@ auto& pMessage_json=json["pMessage"];
 [&](){
             if (member.pMessage==NULL){
                 pMessage_json=boost::json::array();
-            return; }
-        auto& arr_ythKveO=pMessage_json.emplace_array();
+            return; }pMessage_json=boost::json::array(strlen(member.pMessage)+1);
+        auto& arr_ythKveO=pMessage_json.as_array();
         for(int QfGQUPm=0; QfGQUPm < strlen(member.pMessage)+1; QfGQUPm++){
             [&](){arr_ythKveO[QfGQUPm]=member.pMessage[QfGQUPm];}();
         }
@@ -25762,8 +25762,8 @@ auto& pQueueLabels_json=json["pQueueLabels"];
 [&](){
             if (member.pQueueLabels==NULL){
                 pQueueLabels_json=boost::json::array();
-            return; }
-        auto& arr_IpkStDc=pQueueLabels_json.emplace_array();
+            return; }pQueueLabels_json=boost::json::array(member.queueLabelCount);
+        auto& arr_IpkStDc=pQueueLabels_json.as_array();
         for(int ZZBwdpK=0; ZZBwdpK < member.queueLabelCount; ZZBwdpK++){
             [&](){
             auto& temp=arr_IpkStDc[ZZBwdpK].emplace_object();
@@ -25777,8 +25777,8 @@ auto& pCmdBufLabels_json=json["pCmdBufLabels"];
 [&](){
             if (member.pCmdBufLabels==NULL){
                 pCmdBufLabels_json=boost::json::array();
-            return; }
-        auto& arr_HLGbjmn=pCmdBufLabels_json.emplace_array();
+            return; }pCmdBufLabels_json=boost::json::array(member.cmdBufLabelCount);
+        auto& arr_HLGbjmn=pCmdBufLabels_json.as_array();
         for(int HKywEmj=0; HKywEmj < member.cmdBufLabelCount; HKywEmj++){
             [&](){
             auto& temp=arr_HLGbjmn[HKywEmj].emplace_object();
@@ -25792,8 +25792,8 @@ auto& pObjects_json=json["pObjects"];
 [&](){
             if (member.pObjects==NULL){
                 pObjects_json=boost::json::array();
-            return; }
-        auto& arr_hOsJpYV=pObjects_json.emplace_array();
+            return; }pObjects_json=boost::json::array(member.objectCount);
+        auto& arr_hOsJpYV=pObjects_json.as_array();
         for(int GslpiKr=0; GslpiKr < member.objectCount; GslpiKr++){
             [&](){
             auto& temp=arr_hOsJpYV[GslpiKr].emplace_object();
@@ -25915,8 +25915,8 @@ auto& deviceMemoryReport_json=json["deviceMemoryReport"];
             return; }[&](){
             if (((char*)(member.pUserData))==NULL){
                 pUserData_json=boost::json::array();
-            return; }
-        auto& arr_svgqjpy=pUserData_json.emplace_array();
+            return; }pUserData_json=boost::json::array(strlen(((char*)(member.pUserData)))+1);
+        auto& arr_svgqjpy=pUserData_json.as_array();
         for(int lQswvtW=0; lQswvtW < strlen(((char*)(member.pUserData)))+1; lQswvtW++){
             [&](){arr_svgqjpy[lQswvtW]=((char*)(member.pUserData))[lQswvtW];}();
         }
@@ -26074,8 +26074,8 @@ auto& pHostPointer_json=json["pHostPointer"];
             return; }[&](){
             if (((char*)(member.pHostPointer))==NULL){
                 pHostPointer_json=boost::json::array();
-            return; }
-        auto& arr_BrxoFPy=pHostPointer_json.emplace_array();
+            return; }pHostPointer_json=boost::json::array(strlen(((char*)(member.pHostPointer)))+1);
+        auto& arr_BrxoFPy=pHostPointer_json.as_array();
         for(int ZYyfYiy=0; ZYyfYiy < strlen(((char*)(member.pHostPointer)))+1; ZYyfYiy++){
             [&](){arr_BrxoFPy[ZYyfYiy]=((char*)(member.pHostPointer))[ZYyfYiy];}();
         }
@@ -26607,8 +26607,8 @@ auto& pBindingFlags_json=json["pBindingFlags"];
 [&](){
             if (member.pBindingFlags==NULL){
                 pBindingFlags_json=boost::json::array();
-            return; }
-        auto& arr_MhpouOf=pBindingFlags_json.emplace_array();
+            return; }pBindingFlags_json=boost::json::array(member.bindingCount);
+        auto& arr_MhpouOf=pBindingFlags_json.as_array();
         for(int xmLMcCd=0; xmLMcCd < member.bindingCount; xmLMcCd++){
             [&](){[&](){[&](){arr_MhpouOf[xmLMcCd]=member.pBindingFlags[xmLMcCd];}();}();}();
         }
@@ -26652,8 +26652,8 @@ auto& pDescriptorCounts_json=json["pDescriptorCounts"];
 [&](){
             if (member.pDescriptorCounts==NULL){
                 pDescriptorCounts_json=boost::json::array();
-            return; }
-        auto& arr_pEdjHOG=pDescriptorCounts_json.emplace_array();
+            return; }pDescriptorCounts_json=boost::json::array(member.descriptorSetCount);
+        auto& arr_pEdjHOG=pDescriptorCounts_json.as_array();
         for(int OzBakdo=0; OzBakdo < member.descriptorSetCount; OzBakdo++){
             [&](){arr_pEdjHOG[OzBakdo]=member.pDescriptorCounts[OzBakdo];}();
         }
@@ -26818,8 +26818,8 @@ auto& pInputAttachments_json=json["pInputAttachments"];
 [&](){
             if (member.pInputAttachments==NULL){
                 pInputAttachments_json=boost::json::array();
-            return; }
-        auto& arr_qvnEIay=pInputAttachments_json.emplace_array();
+            return; }pInputAttachments_json=boost::json::array(member.inputAttachmentCount);
+        auto& arr_qvnEIay=pInputAttachments_json.as_array();
         for(int VNPAFPg=0; VNPAFPg < member.inputAttachmentCount; VNPAFPg++){
             [&](){
             auto& temp=arr_qvnEIay[VNPAFPg].emplace_object();
@@ -26833,8 +26833,8 @@ auto& pColorAttachments_json=json["pColorAttachments"];
 [&](){
             if (member.pColorAttachments==NULL){
                 pColorAttachments_json=boost::json::array();
-            return; }
-        auto& arr_apqFJnV=pColorAttachments_json.emplace_array();
+            return; }pColorAttachments_json=boost::json::array(member.colorAttachmentCount);
+        auto& arr_apqFJnV=pColorAttachments_json.as_array();
         for(int jocEaLc=0; jocEaLc < member.colorAttachmentCount; jocEaLc++){
             [&](){
             auto& temp=arr_apqFJnV[jocEaLc].emplace_object();
@@ -26846,8 +26846,8 @@ auto& pResolveAttachments_json=json["pResolveAttachments"];
 [&](){
             if (member.pResolveAttachments==NULL){
                 pResolveAttachments_json=boost::json::array();
-            return; }
-        auto& arr_QUTFZrq=pResolveAttachments_json.emplace_array();
+            return; }pResolveAttachments_json=boost::json::array(member.colorAttachmentCount);
+        auto& arr_QUTFZrq=pResolveAttachments_json.as_array();
         for(int LkzezJz=0; LkzezJz < member.colorAttachmentCount; LkzezJz++){
             [&](){
             auto& temp=arr_QUTFZrq[LkzezJz].emplace_object();
@@ -26859,8 +26859,8 @@ auto& pDepthStencilAttachment_json=json["pDepthStencilAttachment"];
 [&](){
             if (member.pDepthStencilAttachment==NULL){
                 pDepthStencilAttachment_json=boost::json::array();
-            return; }
-        auto& arr_PirANyH=pDepthStencilAttachment_json.emplace_array();
+            return; }pDepthStencilAttachment_json=boost::json::array(1);
+        auto& arr_PirANyH=pDepthStencilAttachment_json.as_array();
         for(int CCLGYro=0; CCLGYro < 1; CCLGYro++){
             [&](){
             auto& temp=arr_PirANyH[CCLGYro].emplace_object();
@@ -26874,8 +26874,8 @@ auto& pPreserveAttachments_json=json["pPreserveAttachments"];
 [&](){
             if (member.pPreserveAttachments==NULL){
                 pPreserveAttachments_json=boost::json::array();
-            return; }
-        auto& arr_JglfHnP=pPreserveAttachments_json.emplace_array();
+            return; }pPreserveAttachments_json=boost::json::array(member.preserveAttachmentCount);
+        auto& arr_JglfHnP=pPreserveAttachments_json.as_array();
         for(int GdjjjYx=0; GdjjjYx < member.preserveAttachmentCount; GdjjjYx++){
             [&](){arr_JglfHnP[GdjjjYx]=member.pPreserveAttachments[GdjjjYx];}();
         }
@@ -27036,8 +27036,8 @@ auto& pAttachments_json=json["pAttachments"];
 [&](){
             if (member.pAttachments==NULL){
                 pAttachments_json=boost::json::array();
-            return; }
-        auto& arr_vQFIUcn=pAttachments_json.emplace_array();
+            return; }pAttachments_json=boost::json::array(member.attachmentCount);
+        auto& arr_vQFIUcn=pAttachments_json.as_array();
         for(int rRdEKKp=0; rRdEKKp < member.attachmentCount; rRdEKKp++){
             [&](){
             auto& temp=arr_vQFIUcn[rRdEKKp].emplace_object();
@@ -27051,8 +27051,8 @@ auto& pSubpasses_json=json["pSubpasses"];
 [&](){
             if (member.pSubpasses==NULL){
                 pSubpasses_json=boost::json::array();
-            return; }
-        auto& arr_mAglqQf=pSubpasses_json.emplace_array();
+            return; }pSubpasses_json=boost::json::array(member.subpassCount);
+        auto& arr_mAglqQf=pSubpasses_json.as_array();
         for(int GLIEOvQ=0; GLIEOvQ < member.subpassCount; GLIEOvQ++){
             [&](){
             auto& temp=arr_mAglqQf[GLIEOvQ].emplace_object();
@@ -27066,8 +27066,8 @@ auto& pDependencies_json=json["pDependencies"];
 [&](){
             if (member.pDependencies==NULL){
                 pDependencies_json=boost::json::array();
-            return; }
-        auto& arr_OhQRmki=pDependencies_json.emplace_array();
+            return; }pDependencies_json=boost::json::array(member.dependencyCount);
+        auto& arr_OhQRmki=pDependencies_json.as_array();
         for(int haCEAGl=0; haCEAGl < member.dependencyCount; haCEAGl++){
             [&](){
             auto& temp=arr_OhQRmki[haCEAGl].emplace_object();
@@ -27081,8 +27081,8 @@ auto& pCorrelatedViewMasks_json=json["pCorrelatedViewMasks"];
 [&](){
             if (member.pCorrelatedViewMasks==NULL){
                 pCorrelatedViewMasks_json=boost::json::array();
-            return; }
-        auto& arr_ilezalj=pCorrelatedViewMasks_json.emplace_array();
+            return; }pCorrelatedViewMasks_json=boost::json::array(member.correlatedViewMaskCount);
+        auto& arr_ilezalj=pCorrelatedViewMasks_json.as_array();
         for(int wIrtcdf=0; wIrtcdf < member.correlatedViewMaskCount; wIrtcdf++){
             [&](){arr_ilezalj[wIrtcdf]=member.pCorrelatedViewMasks[wIrtcdf];}();
         }
@@ -27298,8 +27298,8 @@ auto& pWaitSemaphoreValues_json=json["pWaitSemaphoreValues"];
 [&](){
             if (member.pWaitSemaphoreValues==NULL){
                 pWaitSemaphoreValues_json=boost::json::array();
-            return; }
-        auto& arr_fkHOYwn=pWaitSemaphoreValues_json.emplace_array();
+            return; }pWaitSemaphoreValues_json=boost::json::array(member.waitSemaphoreValueCount);
+        auto& arr_fkHOYwn=pWaitSemaphoreValues_json.as_array();
         for(int TubEEjQ=0; TubEEjQ < member.waitSemaphoreValueCount; TubEEjQ++){
             [&](){arr_fkHOYwn[TubEEjQ]=member.pWaitSemaphoreValues[TubEEjQ];}();
         }
@@ -27310,8 +27310,8 @@ auto& pSignalSemaphoreValues_json=json["pSignalSemaphoreValues"];
 [&](){
             if (member.pSignalSemaphoreValues==NULL){
                 pSignalSemaphoreValues_json=boost::json::array();
-            return; }
-        auto& arr_yFoiMmC=pSignalSemaphoreValues_json.emplace_array();
+            return; }pSignalSemaphoreValues_json=boost::json::array(member.signalSemaphoreValueCount);
+        auto& arr_yFoiMmC=pSignalSemaphoreValues_json.as_array();
         for(int ZRnKHkn=0; ZRnKHkn < member.signalSemaphoreValueCount; ZRnKHkn++){
             [&](){arr_yFoiMmC[ZRnKHkn]=member.pSignalSemaphoreValues[ZRnKHkn];}();
         }
@@ -27369,8 +27369,8 @@ auto& pSemaphores_json=json["pSemaphores"];
 [&](){
             if (member.pSemaphores==NULL){
                 pSemaphores_json=boost::json::array();
-            return; }
-        auto& arr_BstIoUP=pSemaphores_json.emplace_array();
+            return; }pSemaphores_json=boost::json::array(member.semaphoreCount);
+        auto& arr_BstIoUP=pSemaphores_json.as_array();
         for(int vemnwmF=0; vemnwmF < member.semaphoreCount; vemnwmF++){
             [&](){serialize_VkSemaphore(arr_BstIoUP[vemnwmF],member.pSemaphores[vemnwmF]);}();
         }
@@ -27379,8 +27379,8 @@ auto& pValues_json=json["pValues"];
 [&](){
             if (member.pValues==NULL){
                 pValues_json=boost::json::array();
-            return; }
-        auto& arr_KoluVhX=pValues_json.emplace_array();
+            return; }pValues_json=boost::json::array(member.semaphoreCount);
+        auto& arr_KoluVhX=pValues_json.as_array();
         for(int POsDDOd=0; POsDDOd < member.semaphoreCount; POsDDOd++){
             [&](){arr_KoluVhX[POsDDOd]=member.pValues[POsDDOd];}();
         }
@@ -27480,8 +27480,8 @@ auto& pVertexBindingDivisors_json=json["pVertexBindingDivisors"];
 [&](){
             if (member.pVertexBindingDivisors==NULL){
                 pVertexBindingDivisors_json=boost::json::array();
-            return; }
-        auto& arr_MVUaEEo=pVertexBindingDivisors_json.emplace_array();
+            return; }pVertexBindingDivisors_json=boost::json::array(member.vertexBindingDivisorCount);
+        auto& arr_MVUaEEo=pVertexBindingDivisors_json.as_array();
         for(int LhiCzAa=0; LhiCzAa < member.vertexBindingDivisorCount; LhiCzAa++){
             [&](){
             auto& temp=arr_MVUaEEo[LhiCzAa].emplace_object();
@@ -27937,8 +27937,8 @@ auto& pCheckpointMarker_json=json["pCheckpointMarker"];
             return; }[&](){
             if (((char*)(member.pCheckpointMarker))==NULL){
                 pCheckpointMarker_json=boost::json::array();
-            return; }
-        auto& arr_camgBwN=pCheckpointMarker_json.emplace_array();
+            return; }pCheckpointMarker_json=boost::json::array(strlen(((char*)(member.pCheckpointMarker)))+1);
+        auto& arr_camgBwN=pCheckpointMarker_json.as_array();
         for(int RrhLchW=0; RrhLchW < strlen(((char*)(member.pCheckpointMarker)))+1; RrhLchW++){
             [&](){arr_camgBwN[RrhLchW]=((char*)(member.pCheckpointMarker))[RrhLchW];}();
         }
@@ -28024,8 +28024,8 @@ auto& pDepthStencilResolveAttachment_json=json["pDepthStencilResolveAttachment"]
 [&](){
             if (member.pDepthStencilResolveAttachment==NULL){
                 pDepthStencilResolveAttachment_json=boost::json::array();
-            return; }
-        auto& arr_ktDximy=pDepthStencilResolveAttachment_json.emplace_array();
+            return; }pDepthStencilResolveAttachment_json=boost::json::array(1);
+        auto& arr_ktDximy=pDepthStencilResolveAttachment_json.as_array();
         for(int qMMfkKF=0; qMMfkKF < 1; qMMfkKF++){
             [&](){
             auto& temp=arr_ktDximy[qMMfkKF].emplace_object();
@@ -28321,8 +28321,8 @@ auto& pExclusiveScissors_json=json["pExclusiveScissors"];
 [&](){
             if (member.pExclusiveScissors==NULL){
                 pExclusiveScissors_json=boost::json::array();
-            return; }
-        auto& arr_KfGvnWP=pExclusiveScissors_json.emplace_array();
+            return; }pExclusiveScissors_json=boost::json::array(member.exclusiveScissorCount);
+        auto& arr_KfGvnWP=pExclusiveScissors_json.as_array();
         for(int OubVbuK=0; OubVbuK < member.exclusiveScissorCount; OubVbuK++){
             [&](){
             auto& temp=arr_KfGvnWP[OubVbuK].emplace_object();
@@ -28573,8 +28573,8 @@ auto& pShadingRatePaletteEntries_json=json["pShadingRatePaletteEntries"];
 [&](){
             if (member.pShadingRatePaletteEntries==NULL){
                 pShadingRatePaletteEntries_json=boost::json::array();
-            return; }
-        auto& arr_lauFgVU=pShadingRatePaletteEntries_json.emplace_array();
+            return; }pShadingRatePaletteEntries_json=boost::json::array(member.shadingRatePaletteEntryCount);
+        auto& arr_lauFgVU=pShadingRatePaletteEntries_json.as_array();
         for(int RYTYvLc=0; RYTYvLc < member.shadingRatePaletteEntryCount; RYTYvLc++){
             [&](){[&](){[&](){arr_lauFgVU[RYTYvLc]=member.pShadingRatePaletteEntries[RYTYvLc];}();}();}();
         }
@@ -28613,8 +28613,8 @@ auto& pShadingRatePalettes_json=json["pShadingRatePalettes"];
 [&](){
             if (member.pShadingRatePalettes==NULL){
                 pShadingRatePalettes_json=boost::json::array();
-            return; }
-        auto& arr_mlKUZSn=pShadingRatePalettes_json.emplace_array();
+            return; }pShadingRatePalettes_json=boost::json::array(member.viewportCount);
+        auto& arr_mlKUZSn=pShadingRatePalettes_json.as_array();
         for(int CvIbxCy=0; CvIbxCy < member.viewportCount; CvIbxCy++){
             [&](){
             auto& temp=arr_mlKUZSn[CvIbxCy].emplace_object();
@@ -28775,8 +28775,8 @@ auto& pSampleLocations_json=json["pSampleLocations"];
 [&](){
             if (member.pSampleLocations==NULL){
                 pSampleLocations_json=boost::json::array();
-            return; }
-        auto& arr_LNrvynN=pSampleLocations_json.emplace_array();
+            return; }pSampleLocations_json=boost::json::array(member.sampleLocationCount);
+        auto& arr_LNrvynN=pSampleLocations_json.as_array();
         for(int QOVVghW=0; QOVVghW < member.sampleLocationCount; QOVVghW++){
             [&](){
             auto& temp=arr_LNrvynN[QOVVghW].emplace_object();
@@ -28825,8 +28825,8 @@ auto& pCustomSampleOrders_json=json["pCustomSampleOrders"];
 [&](){
             if (member.pCustomSampleOrders==NULL){
                 pCustomSampleOrders_json=boost::json::array();
-            return; }
-        auto& arr_IojdMMd=pCustomSampleOrders_json.emplace_array();
+            return; }pCustomSampleOrders_json=boost::json::array(member.customSampleOrderCount);
+        auto& arr_IojdMMd=pCustomSampleOrders_json.as_array();
         for(int disPTmD=0; disPTmD < member.customSampleOrderCount; disPTmD++){
             [&](){
             auto& temp=arr_IojdMMd[disPTmD].emplace_object();
@@ -28906,8 +28906,8 @@ auto& maxDrawMeshTasksCount_json=json["maxDrawMeshTasksCount"];
 auto& maxTaskWorkGroupInvocations_json=json["maxTaskWorkGroupInvocations"];
 [&](){maxTaskWorkGroupInvocations_json=member.maxTaskWorkGroupInvocations;}();
 auto& maxTaskWorkGroupSize_json=json["maxTaskWorkGroupSize"];
-[&](){
-        auto& arr_UWOoFtW=maxTaskWorkGroupSize_json.emplace_array();
+[&](){maxTaskWorkGroupSize_json=boost::json::array(3);
+        auto& arr_UWOoFtW=maxTaskWorkGroupSize_json.as_array();
         for(int hJJLhFo=0; hJJLhFo < 3; hJJLhFo++){
             [&](){arr_UWOoFtW[hJJLhFo]=member.maxTaskWorkGroupSize[hJJLhFo];}();
         }
@@ -28919,8 +28919,8 @@ auto& maxTaskOutputCount_json=json["maxTaskOutputCount"];
 auto& maxMeshWorkGroupInvocations_json=json["maxMeshWorkGroupInvocations"];
 [&](){maxMeshWorkGroupInvocations_json=member.maxMeshWorkGroupInvocations;}();
 auto& maxMeshWorkGroupSize_json=json["maxMeshWorkGroupSize"];
-[&](){
-        auto& arr_wmJdFim=maxMeshWorkGroupSize_json.emplace_array();
+[&](){maxMeshWorkGroupSize_json=boost::json::array(3);
+        auto& arr_wmJdFim=maxMeshWorkGroupSize_json.as_array();
         for(int ZcCPNjp=0; ZcCPNjp < 3; ZcCPNjp++){
             [&](){arr_wmJdFim[ZcCPNjp]=member.maxMeshWorkGroupSize[ZcCPNjp];}();
         }
@@ -29053,8 +29053,8 @@ auto& pNext_json=json["pNext"];
 auto& maxTaskWorkGroupTotalCount_json=json["maxTaskWorkGroupTotalCount"];
 [&](){maxTaskWorkGroupTotalCount_json=member.maxTaskWorkGroupTotalCount;}();
 auto& maxTaskWorkGroupCount_json=json["maxTaskWorkGroupCount"];
-[&](){
-        auto& arr_yPwBGOk=maxTaskWorkGroupCount_json.emplace_array();
+[&](){maxTaskWorkGroupCount_json=boost::json::array(3);
+        auto& arr_yPwBGOk=maxTaskWorkGroupCount_json.as_array();
         for(int xeUWuzJ=0; xeUWuzJ < 3; xeUWuzJ++){
             [&](){arr_yPwBGOk[xeUWuzJ]=member.maxTaskWorkGroupCount[xeUWuzJ];}();
         }
@@ -29062,8 +29062,8 @@ auto& maxTaskWorkGroupCount_json=json["maxTaskWorkGroupCount"];
 auto& maxTaskWorkGroupInvocations_json=json["maxTaskWorkGroupInvocations"];
 [&](){maxTaskWorkGroupInvocations_json=member.maxTaskWorkGroupInvocations;}();
 auto& maxTaskWorkGroupSize_json=json["maxTaskWorkGroupSize"];
-[&](){
-        auto& arr_UWOoFtW=maxTaskWorkGroupSize_json.emplace_array();
+[&](){maxTaskWorkGroupSize_json=boost::json::array(3);
+        auto& arr_UWOoFtW=maxTaskWorkGroupSize_json.as_array();
         for(int hJJLhFo=0; hJJLhFo < 3; hJJLhFo++){
             [&](){arr_UWOoFtW[hJJLhFo]=member.maxTaskWorkGroupSize[hJJLhFo];}();
         }
@@ -29077,8 +29077,8 @@ auto& maxTaskPayloadAndSharedMemorySize_json=json["maxTaskPayloadAndSharedMemory
 auto& maxMeshWorkGroupTotalCount_json=json["maxMeshWorkGroupTotalCount"];
 [&](){maxMeshWorkGroupTotalCount_json=member.maxMeshWorkGroupTotalCount;}();
 auto& maxMeshWorkGroupCount_json=json["maxMeshWorkGroupCount"];
-[&](){
-        auto& arr_pSXHQFV=maxMeshWorkGroupCount_json.emplace_array();
+[&](){maxMeshWorkGroupCount_json=boost::json::array(3);
+        auto& arr_pSXHQFV=maxMeshWorkGroupCount_json.as_array();
         for(int kwoJakk=0; kwoJakk < 3; kwoJakk++){
             [&](){arr_pSXHQFV[kwoJakk]=member.maxMeshWorkGroupCount[kwoJakk];}();
         }
@@ -29086,8 +29086,8 @@ auto& maxMeshWorkGroupCount_json=json["maxMeshWorkGroupCount"];
 auto& maxMeshWorkGroupInvocations_json=json["maxMeshWorkGroupInvocations"];
 [&](){maxMeshWorkGroupInvocations_json=member.maxMeshWorkGroupInvocations;}();
 auto& maxMeshWorkGroupSize_json=json["maxMeshWorkGroupSize"];
-[&](){
-        auto& arr_wmJdFim=maxMeshWorkGroupSize_json.emplace_array();
+[&](){maxMeshWorkGroupSize_json=boost::json::array(3);
+        auto& arr_wmJdFim=maxMeshWorkGroupSize_json.as_array();
         for(int ZcCPNjp=0; ZcCPNjp < 3; ZcCPNjp++){
             [&](){arr_wmJdFim[ZcCPNjp]=member.maxMeshWorkGroupSize[ZcCPNjp];}();
         }
@@ -29300,8 +29300,8 @@ auto& pShaderGroupCaptureReplayHandle_json=json["pShaderGroupCaptureReplayHandle
             return; }[&](){
             if (((char*)(member.pShaderGroupCaptureReplayHandle))==NULL){
                 pShaderGroupCaptureReplayHandle_json=boost::json::array();
-            return; }
-        auto& arr_YQnRSSx=pShaderGroupCaptureReplayHandle_json.emplace_array();
+            return; }pShaderGroupCaptureReplayHandle_json=boost::json::array(strlen(((char*)(member.pShaderGroupCaptureReplayHandle)))+1);
+        auto& arr_YQnRSSx=pShaderGroupCaptureReplayHandle_json.as_array();
         for(int HWueAJF=0; HWueAJF < strlen(((char*)(member.pShaderGroupCaptureReplayHandle)))+1; HWueAJF++){
             [&](){arr_YQnRSSx[HWueAJF]=((char*)(member.pShaderGroupCaptureReplayHandle))[HWueAJF];}();
         }
@@ -29358,8 +29358,8 @@ auto& pStages_json=json["pStages"];
 [&](){
             if (member.pStages==NULL){
                 pStages_json=boost::json::array();
-            return; }
-        auto& arr_wJXHhmh=pStages_json.emplace_array();
+            return; }pStages_json=boost::json::array(member.stageCount);
+        auto& arr_wJXHhmh=pStages_json.as_array();
         for(int AsBfcSb=0; AsBfcSb < member.stageCount; AsBfcSb++){
             [&](){
             auto& temp=arr_wJXHhmh[AsBfcSb].emplace_object();
@@ -29373,8 +29373,8 @@ auto& pGroups_json=json["pGroups"];
 [&](){
             if (member.pGroups==NULL){
                 pGroups_json=boost::json::array();
-            return; }
-        auto& arr_eKNKIQz=pGroups_json.emplace_array();
+            return; }pGroups_json=boost::json::array(member.groupCount);
+        auto& arr_eKNKIQz=pGroups_json.as_array();
         for(int PHmNpfn=0; PHmNpfn < member.groupCount; PHmNpfn++){
             [&](){
             auto& temp=arr_eKNKIQz[PHmNpfn].emplace_object();
@@ -29459,8 +29459,8 @@ auto& pStages_json=json["pStages"];
 [&](){
             if (member.pStages==NULL){
                 pStages_json=boost::json::array();
-            return; }
-        auto& arr_wJXHhmh=pStages_json.emplace_array();
+            return; }pStages_json=boost::json::array(member.stageCount);
+        auto& arr_wJXHhmh=pStages_json.as_array();
         for(int AsBfcSb=0; AsBfcSb < member.stageCount; AsBfcSb++){
             [&](){
             auto& temp=arr_wJXHhmh[AsBfcSb].emplace_object();
@@ -29474,8 +29474,8 @@ auto& pGroups_json=json["pGroups"];
 [&](){
             if (member.pGroups==NULL){
                 pGroups_json=boost::json::array();
-            return; }
-        auto& arr_dkKcDyE=pGroups_json.emplace_array();
+            return; }pGroups_json=boost::json::array(member.groupCount);
+        auto& arr_dkKcDyE=pGroups_json.as_array();
         for(int PUlEUPD=0; PUlEUPD < member.groupCount; PUlEUPD++){
             [&](){
             auto& temp=arr_dkKcDyE[PUlEUPD].emplace_object();
@@ -29489,8 +29489,8 @@ auto& pLibraryInfo_json=json["pLibraryInfo"];
 [&](){
             if (member.pLibraryInfo==NULL){
                 pLibraryInfo_json=boost::json::array();
-            return; }
-        auto& arr_qbgGauk=pLibraryInfo_json.emplace_array();
+            return; }pLibraryInfo_json=boost::json::array(1);
+        auto& arr_qbgGauk=pLibraryInfo_json.as_array();
         for(int cyEoVpU=0; cyEoVpU < 1; cyEoVpU++){
             [&](){
             auto& temp=arr_qbgGauk[cyEoVpU].emplace_object();
@@ -29502,8 +29502,8 @@ auto& pLibraryInterface_json=json["pLibraryInterface"];
 [&](){
             if (member.pLibraryInterface==NULL){
                 pLibraryInterface_json=boost::json::array();
-            return; }
-        auto& arr_eOoROKo=pLibraryInterface_json.emplace_array();
+            return; }pLibraryInterface_json=boost::json::array(1);
+        auto& arr_eOoROKo=pLibraryInterface_json.as_array();
         for(int tjYViYt=0; tjYViYt < 1; tjYViYt++){
             [&](){
             auto& temp=arr_eOoROKo[tjYViYt].emplace_object();
@@ -29515,8 +29515,8 @@ auto& pDynamicState_json=json["pDynamicState"];
 [&](){
             if (member.pDynamicState==NULL){
                 pDynamicState_json=boost::json::array();
-            return; }
-        auto& arr_iDMMizu=pDynamicState_json.emplace_array();
+            return; }pDynamicState_json=boost::json::array(1);
+        auto& arr_iDMMizu=pDynamicState_json.as_array();
         for(int RNPowsf=0; RNPowsf < 1; RNPowsf++){
             [&](){
             auto& temp=arr_iDMMizu[RNPowsf].emplace_object();
@@ -29810,8 +29810,8 @@ auto& pGeometries_json=json["pGeometries"];
 [&](){
             if (member.pGeometries==NULL){
                 pGeometries_json=boost::json::array();
-            return; }
-        auto& arr_vgMFzCl=pGeometries_json.emplace_array();
+            return; }pGeometries_json=boost::json::array(member.geometryCount);
+        auto& arr_vgMFzCl=pGeometries_json.as_array();
         for(int NWQDElF=0; NWQDElF < member.geometryCount; NWQDElF++){
             [&](){
             auto& temp=arr_vgMFzCl[NWQDElF].emplace_object();
@@ -29908,8 +29908,8 @@ auto& pDeviceIndices_json=json["pDeviceIndices"];
 [&](){
             if (member.pDeviceIndices==NULL){
                 pDeviceIndices_json=boost::json::array();
-            return; }
-        auto& arr_ljPbTMN=pDeviceIndices_json.emplace_array();
+            return; }pDeviceIndices_json=boost::json::array(member.deviceIndexCount);
+        auto& arr_ljPbTMN=pDeviceIndices_json.as_array();
         for(int MmIaHqo=0; MmIaHqo < member.deviceIndexCount; MmIaHqo++){
             [&](){arr_ljPbTMN[MmIaHqo]=member.pDeviceIndices[MmIaHqo];}();
         }
@@ -29959,8 +29959,8 @@ auto& pAccelerationStructures_json=json["pAccelerationStructures"];
 [&](){
             if (member.pAccelerationStructures==NULL){
                 pAccelerationStructures_json=boost::json::array();
-            return; }
-        auto& arr_uHQjQvO=pAccelerationStructures_json.emplace_array();
+            return; }pAccelerationStructures_json=boost::json::array(member.accelerationStructureCount);
+        auto& arr_uHQjQvO=pAccelerationStructures_json.as_array();
         for(int iPAgAKv=0; iPAgAKv < member.accelerationStructureCount; iPAgAKv++){
             [&](){serialize_VkAccelerationStructureKHR(arr_uHQjQvO[iPAgAKv],member.pAccelerationStructures[iPAgAKv]);}();
         }
@@ -30004,8 +30004,8 @@ auto& pAccelerationStructures_json=json["pAccelerationStructures"];
 [&](){
             if (member.pAccelerationStructures==NULL){
                 pAccelerationStructures_json=boost::json::array();
-            return; }
-        auto& arr_HXpgyAy=pAccelerationStructures_json.emplace_array();
+            return; }pAccelerationStructures_json=boost::json::array(member.accelerationStructureCount);
+        auto& arr_HXpgyAy=pAccelerationStructures_json.as_array();
         for(int FlujVVM=0; FlujVVM < member.accelerationStructureCount; FlujVVM++){
             [&](){serialize_VkAccelerationStructureNV(arr_HXpgyAy[FlujVVM],member.pAccelerationStructures[FlujVVM]);}();
         }
@@ -30474,8 +30474,8 @@ auto& pDrmFormatModifierProperties_json=json["pDrmFormatModifierProperties"];
 [&](){
             if (member.pDrmFormatModifierProperties==NULL){
                 pDrmFormatModifierProperties_json=boost::json::array();
-            return; }
-        auto& arr_VcNefkq=pDrmFormatModifierProperties_json.emplace_array();
+            return; }pDrmFormatModifierProperties_json=boost::json::array(member.drmFormatModifierCount);
+        auto& arr_VcNefkq=pDrmFormatModifierProperties_json.as_array();
         for(int BRMKPmI=0; BRMKPmI < member.drmFormatModifierCount; BRMKPmI++){
             [&](){
             auto& temp=arr_VcNefkq[BRMKPmI].emplace_object();
@@ -30548,8 +30548,8 @@ auto& pQueueFamilyIndices_json=json["pQueueFamilyIndices"];
 [&](){
             if (member.pQueueFamilyIndices==NULL){
                 pQueueFamilyIndices_json=boost::json::array();
-            return; }
-        auto& arr_miZGtyX=pQueueFamilyIndices_json.emplace_array();
+            return; }pQueueFamilyIndices_json=boost::json::array(member.queueFamilyIndexCount);
+        auto& arr_miZGtyX=pQueueFamilyIndices_json.as_array();
         for(int VJZTqbB=0; VJZTqbB < member.queueFamilyIndexCount; VJZTqbB++){
             [&](){arr_miZGtyX[VJZTqbB]=member.pQueueFamilyIndices[VJZTqbB];}();
         }
@@ -30597,8 +30597,8 @@ auto& pDrmFormatModifiers_json=json["pDrmFormatModifiers"];
 [&](){
             if (member.pDrmFormatModifiers==NULL){
                 pDrmFormatModifiers_json=boost::json::array();
-            return; }
-        auto& arr_wpvecAb=pDrmFormatModifiers_json.emplace_array();
+            return; }pDrmFormatModifiers_json=boost::json::array(member.drmFormatModifierCount);
+        auto& arr_wpvecAb=pDrmFormatModifiers_json.as_array();
         for(int AxfnHXf=0; AxfnHXf < member.drmFormatModifierCount; AxfnHXf++){
             [&](){arr_wpvecAb[AxfnHXf]=member.pDrmFormatModifiers[AxfnHXf];}();
         }
@@ -30644,8 +30644,8 @@ auto& pPlaneLayouts_json=json["pPlaneLayouts"];
 [&](){
             if (member.pPlaneLayouts==NULL){
                 pPlaneLayouts_json=boost::json::array();
-            return; }
-        auto& arr_QRGNGnb=pPlaneLayouts_json.emplace_array();
+            return; }pPlaneLayouts_json=boost::json::array(member.drmFormatModifierPlaneCount);
+        auto& arr_QRGNGnb=pPlaneLayouts_json.as_array();
         for(int nhHhqug=0; nhHhqug < member.drmFormatModifierPlaneCount; nhHhqug++){
             [&](){
             auto& temp=arr_QRGNGnb[nhHhqug].emplace_object();
@@ -30999,8 +30999,8 @@ auto& pFragmentDensityOffsets_json=json["pFragmentDensityOffsets"];
 [&](){
             if (member.pFragmentDensityOffsets==NULL){
                 pFragmentDensityOffsets_json=boost::json::array();
-            return; }
-        auto& arr_cwxXEeQ=pFragmentDensityOffsets_json.emplace_array();
+            return; }pFragmentDensityOffsets_json=boost::json::array(member.fragmentDensityOffsetCount);
+        auto& arr_cwxXEeQ=pFragmentDensityOffsets_json.as_array();
         for(int WMsPool=0; WMsPool < member.fragmentDensityOffsetCount; WMsPool++){
             [&](){
             auto& temp=arr_cwxXEeQ[WMsPool].emplace_object();
@@ -31174,15 +31174,15 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& heapBudget_json=json["heapBudget"];
-[&](){
-        auto& arr_VHIwHTF=heapBudget_json.emplace_array();
+[&](){heapBudget_json=boost::json::array(VK_MAX_MEMORY_HEAPS);
+        auto& arr_VHIwHTF=heapBudget_json.as_array();
         for(int rgFNxRG=0; rgFNxRG < VK_MAX_MEMORY_HEAPS; rgFNxRG++){
             [&](){[&](){arr_VHIwHTF[rgFNxRG]=member.heapBudget[rgFNxRG];}();}();
         }
         }();
 auto& heapUsage_json=json["heapUsage"];
-[&](){
-        auto& arr_qlUxljU=heapUsage_json.emplace_array();
+[&](){heapUsage_json=boost::json::array(VK_MAX_MEMORY_HEAPS);
+        auto& arr_qlUxljU=heapUsage_json.as_array();
         for(int QthsrSi=0; QthsrSi < VK_MAX_MEMORY_HEAPS; QthsrSi++){
             [&](){[&](){arr_qlUxljU[QthsrSi]=member.heapUsage[QthsrSi];}();}();
         }
@@ -31523,8 +31523,8 @@ auto& pAttachmentImageInfos_json=json["pAttachmentImageInfos"];
 [&](){
             if (member.pAttachmentImageInfos==NULL){
                 pAttachmentImageInfos_json=boost::json::array();
-            return; }
-        auto& arr_uyGGMQY=pAttachmentImageInfos_json.emplace_array();
+            return; }pAttachmentImageInfos_json=boost::json::array(member.attachmentImageInfoCount);
+        auto& arr_uyGGMQY=pAttachmentImageInfos_json.as_array();
         for(int KZYqupS=0; KZYqupS < member.attachmentImageInfoCount; KZYqupS++){
             [&](){
             auto& temp=arr_uyGGMQY[KZYqupS].emplace_object();
@@ -31584,8 +31584,8 @@ auto& pViewFormats_json=json["pViewFormats"];
 [&](){
             if (member.pViewFormats==NULL){
                 pViewFormats_json=boost::json::array();
-            return; }
-        auto& arr_WbFQnzp=pViewFormats_json.emplace_array();
+            return; }pViewFormats_json=boost::json::array(member.viewFormatCount);
+        auto& arr_WbFQnzp=pViewFormats_json.as_array();
         for(int fIUeIsy=0; fIUeIsy < member.viewFormatCount; fIUeIsy++){
             [&](){[&](){[&](){arr_WbFQnzp[fIUeIsy]=member.pViewFormats[fIUeIsy];}();}();}();
         }
@@ -31639,8 +31639,8 @@ auto& pAttachments_json=json["pAttachments"];
 [&](){
             if (member.pAttachments==NULL){
                 pAttachments_json=boost::json::array();
-            return; }
-        auto& arr_XUnbodX=pAttachments_json.emplace_array();
+            return; }pAttachments_json=boost::json::array(member.attachmentCount);
+        auto& arr_XUnbodX=pAttachments_json.as_array();
         for(int FOVxLSQ=0; FOVxLSQ < member.attachmentCount; FOVxLSQ++){
             [&](){serialize_VkImageView(arr_XUnbodX[FOVxLSQ],member.pAttachments[FOVxLSQ]);}();
         }
@@ -31916,8 +31916,8 @@ auto& pPipelineCreationFeedback_json=json["pPipelineCreationFeedback"];
 [&](){
             if (member.pPipelineCreationFeedback==NULL){
                 pPipelineCreationFeedback_json=boost::json::array();
-            return; }
-        auto& arr_bLfUuds=pPipelineCreationFeedback_json.emplace_array();
+            return; }pPipelineCreationFeedback_json=boost::json::array(1);
+        auto& arr_bLfUuds=pPipelineCreationFeedback_json.as_array();
         for(int Xwezzqt=0; Xwezzqt < 1; Xwezzqt++){
             [&](){
             auto& temp=arr_bLfUuds[Xwezzqt].emplace_object();
@@ -31931,8 +31931,8 @@ auto& pPipelineStageCreationFeedbacks_json=json["pPipelineStageCreationFeedbacks
 [&](){
             if (member.pPipelineStageCreationFeedbacks==NULL){
                 pPipelineStageCreationFeedbacks_json=boost::json::array();
-            return; }
-        auto& arr_RxVpsqW=pPipelineStageCreationFeedbacks_json.emplace_array();
+            return; }pPipelineStageCreationFeedbacks_json=boost::json::array(member.pipelineStageCreationFeedbackCount);
+        auto& arr_RxVpsqW=pPipelineStageCreationFeedbacks_json.as_array();
         for(int xcJecwD=0; xcJecwD < member.pipelineStageCreationFeedbackCount; xcJecwD++){
             [&](){
             auto& temp=arr_RxVpsqW[xcJecwD].emplace_object();
@@ -32125,8 +32125,8 @@ auto& scope_json=json["scope"];
 auto& storage_json=json["storage"];
 [&](){[&](){[&](){storage_json=member.storage;}();}();}();
 auto& uuid_json=json["uuid"];
-[&](){
-        auto& arr_GksKndB=uuid_json.emplace_array();
+[&](){uuid_json=boost::json::array(VK_UUID_SIZE);
+        auto& arr_GksKndB=uuid_json.as_array();
         for(int NXzLCHH=0; NXzLCHH < VK_UUID_SIZE; NXzLCHH++){
             [&](){arr_GksKndB[NXzLCHH]=member.uuid[NXzLCHH];}();
         }
@@ -32168,22 +32168,22 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){[&](){flags_json=member.flags;}();}();}();
 auto& name_json=json["name"];
-[&](){
-        auto& arr_bvrcciZ=name_json.emplace_array();
+[&](){name_json=boost::json::array(VK_MAX_DESCRIPTION_SIZE);
+        auto& arr_bvrcciZ=name_json.as_array();
         for(int wRQbmpj=0; wRQbmpj < VK_MAX_DESCRIPTION_SIZE; wRQbmpj++){
             [&](){arr_bvrcciZ[wRQbmpj]=member.name[wRQbmpj];}();
         }
         }();
 auto& category_json=json["category"];
-[&](){
-        auto& arr_rSiApLH=category_json.emplace_array();
+[&](){category_json=boost::json::array(VK_MAX_DESCRIPTION_SIZE);
+        auto& arr_rSiApLH=category_json.as_array();
         for(int lvjMeQH=0; lvjMeQH < VK_MAX_DESCRIPTION_SIZE; lvjMeQH++){
             [&](){arr_rSiApLH[lvjMeQH]=member.category[lvjMeQH];}();
         }
         }();
 auto& description_json=json["description"];
-[&](){
-        auto& arr_GFqEyUG=description_json.emplace_array();
+[&](){description_json=boost::json::array(VK_MAX_DESCRIPTION_SIZE);
+        auto& arr_GFqEyUG=description_json.as_array();
         for(int xOHuflK=0; xOHuflK < VK_MAX_DESCRIPTION_SIZE; xOHuflK++){
             [&](){arr_GFqEyUG[xOHuflK]=member.description[xOHuflK];}();
         }
@@ -32240,8 +32240,8 @@ auto& pCounterIndices_json=json["pCounterIndices"];
 [&](){
             if (member.pCounterIndices==NULL){
                 pCounterIndices_json=boost::json::array();
-            return; }
-        auto& arr_mnDpJbd=pCounterIndices_json.emplace_array();
+            return; }pCounterIndices_json=boost::json::array(member.counterIndexCount);
+        auto& arr_mnDpJbd=pCounterIndices_json.as_array();
         for(int yLZRUEg=0; yLZRUEg < member.counterIndexCount; yLZRUEg++){
             [&](){arr_mnDpJbd[yLZRUEg]=member.pCounterIndices[yLZRUEg];}();
         }
@@ -32512,8 +32512,8 @@ auto& valueString_json=json["valueString"];
 [&](){
             if (member.valueString==NULL){
                 valueString_json=boost::json::array();
-            return; }
-        auto& arr_dpbPntF=valueString_json.emplace_array();
+            return; }valueString_json=boost::json::array(strlen(member.valueString)+1);
+        auto& arr_dpbPntF=valueString_json.as_array();
         for(int vBjwNMH=0; vBjwNMH < strlen(member.valueString)+1; vBjwNMH++){
             [&](){arr_dpbPntF[vBjwNMH]=member.valueString[vBjwNMH];}();
         }
@@ -32570,8 +32570,8 @@ auto& data_json=json["data"];
             return; }[&](){
             if (((char*)(member.pUserData))==NULL){
                 pUserData_json=boost::json::array();
-            return; }
-        auto& arr_svgqjpy=pUserData_json.emplace_array();
+            return; }pUserData_json=boost::json::array(strlen(((char*)(member.pUserData)))+1);
+        auto& arr_svgqjpy=pUserData_json.as_array();
         for(int lQswvtW=0; lQswvtW < strlen(((char*)(member.pUserData)))+1; lQswvtW++){
             [&](){arr_svgqjpy[lQswvtW]=((char*)(member.pUserData))[lQswvtW];}();
         }
@@ -33090,15 +33090,15 @@ auto& pNext_json=json["pNext"];
 auto& stages_json=json["stages"];
 [&](){[&](){[&](){stages_json=member.stages;}();}();}();
 auto& name_json=json["name"];
-[&](){
-        auto& arr_bvrcciZ=name_json.emplace_array();
+[&](){name_json=boost::json::array(VK_MAX_DESCRIPTION_SIZE);
+        auto& arr_bvrcciZ=name_json.as_array();
         for(int wRQbmpj=0; wRQbmpj < VK_MAX_DESCRIPTION_SIZE; wRQbmpj++){
             [&](){arr_bvrcciZ[wRQbmpj]=member.name[wRQbmpj];}();
         }
         }();
 auto& description_json=json["description"];
-[&](){
-        auto& arr_GFqEyUG=description_json.emplace_array();
+[&](){description_json=boost::json::array(VK_MAX_DESCRIPTION_SIZE);
+        auto& arr_GFqEyUG=description_json.as_array();
         for(int xOHuflK=0; xOHuflK < VK_MAX_DESCRIPTION_SIZE; xOHuflK++){
             [&](){arr_GFqEyUG[xOHuflK]=member.description[xOHuflK];}();
         }
@@ -33197,15 +33197,15 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& name_json=json["name"];
-[&](){
-        auto& arr_bvrcciZ=name_json.emplace_array();
+[&](){name_json=boost::json::array(VK_MAX_DESCRIPTION_SIZE);
+        auto& arr_bvrcciZ=name_json.as_array();
         for(int wRQbmpj=0; wRQbmpj < VK_MAX_DESCRIPTION_SIZE; wRQbmpj++){
             [&](){arr_bvrcciZ[wRQbmpj]=member.name[wRQbmpj];}();
         }
         }();
 auto& description_json=json["description"];
-[&](){
-        auto& arr_GFqEyUG=description_json.emplace_array();
+[&](){description_json=boost::json::array(VK_MAX_DESCRIPTION_SIZE);
+        auto& arr_GFqEyUG=description_json.as_array();
         for(int xOHuflK=0; xOHuflK < VK_MAX_DESCRIPTION_SIZE; xOHuflK++){
             [&](){arr_GFqEyUG[xOHuflK]=member.description[xOHuflK];}();
         }
@@ -33260,15 +33260,15 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& name_json=json["name"];
-[&](){
-        auto& arr_bvrcciZ=name_json.emplace_array();
+[&](){name_json=boost::json::array(VK_MAX_DESCRIPTION_SIZE);
+        auto& arr_bvrcciZ=name_json.as_array();
         for(int wRQbmpj=0; wRQbmpj < VK_MAX_DESCRIPTION_SIZE; wRQbmpj++){
             [&](){arr_bvrcciZ[wRQbmpj]=member.name[wRQbmpj];}();
         }
         }();
 auto& description_json=json["description"];
-[&](){
-        auto& arr_GFqEyUG=description_json.emplace_array();
+[&](){description_json=boost::json::array(VK_MAX_DESCRIPTION_SIZE);
+        auto& arr_GFqEyUG=description_json.as_array();
         for(int xOHuflK=0; xOHuflK < VK_MAX_DESCRIPTION_SIZE; xOHuflK++){
             [&](){arr_GFqEyUG[xOHuflK]=member.description[xOHuflK];}();
         }
@@ -33284,8 +33284,8 @@ auto& pData_json=json["pData"];
             return; }[&](){
             if (((char*)(member.pData))==NULL){
                 pData_json=boost::json::array();
-            return; }
-        auto& arr_BbZMMzi=pData_json.emplace_array();
+            return; }pData_json=boost::json::array(member.dataSize);
+        auto& arr_BbZMMzi=pData_json.as_array();
         for(int NEiuWIo=0; NEiuWIo < member.dataSize; NEiuWIo++){
             [&](){arr_BbZMMzi[NEiuWIo]=((char*)(member.pData))[NEiuWIo];}();
         }
@@ -33575,15 +33575,15 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& maxWorkGroupCount_json=json["maxWorkGroupCount"];
-[&](){
-        auto& arr_geGWAWh=maxWorkGroupCount_json.emplace_array();
+[&](){maxWorkGroupCount_json=boost::json::array(3);
+        auto& arr_geGWAWh=maxWorkGroupCount_json.as_array();
         for(int StuRCxD=0; StuRCxD < 3; StuRCxD++){
             [&](){arr_geGWAWh[StuRCxD]=member.maxWorkGroupCount[StuRCxD];}();
         }
         }();
 auto& maxWorkGroupSize_json=json["maxWorkGroupSize"];
-[&](){
-        auto& arr_lAtQNej=maxWorkGroupSize_json.emplace_array();
+[&](){maxWorkGroupSize_json=boost::json::array(3);
+        auto& arr_lAtQNej=maxWorkGroupSize_json.as_array();
         for(int MsNzQqn=0; MsNzQqn < 3; MsNzQqn++){
             [&](){arr_lAtQNej[MsNzQqn]=member.maxWorkGroupSize[MsNzQqn];}();
         }
@@ -33883,22 +33883,22 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& deviceUUID_json=json["deviceUUID"];
-[&](){
-        auto& arr_akaOupa=deviceUUID_json.emplace_array();
+[&](){deviceUUID_json=boost::json::array(VK_UUID_SIZE);
+        auto& arr_akaOupa=deviceUUID_json.as_array();
         for(int ysVOqaa=0; ysVOqaa < VK_UUID_SIZE; ysVOqaa++){
             [&](){arr_akaOupa[ysVOqaa]=member.deviceUUID[ysVOqaa];}();
         }
         }();
 auto& driverUUID_json=json["driverUUID"];
-[&](){
-        auto& arr_rgDAcPl=driverUUID_json.emplace_array();
+[&](){driverUUID_json=boost::json::array(VK_UUID_SIZE);
+        auto& arr_rgDAcPl=driverUUID_json.as_array();
         for(int mkRKwTt=0; mkRKwTt < VK_UUID_SIZE; mkRKwTt++){
             [&](){arr_rgDAcPl[mkRKwTt]=member.driverUUID[mkRKwTt];}();
         }
         }();
 auto& deviceLUID_json=json["deviceLUID"];
-[&](){
-        auto& arr_KcGOzfA=deviceLUID_json.emplace_array();
+[&](){deviceLUID_json=boost::json::array(VK_LUID_SIZE);
+        auto& arr_KcGOzfA=deviceLUID_json.as_array();
         for(int LcxBcjU=0; LcxBcjU < VK_LUID_SIZE; LcxBcjU++){
             [&](){arr_KcGOzfA[LcxBcjU]=member.deviceLUID[LcxBcjU];}();
         }
@@ -34205,15 +34205,15 @@ auto& pNext_json=json["pNext"];
 auto& driverID_json=json["driverID"];
 [&](){[&](){[&](){driverID_json=member.driverID;}();}();}();
 auto& driverName_json=json["driverName"];
-[&](){
-        auto& arr_zxRQdKB=driverName_json.emplace_array();
+[&](){driverName_json=boost::json::array(VK_MAX_DRIVER_NAME_SIZE);
+        auto& arr_zxRQdKB=driverName_json.as_array();
         for(int vSFArQc=0; vSFArQc < VK_MAX_DRIVER_NAME_SIZE; vSFArQc++){
             [&](){arr_zxRQdKB[vSFArQc]=member.driverName[vSFArQc];}();
         }
         }();
 auto& driverInfo_json=json["driverInfo"];
-[&](){
-        auto& arr_PNwpkIj=driverInfo_json.emplace_array();
+[&](){driverInfo_json=boost::json::array(VK_MAX_DRIVER_INFO_SIZE);
+        auto& arr_PNwpkIj=driverInfo_json.as_array();
         for(int ZmulTHh=0; ZmulTHh < VK_MAX_DRIVER_INFO_SIZE; ZmulTHh++){
             [&](){arr_PNwpkIj[ZmulTHh]=member.driverInfo[ZmulTHh];}();
         }
@@ -34790,15 +34790,15 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& name_json=json["name"];
-[&](){
-        auto& arr_MuHhPHY=name_json.emplace_array();
+[&](){name_json=boost::json::array(VK_MAX_EXTENSION_NAME_SIZE);
+        auto& arr_MuHhPHY=name_json.as_array();
         for(int hUQppgo=0; hUQppgo < VK_MAX_EXTENSION_NAME_SIZE; hUQppgo++){
             [&](){arr_MuHhPHY[hUQppgo]=member.name[hUQppgo];}();
         }
         }();
 auto& version_json=json["version"];
-[&](){
-        auto& arr_Ahugueg=version_json.emplace_array();
+[&](){version_json=boost::json::array(VK_MAX_EXTENSION_NAME_SIZE);
+        auto& arr_Ahugueg=version_json.as_array();
         for(int rISQyWZ=0; rISQyWZ < VK_MAX_EXTENSION_NAME_SIZE; rISQyWZ++){
             [&](){arr_Ahugueg[rISQyWZ]=member.version[rISQyWZ];}();
         }
@@ -34806,15 +34806,15 @@ auto& version_json=json["version"];
 auto& purposes_json=json["purposes"];
 [&](){[&](){[&](){purposes_json=member.purposes;}();}();}();
 auto& description_json=json["description"];
-[&](){
-        auto& arr_GFqEyUG=description_json.emplace_array();
+[&](){description_json=boost::json::array(VK_MAX_DESCRIPTION_SIZE);
+        auto& arr_GFqEyUG=description_json.as_array();
         for(int xOHuflK=0; xOHuflK < VK_MAX_DESCRIPTION_SIZE; xOHuflK++){
             [&](){arr_GFqEyUG[xOHuflK]=member.description[xOHuflK];}();
         }
         }();
 auto& layer_json=json["layer"];
-[&](){
-        auto& arr_JdRbNvp=layer_json.emplace_array();
+[&](){layer_json=boost::json::array(VK_MAX_EXTENSION_NAME_SIZE);
+        auto& arr_JdRbNvp=layer_json.as_array();
         for(int tFkeCEi=0; tFkeCEi < VK_MAX_EXTENSION_NAME_SIZE; tFkeCEi++){
             [&](){arr_JdRbNvp[tFkeCEi]=member.layer[tFkeCEi];}();
         }
@@ -35025,8 +35025,8 @@ auto& hostAddress_json=json["hostAddress"];
             return; }[&](){
             if (((char*)(member.hostAddress))==NULL){
                 hostAddress_json=boost::json::array();
-            return; }
-        auto& arr_vecfklo=hostAddress_json.emplace_array();
+            return; }hostAddress_json=boost::json::array(strlen(((char*)(member.hostAddress)))+1);
+        auto& arr_vecfklo=hostAddress_json.as_array();
         for(int rebBrIs=0; rebBrIs < strlen(((char*)(member.hostAddress)))+1; rebBrIs++){
             [&](){arr_vecfklo[rebBrIs]=((char*)(member.hostAddress))[rebBrIs];}();
         }
@@ -35062,8 +35062,8 @@ auto& hostAddress_json=json["hostAddress"];
             return; }[&](){
             if (((char*)(member.hostAddress))==NULL){
                 hostAddress_json=boost::json::array();
-            return; }
-        auto& arr_FsCizYU=hostAddress_json.emplace_array();
+            return; }hostAddress_json=boost::json::array(strlen(((char*)(member.hostAddress)))+1);
+        auto& arr_FsCizYU=hostAddress_json.as_array();
         for(int hLpIlSM=0; hLpIlSM < strlen(((char*)(member.hostAddress)))+1; hLpIlSM++){
             [&](){arr_FsCizYU[hLpIlSM]=((char*)(member.hostAddress))[hLpIlSM];}();
         }
@@ -35326,8 +35326,8 @@ auto& pGeometries_json=json["pGeometries"];
 [&](){
             if (member.pGeometries==NULL){
                 pGeometries_json=boost::json::array();
-            return; }
-        auto& arr_vwbQOKz=pGeometries_json.emplace_array();
+            return; }pGeometries_json=boost::json::array(member.geometryCount);
+        auto& arr_vwbQOKz=pGeometries_json.as_array();
         for(int zAgFHZV=0; zAgFHZV < member.geometryCount; zAgFHZV++){
             [&](){
             auto& temp=arr_vwbQOKz[zAgFHZV].emplace_object();
@@ -35339,14 +35339,14 @@ auto& ppGeometries_json=json["ppGeometries"];
 [&](){
             if (member.ppGeometries==NULL){
                 ppGeometries_json=boost::json::array();
-            return; }
-        auto& arr_rkrDVjE=ppGeometries_json.emplace_array();
+            return; }ppGeometries_json=boost::json::array(member.geometryCount);
+        auto& arr_rkrDVjE=ppGeometries_json.as_array();
         for(int uKdXAxa=0; uKdXAxa < member.geometryCount; uKdXAxa++){
             [&](){
             if (member.ppGeometries[uKdXAxa]==NULL){
                 arr_rkrDVjE[uKdXAxa]=boost::json::array();
-            return; }
-        auto& arr_xCWURfT=arr_rkrDVjE[uKdXAxa].emplace_array();
+            return; }arr_rkrDVjE[uKdXAxa]=boost::json::array(1);
+        auto& arr_xCWURfT=arr_rkrDVjE[uKdXAxa].as_array();
         for(int BbpFYeD=0; BbpFYeD < 1; BbpFYeD++){
             [&](){
             auto& temp=arr_xCWURfT[BbpFYeD].emplace_object();
@@ -35526,11 +35526,11 @@ auto& maxZ_json=json["maxZ"];
         
     
 auto& matrix_json=json["matrix"];
-[&](){
-        auto& arr_dzxoxmS=matrix_json.emplace_array();
+[&](){matrix_json=boost::json::array(3);
+        auto& arr_dzxoxmS=matrix_json.as_array();
         for(int vApbGbg=0; vApbGbg < 3; vApbGbg++){
-            [&](){
-        auto& arr_aijuQVd=arr_dzxoxmS[vApbGbg].emplace_array();
+            [&](){arr_dzxoxmS[vApbGbg]=boost::json::array(4);
+        auto& arr_aijuQVd=arr_dzxoxmS[vApbGbg].as_array();
         for(int ktoDiCf=0; ktoDiCf < 4; ktoDiCf++){
             [&](){arr_aijuQVd[ktoDiCf]=member.matrix[vApbGbg][ktoDiCf];}();
         }
@@ -35629,8 +35629,8 @@ auto& pVersionData_json=json["pVersionData"];
 [&](){
             if (member.pVersionData==NULL){
                 pVersionData_json=boost::json::array();
-            return; }
-        auto& arr_RuHqWQz=pVersionData_json.emplace_array();
+            return; }pVersionData_json=boost::json::array(2*VK_UUID_SIZE);
+        auto& arr_RuHqWQz=pVersionData_json.as_array();
         for(int EDvhmfD=0; EDvhmfD < 2*VK_UUID_SIZE; EDvhmfD++){
             [&](){arr_RuHqWQz[EDvhmfD]=member.pVersionData[EDvhmfD];}();
         }
@@ -35812,8 +35812,8 @@ auto& pLibraries_json=json["pLibraries"];
 [&](){
             if (member.pLibraries==NULL){
                 pLibraries_json=boost::json::array();
-            return; }
-        auto& arr_zRxHbYX=pLibraries_json.emplace_array();
+            return; }pLibraries_json=boost::json::array(member.libraryCount);
+        auto& arr_zRxHbYX=pLibraries_json.as_array();
         for(int WJsvUCn=0; WJsvUCn < member.libraryCount; WJsvUCn++){
             [&](){serialize_VkPipeline(arr_zRxHbYX[WJsvUCn],member.pLibraries[WJsvUCn]);}();
         }
@@ -36639,8 +36639,8 @@ auto& srcSubresource_json=json["srcSubresource"];
             return serialize_struct(temp, member.srcSubresource);
             }();
 auto& srcOffsets_json=json["srcOffsets"];
-[&](){
-        auto& arr_mKtJGhO=srcOffsets_json.emplace_array();
+[&](){srcOffsets_json=boost::json::array(2);
+        auto& arr_mKtJGhO=srcOffsets_json.as_array();
         for(int cffHdsm=0; cffHdsm < 2; cffHdsm++){
             [&](){
             auto& temp=arr_mKtJGhO[cffHdsm].emplace_object();
@@ -36654,8 +36654,8 @@ auto& dstSubresource_json=json["dstSubresource"];
             return serialize_struct(temp, member.dstSubresource);
             }();
 auto& dstOffsets_json=json["dstOffsets"];
-[&](){
-        auto& arr_vRqZKuS=dstOffsets_json.emplace_array();
+[&](){dstOffsets_json=boost::json::array(2);
+        auto& arr_vRqZKuS=dstOffsets_json.as_array();
         for(int YmWWFoI=0; YmWWFoI < 2; YmWWFoI++){
             [&](){
             auto& temp=arr_vRqZKuS[YmWWFoI].emplace_object();
@@ -36858,8 +36858,8 @@ auto& pRegions_json=json["pRegions"];
 [&](){
             if (member.pRegions==NULL){
                 pRegions_json=boost::json::array();
-            return; }
-        auto& arr_VOOmlwa=pRegions_json.emplace_array();
+            return; }pRegions_json=boost::json::array(member.regionCount);
+        auto& arr_VOOmlwa=pRegions_json.as_array();
         for(int PyHvXgN=0; PyHvXgN < member.regionCount; PyHvXgN++){
             [&](){
             auto& temp=arr_VOOmlwa[PyHvXgN].emplace_object();
@@ -36921,8 +36921,8 @@ auto& pRegions_json=json["pRegions"];
 [&](){
             if (member.pRegions==NULL){
                 pRegions_json=boost::json::array();
-            return; }
-        auto& arr_eEkCrMz=pRegions_json.emplace_array();
+            return; }pRegions_json=boost::json::array(member.regionCount);
+        auto& arr_eEkCrMz=pRegions_json.as_array();
         for(int ldqasfX=0; ldqasfX < member.regionCount; ldqasfX++){
             [&](){
             auto& temp=arr_eEkCrMz[ldqasfX].emplace_object();
@@ -36988,8 +36988,8 @@ auto& pRegions_json=json["pRegions"];
 [&](){
             if (member.pRegions==NULL){
                 pRegions_json=boost::json::array();
-            return; }
-        auto& arr_bLXCajV=pRegions_json.emplace_array();
+            return; }pRegions_json=boost::json::array(member.regionCount);
+        auto& arr_bLXCajV=pRegions_json.as_array();
         for(int vKsiEIA=0; vKsiEIA < member.regionCount; vKsiEIA++){
             [&](){
             auto& temp=arr_bLXCajV[vKsiEIA].emplace_object();
@@ -37057,8 +37057,8 @@ auto& pRegions_json=json["pRegions"];
 [&](){
             if (member.pRegions==NULL){
                 pRegions_json=boost::json::array();
-            return; }
-        auto& arr_BFqlBiQ=pRegions_json.emplace_array();
+            return; }pRegions_json=boost::json::array(member.regionCount);
+        auto& arr_BFqlBiQ=pRegions_json.as_array();
         for(int mhPmJjS=0; mhPmJjS < member.regionCount; mhPmJjS++){
             [&](){
             auto& temp=arr_BFqlBiQ[mhPmJjS].emplace_object();
@@ -37120,8 +37120,8 @@ auto& pRegions_json=json["pRegions"];
 [&](){
             if (member.pRegions==NULL){
                 pRegions_json=boost::json::array();
-            return; }
-        auto& arr_BFqlBiQ=pRegions_json.emplace_array();
+            return; }pRegions_json=boost::json::array(member.regionCount);
+        auto& arr_BFqlBiQ=pRegions_json.as_array();
         for(int mhPmJjS=0; mhPmJjS < member.regionCount; mhPmJjS++){
             [&](){
             auto& temp=arr_BFqlBiQ[mhPmJjS].emplace_object();
@@ -37185,8 +37185,8 @@ auto& pRegions_json=json["pRegions"];
 [&](){
             if (member.pRegions==NULL){
                 pRegions_json=boost::json::array();
-            return; }
-        auto& arr_sJBzdaX=pRegions_json.emplace_array();
+            return; }pRegions_json=boost::json::array(member.regionCount);
+        auto& arr_sJBzdaX=pRegions_json.as_array();
         for(int gYVnlSs=0; gYVnlSs < member.regionCount; gYVnlSs++){
             [&](){
             auto& temp=arr_sJBzdaX[gYVnlSs].emplace_object();
@@ -37271,8 +37271,8 @@ auto& pFragmentShadingRateAttachment_json=json["pFragmentShadingRateAttachment"]
 [&](){
             if (member.pFragmentShadingRateAttachment==NULL){
                 pFragmentShadingRateAttachment_json=boost::json::array();
-            return; }
-        auto& arr_srAaFCv=pFragmentShadingRateAttachment_json.emplace_array();
+            return; }pFragmentShadingRateAttachment_json=boost::json::array(1);
+        auto& arr_srAaFCv=pFragmentShadingRateAttachment_json.as_array();
         for(int EhVdyFn=0; EhVdyFn < 1; EhVdyFn++){
             [&](){
             auto& temp=arr_srAaFCv[EhVdyFn].emplace_object();
@@ -37330,8 +37330,8 @@ auto& fragmentSize_json=json["fragmentSize"];
             return serialize_struct(temp, member.fragmentSize);
             }();
 auto& combinerOps_json=json["combinerOps"];
-[&](){
-        auto& arr_RhAvuuI=combinerOps_json.emplace_array();
+[&](){combinerOps_json=boost::json::array(2);
+        auto& arr_RhAvuuI=combinerOps_json.as_array();
         for(int oRFNtpI=0; oRFNtpI < 2; oRFNtpI++){
             [&](){[&](){[&](){arr_RhAvuuI[oRFNtpI]=member.combinerOps[oRFNtpI];}();}();}();
         }
@@ -37632,8 +37632,8 @@ auto& shadingRateType_json=json["shadingRateType"];
 auto& shadingRate_json=json["shadingRate"];
 [&](){[&](){[&](){shadingRate_json=member.shadingRate;}();}();}();
 auto& combinerOps_json=json["combinerOps"];
-[&](){
-        auto& arr_RhAvuuI=combinerOps_json.emplace_array();
+[&](){combinerOps_json=boost::json::array(2);
+        auto& arr_RhAvuuI=combinerOps_json.as_array();
         for(int oRFNtpI=0; oRFNtpI < 2; oRFNtpI++){
             [&](){[&](){[&](){arr_RhAvuuI[oRFNtpI]=member.combinerOps[oRFNtpI];}();}();}();
         }
@@ -37806,8 +37806,8 @@ auto& pDescriptorTypes_json=json["pDescriptorTypes"];
 [&](){
             if (member.pDescriptorTypes==NULL){
                 pDescriptorTypes_json=boost::json::array();
-            return; }
-        auto& arr_MqlUYrq=pDescriptorTypes_json.emplace_array();
+            return; }pDescriptorTypes_json=boost::json::array(member.descriptorTypeCount);
+        auto& arr_MqlUYrq=pDescriptorTypes_json.as_array();
         for(int nsUPqrI=0; nsUPqrI < member.descriptorTypeCount; nsUPqrI++){
             [&](){[&](){[&](){arr_MqlUYrq[nsUPqrI]=member.pDescriptorTypes[nsUPqrI];}();}();}();
         }
@@ -37844,8 +37844,8 @@ auto& pMutableDescriptorTypeLists_json=json["pMutableDescriptorTypeLists"];
 [&](){
             if (member.pMutableDescriptorTypeLists==NULL){
                 pMutableDescriptorTypeLists_json=boost::json::array();
-            return; }
-        auto& arr_oiOuQBO=pMutableDescriptorTypeLists_json.emplace_array();
+            return; }pMutableDescriptorTypeLists_json=boost::json::array(member.mutableDescriptorTypeListCount);
+        auto& arr_oiOuQBO=pMutableDescriptorTypeLists_json.as_array();
         for(int oOYbFEO=0; oOYbFEO < member.mutableDescriptorTypeListCount; oOYbFEO++){
             [&](){
             auto& temp=arr_oiOuQBO[oOYbFEO].emplace_object();
@@ -38094,8 +38094,8 @@ auto& pColorWriteEnables_json=json["pColorWriteEnables"];
 [&](){
             if (member.pColorWriteEnables==NULL){
                 pColorWriteEnables_json=boost::json::array();
-            return; }
-        auto& arr_FSxsZtL=pColorWriteEnables_json.emplace_array();
+            return; }pColorWriteEnables_json=boost::json::array(member.attachmentCount);
+        auto& arr_FSxsZtL=pColorWriteEnables_json.as_array();
         for(int aDpiKGH=0; aDpiKGH < member.attachmentCount; aDpiKGH++){
             [&](){[&](){arr_FSxsZtL[aDpiKGH]=member.pColorWriteEnables[aDpiKGH];}();}();
         }
@@ -38302,8 +38302,8 @@ auto& pMemoryBarriers_json=json["pMemoryBarriers"];
 [&](){
             if (member.pMemoryBarriers==NULL){
                 pMemoryBarriers_json=boost::json::array();
-            return; }
-        auto& arr_uYqXDjV=pMemoryBarriers_json.emplace_array();
+            return; }pMemoryBarriers_json=boost::json::array(member.memoryBarrierCount);
+        auto& arr_uYqXDjV=pMemoryBarriers_json.as_array();
         for(int EtCwghm=0; EtCwghm < member.memoryBarrierCount; EtCwghm++){
             [&](){
             auto& temp=arr_uYqXDjV[EtCwghm].emplace_object();
@@ -38317,8 +38317,8 @@ auto& pBufferMemoryBarriers_json=json["pBufferMemoryBarriers"];
 [&](){
             if (member.pBufferMemoryBarriers==NULL){
                 pBufferMemoryBarriers_json=boost::json::array();
-            return; }
-        auto& arr_lZorhiU=pBufferMemoryBarriers_json.emplace_array();
+            return; }pBufferMemoryBarriers_json=boost::json::array(member.bufferMemoryBarrierCount);
+        auto& arr_lZorhiU=pBufferMemoryBarriers_json.as_array();
         for(int PpUXYmj=0; PpUXYmj < member.bufferMemoryBarrierCount; PpUXYmj++){
             [&](){
             auto& temp=arr_lZorhiU[PpUXYmj].emplace_object();
@@ -38332,8 +38332,8 @@ auto& pImageMemoryBarriers_json=json["pImageMemoryBarriers"];
 [&](){
             if (member.pImageMemoryBarriers==NULL){
                 pImageMemoryBarriers_json=boost::json::array();
-            return; }
-        auto& arr_ELVGTei=pImageMemoryBarriers_json.emplace_array();
+            return; }pImageMemoryBarriers_json=boost::json::array(member.imageMemoryBarrierCount);
+        auto& arr_ELVGTei=pImageMemoryBarriers_json.as_array();
         for(int jZqCPSq=0; jZqCPSq < member.imageMemoryBarrierCount; jZqCPSq++){
             [&](){
             auto& temp=arr_ELVGTei[jZqCPSq].emplace_object();
@@ -38483,8 +38483,8 @@ auto& pWaitSemaphoreInfos_json=json["pWaitSemaphoreInfos"];
 [&](){
             if (member.pWaitSemaphoreInfos==NULL){
                 pWaitSemaphoreInfos_json=boost::json::array();
-            return; }
-        auto& arr_GVgDjlB=pWaitSemaphoreInfos_json.emplace_array();
+            return; }pWaitSemaphoreInfos_json=boost::json::array(member.waitSemaphoreInfoCount);
+        auto& arr_GVgDjlB=pWaitSemaphoreInfos_json.as_array();
         for(int LVzoqvo=0; LVzoqvo < member.waitSemaphoreInfoCount; LVzoqvo++){
             [&](){
             auto& temp=arr_GVgDjlB[LVzoqvo].emplace_object();
@@ -38498,8 +38498,8 @@ auto& pCommandBufferInfos_json=json["pCommandBufferInfos"];
 [&](){
             if (member.pCommandBufferInfos==NULL){
                 pCommandBufferInfos_json=boost::json::array();
-            return; }
-        auto& arr_fhIgJVd=pCommandBufferInfos_json.emplace_array();
+            return; }pCommandBufferInfos_json=boost::json::array(member.commandBufferInfoCount);
+        auto& arr_fhIgJVd=pCommandBufferInfos_json.as_array();
         for(int prIDUIM=0; prIDUIM < member.commandBufferInfoCount; prIDUIM++){
             [&](){
             auto& temp=arr_fhIgJVd[prIDUIM].emplace_object();
@@ -38513,8 +38513,8 @@ auto& pSignalSemaphoreInfos_json=json["pSignalSemaphoreInfos"];
 [&](){
             if (member.pSignalSemaphoreInfos==NULL){
                 pSignalSemaphoreInfos_json=boost::json::array();
-            return; }
-        auto& arr_WqkNqnQ=pSignalSemaphoreInfos_json.emplace_array();
+            return; }pSignalSemaphoreInfos_json=boost::json::array(member.signalSemaphoreInfoCount);
+        auto& arr_WqkNqnQ=pSignalSemaphoreInfos_json.as_array();
         for(int UBaqqLs=0; UBaqqLs < member.signalSemaphoreInfoCount; UBaqqLs++){
             [&](){
             auto& temp=arr_WqkNqnQ[UBaqqLs].emplace_object();
@@ -38624,8 +38624,8 @@ auto& pCheckpointMarker_json=json["pCheckpointMarker"];
             return; }[&](){
             if (((char*)(member.pCheckpointMarker))==NULL){
                 pCheckpointMarker_json=boost::json::array();
-            return; }
-        auto& arr_camgBwN=pCheckpointMarker_json.emplace_array();
+            return; }pCheckpointMarker_json=boost::json::array(strlen(((char*)(member.pCheckpointMarker)))+1);
+        auto& arr_camgBwN=pCheckpointMarker_json.as_array();
         for(int RrhLchW=0; RrhLchW < strlen(((char*)(member.pCheckpointMarker)))+1; RrhLchW++){
             [&](){arr_camgBwN[RrhLchW]=((char*)(member.pCheckpointMarker))[RrhLchW];}();
         }
@@ -38722,8 +38722,8 @@ auto& pCopySrcLayouts_json=json["pCopySrcLayouts"];
 [&](){
             if (member.pCopySrcLayouts==NULL){
                 pCopySrcLayouts_json=boost::json::array();
-            return; }
-        auto& arr_gKSOpvu=pCopySrcLayouts_json.emplace_array();
+            return; }pCopySrcLayouts_json=boost::json::array(member.copySrcLayoutCount);
+        auto& arr_gKSOpvu=pCopySrcLayouts_json.as_array();
         for(int sAVlRAU=0; sAVlRAU < member.copySrcLayoutCount; sAVlRAU++){
             [&](){[&](){[&](){arr_gKSOpvu[sAVlRAU]=member.pCopySrcLayouts[sAVlRAU];}();}();}();
         }
@@ -38734,15 +38734,15 @@ auto& pCopyDstLayouts_json=json["pCopyDstLayouts"];
 [&](){
             if (member.pCopyDstLayouts==NULL){
                 pCopyDstLayouts_json=boost::json::array();
-            return; }
-        auto& arr_dMkwjru=pCopyDstLayouts_json.emplace_array();
+            return; }pCopyDstLayouts_json=boost::json::array(member.copyDstLayoutCount);
+        auto& arr_dMkwjru=pCopyDstLayouts_json.as_array();
         for(int ugeATbs=0; ugeATbs < member.copyDstLayoutCount; ugeATbs++){
             [&](){[&](){[&](){arr_dMkwjru[ugeATbs]=member.pCopyDstLayouts[ugeATbs];}();}();}();
         }
         }();
 auto& optimalTilingLayoutUUID_json=json["optimalTilingLayoutUUID"];
-[&](){
-        auto& arr_TAJEbhB=optimalTilingLayoutUUID_json.emplace_array();
+[&](){optimalTilingLayoutUUID_json=boost::json::array(VK_UUID_SIZE);
+        auto& arr_TAJEbhB=optimalTilingLayoutUUID_json.as_array();
         for(int uzTazor=0; uzTazor < VK_UUID_SIZE; uzTazor++){
             [&](){arr_TAJEbhB[uzTazor]=member.optimalTilingLayoutUUID[uzTazor];}();
         }
@@ -38810,8 +38810,8 @@ auto& pHostPointer_json=json["pHostPointer"];
             return; }[&](){
             if (((char*)(member.pHostPointer))==NULL){
                 pHostPointer_json=boost::json::array();
-            return; }
-        auto& arr_kKQnyNo=pHostPointer_json.emplace_array();
+            return; }pHostPointer_json=boost::json::array(strlen(((char*)(member.pHostPointer)))+1);
+        auto& arr_kKQnyNo=pHostPointer_json.as_array();
         for(int HbGymWe=0; HbGymWe < strlen(((char*)(member.pHostPointer)))+1; HbGymWe++){
             [&](){arr_kKQnyNo[HbGymWe]=((char*)(member.pHostPointer))[HbGymWe];}();
         }
@@ -38895,8 +38895,8 @@ auto& pHostPointer_json=json["pHostPointer"];
             return; }[&](){
             if (((char*)(member.pHostPointer))==NULL){
                 pHostPointer_json=boost::json::array();
-            return; }
-        auto& arr_BrxoFPy=pHostPointer_json.emplace_array();
+            return; }pHostPointer_json=boost::json::array(100000);
+        auto& arr_BrxoFPy=pHostPointer_json.as_array();
         for(int ZYyfYiy=0; ZYyfYiy < 100000; ZYyfYiy++){
             [&](){arr_BrxoFPy[ZYyfYiy]=((char*)(member.pHostPointer))[ZYyfYiy];}();
         }
@@ -38985,8 +38985,8 @@ auto& pRegions_json=json["pRegions"];
 [&](){
             if (member.pRegions==NULL){
                 pRegions_json=boost::json::array();
-            return; }
-        auto& arr_TpKEHMr=pRegions_json.emplace_array();
+            return; }pRegions_json=boost::json::array(member.regionCount);
+        auto& arr_TpKEHMr=pRegions_json.as_array();
         for(int yOYELJC=0; yOYELJC < member.regionCount; yOYELJC++){
             [&](){
             auto& temp=arr_TpKEHMr[yOYELJC].emplace_object();
@@ -39048,8 +39048,8 @@ auto& pRegions_json=json["pRegions"];
 [&](){
             if (member.pRegions==NULL){
                 pRegions_json=boost::json::array();
-            return; }
-        auto& arr_JnLERzC=pRegions_json.emplace_array();
+            return; }pRegions_json=boost::json::array(member.regionCount);
+        auto& arr_JnLERzC=pRegions_json.as_array();
         for(int RazZKkE=0; RazZKkE < member.regionCount; RazZKkE++){
             [&](){
             auto& temp=arr_JnLERzC[RazZKkE].emplace_object();
@@ -39115,8 +39115,8 @@ auto& pRegions_json=json["pRegions"];
 [&](){
             if (member.pRegions==NULL){
                 pRegions_json=boost::json::array();
-            return; }
-        auto& arr_eEkCrMz=pRegions_json.emplace_array();
+            return; }pRegions_json=boost::json::array(member.regionCount);
+        auto& arr_eEkCrMz=pRegions_json.as_array();
         for(int ldqasfX=0; ldqasfX < member.regionCount; ldqasfX++){
             [&](){
             auto& temp=arr_eEkCrMz[ldqasfX].emplace_object();
@@ -39485,8 +39485,8 @@ auto& pProfiles_json=json["pProfiles"];
 [&](){
             if (member.pProfiles==NULL){
                 pProfiles_json=boost::json::array();
-            return; }
-        auto& arr_ZBtGgqD=pProfiles_json.emplace_array();
+            return; }pProfiles_json=boost::json::array(member.profileCount);
+        auto& arr_ZBtGgqD=pProfiles_json.as_array();
         for(int qLsWZEU=0; qLsWZEU < member.profileCount; qLsWZEU++){
             [&](){
             auto& temp=arr_ZBtGgqD[qLsWZEU].emplace_object();
@@ -39851,8 +39851,8 @@ auto& pPictureResource_json=json["pPictureResource"];
 [&](){
             if (member.pPictureResource==NULL){
                 pPictureResource_json=boost::json::array();
-            return; }
-        auto& arr_djEoQBi=pPictureResource_json.emplace_array();
+            return; }pPictureResource_json=boost::json::array(1);
+        auto& arr_djEoQBi=pPictureResource_json.as_array();
         for(int fEARCkB=0; fEARCkB < 1; fEARCkB++){
             [&](){
             auto& temp=arr_djEoQBi[fEARCkB].emplace_object();
@@ -39963,8 +39963,8 @@ auto& pSetupReferenceSlot_json=json["pSetupReferenceSlot"];
 [&](){
             if (member.pSetupReferenceSlot==NULL){
                 pSetupReferenceSlot_json=boost::json::array();
-            return; }
-        auto& arr_uwnCvBq=pSetupReferenceSlot_json.emplace_array();
+            return; }pSetupReferenceSlot_json=boost::json::array(1);
+        auto& arr_uwnCvBq=pSetupReferenceSlot_json.as_array();
         for(int ISkkOBc=0; ISkkOBc < 1; ISkkOBc++){
             [&](){
             auto& temp=arr_uwnCvBq[ISkkOBc].emplace_object();
@@ -39978,8 +39978,8 @@ auto& pReferenceSlots_json=json["pReferenceSlots"];
 [&](){
             if (member.pReferenceSlots==NULL){
                 pReferenceSlots_json=boost::json::array();
-            return; }
-        auto& arr_hNUTaci=pReferenceSlots_json.emplace_array();
+            return; }pReferenceSlots_json=boost::json::array(member.referenceSlotCount);
+        auto& arr_hNUTaci=pReferenceSlots_json.as_array();
         for(int EWeFaQj=0; EWeFaQj < member.referenceSlotCount; EWeFaQj++){
             [&](){
             auto& temp=arr_hNUTaci[EWeFaQj].emplace_object();
@@ -40170,8 +40170,8 @@ auto& pParametersAddInfo_json=json["pParametersAddInfo"];
 [&](){
             if (member.pParametersAddInfo==NULL){
                 pParametersAddInfo_json=boost::json::array();
-            return; }
-        auto& arr_xlxjnfg=pParametersAddInfo_json.emplace_array();
+            return; }pParametersAddInfo_json=boost::json::array(1);
+        auto& arr_xlxjnfg=pParametersAddInfo_json.as_array();
         for(int wbcEpkz=0; wbcEpkz < 1; wbcEpkz++){
             [&](){
             auto& temp=arr_xlxjnfg[wbcEpkz].emplace_object();
@@ -40228,8 +40228,8 @@ auto& pSliceOffsets_json=json["pSliceOffsets"];
 [&](){
             if (member.pSliceOffsets==NULL){
                 pSliceOffsets_json=boost::json::array();
-            return; }
-        auto& arr_xKJUFEi=pSliceOffsets_json.emplace_array();
+            return; }pSliceOffsets_json=boost::json::array(member.sliceCount);
+        auto& arr_xKJUFEi=pSliceOffsets_json.as_array();
         for(int qqvmrqA=0; qqvmrqA < member.sliceCount; qqvmrqA++){
             [&](){arr_xKJUFEi[qqvmrqA]=member.pSliceOffsets[qqvmrqA];}();
         }
@@ -40426,8 +40426,8 @@ auto& pParametersAddInfo_json=json["pParametersAddInfo"];
 [&](){
             if (member.pParametersAddInfo==NULL){
                 pParametersAddInfo_json=boost::json::array();
-            return; }
-        auto& arr_HwLlplh=pParametersAddInfo_json.emplace_array();
+            return; }pParametersAddInfo_json=boost::json::array(1);
+        auto& arr_HwLlplh=pParametersAddInfo_json.as_array();
         for(int xyeBndZ=0; xyeBndZ < 1; xyeBndZ++){
             [&](){
             auto& temp=arr_HwLlplh[xyeBndZ].emplace_object();
@@ -40486,8 +40486,8 @@ auto& pSliceSegmentOffsets_json=json["pSliceSegmentOffsets"];
 [&](){
             if (member.pSliceSegmentOffsets==NULL){
                 pSliceSegmentOffsets_json=boost::json::array();
-            return; }
-        auto& arr_shxlmUq=pSliceSegmentOffsets_json.emplace_array();
+            return; }pSliceSegmentOffsets_json=boost::json::array(member.sliceSegmentCount);
+        auto& arr_shxlmUq=pSliceSegmentOffsets_json.as_array();
         for(int bKjPBJN=0; bKjPBJN < member.sliceSegmentCount; bKjPBJN++){
             [&](){arr_shxlmUq[bKjPBJN]=member.pSliceSegmentOffsets[bKjPBJN];}();
         }
@@ -40569,8 +40569,8 @@ auto& pVideoProfile_json=json["pVideoProfile"];
 [&](){
             if (member.pVideoProfile==NULL){
                 pVideoProfile_json=boost::json::array();
-            return; }
-        auto& arr_cYUybNt=pVideoProfile_json.emplace_array();
+            return; }pVideoProfile_json=boost::json::array(1);
+        auto& arr_cYUybNt=pVideoProfile_json.as_array();
         for(int HIFOwAq=0; HIFOwAq < 1; HIFOwAq++){
             [&](){
             auto& temp=arr_cYUybNt[HIFOwAq].emplace_object();
@@ -40595,8 +40595,8 @@ auto& pStdHeaderVersion_json=json["pStdHeaderVersion"];
 [&](){
             if (member.pStdHeaderVersion==NULL){
                 pStdHeaderVersion_json=boost::json::array();
-            return; }
-        auto& arr_UhuMWfc=pStdHeaderVersion_json.emplace_array();
+            return; }pStdHeaderVersion_json=boost::json::array(1);
+        auto& arr_UhuMWfc=pStdHeaderVersion_json.as_array();
         for(int aRJLlXo=0; aRJLlXo < 1; aRJLlXo++){
             [&](){
             auto& temp=arr_UhuMWfc[aRJLlXo].emplace_object();
@@ -40738,8 +40738,8 @@ auto& pReferenceSlots_json=json["pReferenceSlots"];
 [&](){
             if (member.pReferenceSlots==NULL){
                 pReferenceSlots_json=boost::json::array();
-            return; }
-        auto& arr_hNUTaci=pReferenceSlots_json.emplace_array();
+            return; }pReferenceSlots_json=boost::json::array(member.referenceSlotCount);
+        auto& arr_hNUTaci=pReferenceSlots_json.as_array();
         for(int EWeFaQj=0; EWeFaQj < member.referenceSlotCount; EWeFaQj++){
             [&](){
             auto& temp=arr_hNUTaci[EWeFaQj].emplace_object();
@@ -40872,8 +40872,8 @@ auto& pViewportDepths_json=json["pViewportDepths"];
 [&](){
             if (member.pViewportDepths==NULL){
                 pViewportDepths_json=boost::json::array();
-            return; }
-        auto& arr_aQtsLfD=pViewportDepths_json.emplace_array();
+            return; }pViewportDepths_json=boost::json::array(1);
+        auto& arr_aQtsLfD=pViewportDepths_json.as_array();
         for(int choYOAw=0; choYOAw < 1; choYOAw++){
             [&](){
             auto& temp=arr_aQtsLfD[choYOAw].emplace_object();
@@ -41036,8 +41036,8 @@ auto& pData_json=json["pData"];
             return; }[&](){
             if (((char*)(member.pData))==NULL){
                 pData_json=boost::json::array();
-            return; }
-        auto& arr_cukaPTa=pData_json.emplace_array();
+            return; }pData_json=boost::json::array(member.dataSize);
+        auto& arr_cukaPTa=pData_json.as_array();
         for(int UqwNSOA=0; UqwNSOA < member.dataSize; UqwNSOA++){
             [&](){arr_cukaPTa[UqwNSOA]=((char*)(member.pData))[UqwNSOA];}();
         }
@@ -41084,8 +41084,8 @@ auto& pName_json=json["pName"];
 [&](){
             if (member.pName==NULL){
                 pName_json=boost::json::array();
-            return; }
-        auto& arr_RNtEgHa=pName_json.emplace_array();
+            return; }pName_json=boost::json::array(strlen(member.pName)+1);
+        auto& arr_RNtEgHa=pName_json.as_array();
         for(int JRJzPhN=0; JRJzPhN < strlen(member.pName)+1; JRJzPhN++){
             [&](){arr_RNtEgHa[JRJzPhN]=member.pName[JRJzPhN];}();
         }
@@ -41145,8 +41145,8 @@ auto& pParams_json=json["pParams"];
 [&](){
             if (member.pParams==NULL){
                 pParams_json=boost::json::array();
-            return; }
-        auto& arr_UKdddHW=pParams_json.emplace_array();
+            return; }pParams_json=boost::json::array(1);
+        auto& arr_UKdddHW=pParams_json.as_array();
         for(int lwGCeVE=0; lwGCeVE < 1; lwGCeVE++){
             [&](){
             if (member.pParams[lwGCeVE]==NULL){
@@ -41154,8 +41154,8 @@ auto& pParams_json=json["pParams"];
             return; }[&](){
             if (((char*)(member.pParams[lwGCeVE]))==NULL){
                 arr_UKdddHW[lwGCeVE]=boost::json::array();
-            return; }
-        auto& arr_ZeylACs=arr_UKdddHW[lwGCeVE].emplace_array();
+            return; }arr_UKdddHW[lwGCeVE]=boost::json::array(member.paramCount);
+        auto& arr_ZeylACs=arr_UKdddHW[lwGCeVE].as_array();
         for(int sXfeKcP=0; sXfeKcP < member.paramCount; sXfeKcP++){
             [&](){arr_ZeylACs[sXfeKcP]=((char*)(member.pParams[lwGCeVE]))[sXfeKcP];}();
         }
@@ -41168,8 +41168,8 @@ auto& pExtras_json=json["pExtras"];
 [&](){
             if (member.pExtras==NULL){
                 pExtras_json=boost::json::array();
-            return; }
-        auto& arr_JybOQtK=pExtras_json.emplace_array();
+            return; }pExtras_json=boost::json::array(1);
+        auto& arr_JybOQtK=pExtras_json.as_array();
         for(int TjXAhjK=0; TjXAhjK < 1; TjXAhjK++){
             [&](){
             if (member.pExtras[TjXAhjK]==NULL){
@@ -41177,8 +41177,8 @@ auto& pExtras_json=json["pExtras"];
             return; }[&](){
             if (((char*)(member.pExtras[TjXAhjK]))==NULL){
                 arr_JybOQtK[TjXAhjK]=boost::json::array();
-            return; }
-        auto& arr_VUsnEbF=arr_JybOQtK[TjXAhjK].emplace_array();
+            return; }arr_JybOQtK[TjXAhjK]=boost::json::array(member.extraCount);
+        auto& arr_VUsnEbF=arr_JybOQtK[TjXAhjK].as_array();
         for(int QaQDEqf=0; QaQDEqf < member.extraCount; QaQDEqf++){
             [&](){arr_VUsnEbF[QaQDEqf]=((char*)(member.pExtras[TjXAhjK]))[QaQDEqf];}();
         }
@@ -41567,8 +41567,8 @@ auto& pSampler_json=json["pSampler"];
 [&](){
             if (member.pSampler==NULL){
                 pSampler_json=boost::json::array();
-            return; }
-        auto& arr_dMQqpIL=pSampler_json.emplace_array();
+            return; }pSampler_json=boost::json::array(1);
+        auto& arr_dMQqpIL=pSampler_json.as_array();
         for(int eHUyqdO=0; eHUyqdO < 1; eHUyqdO++){
             [&](){serialize_VkSampler(arr_dMQqpIL[eHUyqdO],member.pSampler[eHUyqdO]);}();
         }
@@ -41577,8 +41577,8 @@ auto& pCombinedImageSampler_json=json["pCombinedImageSampler"];
 [&](){
             if (member.pCombinedImageSampler==NULL){
                 pCombinedImageSampler_json=boost::json::array();
-            return; }
-        auto& arr_SFaLpUw=pCombinedImageSampler_json.emplace_array();
+            return; }pCombinedImageSampler_json=boost::json::array(1);
+        auto& arr_SFaLpUw=pCombinedImageSampler_json.as_array();
         for(int PCbwOXN=0; PCbwOXN < 1; PCbwOXN++){
             [&](){
             auto& temp=arr_SFaLpUw[PCbwOXN].emplace_object();
@@ -41590,8 +41590,8 @@ auto& pInputAttachmentImage_json=json["pInputAttachmentImage"];
 [&](){
             if (member.pInputAttachmentImage==NULL){
                 pInputAttachmentImage_json=boost::json::array();
-            return; }
-        auto& arr_JmELAzk=pInputAttachmentImage_json.emplace_array();
+            return; }pInputAttachmentImage_json=boost::json::array(1);
+        auto& arr_JmELAzk=pInputAttachmentImage_json.as_array();
         for(int UtkaHCy=0; UtkaHCy < 1; UtkaHCy++){
             [&](){
             auto& temp=arr_JmELAzk[UtkaHCy].emplace_object();
@@ -41603,8 +41603,8 @@ auto& pSampledImage_json=json["pSampledImage"];
 [&](){
             if (member.pSampledImage==NULL){
                 pSampledImage_json=boost::json::array();
-            return; }
-        auto& arr_qOHCftC=pSampledImage_json.emplace_array();
+            return; }pSampledImage_json=boost::json::array(1);
+        auto& arr_qOHCftC=pSampledImage_json.as_array();
         for(int oasCmla=0; oasCmla < 1; oasCmla++){
             [&](){
             auto& temp=arr_qOHCftC[oasCmla].emplace_object();
@@ -41616,8 +41616,8 @@ auto& pStorageImage_json=json["pStorageImage"];
 [&](){
             if (member.pStorageImage==NULL){
                 pStorageImage_json=boost::json::array();
-            return; }
-        auto& arr_pmyozer=pStorageImage_json.emplace_array();
+            return; }pStorageImage_json=boost::json::array(1);
+        auto& arr_pmyozer=pStorageImage_json.as_array();
         for(int cYaYUCx=0; cYaYUCx < 1; cYaYUCx++){
             [&](){
             auto& temp=arr_pmyozer[cYaYUCx].emplace_object();
@@ -41629,8 +41629,8 @@ auto& pUniformTexelBuffer_json=json["pUniformTexelBuffer"];
 [&](){
             if (member.pUniformTexelBuffer==NULL){
                 pUniformTexelBuffer_json=boost::json::array();
-            return; }
-        auto& arr_OIDlzqo=pUniformTexelBuffer_json.emplace_array();
+            return; }pUniformTexelBuffer_json=boost::json::array(1);
+        auto& arr_OIDlzqo=pUniformTexelBuffer_json.as_array();
         for(int pkFuwJH=0; pkFuwJH < 1; pkFuwJH++){
             [&](){
             auto& temp=arr_OIDlzqo[pkFuwJH].emplace_object();
@@ -41642,8 +41642,8 @@ auto& pStorageTexelBuffer_json=json["pStorageTexelBuffer"];
 [&](){
             if (member.pStorageTexelBuffer==NULL){
                 pStorageTexelBuffer_json=boost::json::array();
-            return; }
-        auto& arr_xtbpyML=pStorageTexelBuffer_json.emplace_array();
+            return; }pStorageTexelBuffer_json=boost::json::array(1);
+        auto& arr_xtbpyML=pStorageTexelBuffer_json.as_array();
         for(int hVYviCs=0; hVYviCs < 1; hVYviCs++){
             [&](){
             auto& temp=arr_xtbpyML[hVYviCs].emplace_object();
@@ -41655,8 +41655,8 @@ auto& pUniformBuffer_json=json["pUniformBuffer"];
 [&](){
             if (member.pUniformBuffer==NULL){
                 pUniformBuffer_json=boost::json::array();
-            return; }
-        auto& arr_kxqZNdO=pUniformBuffer_json.emplace_array();
+            return; }pUniformBuffer_json=boost::json::array(1);
+        auto& arr_kxqZNdO=pUniformBuffer_json.as_array();
         for(int UnVRNnp=0; UnVRNnp < 1; UnVRNnp++){
             [&](){
             auto& temp=arr_kxqZNdO[UnVRNnp].emplace_object();
@@ -41668,8 +41668,8 @@ auto& pStorageBuffer_json=json["pStorageBuffer"];
 [&](){
             if (member.pStorageBuffer==NULL){
                 pStorageBuffer_json=boost::json::array();
-            return; }
-        auto& arr_UxtFGfq=pStorageBuffer_json.emplace_array();
+            return; }pStorageBuffer_json=boost::json::array(1);
+        auto& arr_UxtFGfq=pStorageBuffer_json.as_array();
         for(int dBYVCtY=0; dBYVCtY < 1; dBYVCtY++){
             [&](){
             auto& temp=arr_UxtFGfq[dBYVCtY].emplace_object();
@@ -41980,8 +41980,8 @@ auto& opaqueCaptureDescriptorData_json=json["opaqueCaptureDescriptorData"];
             return; }[&](){
             if (((char*)(member.opaqueCaptureDescriptorData))==NULL){
                 opaqueCaptureDescriptorData_json=boost::json::array();
-            return; }
-        auto& arr_rVjycpg=opaqueCaptureDescriptorData_json.emplace_array();
+            return; }opaqueCaptureDescriptorData_json=boost::json::array(strlen(((char*)(member.opaqueCaptureDescriptorData)))+1);
+        auto& arr_rVjycpg=opaqueCaptureDescriptorData_json.as_array();
         for(int HRdcEte=0; HRdcEte < strlen(((char*)(member.opaqueCaptureDescriptorData)))+1; HRdcEte++){
             [&](){arr_rVjycpg[HRdcEte]=((char*)(member.opaqueCaptureDescriptorData))[HRdcEte];}();
         }
@@ -42690,8 +42690,8 @@ auto& pDrmFormatModifierProperties_json=json["pDrmFormatModifierProperties"];
 [&](){
             if (member.pDrmFormatModifierProperties==NULL){
                 pDrmFormatModifierProperties_json=boost::json::array();
-            return; }
-        auto& arr_IlDDRWk=pDrmFormatModifierProperties_json.emplace_array();
+            return; }pDrmFormatModifierProperties_json=boost::json::array(member.drmFormatModifierCount);
+        auto& arr_IlDDRWk=pDrmFormatModifierProperties_json.as_array();
         for(int fYwCOAr=0; fYwCOAr < member.drmFormatModifierCount; fYwCOAr++){
             [&](){
             auto& temp=arr_IlDDRWk[fYwCOAr].emplace_object();
@@ -42762,8 +42762,8 @@ auto& pColorAttachmentFormats_json=json["pColorAttachmentFormats"];
 [&](){
             if (member.pColorAttachmentFormats==NULL){
                 pColorAttachmentFormats_json=boost::json::array();
-            return; }
-        auto& arr_rhmCrPX=pColorAttachmentFormats_json.emplace_array();
+            return; }pColorAttachmentFormats_json=boost::json::array(member.colorAttachmentCount);
+        auto& arr_rhmCrPX=pColorAttachmentFormats_json.as_array();
         for(int yamBoue=0; yamBoue < member.colorAttachmentCount; yamBoue++){
             [&](){[&](){[&](){arr_rhmCrPX[yamBoue]=member.pColorAttachmentFormats[yamBoue];}();}();}();
         }
@@ -42828,8 +42828,8 @@ auto& pColorAttachments_json=json["pColorAttachments"];
 [&](){
             if (member.pColorAttachments==NULL){
                 pColorAttachments_json=boost::json::array();
-            return; }
-        auto& arr_zOjumrr=pColorAttachments_json.emplace_array();
+            return; }pColorAttachments_json=boost::json::array(member.colorAttachmentCount);
+        auto& arr_zOjumrr=pColorAttachments_json.as_array();
         for(int MqTvXsu=0; MqTvXsu < member.colorAttachmentCount; MqTvXsu++){
             [&](){
             auto& temp=arr_zOjumrr[MqTvXsu].emplace_object();
@@ -42841,8 +42841,8 @@ auto& pDepthAttachment_json=json["pDepthAttachment"];
 [&](){
             if (member.pDepthAttachment==NULL){
                 pDepthAttachment_json=boost::json::array();
-            return; }
-        auto& arr_zCcjFNg=pDepthAttachment_json.emplace_array();
+            return; }pDepthAttachment_json=boost::json::array(1);
+        auto& arr_zCcjFNg=pDepthAttachment_json.as_array();
         for(int DKeqxaZ=0; DKeqxaZ < 1; DKeqxaZ++){
             [&](){
             auto& temp=arr_zCcjFNg[DKeqxaZ].emplace_object();
@@ -42854,8 +42854,8 @@ auto& pStencilAttachment_json=json["pStencilAttachment"];
 [&](){
             if (member.pStencilAttachment==NULL){
                 pStencilAttachment_json=boost::json::array();
-            return; }
-        auto& arr_NEEZdlG=pStencilAttachment_json.emplace_array();
+            return; }pStencilAttachment_json=boost::json::array(1);
+        auto& arr_NEEZdlG=pStencilAttachment_json.as_array();
         for(int JyQYSGl=0; JyQYSGl < 1; JyQYSGl++){
             [&](){
             auto& temp=arr_NEEZdlG[JyQYSGl].emplace_object();
@@ -43098,8 +43098,8 @@ auto& pColorAttachmentFormats_json=json["pColorAttachmentFormats"];
 [&](){
             if (member.pColorAttachmentFormats==NULL){
                 pColorAttachmentFormats_json=boost::json::array();
-            return; }
-        auto& arr_rhmCrPX=pColorAttachmentFormats_json.emplace_array();
+            return; }pColorAttachmentFormats_json=boost::json::array(member.colorAttachmentCount);
+        auto& arr_rhmCrPX=pColorAttachmentFormats_json.as_array();
         for(int yamBoue=0; yamBoue < member.colorAttachmentCount; yamBoue++){
             [&](){[&](){[&](){arr_rhmCrPX[yamBoue]=member.pColorAttachmentFormats[yamBoue];}();}();}();
         }
@@ -43159,8 +43159,8 @@ auto& pColorAttachmentSamples_json=json["pColorAttachmentSamples"];
 [&](){
             if (member.pColorAttachmentSamples==NULL){
                 pColorAttachmentSamples_json=boost::json::array();
-            return; }
-        auto& arr_AUDfvvW=pColorAttachmentSamples_json.emplace_array();
+            return; }pColorAttachmentSamples_json=boost::json::array(member.colorAttachmentCount);
+        auto& arr_AUDfvvW=pColorAttachmentSamples_json.as_array();
         for(int Gkuhwbx=0; Gkuhwbx < member.colorAttachmentCount; Gkuhwbx++){
             [&](){[&](){[&](){arr_AUDfvvW[Gkuhwbx]=member.pColorAttachmentSamples[Gkuhwbx];}();}();}();
         }
@@ -43527,8 +43527,8 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& shaderModuleIdentifierAlgorithmUUID_json=json["shaderModuleIdentifierAlgorithmUUID"];
-[&](){
-        auto& arr_ESXLQQU=shaderModuleIdentifierAlgorithmUUID_json.emplace_array();
+[&](){shaderModuleIdentifierAlgorithmUUID_json=boost::json::array(VK_UUID_SIZE);
+        auto& arr_ESXLQQU=shaderModuleIdentifierAlgorithmUUID_json.as_array();
         for(int IpgXIaE=0; IpgXIaE < VK_UUID_SIZE; IpgXIaE++){
             [&](){arr_ESXLQQU[IpgXIaE]=member.shaderModuleIdentifierAlgorithmUUID[IpgXIaE];}();
         }
@@ -43567,8 +43567,8 @@ auto& pIdentifier_json=json["pIdentifier"];
 [&](){
             if (member.pIdentifier==NULL){
                 pIdentifier_json=boost::json::array();
-            return; }
-        auto& arr_XGuhhpo=pIdentifier_json.emplace_array();
+            return; }pIdentifier_json=boost::json::array(member.identifierSize);
+        auto& arr_XGuhhpo=pIdentifier_json.as_array();
         for(int NhNyQSA=0; NhNyQSA < member.identifierSize; NhNyQSA++){
             [&](){arr_XGuhhpo[NhNyQSA]=member.pIdentifier[NhNyQSA];}();
         }
@@ -43609,8 +43609,8 @@ auto& pNext_json=json["pNext"];
 auto& identifierSize_json=json["identifierSize"];
 [&](){identifierSize_json=member.identifierSize;}();
 auto& identifier_json=json["identifier"];
-[&](){
-        auto& arr_oZUXOaC=identifier_json.emplace_array();
+[&](){identifier_json=boost::json::array(VK_MAX_SHADER_MODULE_IDENTIFIER_SIZE_EXT);
+        auto& arr_oZUXOaC=identifier_json.as_array();
         for(int nIDmbeH=0; nIDmbeH < VK_MAX_SHADER_MODULE_IDENTIFIER_SIZE_EXT; nIDmbeH++){
             [&](){arr_oZUXOaC[nIDmbeH]=member.identifier[nIDmbeH];}();
         }
@@ -43653,8 +43653,8 @@ auto& pFixedRateFlags_json=json["pFixedRateFlags"];
 [&](){
             if (member.pFixedRateFlags==NULL){
                 pFixedRateFlags_json=boost::json::array();
-            return; }
-        auto& arr_cfXnXYF=pFixedRateFlags_json.emplace_array();
+            return; }pFixedRateFlags_json=boost::json::array(member.compressionControlPlaneCount);
+        auto& arr_cfXnXYF=pFixedRateFlags_json.as_array();
         for(int cnyOeKC=0; cnyOeKC < member.compressionControlPlaneCount; cnyOeKC++){
             [&](){[&](){[&](){arr_cfXnXYF[cnyOeKC]=member.pFixedRateFlags[cnyOeKC];}();}();}();
         }
@@ -43875,8 +43875,8 @@ auto& pRenderPassFeedback_json=json["pRenderPassFeedback"];
 [&](){
             if (member.pRenderPassFeedback==NULL){
                 pRenderPassFeedback_json=boost::json::array();
-            return; }
-        auto& arr_JjvUXSK=pRenderPassFeedback_json.emplace_array();
+            return; }pRenderPassFeedback_json=boost::json::array(1);
+        auto& arr_JjvUXSK=pRenderPassFeedback_json.as_array();
         for(int nNbsIPU=0; nNbsIPU < 1; nNbsIPU++){
             [&](){
             auto& temp=arr_JjvUXSK[nNbsIPU].emplace_object();
@@ -43914,8 +43914,8 @@ auto& pRenderPassFeedback_json=json["pRenderPassFeedback"];
 auto& subpassMergeStatus_json=json["subpassMergeStatus"];
 [&](){[&](){[&](){subpassMergeStatus_json=member.subpassMergeStatus;}();}();}();
 auto& description_json=json["description"];
-[&](){
-        auto& arr_GFqEyUG=description_json.emplace_array();
+[&](){description_json=boost::json::array(VK_MAX_DESCRIPTION_SIZE);
+        auto& arr_GFqEyUG=description_json.as_array();
         for(int xOHuflK=0; xOHuflK < VK_MAX_DESCRIPTION_SIZE; xOHuflK++){
             [&](){arr_GFqEyUG[xOHuflK]=member.description[xOHuflK];}();
         }
@@ -43951,8 +43951,8 @@ auto& pSubpassFeedback_json=json["pSubpassFeedback"];
 [&](){
             if (member.pSubpassFeedback==NULL){
                 pSubpassFeedback_json=boost::json::array();
-            return; }
-        auto& arr_TraKUUQ=pSubpassFeedback_json.emplace_array();
+            return; }pSubpassFeedback_json=boost::json::array(1);
+        auto& arr_TraKUUQ=pSubpassFeedback_json.as_array();
         for(int ETwKPnx=0; ETwKPnx < 1; ETwKPnx++){
             [&](){
             auto& temp=arr_TraKUUQ[ETwKPnx].emplace_object();
@@ -44033,8 +44033,8 @@ auto& pUsageCounts_json=json["pUsageCounts"];
 [&](){
             if (member.pUsageCounts==NULL){
                 pUsageCounts_json=boost::json::array();
-            return; }
-        auto& arr_ISbbbyT=pUsageCounts_json.emplace_array();
+            return; }pUsageCounts_json=boost::json::array(member.usageCountsCount);
+        auto& arr_ISbbbyT=pUsageCounts_json.as_array();
         for(int fcbtTBG=0; fcbtTBG < member.usageCountsCount; fcbtTBG++){
             [&](){
             auto& temp=arr_ISbbbyT[fcbtTBG].emplace_object();
@@ -44046,14 +44046,14 @@ auto& ppUsageCounts_json=json["ppUsageCounts"];
 [&](){
             if (member.ppUsageCounts==NULL){
                 ppUsageCounts_json=boost::json::array();
-            return; }
-        auto& arr_tKtvYXX=ppUsageCounts_json.emplace_array();
+            return; }ppUsageCounts_json=boost::json::array(member.usageCountsCount);
+        auto& arr_tKtvYXX=ppUsageCounts_json.as_array();
         for(int kPEvNon=0; kPEvNon < member.usageCountsCount; kPEvNon++){
             [&](){
             if (member.ppUsageCounts[kPEvNon]==NULL){
                 arr_tKtvYXX[kPEvNon]=boost::json::array();
-            return; }
-        auto& arr_epKIoAu=arr_tKtvYXX[kPEvNon].emplace_array();
+            return; }arr_tKtvYXX[kPEvNon]=boost::json::array(1);
+        auto& arr_epKIoAu=arr_tKtvYXX[kPEvNon].as_array();
         for(int bFKrJKe=0; bFKrJKe < 1; bFKrJKe++){
             [&](){
             auto& temp=arr_epKIoAu[bFKrJKe].emplace_object();
@@ -44211,8 +44211,8 @@ auto& pVersionData_json=json["pVersionData"];
 [&](){
             if (member.pVersionData==NULL){
                 pVersionData_json=boost::json::array();
-            return; }
-        auto& arr_RuHqWQz=pVersionData_json.emplace_array();
+            return; }pVersionData_json=boost::json::array(2*VK_UUID_SIZE);
+        auto& arr_RuHqWQz=pVersionData_json.as_array();
         for(int EDvhmfD=0; EDvhmfD < 2*VK_UUID_SIZE; EDvhmfD++){
             [&](){arr_RuHqWQz[EDvhmfD]=member.pVersionData[EDvhmfD];}();
         }
@@ -44509,8 +44509,8 @@ auto& pUsageCounts_json=json["pUsageCounts"];
 [&](){
             if (member.pUsageCounts==NULL){
                 pUsageCounts_json=boost::json::array();
-            return; }
-        auto& arr_ISbbbyT=pUsageCounts_json.emplace_array();
+            return; }pUsageCounts_json=boost::json::array(member.usageCountsCount);
+        auto& arr_ISbbbyT=pUsageCounts_json.as_array();
         for(int fcbtTBG=0; fcbtTBG < member.usageCountsCount; fcbtTBG++){
             [&](){
             auto& temp=arr_ISbbbyT[fcbtTBG].emplace_object();
@@ -44522,14 +44522,14 @@ auto& ppUsageCounts_json=json["ppUsageCounts"];
 [&](){
             if (member.ppUsageCounts==NULL){
                 ppUsageCounts_json=boost::json::array();
-            return; }
-        auto& arr_tKtvYXX=ppUsageCounts_json.emplace_array();
+            return; }ppUsageCounts_json=boost::json::array(member.usageCountsCount);
+        auto& arr_tKtvYXX=ppUsageCounts_json.as_array();
         for(int kPEvNon=0; kPEvNon < member.usageCountsCount; kPEvNon++){
             [&](){
             if (member.ppUsageCounts[kPEvNon]==NULL){
                 arr_tKtvYXX[kPEvNon]=boost::json::array();
-            return; }
-        auto& arr_epKIoAu=arr_tKtvYXX[kPEvNon].emplace_array();
+            return; }arr_tKtvYXX[kPEvNon]=boost::json::array(1);
+        auto& arr_epKIoAu=arr_tKtvYXX[kPEvNon].as_array();
         for(int bFKrJKe=0; bFKrJKe < 1; bFKrJKe++){
             [&](){
             auto& temp=arr_epKIoAu[bFKrJKe].emplace_object();
@@ -44612,8 +44612,8 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& pipelineIdentifier_json=json["pipelineIdentifier"];
-[&](){
-        auto& arr_MRhucFm=pipelineIdentifier_json.emplace_array();
+[&](){pipelineIdentifier_json=boost::json::array(VK_UUID_SIZE);
+        auto& arr_MRhucFm=pipelineIdentifier_json.as_array();
         for(int ODNvRcX=0; ODNvRcX < VK_UUID_SIZE; ODNvRcX++){
             [&](){arr_MRhucFm[ODNvRcX]=member.pipelineIdentifier[ODNvRcX];}();
         }
@@ -45428,8 +45428,8 @@ auto& pPrivateData_json=json["pPrivateData"];
             return; }[&](){
             if (((char*)(member.pPrivateData))==NULL){
                 pPrivateData_json=boost::json::array();
-            return; }
-        auto& arr_jSPWUwe=pPrivateData_json.emplace_array();
+            return; }pPrivateData_json=boost::json::array(strlen(((char*)(member.pPrivateData)))+1);
+        auto& arr_jSPWUwe=pPrivateData_json.as_array();
         for(int IsTGaYP=0; IsTGaYP < strlen(((char*)(member.pPrivateData)))+1; IsTGaYP++){
             [&](){arr_jSPWUwe[IsTGaYP]=((char*)(member.pPrivateData))[IsTGaYP];}();
         }
@@ -45480,8 +45480,8 @@ auto& pRegions_json=json["pRegions"];
 [&](){
             if (member.pRegions==NULL){
                 pRegions_json=boost::json::array();
-            return; }
-        auto& arr_xyUxORq=pRegions_json.emplace_array();
+            return; }pRegions_json=boost::json::array(member.regionCount);
+        auto& arr_xyUxORq=pRegions_json.as_array();
         for(int tsobRzD=0; tsobRzD < member.regionCount; tsobRzD++){
             [&](){
             auto& temp=arr_xyUxORq[tsobRzD].emplace_object();
@@ -45569,8 +45569,8 @@ auto& addressPrecision_json=json["addressPrecision"];
         
     
 auto& description_json=json["description"];
-[&](){
-        auto& arr_GFqEyUG=description_json.emplace_array();
+[&](){description_json=boost::json::array(VK_MAX_DESCRIPTION_SIZE);
+        auto& arr_GFqEyUG=description_json.as_array();
         for(int xOHuflK=0; xOHuflK < VK_MAX_DESCRIPTION_SIZE; xOHuflK++){
             [&](){arr_GFqEyUG[xOHuflK]=member.description[xOHuflK];}();
         }
@@ -45638,8 +45638,8 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& description_json=json["description"];
-[&](){
-        auto& arr_GFqEyUG=description_json.emplace_array();
+[&](){description_json=boost::json::array(VK_MAX_DESCRIPTION_SIZE);
+        auto& arr_GFqEyUG=description_json.as_array();
         for(int xOHuflK=0; xOHuflK < VK_MAX_DESCRIPTION_SIZE; xOHuflK++){
             [&](){arr_GFqEyUG[xOHuflK]=member.description[xOHuflK];}();
         }
@@ -45648,8 +45648,8 @@ auto& pAddressInfos_json=json["pAddressInfos"];
 [&](){
             if (member.pAddressInfos==NULL){
                 pAddressInfos_json=boost::json::array();
-            return; }
-        auto& arr_UnNfNMF=pAddressInfos_json.emplace_array();
+            return; }pAddressInfos_json=boost::json::array(1);
+        auto& arr_UnNfNMF=pAddressInfos_json.as_array();
         for(int ypOCYMK=0; ypOCYMK < 1; ypOCYMK++){
             [&](){
             auto& temp=arr_UnNfNMF[ypOCYMK].emplace_object();
@@ -45661,8 +45661,8 @@ auto& pVendorInfos_json=json["pVendorInfos"];
 [&](){
             if (member.pVendorInfos==NULL){
                 pVendorInfos_json=boost::json::array();
-            return; }
-        auto& arr_wWSNRSk=pVendorInfos_json.emplace_array();
+            return; }pVendorInfos_json=boost::json::array(1);
+        auto& arr_wWSNRSk=pVendorInfos_json.as_array();
         for(int GvWjMmU=0; GvWjMmU < 1; GvWjMmU++){
             [&](){
             auto& temp=arr_wWSNRSk[GvWjMmU].emplace_object();
@@ -45677,8 +45677,8 @@ auto& pVendorBinaryData_json=json["pVendorBinaryData"];
             return; }[&](){
             if (((char*)(member.pVendorBinaryData))==NULL){
                 pVendorBinaryData_json=boost::json::array();
-            return; }
-        auto& arr_UjtduAY=pVendorBinaryData_json.emplace_array();
+            return; }pVendorBinaryData_json=boost::json::array(strlen(((char*)(member.pVendorBinaryData)))+1);
+        auto& arr_UjtduAY=pVendorBinaryData_json.as_array();
         for(int svQUInl=0; svQUInl < strlen(((char*)(member.pVendorBinaryData)))+1; svQUInl++){
             [&](){arr_UjtduAY[svQUInl]=((char*)(member.pVendorBinaryData))[svQUInl];}();
         }
@@ -45754,8 +45754,8 @@ auto& deviceID_json=json["deviceID"];
 auto& driverVersion_json=json["driverVersion"];
 [&](){driverVersion_json=member.driverVersion;}();
 auto& pipelineCacheUUID_json=json["pipelineCacheUUID"];
-[&](){
-        auto& arr_Pmzgxjw=pipelineCacheUUID_json.emplace_array();
+[&](){pipelineCacheUUID_json=boost::json::array(VK_UUID_SIZE);
+        auto& arr_Pmzgxjw=pipelineCacheUUID_json.as_array();
         for(int tnNOYvF=0; tnNOYvF < VK_UUID_SIZE; tnNOYvF++){
             [&](){arr_Pmzgxjw[tnNOYvF]=member.pipelineCacheUUID[tnNOYvF];}();
         }
@@ -45993,8 +45993,8 @@ auto& pImages_json=json["pImages"];
 [&](){
             if (member.pImages==NULL){
                 pImages_json=boost::json::array();
-            return; }
-        auto& arr_bOJLRee=pImages_json.emplace_array();
+            return; }pImages_json=boost::json::array(member.imageCount);
+        auto& arr_bOJLRee=pImages_json.as_array();
         for(int SkZrgZX=0; SkZrgZX < member.imageCount; SkZrgZX++){
             [&](){serialize_VkImage(arr_bOJLRee[SkZrgZX],member.pImages[SkZrgZX]);}();
         }
@@ -46005,8 +46005,8 @@ auto& pBuffers_json=json["pBuffers"];
 [&](){
             if (member.pBuffers==NULL){
                 pBuffers_json=boost::json::array();
-            return; }
-        auto& arr_IcGwYwf=pBuffers_json.emplace_array();
+            return; }pBuffers_json=boost::json::array(member.bufferCount);
+        auto& arr_IcGwYwf=pBuffers_json.as_array();
         for(int eyXGVyQ=0; eyXGVyQ < member.bufferCount; eyXGVyQ++){
             [&](){serialize_VkBuffer(arr_IcGwYwf[eyXGVyQ],member.pBuffers[eyXGVyQ]);}();
         }
@@ -46022,8 +46022,8 @@ auto& pTag_json=json["pTag"];
             return; }[&](){
             if (((char*)(member.pTag))==NULL){
                 pTag_json=boost::json::array();
-            return; }
-        auto& arr_FJzNXuD=pTag_json.emplace_array();
+            return; }pTag_json=boost::json::array(strlen(((char*)(member.pTag)))+1);
+        auto& arr_FJzNXuD=pTag_json.as_array();
         for(int LCdjkoW=0; LCdjkoW < strlen(((char*)(member.pTag)))+1; LCdjkoW++){
             [&](){arr_FJzNXuD[LCdjkoW]=((char*)(member.pTag))[LCdjkoW];}();
         }
@@ -46228,8 +46228,8 @@ auto& pPresentModes_json=json["pPresentModes"];
 [&](){
             if (member.pPresentModes==NULL){
                 pPresentModes_json=boost::json::array();
-            return; }
-        auto& arr_wwXJJnL=pPresentModes_json.emplace_array();
+            return; }pPresentModes_json=boost::json::array(member.presentModeCount);
+        auto& arr_wwXJJnL=pPresentModes_json.as_array();
         for(int FIcDtVl=0; FIcDtVl < member.presentModeCount; FIcDtVl++){
             [&](){[&](){[&](){arr_wwXJJnL[FIcDtVl]=member.pPresentModes[FIcDtVl];}();}();}();
         }
@@ -46298,8 +46298,8 @@ auto& pFences_json=json["pFences"];
 [&](){
             if (member.pFences==NULL){
                 pFences_json=boost::json::array();
-            return; }
-        auto& arr_EzapEnY=pFences_json.emplace_array();
+            return; }pFences_json=boost::json::array(member.swapchainCount);
+        auto& arr_EzapEnY=pFences_json.as_array();
         for(int XxcVHDd=0; XxcVHDd < member.swapchainCount; XxcVHDd++){
             [&](){serialize_VkFence(arr_EzapEnY[XxcVHDd],member.pFences[XxcVHDd]);}();
         }
@@ -46343,8 +46343,8 @@ auto& pPresentModes_json=json["pPresentModes"];
 [&](){
             if (member.pPresentModes==NULL){
                 pPresentModes_json=boost::json::array();
-            return; }
-        auto& arr_cRacBhu=pPresentModes_json.emplace_array();
+            return; }pPresentModes_json=boost::json::array(member.presentModeCount);
+        auto& arr_cRacBhu=pPresentModes_json.as_array();
         for(int wkhrNzv=0; wkhrNzv < member.presentModeCount; wkhrNzv++){
             [&](){[&](){[&](){arr_cRacBhu[wkhrNzv]=member.pPresentModes[wkhrNzv];}();}();}();
         }
@@ -46388,8 +46388,8 @@ auto& pPresentModes_json=json["pPresentModes"];
 [&](){
             if (member.pPresentModes==NULL){
                 pPresentModes_json=boost::json::array();
-            return; }
-        auto& arr_cRacBhu=pPresentModes_json.emplace_array();
+            return; }pPresentModes_json=boost::json::array(member.swapchainCount);
+        auto& arr_cRacBhu=pPresentModes_json.as_array();
         for(int wkhrNzv=0; wkhrNzv < member.swapchainCount; wkhrNzv++){
             [&](){[&](){[&](){arr_cRacBhu[wkhrNzv]=member.pPresentModes[wkhrNzv];}();}();}();
         }
@@ -46468,8 +46468,8 @@ auto& pImageIndices_json=json["pImageIndices"];
 [&](){
             if (member.pImageIndices==NULL){
                 pImageIndices_json=boost::json::array();
-            return; }
-        auto& arr_fmPZCwp=pImageIndices_json.emplace_array();
+            return; }pImageIndices_json=boost::json::array(member.imageIndexCount);
+        auto& arr_fmPZCwp=pImageIndices_json.as_array();
         for(int lfPeqDF=0; lfPeqDF < member.imageIndexCount; lfPeqDF++){
             [&](){arr_fmPZCwp[lfPeqDF]=member.pImageIndices[lfPeqDF];}();
         }
@@ -46639,8 +46639,8 @@ auto& pDrivers_json=json["pDrivers"];
 [&](){
             if (member.pDrivers==NULL){
                 pDrivers_json=boost::json::array();
-            return; }
-        auto& arr_buhBPRp=pDrivers_json.emplace_array();
+            return; }pDrivers_json=boost::json::array(member.driverCount);
+        auto& arr_buhBPRp=pDrivers_json.as_array();
         for(int pnnfRRV=0; pnnfRRV < member.driverCount; pnnfRRV++){
             [&](){
             auto& temp=arr_buhBPRp[pnnfRRV].emplace_object();
@@ -46740,8 +46740,8 @@ auto& pCreateInfo_json=json["pCreateInfo"];
 [&](){
             if (member.pCreateInfo==NULL){
                 pCreateInfo_json=boost::json::array();
-            return; }
-        auto& arr_ZehFYFR=pCreateInfo_json.emplace_array();
+            return; }pCreateInfo_json=boost::json::array(1);
+        auto& arr_ZehFYFR=pCreateInfo_json.as_array();
         for(int WlalFpx=0; WlalFpx < 1; WlalFpx++){
             [&](){
             auto& temp=arr_ZehFYFR[WlalFpx].emplace_object();
@@ -46753,8 +46753,8 @@ auto& pSubresource_json=json["pSubresource"];
 [&](){
             if (member.pSubresource==NULL){
                 pSubresource_json=boost::json::array();
-            return; }
-        auto& arr_zPrqsJG=pSubresource_json.emplace_array();
+            return; }pSubresource_json=boost::json::array(1);
+        auto& arr_zPrqsJG=pSubresource_json.as_array();
         for(int qYYdFsm=0; qYYdFsm < 1; qYYdFsm++){
             [&](){
             auto& temp=arr_zPrqsJG[qYYdFsm].emplace_object();
@@ -46873,8 +46873,8 @@ auto& pPerViewRenderAreas_json=json["pPerViewRenderAreas"];
 [&](){
             if (member.pPerViewRenderAreas==NULL){
                 pPerViewRenderAreas_json=boost::json::array();
-            return; }
-        auto& arr_YFtcppG=pPerViewRenderAreas_json.emplace_array();
+            return; }pPerViewRenderAreas_json=boost::json::array(member.perViewRenderAreaCount);
+        auto& arr_YFtcppG=pPerViewRenderAreas_json.as_array();
         for(int KBPTIPg=0; KBPTIPg < member.perViewRenderAreaCount; KBPTIPg++){
             [&](){
             auto& temp=arr_YFtcppG[KBPTIPg].emplace_object();
@@ -46925,8 +46925,8 @@ auto& pQueriedLowLatencyData_json=json["pQueriedLowLatencyData"];
             return; }[&](){
             if (((char*)(member.pQueriedLowLatencyData))==NULL){
                 pQueriedLowLatencyData_json=boost::json::array();
-            return; }
-        auto& arr_TaYZcsf=pQueriedLowLatencyData_json.emplace_array();
+            return; }pQueriedLowLatencyData_json=boost::json::array(strlen(((char*)(member.pQueriedLowLatencyData)))+1);
+        auto& arr_TaYZcsf=pQueriedLowLatencyData_json.as_array();
         for(int KKwdYza=0; KKwdYza < strlen(((char*)(member.pQueriedLowLatencyData)))+1; KKwdYza++){
             [&](){arr_TaYZcsf[KKwdYza]=((char*)(member.pQueriedLowLatencyData))[KKwdYza];}();
         }
@@ -47057,8 +47057,8 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& shaderBinaryUUID_json=json["shaderBinaryUUID"];
-[&](){
-        auto& arr_xfImIgj=shaderBinaryUUID_json.emplace_array();
+[&](){shaderBinaryUUID_json=boost::json::array(VK_UUID_SIZE);
+        auto& arr_xfImIgj=shaderBinaryUUID_json.as_array();
         for(int jdiUEzK=0; jdiUEzK < VK_UUID_SIZE; jdiUEzK++){
             [&](){arr_xfImIgj[jdiUEzK]=member.shaderBinaryUUID[jdiUEzK];}();
         }
@@ -47112,8 +47112,8 @@ auto& pCode_json=json["pCode"];
             return; }[&](){
             if (((char*)(member.pCode))==NULL){
                 pCode_json=boost::json::array();
-            return; }
-        auto& arr_IFfhMkY=pCode_json.emplace_array();
+            return; }pCode_json=boost::json::array(member.codeSize);
+        auto& arr_IFfhMkY=pCode_json.as_array();
         for(int OYFIRtg=0; OYFIRtg < member.codeSize; OYFIRtg++){
             [&](){arr_IFfhMkY[OYFIRtg]=((char*)(member.pCode))[OYFIRtg];}();
         }
@@ -47122,8 +47122,8 @@ auto& pName_json=json["pName"];
 [&](){
             if (member.pName==NULL){
                 pName_json=boost::json::array();
-            return; }
-        auto& arr_RNtEgHa=pName_json.emplace_array();
+            return; }pName_json=boost::json::array(strlen(member.pName)+1);
+        auto& arr_RNtEgHa=pName_json.as_array();
         for(int JRJzPhN=0; JRJzPhN < strlen(member.pName)+1; JRJzPhN++){
             [&](){arr_RNtEgHa[JRJzPhN]=member.pName[JRJzPhN];}();
         }
@@ -47134,8 +47134,8 @@ auto& pSetLayouts_json=json["pSetLayouts"];
 [&](){
             if (member.pSetLayouts==NULL){
                 pSetLayouts_json=boost::json::array();
-            return; }
-        auto& arr_zVMtIaT=pSetLayouts_json.emplace_array();
+            return; }pSetLayouts_json=boost::json::array(member.setLayoutCount);
+        auto& arr_zVMtIaT=pSetLayouts_json.as_array();
         for(int uklMdkt=0; uklMdkt < member.setLayoutCount; uklMdkt++){
             [&](){serialize_VkDescriptorSetLayout(arr_zVMtIaT[uklMdkt],member.pSetLayouts[uklMdkt]);}();
         }
@@ -47146,8 +47146,8 @@ auto& pPushConstantRanges_json=json["pPushConstantRanges"];
 [&](){
             if (member.pPushConstantRanges==NULL){
                 pPushConstantRanges_json=boost::json::array();
-            return; }
-        auto& arr_doTQoKZ=pPushConstantRanges_json.emplace_array();
+            return; }pPushConstantRanges_json=boost::json::array(member.pushConstantRangeCount);
+        auto& arr_doTQoKZ=pPushConstantRanges_json.as_array();
         for(int IhaFWFv=0; IhaFWFv < member.pushConstantRangeCount; IhaFWFv++){
             [&](){
             auto& temp=arr_doTQoKZ[IhaFWFv].emplace_object();
@@ -47159,8 +47159,8 @@ auto& pSpecializationInfo_json=json["pSpecializationInfo"];
 [&](){
             if (member.pSpecializationInfo==NULL){
                 pSpecializationInfo_json=boost::json::array();
-            return; }
-        auto& arr_AfbichW=pSpecializationInfo_json.emplace_array();
+            return; }pSpecializationInfo_json=boost::json::array(1);
+        auto& arr_AfbichW=pSpecializationInfo_json.as_array();
         for(int lSuLhWh=0; lSuLhWh < 1; lSuLhWh++){
             [&](){
             auto& temp=arr_AfbichW[lSuLhWh].emplace_object();
@@ -47743,8 +47743,8 @@ std::map<uintptr_t,PFN_vkInternalAllocationNotification> id_to_PFN_vkInternalAll
             return; }[&](){
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
-            return; }
-        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+            return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
             [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
@@ -47816,8 +47816,8 @@ json.clear();
             return; }[&](){
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
-            return; }
-        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+            return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
             [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
@@ -47855,8 +47855,8 @@ std::map<uintptr_t,PFN_vkInternalFreeNotification> id_to_PFN_vkInternalFreeNotif
             return; }[&](){
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
-            return; }
-        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+            return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
             [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
@@ -47928,8 +47928,8 @@ json.clear();
             return; }[&](){
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
-            return; }
-        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+            return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
             [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
@@ -47967,8 +47967,8 @@ std::map<uintptr_t,PFN_vkReallocationFunction> id_to_PFN_vkReallocationFunction;
             return; }[&](){
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
-            return; }
-        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+            return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
             [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
@@ -47979,8 +47979,8 @@ std::map<uintptr_t,PFN_vkReallocationFunction> id_to_PFN_vkReallocationFunction;
             return; }[&](){
             if (((char*)(pOriginal))==NULL){
                 json["pOriginal"]=boost::json::array();
-            return; }
-        auto& arr_rITHcbq=json["pOriginal"].emplace_array();
+            return; }json["pOriginal"]=boost::json::array(strlen(((char*)(pOriginal)))+1);
+        auto& arr_rITHcbq=json["pOriginal"].as_array();
         for(int oHRYLxY=0; oHRYLxY < strlen(((char*)(pOriginal)))+1; oHRYLxY++){
             [&](){arr_rITHcbq[oHRYLxY]=((char*)(pOriginal))[oHRYLxY];}();
         }
@@ -48091,8 +48091,8 @@ json.clear();
             return; }[&](){
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
-            return; }
-        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+            return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
             [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
@@ -48103,8 +48103,8 @@ json.clear();
             return; }[&](){
             if (((char*)(pOriginal))==NULL){
                 json["pOriginal"]=boost::json::array();
-            return; }
-        auto& arr_rITHcbq=json["pOriginal"].emplace_array();
+            return; }json["pOriginal"]=boost::json::array(strlen(((char*)(pOriginal)))+1);
+        auto& arr_rITHcbq=json["pOriginal"].as_array();
         for(int oHRYLxY=0; oHRYLxY < strlen(((char*)(pOriginal)))+1; oHRYLxY++){
             [&](){arr_rITHcbq[oHRYLxY]=((char*)(pOriginal))[oHRYLxY];}();
         }
@@ -48118,8 +48118,8 @@ json.clear();
             return; }[&](){
             if (((char*)(result))==NULL){
                 json["result"]=boost::json::array();
-            return; }
-        auto& arr_btTrgOB=json["result"].emplace_array();
+            return; }json["result"]=boost::json::array(strlen(((char*)(result)))+1);
+        auto& arr_btTrgOB=json["result"].as_array();
         for(int SxUiOLQ=0; SxUiOLQ < strlen(((char*)(result)))+1; SxUiOLQ++){
             [&](){arr_btTrgOB[SxUiOLQ]=((char*)(result))[SxUiOLQ];}();
         }
@@ -48160,8 +48160,8 @@ std::map<uintptr_t,PFN_vkAllocationFunction> id_to_PFN_vkAllocationFunction;
             return; }[&](){
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
-            return; }
-        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+            return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
             [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
@@ -48247,8 +48247,8 @@ json.clear();
             return; }[&](){
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
-            return; }
-        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+            return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
             [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
@@ -48262,8 +48262,8 @@ json.clear();
             return; }[&](){
             if (((char*)(result))==NULL){
                 json["result"]=boost::json::array();
-            return; }
-        auto& arr_XWGMNNp=json["result"].emplace_array();
+            return; }json["result"]=boost::json::array(size);
+        auto& arr_XWGMNNp=json["result"].as_array();
         for(int NEwfNSt=0; NEwfNSt < size; NEwfNSt++){
             [&](){arr_XWGMNNp[NEwfNSt]=((char*)(result))[NEwfNSt];}();
         }
@@ -48304,8 +48304,8 @@ std::map<uintptr_t,PFN_vkFreeFunction> id_to_PFN_vkFreeFunction;
             return; }[&](){
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
-            return; }
-        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+            return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
             [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
@@ -48316,8 +48316,8 @@ std::map<uintptr_t,PFN_vkFreeFunction> id_to_PFN_vkFreeFunction;
             return; }[&](){
             if (((char*)(pMemory))==NULL){
                 json["pMemory"]=boost::json::array();
-            return; }
-        auto& arr_qKvWVRO=json["pMemory"].emplace_array();
+            return; }json["pMemory"]=boost::json::array(strlen(((char*)(pMemory)))+1);
+        auto& arr_qKvWVRO=json["pMemory"].as_array();
         for(int LkSrwrv=0; LkSrwrv < strlen(((char*)(pMemory)))+1; LkSrwrv++){
             [&](){arr_qKvWVRO[LkSrwrv]=((char*)(pMemory))[LkSrwrv];}();
         }
@@ -48402,8 +48402,8 @@ json.clear();
             return; }[&](){
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
-            return; }
-        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+            return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
             [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
@@ -48414,8 +48414,8 @@ json.clear();
             return; }[&](){
             if (((char*)(pMemory))==NULL){
                 json["pMemory"]=boost::json::array();
-            return; }
-        auto& arr_qKvWVRO=json["pMemory"].emplace_array();
+            return; }json["pMemory"]=boost::json::array(strlen(((char*)(pMemory)))+1);
+        auto& arr_qKvWVRO=json["pMemory"].as_array();
         for(int LkSrwrv=0; LkSrwrv < strlen(((char*)(pMemory)))+1; LkSrwrv++){
             [&](){arr_qKvWVRO[LkSrwrv]=((char*)(pMemory))[LkSrwrv];}();
         }
@@ -48452,8 +48452,8 @@ std::map<uintptr_t,PFN_vkDebugReportCallbackEXT> id_to_PFN_vkDebugReportCallback
 [&](){
             if (pLayerPrefix==NULL){
                 json["pLayerPrefix"]=boost::json::array();
-            return; }
-        auto& arr_VtlqskV=json["pLayerPrefix"].emplace_array();
+            return; }json["pLayerPrefix"]=boost::json::array(strlen(pLayerPrefix)+1);
+        auto& arr_VtlqskV=json["pLayerPrefix"].as_array();
         for(int wbPKFFy=0; wbPKFFy < strlen(pLayerPrefix)+1; wbPKFFy++){
             [&](){arr_VtlqskV[wbPKFFy]=pLayerPrefix[wbPKFFy];}();
         }
@@ -48461,8 +48461,8 @@ std::map<uintptr_t,PFN_vkDebugReportCallbackEXT> id_to_PFN_vkDebugReportCallback
 [&](){
             if (pMessage==NULL){
                 json["pMessage"]=boost::json::array();
-            return; }
-        auto& arr_WrGZAPa=json["pMessage"].emplace_array();
+            return; }json["pMessage"]=boost::json::array(strlen(pMessage)+1);
+        auto& arr_WrGZAPa=json["pMessage"].as_array();
         for(int YtftAYM=0; YtftAYM < strlen(pMessage)+1; YtftAYM++){
             [&](){arr_WrGZAPa[YtftAYM]=pMessage[YtftAYM];}();
         }
@@ -48473,8 +48473,8 @@ std::map<uintptr_t,PFN_vkDebugReportCallbackEXT> id_to_PFN_vkDebugReportCallback
             return; }[&](){
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
-            return; }
-        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+            return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
             [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
@@ -48575,8 +48575,8 @@ json.clear();
 [&](){
             if (pLayerPrefix==NULL){
                 json["pLayerPrefix"]=boost::json::array();
-            return; }
-        auto& arr_VtlqskV=json["pLayerPrefix"].emplace_array();
+            return; }json["pLayerPrefix"]=boost::json::array(strlen(pLayerPrefix)+1);
+        auto& arr_VtlqskV=json["pLayerPrefix"].as_array();
         for(int wbPKFFy=0; wbPKFFy < strlen(pLayerPrefix)+1; wbPKFFy++){
             [&](){arr_VtlqskV[wbPKFFy]=pLayerPrefix[wbPKFFy];}();
         }
@@ -48584,8 +48584,8 @@ json.clear();
 [&](){
             if (pMessage==NULL){
                 json["pMessage"]=boost::json::array();
-            return; }
-        auto& arr_WrGZAPa=json["pMessage"].emplace_array();
+            return; }json["pMessage"]=boost::json::array(strlen(pMessage)+1);
+        auto& arr_WrGZAPa=json["pMessage"].as_array();
         for(int YtftAYM=0; YtftAYM < strlen(pMessage)+1; YtftAYM++){
             [&](){arr_WrGZAPa[YtftAYM]=pMessage[YtftAYM];}();
         }
@@ -48596,8 +48596,8 @@ json.clear();
             return; }[&](){
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
-            return; }
-        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+            return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
             [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
@@ -48631,8 +48631,8 @@ std::map<uintptr_t,PFN_vkDebugUtilsMessengerCallbackEXT> id_to_PFN_vkDebugUtilsM
 [&](){
             if (pCallbackData==NULL){
                 json["pCallbackData"]=boost::json::array();
-            return; }
-        auto& arr_ELbGsuC=json["pCallbackData"].emplace_array();
+            return; }json["pCallbackData"]=boost::json::array(1);
+        auto& arr_ELbGsuC=json["pCallbackData"].as_array();
         for(int cgqXeou=0; cgqXeou < 1; cgqXeou++){
             [&](){
             auto& temp=arr_ELbGsuC[cgqXeou].emplace_object();
@@ -48646,8 +48646,8 @@ std::map<uintptr_t,PFN_vkDebugUtilsMessengerCallbackEXT> id_to_PFN_vkDebugUtilsM
             return; }[&](){
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
-            return; }
-        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+            return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
             [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
@@ -48728,8 +48728,8 @@ json.clear();
 [&](){
             if (pCallbackData==NULL){
                 json["pCallbackData"]=boost::json::array();
-            return; }
-        auto& arr_ELbGsuC=json["pCallbackData"].emplace_array();
+            return; }json["pCallbackData"]=boost::json::array(1);
+        auto& arr_ELbGsuC=json["pCallbackData"].as_array();
         for(int cgqXeou=0; cgqXeou < 1; cgqXeou++){
             [&](){
             auto& temp=arr_ELbGsuC[cgqXeou].emplace_object();
@@ -48743,8 +48743,8 @@ json.clear();
             return; }[&](){
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
-            return; }
-        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+            return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
             [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
@@ -48776,8 +48776,8 @@ std::map<uintptr_t,PFN_vkDeviceMemoryReportCallbackEXT> id_to_PFN_vkDeviceMemory
 [&](){
             if (pCallbackData==NULL){
                 json["pCallbackData"]=boost::json::array();
-            return; }
-        auto& arr_dvgiwmM=json["pCallbackData"].emplace_array();
+            return; }json["pCallbackData"]=boost::json::array(1);
+        auto& arr_dvgiwmM=json["pCallbackData"].as_array();
         for(int QJmpCRq=0; QJmpCRq < 1; QJmpCRq++){
             [&](){
             auto& temp=arr_dvgiwmM[QJmpCRq].emplace_object();
@@ -48791,8 +48791,8 @@ std::map<uintptr_t,PFN_vkDeviceMemoryReportCallbackEXT> id_to_PFN_vkDeviceMemory
             return; }[&](){
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
-            return; }
-        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+            return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
             [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
@@ -48863,8 +48863,8 @@ json.clear();
 [&](){
             if (pCallbackData==NULL){
                 json["pCallbackData"]=boost::json::array();
-            return; }
-        auto& arr_dvgiwmM=json["pCallbackData"].emplace_array();
+            return; }json["pCallbackData"]=boost::json::array(1);
+        auto& arr_dvgiwmM=json["pCallbackData"].as_array();
         for(int QJmpCRq=0; QJmpCRq < 1; QJmpCRq++){
             [&](){
             auto& temp=arr_dvgiwmM[QJmpCRq].emplace_object();
@@ -48878,8 +48878,8 @@ json.clear();
             return; }[&](){
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
-            return; }
-        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+            return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
             [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
