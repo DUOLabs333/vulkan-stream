@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <picosha2.h>
 
+#include <boost/json.hpp>
 #include <Server.hpp>
 #include <vulkan/vulkan.h>
 #include <Serialization.hpp>
@@ -92,7 +93,7 @@ uuid_to_map[currStruct()->uuid][(uintptr_t)memory]=info;
 return info->mem;
 }
 
-void Sync(uintptr_t, void*, size_t);
+void SyncOne(uintptr_t, void*, size_t);
 void deregisterDeviceMemoryMap(VkDeviceMemory memory){
 debug_printf("DeviceMemory unmapping in progress...\n");
 auto key=(uintptr_t)memory;
@@ -102,7 +103,7 @@ auto key=(uintptr_t)memory;
         return;
     }
     auto info=devicememory_to_mem_info[key];
-    Sync(key,info->mem, info->size);
+    SyncOne(key,info->mem, info->size);
     deregisterClientServerMemoryMapping((uintptr_t)(info->mem));
     munmap(info->mem, info->size);
     close(info->fd);
@@ -123,7 +124,7 @@ delete info;
 void registerAllocatedMem(void* mem, int size){
     allocated_mems[(uintptr_t)mem]=size;
 }
-void handle_sync_response(object& json){
+void handle_sync_response(boost::json::object& json){
     //Recieved the bytes. Send a notification that it finished sending the bytes.
     
     Sync sync;
@@ -137,13 +138,13 @@ void handle_sync_response(object& json){
     
     for(int i=0; i < sync.starts.size(); i++){
         debug_printf("Memory %p: Data has changed!\n",(char*)mem);
-        memcpy((char*)mem+sync.starts[i],sync.buffers[i].begin(), sync.lengths[i]);
+        memcpy((char*)mem+sync.starts[i],sync.buffers[i].c_str(), sync.lengths[i]);
     }
     
     writeToConn(json);
 }
 
-void handle_sync_init(object& json){
+void handle_sync_init(boost::json::object& json){
     //Received an init, sent a request for bytes. Wait for bytes to be sent
     
     Sync sync;
@@ -169,8 +170,8 @@ void handle_sync_init(object& json){
     
     for (int i=0; i<starts.size(); i++){
         if (HashMem(mem, starts[i], lengths[i])!= hashes[i]){
-            sync.starts[i].push_back(starts[i]);
-            sync.lengths[i].push_back(lengths[i]);
+            sync.starts.push_back(starts[i]);
+            sync.lengths.push_back(lengths[i]);
         }
     }
     
@@ -189,7 +190,7 @@ void handle_sync_init(object& json){
     
 }
 
-void handle_sync_request(object& json){
+void handle_sync_request(boost::json::object& json){
     //Recieved a request for bytes, sent the bytes. Wait for the recipient to set the bytes
     
     Sync sync;
@@ -218,7 +219,7 @@ void handle_sync_request(object& json){
     readFromConn(); //Wait for the other computer to return that it's finished setting the bytes.
 }
 
-void Sync(uintptr_t devicememory, void* mem, size_t length){
+void SyncOne(uintptr_t devicememory, void* mem, size_t length){
 
     int parts=10;
     auto d=length/parts;
@@ -257,6 +258,8 @@ void Sync(uintptr_t devicememory, void* mem, size_t length){
         offset+=d;
     }
     
+    boost::json::object json;
+    
     serialize_Sync(json, sync);
     writeToConn(json);
     
@@ -271,12 +274,12 @@ for (auto& [devicememory, mem_info] : devicememory_to_mem_info){
 for (auto& [devicememory, mem_info] : uuid_to_map[currStruct()->uuid]){
 #endif
 
-    Sync(0, mem_info->mem,mem_info->size);
+    SyncOne(0, mem_info->mem,mem_info->size);
 }
 }
 
 void SyncAllocations(){
 for (auto& [mem, size] : allocated_mems){
-    Sync(0, (void*)mem, size);
+    SyncOne(0, (void*)mem, size);
 }
 }

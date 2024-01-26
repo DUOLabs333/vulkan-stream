@@ -1,1 +1,1 @@
-void handle_command(object);
+void handle_command(boost::json::object);

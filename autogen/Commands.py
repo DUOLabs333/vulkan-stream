@@ -4,6 +4,7 @@ import copy
 
 write("""
 #include <debug.hpp>
+#include <boost/json.hpp>
 #include <ThreadStruct.hpp>
 #include <stdexcept>
 #include <shared_mutex>
@@ -40,7 +41,7 @@ def registerDeviceMemoryMap(name,mem):
             size=f"pMemoryMapInfo->{size}"
             
         return f"""
-        value server_memory_json;
+        boost::json::value server_memory_json;
         serialize_VkDeviceMemory(server_memory_json, {memory});
         
         auto server_memory=value_to<uintptr_t>(server_memory_json); 
@@ -79,7 +80,7 @@ for name, command in parsed.items():
         continue
         
     write(f"""
-    void handle_{name}(object& json){{
+    void handle_{name}(boost::json::object& json){{
     //Will only be called by the server
     """)
 
@@ -213,7 +214,7 @@ for name, command in parsed.items():
     }""")
 
 write("""
-void handle_command(object json){
+void handle_command(boost::json::object json){
 //Will only be called by the server
 
 switch (value_to<Command>(json["enum"])){
@@ -235,7 +236,7 @@ for name, command in parsed.items():
 
 write("}")
 
-write("void handle_command(object);", header=True)
+write("void handle_command(boost::json::object);", header=True)
 
 write("#else") #Don't want server to get confused on which command we're talking about
 write("""
@@ -317,7 +318,7 @@ for name, command in parsed.items():
         continue
     
     write(f"""
-    object json;
+    boost::json::object json;
     auto parent_json=json["parent"].emplace_object();
     json["type"]={name.upper()};
     """)
@@ -330,9 +331,9 @@ for name, command in parsed.items():
         auto parent=handle_to_parent_handle_struct[(uintptr_t){head["name"]}];
         
         if (parent.device!=NULL){{
-            serialize_handle(parent_json["device"], parent.device);
+            serialize_VkDevice(parent_json["device"], parent.device);
         }}else{{
-            serialize_handle(parent_json["instance"], parent.instance);
+            serialize_VkInstance(parent_json["instance"], parent.instance);
         }}
         """)
     else:
@@ -449,7 +450,7 @@ for name, command in parsed.items():
         while(true){{
             json=readFromConn();
             
-            switch(value_to<StreamType>(json["type"])){{
+            switch(static_cast<StreamType>(value_to<int>(json["type"]))){{
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -459,7 +460,7 @@ for name, command in parsed.items():
     for funcpointer in parsed:
         if parsed[funcpointer]["kind"]!="funcpointer":
             continue
-        if funcpointer=="PFN_vkGetInstanceProcAddrLUNARG": #This isn't a normal funcpointer --- only makes sense on the server
+        if funcpointer in ["PFN_vkGetInstanceProcAddrLUNARG","PFN_vkVoidFunction"]: #This isn't a normal funcpointer --- only makes sense on the server
             continue
         write(f"""
          case ({funcpointer.upper()}):
@@ -467,7 +468,7 @@ for name, command in parsed.items():
             continue;
         """)
         
-    write("break;}")
+    write("break;}}")
     
     for param in command["params"]:
         write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=False))
@@ -585,7 +586,7 @@ for name, command in parsed.items():
         debug_printf("[INFO]: Min extent: %d, %d\n", pSurfaceCapabilities->minImageExtent.width, pSurfaceCapabilities->minImageExtent.height);
         debug_printf("[INFO]: Max extent: %d, %d\n", pSurfaceCapabilities->maxImageExtent.width, pSurfaceCapabilities->maxImageExtent.height);
         """)
-    write(registerDeviceMemoryMap(name,"reader.getMem()"))
+    write(registerDeviceMemoryMap(name, """value_to<uintptr_t>(json["mem"])"""))
     
     if name=="vkDeviceWaitIdle":
         write("waitForCounterIdle(device);")
@@ -600,8 +601,8 @@ for name, command in parsed.items():
     write(f'debug_printf("Ending {name}...\\n");')
     if not is_void(command):
         if command["type"]=="VkResult":
-            write(f'debug_printf("Return value of {name} is: %s...\\n",string_VkResult(return_value));')
-        write("return return_value;")
+            write(f'debug_printf("Return value of {name} is: %s...\\n",string_VkResult(result));')
+        write("return result;")
     write("}")
 write("}")
 write("#endif")

@@ -50453,7 +50453,8 @@
                 "num_indirection": 2,
                 "header": "const void* const * pParams;",
                 "length": [
-                    "paramCount"
+                    "paramCount",
+                    "1"
                 ]
             },
             {
@@ -50473,7 +50474,8 @@
                 "num_indirection": 2,
                 "header": "const void* const * pExtras;",
                 "length": [
-                    "extraCount"
+                    "extraCount",
+                    "1"
                 ]
             }
         ],
@@ -76327,7 +76329,8 @@
                 "relation": "param",
                 "type": "VkAccelerationStructureBuildRangeInfoKHR",
                 "length": [
-                    "infoCount"
+                    "infoCount",
+                    "1"
                 ],
                 "header": "const VkAccelerationStructureBuildRangeInfoKHR* const* ppBuildRangeInfos",
                 "name": "ppBuildRangeInfos"
@@ -76399,7 +76402,8 @@
                 "relation": "param",
                 "type": "uint32_t",
                 "length": [
-                    "infoCount"
+                    "infoCount",
+                    "1"
                 ],
                 "header": "const uint32_t* const* ppMaxPrimitiveCounts",
                 "name": "ppMaxPrimitiveCounts"
@@ -76458,7 +76462,8 @@
                 "relation": "param",
                 "type": "VkAccelerationStructureBuildRangeInfoKHR",
                 "length": [
-                    "infoCount"
+                    "infoCount",
+                    "1"
                 ],
                 "header": "const VkAccelerationStructureBuildRangeInfoKHR* const* ppBuildRangeInfos",
                 "name": "ppBuildRangeInfos"

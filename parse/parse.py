@@ -52,6 +52,9 @@ def get_length(item,info):
         result=["1"]*num_indirection
         if info["type"] in ["void","char"]:
             result[0]="null-terminated"
+    elif num_indirection>len(result):
+        result.extend(["1"]*(num_indirection-len(result)))
+    
     info["length"]=result
     
 for item in vk.findall("./types/type"):

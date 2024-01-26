@@ -1,3 +1,4 @@
+#include <boost/json.hpp>
 #include "ThreadStruct.hpp"
 #include <thread>
 #include <debug.hpp>

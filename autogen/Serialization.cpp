@@ -10,19 +10,38 @@
 #include <map>
 
 
+void serialize_Sync(boost::json::object& json, Sync& sync){
+    json["devicememory"]=sync.devicememory;
+    json["mem"]=sync.mem;
+    json["hashes"]=boost::json::value_from(sync.hashes);
+    json["lengths"]=boost::json::value_from(sync.lengths);
+    json["starts"]=boost::json::value_from(sync.starts);
+    json["buffers"]=boost::json::value_from(sync.buffers);
+}
+
+void deserialize_Sync(boost::json::object& json, Sync& sync){
+    sync.devicememory=boost::json::value_to<uintptr_t>(json["devicememory"]);
+    sync.mem=boost::json::value_to<uintptr_t>(json["mem"]);
+    sync.hashes=boost::json::value_to<std::vector<std::string>>(json["hashes"]);
+    sync.lengths=boost::json::value_to<std::vector<size_t>>(json["lengths"]);
+    sync.starts=boost::json::value_to<std::vector<size_t>>(json["starts"]);
+    sync.buffers=boost::json::value_to<std::vector<std::string>>(json["buffers"]);
+}
+
+
 typedef struct {
     void* pUserData;
 
-uintptr_t PFN_vkFaultCallbackFunction;
 uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
+uintptr_t PFN_vkFreeFunction;
+uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
 uintptr_t PFN_vkAllocationFunction;
-uintptr_t PFN_vkDebugReportCallbackEXT;
+uintptr_t PFN_vkFaultCallbackFunction;
 uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
 uintptr_t PFN_vkInternalFreeNotification;
 uintptr_t PFN_vkVoidFunction;
-uintptr_t PFN_vkFreeFunction;
-uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
 uintptr_t PFN_vkInternalAllocationNotification;
+uintptr_t PFN_vkDebugReportCallbackEXT;
 uintptr_t PFN_vkReallocationFunction;
 } pUserData_struct;
 
@@ -41127,18 +41146,18 @@ auto& pParams_json=json["pParams"];
             if (member.pParams==NULL){
                 pParams_json=boost::json::array();
             return; }
-        auto& arr_WesfUfx=pParams_json.emplace_array();
-        for(int sMjrtBE=0; sMjrtBE < member.paramCount; sMjrtBE++){
+        auto& arr_UKdddHW=pParams_json.emplace_array();
+        for(int lwGCeVE=0; lwGCeVE < 1; lwGCeVE++){
             [&](){
-            if (member.pParams[sMjrtBE]==NULL){
-                arr_WesfUfx[sMjrtBE]=boost::json::array();
+            if (member.pParams[lwGCeVE]==NULL){
+                arr_UKdddHW[lwGCeVE]=boost::json::array();
             return; }[&](){
-            if (((char*)(member.pParams[sMjrtBE]))==NULL){
-                arr_WesfUfx[sMjrtBE]=boost::json::array();
+            if (((char*)(member.pParams[lwGCeVE]))==NULL){
+                arr_UKdddHW[lwGCeVE]=boost::json::array();
             return; }
-        auto& arr_ZeylACs=arr_WesfUfx[sMjrtBE].emplace_array();
-        for(int sXfeKcP=0; sXfeKcP < strlen(((char*)(member.pParams[sMjrtBE])))+1; sXfeKcP++){
-            [&](){arr_ZeylACs[sXfeKcP]=((char*)(member.pParams[sMjrtBE]))[sXfeKcP];}();
+        auto& arr_ZeylACs=arr_UKdddHW[lwGCeVE].emplace_array();
+        for(int sXfeKcP=0; sXfeKcP < member.paramCount; sXfeKcP++){
+            [&](){arr_ZeylACs[sXfeKcP]=((char*)(member.pParams[lwGCeVE]))[sXfeKcP];}();
         }
         }();}();
         }
@@ -41150,18 +41169,18 @@ auto& pExtras_json=json["pExtras"];
             if (member.pExtras==NULL){
                 pExtras_json=boost::json::array();
             return; }
-        auto& arr_LootjHe=pExtras_json.emplace_array();
-        for(int ALKHNDJ=0; ALKHNDJ < member.extraCount; ALKHNDJ++){
+        auto& arr_JybOQtK=pExtras_json.emplace_array();
+        for(int TjXAhjK=0; TjXAhjK < 1; TjXAhjK++){
             [&](){
-            if (member.pExtras[ALKHNDJ]==NULL){
-                arr_LootjHe[ALKHNDJ]=boost::json::array();
+            if (member.pExtras[TjXAhjK]==NULL){
+                arr_JybOQtK[TjXAhjK]=boost::json::array();
             return; }[&](){
-            if (((char*)(member.pExtras[ALKHNDJ]))==NULL){
-                arr_LootjHe[ALKHNDJ]=boost::json::array();
+            if (((char*)(member.pExtras[TjXAhjK]))==NULL){
+                arr_JybOQtK[TjXAhjK]=boost::json::array();
             return; }
-        auto& arr_VUsnEbF=arr_LootjHe[ALKHNDJ].emplace_array();
-        for(int QaQDEqf=0; QaQDEqf < strlen(((char*)(member.pExtras[ALKHNDJ])))+1; QaQDEqf++){
-            [&](){arr_VUsnEbF[QaQDEqf]=((char*)(member.pExtras[ALKHNDJ]))[QaQDEqf];}();
+        auto& arr_VUsnEbF=arr_JybOQtK[TjXAhjK].emplace_array();
+        for(int QaQDEqf=0; QaQDEqf < member.extraCount; QaQDEqf++){
+            [&](){arr_VUsnEbF[QaQDEqf]=((char*)(member.pExtras[TjXAhjK]))[QaQDEqf];}();
         }
         }();}();
         }
@@ -41194,49 +41213,49 @@ auto& sharedMemBytes_json=json["sharedMemBytes"];
 auto& paramCount_json=json["paramCount"];
 [&](){member.paramCount=static_cast<size_t>(value_to<int>(paramCount_json));}();
 auto& pParams_json=json["pParams"];
-[&](){ void*  * temp_lwGCeVE;[&](){
+[&](){ void*  * temp_ISnBMiO;[&](){
             if (pParams_json.as_array().size()==0){
-                temp_lwGCeVE=NULL;
-            return; }temp_lwGCeVE=(void**)malloc(member.paramCount*sizeof(void*));
-        auto& arr_NtNzwiz=pParams_json.as_array();
-        for(int OybFUxv=0; OybFUxv < member.paramCount; OybFUxv++){
+                temp_ISnBMiO=NULL;
+            return; }temp_ISnBMiO=(void**)malloc(1*sizeof(void*));
+        auto& arr_yGQtRYX=pParams_json.as_array();
+        for(int nElQNmD=0; nElQNmD < 1; nElQNmD++){
             [&](){
-            if (arr_NtNzwiz[OybFUxv].as_array().size()==0){
-                temp_lwGCeVE[OybFUxv]=NULL;
-            return; }char* temp_NtNzwiz;[&](){
-            if (arr_NtNzwiz[OybFUxv].as_array().size()==0){
-                temp_NtNzwiz=NULL;
-            return; }temp_NtNzwiz=(char*)malloc(arr_NtNzwiz[OybFUxv].as_array().size()*sizeof(char));
-        auto& arr_WjHuHAJ=arr_NtNzwiz[OybFUxv].as_array();
-        for(int bqNaAvH=0; bqNaAvH < arr_NtNzwiz[OybFUxv].as_array().size(); bqNaAvH++){
-            [&](){temp_NtNzwiz[bqNaAvH]=static_cast<char>(value_to<int>(arr_WjHuHAJ[bqNaAvH]));}();
+            if (arr_yGQtRYX[nElQNmD].as_array().size()==0){
+                temp_ISnBMiO[nElQNmD]=NULL;
+            return; }char* temp_yGQtRYX;[&](){
+            if (arr_yGQtRYX[nElQNmD].as_array().size()==0){
+                temp_yGQtRYX=NULL;
+            return; }temp_yGQtRYX=(char*)malloc(member.paramCount*sizeof(char));
+        auto& arr_WjHuHAJ=arr_yGQtRYX[nElQNmD].as_array();
+        for(int bqNaAvH=0; bqNaAvH < member.paramCount; bqNaAvH++){
+            [&](){temp_yGQtRYX[bqNaAvH]=static_cast<char>(value_to<int>(arr_WjHuHAJ[bqNaAvH]));}();
         }
-        }();temp_lwGCeVE[OybFUxv]=temp_NtNzwiz;}();
+        }();temp_ISnBMiO[nElQNmD]=temp_yGQtRYX;}();
         }
-        }();member.pParams=temp_lwGCeVE;}();
+        }();member.pParams=temp_ISnBMiO;}();
 auto& extraCount_json=json["extraCount"];
 [&](){member.extraCount=static_cast<size_t>(value_to<int>(extraCount_json));}();
 auto& pExtras_json=json["pExtras"];
-[&](){ void*  * temp_TjXAhjK;[&](){
+[&](){ void*  * temp_FUVwtsd;[&](){
             if (pExtras_json.as_array().size()==0){
-                temp_TjXAhjK=NULL;
-            return; }temp_TjXAhjK=(void**)malloc(member.extraCount*sizeof(void*));
-        auto& arr_zVwZKeJ=pExtras_json.as_array();
-        for(int SlfQymy=0; SlfQymy < member.extraCount; SlfQymy++){
+                temp_FUVwtsd=NULL;
+            return; }temp_FUVwtsd=(void**)malloc(1*sizeof(void*));
+        auto& arr_MnVTqgJ=pExtras_json.as_array();
+        for(int kzGewvh=0; kzGewvh < 1; kzGewvh++){
             [&](){
-            if (arr_zVwZKeJ[SlfQymy].as_array().size()==0){
-                temp_TjXAhjK[SlfQymy]=NULL;
-            return; }char* temp_zVwZKeJ;[&](){
-            if (arr_zVwZKeJ[SlfQymy].as_array().size()==0){
-                temp_zVwZKeJ=NULL;
-            return; }temp_zVwZKeJ=(char*)malloc(arr_zVwZKeJ[SlfQymy].as_array().size()*sizeof(char));
-        auto& arr_ndLULUm=arr_zVwZKeJ[SlfQymy].as_array();
-        for(int gCJMSyN=0; gCJMSyN < arr_zVwZKeJ[SlfQymy].as_array().size(); gCJMSyN++){
-            [&](){temp_zVwZKeJ[gCJMSyN]=static_cast<char>(value_to<int>(arr_ndLULUm[gCJMSyN]));}();
+            if (arr_MnVTqgJ[kzGewvh].as_array().size()==0){
+                temp_FUVwtsd[kzGewvh]=NULL;
+            return; }char* temp_MnVTqgJ;[&](){
+            if (arr_MnVTqgJ[kzGewvh].as_array().size()==0){
+                temp_MnVTqgJ=NULL;
+            return; }temp_MnVTqgJ=(char*)malloc(member.extraCount*sizeof(char));
+        auto& arr_ndLULUm=arr_MnVTqgJ[kzGewvh].as_array();
+        for(int gCJMSyN=0; gCJMSyN < member.extraCount; gCJMSyN++){
+            [&](){temp_MnVTqgJ[gCJMSyN]=static_cast<char>(value_to<int>(arr_ndLULUm[gCJMSyN]));}();
         }
-        }();temp_TjXAhjK[SlfQymy]=temp_zVwZKeJ;}();
+        }();temp_FUVwtsd[kzGewvh]=temp_MnVTqgJ;}();
         }
-        }();member.pExtras=temp_TjXAhjK;}();
+        }();member.pExtras=temp_FUVwtsd;}();
 }
 
     void serialize_struct(boost::json::object& json, const VkPhysicalDeviceDescriptorBufferFeaturesEXT& member){

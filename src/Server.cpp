@@ -1,3 +1,5 @@
+#include <boost/json.hpp>
+
 #include "Server.hpp"
 #include <ThreadStruct.hpp>
 #include <Synchronization.hpp>
@@ -6,7 +8,7 @@
 
 #include <sstream>
 #include <random>
-#include <asio/read_until.hpp>
+#include <asio/read.hpp>
 #include <asio/write.hpp>
 
 int UUID_MAX=10000000;
@@ -84,7 +86,7 @@ uint32_t deserializeInt(uint8_t* buf){ //Deserialzes from little endian in endia
     return buf[0] | (buf[1] << 8) | (buf[2] << 16) | (buf[3] << 24);
 }
 
-object readFromConn(){
+boost::json::object readFromConn(){
     auto curr=currStruct();
       
     asio::error_code ec;
@@ -119,14 +121,14 @@ object readFromConn(){
     try{
         return curr->parser.release().as_object();
     }
-    catch (system_error){ //Not done parsing yet
+    catch (boost::json::system_error){ //Not done parsing yet
         continue;
     }
     }
 
 }
 
-void writeToConn(object& json){
+void writeToConn(boost::json::object& json){
     
     json["uuid"]=uuid;
     auto curr=currStruct();
@@ -144,21 +146,21 @@ void writeToConn(object& json){
     }
     */
     
-    curr->serializer.reset(json);
+    curr->serializer.reset(&json);
     
     std::size_t bytes_serialized=0; //Also serves to point to the first non-empty space in data_buf
     
     while(true){
-    bytes_serialized+=(curr->parser.read(curr->data_buf[bytes_serialized], BUFFER_SIZE-bytes_serialized).size());
+    bytes_serialized+=(curr->serializer.read(&(curr->data_buf[bytes_serialized]), BUFFER_SIZE-bytes_serialized).size());
     
-    if (bytes_serialized==BUFFER_SIZE){
-        asio::write(*(curr->conn), asio::buffer(curr->data_buf,BUFFER_SIZE), ec);
+    if ((bytes_serialized==BUFFER_SIZE) || (curr->serializer.done())){
+        asio::write(*(curr->conn), asio::buffer(curr->data_buf, bytes_serialized), ec);
         if (ec){
             throw RWError(ec);
         }
         bytes_serialized=0;
         
-        if (curr->parser.done){
+        if (curr->serializer.done()){
             return;
         }
     }

@@ -21,13 +21,50 @@ typedef struct StreamStructure{
 } StreamStructure;
 """,header=True)
 
-write("enum StreamType {",header=True)
+write("""
+enum StreamType {
+SYNC = 0,
+""",header=True)
 for i, name in enumerate(parsed):
     if parsed[name].get("kind","") not in ["command", "funcpointer"]:
         continue
-    write(f"{name.upper()}={i},", header=True)
+    write(f"{name.upper()}={i+1},", header=True)
 write("};",header=True)
 
+
+write("""
+typedef struct {
+uintptr_t devicememory;
+uintptr_t mem;
+std::vector<size_t> starts;
+std::vector<size_t> lengths;
+std::vector<std::string> hashes;
+std::vector<std::string> buffers;
+} Sync;
+
+void serialize_Sync(boost::json::object&, Sync&);
+void deserialize_Sync(boost::json::object&, Sync&);
+""",header=True)
+
+write("""
+void serialize_Sync(boost::json::object& json, Sync& sync){
+    json["devicememory"]=sync.devicememory;
+    json["mem"]=sync.mem;
+    json["hashes"]=boost::json::value_from(sync.hashes);
+    json["lengths"]=boost::json::value_from(sync.lengths);
+    json["starts"]=boost::json::value_from(sync.starts);
+    json["buffers"]=boost::json::value_from(sync.buffers);
+}
+
+void deserialize_Sync(boost::json::object& json, Sync& sync){
+    sync.devicememory=boost::json::value_to<uintptr_t>(json["devicememory"]);
+    sync.mem=boost::json::value_to<uintptr_t>(json["mem"]);
+    sync.hashes=boost::json::value_to<std::vector<std::string>>(json["hashes"]);
+    sync.lengths=boost::json::value_to<std::vector<size_t>>(json["lengths"]);
+    sync.starts=boost::json::value_to<std::vector<size_t>>(json["starts"]);
+    sync.buffers=boost::json::value_to<std::vector<std::string>>(json["buffers"]);
+}
+""")
 write("#include <debug.hpp>",header=True)
 write("typedef void* pNext;",header=True)
 
