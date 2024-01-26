@@ -21,23 +21,15 @@ typedef struct StreamStructure{
 } StreamStructure;
 """,header=True)
 
+write("enum StreamType {",header=True)
+for i, name in enumerate(parsed):
+    if parsed[name].get("kind","") not in ["command", "funcpointer"]:
+        continue
+    write(f"{name.upper()}={i},", header=True)
+write("};",header=True)
+
 write("#include <debug.hpp>",header=True)
 write("typedef void* pNext;",header=True)
-
-def struct_is_callback(struct):
-    members=parsed[struct]["members"]
-    
-    return any(member["name"]=="pUserData" for member in members) and any(parsed[member["type"]]["kind"]=="funcpointer" for member in members)
-
-def funcpointer_in_callback(funcpointer):
-    for name,obj in parsed.items():
-        if not (obj["kind"]=="struct" and struct_is_callback(name)):
-            continue
-        
-        members=obj["members"]
-        if any(member["type"]==funcpointer for member in members):
-            return struct
-    return None
 
 def is_not_struct(name,struct):
     return not(struct["kind"]=="struct" and ("alias" not in struct)) or ("ignore" in struct)
@@ -51,7 +43,7 @@ typedef struct {
 
 for member in pUserData_members:
     write(f"uintptr_t {member};")
-write("} pUserData;")
+write("} pUserData_struct;")
 
 write("""
 void serialize_pNext(boost::json::object& json, const void* member){
@@ -192,7 +184,7 @@ for name, struct in parsed.items():
                void* pUserData;
                {convert("pUserData",'json["pUserData"]',pUserData_info, serialize=False,initialize=True)}
             #else
-                pUserData=new pUserData();
+                pUserData=new pUserData_struct();
         """)
         write(convert("pUserData.pUserData",'json["pUserData"]',pUserData_info,serialize=False,initialize=True))
         for member in members:
@@ -276,29 +268,21 @@ for name,funcpointer in parsed.items():
     write(f"std::map<uintptr_t,{name}> id_to_{name};")
     
     write(f"""
-    void serialize_funcpointer(boost::json::object&, const {name}&){{
+    void serialize_{name}(boost::json::object&, const {name}&){{
         //Will only be called by the client
         return;
     }}
     """)
     
-    write(f"""void serialize_funcpointer(boost::json::object&, const {name}&);""",header=True)
+    write(f"""void serialize_{name}(boost::json::object&, const {name}&);""",header=True)
     
     if name!="PFN_vkGetInstanceProcAddrLUNARG": #PFN_vkGetInstanceProcAddrLUNARG is a pointer to the client's vkGetInstanceProcAddr. However, since the client's vkGetInstanceProcAddr is just a thin wrapper over the server's vkGetInstanceProcAddr (as well as that the client does not support recieving objects from the server outside of a command), we just return the server's vkGetInstanceProcAddr.
-        
-        write(f"""
-        void deserialize_funcpointer(boost::json::object& json, {name}& member){{
-            //Will only be called by the server
-            
-            member={name}_wrapper;
-            }};
-        """)
         
         write(f"""
         auto {name}_wrapper{header}{{
         //Will only be called by the server
         
-        boost::json::object& json;
+        boost::json::object json;
         json["type"]={name.upper()};
         """)
         
@@ -306,23 +290,24 @@ for name,funcpointer in parsed.items():
             write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=True))
         
         write(f"""
-        json["id"]=((pUserData*)pUserData)->{name};
+        json["id"]=((pUserData_struct*)pUserData)->{name};
         
         writeToConn(json); //Send request
         json=readFromConn(); //Recieve response
-        {funcpointer["type"]}{"*"*funcpointer["num_indirection"]} result;
         """)
         
         for param in funcpointer["params"]:
             write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=False))
         
-        write(convert("result",'json["result"]',funcpointer | {"name": "result"},serialize=False,initialize=True))
+        if not is_void(funcpointer):
+            write(f"""{funcpointer["type"]}{"*"*funcpointer["num_indirection"]} result;""")
+            write(convert("result",'json["result"]',funcpointer | {"name": "result"},serialize=False,initialize=True))
         
         write("json.clear();")
         
         if funcpointer["type"]=="void" and funcpointer["num_indirection"]==1:
             write("registerAllocatedMem(result,size);")
-            write('json["mem"](uintptr_t)result;')
+            write('json["mem"]=(uintptr_t)result;')
         else:
             write('json.erase("mem");')
         
@@ -373,24 +358,31 @@ for name,funcpointer in parsed.items():
             registerClientServerMemoryMapping((uintptr_t)result, value_to<uintptr_t>(json["mem"]) );
             
             json.clear();
-            writeConn(json); //Send empty message to signal to the server the mapping is done.
+            writeToConn(json); //Send empty message to signal to the server the mapping is done.
             """)
         
         write("};")
                 
+        write(f"""
+        void deserialize_{name}(boost::json::object& json, {name}& member){{
+            //Will only be called by the server
+            
+            member={name}_wrapper;
+            }};
+        """)
         
         write(f"void handle_{name}(boost::json::object&);",header=True);
         
     else:
         write(f"""
-            void deserialize_funcpointer(boost::json::object& json, {name}& member){{
+            void deserialize_{name}(boost::json::object& json, {name}& member){{
             //Will only be called by the server
             
             member=vkGetInstanceProcAddr;
             }};
         """)
     
-    write(f"void deserialize_funcpointer(boost::json::object&, {name}&);",header=True)
+    write(f"void deserialize_{name}(boost::json::object&, {name}&);",header=True)
         
 for handle in parsed:
         if "alias" in parsed[handle] or parsed[handle].get("kind","")!="handle":
@@ -404,7 +396,7 @@ for handle in parsed:
         #endif
         """)
         write(f"""
-        void serialize_handle(boost::json::value& json, const {handle}& data){{
+        void serialize_{handle}(boost::json::value& json, const {handle}& data){{
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){{
@@ -426,10 +418,10 @@ for handle in parsed:
         }
        """)
        
-        write(f"""void serialize_handle(boost::json::value&, const {handle}&);""",header=True)
+        write(f"""void serialize_{handle}(boost::json::value&, const {handle}&);""",header=True)
         
         write(f"""
-          void deserialize_handle(boost::json::value& json, {handle}& member){{
+          void deserialize_{handle}(boost::json::value& json, {handle}& member){{
                 {handle} result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -453,6 +445,6 @@ for handle in parsed:
                 member=result;
        }}""")
        
-        write(f"""void deserialize_handle(boost::json::value&, {handle}&);""",header=True)
+        write(f"""void deserialize_{handle}(boost::json::value&, {handle}&);""",header=True)
               
           

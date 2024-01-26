@@ -3081,7 +3081,7 @@
                 "length": [
                     "null-terminated"
                 ],
-                "header": "void* pUserData"
+                "header": "void* pUserData;"
             },
             {
                 "const": false,
@@ -3090,7 +3090,7 @@
                 "num_indirection": 0,
                 "name": "size",
                 "length": [],
-                "header": "size_t size"
+                "header": "size_t size;"
             },
             {
                 "const": false,
@@ -3099,7 +3099,7 @@
                 "num_indirection": 0,
                 "name": "allocationType",
                 "length": [],
-                "header": "VkInternalAllocationType allocationType"
+                "header": "VkInternalAllocationType allocationType;"
             },
             {
                 "const": false,
@@ -3108,7 +3108,7 @@
                 "num_indirection": 0,
                 "name": "allocationScope",
                 "length": [],
-                "header": "VkSystemAllocationScope allocationScope"
+                "header": "VkSystemAllocationScope allocationScope;"
             }
         ],
         "kind": "funcpointer"
@@ -3129,7 +3129,7 @@
                 "length": [
                     "null-terminated"
                 ],
-                "header": "void* pUserData"
+                "header": "void* pUserData;"
             },
             {
                 "const": false,
@@ -3138,7 +3138,7 @@
                 "num_indirection": 0,
                 "name": "size",
                 "length": [],
-                "header": "size_t size"
+                "header": "size_t size;"
             },
             {
                 "const": false,
@@ -3147,7 +3147,7 @@
                 "num_indirection": 0,
                 "name": "allocationType",
                 "length": [],
-                "header": "VkInternalAllocationType allocationType"
+                "header": "VkInternalAllocationType allocationType;"
             },
             {
                 "const": false,
@@ -3156,7 +3156,7 @@
                 "num_indirection": 0,
                 "name": "allocationScope",
                 "length": [],
-                "header": "VkSystemAllocationScope allocationScope"
+                "header": "VkSystemAllocationScope allocationScope;"
             }
         ],
         "kind": "funcpointer"
@@ -3177,7 +3177,7 @@
                 "length": [
                     "null-terminated"
                 ],
-                "header": "void* pUserData"
+                "header": "void* pUserData;"
             },
             {
                 "const": false,
@@ -3188,7 +3188,7 @@
                 "length": [
                     "null-terminated"
                 ],
-                "header": "void* pOriginal"
+                "header": "void* pOriginal;"
             },
             {
                 "const": false,
@@ -3197,7 +3197,7 @@
                 "num_indirection": 0,
                 "name": "size",
                 "length": [],
-                "header": "size_t size"
+                "header": "size_t size;"
             },
             {
                 "const": false,
@@ -3206,7 +3206,7 @@
                 "num_indirection": 0,
                 "name": "alignment",
                 "length": [],
-                "header": "size_t alignment"
+                "header": "size_t alignment;"
             },
             {
                 "const": false,
@@ -3215,7 +3215,7 @@
                 "num_indirection": 0,
                 "name": "allocationScope",
                 "length": [],
-                "header": "VkSystemAllocationScope allocationScope"
+                "header": "VkSystemAllocationScope allocationScope;"
             }
         ],
         "kind": "funcpointer"
@@ -3238,7 +3238,7 @@
                 "length": [
                     "null-terminated"
                 ],
-                "header": "void* pUserData"
+                "header": "void* pUserData;"
             },
             {
                 "const": false,
@@ -3247,7 +3247,7 @@
                 "num_indirection": 0,
                 "name": "size",
                 "length": [],
-                "header": "size_t size"
+                "header": "size_t size;"
             },
             {
                 "const": false,
@@ -3256,7 +3256,7 @@
                 "num_indirection": 0,
                 "name": "alignment",
                 "length": [],
-                "header": "size_t alignment"
+                "header": "size_t alignment;"
             },
             {
                 "const": false,
@@ -3265,7 +3265,7 @@
                 "num_indirection": 0,
                 "name": "allocationScope",
                 "length": [],
-                "header": "VkSystemAllocationScope allocationScope"
+                "header": "VkSystemAllocationScope allocationScope;"
             }
         ],
         "kind": "funcpointer"
@@ -3286,7 +3286,7 @@
                 "length": [
                     "null-terminated"
                 ],
-                "header": "void* pUserData"
+                "header": "void* pUserData;"
             },
             {
                 "const": false,
@@ -3297,7 +3297,7 @@
                 "length": [
                     "null-terminated"
                 ],
-                "header": "void* pMemory"
+                "header": "void* pMemory;"
             }
         ],
         "kind": "funcpointer"
@@ -3325,7 +3325,7 @@
                 "num_indirection": 0,
                 "name": "flags",
                 "length": [],
-                "header": "VkDebugReportFlagsEXT flags"
+                "header": "VkDebugReportFlagsEXT flags;"
             },
             {
                 "const": false,
@@ -3334,7 +3334,7 @@
                 "num_indirection": 0,
                 "name": "objectType",
                 "length": [],
-                "header": "VkDebugReportObjectTypeEXT objectType"
+                "header": "VkDebugReportObjectTypeEXT objectType;"
             },
             {
                 "const": false,
@@ -3343,7 +3343,7 @@
                 "num_indirection": 0,
                 "name": "object",
                 "length": [],
-                "header": "uint64_t object"
+                "header": "uint64_t object;"
             },
             {
                 "const": false,
@@ -3352,7 +3352,7 @@
                 "num_indirection": 0,
                 "name": "location",
                 "length": [],
-                "header": "size_t location"
+                "header": "size_t location;"
             },
             {
                 "const": false,
@@ -3361,7 +3361,7 @@
                 "num_indirection": 0,
                 "name": "messageCode",
                 "length": [],
-                "header": "int32_t messageCode"
+                "header": "int32_t messageCode;"
             },
             {
                 "const": true,
@@ -3372,7 +3372,7 @@
                 "length": [
                     "null-terminated"
                 ],
-                "header": "const char* pLayerPrefix"
+                "header": "const char* pLayerPrefix;"
             },
             {
                 "const": true,
@@ -3383,7 +3383,7 @@
                 "length": [
                     "null-terminated"
                 ],
-                "header": "const char* pMessage"
+                "header": "const char* pMessage;"
             },
             {
                 "const": false,
@@ -3394,7 +3394,7 @@
                 "length": [
                     "null-terminated"
                 ],
-                "header": "void* pUserData"
+                "header": "void* pUserData;"
             }
         ],
         "kind": "funcpointer"
@@ -3413,7 +3413,7 @@
                 "num_indirection": 0,
                 "name": "messageSeverity",
                 "length": [],
-                "header": "VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity"
+                "header": "VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity;"
             },
             {
                 "const": false,
@@ -3422,7 +3422,7 @@
                 "num_indirection": 0,
                 "name": "messageTypes",
                 "length": [],
-                "header": "VkDebugUtilsMessageTypeFlagsEXT messageTypes"
+                "header": "VkDebugUtilsMessageTypeFlagsEXT messageTypes;"
             },
             {
                 "const": true,
@@ -3433,7 +3433,7 @@
                 "length": [
                     "1"
                 ],
-                "header": "const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData"
+                "header": "const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData;"
             },
             {
                 "const": false,
@@ -3444,7 +3444,7 @@
                 "length": [
                     "null-terminated"
                 ],
-                "header": "void* pUserData"
+                "header": "void* pUserData;"
             }
         ],
         "kind": "funcpointer"
@@ -3465,7 +3465,7 @@
                 "length": [
                     "1"
                 ],
-                "header": "const VkDeviceMemoryReportCallbackDataEXT* pCallbackData"
+                "header": "const VkDeviceMemoryReportCallbackDataEXT* pCallbackData;"
             },
             {
                 "const": false,
@@ -3476,7 +3476,7 @@
                 "length": [
                     "null-terminated"
                 ],
-                "header": "void* pUserData"
+                "header": "void* pUserData;"
             }
         ],
         "kind": "funcpointer"
@@ -3495,7 +3495,7 @@
                 "num_indirection": 0,
                 "name": "instance",
                 "length": [],
-                "header": "VkInstance instance"
+                "header": "VkInstance instance;"
             },
             {
                 "const": true,
@@ -3506,7 +3506,7 @@
                 "length": [
                     "null-terminated"
                 ],
-                "header": "const char* pName"
+                "header": "const char* pName;"
             }
         ],
         "kind": "funcpointer"

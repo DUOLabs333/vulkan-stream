@@ -13,18 +13,18 @@
 typedef struct {
     void* pUserData;
 
-uintptr_t PFN_vkInternalFreeNotification;
-uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
 uintptr_t PFN_vkFaultCallbackFunction;
-uintptr_t PFN_vkVoidFunction;
-uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
+uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
 uintptr_t PFN_vkAllocationFunction;
 uintptr_t PFN_vkDebugReportCallbackEXT;
-uintptr_t PFN_vkInternalAllocationNotification;
-uintptr_t PFN_vkFreeFunction;
-uintptr_t PFN_vkReallocationFunction;
 uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
-} pUserData;
+uintptr_t PFN_vkInternalFreeNotification;
+uintptr_t PFN_vkVoidFunction;
+uintptr_t PFN_vkFreeFunction;
+uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
+uintptr_t PFN_vkInternalAllocationNotification;
+uintptr_t PFN_vkReallocationFunction;
+} pUserData_struct;
 
 void serialize_pNext(boost::json::object& json, const void* member){
     if (member==NULL){
@@ -11947,7 +11947,7 @@ json["PFN_vkInternalFreeNotification"]=(uintptr_t)(member.pfnInternalFree);
         }
         }();pUserData=temp_YghEUhF;}();
             #else
-                pUserData=new pUserData();
+                pUserData=new pUserData_struct();
         
 [&](){
             if (json["pUserData"].as_array().size()==0){
@@ -11983,27 +11983,27 @@ auto& pUserData_json=json["pUserData"];
 auto& pfnAllocation_json=json["pfnAllocation"];
 [&](){
             auto& temp=pfnAllocation_json.emplace_object();
-            return serialize_funcpointer(temp, member.pfnAllocation);
+            return serialize_PFN_vkAllocationFunction(temp, member.pfnAllocation);
             }();
 auto& pfnReallocation_json=json["pfnReallocation"];
 [&](){
             auto& temp=pfnReallocation_json.emplace_object();
-            return serialize_funcpointer(temp, member.pfnReallocation);
+            return serialize_PFN_vkReallocationFunction(temp, member.pfnReallocation);
             }();
 auto& pfnFree_json=json["pfnFree"];
 [&](){
             auto& temp=pfnFree_json.emplace_object();
-            return serialize_funcpointer(temp, member.pfnFree);
+            return serialize_PFN_vkFreeFunction(temp, member.pfnFree);
             }();
 auto& pfnInternalAllocation_json=json["pfnInternalAllocation"];
 [&](){
             auto& temp=pfnInternalAllocation_json.emplace_object();
-            return serialize_funcpointer(temp, member.pfnInternalAllocation);
+            return serialize_PFN_vkInternalAllocationNotification(temp, member.pfnInternalAllocation);
             }();
 auto& pfnInternalFree_json=json["pfnInternalFree"];
 [&](){
             auto& temp=pfnInternalFree_json.emplace_object();
-            return serialize_funcpointer(temp, member.pfnInternalFree);
+            return serialize_PFN_vkInternalFreeNotification(temp, member.pfnInternalFree);
             }();
 }
 void deserialize_struct(boost::json::object& json, VkAllocationCallbacks& member){
@@ -12014,39 +12014,29 @@ auto& pUserData_json=json["pUserData"];
             
 auto& pfnAllocation_json=json["pfnAllocation"];
 [&](){
-#ifndef CLIENT
             auto& temp=pfnAllocation_json.as_object();
-            deserialize_funcpointer(temp,member.pfnAllocation);
-            #endif
-}();
+            deserialize_PFN_vkAllocationFunction(temp,member.pfnAllocation);
+            }();
 auto& pfnReallocation_json=json["pfnReallocation"];
 [&](){
-#ifndef CLIENT
             auto& temp=pfnReallocation_json.as_object();
-            deserialize_funcpointer(temp,member.pfnReallocation);
-            #endif
-}();
+            deserialize_PFN_vkReallocationFunction(temp,member.pfnReallocation);
+            }();
 auto& pfnFree_json=json["pfnFree"];
 [&](){
-#ifndef CLIENT
             auto& temp=pfnFree_json.as_object();
-            deserialize_funcpointer(temp,member.pfnFree);
-            #endif
-}();
+            deserialize_PFN_vkFreeFunction(temp,member.pfnFree);
+            }();
 auto& pfnInternalAllocation_json=json["pfnInternalAllocation"];
 [&](){
-#ifndef CLIENT
             auto& temp=pfnInternalAllocation_json.as_object();
-            deserialize_funcpointer(temp,member.pfnInternalAllocation);
-            #endif
-}();
+            deserialize_PFN_vkInternalAllocationNotification(temp,member.pfnInternalAllocation);
+            }();
 auto& pfnInternalFree_json=json["pfnInternalFree"];
 [&](){
-#ifndef CLIENT
             auto& temp=pfnInternalFree_json.as_object();
-            deserialize_funcpointer(temp,member.pfnInternalFree);
-            #endif
-}();
+            deserialize_PFN_vkInternalFreeNotification(temp,member.pfnInternalFree);
+            }();
 }
 
     void serialize_struct(boost::json::object& json, const VkDeviceQueueCreateInfo& member){
@@ -12625,7 +12615,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& memory_json=json["memory"];
-[&](){serialize_handle(memory_json,member.memory);}();
+[&](){serialize_VkDeviceMemory(memory_json,member.memory);}();
 auto& offset_json=json["offset"];
 [&](){[&](){offset_json=member.offset;}();}();
 auto& size_json=json["size"];
@@ -12640,7 +12630,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& memory_json=json["memory"];
-[&](){deserialize_handle(memory_json, member.memory);}();
+[&](){deserialize_VkDeviceMemory(memory_json, member.memory);}();
 auto& offset_json=json["offset"];
 [&](){uint64_t temp_EwrXfgl;[&](){temp_EwrXfgl=static_cast<uint64_t>(value_to<int>(offset_json));}();member.offset=(VkDeviceSize)temp_EwrXfgl;}();
 auto& size_json=json["size"];
@@ -12703,7 +12693,7 @@ auto& maxResourceSize_json=json["maxResourceSize"];
         
     
 auto& buffer_json=json["buffer"];
-[&](){serialize_handle(buffer_json,member.buffer);}();
+[&](){serialize_VkBuffer(buffer_json,member.buffer);}();
 auto& offset_json=json["offset"];
 [&](){[&](){offset_json=member.offset;}();}();
 auto& range_json=json["range"];
@@ -12711,7 +12701,7 @@ auto& range_json=json["range"];
 }
 void deserialize_struct(boost::json::object& json, VkDescriptorBufferInfo& member){
 auto& buffer_json=json["buffer"];
-[&](){deserialize_handle(buffer_json, member.buffer);}();
+[&](){deserialize_VkBuffer(buffer_json, member.buffer);}();
 auto& offset_json=json["offset"];
 [&](){uint64_t temp_EwrXfgl;[&](){temp_EwrXfgl=static_cast<uint64_t>(value_to<int>(offset_json));}();member.offset=(VkDeviceSize)temp_EwrXfgl;}();
 auto& range_json=json["range"];
@@ -12722,17 +12712,17 @@ auto& range_json=json["range"];
         
     
 auto& sampler_json=json["sampler"];
-[&](){serialize_handle(sampler_json,member.sampler);}();
+[&](){serialize_VkSampler(sampler_json,member.sampler);}();
 auto& imageView_json=json["imageView"];
-[&](){serialize_handle(imageView_json,member.imageView);}();
+[&](){serialize_VkImageView(imageView_json,member.imageView);}();
 auto& imageLayout_json=json["imageLayout"];
 [&](){[&](){[&](){imageLayout_json=member.imageLayout;}();}();}();
 }
 void deserialize_struct(boost::json::object& json, VkDescriptorImageInfo& member){
 auto& sampler_json=json["sampler"];
-[&](){deserialize_handle(sampler_json, member.sampler);}();
+[&](){deserialize_VkSampler(sampler_json, member.sampler);}();
 auto& imageView_json=json["imageView"];
-[&](){deserialize_handle(imageView_json, member.imageView);}();
+[&](){deserialize_VkImageView(imageView_json, member.imageView);}();
 auto& imageLayout_json=json["imageLayout"];
 [&](){[&](){int temp_FajwjgZ;[&](){temp_FajwjgZ=static_cast<int>(value_to<int>(imageLayout_json));}();member.imageLayout=(VkImageLayout)temp_FajwjgZ;}();}();
 }
@@ -12748,7 +12738,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& dstSet_json=json["dstSet"];
-[&](){serialize_handle(dstSet_json,member.dstSet);}();
+[&](){serialize_VkDescriptorSet(dstSet_json,member.dstSet);}();
 auto& dstBinding_json=json["dstBinding"];
 [&](){dstBinding_json=member.dstBinding;}();
 auto& dstArrayElement_json=json["dstArrayElement"];
@@ -12790,7 +12780,7 @@ auto& pTexelBufferView_json=json["pTexelBufferView"];
             return; }
         auto& arr_aeRJWrd=pTexelBufferView_json.emplace_array();
         for(int zPsmhBm=0; zPsmhBm < member.descriptorCount; zPsmhBm++){
-            [&](){serialize_handle(arr_aeRJWrd[zPsmhBm],member.pTexelBufferView[zPsmhBm]);}();
+            [&](){serialize_VkBufferView(arr_aeRJWrd[zPsmhBm],member.pTexelBufferView[zPsmhBm]);}();
         }
         }();
 }
@@ -12803,7 +12793,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& dstSet_json=json["dstSet"];
-[&](){deserialize_handle(dstSet_json, member.dstSet);}();
+[&](){deserialize_VkDescriptorSet(dstSet_json, member.dstSet);}();
 auto& dstBinding_json=json["dstBinding"];
 [&](){member.dstBinding=static_cast<uint32_t>(value_to<int>(dstBinding_json));}();
 auto& dstArrayElement_json=json["dstArrayElement"];
@@ -12845,7 +12835,7 @@ auto& pTexelBufferView_json=json["pTexelBufferView"];
             return; }temp_KgXLfCw=(VkBufferView*)malloc(member.descriptorCount*sizeof(VkBufferView));
         auto& arr_aZIjolk=pTexelBufferView_json.as_array();
         for(int KlquAhO=0; KlquAhO < member.descriptorCount; KlquAhO++){
-            [&](){deserialize_handle(arr_aZIjolk[KlquAhO], temp_KgXLfCw[KlquAhO]);}();
+            [&](){deserialize_VkBufferView(arr_aZIjolk[KlquAhO], temp_KgXLfCw[KlquAhO]);}();
         }
         }();member.pTexelBufferView=temp_KgXLfCw;}();
 }
@@ -12861,13 +12851,13 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& srcSet_json=json["srcSet"];
-[&](){serialize_handle(srcSet_json,member.srcSet);}();
+[&](){serialize_VkDescriptorSet(srcSet_json,member.srcSet);}();
 auto& srcBinding_json=json["srcBinding"];
 [&](){srcBinding_json=member.srcBinding;}();
 auto& srcArrayElement_json=json["srcArrayElement"];
 [&](){srcArrayElement_json=member.srcArrayElement;}();
 auto& dstSet_json=json["dstSet"];
-[&](){serialize_handle(dstSet_json,member.dstSet);}();
+[&](){serialize_VkDescriptorSet(dstSet_json,member.dstSet);}();
 auto& dstBinding_json=json["dstBinding"];
 [&](){dstBinding_json=member.dstBinding;}();
 auto& dstArrayElement_json=json["dstArrayElement"];
@@ -12884,13 +12874,13 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& srcSet_json=json["srcSet"];
-[&](){deserialize_handle(srcSet_json, member.srcSet);}();
+[&](){deserialize_VkDescriptorSet(srcSet_json, member.srcSet);}();
 auto& srcBinding_json=json["srcBinding"];
 [&](){member.srcBinding=static_cast<uint32_t>(value_to<int>(srcBinding_json));}();
 auto& srcArrayElement_json=json["srcArrayElement"];
 [&](){member.srcArrayElement=static_cast<uint32_t>(value_to<int>(srcArrayElement_json));}();
 auto& dstSet_json=json["dstSet"];
-[&](){deserialize_handle(dstSet_json, member.dstSet);}();
+[&](){deserialize_VkDescriptorSet(dstSet_json, member.dstSet);}();
 auto& dstBinding_json=json["dstBinding"];
 [&](){member.dstBinding=static_cast<uint32_t>(value_to<int>(dstBinding_json));}();
 auto& dstArrayElement_json=json["dstArrayElement"];
@@ -12998,7 +12988,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){[&](){flags_json=member.flags;}();}();}();
 auto& buffer_json=json["buffer"];
-[&](){serialize_handle(buffer_json,member.buffer);}();
+[&](){serialize_VkBuffer(buffer_json,member.buffer);}();
 auto& format_json=json["format"];
 [&](){[&](){[&](){format_json=member.format;}();}();}();
 auto& offset_json=json["offset"];
@@ -13017,7 +13007,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){int temp_ckwVSHx;[&](){temp_ckwVSHx=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkBufferViewCreateFlags)temp_ckwVSHx;}();}();
 auto& buffer_json=json["buffer"];
-[&](){deserialize_handle(buffer_json, member.buffer);}();
+[&](){deserialize_VkBuffer(buffer_json, member.buffer);}();
 auto& format_json=json["format"];
 [&](){[&](){int temp_vIzYkNH;[&](){temp_vIzYkNH=static_cast<int>(value_to<int>(format_json));}();member.format=(VkFormat)temp_vIzYkNH;}();}();
 auto& offset_json=json["offset"];
@@ -13143,7 +13133,7 @@ auto& srcQueueFamilyIndex_json=json["srcQueueFamilyIndex"];
 auto& dstQueueFamilyIndex_json=json["dstQueueFamilyIndex"];
 [&](){dstQueueFamilyIndex_json=member.dstQueueFamilyIndex;}();
 auto& buffer_json=json["buffer"];
-[&](){serialize_handle(buffer_json,member.buffer);}();
+[&](){serialize_VkBuffer(buffer_json,member.buffer);}();
 auto& offset_json=json["offset"];
 [&](){[&](){offset_json=member.offset;}();}();
 auto& size_json=json["size"];
@@ -13166,7 +13156,7 @@ auto& srcQueueFamilyIndex_json=json["srcQueueFamilyIndex"];
 auto& dstQueueFamilyIndex_json=json["dstQueueFamilyIndex"];
 [&](){member.dstQueueFamilyIndex=static_cast<uint32_t>(value_to<int>(dstQueueFamilyIndex_json));}();
 auto& buffer_json=json["buffer"];
-[&](){deserialize_handle(buffer_json, member.buffer);}();
+[&](){deserialize_VkBuffer(buffer_json, member.buffer);}();
 auto& offset_json=json["offset"];
 [&](){uint64_t temp_EwrXfgl;[&](){temp_EwrXfgl=static_cast<uint64_t>(value_to<int>(offset_json));}();member.offset=(VkDeviceSize)temp_EwrXfgl;}();
 auto& size_json=json["size"];
@@ -13196,7 +13186,7 @@ auto& srcQueueFamilyIndex_json=json["srcQueueFamilyIndex"];
 auto& dstQueueFamilyIndex_json=json["dstQueueFamilyIndex"];
 [&](){dstQueueFamilyIndex_json=member.dstQueueFamilyIndex;}();
 auto& image_json=json["image"];
-[&](){serialize_handle(image_json,member.image);}();
+[&](){serialize_VkImage(image_json,member.image);}();
 auto& subresourceRange_json=json["subresourceRange"];
 [&](){
             auto& temp=subresourceRange_json.emplace_object();
@@ -13224,7 +13214,7 @@ auto& srcQueueFamilyIndex_json=json["srcQueueFamilyIndex"];
 auto& dstQueueFamilyIndex_json=json["dstQueueFamilyIndex"];
 [&](){member.dstQueueFamilyIndex=static_cast<uint32_t>(value_to<int>(dstQueueFamilyIndex_json));}();
 auto& image_json=json["image"];
-[&](){deserialize_handle(image_json, member.image);}();
+[&](){deserialize_VkImage(image_json, member.image);}();
 auto& subresourceRange_json=json["subresourceRange"];
 [&](){
             auto& temp=subresourceRange_json.as_object();
@@ -13367,7 +13357,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){[&](){flags_json=member.flags;}();}();}();
 auto& image_json=json["image"];
-[&](){serialize_handle(image_json,member.image);}();
+[&](){serialize_VkImage(image_json,member.image);}();
 auto& viewType_json=json["viewType"];
 [&](){[&](){[&](){viewType_json=member.viewType;}();}();}();
 auto& format_json=json["format"];
@@ -13394,7 +13384,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){int temp_lvQwThL;[&](){temp_lvQwThL=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkImageViewCreateFlags)temp_lvQwThL;}();}();
 auto& image_json=json["image"];
-[&](){deserialize_handle(image_json, member.image);}();
+[&](){deserialize_VkImage(image_json, member.image);}();
 auto& viewType_json=json["viewType"];
 [&](){[&](){int temp_PiSyPUi;[&](){temp_PiSyPUi=static_cast<int>(value_to<int>(viewType_json));}();member.viewType=(VkImageViewType)temp_PiSyPUi;}();}();
 auto& format_json=json["format"];
@@ -13438,7 +13428,7 @@ auto& resourceOffset_json=json["resourceOffset"];
 auto& size_json=json["size"];
 [&](){[&](){size_json=member.size;}();}();
 auto& memory_json=json["memory"];
-[&](){serialize_handle(memory_json,member.memory);}();
+[&](){serialize_VkDeviceMemory(memory_json,member.memory);}();
 auto& memoryOffset_json=json["memoryOffset"];
 [&](){[&](){memoryOffset_json=member.memoryOffset;}();}();
 auto& flags_json=json["flags"];
@@ -13450,7 +13440,7 @@ auto& resourceOffset_json=json["resourceOffset"];
 auto& size_json=json["size"];
 [&](){uint64_t temp_AdFSvGi;[&](){temp_AdFSvGi=static_cast<uint64_t>(value_to<int>(size_json));}();member.size=(VkDeviceSize)temp_AdFSvGi;}();
 auto& memory_json=json["memory"];
-[&](){deserialize_handle(memory_json, member.memory);}();
+[&](){deserialize_VkDeviceMemory(memory_json, member.memory);}();
 auto& memoryOffset_json=json["memoryOffset"];
 [&](){uint64_t temp_VWSGqtD;[&](){temp_VWSGqtD=static_cast<uint64_t>(value_to<int>(memoryOffset_json));}();member.memoryOffset=(VkDeviceSize)temp_VWSGqtD;}();
 auto& flags_json=json["flags"];
@@ -13476,7 +13466,7 @@ auto& extent_json=json["extent"];
             return serialize_struct(temp, member.extent);
             }();
 auto& memory_json=json["memory"];
-[&](){serialize_handle(memory_json,member.memory);}();
+[&](){serialize_VkDeviceMemory(memory_json,member.memory);}();
 auto& memoryOffset_json=json["memoryOffset"];
 [&](){[&](){memoryOffset_json=member.memoryOffset;}();}();
 auto& flags_json=json["flags"];
@@ -13499,7 +13489,7 @@ auto& extent_json=json["extent"];
             deserialize_struct(temp,member.extent);
             }();
 auto& memory_json=json["memory"];
-[&](){deserialize_handle(memory_json, member.memory);}();
+[&](){deserialize_VkDeviceMemory(memory_json, member.memory);}();
 auto& memoryOffset_json=json["memoryOffset"];
 [&](){uint64_t temp_VWSGqtD;[&](){temp_VWSGqtD=static_cast<uint64_t>(value_to<int>(memoryOffset_json));}();member.memoryOffset=(VkDeviceSize)temp_VWSGqtD;}();
 auto& flags_json=json["flags"];
@@ -13510,7 +13500,7 @@ auto& flags_json=json["flags"];
         
     
 auto& buffer_json=json["buffer"];
-[&](){serialize_handle(buffer_json,member.buffer);}();
+[&](){serialize_VkBuffer(buffer_json,member.buffer);}();
 auto& bindCount_json=json["bindCount"];
 [&](){bindCount_json=member.bindCount;}();
 auto& pBinds_json=json["pBinds"];
@@ -13529,7 +13519,7 @@ auto& pBinds_json=json["pBinds"];
 }
 void deserialize_struct(boost::json::object& json, VkSparseBufferMemoryBindInfo& member){
 auto& buffer_json=json["buffer"];
-[&](){deserialize_handle(buffer_json, member.buffer);}();
+[&](){deserialize_VkBuffer(buffer_json, member.buffer);}();
 auto& bindCount_json=json["bindCount"];
 [&](){member.bindCount=static_cast<uint32_t>(value_to<int>(bindCount_json));}();
 auto& pBinds_json=json["pBinds"];
@@ -13551,7 +13541,7 @@ auto& pBinds_json=json["pBinds"];
         
     
 auto& image_json=json["image"];
-[&](){serialize_handle(image_json,member.image);}();
+[&](){serialize_VkImage(image_json,member.image);}();
 auto& bindCount_json=json["bindCount"];
 [&](){bindCount_json=member.bindCount;}();
 auto& pBinds_json=json["pBinds"];
@@ -13570,7 +13560,7 @@ auto& pBinds_json=json["pBinds"];
 }
 void deserialize_struct(boost::json::object& json, VkSparseImageOpaqueMemoryBindInfo& member){
 auto& image_json=json["image"];
-[&](){deserialize_handle(image_json, member.image);}();
+[&](){deserialize_VkImage(image_json, member.image);}();
 auto& bindCount_json=json["bindCount"];
 [&](){member.bindCount=static_cast<uint32_t>(value_to<int>(bindCount_json));}();
 auto& pBinds_json=json["pBinds"];
@@ -13592,7 +13582,7 @@ auto& pBinds_json=json["pBinds"];
         
     
 auto& image_json=json["image"];
-[&](){serialize_handle(image_json,member.image);}();
+[&](){serialize_VkImage(image_json,member.image);}();
 auto& bindCount_json=json["bindCount"];
 [&](){bindCount_json=member.bindCount;}();
 auto& pBinds_json=json["pBinds"];
@@ -13611,7 +13601,7 @@ auto& pBinds_json=json["pBinds"];
 }
 void deserialize_struct(boost::json::object& json, VkSparseImageMemoryBindInfo& member){
 auto& image_json=json["image"];
-[&](){deserialize_handle(image_json, member.image);}();
+[&](){deserialize_VkImage(image_json, member.image);}();
 auto& bindCount_json=json["bindCount"];
 [&](){member.bindCount=static_cast<uint32_t>(value_to<int>(bindCount_json));}();
 auto& pBinds_json=json["pBinds"];
@@ -13648,7 +13638,7 @@ auto& pWaitSemaphores_json=json["pWaitSemaphores"];
             return; }
         auto& arr_AxVizBE=pWaitSemaphores_json.emplace_array();
         for(int XBpvDer=0; XBpvDer < member.waitSemaphoreCount; XBpvDer++){
-            [&](){serialize_handle(arr_AxVizBE[XBpvDer],member.pWaitSemaphores[XBpvDer]);}();
+            [&](){serialize_VkSemaphore(arr_AxVizBE[XBpvDer],member.pWaitSemaphores[XBpvDer]);}();
         }
         }();
 auto& bufferBindCount_json=json["bufferBindCount"];
@@ -13705,7 +13695,7 @@ auto& pSignalSemaphores_json=json["pSignalSemaphores"];
             return; }
         auto& arr_wTKZAbP=pSignalSemaphores_json.emplace_array();
         for(int zRpxMAc=0; zRpxMAc < member.signalSemaphoreCount; zRpxMAc++){
-            [&](){serialize_handle(arr_wTKZAbP[zRpxMAc],member.pSignalSemaphores[zRpxMAc]);}();
+            [&](){serialize_VkSemaphore(arr_wTKZAbP[zRpxMAc],member.pSignalSemaphores[zRpxMAc]);}();
         }
         }();
 }
@@ -13726,7 +13716,7 @@ auto& pWaitSemaphores_json=json["pWaitSemaphores"];
             return; }temp_ZOgWazs=(VkSemaphore*)malloc(member.waitSemaphoreCount*sizeof(VkSemaphore));
         auto& arr_EtUHlJM=pWaitSemaphores_json.as_array();
         for(int JgknMrE=0; JgknMrE < member.waitSemaphoreCount; JgknMrE++){
-            [&](){deserialize_handle(arr_EtUHlJM[JgknMrE], temp_ZOgWazs[JgknMrE]);}();
+            [&](){deserialize_VkSemaphore(arr_EtUHlJM[JgknMrE], temp_ZOgWazs[JgknMrE]);}();
         }
         }();member.pWaitSemaphores=temp_ZOgWazs;}();
 auto& bufferBindCount_json=json["bufferBindCount"];
@@ -13783,7 +13773,7 @@ auto& pSignalSemaphores_json=json["pSignalSemaphores"];
             return; }temp_mrerffy=(VkSemaphore*)malloc(member.signalSemaphoreCount*sizeof(VkSemaphore));
         auto& arr_UVSUapF=pSignalSemaphores_json.as_array();
         for(int ZmOmQdZ=0; ZmOmQdZ < member.signalSemaphoreCount; ZmOmQdZ++){
-            [&](){deserialize_handle(arr_UVSUapF[ZmOmQdZ], temp_mrerffy[ZmOmQdZ]);}();
+            [&](){deserialize_VkSemaphore(arr_UVSUapF[ZmOmQdZ], temp_mrerffy[ZmOmQdZ]);}();
         }
         }();member.pSignalSemaphores=temp_mrerffy;}();
 }
@@ -14153,7 +14143,7 @@ auto& pImmutableSamplers_json=json["pImmutableSamplers"];
             return; }
         auto& arr_xcuoJXE=pImmutableSamplers_json.emplace_array();
         for(int jbnNzhV=0; jbnNzhV < member.descriptorCount; jbnNzhV++){
-            [&](){serialize_handle(arr_xcuoJXE[jbnNzhV],member.pImmutableSamplers[jbnNzhV]);}();
+            [&](){serialize_VkSampler(arr_xcuoJXE[jbnNzhV],member.pImmutableSamplers[jbnNzhV]);}();
         }
         }();
 }
@@ -14173,7 +14163,7 @@ auto& pImmutableSamplers_json=json["pImmutableSamplers"];
             return; }temp_pgHLJcq=(VkSampler*)malloc(member.descriptorCount*sizeof(VkSampler));
         auto& arr_bUzvmGQ=pImmutableSamplers_json.as_array();
         for(int hNLQkqU=0; hNLQkqU < member.descriptorCount; hNLQkqU++){
-            [&](){deserialize_handle(arr_bUzvmGQ[hNLQkqU], temp_pgHLJcq[hNLQkqU]);}();
+            [&](){deserialize_VkSampler(arr_bUzvmGQ[hNLQkqU], temp_pgHLJcq[hNLQkqU]);}();
         }
         }();member.pImmutableSamplers=temp_pgHLJcq;}();
 }
@@ -14318,7 +14308,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& descriptorPool_json=json["descriptorPool"];
-[&](){serialize_handle(descriptorPool_json,member.descriptorPool);}();
+[&](){serialize_VkDescriptorPool(descriptorPool_json,member.descriptorPool);}();
 auto& descriptorSetCount_json=json["descriptorSetCount"];
 [&](){descriptorSetCount_json=member.descriptorSetCount;}();
 auto& pSetLayouts_json=json["pSetLayouts"];
@@ -14328,7 +14318,7 @@ auto& pSetLayouts_json=json["pSetLayouts"];
             return; }
         auto& arr_zVMtIaT=pSetLayouts_json.emplace_array();
         for(int uklMdkt=0; uklMdkt < member.descriptorSetCount; uklMdkt++){
-            [&](){serialize_handle(arr_zVMtIaT[uklMdkt],member.pSetLayouts[uklMdkt]);}();
+            [&](){serialize_VkDescriptorSetLayout(arr_zVMtIaT[uklMdkt],member.pSetLayouts[uklMdkt]);}();
         }
         }();
 }
@@ -14341,7 +14331,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& descriptorPool_json=json["descriptorPool"];
-[&](){deserialize_handle(descriptorPool_json, member.descriptorPool);}();
+[&](){deserialize_VkDescriptorPool(descriptorPool_json, member.descriptorPool);}();
 auto& descriptorSetCount_json=json["descriptorSetCount"];
 [&](){member.descriptorSetCount=static_cast<uint32_t>(value_to<int>(descriptorSetCount_json));}();
 auto& pSetLayouts_json=json["pSetLayouts"];
@@ -14351,7 +14341,7 @@ auto& pSetLayouts_json=json["pSetLayouts"];
             return; }temp_iRZFemZ=(VkDescriptorSetLayout*)malloc(member.descriptorSetCount*sizeof(VkDescriptorSetLayout));
         auto& arr_KfikEjZ=pSetLayouts_json.as_array();
         for(int nDMuHRP=0; nDMuHRP < member.descriptorSetCount; nDMuHRP++){
-            [&](){deserialize_handle(arr_KfikEjZ[nDMuHRP], temp_iRZFemZ[nDMuHRP]);}();
+            [&](){deserialize_VkDescriptorSetLayout(arr_KfikEjZ[nDMuHRP], temp_iRZFemZ[nDMuHRP]);}();
         }
         }();member.pSetLayouts=temp_iRZFemZ;}();
 }
@@ -14457,7 +14447,7 @@ auto& flags_json=json["flags"];
 auto& stage_json=json["stage"];
 [&](){[&](){[&](){stage_json=member.stage;}();}();}();
 auto& module_json=json["module"];
-[&](){serialize_handle(module_json,member.module);}();
+[&](){serialize_VkShaderModule(module_json,member.module);}();
 auto& pName_json=json["pName"];
 [&](){
             if (member.pName==NULL){
@@ -14495,7 +14485,7 @@ auto& flags_json=json["flags"];
 auto& stage_json=json["stage"];
 [&](){[&](){int temp_IHUgemq;[&](){temp_IHUgemq=static_cast<int>(value_to<int>(stage_json));}();member.stage=(VkShaderStageFlagBits)temp_IHUgemq;}();}();
 auto& module_json=json["module"];
-[&](){deserialize_handle(module_json, member.module);}();
+[&](){deserialize_VkShaderModule(module_json, member.module);}();
 auto& pName_json=json["pName"];
 [&](){ char* temp_AzKgJNk;[&](){
             if (pName_json.as_array().size()==0){
@@ -14539,9 +14529,9 @@ auto& stage_json=json["stage"];
             return serialize_struct(temp, member.stage);
             }();
 auto& layout_json=json["layout"];
-[&](){serialize_handle(layout_json,member.layout);}();
+[&](){serialize_VkPipelineLayout(layout_json,member.layout);}();
 auto& basePipelineHandle_json=json["basePipelineHandle"];
-[&](){serialize_handle(basePipelineHandle_json,member.basePipelineHandle);}();
+[&](){serialize_VkPipeline(basePipelineHandle_json,member.basePipelineHandle);}();
 auto& basePipelineIndex_json=json["basePipelineIndex"];
 [&](){basePipelineIndex_json=member.basePipelineIndex;}();
 }
@@ -14561,9 +14551,9 @@ auto& stage_json=json["stage"];
             deserialize_struct(temp,member.stage);
             }();
 auto& layout_json=json["layout"];
-[&](){deserialize_handle(layout_json, member.layout);}();
+[&](){deserialize_VkPipelineLayout(layout_json, member.layout);}();
 auto& basePipelineHandle_json=json["basePipelineHandle"];
-[&](){deserialize_handle(basePipelineHandle_json, member.basePipelineHandle);}();
+[&](){deserialize_VkPipeline(basePipelineHandle_json, member.basePipelineHandle);}();
 auto& basePipelineIndex_json=json["basePipelineIndex"];
 [&](){member.basePipelineIndex=static_cast<int32_t>(value_to<int>(basePipelineIndex_json));}();
 }
@@ -15448,13 +15438,13 @@ auto& pDynamicState_json=json["pDynamicState"];
         }
         }();
 auto& layout_json=json["layout"];
-[&](){serialize_handle(layout_json,member.layout);}();
+[&](){serialize_VkPipelineLayout(layout_json,member.layout);}();
 auto& renderPass_json=json["renderPass"];
-[&](){serialize_handle(renderPass_json,member.renderPass);}();
+[&](){serialize_VkRenderPass(renderPass_json,member.renderPass);}();
 auto& subpass_json=json["subpass"];
 [&](){subpass_json=member.subpass;}();
 auto& basePipelineHandle_json=json["basePipelineHandle"];
-[&](){serialize_handle(basePipelineHandle_json,member.basePipelineHandle);}();
+[&](){serialize_VkPipeline(basePipelineHandle_json,member.basePipelineHandle);}();
 auto& basePipelineIndex_json=json["basePipelineIndex"];
 [&](){basePipelineIndex_json=member.basePipelineIndex;}();
 }
@@ -15601,13 +15591,13 @@ auto& pDynamicState_json=json["pDynamicState"];
         }
         }();member.pDynamicState=temp_xiTcGaw;}();
 auto& layout_json=json["layout"];
-[&](){deserialize_handle(layout_json, member.layout);}();
+[&](){deserialize_VkPipelineLayout(layout_json, member.layout);}();
 auto& renderPass_json=json["renderPass"];
-[&](){deserialize_handle(renderPass_json, member.renderPass);}();
+[&](){deserialize_VkRenderPass(renderPass_json, member.renderPass);}();
 auto& subpass_json=json["subpass"];
 [&](){member.subpass=static_cast<uint32_t>(value_to<int>(subpass_json));}();
 auto& basePipelineHandle_json=json["basePipelineHandle"];
-[&](){deserialize_handle(basePipelineHandle_json, member.basePipelineHandle);}();
+[&](){deserialize_VkPipeline(basePipelineHandle_json, member.basePipelineHandle);}();
 auto& basePipelineIndex_json=json["basePipelineIndex"];
 [&](){member.basePipelineIndex=static_cast<int32_t>(value_to<int>(basePipelineIndex_json));}();
 }
@@ -15744,7 +15734,7 @@ auto& pSetLayouts_json=json["pSetLayouts"];
             return; }
         auto& arr_zVMtIaT=pSetLayouts_json.emplace_array();
         for(int uklMdkt=0; uklMdkt < member.setLayoutCount; uklMdkt++){
-            [&](){serialize_handle(arr_zVMtIaT[uklMdkt],member.pSetLayouts[uklMdkt]);}();
+            [&](){serialize_VkDescriptorSetLayout(arr_zVMtIaT[uklMdkt],member.pSetLayouts[uklMdkt]);}();
         }
         }();
 auto& pushConstantRangeCount_json=json["pushConstantRangeCount"];
@@ -15782,7 +15772,7 @@ auto& pSetLayouts_json=json["pSetLayouts"];
             return; }temp_bpLPvjG=(VkDescriptorSetLayout*)malloc(member.setLayoutCount*sizeof(VkDescriptorSetLayout));
         auto& arr_KfikEjZ=pSetLayouts_json.as_array();
         for(int nDMuHRP=0; nDMuHRP < member.setLayoutCount; nDMuHRP++){
-            [&](){deserialize_handle(arr_KfikEjZ[nDMuHRP], temp_bpLPvjG[nDMuHRP]);}();
+            [&](){deserialize_VkDescriptorSetLayout(arr_KfikEjZ[nDMuHRP], temp_bpLPvjG[nDMuHRP]);}();
         }
         }();member.pSetLayouts=temp_bpLPvjG;}();
 auto& pushConstantRangeCount_json=json["pushConstantRangeCount"];
@@ -15927,7 +15917,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& commandPool_json=json["commandPool"];
-[&](){serialize_handle(commandPool_json,member.commandPool);}();
+[&](){serialize_VkCommandPool(commandPool_json,member.commandPool);}();
 auto& level_json=json["level"];
 [&](){[&](){[&](){level_json=member.level;}();}();}();
 auto& commandBufferCount_json=json["commandBufferCount"];
@@ -15942,7 +15932,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& commandPool_json=json["commandPool"];
-[&](){deserialize_handle(commandPool_json, member.commandPool);}();
+[&](){deserialize_VkCommandPool(commandPool_json, member.commandPool);}();
 auto& level_json=json["level"];
 [&](){[&](){int temp_aVOzlIb;[&](){temp_aVOzlIb=static_cast<int>(value_to<int>(level_json));}();member.level=(VkCommandBufferLevel)temp_aVOzlIb;}();}();
 auto& commandBufferCount_json=json["commandBufferCount"];
@@ -15960,11 +15950,11 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& renderPass_json=json["renderPass"];
-[&](){serialize_handle(renderPass_json,member.renderPass);}();
+[&](){serialize_VkRenderPass(renderPass_json,member.renderPass);}();
 auto& subpass_json=json["subpass"];
 [&](){subpass_json=member.subpass;}();
 auto& framebuffer_json=json["framebuffer"];
-[&](){serialize_handle(framebuffer_json,member.framebuffer);}();
+[&](){serialize_VkFramebuffer(framebuffer_json,member.framebuffer);}();
 auto& occlusionQueryEnable_json=json["occlusionQueryEnable"];
 [&](){[&](){occlusionQueryEnable_json=member.occlusionQueryEnable;}();}();
 auto& queryFlags_json=json["queryFlags"];
@@ -15981,11 +15971,11 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& renderPass_json=json["renderPass"];
-[&](){deserialize_handle(renderPass_json, member.renderPass);}();
+[&](){deserialize_VkRenderPass(renderPass_json, member.renderPass);}();
 auto& subpass_json=json["subpass"];
 [&](){member.subpass=static_cast<uint32_t>(value_to<int>(subpass_json));}();
 auto& framebuffer_json=json["framebuffer"];
-[&](){deserialize_handle(framebuffer_json, member.framebuffer);}();
+[&](){deserialize_VkFramebuffer(framebuffer_json, member.framebuffer);}();
 auto& occlusionQueryEnable_json=json["occlusionQueryEnable"];
 [&](){uint32_t temp_QhbkIIC;[&](){temp_QhbkIIC=static_cast<uint32_t>(value_to<int>(occlusionQueryEnable_json));}();member.occlusionQueryEnable=(VkBool32)temp_QhbkIIC;}();
 auto& queryFlags_json=json["queryFlags"];
@@ -16056,9 +16046,9 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& renderPass_json=json["renderPass"];
-[&](){serialize_handle(renderPass_json,member.renderPass);}();
+[&](){serialize_VkRenderPass(renderPass_json,member.renderPass);}();
 auto& framebuffer_json=json["framebuffer"];
-[&](){serialize_handle(framebuffer_json,member.framebuffer);}();
+[&](){serialize_VkFramebuffer(framebuffer_json,member.framebuffer);}();
 auto& renderArea_json=json["renderArea"];
 [&](){
             auto& temp=renderArea_json.emplace_object();
@@ -16089,9 +16079,9 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& renderPass_json=json["renderPass"];
-[&](){deserialize_handle(renderPass_json, member.renderPass);}();
+[&](){deserialize_VkRenderPass(renderPass_json, member.renderPass);}();
 auto& framebuffer_json=json["framebuffer"];
-[&](){deserialize_handle(framebuffer_json, member.framebuffer);}();
+[&](){deserialize_VkFramebuffer(framebuffer_json, member.framebuffer);}();
 auto& renderArea_json=json["renderArea"];
 [&](){
             auto& temp=renderArea_json.as_object();
@@ -17459,7 +17449,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){[&](){flags_json=member.flags;}();}();}();
 auto& renderPass_json=json["renderPass"];
-[&](){serialize_handle(renderPass_json,member.renderPass);}();
+[&](){serialize_VkRenderPass(renderPass_json,member.renderPass);}();
 auto& attachmentCount_json=json["attachmentCount"];
 [&](){attachmentCount_json=member.attachmentCount;}();
 auto& pAttachments_json=json["pAttachments"];
@@ -17469,7 +17459,7 @@ auto& pAttachments_json=json["pAttachments"];
             return; }
         auto& arr_XUnbodX=pAttachments_json.emplace_array();
         for(int FOVxLSQ=0; FOVxLSQ < member.attachmentCount; FOVxLSQ++){
-            [&](){serialize_handle(arr_XUnbodX[FOVxLSQ],member.pAttachments[FOVxLSQ]);}();
+            [&](){serialize_VkImageView(arr_XUnbodX[FOVxLSQ],member.pAttachments[FOVxLSQ]);}();
         }
         }();
 auto& width_json=json["width"];
@@ -17490,7 +17480,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){int temp_iTJFEOR;[&](){temp_iTJFEOR=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkFramebufferCreateFlags)temp_iTJFEOR;}();}();
 auto& renderPass_json=json["renderPass"];
-[&](){deserialize_handle(renderPass_json, member.renderPass);}();
+[&](){deserialize_VkRenderPass(renderPass_json, member.renderPass);}();
 auto& attachmentCount_json=json["attachmentCount"];
 [&](){member.attachmentCount=static_cast<uint32_t>(value_to<int>(attachmentCount_json));}();
 auto& pAttachments_json=json["pAttachments"];
@@ -17500,7 +17490,7 @@ auto& pAttachments_json=json["pAttachments"];
             return; }temp_veJtHuE=(VkImageView*)malloc(member.attachmentCount*sizeof(VkImageView));
         auto& arr_vOukWcp=pAttachments_json.as_array();
         for(int SjNLYTr=0; SjNLYTr < member.attachmentCount; SjNLYTr++){
-            [&](){deserialize_handle(arr_vOukWcp[SjNLYTr], temp_veJtHuE[SjNLYTr]);}();
+            [&](){deserialize_VkImageView(arr_vOukWcp[SjNLYTr], temp_veJtHuE[SjNLYTr]);}();
         }
         }();member.pAttachments=temp_veJtHuE;}();
 auto& width_json=json["width"];
@@ -17633,7 +17623,7 @@ auto& pWaitSemaphores_json=json["pWaitSemaphores"];
             return; }
         auto& arr_AxVizBE=pWaitSemaphores_json.emplace_array();
         for(int XBpvDer=0; XBpvDer < member.waitSemaphoreCount; XBpvDer++){
-            [&](){serialize_handle(arr_AxVizBE[XBpvDer],member.pWaitSemaphores[XBpvDer]);}();
+            [&](){serialize_VkSemaphore(arr_AxVizBE[XBpvDer],member.pWaitSemaphores[XBpvDer]);}();
         }
         }();
 auto& pWaitDstStageMask_json=json["pWaitDstStageMask"];
@@ -17655,7 +17645,7 @@ auto& pCommandBuffers_json=json["pCommandBuffers"];
             return; }
         auto& arr_gceABMa=pCommandBuffers_json.emplace_array();
         for(int EViCAMU=0; EViCAMU < member.commandBufferCount; EViCAMU++){
-            [&](){serialize_handle(arr_gceABMa[EViCAMU],member.pCommandBuffers[EViCAMU]);}();
+            [&](){serialize_VkCommandBuffer(arr_gceABMa[EViCAMU],member.pCommandBuffers[EViCAMU]);}();
         }
         }();
 auto& signalSemaphoreCount_json=json["signalSemaphoreCount"];
@@ -17667,7 +17657,7 @@ auto& pSignalSemaphores_json=json["pSignalSemaphores"];
             return; }
         auto& arr_wTKZAbP=pSignalSemaphores_json.emplace_array();
         for(int zRpxMAc=0; zRpxMAc < member.signalSemaphoreCount; zRpxMAc++){
-            [&](){serialize_handle(arr_wTKZAbP[zRpxMAc],member.pSignalSemaphores[zRpxMAc]);}();
+            [&](){serialize_VkSemaphore(arr_wTKZAbP[zRpxMAc],member.pSignalSemaphores[zRpxMAc]);}();
         }
         }();
 }
@@ -17688,7 +17678,7 @@ auto& pWaitSemaphores_json=json["pWaitSemaphores"];
             return; }temp_ZOgWazs=(VkSemaphore*)malloc(member.waitSemaphoreCount*sizeof(VkSemaphore));
         auto& arr_EtUHlJM=pWaitSemaphores_json.as_array();
         for(int JgknMrE=0; JgknMrE < member.waitSemaphoreCount; JgknMrE++){
-            [&](){deserialize_handle(arr_EtUHlJM[JgknMrE], temp_ZOgWazs[JgknMrE]);}();
+            [&](){deserialize_VkSemaphore(arr_EtUHlJM[JgknMrE], temp_ZOgWazs[JgknMrE]);}();
         }
         }();member.pWaitSemaphores=temp_ZOgWazs;}();
 auto& pWaitDstStageMask_json=json["pWaitDstStageMask"];
@@ -17710,7 +17700,7 @@ auto& pCommandBuffers_json=json["pCommandBuffers"];
             return; }temp_vAjqehs=(VkCommandBuffer*)malloc(member.commandBufferCount*sizeof(VkCommandBuffer));
         auto& arr_laSMaAh=pCommandBuffers_json.as_array();
         for(int IbzHXLC=0; IbzHXLC < member.commandBufferCount; IbzHXLC++){
-            [&](){deserialize_handle(arr_laSMaAh[IbzHXLC], temp_vAjqehs[IbzHXLC]);}();
+            [&](){deserialize_VkCommandBuffer(arr_laSMaAh[IbzHXLC], temp_vAjqehs[IbzHXLC]);}();
         }
         }();member.pCommandBuffers=temp_vAjqehs;}();
 auto& signalSemaphoreCount_json=json["signalSemaphoreCount"];
@@ -17722,7 +17712,7 @@ auto& pSignalSemaphores_json=json["pSignalSemaphores"];
             return; }temp_mrerffy=(VkSemaphore*)malloc(member.signalSemaphoreCount*sizeof(VkSemaphore));
         auto& arr_UVSUapF=pSignalSemaphores_json.as_array();
         for(int ZmOmQdZ=0; ZmOmQdZ < member.signalSemaphoreCount; ZmOmQdZ++){
-            [&](){deserialize_handle(arr_UVSUapF[ZmOmQdZ], temp_mrerffy[ZmOmQdZ]);}();
+            [&](){deserialize_VkSemaphore(arr_UVSUapF[ZmOmQdZ], temp_mrerffy[ZmOmQdZ]);}();
         }
         }();member.pSignalSemaphores=temp_mrerffy;}();
 }
@@ -17731,7 +17721,7 @@ auto& pSignalSemaphores_json=json["pSignalSemaphores"];
         
     
 auto& display_json=json["display"];
-[&](){serialize_handle(display_json,member.display);}();
+[&](){serialize_VkDisplayKHR(display_json,member.display);}();
 auto& displayName_json=json["displayName"];
 [&](){
             if (member.displayName==NULL){
@@ -17761,7 +17751,7 @@ auto& persistentContent_json=json["persistentContent"];
 }
 void deserialize_struct(boost::json::object& json, VkDisplayPropertiesKHR& member){
 auto& display_json=json["display"];
-[&](){deserialize_handle(display_json, member.display);}();
+[&](){deserialize_VkDisplayKHR(display_json, member.display);}();
 auto& displayName_json=json["displayName"];
 [&](){ char* temp_hfObfFy;[&](){
             if (displayName_json.as_array().size()==0){
@@ -17794,13 +17784,13 @@ auto& persistentContent_json=json["persistentContent"];
         
     
 auto& currentDisplay_json=json["currentDisplay"];
-[&](){serialize_handle(currentDisplay_json,member.currentDisplay);}();
+[&](){serialize_VkDisplayKHR(currentDisplay_json,member.currentDisplay);}();
 auto& currentStackIndex_json=json["currentStackIndex"];
 [&](){currentStackIndex_json=member.currentStackIndex;}();
 }
 void deserialize_struct(boost::json::object& json, VkDisplayPlanePropertiesKHR& member){
 auto& currentDisplay_json=json["currentDisplay"];
-[&](){deserialize_handle(currentDisplay_json, member.currentDisplay);}();
+[&](){deserialize_VkDisplayKHR(currentDisplay_json, member.currentDisplay);}();
 auto& currentStackIndex_json=json["currentStackIndex"];
 [&](){member.currentStackIndex=static_cast<uint32_t>(value_to<int>(currentStackIndex_json));}();
 }
@@ -17830,7 +17820,7 @@ auto& refreshRate_json=json["refreshRate"];
         
     
 auto& displayMode_json=json["displayMode"];
-[&](){serialize_handle(displayMode_json,member.displayMode);}();
+[&](){serialize_VkDisplayModeKHR(displayMode_json,member.displayMode);}();
 auto& parameters_json=json["parameters"];
 [&](){
             auto& temp=parameters_json.emplace_object();
@@ -17839,7 +17829,7 @@ auto& parameters_json=json["parameters"];
 }
 void deserialize_struct(boost::json::object& json, VkDisplayModePropertiesKHR& member){
 auto& displayMode_json=json["displayMode"];
-[&](){deserialize_handle(displayMode_json, member.displayMode);}();
+[&](){deserialize_VkDisplayModeKHR(displayMode_json, member.displayMode);}();
 auto& parameters_json=json["parameters"];
 [&](){
             auto& temp=parameters_json.as_object();
@@ -17986,7 +17976,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){[&](){flags_json=member.flags;}();}();}();
 auto& displayMode_json=json["displayMode"];
-[&](){serialize_handle(displayMode_json,member.displayMode);}();
+[&](){serialize_VkDisplayModeKHR(displayMode_json,member.displayMode);}();
 auto& planeIndex_json=json["planeIndex"];
 [&](){planeIndex_json=member.planeIndex;}();
 auto& planeStackIndex_json=json["planeStackIndex"];
@@ -18014,7 +18004,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){int temp_KrORNUx;[&](){temp_KrORNUx=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkDisplaySurfaceCreateFlagsKHR)temp_KrORNUx;}();}();
 auto& displayMode_json=json["displayMode"];
-[&](){deserialize_handle(displayMode_json, member.displayMode);}();
+[&](){deserialize_VkDisplayModeKHR(displayMode_json, member.displayMode);}();
 auto& planeIndex_json=json["planeIndex"];
 [&](){member.planeIndex=static_cast<uint32_t>(value_to<int>(planeIndex_json));}();
 auto& planeStackIndex_json=json["planeStackIndex"];
@@ -18248,7 +18238,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){[&](){flags_json=member.flags;}();}();}();
 auto& surface_json=json["surface"];
-[&](){serialize_handle(surface_json,member.surface);}();
+[&](){serialize_VkSurfaceKHR(surface_json,member.surface);}();
 auto& minImageCount_json=json["minImageCount"];
 [&](){minImageCount_json=member.minImageCount;}();
 auto& imageFormat_json=json["imageFormat"];
@@ -18287,7 +18277,7 @@ auto& presentMode_json=json["presentMode"];
 auto& clipped_json=json["clipped"];
 [&](){[&](){clipped_json=member.clipped;}();}();
 auto& oldSwapchain_json=json["oldSwapchain"];
-[&](){serialize_handle(oldSwapchain_json,member.oldSwapchain);}();
+[&](){serialize_VkSwapchainKHR(oldSwapchain_json,member.oldSwapchain);}();
 }
 void deserialize_struct(boost::json::object& json, VkSwapchainCreateInfoKHR& member){
 auto& sType_json=json["sType"];
@@ -18300,7 +18290,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){int temp_VLDeCRD;[&](){temp_VLDeCRD=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkSwapchainCreateFlagsKHR)temp_VLDeCRD;}();}();
 auto& surface_json=json["surface"];
-[&](){deserialize_handle(surface_json, member.surface);}();
+[&](){deserialize_VkSurfaceKHR(surface_json, member.surface);}();
 auto& minImageCount_json=json["minImageCount"];
 [&](){member.minImageCount=static_cast<uint32_t>(value_to<int>(minImageCount_json));}();
 auto& imageFormat_json=json["imageFormat"];
@@ -18339,7 +18329,7 @@ auto& presentMode_json=json["presentMode"];
 auto& clipped_json=json["clipped"];
 [&](){uint32_t temp_KopwZcA;[&](){temp_KopwZcA=static_cast<uint32_t>(value_to<int>(clipped_json));}();member.clipped=(VkBool32)temp_KopwZcA;}();
 auto& oldSwapchain_json=json["oldSwapchain"];
-[&](){deserialize_handle(oldSwapchain_json, member.oldSwapchain);}();
+[&](){deserialize_VkSwapchainKHR(oldSwapchain_json, member.oldSwapchain);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkPresentInfoKHR& member){
@@ -18361,7 +18351,7 @@ auto& pWaitSemaphores_json=json["pWaitSemaphores"];
             return; }
         auto& arr_AxVizBE=pWaitSemaphores_json.emplace_array();
         for(int XBpvDer=0; XBpvDer < member.waitSemaphoreCount; XBpvDer++){
-            [&](){serialize_handle(arr_AxVizBE[XBpvDer],member.pWaitSemaphores[XBpvDer]);}();
+            [&](){serialize_VkSemaphore(arr_AxVizBE[XBpvDer],member.pWaitSemaphores[XBpvDer]);}();
         }
         }();
 auto& swapchainCount_json=json["swapchainCount"];
@@ -18373,7 +18363,7 @@ auto& pSwapchains_json=json["pSwapchains"];
             return; }
         auto& arr_rmsPqbh=pSwapchains_json.emplace_array();
         for(int BUaLlYr=0; BUaLlYr < member.swapchainCount; BUaLlYr++){
-            [&](){serialize_handle(arr_rmsPqbh[BUaLlYr],member.pSwapchains[BUaLlYr]);}();
+            [&](){serialize_VkSwapchainKHR(arr_rmsPqbh[BUaLlYr],member.pSwapchains[BUaLlYr]);}();
         }
         }();
 auto& pImageIndices_json=json["pImageIndices"];
@@ -18414,7 +18404,7 @@ auto& pWaitSemaphores_json=json["pWaitSemaphores"];
             return; }temp_ZOgWazs=(VkSemaphore*)malloc(member.waitSemaphoreCount*sizeof(VkSemaphore));
         auto& arr_EtUHlJM=pWaitSemaphores_json.as_array();
         for(int JgknMrE=0; JgknMrE < member.waitSemaphoreCount; JgknMrE++){
-            [&](){deserialize_handle(arr_EtUHlJM[JgknMrE], temp_ZOgWazs[JgknMrE]);}();
+            [&](){deserialize_VkSemaphore(arr_EtUHlJM[JgknMrE], temp_ZOgWazs[JgknMrE]);}();
         }
         }();member.pWaitSemaphores=temp_ZOgWazs;}();
 auto& swapchainCount_json=json["swapchainCount"];
@@ -18426,7 +18416,7 @@ auto& pSwapchains_json=json["pSwapchains"];
             return; }temp_gqRHNDC=(VkSwapchainKHR*)malloc(member.swapchainCount*sizeof(VkSwapchainKHR));
         auto& arr_AKebdOe=pSwapchains_json.as_array();
         for(int wNljORb=0; wNljORb < member.swapchainCount; wNljORb++){
-            [&](){deserialize_handle(arr_AKebdOe[wNljORb], temp_gqRHNDC[wNljORb]);}();
+            [&](){deserialize_VkSwapchainKHR(arr_AKebdOe[wNljORb], temp_gqRHNDC[wNljORb]);}();
         }
         }();member.pSwapchains=temp_gqRHNDC;}();
 auto& pImageIndices_json=json["pImageIndices"];
@@ -18485,7 +18475,7 @@ json["PFN_vkDebugReportCallbackEXT"]=(uintptr_t)(member.pfnCallback);
         }
         }();pUserData=temp_YghEUhF;}();
             #else
-                pUserData=new pUserData();
+                pUserData=new pUserData_struct();
         
 [&](){
             if (json["pUserData"].as_array().size()==0){
@@ -18521,7 +18511,7 @@ auto& flags_json=json["flags"];
 auto& pfnCallback_json=json["pfnCallback"];
 [&](){
             auto& temp=pfnCallback_json.emplace_object();
-            return serialize_funcpointer(temp, member.pfnCallback);
+            return serialize_PFN_vkDebugReportCallbackEXT(temp, member.pfnCallback);
             }();
 auto& pUserData_json=json["pUserData"];
 
@@ -18541,11 +18531,9 @@ auto& flags_json=json["flags"];
 [&](){[&](){int temp_wweSklr;[&](){temp_wweSklr=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkDebugReportFlagsEXT)temp_wweSklr;}();}();
 auto& pfnCallback_json=json["pfnCallback"];
 [&](){
-#ifndef CLIENT
             auto& temp=pfnCallback_json.as_object();
-            deserialize_funcpointer(temp,member.pfnCallback);
-            #endif
-}();
+            deserialize_PFN_vkDebugReportCallbackEXT(temp,member.pfnCallback);
+            }();
 auto& pUserData_json=json["pUserData"];
 
             auto& pUserData_json_1=pUserData_json.as_object();
@@ -18920,9 +18908,9 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& image_json=json["image"];
-[&](){serialize_handle(image_json,member.image);}();
+[&](){serialize_VkImage(image_json,member.image);}();
 auto& buffer_json=json["buffer"];
-[&](){serialize_handle(buffer_json,member.buffer);}();
+[&](){serialize_VkBuffer(buffer_json,member.buffer);}();
 }
 void deserialize_struct(boost::json::object& json, VkDedicatedAllocationMemoryAllocateInfoNV& member){
 auto& sType_json=json["sType"];
@@ -18933,9 +18921,9 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& image_json=json["image"];
-[&](){deserialize_handle(image_json, member.image);}();
+[&](){deserialize_VkImage(image_json, member.image);}();
 auto& buffer_json=json["buffer"];
-[&](){deserialize_handle(buffer_json, member.buffer);}();
+[&](){deserialize_VkBuffer(buffer_json, member.buffer);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkExternalImageFormatPropertiesNV& member){
@@ -19369,7 +19357,7 @@ auto& pPipelines_json=json["pPipelines"];
             return; }
         auto& arr_ykCmxiL=pPipelines_json.emplace_array();
         for(int HgcTYHx=0; HgcTYHx < member.pipelineCount; HgcTYHx++){
-            [&](){serialize_handle(arr_ykCmxiL[HgcTYHx],member.pPipelines[HgcTYHx]);}();
+            [&](){serialize_VkPipeline(arr_ykCmxiL[HgcTYHx],member.pPipelines[HgcTYHx]);}();
         }
         }();
 }
@@ -19405,7 +19393,7 @@ auto& pPipelines_json=json["pPipelines"];
             return; }temp_EUjhUCI=(VkPipeline*)malloc(member.pipelineCount*sizeof(VkPipeline));
         auto& arr_NeLDYdZ=pPipelines_json.as_array();
         for(int vgTPlih=0; vgTPlih < member.pipelineCount; vgTPlih++){
-            [&](){deserialize_handle(arr_NeLDYdZ[vgTPlih], temp_EUjhUCI[vgTPlih]);}();
+            [&](){deserialize_VkPipeline(arr_NeLDYdZ[vgTPlih], temp_EUjhUCI[vgTPlih]);}();
         }
         }();member.pPipelines=temp_EUjhUCI;}();
 }
@@ -19474,13 +19462,13 @@ auto& data_json=json["data"];
         
     
 auto& buffer_json=json["buffer"];
-[&](){serialize_handle(buffer_json,member.buffer);}();
+[&](){serialize_VkBuffer(buffer_json,member.buffer);}();
 auto& offset_json=json["offset"];
 [&](){[&](){offset_json=member.offset;}();}();
 }
 void deserialize_struct(boost::json::object& json, VkIndirectCommandsStreamNV& member){
 auto& buffer_json=json["buffer"];
-[&](){deserialize_handle(buffer_json, member.buffer);}();
+[&](){deserialize_VkBuffer(buffer_json, member.buffer);}();
 auto& offset_json=json["offset"];
 [&](){uint64_t temp_EwrXfgl;[&](){temp_EwrXfgl=static_cast<uint64_t>(value_to<int>(offset_json));}();member.offset=(VkDeviceSize)temp_EwrXfgl;}();
 }
@@ -19506,7 +19494,7 @@ auto& vertexBindingUnit_json=json["vertexBindingUnit"];
 auto& vertexDynamicStride_json=json["vertexDynamicStride"];
 [&](){[&](){vertexDynamicStride_json=member.vertexDynamicStride;}();}();
 auto& pushconstantPipelineLayout_json=json["pushconstantPipelineLayout"];
-[&](){serialize_handle(pushconstantPipelineLayout_json,member.pushconstantPipelineLayout);}();
+[&](){serialize_VkPipelineLayout(pushconstantPipelineLayout_json,member.pushconstantPipelineLayout);}();
 auto& pushconstantShaderStageFlags_json=json["pushconstantShaderStageFlags"];
 [&](){[&](){[&](){pushconstantShaderStageFlags_json=member.pushconstantShaderStageFlags;}();}();}();
 auto& pushconstantOffset_json=json["pushconstantOffset"];
@@ -19557,7 +19545,7 @@ auto& vertexBindingUnit_json=json["vertexBindingUnit"];
 auto& vertexDynamicStride_json=json["vertexDynamicStride"];
 [&](){uint32_t temp_eUuFrGg;[&](){temp_eUuFrGg=static_cast<uint32_t>(value_to<int>(vertexDynamicStride_json));}();member.vertexDynamicStride=(VkBool32)temp_eUuFrGg;}();
 auto& pushconstantPipelineLayout_json=json["pushconstantPipelineLayout"];
-[&](){deserialize_handle(pushconstantPipelineLayout_json, member.pushconstantPipelineLayout);}();
+[&](){deserialize_VkPipelineLayout(pushconstantPipelineLayout_json, member.pushconstantPipelineLayout);}();
 auto& pushconstantShaderStageFlags_json=json["pushconstantShaderStageFlags"];
 [&](){[&](){int temp_nvKpnex;[&](){temp_nvKpnex=static_cast<int>(value_to<int>(pushconstantShaderStageFlags_json));}();member.pushconstantShaderStageFlags=(VkShaderStageFlags)temp_nvKpnex;}();}();
 auto& pushconstantOffset_json=json["pushconstantOffset"];
@@ -19686,9 +19674,9 @@ auto& pNext_json=json["pNext"];
 auto& pipelineBindPoint_json=json["pipelineBindPoint"];
 [&](){[&](){[&](){pipelineBindPoint_json=member.pipelineBindPoint;}();}();}();
 auto& pipeline_json=json["pipeline"];
-[&](){serialize_handle(pipeline_json,member.pipeline);}();
+[&](){serialize_VkPipeline(pipeline_json,member.pipeline);}();
 auto& indirectCommandsLayout_json=json["indirectCommandsLayout"];
-[&](){serialize_handle(indirectCommandsLayout_json,member.indirectCommandsLayout);}();
+[&](){serialize_VkIndirectCommandsLayoutNV(indirectCommandsLayout_json,member.indirectCommandsLayout);}();
 auto& streamCount_json=json["streamCount"];
 [&](){streamCount_json=member.streamCount;}();
 auto& pStreams_json=json["pStreams"];
@@ -19707,17 +19695,17 @@ auto& pStreams_json=json["pStreams"];
 auto& sequencesCount_json=json["sequencesCount"];
 [&](){sequencesCount_json=member.sequencesCount;}();
 auto& preprocessBuffer_json=json["preprocessBuffer"];
-[&](){serialize_handle(preprocessBuffer_json,member.preprocessBuffer);}();
+[&](){serialize_VkBuffer(preprocessBuffer_json,member.preprocessBuffer);}();
 auto& preprocessOffset_json=json["preprocessOffset"];
 [&](){[&](){preprocessOffset_json=member.preprocessOffset;}();}();
 auto& preprocessSize_json=json["preprocessSize"];
 [&](){[&](){preprocessSize_json=member.preprocessSize;}();}();
 auto& sequencesCountBuffer_json=json["sequencesCountBuffer"];
-[&](){serialize_handle(sequencesCountBuffer_json,member.sequencesCountBuffer);}();
+[&](){serialize_VkBuffer(sequencesCountBuffer_json,member.sequencesCountBuffer);}();
 auto& sequencesCountOffset_json=json["sequencesCountOffset"];
 [&](){[&](){sequencesCountOffset_json=member.sequencesCountOffset;}();}();
 auto& sequencesIndexBuffer_json=json["sequencesIndexBuffer"];
-[&](){serialize_handle(sequencesIndexBuffer_json,member.sequencesIndexBuffer);}();
+[&](){serialize_VkBuffer(sequencesIndexBuffer_json,member.sequencesIndexBuffer);}();
 auto& sequencesIndexOffset_json=json["sequencesIndexOffset"];
 [&](){[&](){sequencesIndexOffset_json=member.sequencesIndexOffset;}();}();
 }
@@ -19732,9 +19720,9 @@ auto& pNext_json=json["pNext"];
 auto& pipelineBindPoint_json=json["pipelineBindPoint"];
 [&](){[&](){int temp_WiAtSfj;[&](){temp_WiAtSfj=static_cast<int>(value_to<int>(pipelineBindPoint_json));}();member.pipelineBindPoint=(VkPipelineBindPoint)temp_WiAtSfj;}();}();
 auto& pipeline_json=json["pipeline"];
-[&](){deserialize_handle(pipeline_json, member.pipeline);}();
+[&](){deserialize_VkPipeline(pipeline_json, member.pipeline);}();
 auto& indirectCommandsLayout_json=json["indirectCommandsLayout"];
-[&](){deserialize_handle(indirectCommandsLayout_json, member.indirectCommandsLayout);}();
+[&](){deserialize_VkIndirectCommandsLayoutNV(indirectCommandsLayout_json, member.indirectCommandsLayout);}();
 auto& streamCount_json=json["streamCount"];
 [&](){member.streamCount=static_cast<uint32_t>(value_to<int>(streamCount_json));}();
 auto& pStreams_json=json["pStreams"];
@@ -19753,17 +19741,17 @@ auto& pStreams_json=json["pStreams"];
 auto& sequencesCount_json=json["sequencesCount"];
 [&](){member.sequencesCount=static_cast<uint32_t>(value_to<int>(sequencesCount_json));}();
 auto& preprocessBuffer_json=json["preprocessBuffer"];
-[&](){deserialize_handle(preprocessBuffer_json, member.preprocessBuffer);}();
+[&](){deserialize_VkBuffer(preprocessBuffer_json, member.preprocessBuffer);}();
 auto& preprocessOffset_json=json["preprocessOffset"];
 [&](){uint64_t temp_uxEazuL;[&](){temp_uxEazuL=static_cast<uint64_t>(value_to<int>(preprocessOffset_json));}();member.preprocessOffset=(VkDeviceSize)temp_uxEazuL;}();
 auto& preprocessSize_json=json["preprocessSize"];
 [&](){uint64_t temp_AYrIiHV;[&](){temp_AYrIiHV=static_cast<uint64_t>(value_to<int>(preprocessSize_json));}();member.preprocessSize=(VkDeviceSize)temp_AYrIiHV;}();
 auto& sequencesCountBuffer_json=json["sequencesCountBuffer"];
-[&](){deserialize_handle(sequencesCountBuffer_json, member.sequencesCountBuffer);}();
+[&](){deserialize_VkBuffer(sequencesCountBuffer_json, member.sequencesCountBuffer);}();
 auto& sequencesCountOffset_json=json["sequencesCountOffset"];
 [&](){uint64_t temp_xzHnKzv;[&](){temp_xzHnKzv=static_cast<uint64_t>(value_to<int>(sequencesCountOffset_json));}();member.sequencesCountOffset=(VkDeviceSize)temp_xzHnKzv;}();
 auto& sequencesIndexBuffer_json=json["sequencesIndexBuffer"];
-[&](){deserialize_handle(sequencesIndexBuffer_json, member.sequencesIndexBuffer);}();
+[&](){deserialize_VkBuffer(sequencesIndexBuffer_json, member.sequencesIndexBuffer);}();
 auto& sequencesIndexOffset_json=json["sequencesIndexOffset"];
 [&](){uint64_t temp_aezlUSc;[&](){temp_aezlUSc=static_cast<uint64_t>(value_to<int>(sequencesIndexOffset_json));}();member.sequencesIndexOffset=(VkDeviceSize)temp_aezlUSc;}();
 }
@@ -19781,9 +19769,9 @@ auto& pNext_json=json["pNext"];
 auto& pipelineBindPoint_json=json["pipelineBindPoint"];
 [&](){[&](){[&](){pipelineBindPoint_json=member.pipelineBindPoint;}();}();}();
 auto& pipeline_json=json["pipeline"];
-[&](){serialize_handle(pipeline_json,member.pipeline);}();
+[&](){serialize_VkPipeline(pipeline_json,member.pipeline);}();
 auto& indirectCommandsLayout_json=json["indirectCommandsLayout"];
-[&](){serialize_handle(indirectCommandsLayout_json,member.indirectCommandsLayout);}();
+[&](){serialize_VkIndirectCommandsLayoutNV(indirectCommandsLayout_json,member.indirectCommandsLayout);}();
 auto& maxSequencesCount_json=json["maxSequencesCount"];
 [&](){maxSequencesCount_json=member.maxSequencesCount;}();
 }
@@ -19798,9 +19786,9 @@ auto& pNext_json=json["pNext"];
 auto& pipelineBindPoint_json=json["pipelineBindPoint"];
 [&](){[&](){int temp_WiAtSfj;[&](){temp_WiAtSfj=static_cast<int>(value_to<int>(pipelineBindPoint_json));}();member.pipelineBindPoint=(VkPipelineBindPoint)temp_WiAtSfj;}();}();
 auto& pipeline_json=json["pipeline"];
-[&](){deserialize_handle(pipeline_json, member.pipeline);}();
+[&](){deserialize_VkPipeline(pipeline_json, member.pipeline);}();
 auto& indirectCommandsLayout_json=json["indirectCommandsLayout"];
-[&](){deserialize_handle(indirectCommandsLayout_json, member.indirectCommandsLayout);}();
+[&](){deserialize_VkIndirectCommandsLayoutNV(indirectCommandsLayout_json, member.indirectCommandsLayout);}();
 auto& maxSequencesCount_json=json["maxSequencesCount"];
 [&](){member.maxSequencesCount=static_cast<uint32_t>(value_to<int>(maxSequencesCount_json));}();
 }
@@ -19818,7 +19806,7 @@ auto& pNext_json=json["pNext"];
 auto& pipelineBindPoint_json=json["pipelineBindPoint"];
 [&](){[&](){[&](){pipelineBindPoint_json=member.pipelineBindPoint;}();}();}();
 auto& pipeline_json=json["pipeline"];
-[&](){serialize_handle(pipeline_json,member.pipeline);}();
+[&](){serialize_VkPipeline(pipeline_json,member.pipeline);}();
 }
 void deserialize_struct(boost::json::object& json, VkPipelineIndirectDeviceAddressInfoNV& member){
 auto& sType_json=json["sType"];
@@ -19831,7 +19819,7 @@ auto& pNext_json=json["pNext"];
 auto& pipelineBindPoint_json=json["pipelineBindPoint"];
 [&](){[&](){int temp_WiAtSfj;[&](){temp_WiAtSfj=static_cast<int>(value_to<int>(pipelineBindPoint_json));}();member.pipelineBindPoint=(VkPipelineBindPoint)temp_WiAtSfj;}();}();
 auto& pipeline_json=json["pipeline"];
-[&](){deserialize_handle(pipeline_json, member.pipeline);}();
+[&](){deserialize_VkPipeline(pipeline_json, member.pipeline);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkBindPipelineIndirectCommandNV& member){
@@ -20753,7 +20741,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& memory_json=json["memory"];
-[&](){serialize_handle(memory_json,member.memory);}();
+[&](){serialize_VkDeviceMemory(memory_json,member.memory);}();
 auto& handleType_json=json["handleType"];
 [&](){[&](){[&](){handleType_json=member.handleType;}();}();}();
 }
@@ -20766,7 +20754,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& memory_json=json["memory"];
-[&](){deserialize_handle(memory_json, member.memory);}();
+[&](){deserialize_VkDeviceMemory(memory_json, member.memory);}();
 auto& handleType_json=json["handleType"];
 [&](){[&](){int temp_eyKBrDS;[&](){temp_eyKBrDS=static_cast<int>(value_to<int>(handleType_json));}();member.handleType=(VkExternalMemoryHandleTypeFlagBits)temp_eyKBrDS;}();}();
 }
@@ -20865,7 +20853,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& semaphore_json=json["semaphore"];
-[&](){serialize_handle(semaphore_json,member.semaphore);}();
+[&](){serialize_VkSemaphore(semaphore_json,member.semaphore);}();
 auto& flags_json=json["flags"];
 [&](){[&](){[&](){flags_json=member.flags;}();}();}();
 auto& handleType_json=json["handleType"];
@@ -20882,7 +20870,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& semaphore_json=json["semaphore"];
-[&](){deserialize_handle(semaphore_json, member.semaphore);}();
+[&](){deserialize_VkSemaphore(semaphore_json, member.semaphore);}();
 auto& flags_json=json["flags"];
 [&](){[&](){int temp_ezvKDqt;[&](){temp_ezvKDqt=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkSemaphoreImportFlags)temp_ezvKDqt;}();}();
 auto& handleType_json=json["handleType"];
@@ -20902,7 +20890,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& semaphore_json=json["semaphore"];
-[&](){serialize_handle(semaphore_json,member.semaphore);}();
+[&](){serialize_VkSemaphore(semaphore_json,member.semaphore);}();
 auto& handleType_json=json["handleType"];
 [&](){[&](){[&](){handleType_json=member.handleType;}();}();}();
 }
@@ -20915,7 +20903,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& semaphore_json=json["semaphore"];
-[&](){deserialize_handle(semaphore_json, member.semaphore);}();
+[&](){deserialize_VkSemaphore(semaphore_json, member.semaphore);}();
 auto& handleType_json=json["handleType"];
 [&](){[&](){int temp_MnMNLvU;[&](){temp_MnMNLvU=static_cast<int>(value_to<int>(handleType_json));}();member.handleType=(VkExternalSemaphoreHandleTypeFlagBits)temp_MnMNLvU;}();}();
 }
@@ -21014,7 +21002,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& fence_json=json["fence"];
-[&](){serialize_handle(fence_json,member.fence);}();
+[&](){serialize_VkFence(fence_json,member.fence);}();
 auto& flags_json=json["flags"];
 [&](){[&](){[&](){flags_json=member.flags;}();}();}();
 auto& handleType_json=json["handleType"];
@@ -21031,7 +21019,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& fence_json=json["fence"];
-[&](){deserialize_handle(fence_json, member.fence);}();
+[&](){deserialize_VkFence(fence_json, member.fence);}();
 auto& flags_json=json["flags"];
 [&](){[&](){int temp_AgzZwTI;[&](){temp_AgzZwTI=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkFenceImportFlags)temp_AgzZwTI;}();}();
 auto& handleType_json=json["handleType"];
@@ -21051,7 +21039,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& fence_json=json["fence"];
-[&](){serialize_handle(fence_json,member.fence);}();
+[&](){serialize_VkFence(fence_json,member.fence);}();
 auto& handleType_json=json["handleType"];
 [&](){[&](){[&](){handleType_json=member.handleType;}();}();}();
 }
@@ -21064,7 +21052,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& fence_json=json["fence"];
-[&](){deserialize_handle(fence_json, member.fence);}();
+[&](){deserialize_VkFence(fence_json, member.fence);}();
 auto& handleType_json=json["handleType"];
 [&](){[&](){int temp_kPIOJpb;[&](){temp_kPIOJpb=static_cast<int>(value_to<int>(handleType_json));}();member.handleType=(VkExternalFenceHandleTypeFlagBits)temp_kPIOJpb;}();}();
 }
@@ -21423,7 +21411,7 @@ auto& physicalDevices_json=json["physicalDevices"];
 [&](){
         auto& arr_KgvFvmf=physicalDevices_json.emplace_array();
         for(int irLzMAt=0; irLzMAt < VK_MAX_DEVICE_GROUP_SIZE; irLzMAt++){
-            [&](){serialize_handle(arr_KgvFvmf[irLzMAt],member.physicalDevices[irLzMAt]);}();
+            [&](){serialize_VkPhysicalDevice(arr_KgvFvmf[irLzMAt],member.physicalDevices[irLzMAt]);}();
         }
         }();
 auto& subsetAllocation_json=json["subsetAllocation"];
@@ -21443,7 +21431,7 @@ auto& physicalDevices_json=json["physicalDevices"];
 [&](){
         auto& arr_KgvFvmf=physicalDevices_json.as_array();
         for(int irLzMAt=0; irLzMAt < VK_MAX_DEVICE_GROUP_SIZE; irLzMAt++){
-            [&](){deserialize_handle(arr_KgvFvmf[irLzMAt], member.physicalDevices[irLzMAt]);}();
+            [&](){deserialize_VkPhysicalDevice(arr_KgvFvmf[irLzMAt], member.physicalDevices[irLzMAt]);}();
         }
         }();
 auto& subsetAllocation_json=json["subsetAllocation"];
@@ -21490,9 +21478,9 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& buffer_json=json["buffer"];
-[&](){serialize_handle(buffer_json,member.buffer);}();
+[&](){serialize_VkBuffer(buffer_json,member.buffer);}();
 auto& memory_json=json["memory"];
-[&](){serialize_handle(memory_json,member.memory);}();
+[&](){serialize_VkDeviceMemory(memory_json,member.memory);}();
 auto& memoryOffset_json=json["memoryOffset"];
 [&](){[&](){memoryOffset_json=member.memoryOffset;}();}();
 }
@@ -21505,9 +21493,9 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& buffer_json=json["buffer"];
-[&](){deserialize_handle(buffer_json, member.buffer);}();
+[&](){deserialize_VkBuffer(buffer_json, member.buffer);}();
 auto& memory_json=json["memory"];
-[&](){deserialize_handle(memory_json, member.memory);}();
+[&](){deserialize_VkDeviceMemory(memory_json, member.memory);}();
 auto& memoryOffset_json=json["memoryOffset"];
 [&](){uint64_t temp_VWSGqtD;[&](){temp_VWSGqtD=static_cast<uint64_t>(value_to<int>(memoryOffset_json));}();member.memoryOffset=(VkDeviceSize)temp_VWSGqtD;}();
 }
@@ -21568,9 +21556,9 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& image_json=json["image"];
-[&](){serialize_handle(image_json,member.image);}();
+[&](){serialize_VkImage(image_json,member.image);}();
 auto& memory_json=json["memory"];
-[&](){serialize_handle(memory_json,member.memory);}();
+[&](){serialize_VkDeviceMemory(memory_json,member.memory);}();
 auto& memoryOffset_json=json["memoryOffset"];
 [&](){[&](){memoryOffset_json=member.memoryOffset;}();}();
 }
@@ -21583,9 +21571,9 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& image_json=json["image"];
-[&](){deserialize_handle(image_json, member.image);}();
+[&](){deserialize_VkImage(image_json, member.image);}();
 auto& memory_json=json["memory"];
-[&](){deserialize_handle(memory_json, member.memory);}();
+[&](){deserialize_VkDeviceMemory(memory_json, member.memory);}();
 auto& memoryOffset_json=json["memoryOffset"];
 [&](){uint64_t temp_VWSGqtD;[&](){temp_VWSGqtD=static_cast<uint64_t>(value_to<int>(memoryOffset_json));}();member.memoryOffset=(VkDeviceSize)temp_VWSGqtD;}();
 }
@@ -21917,7 +21905,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& swapchain_json=json["swapchain"];
-[&](){serialize_handle(swapchain_json,member.swapchain);}();
+[&](){serialize_VkSwapchainKHR(swapchain_json,member.swapchain);}();
 }
 void deserialize_struct(boost::json::object& json, VkImageSwapchainCreateInfoKHR& member){
 auto& sType_json=json["sType"];
@@ -21928,7 +21916,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& swapchain_json=json["swapchain"];
-[&](){deserialize_handle(swapchain_json, member.swapchain);}();
+[&](){deserialize_VkSwapchainKHR(swapchain_json, member.swapchain);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkBindImageMemorySwapchainInfoKHR& member){
@@ -21942,7 +21930,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& swapchain_json=json["swapchain"];
-[&](){serialize_handle(swapchain_json,member.swapchain);}();
+[&](){serialize_VkSwapchainKHR(swapchain_json,member.swapchain);}();
 auto& imageIndex_json=json["imageIndex"];
 [&](){imageIndex_json=member.imageIndex;}();
 }
@@ -21955,7 +21943,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& swapchain_json=json["swapchain"];
-[&](){deserialize_handle(swapchain_json, member.swapchain);}();
+[&](){deserialize_VkSwapchainKHR(swapchain_json, member.swapchain);}();
 auto& imageIndex_json=json["imageIndex"];
 [&](){member.imageIndex=static_cast<uint32_t>(value_to<int>(imageIndex_json));}();
 }
@@ -21971,13 +21959,13 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& swapchain_json=json["swapchain"];
-[&](){serialize_handle(swapchain_json,member.swapchain);}();
+[&](){serialize_VkSwapchainKHR(swapchain_json,member.swapchain);}();
 auto& timeout_json=json["timeout"];
 [&](){timeout_json=member.timeout;}();
 auto& semaphore_json=json["semaphore"];
-[&](){serialize_handle(semaphore_json,member.semaphore);}();
+[&](){serialize_VkSemaphore(semaphore_json,member.semaphore);}();
 auto& fence_json=json["fence"];
-[&](){serialize_handle(fence_json,member.fence);}();
+[&](){serialize_VkFence(fence_json,member.fence);}();
 auto& deviceMask_json=json["deviceMask"];
 [&](){deviceMask_json=member.deviceMask;}();
 }
@@ -21990,13 +21978,13 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& swapchain_json=json["swapchain"];
-[&](){deserialize_handle(swapchain_json, member.swapchain);}();
+[&](){deserialize_VkSwapchainKHR(swapchain_json, member.swapchain);}();
 auto& timeout_json=json["timeout"];
 [&](){member.timeout=static_cast<uint64_t>(value_to<int>(timeout_json));}();
 auto& semaphore_json=json["semaphore"];
-[&](){deserialize_handle(semaphore_json, member.semaphore);}();
+[&](){deserialize_VkSemaphore(semaphore_json, member.semaphore);}();
 auto& fence_json=json["fence"];
-[&](){deserialize_handle(fence_json, member.fence);}();
+[&](){deserialize_VkFence(fence_json, member.fence);}();
 auto& deviceMask_json=json["deviceMask"];
 [&](){member.deviceMask=static_cast<uint32_t>(value_to<int>(deviceMask_json));}();
 }
@@ -22069,7 +22057,7 @@ auto& pPhysicalDevices_json=json["pPhysicalDevices"];
             return; }
         auto& arr_JJiHDoF=pPhysicalDevices_json.emplace_array();
         for(int oqOlCTN=0; oqOlCTN < member.physicalDeviceCount; oqOlCTN++){
-            [&](){serialize_handle(arr_JJiHDoF[oqOlCTN],member.pPhysicalDevices[oqOlCTN]);}();
+            [&](){serialize_VkPhysicalDevice(arr_JJiHDoF[oqOlCTN],member.pPhysicalDevices[oqOlCTN]);}();
         }
         }();
 }
@@ -22090,7 +22078,7 @@ auto& pPhysicalDevices_json=json["pPhysicalDevices"];
             return; }temp_wsvDXPF=(VkPhysicalDevice*)malloc(member.physicalDeviceCount*sizeof(VkPhysicalDevice));
         auto& arr_oImiiar=pPhysicalDevices_json.as_array();
         for(int rsLzJos=0; rsLzJos < member.physicalDeviceCount; rsLzJos++){
-            [&](){deserialize_handle(arr_oImiiar[rsLzJos], temp_wsvDXPF[rsLzJos]);}();
+            [&](){deserialize_VkPhysicalDevice(arr_oImiiar[rsLzJos], temp_wsvDXPF[rsLzJos]);}();
         }
         }();member.pPhysicalDevices=temp_wsvDXPF;}();
 }
@@ -22181,11 +22169,11 @@ auto& pDescriptorUpdateEntries_json=json["pDescriptorUpdateEntries"];
 auto& templateType_json=json["templateType"];
 [&](){[&](){[&](){templateType_json=member.templateType;}();}();}();
 auto& descriptorSetLayout_json=json["descriptorSetLayout"];
-[&](){serialize_handle(descriptorSetLayout_json,member.descriptorSetLayout);}();
+[&](){serialize_VkDescriptorSetLayout(descriptorSetLayout_json,member.descriptorSetLayout);}();
 auto& pipelineBindPoint_json=json["pipelineBindPoint"];
 [&](){[&](){[&](){pipelineBindPoint_json=member.pipelineBindPoint;}();}();}();
 auto& pipelineLayout_json=json["pipelineLayout"];
-[&](){serialize_handle(pipelineLayout_json,member.pipelineLayout);}();
+[&](){serialize_VkPipelineLayout(pipelineLayout_json,member.pipelineLayout);}();
 auto& set_json=json["set"];
 [&](){set_json=member.set;}();
 }
@@ -22217,11 +22205,11 @@ auto& pDescriptorUpdateEntries_json=json["pDescriptorUpdateEntries"];
 auto& templateType_json=json["templateType"];
 [&](){[&](){int temp_wUAPLnX;[&](){temp_wUAPLnX=static_cast<int>(value_to<int>(templateType_json));}();member.templateType=(VkDescriptorUpdateTemplateType)temp_wUAPLnX;}();}();
 auto& descriptorSetLayout_json=json["descriptorSetLayout"];
-[&](){deserialize_handle(descriptorSetLayout_json, member.descriptorSetLayout);}();
+[&](){deserialize_VkDescriptorSetLayout(descriptorSetLayout_json, member.descriptorSetLayout);}();
 auto& pipelineBindPoint_json=json["pipelineBindPoint"];
 [&](){[&](){int temp_WiAtSfj;[&](){temp_WiAtSfj=static_cast<int>(value_to<int>(pipelineBindPoint_json));}();member.pipelineBindPoint=(VkPipelineBindPoint)temp_WiAtSfj;}();}();
 auto& pipelineLayout_json=json["pipelineLayout"];
-[&](){deserialize_handle(pipelineLayout_json, member.pipelineLayout);}();
+[&](){deserialize_VkPipelineLayout(pipelineLayout_json, member.pipelineLayout);}();
 auto& set_json=json["set"];
 [&](){member.set=static_cast<uint32_t>(value_to<int>(set_json));}();
 }
@@ -22905,7 +22893,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& surface_json=json["surface"];
-[&](){serialize_handle(surface_json,member.surface);}();
+[&](){serialize_VkSurfaceKHR(surface_json,member.surface);}();
 }
 void deserialize_struct(boost::json::object& json, VkPhysicalDeviceSurfaceInfo2KHR& member){
 auto& sType_json=json["sType"];
@@ -22916,7 +22904,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& surface_json=json["surface"];
-[&](){deserialize_handle(surface_json, member.surface);}();
+[&](){deserialize_VkSurfaceKHR(surface_json, member.surface);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkSurfaceCapabilities2KHR& member){
@@ -23085,7 +23073,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& mode_json=json["mode"];
-[&](){serialize_handle(mode_json,member.mode);}();
+[&](){serialize_VkDisplayModeKHR(mode_json,member.mode);}();
 auto& planeIndex_json=json["planeIndex"];
 [&](){planeIndex_json=member.planeIndex;}();
 }
@@ -23098,7 +23086,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& mode_json=json["mode"];
-[&](){deserialize_handle(mode_json, member.mode);}();
+[&](){deserialize_VkDisplayModeKHR(mode_json, member.mode);}();
 auto& planeIndex_json=json["planeIndex"];
 [&](){member.planeIndex=static_cast<uint32_t>(value_to<int>(planeIndex_json));}();
 }
@@ -23269,7 +23257,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& buffer_json=json["buffer"];
-[&](){serialize_handle(buffer_json,member.buffer);}();
+[&](){serialize_VkBuffer(buffer_json,member.buffer);}();
 }
 void deserialize_struct(boost::json::object& json, VkBufferMemoryRequirementsInfo2& member){
 auto& sType_json=json["sType"];
@@ -23280,7 +23268,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& buffer_json=json["buffer"];
-[&](){deserialize_handle(buffer_json, member.buffer);}();
+[&](){deserialize_VkBuffer(buffer_json, member.buffer);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkDeviceBufferMemoryRequirements& member){
@@ -23341,7 +23329,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& image_json=json["image"];
-[&](){serialize_handle(image_json,member.image);}();
+[&](){serialize_VkImage(image_json,member.image);}();
 }
 void deserialize_struct(boost::json::object& json, VkImageMemoryRequirementsInfo2& member){
 auto& sType_json=json["sType"];
@@ -23352,7 +23340,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& image_json=json["image"];
-[&](){deserialize_handle(image_json, member.image);}();
+[&](){deserialize_VkImage(image_json, member.image);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkImageSparseMemoryRequirementsInfo2& member){
@@ -23366,7 +23354,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& image_json=json["image"];
-[&](){serialize_handle(image_json,member.image);}();
+[&](){serialize_VkImage(image_json,member.image);}();
 }
 void deserialize_struct(boost::json::object& json, VkImageSparseMemoryRequirementsInfo2& member){
 auto& sType_json=json["sType"];
@@ -23377,7 +23365,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& image_json=json["image"];
-[&](){deserialize_handle(image_json, member.image);}();
+[&](){deserialize_VkImage(image_json, member.image);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkDeviceImageMemoryRequirements& member){
@@ -23558,9 +23546,9 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& image_json=json["image"];
-[&](){serialize_handle(image_json,member.image);}();
+[&](){serialize_VkImage(image_json,member.image);}();
 auto& buffer_json=json["buffer"];
-[&](){serialize_handle(buffer_json,member.buffer);}();
+[&](){serialize_VkBuffer(buffer_json,member.buffer);}();
 }
 void deserialize_struct(boost::json::object& json, VkMemoryDedicatedAllocateInfo& member){
 auto& sType_json=json["sType"];
@@ -23571,9 +23559,9 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& image_json=json["image"];
-[&](){deserialize_handle(image_json, member.image);}();
+[&](){deserialize_VkImage(image_json, member.image);}();
 auto& buffer_json=json["buffer"];
-[&](){deserialize_handle(buffer_json, member.buffer);}();
+[&](){deserialize_VkBuffer(buffer_json, member.buffer);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkImageViewUsageCreateInfo& member){
@@ -23666,7 +23654,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& conversion_json=json["conversion"];
-[&](){serialize_handle(conversion_json,member.conversion);}();
+[&](){serialize_VkSamplerYcbcrConversion(conversion_json,member.conversion);}();
 }
 void deserialize_struct(boost::json::object& json, VkSamplerYcbcrConversionInfo& member){
 auto& sType_json=json["sType"];
@@ -23677,7 +23665,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& conversion_json=json["conversion"];
-[&](){deserialize_handle(conversion_json, member.conversion);}();
+[&](){deserialize_VkSamplerYcbcrConversion(conversion_json, member.conversion);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkSamplerYcbcrConversionCreateInfo& member){
@@ -23875,7 +23863,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& buffer_json=json["buffer"];
-[&](){serialize_handle(buffer_json,member.buffer);}();
+[&](){serialize_VkBuffer(buffer_json,member.buffer);}();
 auto& offset_json=json["offset"];
 [&](){[&](){offset_json=member.offset;}();}();
 auto& flags_json=json["flags"];
@@ -23890,7 +23878,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& buffer_json=json["buffer"];
-[&](){deserialize_handle(buffer_json, member.buffer);}();
+[&](){deserialize_VkBuffer(buffer_json, member.buffer);}();
 auto& offset_json=json["offset"];
 [&](){uint64_t temp_EwrXfgl;[&](){temp_EwrXfgl=static_cast<uint64_t>(value_to<int>(offset_json));}();member.offset=(VkDeviceSize)temp_EwrXfgl;}();
 auto& flags_json=json["flags"];
@@ -24860,7 +24848,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& validationCache_json=json["validationCache"];
-[&](){serialize_handle(validationCache_json,member.validationCache);}();
+[&](){serialize_VkValidationCacheEXT(validationCache_json,member.validationCache);}();
 }
 void deserialize_struct(boost::json::object& json, VkShaderModuleValidationCacheCreateInfoEXT& member){
 auto& sType_json=json["sType"];
@@ -24871,7 +24859,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& validationCache_json=json["validationCache"];
-[&](){deserialize_handle(validationCache_json, member.validationCache);}();
+[&](){deserialize_VkValidationCacheEXT(validationCache_json, member.validationCache);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkPhysicalDeviceMaintenance3Properties& member){
@@ -25641,7 +25629,7 @@ json["PFN_vkDebugUtilsMessengerCallbackEXT"]=(uintptr_t)(member.pfnUserCallback)
         }
         }();pUserData=temp_YghEUhF;}();
             #else
-                pUserData=new pUserData();
+                pUserData=new pUserData_struct();
         
 [&](){
             if (json["pUserData"].as_array().size()==0){
@@ -25681,7 +25669,7 @@ auto& messageType_json=json["messageType"];
 auto& pfnUserCallback_json=json["pfnUserCallback"];
 [&](){
             auto& temp=pfnUserCallback_json.emplace_object();
-            return serialize_funcpointer(temp, member.pfnUserCallback);
+            return serialize_PFN_vkDebugUtilsMessengerCallbackEXT(temp, member.pfnUserCallback);
             }();
 auto& pUserData_json=json["pUserData"];
 
@@ -25705,11 +25693,9 @@ auto& messageType_json=json["messageType"];
 [&](){[&](){int temp_YnjxONA;[&](){temp_YnjxONA=static_cast<int>(value_to<int>(messageType_json));}();member.messageType=(VkDebugUtilsMessageTypeFlagsEXT)temp_YnjxONA;}();}();
 auto& pfnUserCallback_json=json["pfnUserCallback"];
 [&](){
-#ifndef CLIENT
             auto& temp=pfnUserCallback_json.as_object();
-            deserialize_funcpointer(temp,member.pfnUserCallback);
-            #endif
-}();
+            deserialize_PFN_vkDebugUtilsMessengerCallbackEXT(temp,member.pfnUserCallback);
+            }();
 auto& pUserData_json=json["pUserData"];
 
             auto& pUserData_json_1=pUserData_json.as_object();
@@ -25935,7 +25921,7 @@ json["PFN_vkDeviceMemoryReportCallbackEXT"]=(uintptr_t)(member.pfnUserCallback);
         }
         }();pUserData=temp_YghEUhF;}();
             #else
-                pUserData=new pUserData();
+                pUserData=new pUserData_struct();
         
 [&](){
             if (json["pUserData"].as_array().size()==0){
@@ -25971,7 +25957,7 @@ auto& flags_json=json["flags"];
 auto& pfnUserCallback_json=json["pfnUserCallback"];
 [&](){
             auto& temp=pfnUserCallback_json.emplace_object();
-            return serialize_funcpointer(temp, member.pfnUserCallback);
+            return serialize_PFN_vkDeviceMemoryReportCallbackEXT(temp, member.pfnUserCallback);
             }();
 auto& pUserData_json=json["pUserData"];
 
@@ -25991,11 +25977,9 @@ auto& flags_json=json["flags"];
 [&](){[&](){int temp_AaIroFx;[&](){temp_AaIroFx=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkDeviceMemoryReportFlagsEXT)temp_AaIroFx;}();}();
 auto& pfnUserCallback_json=json["pfnUserCallback"];
 [&](){
-#ifndef CLIENT
             auto& temp=pfnUserCallback_json.as_object();
-            deserialize_funcpointer(temp,member.pfnUserCallback);
-            #endif
-}();
+            deserialize_PFN_vkDeviceMemoryReportCallbackEXT(temp,member.pfnUserCallback);
+            }();
 auto& pUserData_json=json["pUserData"];
 
             auto& pUserData_json_1=pUserData_json.as_object();
@@ -27369,7 +27353,7 @@ auto& pSemaphores_json=json["pSemaphores"];
             return; }
         auto& arr_BstIoUP=pSemaphores_json.emplace_array();
         for(int vemnwmF=0; vemnwmF < member.semaphoreCount; vemnwmF++){
-            [&](){serialize_handle(arr_BstIoUP[vemnwmF],member.pSemaphores[vemnwmF]);}();
+            [&](){serialize_VkSemaphore(arr_BstIoUP[vemnwmF],member.pSemaphores[vemnwmF]);}();
         }
         }();
 auto& pValues_json=json["pValues"];
@@ -27402,7 +27386,7 @@ auto& pSemaphores_json=json["pSemaphores"];
             return; }temp_cFjUCTQ=(VkSemaphore*)malloc(member.semaphoreCount*sizeof(VkSemaphore));
         auto& arr_faEVCQH=pSemaphores_json.as_array();
         for(int XaOYKOY=0; XaOYKOY < member.semaphoreCount; XaOYKOY++){
-            [&](){deserialize_handle(arr_faEVCQH[XaOYKOY], temp_cFjUCTQ[XaOYKOY]);}();
+            [&](){deserialize_VkSemaphore(arr_faEVCQH[XaOYKOY], temp_cFjUCTQ[XaOYKOY]);}();
         }
         }();member.pSemaphores=temp_cFjUCTQ;}();
 auto& pValues_json=json["pValues"];
@@ -27428,7 +27412,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& semaphore_json=json["semaphore"];
-[&](){serialize_handle(semaphore_json,member.semaphore);}();
+[&](){serialize_VkSemaphore(semaphore_json,member.semaphore);}();
 auto& value_json=json["value"];
 [&](){value_json=member.value;}();
 }
@@ -27441,7 +27425,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& semaphore_json=json["semaphore"];
-[&](){deserialize_handle(semaphore_json, member.semaphore);}();
+[&](){deserialize_VkSemaphore(semaphore_json, member.semaphore);}();
 auto& value_json=json["value"];
 [&](){member.value=static_cast<uint64_t>(value_to<int>(value_json));}();
 }
@@ -29382,9 +29366,9 @@ auto& pGroups_json=json["pGroups"];
 auto& maxRecursionDepth_json=json["maxRecursionDepth"];
 [&](){maxRecursionDepth_json=member.maxRecursionDepth;}();
 auto& layout_json=json["layout"];
-[&](){serialize_handle(layout_json,member.layout);}();
+[&](){serialize_VkPipelineLayout(layout_json,member.layout);}();
 auto& basePipelineHandle_json=json["basePipelineHandle"];
-[&](){serialize_handle(basePipelineHandle_json,member.basePipelineHandle);}();
+[&](){serialize_VkPipeline(basePipelineHandle_json,member.basePipelineHandle);}();
 auto& basePipelineIndex_json=json["basePipelineIndex"];
 [&](){basePipelineIndex_json=member.basePipelineIndex;}();
 }
@@ -29431,9 +29415,9 @@ auto& pGroups_json=json["pGroups"];
 auto& maxRecursionDepth_json=json["maxRecursionDepth"];
 [&](){member.maxRecursionDepth=static_cast<uint32_t>(value_to<int>(maxRecursionDepth_json));}();
 auto& layout_json=json["layout"];
-[&](){deserialize_handle(layout_json, member.layout);}();
+[&](){deserialize_VkPipelineLayout(layout_json, member.layout);}();
 auto& basePipelineHandle_json=json["basePipelineHandle"];
-[&](){deserialize_handle(basePipelineHandle_json, member.basePipelineHandle);}();
+[&](){deserialize_VkPipeline(basePipelineHandle_json, member.basePipelineHandle);}();
 auto& basePipelineIndex_json=json["basePipelineIndex"];
 [&](){member.basePipelineIndex=static_cast<int32_t>(value_to<int>(basePipelineIndex_json));}();
 }
@@ -29522,9 +29506,9 @@ auto& pDynamicState_json=json["pDynamicState"];
         }
         }();
 auto& layout_json=json["layout"];
-[&](){serialize_handle(layout_json,member.layout);}();
+[&](){serialize_VkPipelineLayout(layout_json,member.layout);}();
 auto& basePipelineHandle_json=json["basePipelineHandle"];
-[&](){serialize_handle(basePipelineHandle_json,member.basePipelineHandle);}();
+[&](){serialize_VkPipeline(basePipelineHandle_json,member.basePipelineHandle);}();
 auto& basePipelineIndex_json=json["basePipelineIndex"];
 [&](){basePipelineIndex_json=member.basePipelineIndex;}();
 }
@@ -29610,9 +29594,9 @@ auto& pDynamicState_json=json["pDynamicState"];
         }
         }();member.pDynamicState=temp_xiTcGaw;}();
 auto& layout_json=json["layout"];
-[&](){deserialize_handle(layout_json, member.layout);}();
+[&](){deserialize_VkPipelineLayout(layout_json, member.layout);}();
 auto& basePipelineHandle_json=json["basePipelineHandle"];
-[&](){deserialize_handle(basePipelineHandle_json, member.basePipelineHandle);}();
+[&](){deserialize_VkPipeline(basePipelineHandle_json, member.basePipelineHandle);}();
 auto& basePipelineIndex_json=json["basePipelineIndex"];
 [&](){member.basePipelineIndex=static_cast<int32_t>(value_to<int>(basePipelineIndex_json));}();
 }
@@ -29628,7 +29612,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& vertexData_json=json["vertexData"];
-[&](){serialize_handle(vertexData_json,member.vertexData);}();
+[&](){serialize_VkBuffer(vertexData_json,member.vertexData);}();
 auto& vertexOffset_json=json["vertexOffset"];
 [&](){[&](){vertexOffset_json=member.vertexOffset;}();}();
 auto& vertexCount_json=json["vertexCount"];
@@ -29638,7 +29622,7 @@ auto& vertexStride_json=json["vertexStride"];
 auto& vertexFormat_json=json["vertexFormat"];
 [&](){[&](){[&](){vertexFormat_json=member.vertexFormat;}();}();}();
 auto& indexData_json=json["indexData"];
-[&](){serialize_handle(indexData_json,member.indexData);}();
+[&](){serialize_VkBuffer(indexData_json,member.indexData);}();
 auto& indexOffset_json=json["indexOffset"];
 [&](){[&](){indexOffset_json=member.indexOffset;}();}();
 auto& indexCount_json=json["indexCount"];
@@ -29646,7 +29630,7 @@ auto& indexCount_json=json["indexCount"];
 auto& indexType_json=json["indexType"];
 [&](){[&](){[&](){indexType_json=member.indexType;}();}();}();
 auto& transformData_json=json["transformData"];
-[&](){serialize_handle(transformData_json,member.transformData);}();
+[&](){serialize_VkBuffer(transformData_json,member.transformData);}();
 auto& transformOffset_json=json["transformOffset"];
 [&](){[&](){transformOffset_json=member.transformOffset;}();}();
 }
@@ -29659,7 +29643,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& vertexData_json=json["vertexData"];
-[&](){deserialize_handle(vertexData_json, member.vertexData);}();
+[&](){deserialize_VkBuffer(vertexData_json, member.vertexData);}();
 auto& vertexOffset_json=json["vertexOffset"];
 [&](){uint64_t temp_QdKbPvX;[&](){temp_QdKbPvX=static_cast<uint64_t>(value_to<int>(vertexOffset_json));}();member.vertexOffset=(VkDeviceSize)temp_QdKbPvX;}();
 auto& vertexCount_json=json["vertexCount"];
@@ -29669,7 +29653,7 @@ auto& vertexStride_json=json["vertexStride"];
 auto& vertexFormat_json=json["vertexFormat"];
 [&](){[&](){int temp_kPQLYRr;[&](){temp_kPQLYRr=static_cast<int>(value_to<int>(vertexFormat_json));}();member.vertexFormat=(VkFormat)temp_kPQLYRr;}();}();
 auto& indexData_json=json["indexData"];
-[&](){deserialize_handle(indexData_json, member.indexData);}();
+[&](){deserialize_VkBuffer(indexData_json, member.indexData);}();
 auto& indexOffset_json=json["indexOffset"];
 [&](){uint64_t temp_fErBroC;[&](){temp_fErBroC=static_cast<uint64_t>(value_to<int>(indexOffset_json));}();member.indexOffset=(VkDeviceSize)temp_fErBroC;}();
 auto& indexCount_json=json["indexCount"];
@@ -29677,7 +29661,7 @@ auto& indexCount_json=json["indexCount"];
 auto& indexType_json=json["indexType"];
 [&](){[&](){int temp_sCUtzFY;[&](){temp_sCUtzFY=static_cast<int>(value_to<int>(indexType_json));}();member.indexType=(VkIndexType)temp_sCUtzFY;}();}();
 auto& transformData_json=json["transformData"];
-[&](){deserialize_handle(transformData_json, member.transformData);}();
+[&](){deserialize_VkBuffer(transformData_json, member.transformData);}();
 auto& transformOffset_json=json["transformOffset"];
 [&](){uint64_t temp_WmNXuxn;[&](){temp_WmNXuxn=static_cast<uint64_t>(value_to<int>(transformOffset_json));}();member.transformOffset=(VkDeviceSize)temp_WmNXuxn;}();
 }
@@ -29693,7 +29677,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& aabbData_json=json["aabbData"];
-[&](){serialize_handle(aabbData_json,member.aabbData);}();
+[&](){serialize_VkBuffer(aabbData_json,member.aabbData);}();
 auto& numAABBs_json=json["numAABBs"];
 [&](){numAABBs_json=member.numAABBs;}();
 auto& stride_json=json["stride"];
@@ -29710,7 +29694,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& aabbData_json=json["aabbData"];
-[&](){deserialize_handle(aabbData_json, member.aabbData);}();
+[&](){deserialize_VkBuffer(aabbData_json, member.aabbData);}();
 auto& numAABBs_json=json["numAABBs"];
 [&](){member.numAABBs=static_cast<uint32_t>(value_to<int>(numAABBs_json));}();
 auto& stride_json=json["stride"];
@@ -29894,9 +29878,9 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& accelerationStructure_json=json["accelerationStructure"];
-[&](){serialize_handle(accelerationStructure_json,member.accelerationStructure);}();
+[&](){serialize_VkAccelerationStructureNV(accelerationStructure_json,member.accelerationStructure);}();
 auto& memory_json=json["memory"];
-[&](){serialize_handle(memory_json,member.memory);}();
+[&](){serialize_VkDeviceMemory(memory_json,member.memory);}();
 auto& memoryOffset_json=json["memoryOffset"];
 [&](){[&](){memoryOffset_json=member.memoryOffset;}();}();
 auto& deviceIndexCount_json=json["deviceIndexCount"];
@@ -29921,9 +29905,9 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& accelerationStructure_json=json["accelerationStructure"];
-[&](){deserialize_handle(accelerationStructure_json, member.accelerationStructure);}();
+[&](){deserialize_VkAccelerationStructureNV(accelerationStructure_json, member.accelerationStructure);}();
 auto& memory_json=json["memory"];
-[&](){deserialize_handle(memory_json, member.memory);}();
+[&](){deserialize_VkDeviceMemory(memory_json, member.memory);}();
 auto& memoryOffset_json=json["memoryOffset"];
 [&](){uint64_t temp_VWSGqtD;[&](){temp_VWSGqtD=static_cast<uint64_t>(value_to<int>(memoryOffset_json));}();member.memoryOffset=(VkDeviceSize)temp_VWSGqtD;}();
 auto& deviceIndexCount_json=json["deviceIndexCount"];
@@ -29959,7 +29943,7 @@ auto& pAccelerationStructures_json=json["pAccelerationStructures"];
             return; }
         auto& arr_uHQjQvO=pAccelerationStructures_json.emplace_array();
         for(int iPAgAKv=0; iPAgAKv < member.accelerationStructureCount; iPAgAKv++){
-            [&](){serialize_handle(arr_uHQjQvO[iPAgAKv],member.pAccelerationStructures[iPAgAKv]);}();
+            [&](){serialize_VkAccelerationStructureKHR(arr_uHQjQvO[iPAgAKv],member.pAccelerationStructures[iPAgAKv]);}();
         }
         }();
 }
@@ -29980,7 +29964,7 @@ auto& pAccelerationStructures_json=json["pAccelerationStructures"];
             return; }temp_HFqwzSr=(VkAccelerationStructureKHR*)malloc(member.accelerationStructureCount*sizeof(VkAccelerationStructureKHR));
         auto& arr_MRpGGhr=pAccelerationStructures_json.as_array();
         for(int XOtxByx=0; XOtxByx < member.accelerationStructureCount; XOtxByx++){
-            [&](){deserialize_handle(arr_MRpGGhr[XOtxByx], temp_HFqwzSr[XOtxByx]);}();
+            [&](){deserialize_VkAccelerationStructureKHR(arr_MRpGGhr[XOtxByx], temp_HFqwzSr[XOtxByx]);}();
         }
         }();member.pAccelerationStructures=temp_HFqwzSr;}();
 }
@@ -30004,7 +29988,7 @@ auto& pAccelerationStructures_json=json["pAccelerationStructures"];
             return; }
         auto& arr_HXpgyAy=pAccelerationStructures_json.emplace_array();
         for(int FlujVVM=0; FlujVVM < member.accelerationStructureCount; FlujVVM++){
-            [&](){serialize_handle(arr_HXpgyAy[FlujVVM],member.pAccelerationStructures[FlujVVM]);}();
+            [&](){serialize_VkAccelerationStructureNV(arr_HXpgyAy[FlujVVM],member.pAccelerationStructures[FlujVVM]);}();
         }
         }();
 }
@@ -30025,7 +30009,7 @@ auto& pAccelerationStructures_json=json["pAccelerationStructures"];
             return; }temp_UPiSSsI=(VkAccelerationStructureNV*)malloc(member.accelerationStructureCount*sizeof(VkAccelerationStructureNV));
         auto& arr_jkmfxUC=pAccelerationStructures_json.as_array();
         for(int rAXFBqW=0; rAXFBqW < member.accelerationStructureCount; rAXFBqW++){
-            [&](){deserialize_handle(arr_jkmfxUC[rAXFBqW], temp_UPiSSsI[rAXFBqW]);}();
+            [&](){deserialize_VkAccelerationStructureNV(arr_jkmfxUC[rAXFBqW], temp_UPiSSsI[rAXFBqW]);}();
         }
         }();member.pAccelerationStructures=temp_UPiSSsI;}();
 }
@@ -30043,7 +30027,7 @@ auto& pNext_json=json["pNext"];
 auto& type_json=json["type"];
 [&](){[&](){[&](){type_json=member.type;}();}();}();
 auto& accelerationStructure_json=json["accelerationStructure"];
-[&](){serialize_handle(accelerationStructure_json,member.accelerationStructure);}();
+[&](){serialize_VkAccelerationStructureNV(accelerationStructure_json,member.accelerationStructure);}();
 }
 void deserialize_struct(boost::json::object& json, VkAccelerationStructureMemoryRequirementsInfoNV& member){
 auto& sType_json=json["sType"];
@@ -30056,7 +30040,7 @@ auto& pNext_json=json["pNext"];
 auto& type_json=json["type"];
 [&](){[&](){int temp_KUvsPAc;[&](){temp_KUvsPAc=static_cast<int>(value_to<int>(type_json));}();member.type=(VkAccelerationStructureMemoryRequirementsTypeNV)temp_KUvsPAc;}();}();
 auto& accelerationStructure_json=json["accelerationStructure"];
-[&](){deserialize_handle(accelerationStructure_json, member.accelerationStructure);}();
+[&](){deserialize_VkAccelerationStructureNV(accelerationStructure_json, member.accelerationStructure);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkPhysicalDeviceAccelerationStructureFeaturesKHR& member){
@@ -31361,7 +31345,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& buffer_json=json["buffer"];
-[&](){serialize_handle(buffer_json,member.buffer);}();
+[&](){serialize_VkBuffer(buffer_json,member.buffer);}();
 }
 void deserialize_struct(boost::json::object& json, VkBufferDeviceAddressInfo& member){
 auto& sType_json=json["sType"];
@@ -31372,7 +31356,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& buffer_json=json["buffer"];
-[&](){deserialize_handle(buffer_json, member.buffer);}();
+[&](){deserialize_VkBuffer(buffer_json, member.buffer);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkBufferOpaqueCaptureAddressCreateInfo& member){
@@ -31639,7 +31623,7 @@ auto& pAttachments_json=json["pAttachments"];
             return; }
         auto& arr_XUnbodX=pAttachments_json.emplace_array();
         for(int FOVxLSQ=0; FOVxLSQ < member.attachmentCount; FOVxLSQ++){
-            [&](){serialize_handle(arr_XUnbodX[FOVxLSQ],member.pAttachments[FOVxLSQ]);}();
+            [&](){serialize_VkImageView(arr_XUnbodX[FOVxLSQ],member.pAttachments[FOVxLSQ]);}();
         }
         }();
 }
@@ -31660,7 +31644,7 @@ auto& pAttachments_json=json["pAttachments"];
             return; }temp_veJtHuE=(VkImageView*)malloc(member.attachmentCount*sizeof(VkImageView));
         auto& arr_vOukWcp=pAttachments_json.as_array();
         for(int SjNLYTr=0; SjNLYTr < member.attachmentCount; SjNLYTr++){
-            [&](){deserialize_handle(arr_vOukWcp[SjNLYTr], temp_veJtHuE[SjNLYTr]);}();
+            [&](){deserialize_VkImageView(arr_vOukWcp[SjNLYTr], temp_veJtHuE[SjNLYTr]);}();
         }
         }();member.pAttachments=temp_veJtHuE;}();
 }
@@ -31833,11 +31817,11 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& imageView_json=json["imageView"];
-[&](){serialize_handle(imageView_json,member.imageView);}();
+[&](){serialize_VkImageView(imageView_json,member.imageView);}();
 auto& descriptorType_json=json["descriptorType"];
 [&](){[&](){[&](){descriptorType_json=member.descriptorType;}();}();}();
 auto& sampler_json=json["sampler"];
-[&](){serialize_handle(sampler_json,member.sampler);}();
+[&](){serialize_VkSampler(sampler_json,member.sampler);}();
 }
 void deserialize_struct(boost::json::object& json, VkImageViewHandleInfoNVX& member){
 auto& sType_json=json["sType"];
@@ -31848,11 +31832,11 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& imageView_json=json["imageView"];
-[&](){deserialize_handle(imageView_json, member.imageView);}();
+[&](){deserialize_VkImageView(imageView_json, member.imageView);}();
 auto& descriptorType_json=json["descriptorType"];
 [&](){[&](){int temp_LETzuZb;[&](){temp_LETzuZb=static_cast<int>(value_to<int>(descriptorType_json));}();member.descriptorType=(VkDescriptorType)temp_LETzuZb;}();}();
 auto& sampler_json=json["sampler"];
-[&](){deserialize_handle(sampler_json, member.sampler);}();
+[&](){deserialize_VkSampler(sampler_json, member.sampler);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkImageViewAddressPropertiesNVX& member){
@@ -32591,7 +32575,7 @@ auto& data_json=json["data"];
         }
         }();pUserData=temp_YghEUhF;}();
             #else
-                pUserData=new pUserData();
+                pUserData=new pUserData_struct();
         
 [&](){
             if (json["pUserData"].as_array().size()==0){
@@ -33060,7 +33044,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& pipeline_json=json["pipeline"];
-[&](){serialize_handle(pipeline_json,member.pipeline);}();
+[&](){serialize_VkPipeline(pipeline_json,member.pipeline);}();
 }
 void deserialize_struct(boost::json::object& json, VkPipelineInfoKHR& member){
 auto& sType_json=json["sType"];
@@ -33071,7 +33055,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& pipeline_json=json["pipeline"];
-[&](){deserialize_handle(pipeline_json, member.pipeline);}();
+[&](){deserialize_VkPipeline(pipeline_json, member.pipeline);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkPipelineExecutablePropertiesKHR& member){
@@ -33142,7 +33126,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& pipeline_json=json["pipeline"];
-[&](){serialize_handle(pipeline_json,member.pipeline);}();
+[&](){serialize_VkPipeline(pipeline_json,member.pipeline);}();
 auto& executableIndex_json=json["executableIndex"];
 [&](){executableIndex_json=member.executableIndex;}();
 }
@@ -33155,7 +33139,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& pipeline_json=json["pipeline"];
-[&](){deserialize_handle(pipeline_json, member.pipeline);}();
+[&](){deserialize_VkPipeline(pipeline_json, member.pipeline);}();
 auto& executableIndex_json=json["executableIndex"];
 [&](){member.executableIndex=static_cast<uint32_t>(value_to<int>(executableIndex_json));}();
 }
@@ -33518,7 +33502,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& renderPass_json=json["renderPass"];
-[&](){serialize_handle(renderPass_json,member.renderPass);}();
+[&](){serialize_VkRenderPass(renderPass_json,member.renderPass);}();
 auto& subpass_json=json["subpass"];
 [&](){subpass_json=member.subpass;}();
 }
@@ -33531,7 +33515,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,member.pNext);
             }();
 auto& renderPass_json=json["renderPass"];
-[&](){deserialize_handle(renderPass_json, member.renderPass);}();
+[&](){deserialize_VkRenderPass(renderPass_json, member.renderPass);}();
 auto& subpass_json=json["subpass"];
 [&](){member.subpass=static_cast<uint32_t>(value_to<int>(subpass_json));}();
 }
@@ -33654,7 +33638,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& memory_json=json["memory"];
-[&](){serialize_handle(memory_json,member.memory);}();
+[&](){serialize_VkDeviceMemory(memory_json,member.memory);}();
 }
 void deserialize_struct(boost::json::object& json, VkDeviceMemoryOpaqueCaptureAddressInfo& member){
 auto& sType_json=json["sType"];
@@ -33665,7 +33649,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& memory_json=json["memory"];
-[&](){deserialize_handle(memory_json, member.memory);}();
+[&](){deserialize_VkDeviceMemory(memory_json, member.memory);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkPhysicalDeviceLineRasterizationFeaturesEXT& member){
@@ -35314,9 +35298,9 @@ auto& flags_json=json["flags"];
 auto& mode_json=json["mode"];
 [&](){[&](){[&](){mode_json=member.mode;}();}();}();
 auto& srcAccelerationStructure_json=json["srcAccelerationStructure"];
-[&](){serialize_handle(srcAccelerationStructure_json,member.srcAccelerationStructure);}();
+[&](){serialize_VkAccelerationStructureKHR(srcAccelerationStructure_json,member.srcAccelerationStructure);}();
 auto& dstAccelerationStructure_json=json["dstAccelerationStructure"];
-[&](){serialize_handle(dstAccelerationStructure_json,member.dstAccelerationStructure);}();
+[&](){serialize_VkAccelerationStructureKHR(dstAccelerationStructure_json,member.dstAccelerationStructure);}();
 auto& geometryCount_json=json["geometryCount"];
 [&](){geometryCount_json=member.geometryCount;}();
 auto& pGeometries_json=json["pGeometries"];
@@ -35374,9 +35358,9 @@ auto& flags_json=json["flags"];
 auto& mode_json=json["mode"];
 [&](){[&](){int temp_exQzWzk;[&](){temp_exQzWzk=static_cast<int>(value_to<int>(mode_json));}();member.mode=(VkBuildAccelerationStructureModeKHR)temp_exQzWzk;}();}();
 auto& srcAccelerationStructure_json=json["srcAccelerationStructure"];
-[&](){deserialize_handle(srcAccelerationStructure_json, member.srcAccelerationStructure);}();
+[&](){deserialize_VkAccelerationStructureKHR(srcAccelerationStructure_json, member.srcAccelerationStructure);}();
 auto& dstAccelerationStructure_json=json["dstAccelerationStructure"];
-[&](){deserialize_handle(dstAccelerationStructure_json, member.dstAccelerationStructure);}();
+[&](){deserialize_VkAccelerationStructureKHR(dstAccelerationStructure_json, member.dstAccelerationStructure);}();
 auto& geometryCount_json=json["geometryCount"];
 [&](){member.geometryCount=static_cast<uint32_t>(value_to<int>(geometryCount_json));}();
 auto& pGeometries_json=json["pGeometries"];
@@ -35456,7 +35440,7 @@ auto& pNext_json=json["pNext"];
 auto& createFlags_json=json["createFlags"];
 [&](){[&](){[&](){createFlags_json=member.createFlags;}();}();}();
 auto& buffer_json=json["buffer"];
-[&](){serialize_handle(buffer_json,member.buffer);}();
+[&](){serialize_VkBuffer(buffer_json,member.buffer);}();
 auto& offset_json=json["offset"];
 [&](){[&](){offset_json=member.offset;}();}();
 auto& size_json=json["size"];
@@ -35477,7 +35461,7 @@ auto& pNext_json=json["pNext"];
 auto& createFlags_json=json["createFlags"];
 [&](){[&](){int temp_AjmNulm;[&](){temp_AjmNulm=static_cast<int>(value_to<int>(createFlags_json));}();member.createFlags=(VkAccelerationStructureCreateFlagsKHR)temp_AjmNulm;}();}();
 auto& buffer_json=json["buffer"];
-[&](){deserialize_handle(buffer_json, member.buffer);}();
+[&](){deserialize_VkBuffer(buffer_json, member.buffer);}();
 auto& offset_json=json["offset"];
 [&](){uint64_t temp_EwrXfgl;[&](){temp_EwrXfgl=static_cast<uint64_t>(value_to<int>(offset_json));}();member.offset=(VkDeviceSize)temp_EwrXfgl;}();
 auto& size_json=json["size"];
@@ -35598,7 +35582,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& accelerationStructure_json=json["accelerationStructure"];
-[&](){serialize_handle(accelerationStructure_json,member.accelerationStructure);}();
+[&](){serialize_VkAccelerationStructureKHR(accelerationStructure_json,member.accelerationStructure);}();
 }
 void deserialize_struct(boost::json::object& json, VkAccelerationStructureDeviceAddressInfoKHR& member){
 auto& sType_json=json["sType"];
@@ -35609,7 +35593,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& accelerationStructure_json=json["accelerationStructure"];
-[&](){deserialize_handle(accelerationStructure_json, member.accelerationStructure);}();
+[&](){deserialize_VkAccelerationStructureKHR(accelerationStructure_json, member.accelerationStructure);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkAccelerationStructureVersionInfoKHR& member){
@@ -35664,9 +35648,9 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& src_json=json["src"];
-[&](){serialize_handle(src_json,member.src);}();
+[&](){serialize_VkAccelerationStructureKHR(src_json,member.src);}();
 auto& dst_json=json["dst"];
-[&](){serialize_handle(dst_json,member.dst);}();
+[&](){serialize_VkAccelerationStructureKHR(dst_json,member.dst);}();
 auto& mode_json=json["mode"];
 [&](){[&](){[&](){mode_json=member.mode;}();}();}();
 }
@@ -35679,9 +35663,9 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& src_json=json["src"];
-[&](){deserialize_handle(src_json, member.src);}();
+[&](){deserialize_VkAccelerationStructureKHR(src_json, member.src);}();
 auto& dst_json=json["dst"];
-[&](){deserialize_handle(dst_json, member.dst);}();
+[&](){deserialize_VkAccelerationStructureKHR(dst_json, member.dst);}();
 auto& mode_json=json["mode"];
 [&](){[&](){int temp_JSylVIF;[&](){temp_JSylVIF=static_cast<int>(value_to<int>(mode_json));}();member.mode=(VkCopyAccelerationStructureModeKHR)temp_JSylVIF;}();}();
 }
@@ -35697,7 +35681,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& src_json=json["src"];
-[&](){serialize_handle(src_json,member.src);}();
+[&](){serialize_VkAccelerationStructureKHR(src_json,member.src);}();
 auto& dst_json=json["dst"];
 [&](){
             auto& temp=dst_json.emplace_object();
@@ -35715,7 +35699,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& src_json=json["src"];
-[&](){deserialize_handle(src_json, member.src);}();
+[&](){deserialize_VkAccelerationStructureKHR(src_json, member.src);}();
 auto& dst_json=json["dst"];
 [&](){
             auto& temp=dst_json.as_object();
@@ -35741,7 +35725,7 @@ auto& src_json=json["src"];
             return serialize_struct(temp, member.src);
             }();
 auto& dst_json=json["dst"];
-[&](){serialize_handle(dst_json,member.dst);}();
+[&](){serialize_VkAccelerationStructureKHR(dst_json,member.dst);}();
 auto& mode_json=json["mode"];
 [&](){[&](){[&](){mode_json=member.mode;}();}();}();
 }
@@ -35759,7 +35743,7 @@ auto& src_json=json["src"];
             deserialize_struct(temp,member.src);
             }();
 auto& dst_json=json["dst"];
-[&](){deserialize_handle(dst_json, member.dst);}();
+[&](){deserialize_VkAccelerationStructureKHR(dst_json, member.dst);}();
 auto& mode_json=json["mode"];
 [&](){[&](){int temp_JSylVIF;[&](){temp_JSylVIF=static_cast<int>(value_to<int>(mode_json));}();member.mode=(VkCopyAccelerationStructureModeKHR)temp_JSylVIF;}();}();
 }
@@ -35812,7 +35796,7 @@ auto& pLibraries_json=json["pLibraries"];
             return; }
         auto& arr_zRxHbYX=pLibraries_json.emplace_array();
         for(int WJsvUCn=0; WJsvUCn < member.libraryCount; WJsvUCn++){
-            [&](){serialize_handle(arr_zRxHbYX[WJsvUCn],member.pLibraries[WJsvUCn]);}();
+            [&](){serialize_VkPipeline(arr_zRxHbYX[WJsvUCn],member.pLibraries[WJsvUCn]);}();
         }
         }();
 }
@@ -35833,7 +35817,7 @@ auto& pLibraries_json=json["pLibraries"];
             return; }temp_HzoMuYL=(VkPipeline*)malloc(member.libraryCount*sizeof(VkPipeline));
         auto& arr_LgIjhBH=pLibraries_json.as_array();
         for(int odvorVV=0; odvorVV < member.libraryCount; odvorVV++){
-            [&](){deserialize_handle(arr_LgIjhBH[odvorVV], temp_HzoMuYL[odvorVV]);}();
+            [&](){deserialize_VkPipeline(arr_LgIjhBH[odvorVV], temp_HzoMuYL[odvorVV]);}();
         }
         }();member.pLibraries=temp_HzoMuYL;}();
 }
@@ -36846,9 +36830,9 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& srcBuffer_json=json["srcBuffer"];
-[&](){serialize_handle(srcBuffer_json,member.srcBuffer);}();
+[&](){serialize_VkBuffer(srcBuffer_json,member.srcBuffer);}();
 auto& dstBuffer_json=json["dstBuffer"];
-[&](){serialize_handle(dstBuffer_json,member.dstBuffer);}();
+[&](){serialize_VkBuffer(dstBuffer_json,member.dstBuffer);}();
 auto& regionCount_json=json["regionCount"];
 [&](){regionCount_json=member.regionCount;}();
 auto& pRegions_json=json["pRegions"];
@@ -36874,9 +36858,9 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& srcBuffer_json=json["srcBuffer"];
-[&](){deserialize_handle(srcBuffer_json, member.srcBuffer);}();
+[&](){deserialize_VkBuffer(srcBuffer_json, member.srcBuffer);}();
 auto& dstBuffer_json=json["dstBuffer"];
-[&](){deserialize_handle(dstBuffer_json, member.dstBuffer);}();
+[&](){deserialize_VkBuffer(dstBuffer_json, member.dstBuffer);}();
 auto& regionCount_json=json["regionCount"];
 [&](){member.regionCount=static_cast<uint32_t>(value_to<int>(regionCount_json));}();
 auto& pRegions_json=json["pRegions"];
@@ -36905,11 +36889,11 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& srcImage_json=json["srcImage"];
-[&](){serialize_handle(srcImage_json,member.srcImage);}();
+[&](){serialize_VkImage(srcImage_json,member.srcImage);}();
 auto& srcImageLayout_json=json["srcImageLayout"];
 [&](){[&](){[&](){srcImageLayout_json=member.srcImageLayout;}();}();}();
 auto& dstImage_json=json["dstImage"];
-[&](){serialize_handle(dstImage_json,member.dstImage);}();
+[&](){serialize_VkImage(dstImage_json,member.dstImage);}();
 auto& dstImageLayout_json=json["dstImageLayout"];
 [&](){[&](){[&](){dstImageLayout_json=member.dstImageLayout;}();}();}();
 auto& regionCount_json=json["regionCount"];
@@ -36937,11 +36921,11 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& srcImage_json=json["srcImage"];
-[&](){deserialize_handle(srcImage_json, member.srcImage);}();
+[&](){deserialize_VkImage(srcImage_json, member.srcImage);}();
 auto& srcImageLayout_json=json["srcImageLayout"];
 [&](){[&](){int temp_OvXTzZQ;[&](){temp_OvXTzZQ=static_cast<int>(value_to<int>(srcImageLayout_json));}();member.srcImageLayout=(VkImageLayout)temp_OvXTzZQ;}();}();
 auto& dstImage_json=json["dstImage"];
-[&](){deserialize_handle(dstImage_json, member.dstImage);}();
+[&](){deserialize_VkImage(dstImage_json, member.dstImage);}();
 auto& dstImageLayout_json=json["dstImageLayout"];
 [&](){[&](){int temp_PpCpPSr;[&](){temp_PpCpPSr=static_cast<int>(value_to<int>(dstImageLayout_json));}();member.dstImageLayout=(VkImageLayout)temp_PpCpPSr;}();}();
 auto& regionCount_json=json["regionCount"];
@@ -36972,11 +36956,11 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& srcImage_json=json["srcImage"];
-[&](){serialize_handle(srcImage_json,member.srcImage);}();
+[&](){serialize_VkImage(srcImage_json,member.srcImage);}();
 auto& srcImageLayout_json=json["srcImageLayout"];
 [&](){[&](){[&](){srcImageLayout_json=member.srcImageLayout;}();}();}();
 auto& dstImage_json=json["dstImage"];
-[&](){serialize_handle(dstImage_json,member.dstImage);}();
+[&](){serialize_VkImage(dstImage_json,member.dstImage);}();
 auto& dstImageLayout_json=json["dstImageLayout"];
 [&](){[&](){[&](){dstImageLayout_json=member.dstImageLayout;}();}();}();
 auto& regionCount_json=json["regionCount"];
@@ -37006,11 +36990,11 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& srcImage_json=json["srcImage"];
-[&](){deserialize_handle(srcImage_json, member.srcImage);}();
+[&](){deserialize_VkImage(srcImage_json, member.srcImage);}();
 auto& srcImageLayout_json=json["srcImageLayout"];
 [&](){[&](){int temp_OvXTzZQ;[&](){temp_OvXTzZQ=static_cast<int>(value_to<int>(srcImageLayout_json));}();member.srcImageLayout=(VkImageLayout)temp_OvXTzZQ;}();}();
 auto& dstImage_json=json["dstImage"];
-[&](){deserialize_handle(dstImage_json, member.dstImage);}();
+[&](){deserialize_VkImage(dstImage_json, member.dstImage);}();
 auto& dstImageLayout_json=json["dstImageLayout"];
 [&](){[&](){int temp_PpCpPSr;[&](){temp_PpCpPSr=static_cast<int>(value_to<int>(dstImageLayout_json));}();member.dstImageLayout=(VkImageLayout)temp_PpCpPSr;}();}();
 auto& regionCount_json=json["regionCount"];
@@ -37043,9 +37027,9 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& srcBuffer_json=json["srcBuffer"];
-[&](){serialize_handle(srcBuffer_json,member.srcBuffer);}();
+[&](){serialize_VkBuffer(srcBuffer_json,member.srcBuffer);}();
 auto& dstImage_json=json["dstImage"];
-[&](){serialize_handle(dstImage_json,member.dstImage);}();
+[&](){serialize_VkImage(dstImage_json,member.dstImage);}();
 auto& dstImageLayout_json=json["dstImageLayout"];
 [&](){[&](){[&](){dstImageLayout_json=member.dstImageLayout;}();}();}();
 auto& regionCount_json=json["regionCount"];
@@ -37073,9 +37057,9 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& srcBuffer_json=json["srcBuffer"];
-[&](){deserialize_handle(srcBuffer_json, member.srcBuffer);}();
+[&](){deserialize_VkBuffer(srcBuffer_json, member.srcBuffer);}();
 auto& dstImage_json=json["dstImage"];
-[&](){deserialize_handle(dstImage_json, member.dstImage);}();
+[&](){deserialize_VkImage(dstImage_json, member.dstImage);}();
 auto& dstImageLayout_json=json["dstImageLayout"];
 [&](){[&](){int temp_PpCpPSr;[&](){temp_PpCpPSr=static_cast<int>(value_to<int>(dstImageLayout_json));}();member.dstImageLayout=(VkImageLayout)temp_PpCpPSr;}();}();
 auto& regionCount_json=json["regionCount"];
@@ -37106,11 +37090,11 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& srcImage_json=json["srcImage"];
-[&](){serialize_handle(srcImage_json,member.srcImage);}();
+[&](){serialize_VkImage(srcImage_json,member.srcImage);}();
 auto& srcImageLayout_json=json["srcImageLayout"];
 [&](){[&](){[&](){srcImageLayout_json=member.srcImageLayout;}();}();}();
 auto& dstBuffer_json=json["dstBuffer"];
-[&](){serialize_handle(dstBuffer_json,member.dstBuffer);}();
+[&](){serialize_VkBuffer(dstBuffer_json,member.dstBuffer);}();
 auto& regionCount_json=json["regionCount"];
 [&](){regionCount_json=member.regionCount;}();
 auto& pRegions_json=json["pRegions"];
@@ -37136,11 +37120,11 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& srcImage_json=json["srcImage"];
-[&](){deserialize_handle(srcImage_json, member.srcImage);}();
+[&](){deserialize_VkImage(srcImage_json, member.srcImage);}();
 auto& srcImageLayout_json=json["srcImageLayout"];
 [&](){[&](){int temp_OvXTzZQ;[&](){temp_OvXTzZQ=static_cast<int>(value_to<int>(srcImageLayout_json));}();member.srcImageLayout=(VkImageLayout)temp_OvXTzZQ;}();}();
 auto& dstBuffer_json=json["dstBuffer"];
-[&](){deserialize_handle(dstBuffer_json, member.dstBuffer);}();
+[&](){deserialize_VkBuffer(dstBuffer_json, member.dstBuffer);}();
 auto& regionCount_json=json["regionCount"];
 [&](){member.regionCount=static_cast<uint32_t>(value_to<int>(regionCount_json));}();
 auto& pRegions_json=json["pRegions"];
@@ -37169,11 +37153,11 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& srcImage_json=json["srcImage"];
-[&](){serialize_handle(srcImage_json,member.srcImage);}();
+[&](){serialize_VkImage(srcImage_json,member.srcImage);}();
 auto& srcImageLayout_json=json["srcImageLayout"];
 [&](){[&](){[&](){srcImageLayout_json=member.srcImageLayout;}();}();}();
 auto& dstImage_json=json["dstImage"];
-[&](){serialize_handle(dstImage_json,member.dstImage);}();
+[&](){serialize_VkImage(dstImage_json,member.dstImage);}();
 auto& dstImageLayout_json=json["dstImageLayout"];
 [&](){[&](){[&](){dstImageLayout_json=member.dstImageLayout;}();}();}();
 auto& regionCount_json=json["regionCount"];
@@ -37201,11 +37185,11 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& srcImage_json=json["srcImage"];
-[&](){deserialize_handle(srcImage_json, member.srcImage);}();
+[&](){deserialize_VkImage(srcImage_json, member.srcImage);}();
 auto& srcImageLayout_json=json["srcImageLayout"];
 [&](){[&](){int temp_OvXTzZQ;[&](){temp_OvXTzZQ=static_cast<int>(value_to<int>(srcImageLayout_json));}();member.srcImageLayout=(VkImageLayout)temp_OvXTzZQ;}();}();
 auto& dstImage_json=json["dstImage"];
-[&](){deserialize_handle(dstImage_json, member.dstImage);}();
+[&](){deserialize_VkImage(dstImage_json, member.dstImage);}();
 auto& dstImageLayout_json=json["dstImageLayout"];
 [&](){[&](){int temp_PpCpPSr;[&](){temp_PpCpPSr=static_cast<int>(value_to<int>(dstImageLayout_json));}();member.dstImageLayout=(VkImageLayout)temp_PpCpPSr;}();}();
 auto& regionCount_json=json["regionCount"];
@@ -38184,7 +38168,7 @@ auto& srcQueueFamilyIndex_json=json["srcQueueFamilyIndex"];
 auto& dstQueueFamilyIndex_json=json["dstQueueFamilyIndex"];
 [&](){dstQueueFamilyIndex_json=member.dstQueueFamilyIndex;}();
 auto& image_json=json["image"];
-[&](){serialize_handle(image_json,member.image);}();
+[&](){serialize_VkImage(image_json,member.image);}();
 auto& subresourceRange_json=json["subresourceRange"];
 [&](){
             auto& temp=subresourceRange_json.emplace_object();
@@ -38216,7 +38200,7 @@ auto& srcQueueFamilyIndex_json=json["srcQueueFamilyIndex"];
 auto& dstQueueFamilyIndex_json=json["dstQueueFamilyIndex"];
 [&](){member.dstQueueFamilyIndex=static_cast<uint32_t>(value_to<int>(dstQueueFamilyIndex_json));}();
 auto& image_json=json["image"];
-[&](){deserialize_handle(image_json, member.image);}();
+[&](){deserialize_VkImage(image_json, member.image);}();
 auto& subresourceRange_json=json["subresourceRange"];
 [&](){
             auto& temp=subresourceRange_json.as_object();
@@ -38247,7 +38231,7 @@ auto& srcQueueFamilyIndex_json=json["srcQueueFamilyIndex"];
 auto& dstQueueFamilyIndex_json=json["dstQueueFamilyIndex"];
 [&](){dstQueueFamilyIndex_json=member.dstQueueFamilyIndex;}();
 auto& buffer_json=json["buffer"];
-[&](){serialize_handle(buffer_json,member.buffer);}();
+[&](){serialize_VkBuffer(buffer_json,member.buffer);}();
 auto& offset_json=json["offset"];
 [&](){[&](){offset_json=member.offset;}();}();
 auto& size_json=json["size"];
@@ -38274,7 +38258,7 @@ auto& srcQueueFamilyIndex_json=json["srcQueueFamilyIndex"];
 auto& dstQueueFamilyIndex_json=json["dstQueueFamilyIndex"];
 [&](){member.dstQueueFamilyIndex=static_cast<uint32_t>(value_to<int>(dstQueueFamilyIndex_json));}();
 auto& buffer_json=json["buffer"];
-[&](){deserialize_handle(buffer_json, member.buffer);}();
+[&](){deserialize_VkBuffer(buffer_json, member.buffer);}();
 auto& offset_json=json["offset"];
 [&](){uint64_t temp_EwrXfgl;[&](){temp_EwrXfgl=static_cast<uint64_t>(value_to<int>(offset_json));}();member.offset=(VkDeviceSize)temp_EwrXfgl;}();
 auto& size_json=json["size"];
@@ -38407,7 +38391,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& semaphore_json=json["semaphore"];
-[&](){serialize_handle(semaphore_json,member.semaphore);}();
+[&](){serialize_VkSemaphore(semaphore_json,member.semaphore);}();
 auto& value_json=json["value"];
 [&](){value_json=member.value;}();
 auto& stageMask_json=json["stageMask"];
@@ -38424,7 +38408,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& semaphore_json=json["semaphore"];
-[&](){deserialize_handle(semaphore_json, member.semaphore);}();
+[&](){deserialize_VkSemaphore(semaphore_json, member.semaphore);}();
 auto& value_json=json["value"];
 [&](){member.value=static_cast<uint64_t>(value_to<int>(value_json));}();
 auto& stageMask_json=json["stageMask"];
@@ -38444,7 +38428,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& commandBuffer_json=json["commandBuffer"];
-[&](){serialize_handle(commandBuffer_json,member.commandBuffer);}();
+[&](){serialize_VkCommandBuffer(commandBuffer_json,member.commandBuffer);}();
 auto& deviceMask_json=json["deviceMask"];
 [&](){deviceMask_json=member.deviceMask;}();
 }
@@ -38457,7 +38441,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& commandBuffer_json=json["commandBuffer"];
-[&](){deserialize_handle(commandBuffer_json, member.commandBuffer);}();
+[&](){deserialize_VkCommandBuffer(commandBuffer_json, member.commandBuffer);}();
 auto& deviceMask_json=json["deviceMask"];
 [&](){member.deviceMask=static_cast<uint32_t>(value_to<int>(deviceMask_json));}();
 }
@@ -38973,7 +38957,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){[&](){flags_json=member.flags;}();}();}();
 auto& dstImage_json=json["dstImage"];
-[&](){serialize_handle(dstImage_json,member.dstImage);}();
+[&](){serialize_VkImage(dstImage_json,member.dstImage);}();
 auto& dstImageLayout_json=json["dstImageLayout"];
 [&](){[&](){[&](){dstImageLayout_json=member.dstImageLayout;}();}();}();
 auto& regionCount_json=json["regionCount"];
@@ -39003,7 +38987,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){int temp_QEUVDKw;[&](){temp_QEUVDKw=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkHostImageCopyFlagsEXT)temp_QEUVDKw;}();}();
 auto& dstImage_json=json["dstImage"];
-[&](){deserialize_handle(dstImage_json, member.dstImage);}();
+[&](){deserialize_VkImage(dstImage_json, member.dstImage);}();
 auto& dstImageLayout_json=json["dstImageLayout"];
 [&](){[&](){int temp_PpCpPSr;[&](){temp_PpCpPSr=static_cast<int>(value_to<int>(dstImageLayout_json));}();member.dstImageLayout=(VkImageLayout)temp_PpCpPSr;}();}();
 auto& regionCount_json=json["regionCount"];
@@ -39036,7 +39020,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){[&](){flags_json=member.flags;}();}();}();
 auto& srcImage_json=json["srcImage"];
-[&](){serialize_handle(srcImage_json,member.srcImage);}();
+[&](){serialize_VkImage(srcImage_json,member.srcImage);}();
 auto& srcImageLayout_json=json["srcImageLayout"];
 [&](){[&](){[&](){srcImageLayout_json=member.srcImageLayout;}();}();}();
 auto& regionCount_json=json["regionCount"];
@@ -39066,7 +39050,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){int temp_QEUVDKw;[&](){temp_QEUVDKw=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkHostImageCopyFlagsEXT)temp_QEUVDKw;}();}();
 auto& srcImage_json=json["srcImage"];
-[&](){deserialize_handle(srcImage_json, member.srcImage);}();
+[&](){deserialize_VkImage(srcImage_json, member.srcImage);}();
 auto& srcImageLayout_json=json["srcImageLayout"];
 [&](){[&](){int temp_OvXTzZQ;[&](){temp_OvXTzZQ=static_cast<int>(value_to<int>(srcImageLayout_json));}();member.srcImageLayout=(VkImageLayout)temp_OvXTzZQ;}();}();
 auto& regionCount_json=json["regionCount"];
@@ -39099,11 +39083,11 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){[&](){flags_json=member.flags;}();}();}();
 auto& srcImage_json=json["srcImage"];
-[&](){serialize_handle(srcImage_json,member.srcImage);}();
+[&](){serialize_VkImage(srcImage_json,member.srcImage);}();
 auto& srcImageLayout_json=json["srcImageLayout"];
 [&](){[&](){[&](){srcImageLayout_json=member.srcImageLayout;}();}();}();
 auto& dstImage_json=json["dstImage"];
-[&](){serialize_handle(dstImage_json,member.dstImage);}();
+[&](){serialize_VkImage(dstImage_json,member.dstImage);}();
 auto& dstImageLayout_json=json["dstImageLayout"];
 [&](){[&](){[&](){dstImageLayout_json=member.dstImageLayout;}();}();}();
 auto& regionCount_json=json["regionCount"];
@@ -39133,11 +39117,11 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){int temp_QEUVDKw;[&](){temp_QEUVDKw=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkHostImageCopyFlagsEXT)temp_QEUVDKw;}();}();
 auto& srcImage_json=json["srcImage"];
-[&](){deserialize_handle(srcImage_json, member.srcImage);}();
+[&](){deserialize_VkImage(srcImage_json, member.srcImage);}();
 auto& srcImageLayout_json=json["srcImageLayout"];
 [&](){[&](){int temp_OvXTzZQ;[&](){temp_OvXTzZQ=static_cast<int>(value_to<int>(srcImageLayout_json));}();member.srcImageLayout=(VkImageLayout)temp_OvXTzZQ;}();}();
 auto& dstImage_json=json["dstImage"];
-[&](){deserialize_handle(dstImage_json, member.dstImage);}();
+[&](){deserialize_VkImage(dstImage_json, member.dstImage);}();
 auto& dstImageLayout_json=json["dstImageLayout"];
 [&](){[&](){int temp_PpCpPSr;[&](){temp_PpCpPSr=static_cast<int>(value_to<int>(dstImageLayout_json));}();member.dstImageLayout=(VkImageLayout)temp_PpCpPSr;}();}();
 auto& regionCount_json=json["regionCount"];
@@ -39168,7 +39152,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& image_json=json["image"];
-[&](){serialize_handle(image_json,member.image);}();
+[&](){serialize_VkImage(image_json,member.image);}();
 auto& oldLayout_json=json["oldLayout"];
 [&](){[&](){[&](){oldLayout_json=member.oldLayout;}();}();}();
 auto& newLayout_json=json["newLayout"];
@@ -39188,7 +39172,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& image_json=json["image"];
-[&](){deserialize_handle(image_json, member.image);}();
+[&](){deserialize_VkImage(image_json, member.image);}();
 auto& oldLayout_json=json["oldLayout"];
 [&](){[&](){int temp_IxSclWO;[&](){temp_IxSclWO=static_cast<int>(value_to<int>(oldLayout_json));}();member.oldLayout=(VkImageLayout)temp_IxSclWO;}();}();
 auto& newLayout_json=json["newLayout"];
@@ -39759,7 +39743,7 @@ auto& pNext_json=json["pNext"];
 auto& memoryBindIndex_json=json["memoryBindIndex"];
 [&](){memoryBindIndex_json=member.memoryBindIndex;}();
 auto& memory_json=json["memory"];
-[&](){serialize_handle(memory_json,member.memory);}();
+[&](){serialize_VkDeviceMemory(memory_json,member.memory);}();
 auto& memoryOffset_json=json["memoryOffset"];
 [&](){[&](){memoryOffset_json=member.memoryOffset;}();}();
 auto& memorySize_json=json["memorySize"];
@@ -39776,7 +39760,7 @@ auto& pNext_json=json["pNext"];
 auto& memoryBindIndex_json=json["memoryBindIndex"];
 [&](){member.memoryBindIndex=static_cast<uint32_t>(value_to<int>(memoryBindIndex_json));}();
 auto& memory_json=json["memory"];
-[&](){deserialize_handle(memory_json, member.memory);}();
+[&](){deserialize_VkDeviceMemory(memory_json, member.memory);}();
 auto& memoryOffset_json=json["memoryOffset"];
 [&](){uint64_t temp_VWSGqtD;[&](){temp_VWSGqtD=static_cast<uint64_t>(value_to<int>(memoryOffset_json));}();member.memoryOffset=(VkDeviceSize)temp_VWSGqtD;}();
 auto& memorySize_json=json["memorySize"];
@@ -39806,7 +39790,7 @@ auto& codedExtent_json=json["codedExtent"];
 auto& baseArrayLayer_json=json["baseArrayLayer"];
 [&](){baseArrayLayer_json=member.baseArrayLayer;}();
 auto& imageViewBinding_json=json["imageViewBinding"];
-[&](){serialize_handle(imageViewBinding_json,member.imageViewBinding);}();
+[&](){serialize_VkImageView(imageViewBinding_json,member.imageViewBinding);}();
 }
 void deserialize_struct(boost::json::object& json, VkVideoPictureResourceInfoKHR& member){
 auto& sType_json=json["sType"];
@@ -39829,7 +39813,7 @@ auto& codedExtent_json=json["codedExtent"];
 auto& baseArrayLayer_json=json["baseArrayLayer"];
 [&](){member.baseArrayLayer=static_cast<uint32_t>(value_to<int>(baseArrayLayer_json));}();
 auto& imageViewBinding_json=json["imageViewBinding"];
-[&](){deserialize_handle(imageViewBinding_json, member.imageViewBinding);}();
+[&](){deserialize_VkImageView(imageViewBinding_json, member.imageViewBinding);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkVideoReferenceSlotInfoKHR& member){
@@ -39946,7 +39930,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){[&](){flags_json=member.flags;}();}();}();
 auto& srcBuffer_json=json["srcBuffer"];
-[&](){serialize_handle(srcBuffer_json,member.srcBuffer);}();
+[&](){serialize_VkBuffer(srcBuffer_json,member.srcBuffer);}();
 auto& srcBufferOffset_json=json["srcBufferOffset"];
 [&](){[&](){srcBufferOffset_json=member.srcBufferOffset;}();}();
 auto& srcBufferRange_json=json["srcBufferRange"];
@@ -39996,7 +39980,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){int temp_NDeiDYD;[&](){temp_NDeiDYD=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkVideoDecodeFlagsKHR)temp_NDeiDYD;}();}();
 auto& srcBuffer_json=json["srcBuffer"];
-[&](){deserialize_handle(srcBuffer_json, member.srcBuffer);}();
+[&](){deserialize_VkBuffer(srcBuffer_json, member.srcBuffer);}();
 auto& srcBufferOffset_json=json["srcBufferOffset"];
 [&](){uint64_t temp_CsWZYki;[&](){temp_CsWZYki=static_cast<uint64_t>(value_to<int>(srcBufferOffset_json));}();member.srcBufferOffset=(VkDeviceSize)temp_CsWZYki;}();
 auto& srcBufferRange_json=json["srcBufferRange"];
@@ -40668,9 +40652,9 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){[&](){flags_json=member.flags;}();}();}();
 auto& videoSessionParametersTemplate_json=json["videoSessionParametersTemplate"];
-[&](){serialize_handle(videoSessionParametersTemplate_json,member.videoSessionParametersTemplate);}();
+[&](){serialize_VkVideoSessionParametersKHR(videoSessionParametersTemplate_json,member.videoSessionParametersTemplate);}();
 auto& videoSession_json=json["videoSession"];
-[&](){serialize_handle(videoSession_json,member.videoSession);}();
+[&](){serialize_VkVideoSessionKHR(videoSession_json,member.videoSession);}();
 }
 void deserialize_struct(boost::json::object& json, VkVideoSessionParametersCreateInfoKHR& member){
 auto& sType_json=json["sType"];
@@ -40683,9 +40667,9 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){int temp_BNfGxzR;[&](){temp_BNfGxzR=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkVideoSessionParametersCreateFlagsKHR)temp_BNfGxzR;}();}();
 auto& videoSessionParametersTemplate_json=json["videoSessionParametersTemplate"];
-[&](){deserialize_handle(videoSessionParametersTemplate_json, member.videoSessionParametersTemplate);}();
+[&](){deserialize_VkVideoSessionParametersKHR(videoSessionParametersTemplate_json, member.videoSessionParametersTemplate);}();
 auto& videoSession_json=json["videoSession"];
-[&](){deserialize_handle(videoSession_json, member.videoSession);}();
+[&](){deserialize_VkVideoSessionKHR(videoSession_json, member.videoSession);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkVideoSessionParametersUpdateInfoKHR& member){
@@ -40726,9 +40710,9 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){[&](){flags_json=member.flags;}();}();}();
 auto& videoSession_json=json["videoSession"];
-[&](){serialize_handle(videoSession_json,member.videoSession);}();
+[&](){serialize_VkVideoSessionKHR(videoSession_json,member.videoSession);}();
 auto& videoSessionParameters_json=json["videoSessionParameters"];
-[&](){serialize_handle(videoSessionParameters_json,member.videoSessionParameters);}();
+[&](){serialize_VkVideoSessionParametersKHR(videoSessionParameters_json,member.videoSessionParameters);}();
 auto& referenceSlotCount_json=json["referenceSlotCount"];
 [&](){referenceSlotCount_json=member.referenceSlotCount;}();
 auto& pReferenceSlots_json=json["pReferenceSlots"];
@@ -40756,9 +40740,9 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){int temp_yINEoGZ;[&](){temp_yINEoGZ=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkVideoBeginCodingFlagsKHR)temp_yINEoGZ;}();}();
 auto& videoSession_json=json["videoSession"];
-[&](){deserialize_handle(videoSession_json, member.videoSession);}();
+[&](){deserialize_VkVideoSessionKHR(videoSession_json, member.videoSession);}();
 auto& videoSessionParameters_json=json["videoSessionParameters"];
-[&](){deserialize_handle(videoSessionParameters_json, member.videoSessionParameters);}();
+[&](){deserialize_VkVideoSessionParametersKHR(videoSessionParameters_json, member.videoSessionParameters);}();
 auto& referenceSlotCount_json=json["referenceSlotCount"];
 [&](){member.referenceSlotCount=static_cast<uint32_t>(value_to<int>(referenceSlotCount_json));}();
 auto& pReferenceSlots_json=json["pReferenceSlots"];
@@ -41076,7 +41060,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& module_json=json["module"];
-[&](){serialize_handle(module_json,member.module);}();
+[&](){serialize_VkCuModuleNVX(module_json,member.module);}();
 auto& pName_json=json["pName"];
 [&](){
             if (member.pName==NULL){
@@ -41097,7 +41081,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& module_json=json["module"];
-[&](){deserialize_handle(module_json, member.module);}();
+[&](){deserialize_VkCuModuleNVX(module_json, member.module);}();
 auto& pName_json=json["pName"];
 [&](){ char* temp_AzKgJNk;[&](){
             if (pName_json.as_array().size()==0){
@@ -41121,7 +41105,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& function_json=json["function"];
-[&](){serialize_handle(function_json,member.function);}();
+[&](){serialize_VkCuFunctionNVX(function_json,member.function);}();
 auto& gridDimX_json=json["gridDimX"];
 [&](){gridDimX_json=member.gridDimX;}();
 auto& gridDimY_json=json["gridDimY"];
@@ -41192,7 +41176,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& function_json=json["function"];
-[&](){deserialize_handle(function_json, member.function);}();
+[&](){deserialize_VkCuFunctionNVX(function_json, member.function);}();
 auto& gridDimX_json=json["gridDimX"];
 [&](){member.gridDimX=static_cast<uint32_t>(value_to<int>(gridDimX_json));}();
 auto& gridDimY_json=json["gridDimY"];
@@ -41543,7 +41527,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& buffer_json=json["buffer"];
-[&](){serialize_handle(buffer_json,member.buffer);}();
+[&](){serialize_VkBuffer(buffer_json,member.buffer);}();
 }
 void deserialize_struct(boost::json::object& json, VkDescriptorBufferBindingPushDescriptorBufferHandleEXT& member){
 auto& sType_json=json["sType"];
@@ -41554,7 +41538,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,member.pNext);
             }();
 auto& buffer_json=json["buffer"];
-[&](){deserialize_handle(buffer_json, member.buffer);}();
+[&](){deserialize_VkBuffer(buffer_json, member.buffer);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkDescriptorDataEXT& member){
@@ -41567,7 +41551,7 @@ auto& pSampler_json=json["pSampler"];
             return; }
         auto& arr_dMQqpIL=pSampler_json.emplace_array();
         for(int eHUyqdO=0; eHUyqdO < 1; eHUyqdO++){
-            [&](){serialize_handle(arr_dMQqpIL[eHUyqdO],member.pSampler[eHUyqdO]);}();
+            [&](){serialize_VkSampler(arr_dMQqpIL[eHUyqdO],member.pSampler[eHUyqdO]);}();
         }
         }();
 auto& pCombinedImageSampler_json=json["pCombinedImageSampler"];
@@ -41685,7 +41669,7 @@ auto& pSampler_json=json["pSampler"];
             return; }temp_QdVroVP=(VkSampler*)malloc(1*sizeof(VkSampler));
         auto& arr_EXEGLAG=pSampler_json.as_array();
         for(int bSeTpQc=0; bSeTpQc < 1; bSeTpQc++){
-            [&](){deserialize_handle(arr_EXEGLAG[bSeTpQc], temp_QdVroVP[bSeTpQc]);}();
+            [&](){deserialize_VkSampler(arr_EXEGLAG[bSeTpQc], temp_QdVroVP[bSeTpQc]);}();
         }
         }();member.pSampler=temp_QdVroVP;}();
 auto& pCombinedImageSampler_json=json["pCombinedImageSampler"];
@@ -41842,7 +41826,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& buffer_json=json["buffer"];
-[&](){serialize_handle(buffer_json,member.buffer);}();
+[&](){serialize_VkBuffer(buffer_json,member.buffer);}();
 }
 void deserialize_struct(boost::json::object& json, VkBufferCaptureDescriptorDataInfoEXT& member){
 auto& sType_json=json["sType"];
@@ -41853,7 +41837,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& buffer_json=json["buffer"];
-[&](){deserialize_handle(buffer_json, member.buffer);}();
+[&](){deserialize_VkBuffer(buffer_json, member.buffer);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkImageCaptureDescriptorDataInfoEXT& member){
@@ -41867,7 +41851,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& image_json=json["image"];
-[&](){serialize_handle(image_json,member.image);}();
+[&](){serialize_VkImage(image_json,member.image);}();
 }
 void deserialize_struct(boost::json::object& json, VkImageCaptureDescriptorDataInfoEXT& member){
 auto& sType_json=json["sType"];
@@ -41878,7 +41862,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& image_json=json["image"];
-[&](){deserialize_handle(image_json, member.image);}();
+[&](){deserialize_VkImage(image_json, member.image);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkImageViewCaptureDescriptorDataInfoEXT& member){
@@ -41892,7 +41876,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& imageView_json=json["imageView"];
-[&](){serialize_handle(imageView_json,member.imageView);}();
+[&](){serialize_VkImageView(imageView_json,member.imageView);}();
 }
 void deserialize_struct(boost::json::object& json, VkImageViewCaptureDescriptorDataInfoEXT& member){
 auto& sType_json=json["sType"];
@@ -41903,7 +41887,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& imageView_json=json["imageView"];
-[&](){deserialize_handle(imageView_json, member.imageView);}();
+[&](){deserialize_VkImageView(imageView_json, member.imageView);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkSamplerCaptureDescriptorDataInfoEXT& member){
@@ -41917,7 +41901,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& sampler_json=json["sampler"];
-[&](){serialize_handle(sampler_json,member.sampler);}();
+[&](){serialize_VkSampler(sampler_json,member.sampler);}();
 }
 void deserialize_struct(boost::json::object& json, VkSamplerCaptureDescriptorDataInfoEXT& member){
 auto& sType_json=json["sType"];
@@ -41928,7 +41912,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& sampler_json=json["sampler"];
-[&](){deserialize_handle(sampler_json, member.sampler);}();
+[&](){deserialize_VkSampler(sampler_json, member.sampler);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkAccelerationStructureCaptureDescriptorDataInfoEXT& member){
@@ -41942,9 +41926,9 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& accelerationStructure_json=json["accelerationStructure"];
-[&](){serialize_handle(accelerationStructure_json,member.accelerationStructure);}();
+[&](){serialize_VkAccelerationStructureKHR(accelerationStructure_json,member.accelerationStructure);}();
 auto& accelerationStructureNV_json=json["accelerationStructureNV"];
-[&](){serialize_handle(accelerationStructureNV_json,member.accelerationStructureNV);}();
+[&](){serialize_VkAccelerationStructureNV(accelerationStructureNV_json,member.accelerationStructureNV);}();
 }
 void deserialize_struct(boost::json::object& json, VkAccelerationStructureCaptureDescriptorDataInfoEXT& member){
 auto& sType_json=json["sType"];
@@ -41955,9 +41939,9 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& accelerationStructure_json=json["accelerationStructure"];
-[&](){deserialize_handle(accelerationStructure_json, member.accelerationStructure);}();
+[&](){deserialize_VkAccelerationStructureKHR(accelerationStructure_json, member.accelerationStructure);}();
 auto& accelerationStructureNV_json=json["accelerationStructureNV"];
-[&](){deserialize_handle(accelerationStructureNV_json, member.accelerationStructureNV);}();
+[&](){deserialize_VkAccelerationStructureNV(accelerationStructureNV_json, member.accelerationStructureNV);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkOpaqueCaptureDescriptorDataCreateInfoEXT& member){
@@ -42595,7 +42579,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& memory_json=json["memory"];
-[&](){serialize_handle(memory_json,member.memory);}();
+[&](){serialize_VkDeviceMemory(memory_json,member.memory);}();
 auto& handleType_json=json["handleType"];
 [&](){[&](){[&](){handleType_json=member.handleType;}();}();}();
 }
@@ -42608,7 +42592,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& memory_json=json["memory"];
-[&](){deserialize_handle(memory_json, member.memory);}();
+[&](){deserialize_VkDeviceMemory(memory_json, member.memory);}();
 auto& handleType_json=json["handleType"];
 [&](){[&](){int temp_eyKBrDS;[&](){temp_eyKBrDS=static_cast<int>(value_to<int>(handleType_json));}();member.handleType=(VkExternalMemoryHandleTypeFlagBits)temp_eyKBrDS;}();}();
 }
@@ -42934,13 +42918,13 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& imageView_json=json["imageView"];
-[&](){serialize_handle(imageView_json,member.imageView);}();
+[&](){serialize_VkImageView(imageView_json,member.imageView);}();
 auto& imageLayout_json=json["imageLayout"];
 [&](){[&](){[&](){imageLayout_json=member.imageLayout;}();}();}();
 auto& resolveMode_json=json["resolveMode"];
 [&](){[&](){[&](){resolveMode_json=member.resolveMode;}();}();}();
 auto& resolveImageView_json=json["resolveImageView"];
-[&](){serialize_handle(resolveImageView_json,member.resolveImageView);}();
+[&](){serialize_VkImageView(resolveImageView_json,member.resolveImageView);}();
 auto& resolveImageLayout_json=json["resolveImageLayout"];
 [&](){[&](){[&](){resolveImageLayout_json=member.resolveImageLayout;}();}();}();
 auto& loadOp_json=json["loadOp"];
@@ -42962,13 +42946,13 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& imageView_json=json["imageView"];
-[&](){deserialize_handle(imageView_json, member.imageView);}();
+[&](){deserialize_VkImageView(imageView_json, member.imageView);}();
 auto& imageLayout_json=json["imageLayout"];
 [&](){[&](){int temp_FajwjgZ;[&](){temp_FajwjgZ=static_cast<int>(value_to<int>(imageLayout_json));}();member.imageLayout=(VkImageLayout)temp_FajwjgZ;}();}();
 auto& resolveMode_json=json["resolveMode"];
 [&](){[&](){int temp_WTlluoN;[&](){temp_WTlluoN=static_cast<int>(value_to<int>(resolveMode_json));}();member.resolveMode=(VkResolveModeFlagBits)temp_WTlluoN;}();}();
 auto& resolveImageView_json=json["resolveImageView"];
-[&](){deserialize_handle(resolveImageView_json, member.resolveImageView);}();
+[&](){deserialize_VkImageView(resolveImageView_json, member.resolveImageView);}();
 auto& resolveImageLayout_json=json["resolveImageLayout"];
 [&](){[&](){int temp_JOTjGjh;[&](){temp_JOTjGjh=static_cast<int>(value_to<int>(resolveImageLayout_json));}();member.resolveImageLayout=(VkImageLayout)temp_JOTjGjh;}();}();
 auto& loadOp_json=json["loadOp"];
@@ -42993,7 +42977,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& imageView_json=json["imageView"];
-[&](){serialize_handle(imageView_json,member.imageView);}();
+[&](){serialize_VkImageView(imageView_json,member.imageView);}();
 auto& imageLayout_json=json["imageLayout"];
 [&](){[&](){[&](){imageLayout_json=member.imageLayout;}();}();}();
 auto& shadingRateAttachmentTexelSize_json=json["shadingRateAttachmentTexelSize"];
@@ -43011,7 +42995,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& imageView_json=json["imageView"];
-[&](){deserialize_handle(imageView_json, member.imageView);}();
+[&](){deserialize_VkImageView(imageView_json, member.imageView);}();
 auto& imageLayout_json=json["imageLayout"];
 [&](){[&](){int temp_FajwjgZ;[&](){temp_FajwjgZ=static_cast<int>(value_to<int>(imageLayout_json));}();member.imageLayout=(VkImageLayout)temp_FajwjgZ;}();}();
 auto& shadingRateAttachmentTexelSize_json=json["shadingRateAttachmentTexelSize"];
@@ -43032,7 +43016,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& imageView_json=json["imageView"];
-[&](){serialize_handle(imageView_json,member.imageView);}();
+[&](){serialize_VkImageView(imageView_json,member.imageView);}();
 auto& imageLayout_json=json["imageLayout"];
 [&](){[&](){[&](){imageLayout_json=member.imageLayout;}();}();}();
 }
@@ -43045,7 +43029,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& imageView_json=json["imageView"];
-[&](){deserialize_handle(imageView_json, member.imageView);}();
+[&](){deserialize_VkImageView(imageView_json, member.imageView);}();
 auto& imageLayout_json=json["imageLayout"];
 [&](){[&](){int temp_FajwjgZ;[&](){temp_FajwjgZ=static_cast<int>(value_to<int>(imageLayout_json));}();member.imageLayout=(VkImageLayout)temp_FajwjgZ;}();}();
 }
@@ -43441,7 +43425,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& descriptorSetLayout_json=json["descriptorSetLayout"];
-[&](){serialize_handle(descriptorSetLayout_json,member.descriptorSetLayout);}();
+[&](){serialize_VkDescriptorSetLayout(descriptorSetLayout_json,member.descriptorSetLayout);}();
 auto& binding_json=json["binding"];
 [&](){binding_json=member.binding;}();
 }
@@ -43454,7 +43438,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& descriptorSetLayout_json=json["descriptorSetLayout"];
-[&](){deserialize_handle(descriptorSetLayout_json, member.descriptorSetLayout);}();
+[&](){deserialize_VkDescriptorSetLayout(descriptorSetLayout_json, member.descriptorSetLayout);}();
 auto& binding_json=json["binding"];
 [&](){member.binding=static_cast<uint32_t>(value_to<int>(binding_json));}();
 }
@@ -44023,7 +44007,7 @@ auto& flags_json=json["flags"];
 auto& mode_json=json["mode"];
 [&](){[&](){[&](){mode_json=member.mode;}();}();}();
 auto& dstMicromap_json=json["dstMicromap"];
-[&](){serialize_handle(dstMicromap_json,member.dstMicromap);}();
+[&](){serialize_VkMicromapEXT(dstMicromap_json,member.dstMicromap);}();
 auto& usageCountsCount_json=json["usageCountsCount"];
 [&](){usageCountsCount_json=member.usageCountsCount;}();
 auto& pUsageCounts_json=json["pUsageCounts"];
@@ -44093,7 +44077,7 @@ auto& flags_json=json["flags"];
 auto& mode_json=json["mode"];
 [&](){[&](){int temp_yesVPNy;[&](){temp_yesVPNy=static_cast<int>(value_to<int>(mode_json));}();member.mode=(VkBuildMicromapModeEXT)temp_yesVPNy;}();}();
 auto& dstMicromap_json=json["dstMicromap"];
-[&](){deserialize_handle(dstMicromap_json, member.dstMicromap);}();
+[&](){deserialize_VkMicromapEXT(dstMicromap_json, member.dstMicromap);}();
 auto& usageCountsCount_json=json["usageCountsCount"];
 [&](){member.usageCountsCount=static_cast<uint32_t>(value_to<int>(usageCountsCount_json));}();
 auto& pUsageCounts_json=json["pUsageCounts"];
@@ -44162,7 +44146,7 @@ auto& pNext_json=json["pNext"];
 auto& createFlags_json=json["createFlags"];
 [&](){[&](){[&](){createFlags_json=member.createFlags;}();}();}();
 auto& buffer_json=json["buffer"];
-[&](){serialize_handle(buffer_json,member.buffer);}();
+[&](){serialize_VkBuffer(buffer_json,member.buffer);}();
 auto& offset_json=json["offset"];
 [&](){[&](){offset_json=member.offset;}();}();
 auto& size_json=json["size"];
@@ -44183,7 +44167,7 @@ auto& pNext_json=json["pNext"];
 auto& createFlags_json=json["createFlags"];
 [&](){[&](){int temp_iblPBrt;[&](){temp_iblPBrt=static_cast<int>(value_to<int>(createFlags_json));}();member.createFlags=(VkMicromapCreateFlagsEXT)temp_iblPBrt;}();}();
 auto& buffer_json=json["buffer"];
-[&](){deserialize_handle(buffer_json, member.buffer);}();
+[&](){deserialize_VkBuffer(buffer_json, member.buffer);}();
 auto& offset_json=json["offset"];
 [&](){uint64_t temp_EwrXfgl;[&](){temp_EwrXfgl=static_cast<uint64_t>(value_to<int>(offset_json));}();member.offset=(VkDeviceSize)temp_EwrXfgl;}();
 auto& size_json=json["size"];
@@ -44246,9 +44230,9 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& src_json=json["src"];
-[&](){serialize_handle(src_json,member.src);}();
+[&](){serialize_VkMicromapEXT(src_json,member.src);}();
 auto& dst_json=json["dst"];
-[&](){serialize_handle(dst_json,member.dst);}();
+[&](){serialize_VkMicromapEXT(dst_json,member.dst);}();
 auto& mode_json=json["mode"];
 [&](){[&](){[&](){mode_json=member.mode;}();}();}();
 }
@@ -44261,9 +44245,9 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& src_json=json["src"];
-[&](){deserialize_handle(src_json, member.src);}();
+[&](){deserialize_VkMicromapEXT(src_json, member.src);}();
 auto& dst_json=json["dst"];
-[&](){deserialize_handle(dst_json, member.dst);}();
+[&](){deserialize_VkMicromapEXT(dst_json, member.dst);}();
 auto& mode_json=json["mode"];
 [&](){[&](){int temp_YandjQd;[&](){temp_YandjQd=static_cast<int>(value_to<int>(mode_json));}();member.mode=(VkCopyMicromapModeEXT)temp_YandjQd;}();}();
 }
@@ -44279,7 +44263,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& src_json=json["src"];
-[&](){serialize_handle(src_json,member.src);}();
+[&](){serialize_VkMicromapEXT(src_json,member.src);}();
 auto& dst_json=json["dst"];
 [&](){
             auto& temp=dst_json.emplace_object();
@@ -44297,7 +44281,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& src_json=json["src"];
-[&](){deserialize_handle(src_json, member.src);}();
+[&](){deserialize_VkMicromapEXT(src_json, member.src);}();
 auto& dst_json=json["dst"];
 [&](){
             auto& temp=dst_json.as_object();
@@ -44323,7 +44307,7 @@ auto& src_json=json["src"];
             return serialize_struct(temp, member.src);
             }();
 auto& dst_json=json["dst"];
-[&](){serialize_handle(dst_json,member.dst);}();
+[&](){serialize_VkMicromapEXT(dst_json,member.dst);}();
 auto& mode_json=json["mode"];
 [&](){[&](){[&](){mode_json=member.mode;}();}();}();
 }
@@ -44341,7 +44325,7 @@ auto& src_json=json["src"];
             deserialize_struct(temp,member.src);
             }();
 auto& dst_json=json["dst"];
-[&](){deserialize_handle(dst_json, member.dst);}();
+[&](){deserialize_VkMicromapEXT(dst_json, member.dst);}();
 auto& mode_json=json["mode"];
 [&](){[&](){int temp_YandjQd;[&](){temp_YandjQd=static_cast<int>(value_to<int>(mode_json));}();member.mode=(VkCopyMicromapModeEXT)temp_YandjQd;}();}();
 }
@@ -44537,7 +44521,7 @@ auto& ppUsageCounts_json=json["ppUsageCounts"];
         }
         }();
 auto& micromap_json=json["micromap"];
-[&](){serialize_handle(micromap_json,member.micromap);}();
+[&](){serialize_VkMicromapEXT(micromap_json,member.micromap);}();
 }
 void deserialize_struct(boost::json::object& json, VkAccelerationStructureTrianglesOpacityMicromapEXT& member){
 auto& sType_json=json["sType"];
@@ -44595,7 +44579,7 @@ auto& ppUsageCounts_json=json["ppUsageCounts"];
         }
         }();member.ppUsageCounts=temp_pfcHTud;}();
 auto& micromap_json=json["micromap"];
-[&](){deserialize_handle(micromap_json, member.micromap);}();
+[&](){deserialize_VkMicromapEXT(micromap_json, member.micromap);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkPipelinePropertiesIdentifierEXT& member){
@@ -45993,7 +45977,7 @@ auto& pImages_json=json["pImages"];
             return; }
         auto& arr_bOJLRee=pImages_json.emplace_array();
         for(int SkZrgZX=0; SkZrgZX < member.imageCount; SkZrgZX++){
-            [&](){serialize_handle(arr_bOJLRee[SkZrgZX],member.pImages[SkZrgZX]);}();
+            [&](){serialize_VkImage(arr_bOJLRee[SkZrgZX],member.pImages[SkZrgZX]);}();
         }
         }();
 auto& bufferCount_json=json["bufferCount"];
@@ -46005,7 +45989,7 @@ auto& pBuffers_json=json["pBuffers"];
             return; }
         auto& arr_IcGwYwf=pBuffers_json.emplace_array();
         for(int eyXGVyQ=0; eyXGVyQ < member.bufferCount; eyXGVyQ++){
-            [&](){serialize_handle(arr_IcGwYwf[eyXGVyQ],member.pBuffers[eyXGVyQ]);}();
+            [&](){serialize_VkBuffer(arr_IcGwYwf[eyXGVyQ],member.pBuffers[eyXGVyQ]);}();
         }
         }();
 auto& tagName_json=json["tagName"];
@@ -46047,7 +46031,7 @@ auto& pImages_json=json["pImages"];
             return; }temp_pdDejft=(VkImage*)malloc(member.imageCount*sizeof(VkImage));
         auto& arr_gVOAPkD=pImages_json.as_array();
         for(int Kmmcikz=0; Kmmcikz < member.imageCount; Kmmcikz++){
-            [&](){deserialize_handle(arr_gVOAPkD[Kmmcikz], temp_pdDejft[Kmmcikz]);}();
+            [&](){deserialize_VkImage(arr_gVOAPkD[Kmmcikz], temp_pdDejft[Kmmcikz]);}();
         }
         }();member.pImages=temp_pdDejft;}();
 auto& bufferCount_json=json["bufferCount"];
@@ -46059,7 +46043,7 @@ auto& pBuffers_json=json["pBuffers"];
             return; }temp_LLXcbqM=(VkBuffer*)malloc(member.bufferCount*sizeof(VkBuffer));
         auto& arr_ltYiOSI=pBuffers_json.as_array();
         for(int EdcHGAo=0; EdcHGAo < member.bufferCount; EdcHGAo++){
-            [&](){deserialize_handle(arr_ltYiOSI[EdcHGAo], temp_LLXcbqM[EdcHGAo]);}();
+            [&](){deserialize_VkBuffer(arr_ltYiOSI[EdcHGAo], temp_LLXcbqM[EdcHGAo]);}();
         }
         }();member.pBuffers=temp_LLXcbqM;}();
 auto& tagName_json=json["tagName"];
@@ -46298,7 +46282,7 @@ auto& pFences_json=json["pFences"];
             return; }
         auto& arr_EzapEnY=pFences_json.emplace_array();
         for(int XxcVHDd=0; XxcVHDd < member.swapchainCount; XxcVHDd++){
-            [&](){serialize_handle(arr_EzapEnY[XxcVHDd],member.pFences[XxcVHDd]);}();
+            [&](){serialize_VkFence(arr_EzapEnY[XxcVHDd],member.pFences[XxcVHDd]);}();
         }
         }();
 }
@@ -46319,7 +46303,7 @@ auto& pFences_json=json["pFences"];
             return; }temp_JOcgSsr=(VkFence*)malloc(member.swapchainCount*sizeof(VkFence));
         auto& arr_gpoylyV=pFences_json.as_array();
         for(int dsNzNJH=0; dsNzNJH < member.swapchainCount; dsNzNJH++){
-            [&](){deserialize_handle(arr_gpoylyV[dsNzNJH], temp_JOcgSsr[dsNzNJH]);}();
+            [&](){deserialize_VkFence(arr_gpoylyV[dsNzNJH], temp_JOcgSsr[dsNzNJH]);}();
         }
         }();member.pFences=temp_JOcgSsr;}();
 }
@@ -46458,7 +46442,7 @@ auto& pNext_json=json["pNext"];
             return serialize_pNext(temp, member.pNext);
             }();
 auto& swapchain_json=json["swapchain"];
-[&](){serialize_handle(swapchain_json,member.swapchain);}();
+[&](){serialize_VkSwapchainKHR(swapchain_json,member.swapchain);}();
 auto& imageIndexCount_json=json["imageIndexCount"];
 [&](){imageIndexCount_json=member.imageIndexCount;}();
 auto& pImageIndices_json=json["pImageIndices"];
@@ -46481,7 +46465,7 @@ auto& pNext_json=json["pNext"];
             deserialize_pNext(temp,temp_nBBafEa);
             }();member.pNext=temp_nBBafEa;}();
 auto& swapchain_json=json["swapchain"];
-[&](){deserialize_handle(swapchain_json, member.swapchain);}();
+[&](){deserialize_VkSwapchainKHR(swapchain_json, member.swapchain);}();
 auto& imageIndexCount_json=json["imageIndexCount"];
 [&](){member.imageIndexCount=static_cast<uint32_t>(value_to<int>(imageIndexCount_json));}();
 auto& pImageIndices_json=json["pImageIndices"];
@@ -46598,7 +46582,7 @@ auto& flags_json=json["flags"];
 auto& pfnGetInstanceProcAddr_json=json["pfnGetInstanceProcAddr"];
 [&](){
             auto& temp=pfnGetInstanceProcAddr_json.emplace_object();
-            return serialize_funcpointer(temp, member.pfnGetInstanceProcAddr);
+            return serialize_PFN_vkGetInstanceProcAddrLUNARG(temp, member.pfnGetInstanceProcAddr);
             }();
 }
 void deserialize_struct(boost::json::object& json, VkDirectDriverLoadingInfoLUNARG& member){
@@ -46613,11 +46597,9 @@ auto& flags_json=json["flags"];
 [&](){[&](){int temp_rqUTqOr;[&](){temp_rqUTqOr=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkDirectDriverLoadingFlagsLUNARG)temp_rqUTqOr;}();}();
 auto& pfnGetInstanceProcAddr_json=json["pfnGetInstanceProcAddr"];
 [&](){
-#ifndef CLIENT
             auto& temp=pfnGetInstanceProcAddr_json.as_object();
-            deserialize_funcpointer(temp,member.pfnGetInstanceProcAddr);
-            #endif
-}();
+            deserialize_PFN_vkGetInstanceProcAddrLUNARG(temp,member.pfnGetInstanceProcAddr);
+            }();
 }
 
     void serialize_struct(boost::json::object& json, const VkDirectDriverLoadingListLUNARG& member){
@@ -46967,7 +46949,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){[&](){flags_json=member.flags;}();}();}();
 auto& memory_json=json["memory"];
-[&](){serialize_handle(memory_json,member.memory);}();
+[&](){serialize_VkDeviceMemory(memory_json,member.memory);}();
 auto& offset_json=json["offset"];
 [&](){[&](){offset_json=member.offset;}();}();
 auto& size_json=json["size"];
@@ -46984,7 +46966,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){int temp_qgNDnEv;[&](){temp_qgNDnEv=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkMemoryMapFlags)temp_qgNDnEv;}();}();
 auto& memory_json=json["memory"];
-[&](){deserialize_handle(memory_json, member.memory);}();
+[&](){deserialize_VkDeviceMemory(memory_json, member.memory);}();
 auto& offset_json=json["offset"];
 [&](){uint64_t temp_EwrXfgl;[&](){temp_EwrXfgl=static_cast<uint64_t>(value_to<int>(offset_json));}();member.offset=(VkDeviceSize)temp_EwrXfgl;}();
 auto& size_json=json["size"];
@@ -47004,7 +46986,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){[&](){flags_json=member.flags;}();}();}();
 auto& memory_json=json["memory"];
-[&](){serialize_handle(memory_json,member.memory);}();
+[&](){serialize_VkDeviceMemory(memory_json,member.memory);}();
 }
 void deserialize_struct(boost::json::object& json, VkMemoryUnmapInfoKHR& member){
 auto& sType_json=json["sType"];
@@ -47017,7 +46999,7 @@ auto& pNext_json=json["pNext"];
 auto& flags_json=json["flags"];
 [&](){[&](){int temp_KJqVlGe;[&](){temp_KJqVlGe=static_cast<int>(value_to<int>(flags_json));}();member.flags=(VkMemoryUnmapFlagsKHR)temp_KJqVlGe;}();}();
 auto& memory_json=json["memory"];
-[&](){deserialize_handle(memory_json, member.memory);}();
+[&](){deserialize_VkDeviceMemory(memory_json, member.memory);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkPhysicalDeviceShaderObjectFeaturesEXT& member){
@@ -47136,7 +47118,7 @@ auto& pSetLayouts_json=json["pSetLayouts"];
             return; }
         auto& arr_zVMtIaT=pSetLayouts_json.emplace_array();
         for(int uklMdkt=0; uklMdkt < member.setLayoutCount; uklMdkt++){
-            [&](){serialize_handle(arr_zVMtIaT[uklMdkt],member.pSetLayouts[uklMdkt]);}();
+            [&](){serialize_VkDescriptorSetLayout(arr_zVMtIaT[uklMdkt],member.pSetLayouts[uklMdkt]);}();
         }
         }();
 auto& pushConstantRangeCount_json=json["pushConstantRangeCount"];
@@ -47218,7 +47200,7 @@ auto& pSetLayouts_json=json["pSetLayouts"];
             return; }temp_bpLPvjG=(VkDescriptorSetLayout*)malloc(member.setLayoutCount*sizeof(VkDescriptorSetLayout));
         auto& arr_KfikEjZ=pSetLayouts_json.as_array();
         for(int nDMuHRP=0; nDMuHRP < member.setLayoutCount; nDMuHRP++){
-            [&](){deserialize_handle(arr_KfikEjZ[nDMuHRP], temp_bpLPvjG[nDMuHRP]);}();
+            [&](){deserialize_VkDescriptorSetLayout(arr_KfikEjZ[nDMuHRP], temp_bpLPvjG[nDMuHRP]);}();
         }
         }();member.pSetLayouts=temp_bpLPvjG;}();
 auto& pushConstantRangeCount_json=json["pushConstantRangeCount"];
@@ -47724,23 +47706,16 @@ auto& underlyingAPI_json=json["underlyingAPI"];
 }
 std::map<uintptr_t,PFN_vkInternalAllocationNotification> id_to_PFN_vkInternalAllocationNotification;
 
-    void serialize_funcpointer(boost::json::object&, const PFN_vkInternalAllocationNotification&){
+    void serialize_PFN_vkInternalAllocationNotification(boost::json::object&, const PFN_vkInternalAllocationNotification&){
         //Will only be called by the client
         return;
     }
     
 
-        void deserialize_funcpointer(boost::json::object& json, PFN_vkInternalAllocationNotification& member){
-            //Will only be called by the server
-            
-            member=PFN_vkInternalAllocationNotification_wrapper;
-            };
-        
-
         auto PFN_vkInternalAllocationNotification_wrapper( void* pUserData, size_t size, VkInternalAllocationType allocationType, VkSystemAllocationScope allocationScope){
         //Will only be called by the server
         
-        boost::json::object& json;
+        boost::json::object json;
         json["type"]=PFN_VKINTERNALALLOCATIONNOTIFICATION;
         
 [&](){
@@ -47750,37 +47725,35 @@ std::map<uintptr_t,PFN_vkInternalAllocationNotification> id_to_PFN_vkInternalAll
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }
-        auto& arr_fYmikDX=json["pUserData"].emplace_array();
-        for(int GzbOwAQ=0; GzbOwAQ < strlen(((char*)(pUserData)))+1; GzbOwAQ++){
-            [&](){arr_fYmikDX[GzbOwAQ]=((char*)(pUserData))[GzbOwAQ];}();
+        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
+            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
         }();}();
 [&](){json["size"]=size;}();
 [&](){[&](){[&](){json["allocationType"]=allocationType;}();}();}();
 [&](){[&](){[&](){json["allocationScope"]=allocationScope;}();}();}();
 
-        json["id"]=((pUserData*)pUserData)->PFN_vkInternalAllocationNotification;
+        json["id"]=((pUserData_struct*)pUserData)->PFN_vkInternalAllocationNotification;
         
         writeToConn(json); //Send request
         json=readFromConn(); //Recieve response
-        void result;
         
 [&](){
             if (json["pUserData"].as_array().size()==0){
                 pUserData=NULL;
-            return; }char* temp_cDeMJHe;[&](){
+            return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
-                temp_cDeMJHe=NULL;
+                temp_PunOKTH=NULL;
             return; }
-        auto& arr_fYmikDX=json["pUserData"].as_array();
-        for(int GzbOwAQ=0; GzbOwAQ < json["pUserData"].as_array().size(); GzbOwAQ++){
-            [&](){temp_cDeMJHe[GzbOwAQ]=static_cast<char>(value_to<int>(arr_fYmikDX[GzbOwAQ]));}();
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
+        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+            [&](){temp_PunOKTH[EuMrPhh]=static_cast<char>(value_to<int>(arr_wKsaVqw[EuMrPhh]));}();
         }
-        }();pUserData=temp_cDeMJHe;}();
+        }();pUserData=temp_PunOKTH;}();
 [&](){size=static_cast<size_t>(value_to<int>(json["size"]));}();
-[&](){[&](){int temp_ThhQBms;[&](){temp_ThhQBms=static_cast<int>(value_to<int>(json["allocationType"]));}();allocationType=(VkInternalAllocationType)temp_ThhQBms;}();}();
-[&](){[&](){int temp_tdclmZW;[&](){temp_tdclmZW=static_cast<int>(value_to<int>(json["allocationScope"]));}();allocationScope=(VkSystemAllocationScope)temp_tdclmZW;}();}();
-
+[&](){[&](){int temp_eIybqdS;[&](){temp_eIybqdS=static_cast<int>(value_to<int>(json["allocationType"]));}();allocationType=(VkInternalAllocationType)temp_eIybqdS;}();}();
+[&](){[&](){int temp_tAAgjfM;[&](){temp_tAAgjfM=static_cast<int>(value_to<int>(json["allocationScope"]));}();allocationScope=(VkSystemAllocationScope)temp_tAAgjfM;}();}();
 json.clear();
 json.erase("mem");
 
@@ -47797,25 +47770,25 @@ return;
             // Recieved data from server's PFN_vkInternalAllocationNotification wrapper, and will execute the actual function
             auto funcpointer=id_to_PFN_vkInternalAllocationNotification[value_to<uintptr_t>(json["id"])];
         
-void* pUserData;
+void* pUserData;;
 [&](){
             if (json["pUserData"].as_array().size()==0){
                 pUserData=NULL;
-            return; }char* temp_cDeMJHe;[&](){
+            return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
-                temp_cDeMJHe=NULL;
-            return; }temp_cDeMJHe=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_fYmikDX=json["pUserData"].as_array();
-        for(int GzbOwAQ=0; GzbOwAQ < json["pUserData"].as_array().size(); GzbOwAQ++){
-            [&](){temp_cDeMJHe[GzbOwAQ]=static_cast<char>(value_to<int>(arr_fYmikDX[GzbOwAQ]));}();
+                temp_PunOKTH=NULL;
+            return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
+        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+            [&](){temp_PunOKTH[EuMrPhh]=static_cast<char>(value_to<int>(arr_wKsaVqw[EuMrPhh]));}();
         }
-        }();pUserData=temp_cDeMJHe;}();
-size_t size;
+        }();pUserData=temp_PunOKTH;}();
+size_t size;;
 [&](){size=static_cast<size_t>(value_to<int>(json["size"]));}();
-VkInternalAllocationType allocationType;
-[&](){[&](){int temp_ThhQBms;[&](){temp_ThhQBms=static_cast<int>(value_to<int>(json["allocationType"]));}();allocationType=(VkInternalAllocationType)temp_ThhQBms;}();}();
-VkSystemAllocationScope allocationScope;
-[&](){[&](){int temp_tdclmZW;[&](){temp_tdclmZW=static_cast<int>(value_to<int>(json["allocationScope"]));}();allocationScope=(VkSystemAllocationScope)temp_tdclmZW;}();}();
+VkInternalAllocationType allocationType;;
+[&](){[&](){int temp_eIybqdS;[&](){temp_eIybqdS=static_cast<int>(value_to<int>(json["allocationType"]));}();allocationType=(VkInternalAllocationType)temp_eIybqdS;}();}();
+VkSystemAllocationScope allocationScope;;
+[&](){[&](){int temp_tAAgjfM;[&](){temp_tAAgjfM=static_cast<int>(value_to<int>(json["allocationScope"]));}();allocationScope=(VkSystemAllocationScope)temp_tAAgjfM;}();}();
 funcpointer(pUserData,size,allocationType,allocationScope);
 json.clear();
 [&](){
@@ -47825,9 +47798,9 @@ json.clear();
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }
-        auto& arr_fYmikDX=json["pUserData"].emplace_array();
-        for(int GzbOwAQ=0; GzbOwAQ < strlen(((char*)(pUserData)))+1; GzbOwAQ++){
-            [&](){arr_fYmikDX[GzbOwAQ]=((char*)(pUserData))[GzbOwAQ];}();
+        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
+            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
         }();}();
 [&](){json["size"]=size;}();
@@ -47836,25 +47809,25 @@ json.clear();
 
 writeToConn(json);
 };
+
+        void deserialize_PFN_vkInternalAllocationNotification(boost::json::object& json, PFN_vkInternalAllocationNotification& member){
+            //Will only be called by the server
+            
+            member=PFN_vkInternalAllocationNotification_wrapper;
+            };
+        
 std::map<uintptr_t,PFN_vkInternalFreeNotification> id_to_PFN_vkInternalFreeNotification;
 
-    void serialize_funcpointer(boost::json::object&, const PFN_vkInternalFreeNotification&){
+    void serialize_PFN_vkInternalFreeNotification(boost::json::object&, const PFN_vkInternalFreeNotification&){
         //Will only be called by the client
         return;
     }
     
 
-        void deserialize_funcpointer(boost::json::object& json, PFN_vkInternalFreeNotification& member){
-            //Will only be called by the server
-            
-            member=PFN_vkInternalFreeNotification_wrapper;
-            };
-        
-
         auto PFN_vkInternalFreeNotification_wrapper( void* pUserData, size_t size, VkInternalAllocationType allocationType, VkSystemAllocationScope allocationScope){
         //Will only be called by the server
         
-        boost::json::object& json;
+        boost::json::object json;
         json["type"]=PFN_VKINTERNALFREENOTIFICATION;
         
 [&](){
@@ -47864,37 +47837,35 @@ std::map<uintptr_t,PFN_vkInternalFreeNotification> id_to_PFN_vkInternalFreeNotif
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }
-        auto& arr_fYmikDX=json["pUserData"].emplace_array();
-        for(int GzbOwAQ=0; GzbOwAQ < strlen(((char*)(pUserData)))+1; GzbOwAQ++){
-            [&](){arr_fYmikDX[GzbOwAQ]=((char*)(pUserData))[GzbOwAQ];}();
+        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
+            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
         }();}();
 [&](){json["size"]=size;}();
 [&](){[&](){[&](){json["allocationType"]=allocationType;}();}();}();
 [&](){[&](){[&](){json["allocationScope"]=allocationScope;}();}();}();
 
-        json["id"]=((pUserData*)pUserData)->PFN_vkInternalFreeNotification;
+        json["id"]=((pUserData_struct*)pUserData)->PFN_vkInternalFreeNotification;
         
         writeToConn(json); //Send request
         json=readFromConn(); //Recieve response
-        void result;
         
 [&](){
             if (json["pUserData"].as_array().size()==0){
                 pUserData=NULL;
-            return; }char* temp_cDeMJHe;[&](){
+            return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
-                temp_cDeMJHe=NULL;
+                temp_PunOKTH=NULL;
             return; }
-        auto& arr_fYmikDX=json["pUserData"].as_array();
-        for(int GzbOwAQ=0; GzbOwAQ < json["pUserData"].as_array().size(); GzbOwAQ++){
-            [&](){temp_cDeMJHe[GzbOwAQ]=static_cast<char>(value_to<int>(arr_fYmikDX[GzbOwAQ]));}();
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
+        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+            [&](){temp_PunOKTH[EuMrPhh]=static_cast<char>(value_to<int>(arr_wKsaVqw[EuMrPhh]));}();
         }
-        }();pUserData=temp_cDeMJHe;}();
+        }();pUserData=temp_PunOKTH;}();
 [&](){size=static_cast<size_t>(value_to<int>(json["size"]));}();
-[&](){[&](){int temp_ThhQBms;[&](){temp_ThhQBms=static_cast<int>(value_to<int>(json["allocationType"]));}();allocationType=(VkInternalAllocationType)temp_ThhQBms;}();}();
-[&](){[&](){int temp_tdclmZW;[&](){temp_tdclmZW=static_cast<int>(value_to<int>(json["allocationScope"]));}();allocationScope=(VkSystemAllocationScope)temp_tdclmZW;}();}();
-
+[&](){[&](){int temp_eIybqdS;[&](){temp_eIybqdS=static_cast<int>(value_to<int>(json["allocationType"]));}();allocationType=(VkInternalAllocationType)temp_eIybqdS;}();}();
+[&](){[&](){int temp_tAAgjfM;[&](){temp_tAAgjfM=static_cast<int>(value_to<int>(json["allocationScope"]));}();allocationScope=(VkSystemAllocationScope)temp_tAAgjfM;}();}();
 json.clear();
 json.erase("mem");
 
@@ -47911,25 +47882,25 @@ return;
             // Recieved data from server's PFN_vkInternalFreeNotification wrapper, and will execute the actual function
             auto funcpointer=id_to_PFN_vkInternalFreeNotification[value_to<uintptr_t>(json["id"])];
         
-void* pUserData;
+void* pUserData;;
 [&](){
             if (json["pUserData"].as_array().size()==0){
                 pUserData=NULL;
-            return; }char* temp_cDeMJHe;[&](){
+            return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
-                temp_cDeMJHe=NULL;
-            return; }temp_cDeMJHe=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_fYmikDX=json["pUserData"].as_array();
-        for(int GzbOwAQ=0; GzbOwAQ < json["pUserData"].as_array().size(); GzbOwAQ++){
-            [&](){temp_cDeMJHe[GzbOwAQ]=static_cast<char>(value_to<int>(arr_fYmikDX[GzbOwAQ]));}();
+                temp_PunOKTH=NULL;
+            return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
+        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+            [&](){temp_PunOKTH[EuMrPhh]=static_cast<char>(value_to<int>(arr_wKsaVqw[EuMrPhh]));}();
         }
-        }();pUserData=temp_cDeMJHe;}();
-size_t size;
+        }();pUserData=temp_PunOKTH;}();
+size_t size;;
 [&](){size=static_cast<size_t>(value_to<int>(json["size"]));}();
-VkInternalAllocationType allocationType;
-[&](){[&](){int temp_ThhQBms;[&](){temp_ThhQBms=static_cast<int>(value_to<int>(json["allocationType"]));}();allocationType=(VkInternalAllocationType)temp_ThhQBms;}();}();
-VkSystemAllocationScope allocationScope;
-[&](){[&](){int temp_tdclmZW;[&](){temp_tdclmZW=static_cast<int>(value_to<int>(json["allocationScope"]));}();allocationScope=(VkSystemAllocationScope)temp_tdclmZW;}();}();
+VkInternalAllocationType allocationType;;
+[&](){[&](){int temp_eIybqdS;[&](){temp_eIybqdS=static_cast<int>(value_to<int>(json["allocationType"]));}();allocationType=(VkInternalAllocationType)temp_eIybqdS;}();}();
+VkSystemAllocationScope allocationScope;;
+[&](){[&](){int temp_tAAgjfM;[&](){temp_tAAgjfM=static_cast<int>(value_to<int>(json["allocationScope"]));}();allocationScope=(VkSystemAllocationScope)temp_tAAgjfM;}();}();
 funcpointer(pUserData,size,allocationType,allocationScope);
 json.clear();
 [&](){
@@ -47939,9 +47910,9 @@ json.clear();
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }
-        auto& arr_fYmikDX=json["pUserData"].emplace_array();
-        for(int GzbOwAQ=0; GzbOwAQ < strlen(((char*)(pUserData)))+1; GzbOwAQ++){
-            [&](){arr_fYmikDX[GzbOwAQ]=((char*)(pUserData))[GzbOwAQ];}();
+        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
+            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
         }();}();
 [&](){json["size"]=size;}();
@@ -47950,25 +47921,25 @@ json.clear();
 
 writeToConn(json);
 };
+
+        void deserialize_PFN_vkInternalFreeNotification(boost::json::object& json, PFN_vkInternalFreeNotification& member){
+            //Will only be called by the server
+            
+            member=PFN_vkInternalFreeNotification_wrapper;
+            };
+        
 std::map<uintptr_t,PFN_vkReallocationFunction> id_to_PFN_vkReallocationFunction;
 
-    void serialize_funcpointer(boost::json::object&, const PFN_vkReallocationFunction&){
+    void serialize_PFN_vkReallocationFunction(boost::json::object&, const PFN_vkReallocationFunction&){
         //Will only be called by the client
         return;
     }
     
 
-        void deserialize_funcpointer(boost::json::object& json, PFN_vkReallocationFunction& member){
-            //Will only be called by the server
-            
-            member=PFN_vkReallocationFunction_wrapper;
-            };
-        
-
         auto PFN_vkReallocationFunction_wrapper( void* pUserData, void* pOriginal, size_t size, size_t alignment, VkSystemAllocationScope allocationScope){
         //Will only be called by the server
         
-        boost::json::object& json;
+        boost::json::object json;
         json["type"]=PFN_VKREALLOCATIONFUNCTION;
         
 [&](){
@@ -47978,9 +47949,9 @@ std::map<uintptr_t,PFN_vkReallocationFunction> id_to_PFN_vkReallocationFunction;
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }
-        auto& arr_fYmikDX=json["pUserData"].emplace_array();
-        for(int GzbOwAQ=0; GzbOwAQ < strlen(((char*)(pUserData)))+1; GzbOwAQ++){
-            [&](){arr_fYmikDX[GzbOwAQ]=((char*)(pUserData))[GzbOwAQ];}();
+        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
+            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
         }();}();
 [&](){
@@ -47990,63 +47961,63 @@ std::map<uintptr_t,PFN_vkReallocationFunction> id_to_PFN_vkReallocationFunction;
             if (((char*)(pOriginal))==NULL){
                 json["pOriginal"]=boost::json::array();
             return; }
-        auto& arr_SzUthMs=json["pOriginal"].emplace_array();
-        for(int CPzsPmw=0; CPzsPmw < strlen(((char*)(pOriginal)))+1; CPzsPmw++){
-            [&](){arr_SzUthMs[CPzsPmw]=((char*)(pOriginal))[CPzsPmw];}();
+        auto& arr_rITHcbq=json["pOriginal"].emplace_array();
+        for(int oHRYLxY=0; oHRYLxY < strlen(((char*)(pOriginal)))+1; oHRYLxY++){
+            [&](){arr_rITHcbq[oHRYLxY]=((char*)(pOriginal))[oHRYLxY];}();
         }
         }();}();
 [&](){json["size"]=size;}();
 [&](){json["alignment"]=alignment;}();
 [&](){[&](){[&](){json["allocationScope"]=allocationScope;}();}();}();
 
-        json["id"]=((pUserData*)pUserData)->PFN_vkReallocationFunction;
+        json["id"]=((pUserData_struct*)pUserData)->PFN_vkReallocationFunction;
         
         writeToConn(json); //Send request
         json=readFromConn(); //Recieve response
-        void* result;
         
 [&](){
             if (json["pUserData"].as_array().size()==0){
                 pUserData=NULL;
-            return; }char* temp_cDeMJHe;[&](){
+            return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
-                temp_cDeMJHe=NULL;
+                temp_PunOKTH=NULL;
             return; }
-        auto& arr_fYmikDX=json["pUserData"].as_array();
-        for(int GzbOwAQ=0; GzbOwAQ < json["pUserData"].as_array().size(); GzbOwAQ++){
-            [&](){temp_cDeMJHe[GzbOwAQ]=static_cast<char>(value_to<int>(arr_fYmikDX[GzbOwAQ]));}();
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
+        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+            [&](){temp_PunOKTH[EuMrPhh]=static_cast<char>(value_to<int>(arr_wKsaVqw[EuMrPhh]));}();
         }
-        }();pUserData=temp_cDeMJHe;}();
+        }();pUserData=temp_PunOKTH;}();
 [&](){
             if (json["pOriginal"].as_array().size()==0){
                 pOriginal=NULL;
-            return; }char* temp_wDhHXsx;[&](){
+            return; }char* temp_SZtjdWN;[&](){
             if (json["pOriginal"].as_array().size()==0){
-                temp_wDhHXsx=NULL;
+                temp_SZtjdWN=NULL;
             return; }
-        auto& arr_SzUthMs=json["pOriginal"].as_array();
-        for(int CPzsPmw=0; CPzsPmw < json["pOriginal"].as_array().size(); CPzsPmw++){
-            [&](){temp_wDhHXsx[CPzsPmw]=static_cast<char>(value_to<int>(arr_SzUthMs[CPzsPmw]));}();
+        auto& arr_rITHcbq=json["pOriginal"].as_array();
+        for(int oHRYLxY=0; oHRYLxY < json["pOriginal"].as_array().size(); oHRYLxY++){
+            [&](){temp_SZtjdWN[oHRYLxY]=static_cast<char>(value_to<int>(arr_rITHcbq[oHRYLxY]));}();
         }
-        }();pOriginal=temp_wDhHXsx;}();
+        }();pOriginal=temp_SZtjdWN;}();
 [&](){size=static_cast<size_t>(value_to<int>(json["size"]));}();
 [&](){alignment=static_cast<size_t>(value_to<int>(json["alignment"]));}();
-[&](){[&](){int temp_tdclmZW;[&](){temp_tdclmZW=static_cast<int>(value_to<int>(json["allocationScope"]));}();allocationScope=(VkSystemAllocationScope)temp_tdclmZW;}();}();
+[&](){[&](){int temp_tAAgjfM;[&](){temp_tAAgjfM=static_cast<int>(value_to<int>(json["allocationScope"]));}();allocationScope=(VkSystemAllocationScope)temp_tAAgjfM;}();}();
+void* result;
 [&](){
             if (json["result"].as_array().size()==0){
                 result=NULL;
-            return; }char* temp_qYEDYOu;[&](){
+            return; }char* temp_mfOyRuO;[&](){
             if (json["result"].as_array().size()==0){
-                temp_qYEDYOu=NULL;
-            return; }temp_qYEDYOu=(char*)malloc(json["result"].as_array().size()*sizeof(char));
-        auto& arr_ArjPOsP=json["result"].as_array();
-        for(int AVZkMrY=0; AVZkMrY < json["result"].as_array().size(); AVZkMrY++){
-            [&](){temp_qYEDYOu[AVZkMrY]=static_cast<char>(value_to<int>(arr_ArjPOsP[AVZkMrY]));}();
+                temp_mfOyRuO=NULL;
+            return; }temp_mfOyRuO=(char*)malloc(json["result"].as_array().size()*sizeof(char));
+        auto& arr_JtpBCLv=json["result"].as_array();
+        for(int zeZDtIB=0; zeZDtIB < json["result"].as_array().size(); zeZDtIB++){
+            [&](){temp_mfOyRuO[zeZDtIB]=static_cast<char>(value_to<int>(arr_JtpBCLv[zeZDtIB]));}();
         }
-        }();result=temp_qYEDYOu;}();
+        }();result=temp_mfOyRuO;}();
 json.clear();
 registerAllocatedMem(result,size);
-json["mem"](uintptr_t)result;
+json["mem"]=(uintptr_t)result;
 
         writeToConn(json); //Send (possible) memory to client so it can store it
         readFromConn(); //Get the confirmation that the client has registered the memory
@@ -48061,38 +48032,38 @@ return result;
             // Recieved data from server's PFN_vkReallocationFunction wrapper, and will execute the actual function
             auto funcpointer=id_to_PFN_vkReallocationFunction[value_to<uintptr_t>(json["id"])];
         
-void* pUserData;
+void* pUserData;;
 [&](){
             if (json["pUserData"].as_array().size()==0){
                 pUserData=NULL;
-            return; }char* temp_cDeMJHe;[&](){
+            return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
-                temp_cDeMJHe=NULL;
-            return; }temp_cDeMJHe=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_fYmikDX=json["pUserData"].as_array();
-        for(int GzbOwAQ=0; GzbOwAQ < json["pUserData"].as_array().size(); GzbOwAQ++){
-            [&](){temp_cDeMJHe[GzbOwAQ]=static_cast<char>(value_to<int>(arr_fYmikDX[GzbOwAQ]));}();
+                temp_PunOKTH=NULL;
+            return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
+        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+            [&](){temp_PunOKTH[EuMrPhh]=static_cast<char>(value_to<int>(arr_wKsaVqw[EuMrPhh]));}();
         }
-        }();pUserData=temp_cDeMJHe;}();
-void* pOriginal;
+        }();pUserData=temp_PunOKTH;}();
+void* pOriginal;;
 [&](){
             if (json["pOriginal"].as_array().size()==0){
                 pOriginal=NULL;
-            return; }char* temp_wDhHXsx;[&](){
+            return; }char* temp_SZtjdWN;[&](){
             if (json["pOriginal"].as_array().size()==0){
-                temp_wDhHXsx=NULL;
-            return; }temp_wDhHXsx=(char*)malloc(json["pOriginal"].as_array().size()*sizeof(char));
-        auto& arr_SzUthMs=json["pOriginal"].as_array();
-        for(int CPzsPmw=0; CPzsPmw < json["pOriginal"].as_array().size(); CPzsPmw++){
-            [&](){temp_wDhHXsx[CPzsPmw]=static_cast<char>(value_to<int>(arr_SzUthMs[CPzsPmw]));}();
+                temp_SZtjdWN=NULL;
+            return; }temp_SZtjdWN=(char*)malloc(json["pOriginal"].as_array().size()*sizeof(char));
+        auto& arr_rITHcbq=json["pOriginal"].as_array();
+        for(int oHRYLxY=0; oHRYLxY < json["pOriginal"].as_array().size(); oHRYLxY++){
+            [&](){temp_SZtjdWN[oHRYLxY]=static_cast<char>(value_to<int>(arr_rITHcbq[oHRYLxY]));}();
         }
-        }();pOriginal=temp_wDhHXsx;}();
-size_t size;
+        }();pOriginal=temp_SZtjdWN;}();
+size_t size;;
 [&](){size=static_cast<size_t>(value_to<int>(json["size"]));}();
-size_t alignment;
+size_t alignment;;
 [&](){alignment=static_cast<size_t>(value_to<int>(json["alignment"]));}();
-VkSystemAllocationScope allocationScope;
-[&](){[&](){int temp_tdclmZW;[&](){temp_tdclmZW=static_cast<int>(value_to<int>(json["allocationScope"]));}();allocationScope=(VkSystemAllocationScope)temp_tdclmZW;}();}();
+VkSystemAllocationScope allocationScope;;
+[&](){[&](){int temp_tAAgjfM;[&](){temp_tAAgjfM=static_cast<int>(value_to<int>(json["allocationScope"]));}();allocationScope=(VkSystemAllocationScope)temp_tAAgjfM;}();}();
 auto result=funcpointer(pUserData,pOriginal,size,alignment,allocationScope);
 json.clear();
 [&](){
@@ -48102,9 +48073,9 @@ json.clear();
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }
-        auto& arr_fYmikDX=json["pUserData"].emplace_array();
-        for(int GzbOwAQ=0; GzbOwAQ < strlen(((char*)(pUserData)))+1; GzbOwAQ++){
-            [&](){arr_fYmikDX[GzbOwAQ]=((char*)(pUserData))[GzbOwAQ];}();
+        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
+            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
         }();}();
 [&](){
@@ -48114,9 +48085,9 @@ json.clear();
             if (((char*)(pOriginal))==NULL){
                 json["pOriginal"]=boost::json::array();
             return; }
-        auto& arr_SzUthMs=json["pOriginal"].emplace_array();
-        for(int CPzsPmw=0; CPzsPmw < strlen(((char*)(pOriginal)))+1; CPzsPmw++){
-            [&](){arr_SzUthMs[CPzsPmw]=((char*)(pOriginal))[CPzsPmw];}();
+        auto& arr_rITHcbq=json["pOriginal"].emplace_array();
+        for(int oHRYLxY=0; oHRYLxY < strlen(((char*)(pOriginal)))+1; oHRYLxY++){
+            [&](){arr_rITHcbq[oHRYLxY]=((char*)(pOriginal))[oHRYLxY];}();
         }
         }();}();
 [&](){json["size"]=size;}();
@@ -48129,9 +48100,9 @@ json.clear();
             if (((char*)(result))==NULL){
                 json["result"]=boost::json::array();
             return; }
-        auto& arr_GbPwmUC=json["result"].emplace_array();
-        for(int OCljRPK=0; OCljRPK < strlen(((char*)(result)))+1; OCljRPK++){
-            [&](){arr_GbPwmUC[OCljRPK]=((char*)(result))[OCljRPK];}();
+        auto& arr_btTrgOB=json["result"].emplace_array();
+        for(int SxUiOLQ=0; SxUiOLQ < strlen(((char*)(result)))+1; SxUiOLQ++){
+            [&](){arr_btTrgOB[SxUiOLQ]=((char*)(result))[SxUiOLQ];}();
         }
         }();}();
 writeToConn(json);
@@ -48140,28 +48111,28 @@ writeToConn(json);
             registerClientServerMemoryMapping((uintptr_t)result, value_to<uintptr_t>(json["mem"]) );
             
             json.clear();
-            writeConn(json); //Send empty message to signal to the server the mapping is done.
+            writeToConn(json); //Send empty message to signal to the server the mapping is done.
             
 };
+
+        void deserialize_PFN_vkReallocationFunction(boost::json::object& json, PFN_vkReallocationFunction& member){
+            //Will only be called by the server
+            
+            member=PFN_vkReallocationFunction_wrapper;
+            };
+        
 std::map<uintptr_t,PFN_vkAllocationFunction> id_to_PFN_vkAllocationFunction;
 
-    void serialize_funcpointer(boost::json::object&, const PFN_vkAllocationFunction&){
+    void serialize_PFN_vkAllocationFunction(boost::json::object&, const PFN_vkAllocationFunction&){
         //Will only be called by the client
         return;
     }
     
 
-        void deserialize_funcpointer(boost::json::object& json, PFN_vkAllocationFunction& member){
-            //Will only be called by the server
-            
-            member=PFN_vkAllocationFunction_wrapper;
-            };
-        
-
         auto PFN_vkAllocationFunction_wrapper( void* pUserData, size_t size, size_t alignment, VkSystemAllocationScope allocationScope){
         //Will only be called by the server
         
-        boost::json::object& json;
+        boost::json::object json;
         json["type"]=PFN_VKALLOCATIONFUNCTION;
         
 [&](){
@@ -48171,51 +48142,51 @@ std::map<uintptr_t,PFN_vkAllocationFunction> id_to_PFN_vkAllocationFunction;
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }
-        auto& arr_fYmikDX=json["pUserData"].emplace_array();
-        for(int GzbOwAQ=0; GzbOwAQ < strlen(((char*)(pUserData)))+1; GzbOwAQ++){
-            [&](){arr_fYmikDX[GzbOwAQ]=((char*)(pUserData))[GzbOwAQ];}();
+        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
+            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
         }();}();
 [&](){json["size"]=size;}();
 [&](){json["alignment"]=alignment;}();
 [&](){[&](){[&](){json["allocationScope"]=allocationScope;}();}();}();
 
-        json["id"]=((pUserData*)pUserData)->PFN_vkAllocationFunction;
+        json["id"]=((pUserData_struct*)pUserData)->PFN_vkAllocationFunction;
         
         writeToConn(json); //Send request
         json=readFromConn(); //Recieve response
-        void* result;
         
 [&](){
             if (json["pUserData"].as_array().size()==0){
                 pUserData=NULL;
-            return; }char* temp_cDeMJHe;[&](){
+            return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
-                temp_cDeMJHe=NULL;
+                temp_PunOKTH=NULL;
             return; }
-        auto& arr_fYmikDX=json["pUserData"].as_array();
-        for(int GzbOwAQ=0; GzbOwAQ < json["pUserData"].as_array().size(); GzbOwAQ++){
-            [&](){temp_cDeMJHe[GzbOwAQ]=static_cast<char>(value_to<int>(arr_fYmikDX[GzbOwAQ]));}();
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
+        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+            [&](){temp_PunOKTH[EuMrPhh]=static_cast<char>(value_to<int>(arr_wKsaVqw[EuMrPhh]));}();
         }
-        }();pUserData=temp_cDeMJHe;}();
+        }();pUserData=temp_PunOKTH;}();
 [&](){size=static_cast<size_t>(value_to<int>(json["size"]));}();
 [&](){alignment=static_cast<size_t>(value_to<int>(json["alignment"]));}();
-[&](){[&](){int temp_tdclmZW;[&](){temp_tdclmZW=static_cast<int>(value_to<int>(json["allocationScope"]));}();allocationScope=(VkSystemAllocationScope)temp_tdclmZW;}();}();
+[&](){[&](){int temp_tAAgjfM;[&](){temp_tAAgjfM=static_cast<int>(value_to<int>(json["allocationScope"]));}();allocationScope=(VkSystemAllocationScope)temp_tAAgjfM;}();}();
+void* result;
 [&](){
             if (json["result"].as_array().size()==0){
                 result=NULL;
-            return; }char* temp_vATBCJD;[&](){
+            return; }char* temp_CAhilRS;[&](){
             if (json["result"].as_array().size()==0){
-                temp_vATBCJD=NULL;
-            return; }temp_vATBCJD=(char*)malloc(size*sizeof(char));
-        auto& arr_nXvBTUu=json["result"].as_array();
-        for(int HhdNaPw=0; HhdNaPw < size; HhdNaPw++){
-            [&](){temp_vATBCJD[HhdNaPw]=static_cast<char>(value_to<int>(arr_nXvBTUu[HhdNaPw]));}();
+                temp_CAhilRS=NULL;
+            return; }temp_CAhilRS=(char*)malloc(size*sizeof(char));
+        auto& arr_xzcKtwa=json["result"].as_array();
+        for(int JyYPOMg=0; JyYPOMg < size; JyYPOMg++){
+            [&](){temp_CAhilRS[JyYPOMg]=static_cast<char>(value_to<int>(arr_xzcKtwa[JyYPOMg]));}();
         }
-        }();result=temp_vATBCJD;}();
+        }();result=temp_CAhilRS;}();
 json.clear();
 registerAllocatedMem(result,size);
-json["mem"](uintptr_t)result;
+json["mem"]=(uintptr_t)result;
 
         writeToConn(json); //Send (possible) memory to client so it can store it
         readFromConn(); //Get the confirmation that the client has registered the memory
@@ -48230,25 +48201,25 @@ return result;
             // Recieved data from server's PFN_vkAllocationFunction wrapper, and will execute the actual function
             auto funcpointer=id_to_PFN_vkAllocationFunction[value_to<uintptr_t>(json["id"])];
         
-void* pUserData;
+void* pUserData;;
 [&](){
             if (json["pUserData"].as_array().size()==0){
                 pUserData=NULL;
-            return; }char* temp_cDeMJHe;[&](){
+            return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
-                temp_cDeMJHe=NULL;
-            return; }temp_cDeMJHe=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_fYmikDX=json["pUserData"].as_array();
-        for(int GzbOwAQ=0; GzbOwAQ < json["pUserData"].as_array().size(); GzbOwAQ++){
-            [&](){temp_cDeMJHe[GzbOwAQ]=static_cast<char>(value_to<int>(arr_fYmikDX[GzbOwAQ]));}();
+                temp_PunOKTH=NULL;
+            return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
+        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+            [&](){temp_PunOKTH[EuMrPhh]=static_cast<char>(value_to<int>(arr_wKsaVqw[EuMrPhh]));}();
         }
-        }();pUserData=temp_cDeMJHe;}();
-size_t size;
+        }();pUserData=temp_PunOKTH;}();
+size_t size;;
 [&](){size=static_cast<size_t>(value_to<int>(json["size"]));}();
-size_t alignment;
+size_t alignment;;
 [&](){alignment=static_cast<size_t>(value_to<int>(json["alignment"]));}();
-VkSystemAllocationScope allocationScope;
-[&](){[&](){int temp_tdclmZW;[&](){temp_tdclmZW=static_cast<int>(value_to<int>(json["allocationScope"]));}();allocationScope=(VkSystemAllocationScope)temp_tdclmZW;}();}();
+VkSystemAllocationScope allocationScope;;
+[&](){[&](){int temp_tAAgjfM;[&](){temp_tAAgjfM=static_cast<int>(value_to<int>(json["allocationScope"]));}();allocationScope=(VkSystemAllocationScope)temp_tAAgjfM;}();}();
 auto result=funcpointer(pUserData,size,alignment,allocationScope);
 json.clear();
 [&](){
@@ -48258,9 +48229,9 @@ json.clear();
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }
-        auto& arr_fYmikDX=json["pUserData"].emplace_array();
-        for(int GzbOwAQ=0; GzbOwAQ < strlen(((char*)(pUserData)))+1; GzbOwAQ++){
-            [&](){arr_fYmikDX[GzbOwAQ]=((char*)(pUserData))[GzbOwAQ];}();
+        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
+            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
         }();}();
 [&](){json["size"]=size;}();
@@ -48273,9 +48244,9 @@ json.clear();
             if (((char*)(result))==NULL){
                 json["result"]=boost::json::array();
             return; }
-        auto& arr_jVLVviQ=json["result"].emplace_array();
-        for(int xALmVrM=0; xALmVrM < size; xALmVrM++){
-            [&](){arr_jVLVviQ[xALmVrM]=((char*)(result))[xALmVrM];}();
+        auto& arr_XWGMNNp=json["result"].emplace_array();
+        for(int NEwfNSt=0; NEwfNSt < size; NEwfNSt++){
+            [&](){arr_XWGMNNp[NEwfNSt]=((char*)(result))[NEwfNSt];}();
         }
         }();}();
 writeToConn(json);
@@ -48284,28 +48255,28 @@ writeToConn(json);
             registerClientServerMemoryMapping((uintptr_t)result, value_to<uintptr_t>(json["mem"]) );
             
             json.clear();
-            writeConn(json); //Send empty message to signal to the server the mapping is done.
+            writeToConn(json); //Send empty message to signal to the server the mapping is done.
             
 };
+
+        void deserialize_PFN_vkAllocationFunction(boost::json::object& json, PFN_vkAllocationFunction& member){
+            //Will only be called by the server
+            
+            member=PFN_vkAllocationFunction_wrapper;
+            };
+        
 std::map<uintptr_t,PFN_vkFreeFunction> id_to_PFN_vkFreeFunction;
 
-    void serialize_funcpointer(boost::json::object&, const PFN_vkFreeFunction&){
+    void serialize_PFN_vkFreeFunction(boost::json::object&, const PFN_vkFreeFunction&){
         //Will only be called by the client
         return;
     }
     
 
-        void deserialize_funcpointer(boost::json::object& json, PFN_vkFreeFunction& member){
-            //Will only be called by the server
-            
-            member=PFN_vkFreeFunction_wrapper;
-            };
-        
-
         auto PFN_vkFreeFunction_wrapper( void* pUserData, void* pMemory){
         //Will only be called by the server
         
-        boost::json::object& json;
+        boost::json::object json;
         json["type"]=PFN_VKFREEFUNCTION;
         
 [&](){
@@ -48315,9 +48286,9 @@ std::map<uintptr_t,PFN_vkFreeFunction> id_to_PFN_vkFreeFunction;
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }
-        auto& arr_fYmikDX=json["pUserData"].emplace_array();
-        for(int GzbOwAQ=0; GzbOwAQ < strlen(((char*)(pUserData)))+1; GzbOwAQ++){
-            [&](){arr_fYmikDX[GzbOwAQ]=((char*)(pUserData))[GzbOwAQ];}();
+        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
+            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
         }();}();
 [&](){
@@ -48327,43 +48298,41 @@ std::map<uintptr_t,PFN_vkFreeFunction> id_to_PFN_vkFreeFunction;
             if (((char*)(pMemory))==NULL){
                 json["pMemory"]=boost::json::array();
             return; }
-        auto& arr_rwgbQID=json["pMemory"].emplace_array();
-        for(int jqNEFTO=0; jqNEFTO < strlen(((char*)(pMemory)))+1; jqNEFTO++){
-            [&](){arr_rwgbQID[jqNEFTO]=((char*)(pMemory))[jqNEFTO];}();
+        auto& arr_qKvWVRO=json["pMemory"].emplace_array();
+        for(int LkSrwrv=0; LkSrwrv < strlen(((char*)(pMemory)))+1; LkSrwrv++){
+            [&](){arr_qKvWVRO[LkSrwrv]=((char*)(pMemory))[LkSrwrv];}();
         }
         }();}();
 
-        json["id"]=((pUserData*)pUserData)->PFN_vkFreeFunction;
+        json["id"]=((pUserData_struct*)pUserData)->PFN_vkFreeFunction;
         
         writeToConn(json); //Send request
         json=readFromConn(); //Recieve response
-        void result;
         
 [&](){
             if (json["pUserData"].as_array().size()==0){
                 pUserData=NULL;
-            return; }char* temp_cDeMJHe;[&](){
+            return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
-                temp_cDeMJHe=NULL;
+                temp_PunOKTH=NULL;
             return; }
-        auto& arr_fYmikDX=json["pUserData"].as_array();
-        for(int GzbOwAQ=0; GzbOwAQ < json["pUserData"].as_array().size(); GzbOwAQ++){
-            [&](){temp_cDeMJHe[GzbOwAQ]=static_cast<char>(value_to<int>(arr_fYmikDX[GzbOwAQ]));}();
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
+        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+            [&](){temp_PunOKTH[EuMrPhh]=static_cast<char>(value_to<int>(arr_wKsaVqw[EuMrPhh]));}();
         }
-        }();pUserData=temp_cDeMJHe;}();
+        }();pUserData=temp_PunOKTH;}();
 [&](){
             if (json["pMemory"].as_array().size()==0){
                 pMemory=NULL;
-            return; }char* temp_RvsBVnz;[&](){
+            return; }char* temp_TQlreEU;[&](){
             if (json["pMemory"].as_array().size()==0){
-                temp_RvsBVnz=NULL;
+                temp_TQlreEU=NULL;
             return; }
-        auto& arr_rwgbQID=json["pMemory"].as_array();
-        for(int jqNEFTO=0; jqNEFTO < json["pMemory"].as_array().size(); jqNEFTO++){
-            [&](){temp_RvsBVnz[jqNEFTO]=static_cast<char>(value_to<int>(arr_rwgbQID[jqNEFTO]));}();
+        auto& arr_qKvWVRO=json["pMemory"].as_array();
+        for(int LkSrwrv=0; LkSrwrv < json["pMemory"].as_array().size(); LkSrwrv++){
+            [&](){temp_TQlreEU[LkSrwrv]=static_cast<char>(value_to<int>(arr_qKvWVRO[LkSrwrv]));}();
         }
-        }();pMemory=temp_RvsBVnz;}();
-
+        }();pMemory=temp_TQlreEU;}();
 json.clear();
 json.erase("mem");
 
@@ -48380,32 +48349,32 @@ return;
             // Recieved data from server's PFN_vkFreeFunction wrapper, and will execute the actual function
             auto funcpointer=id_to_PFN_vkFreeFunction[value_to<uintptr_t>(json["id"])];
         
-void* pUserData;
+void* pUserData;;
 [&](){
             if (json["pUserData"].as_array().size()==0){
                 pUserData=NULL;
-            return; }char* temp_cDeMJHe;[&](){
+            return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
-                temp_cDeMJHe=NULL;
-            return; }temp_cDeMJHe=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_fYmikDX=json["pUserData"].as_array();
-        for(int GzbOwAQ=0; GzbOwAQ < json["pUserData"].as_array().size(); GzbOwAQ++){
-            [&](){temp_cDeMJHe[GzbOwAQ]=static_cast<char>(value_to<int>(arr_fYmikDX[GzbOwAQ]));}();
+                temp_PunOKTH=NULL;
+            return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
+        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+            [&](){temp_PunOKTH[EuMrPhh]=static_cast<char>(value_to<int>(arr_wKsaVqw[EuMrPhh]));}();
         }
-        }();pUserData=temp_cDeMJHe;}();
-void* pMemory;
+        }();pUserData=temp_PunOKTH;}();
+void* pMemory;;
 [&](){
             if (json["pMemory"].as_array().size()==0){
                 pMemory=NULL;
-            return; }char* temp_RvsBVnz;[&](){
+            return; }char* temp_TQlreEU;[&](){
             if (json["pMemory"].as_array().size()==0){
-                temp_RvsBVnz=NULL;
-            return; }temp_RvsBVnz=(char*)malloc(json["pMemory"].as_array().size()*sizeof(char));
-        auto& arr_rwgbQID=json["pMemory"].as_array();
-        for(int jqNEFTO=0; jqNEFTO < json["pMemory"].as_array().size(); jqNEFTO++){
-            [&](){temp_RvsBVnz[jqNEFTO]=static_cast<char>(value_to<int>(arr_rwgbQID[jqNEFTO]));}();
+                temp_TQlreEU=NULL;
+            return; }temp_TQlreEU=(char*)malloc(json["pMemory"].as_array().size()*sizeof(char));
+        auto& arr_qKvWVRO=json["pMemory"].as_array();
+        for(int LkSrwrv=0; LkSrwrv < json["pMemory"].as_array().size(); LkSrwrv++){
+            [&](){temp_TQlreEU[LkSrwrv]=static_cast<char>(value_to<int>(arr_qKvWVRO[LkSrwrv]));}();
         }
-        }();pMemory=temp_RvsBVnz;}();
+        }();pMemory=temp_TQlreEU;}();
 funcpointer(pUserData,pMemory);
 json.clear();
 [&](){
@@ -48415,9 +48384,9 @@ json.clear();
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }
-        auto& arr_fYmikDX=json["pUserData"].emplace_array();
-        for(int GzbOwAQ=0; GzbOwAQ < strlen(((char*)(pUserData)))+1; GzbOwAQ++){
-            [&](){arr_fYmikDX[GzbOwAQ]=((char*)(pUserData))[GzbOwAQ];}();
+        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
+            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
         }();}();
 [&](){
@@ -48427,33 +48396,33 @@ json.clear();
             if (((char*)(pMemory))==NULL){
                 json["pMemory"]=boost::json::array();
             return; }
-        auto& arr_rwgbQID=json["pMemory"].emplace_array();
-        for(int jqNEFTO=0; jqNEFTO < strlen(((char*)(pMemory)))+1; jqNEFTO++){
-            [&](){arr_rwgbQID[jqNEFTO]=((char*)(pMemory))[jqNEFTO];}();
+        auto& arr_qKvWVRO=json["pMemory"].emplace_array();
+        for(int LkSrwrv=0; LkSrwrv < strlen(((char*)(pMemory)))+1; LkSrwrv++){
+            [&](){arr_qKvWVRO[LkSrwrv]=((char*)(pMemory))[LkSrwrv];}();
         }
         }();}();
 
 writeToConn(json);
 };
+
+        void deserialize_PFN_vkFreeFunction(boost::json::object& json, PFN_vkFreeFunction& member){
+            //Will only be called by the server
+            
+            member=PFN_vkFreeFunction_wrapper;
+            };
+        
 std::map<uintptr_t,PFN_vkDebugReportCallbackEXT> id_to_PFN_vkDebugReportCallbackEXT;
 
-    void serialize_funcpointer(boost::json::object&, const PFN_vkDebugReportCallbackEXT&){
+    void serialize_PFN_vkDebugReportCallbackEXT(boost::json::object&, const PFN_vkDebugReportCallbackEXT&){
         //Will only be called by the client
         return;
     }
     
 
-        void deserialize_funcpointer(boost::json::object& json, PFN_vkDebugReportCallbackEXT& member){
-            //Will only be called by the server
-            
-            member=PFN_vkDebugReportCallbackEXT_wrapper;
-            };
-        
-
         auto PFN_vkDebugReportCallbackEXT_wrapper( VkDebugReportFlagsEXT flags, VkDebugReportObjectTypeEXT objectType, uint64_t object, size_t location, int32_t messageCode, const char* pLayerPrefix, const char* pMessage, void* pUserData){
         //Will only be called by the server
         
-        boost::json::object& json;
+        boost::json::object json;
         json["type"]=PFN_VKDEBUGREPORTCALLBACKEXT;
         
 [&](){[&](){[&](){json["flags"]=flags;}();}();}();
@@ -48465,18 +48434,18 @@ std::map<uintptr_t,PFN_vkDebugReportCallbackEXT> id_to_PFN_vkDebugReportCallback
             if (pLayerPrefix==NULL){
                 json["pLayerPrefix"]=boost::json::array();
             return; }
-        auto& arr_svsWjmd=json["pLayerPrefix"].emplace_array();
-        for(int EvbekCn=0; EvbekCn < strlen(pLayerPrefix)+1; EvbekCn++){
-            [&](){arr_svsWjmd[EvbekCn]=pLayerPrefix[EvbekCn];}();
+        auto& arr_VtlqskV=json["pLayerPrefix"].emplace_array();
+        for(int wbPKFFy=0; wbPKFFy < strlen(pLayerPrefix)+1; wbPKFFy++){
+            [&](){arr_VtlqskV[wbPKFFy]=pLayerPrefix[wbPKFFy];}();
         }
         }();
 [&](){
             if (pMessage==NULL){
                 json["pMessage"]=boost::json::array();
             return; }
-        auto& arr_FgVipiE=json["pMessage"].emplace_array();
-        for(int zqBMvjH=0; zqBMvjH < strlen(pMessage)+1; zqBMvjH++){
-            [&](){arr_FgVipiE[zqBMvjH]=pMessage[zqBMvjH];}();
+        auto& arr_WrGZAPa=json["pMessage"].emplace_array();
+        for(int YtftAYM=0; YtftAYM < strlen(pMessage)+1; YtftAYM++){
+            [&](){arr_WrGZAPa[YtftAYM]=pMessage[YtftAYM];}();
         }
         }();
 [&](){
@@ -48486,20 +48455,19 @@ std::map<uintptr_t,PFN_vkDebugReportCallbackEXT> id_to_PFN_vkDebugReportCallback
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }
-        auto& arr_fYmikDX=json["pUserData"].emplace_array();
-        for(int GzbOwAQ=0; GzbOwAQ < strlen(((char*)(pUserData)))+1; GzbOwAQ++){
-            [&](){arr_fYmikDX[GzbOwAQ]=((char*)(pUserData))[GzbOwAQ];}();
+        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
+            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
         }();}();
 
-        json["id"]=((pUserData*)pUserData)->PFN_vkDebugReportCallbackEXT;
+        json["id"]=((pUserData_struct*)pUserData)->PFN_vkDebugReportCallbackEXT;
         
         writeToConn(json); //Send request
         json=readFromConn(); //Recieve response
-        VkBool32 result;
         
-[&](){[&](){int temp_yKbaVqA;[&](){temp_yKbaVqA=static_cast<int>(value_to<int>(json["flags"]));}();flags=(VkDebugReportFlagsEXT)temp_yKbaVqA;}();}();
-[&](){[&](){int temp_DXXbuzx;[&](){temp_DXXbuzx=static_cast<int>(value_to<int>(json["objectType"]));}();objectType=(VkDebugReportObjectTypeEXT)temp_DXXbuzx;}();}();
+[&](){[&](){int temp_OepEvDd;[&](){temp_OepEvDd=static_cast<int>(value_to<int>(json["flags"]));}();flags=(VkDebugReportFlagsEXT)temp_OepEvDd;}();}();
+[&](){[&](){int temp_fBSsGOe;[&](){temp_fBSsGOe=static_cast<int>(value_to<int>(json["objectType"]));}();objectType=(VkDebugReportObjectTypeEXT)temp_fBSsGOe;}();}();
 [&](){object=static_cast<uint64_t>(value_to<int>(json["object"]));}();
 [&](){location=static_cast<size_t>(value_to<int>(json["location"]));}();
 [&](){messageCode=static_cast<int32_t>(value_to<int>(json["messageCode"]));}();
@@ -48508,16 +48476,17 @@ std::map<uintptr_t,PFN_vkDebugReportCallbackEXT> id_to_PFN_vkDebugReportCallback
 [&](){
             if (json["pUserData"].as_array().size()==0){
                 pUserData=NULL;
-            return; }char* temp_cDeMJHe;[&](){
+            return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
-                temp_cDeMJHe=NULL;
+                temp_PunOKTH=NULL;
             return; }
-        auto& arr_fYmikDX=json["pUserData"].as_array();
-        for(int GzbOwAQ=0; GzbOwAQ < json["pUserData"].as_array().size(); GzbOwAQ++){
-            [&](){temp_cDeMJHe[GzbOwAQ]=static_cast<char>(value_to<int>(arr_fYmikDX[GzbOwAQ]));}();
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
+        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+            [&](){temp_PunOKTH[EuMrPhh]=static_cast<char>(value_to<int>(arr_wKsaVqw[EuMrPhh]));}();
         }
-        }();pUserData=temp_cDeMJHe;}();
-[&](){uint32_t temp_XhIIcth;[&](){temp_XhIIcth=static_cast<uint32_t>(value_to<int>(json["result"]));}();result=(VkBool32)temp_XhIIcth;}();
+        }();pUserData=temp_PunOKTH;}();
+VkBool32 result;
+[&](){uint32_t temp_QvzZPUc;[&](){temp_QvzZPUc=static_cast<uint32_t>(value_to<int>(json["result"]));}();result=(VkBool32)temp_QvzZPUc;}();
 json.clear();
 json.erase("mem");
 
@@ -48534,49 +48503,49 @@ return result;
             // Recieved data from server's PFN_vkDebugReportCallbackEXT wrapper, and will execute the actual function
             auto funcpointer=id_to_PFN_vkDebugReportCallbackEXT[value_to<uintptr_t>(json["id"])];
         
-VkDebugReportFlagsEXT flags;
-[&](){[&](){int temp_yKbaVqA;[&](){temp_yKbaVqA=static_cast<int>(value_to<int>(json["flags"]));}();flags=(VkDebugReportFlagsEXT)temp_yKbaVqA;}();}();
-VkDebugReportObjectTypeEXT objectType;
-[&](){[&](){int temp_DXXbuzx;[&](){temp_DXXbuzx=static_cast<int>(value_to<int>(json["objectType"]));}();objectType=(VkDebugReportObjectTypeEXT)temp_DXXbuzx;}();}();
-uint64_t object;
+VkDebugReportFlagsEXT flags;;
+[&](){[&](){int temp_OepEvDd;[&](){temp_OepEvDd=static_cast<int>(value_to<int>(json["flags"]));}();flags=(VkDebugReportFlagsEXT)temp_OepEvDd;}();}();
+VkDebugReportObjectTypeEXT objectType;;
+[&](){[&](){int temp_fBSsGOe;[&](){temp_fBSsGOe=static_cast<int>(value_to<int>(json["objectType"]));}();objectType=(VkDebugReportObjectTypeEXT)temp_fBSsGOe;}();}();
+uint64_t object;;
 [&](){object=static_cast<uint64_t>(value_to<int>(json["object"]));}();
-size_t location;
+size_t location;;
 [&](){location=static_cast<size_t>(value_to<int>(json["location"]));}();
-int32_t messageCode;
+int32_t messageCode;;
 [&](){messageCode=static_cast<int32_t>(value_to<int>(json["messageCode"]));}();
-const char* pLayerPrefix;
-[&](){ char* temp_QPuseiC[&](){
+const char* pLayerPrefix;;
+[&](){ char* temp_Dtlcvim;[&](){
             if (json["pLayerPrefix"].as_array().size()==0){
-                temp_QPuseiC=NULL;
-            return; }temp_QPuseiC=(char*)malloc(json["pLayerPrefix"].as_array().size()*sizeof(char));
-        auto& arr_QJJBCwm=json["pLayerPrefix"].as_array();
-        for(int VOMkbWI=0; VOMkbWI < json["pLayerPrefix"].as_array().size(); VOMkbWI++){
-            [&](){temp_QPuseiC[VOMkbWI]=static_cast<char>(value_to<int>(arr_QJJBCwm[VOMkbWI]));}();
+                temp_Dtlcvim=NULL;
+            return; }temp_Dtlcvim=(char*)malloc(json["pLayerPrefix"].as_array().size()*sizeof(char));
+        auto& arr_JkVyQXV=json["pLayerPrefix"].as_array();
+        for(int LQVmgjI=0; LQVmgjI < json["pLayerPrefix"].as_array().size(); LQVmgjI++){
+            [&](){temp_Dtlcvim[LQVmgjI]=static_cast<char>(value_to<int>(arr_JkVyQXV[LQVmgjI]));}();
         }
-        }();pLayerPrefix=temp_QPuseiC;}();
-const char* pMessage;
-[&](){ char* temp_apslgql[&](){
+        }();pLayerPrefix=temp_Dtlcvim;}();
+const char* pMessage;;
+[&](){ char* temp_pLvWxeM;[&](){
             if (json["pMessage"].as_array().size()==0){
-                temp_apslgql=NULL;
-            return; }temp_apslgql=(char*)malloc(json["pMessage"].as_array().size()*sizeof(char));
-        auto& arr_zyZNAbh=json["pMessage"].as_array();
-        for(int yxefgzA=0; yxefgzA < json["pMessage"].as_array().size(); yxefgzA++){
-            [&](){temp_apslgql[yxefgzA]=static_cast<char>(value_to<int>(arr_zyZNAbh[yxefgzA]));}();
+                temp_pLvWxeM=NULL;
+            return; }temp_pLvWxeM=(char*)malloc(json["pMessage"].as_array().size()*sizeof(char));
+        auto& arr_ReBKgcF=json["pMessage"].as_array();
+        for(int agWVGCe=0; agWVGCe < json["pMessage"].as_array().size(); agWVGCe++){
+            [&](){temp_pLvWxeM[agWVGCe]=static_cast<char>(value_to<int>(arr_ReBKgcF[agWVGCe]));}();
         }
-        }();pMessage=temp_apslgql;}();
-void* pUserData;
+        }();pMessage=temp_pLvWxeM;}();
+void* pUserData;;
 [&](){
             if (json["pUserData"].as_array().size()==0){
                 pUserData=NULL;
-            return; }char* temp_cDeMJHe;[&](){
+            return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
-                temp_cDeMJHe=NULL;
-            return; }temp_cDeMJHe=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_fYmikDX=json["pUserData"].as_array();
-        for(int GzbOwAQ=0; GzbOwAQ < json["pUserData"].as_array().size(); GzbOwAQ++){
-            [&](){temp_cDeMJHe[GzbOwAQ]=static_cast<char>(value_to<int>(arr_fYmikDX[GzbOwAQ]));}();
+                temp_PunOKTH=NULL;
+            return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
+        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+            [&](){temp_PunOKTH[EuMrPhh]=static_cast<char>(value_to<int>(arr_wKsaVqw[EuMrPhh]));}();
         }
-        }();pUserData=temp_cDeMJHe;}();
+        }();pUserData=temp_PunOKTH;}();
 auto result=funcpointer(flags,objectType,object,location,messageCode,pLayerPrefix,pMessage,pUserData);
 json.clear();
 [&](){[&](){[&](){json["flags"]=flags;}();}();}();
@@ -48588,18 +48557,18 @@ json.clear();
             if (pLayerPrefix==NULL){
                 json["pLayerPrefix"]=boost::json::array();
             return; }
-        auto& arr_svsWjmd=json["pLayerPrefix"].emplace_array();
-        for(int EvbekCn=0; EvbekCn < strlen(pLayerPrefix)+1; EvbekCn++){
-            [&](){arr_svsWjmd[EvbekCn]=pLayerPrefix[EvbekCn];}();
+        auto& arr_VtlqskV=json["pLayerPrefix"].emplace_array();
+        for(int wbPKFFy=0; wbPKFFy < strlen(pLayerPrefix)+1; wbPKFFy++){
+            [&](){arr_VtlqskV[wbPKFFy]=pLayerPrefix[wbPKFFy];}();
         }
         }();
 [&](){
             if (pMessage==NULL){
                 json["pMessage"]=boost::json::array();
             return; }
-        auto& arr_FgVipiE=json["pMessage"].emplace_array();
-        for(int zqBMvjH=0; zqBMvjH < strlen(pMessage)+1; zqBMvjH++){
-            [&](){arr_FgVipiE[zqBMvjH]=pMessage[zqBMvjH];}();
+        auto& arr_WrGZAPa=json["pMessage"].emplace_array();
+        for(int YtftAYM=0; YtftAYM < strlen(pMessage)+1; YtftAYM++){
+            [&](){arr_WrGZAPa[YtftAYM]=pMessage[YtftAYM];}();
         }
         }();
 [&](){
@@ -48609,33 +48578,33 @@ json.clear();
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }
-        auto& arr_fYmikDX=json["pUserData"].emplace_array();
-        for(int GzbOwAQ=0; GzbOwAQ < strlen(((char*)(pUserData)))+1; GzbOwAQ++){
-            [&](){arr_fYmikDX[GzbOwAQ]=((char*)(pUserData))[GzbOwAQ];}();
+        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
+            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
         }();}();
 [&](){[&](){json["result"]=result;}();}();
 writeToConn(json);
 };
+
+        void deserialize_PFN_vkDebugReportCallbackEXT(boost::json::object& json, PFN_vkDebugReportCallbackEXT& member){
+            //Will only be called by the server
+            
+            member=PFN_vkDebugReportCallbackEXT_wrapper;
+            };
+        
 std::map<uintptr_t,PFN_vkDebugUtilsMessengerCallbackEXT> id_to_PFN_vkDebugUtilsMessengerCallbackEXT;
 
-    void serialize_funcpointer(boost::json::object&, const PFN_vkDebugUtilsMessengerCallbackEXT&){
+    void serialize_PFN_vkDebugUtilsMessengerCallbackEXT(boost::json::object&, const PFN_vkDebugUtilsMessengerCallbackEXT&){
         //Will only be called by the client
         return;
     }
     
 
-        void deserialize_funcpointer(boost::json::object& json, PFN_vkDebugUtilsMessengerCallbackEXT& member){
-            //Will only be called by the server
-            
-            member=PFN_vkDebugUtilsMessengerCallbackEXT_wrapper;
-            };
-        
-
         auto PFN_vkDebugUtilsMessengerCallbackEXT_wrapper( VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageTypes, const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, void* pUserData){
         //Will only be called by the server
         
-        boost::json::object& json;
+        boost::json::object json;
         json["type"]=PFN_VKDEBUGUTILSMESSENGERCALLBACKEXT;
         
 [&](){[&](){[&](){json["messageSeverity"]=messageSeverity;}();}();}();
@@ -48644,11 +48613,11 @@ std::map<uintptr_t,PFN_vkDebugUtilsMessengerCallbackEXT> id_to_PFN_vkDebugUtilsM
             if (pCallbackData==NULL){
                 json["pCallbackData"]=boost::json::array();
             return; }
-        auto& arr_cYUNZNX=json["pCallbackData"].emplace_array();
-        for(int SAnJMKd=0; SAnJMKd < 1; SAnJMKd++){
+        auto& arr_ELbGsuC=json["pCallbackData"].emplace_array();
+        for(int cgqXeou=0; cgqXeou < 1; cgqXeou++){
             [&](){
-            auto& temp=arr_cYUNZNX[SAnJMKd].emplace_object();
-            return serialize_struct(temp, pCallbackData[SAnJMKd]);
+            auto& temp=arr_ELbGsuC[cgqXeou].emplace_object();
+            return serialize_struct(temp, pCallbackData[cgqXeou]);
             }();
         }
         }();
@@ -48659,34 +48628,34 @@ std::map<uintptr_t,PFN_vkDebugUtilsMessengerCallbackEXT> id_to_PFN_vkDebugUtilsM
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }
-        auto& arr_fYmikDX=json["pUserData"].emplace_array();
-        for(int GzbOwAQ=0; GzbOwAQ < strlen(((char*)(pUserData)))+1; GzbOwAQ++){
-            [&](){arr_fYmikDX[GzbOwAQ]=((char*)(pUserData))[GzbOwAQ];}();
+        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
+            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
         }();}();
 
-        json["id"]=((pUserData*)pUserData)->PFN_vkDebugUtilsMessengerCallbackEXT;
+        json["id"]=((pUserData_struct*)pUserData)->PFN_vkDebugUtilsMessengerCallbackEXT;
         
         writeToConn(json); //Send request
         json=readFromConn(); //Recieve response
-        VkBool32 result;
         
-[&](){[&](){int temp_fIBrrKd;[&](){temp_fIBrrKd=static_cast<int>(value_to<int>(json["messageSeverity"]));}();messageSeverity=(VkDebugUtilsMessageSeverityFlagBitsEXT)temp_fIBrrKd;}();}();
-[&](){[&](){int temp_IpOxjAM;[&](){temp_IpOxjAM=static_cast<int>(value_to<int>(json["messageTypes"]));}();messageTypes=(VkDebugUtilsMessageTypeFlagsEXT)temp_IpOxjAM;}();}();
+[&](){[&](){int temp_WJEqtsJ;[&](){temp_WJEqtsJ=static_cast<int>(value_to<int>(json["messageSeverity"]));}();messageSeverity=(VkDebugUtilsMessageSeverityFlagBitsEXT)temp_WJEqtsJ;}();}();
+[&](){[&](){int temp_gfwPHsR;[&](){temp_gfwPHsR=static_cast<int>(value_to<int>(json["messageTypes"]));}();messageTypes=(VkDebugUtilsMessageTypeFlagsEXT)temp_gfwPHsR;}();}();
 
 [&](){
             if (json["pUserData"].as_array().size()==0){
                 pUserData=NULL;
-            return; }char* temp_cDeMJHe;[&](){
+            return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
-                temp_cDeMJHe=NULL;
+                temp_PunOKTH=NULL;
             return; }
-        auto& arr_fYmikDX=json["pUserData"].as_array();
-        for(int GzbOwAQ=0; GzbOwAQ < json["pUserData"].as_array().size(); GzbOwAQ++){
-            [&](){temp_cDeMJHe[GzbOwAQ]=static_cast<char>(value_to<int>(arr_fYmikDX[GzbOwAQ]));}();
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
+        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+            [&](){temp_PunOKTH[EuMrPhh]=static_cast<char>(value_to<int>(arr_wKsaVqw[EuMrPhh]));}();
         }
-        }();pUserData=temp_cDeMJHe;}();
-[&](){uint32_t temp_WvEHvKM;[&](){temp_WvEHvKM=static_cast<uint32_t>(value_to<int>(json["result"]));}();result=(VkBool32)temp_WvEHvKM;}();
+        }();pUserData=temp_PunOKTH;}();
+VkBool32 result;
+[&](){uint32_t temp_okUhmbQ;[&](){temp_okUhmbQ=static_cast<uint32_t>(value_to<int>(json["result"]));}();result=(VkBool32)temp_okUhmbQ;}();
 json.clear();
 json.erase("mem");
 
@@ -48703,36 +48672,36 @@ return result;
             // Recieved data from server's PFN_vkDebugUtilsMessengerCallbackEXT wrapper, and will execute the actual function
             auto funcpointer=id_to_PFN_vkDebugUtilsMessengerCallbackEXT[value_to<uintptr_t>(json["id"])];
         
-VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity;
-[&](){[&](){int temp_fIBrrKd;[&](){temp_fIBrrKd=static_cast<int>(value_to<int>(json["messageSeverity"]));}();messageSeverity=(VkDebugUtilsMessageSeverityFlagBitsEXT)temp_fIBrrKd;}();}();
-VkDebugUtilsMessageTypeFlagsEXT messageTypes;
-[&](){[&](){int temp_IpOxjAM;[&](){temp_IpOxjAM=static_cast<int>(value_to<int>(json["messageTypes"]));}();messageTypes=(VkDebugUtilsMessageTypeFlagsEXT)temp_IpOxjAM;}();}();
-const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData;
-[&](){ VkDebugUtilsMessengerCallbackDataEXT* temp_IuzNdgl[&](){
+VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity;;
+[&](){[&](){int temp_WJEqtsJ;[&](){temp_WJEqtsJ=static_cast<int>(value_to<int>(json["messageSeverity"]));}();messageSeverity=(VkDebugUtilsMessageSeverityFlagBitsEXT)temp_WJEqtsJ;}();}();
+VkDebugUtilsMessageTypeFlagsEXT messageTypes;;
+[&](){[&](){int temp_gfwPHsR;[&](){temp_gfwPHsR=static_cast<int>(value_to<int>(json["messageTypes"]));}();messageTypes=(VkDebugUtilsMessageTypeFlagsEXT)temp_gfwPHsR;}();}();
+const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData;;
+[&](){ VkDebugUtilsMessengerCallbackDataEXT* temp_vjIQYMp;[&](){
             if (json["pCallbackData"].as_array().size()==0){
-                temp_IuzNdgl=NULL;
-            return; }temp_IuzNdgl=(VkDebugUtilsMessengerCallbackDataEXT*)malloc(1*sizeof(VkDebugUtilsMessengerCallbackDataEXT));
-        auto& arr_mzLOnCl=json["pCallbackData"].as_array();
-        for(int ZtxSIja=0; ZtxSIja < 1; ZtxSIja++){
+                temp_vjIQYMp=NULL;
+            return; }temp_vjIQYMp=(VkDebugUtilsMessengerCallbackDataEXT*)malloc(1*sizeof(VkDebugUtilsMessengerCallbackDataEXT));
+        auto& arr_qDxNjBm=json["pCallbackData"].as_array();
+        for(int HNKHCHi=0; HNKHCHi < 1; HNKHCHi++){
             [&](){
-            auto& temp=arr_mzLOnCl[ZtxSIja].as_object();
-            deserialize_struct(temp,temp_IuzNdgl[ZtxSIja]);
+            auto& temp=arr_qDxNjBm[HNKHCHi].as_object();
+            deserialize_struct(temp,temp_vjIQYMp[HNKHCHi]);
             }();
         }
-        }();pCallbackData=temp_IuzNdgl;}();
-void* pUserData;
+        }();pCallbackData=temp_vjIQYMp;}();
+void* pUserData;;
 [&](){
             if (json["pUserData"].as_array().size()==0){
                 pUserData=NULL;
-            return; }char* temp_cDeMJHe;[&](){
+            return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
-                temp_cDeMJHe=NULL;
-            return; }temp_cDeMJHe=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_fYmikDX=json["pUserData"].as_array();
-        for(int GzbOwAQ=0; GzbOwAQ < json["pUserData"].as_array().size(); GzbOwAQ++){
-            [&](){temp_cDeMJHe[GzbOwAQ]=static_cast<char>(value_to<int>(arr_fYmikDX[GzbOwAQ]));}();
+                temp_PunOKTH=NULL;
+            return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
+        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+            [&](){temp_PunOKTH[EuMrPhh]=static_cast<char>(value_to<int>(arr_wKsaVqw[EuMrPhh]));}();
         }
-        }();pUserData=temp_cDeMJHe;}();
+        }();pUserData=temp_PunOKTH;}();
 auto result=funcpointer(messageSeverity,messageTypes,pCallbackData,pUserData);
 json.clear();
 [&](){[&](){[&](){json["messageSeverity"]=messageSeverity;}();}();}();
@@ -48741,11 +48710,11 @@ json.clear();
             if (pCallbackData==NULL){
                 json["pCallbackData"]=boost::json::array();
             return; }
-        auto& arr_cYUNZNX=json["pCallbackData"].emplace_array();
-        for(int SAnJMKd=0; SAnJMKd < 1; SAnJMKd++){
+        auto& arr_ELbGsuC=json["pCallbackData"].emplace_array();
+        for(int cgqXeou=0; cgqXeou < 1; cgqXeou++){
             [&](){
-            auto& temp=arr_cYUNZNX[SAnJMKd].emplace_object();
-            return serialize_struct(temp, pCallbackData[SAnJMKd]);
+            auto& temp=arr_ELbGsuC[cgqXeou].emplace_object();
+            return serialize_struct(temp, pCallbackData[cgqXeou]);
             }();
         }
         }();
@@ -48756,44 +48725,44 @@ json.clear();
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }
-        auto& arr_fYmikDX=json["pUserData"].emplace_array();
-        for(int GzbOwAQ=0; GzbOwAQ < strlen(((char*)(pUserData)))+1; GzbOwAQ++){
-            [&](){arr_fYmikDX[GzbOwAQ]=((char*)(pUserData))[GzbOwAQ];}();
+        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
+            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
         }();}();
 [&](){[&](){json["result"]=result;}();}();
 writeToConn(json);
 };
+
+        void deserialize_PFN_vkDebugUtilsMessengerCallbackEXT(boost::json::object& json, PFN_vkDebugUtilsMessengerCallbackEXT& member){
+            //Will only be called by the server
+            
+            member=PFN_vkDebugUtilsMessengerCallbackEXT_wrapper;
+            };
+        
 std::map<uintptr_t,PFN_vkDeviceMemoryReportCallbackEXT> id_to_PFN_vkDeviceMemoryReportCallbackEXT;
 
-    void serialize_funcpointer(boost::json::object&, const PFN_vkDeviceMemoryReportCallbackEXT&){
+    void serialize_PFN_vkDeviceMemoryReportCallbackEXT(boost::json::object&, const PFN_vkDeviceMemoryReportCallbackEXT&){
         //Will only be called by the client
         return;
     }
     
 
-        void deserialize_funcpointer(boost::json::object& json, PFN_vkDeviceMemoryReportCallbackEXT& member){
-            //Will only be called by the server
-            
-            member=PFN_vkDeviceMemoryReportCallbackEXT_wrapper;
-            };
-        
-
         auto PFN_vkDeviceMemoryReportCallbackEXT_wrapper( const VkDeviceMemoryReportCallbackDataEXT* pCallbackData, void* pUserData){
         //Will only be called by the server
         
-        boost::json::object& json;
+        boost::json::object json;
         json["type"]=PFN_VKDEVICEMEMORYREPORTCALLBACKEXT;
         
 [&](){
             if (pCallbackData==NULL){
                 json["pCallbackData"]=boost::json::array();
             return; }
-        auto& arr_xZpNnLi=json["pCallbackData"].emplace_array();
-        for(int visaHGl=0; visaHGl < 1; visaHGl++){
+        auto& arr_dvgiwmM=json["pCallbackData"].emplace_array();
+        for(int QJmpCRq=0; QJmpCRq < 1; QJmpCRq++){
             [&](){
-            auto& temp=arr_xZpNnLi[visaHGl].emplace_object();
-            return serialize_struct(temp, pCallbackData[visaHGl]);
+            auto& temp=arr_dvgiwmM[QJmpCRq].emplace_object();
+            return serialize_struct(temp, pCallbackData[QJmpCRq]);
             }();
         }
         }();
@@ -48804,32 +48773,30 @@ std::map<uintptr_t,PFN_vkDeviceMemoryReportCallbackEXT> id_to_PFN_vkDeviceMemory
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }
-        auto& arr_fYmikDX=json["pUserData"].emplace_array();
-        for(int GzbOwAQ=0; GzbOwAQ < strlen(((char*)(pUserData)))+1; GzbOwAQ++){
-            [&](){arr_fYmikDX[GzbOwAQ]=((char*)(pUserData))[GzbOwAQ];}();
+        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
+            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
         }();}();
 
-        json["id"]=((pUserData*)pUserData)->PFN_vkDeviceMemoryReportCallbackEXT;
+        json["id"]=((pUserData_struct*)pUserData)->PFN_vkDeviceMemoryReportCallbackEXT;
         
         writeToConn(json); //Send request
         json=readFromConn(); //Recieve response
-        void result;
         
 
 [&](){
             if (json["pUserData"].as_array().size()==0){
                 pUserData=NULL;
-            return; }char* temp_cDeMJHe;[&](){
+            return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
-                temp_cDeMJHe=NULL;
+                temp_PunOKTH=NULL;
             return; }
-        auto& arr_fYmikDX=json["pUserData"].as_array();
-        for(int GzbOwAQ=0; GzbOwAQ < json["pUserData"].as_array().size(); GzbOwAQ++){
-            [&](){temp_cDeMJHe[GzbOwAQ]=static_cast<char>(value_to<int>(arr_fYmikDX[GzbOwAQ]));}();
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
+        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+            [&](){temp_PunOKTH[EuMrPhh]=static_cast<char>(value_to<int>(arr_wKsaVqw[EuMrPhh]));}();
         }
-        }();pUserData=temp_cDeMJHe;}();
-
+        }();pUserData=temp_PunOKTH;}();
 json.clear();
 json.erase("mem");
 
@@ -48846,43 +48813,43 @@ return;
             // Recieved data from server's PFN_vkDeviceMemoryReportCallbackEXT wrapper, and will execute the actual function
             auto funcpointer=id_to_PFN_vkDeviceMemoryReportCallbackEXT[value_to<uintptr_t>(json["id"])];
         
-const VkDeviceMemoryReportCallbackDataEXT* pCallbackData;
-[&](){ VkDeviceMemoryReportCallbackDataEXT* temp_fgmmfZS[&](){
+const VkDeviceMemoryReportCallbackDataEXT* pCallbackData;;
+[&](){ VkDeviceMemoryReportCallbackDataEXT* temp_JtQUiIC;[&](){
             if (json["pCallbackData"].as_array().size()==0){
-                temp_fgmmfZS=NULL;
-            return; }temp_fgmmfZS=(VkDeviceMemoryReportCallbackDataEXT*)malloc(1*sizeof(VkDeviceMemoryReportCallbackDataEXT));
-        auto& arr_pbTbPkq=json["pCallbackData"].as_array();
-        for(int vTZGRfx=0; vTZGRfx < 1; vTZGRfx++){
+                temp_JtQUiIC=NULL;
+            return; }temp_JtQUiIC=(VkDeviceMemoryReportCallbackDataEXT*)malloc(1*sizeof(VkDeviceMemoryReportCallbackDataEXT));
+        auto& arr_nuOXBbL=json["pCallbackData"].as_array();
+        for(int PqRmPuO=0; PqRmPuO < 1; PqRmPuO++){
             [&](){
-            auto& temp=arr_pbTbPkq[vTZGRfx].as_object();
-            deserialize_struct(temp,temp_fgmmfZS[vTZGRfx]);
+            auto& temp=arr_nuOXBbL[PqRmPuO].as_object();
+            deserialize_struct(temp,temp_JtQUiIC[PqRmPuO]);
             }();
         }
-        }();pCallbackData=temp_fgmmfZS;}();
-void* pUserData;
+        }();pCallbackData=temp_JtQUiIC;}();
+void* pUserData;;
 [&](){
             if (json["pUserData"].as_array().size()==0){
                 pUserData=NULL;
-            return; }char* temp_cDeMJHe;[&](){
+            return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
-                temp_cDeMJHe=NULL;
-            return; }temp_cDeMJHe=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_fYmikDX=json["pUserData"].as_array();
-        for(int GzbOwAQ=0; GzbOwAQ < json["pUserData"].as_array().size(); GzbOwAQ++){
-            [&](){temp_cDeMJHe[GzbOwAQ]=static_cast<char>(value_to<int>(arr_fYmikDX[GzbOwAQ]));}();
+                temp_PunOKTH=NULL;
+            return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
+        auto& arr_wKsaVqw=json["pUserData"].as_array();
+        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+            [&](){temp_PunOKTH[EuMrPhh]=static_cast<char>(value_to<int>(arr_wKsaVqw[EuMrPhh]));}();
         }
-        }();pUserData=temp_cDeMJHe;}();
+        }();pUserData=temp_PunOKTH;}();
 funcpointer(pCallbackData,pUserData);
 json.clear();
 [&](){
             if (pCallbackData==NULL){
                 json["pCallbackData"]=boost::json::array();
             return; }
-        auto& arr_xZpNnLi=json["pCallbackData"].emplace_array();
-        for(int visaHGl=0; visaHGl < 1; visaHGl++){
+        auto& arr_dvgiwmM=json["pCallbackData"].emplace_array();
+        for(int QJmpCRq=0; QJmpCRq < 1; QJmpCRq++){
             [&](){
-            auto& temp=arr_xZpNnLi[visaHGl].emplace_object();
-            return serialize_struct(temp, pCallbackData[visaHGl]);
+            auto& temp=arr_dvgiwmM[QJmpCRq].emplace_object();
+            return serialize_struct(temp, pCallbackData[QJmpCRq]);
             }();
         }
         }();
@@ -48893,23 +48860,30 @@ json.clear();
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }
-        auto& arr_fYmikDX=json["pUserData"].emplace_array();
-        for(int GzbOwAQ=0; GzbOwAQ < strlen(((char*)(pUserData)))+1; GzbOwAQ++){
-            [&](){arr_fYmikDX[GzbOwAQ]=((char*)(pUserData))[GzbOwAQ];}();
+        auto& arr_wKsaVqw=json["pUserData"].emplace_array();
+        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
+            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
         }
         }();}();
 
 writeToConn(json);
 };
+
+        void deserialize_PFN_vkDeviceMemoryReportCallbackEXT(boost::json::object& json, PFN_vkDeviceMemoryReportCallbackEXT& member){
+            //Will only be called by the server
+            
+            member=PFN_vkDeviceMemoryReportCallbackEXT_wrapper;
+            };
+        
 std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcAddrLUNARG;
 
-    void serialize_funcpointer(boost::json::object&, const PFN_vkGetInstanceProcAddrLUNARG&){
+    void serialize_PFN_vkGetInstanceProcAddrLUNARG(boost::json::object&, const PFN_vkGetInstanceProcAddrLUNARG&){
         //Will only be called by the client
         return;
     }
     
 
-            void deserialize_funcpointer(boost::json::object& json, PFN_vkGetInstanceProcAddrLUNARG& member){
+            void deserialize_PFN_vkGetInstanceProcAddrLUNARG(boost::json::object& json, PFN_vkGetInstanceProcAddrLUNARG& member){
             //Will only be called by the server
             
             member=vkGetInstanceProcAddr;
@@ -48923,7 +48897,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkInstance& data){
+        void serialize_VkInstance(boost::json::value& json, const VkInstance& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -48945,7 +48919,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkInstance& member){
+          void deserialize_VkInstance(boost::json::value& json, VkInstance& member){
                 VkInstance result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -48976,7 +48950,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkPhysicalDevice& data){
+        void serialize_VkPhysicalDevice(boost::json::value& json, const VkPhysicalDevice& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -48998,7 +48972,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkPhysicalDevice& member){
+          void deserialize_VkPhysicalDevice(boost::json::value& json, VkPhysicalDevice& member){
                 VkPhysicalDevice result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49029,7 +49003,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkDevice& data){
+        void serialize_VkDevice(boost::json::value& json, const VkDevice& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49051,7 +49025,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkDevice& member){
+          void deserialize_VkDevice(boost::json::value& json, VkDevice& member){
                 VkDevice result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49082,7 +49056,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkQueue& data){
+        void serialize_VkQueue(boost::json::value& json, const VkQueue& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49104,7 +49078,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkQueue& member){
+          void deserialize_VkQueue(boost::json::value& json, VkQueue& member){
                 VkQueue result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49135,7 +49109,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkCommandBuffer& data){
+        void serialize_VkCommandBuffer(boost::json::value& json, const VkCommandBuffer& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49157,7 +49131,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkCommandBuffer& member){
+          void deserialize_VkCommandBuffer(boost::json::value& json, VkCommandBuffer& member){
                 VkCommandBuffer result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49188,7 +49162,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkDeviceMemory& data){
+        void serialize_VkDeviceMemory(boost::json::value& json, const VkDeviceMemory& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49210,7 +49184,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkDeviceMemory& member){
+          void deserialize_VkDeviceMemory(boost::json::value& json, VkDeviceMemory& member){
                 VkDeviceMemory result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49241,7 +49215,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkCommandPool& data){
+        void serialize_VkCommandPool(boost::json::value& json, const VkCommandPool& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49263,7 +49237,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkCommandPool& member){
+          void deserialize_VkCommandPool(boost::json::value& json, VkCommandPool& member){
                 VkCommandPool result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49294,7 +49268,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkBuffer& data){
+        void serialize_VkBuffer(boost::json::value& json, const VkBuffer& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49316,7 +49290,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkBuffer& member){
+          void deserialize_VkBuffer(boost::json::value& json, VkBuffer& member){
                 VkBuffer result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49347,7 +49321,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkBufferView& data){
+        void serialize_VkBufferView(boost::json::value& json, const VkBufferView& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49369,7 +49343,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkBufferView& member){
+          void deserialize_VkBufferView(boost::json::value& json, VkBufferView& member){
                 VkBufferView result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49400,7 +49374,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkImage& data){
+        void serialize_VkImage(boost::json::value& json, const VkImage& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49422,7 +49396,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkImage& member){
+          void deserialize_VkImage(boost::json::value& json, VkImage& member){
                 VkImage result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49453,7 +49427,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkImageView& data){
+        void serialize_VkImageView(boost::json::value& json, const VkImageView& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49475,7 +49449,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkImageView& member){
+          void deserialize_VkImageView(boost::json::value& json, VkImageView& member){
                 VkImageView result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49506,7 +49480,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkShaderModule& data){
+        void serialize_VkShaderModule(boost::json::value& json, const VkShaderModule& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49528,7 +49502,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkShaderModule& member){
+          void deserialize_VkShaderModule(boost::json::value& json, VkShaderModule& member){
                 VkShaderModule result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49559,7 +49533,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkPipeline& data){
+        void serialize_VkPipeline(boost::json::value& json, const VkPipeline& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49581,7 +49555,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkPipeline& member){
+          void deserialize_VkPipeline(boost::json::value& json, VkPipeline& member){
                 VkPipeline result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49612,7 +49586,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkPipelineLayout& data){
+        void serialize_VkPipelineLayout(boost::json::value& json, const VkPipelineLayout& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49634,7 +49608,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkPipelineLayout& member){
+          void deserialize_VkPipelineLayout(boost::json::value& json, VkPipelineLayout& member){
                 VkPipelineLayout result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49665,7 +49639,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkSampler& data){
+        void serialize_VkSampler(boost::json::value& json, const VkSampler& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49687,7 +49661,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkSampler& member){
+          void deserialize_VkSampler(boost::json::value& json, VkSampler& member){
                 VkSampler result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49718,7 +49692,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkDescriptorSet& data){
+        void serialize_VkDescriptorSet(boost::json::value& json, const VkDescriptorSet& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49740,7 +49714,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkDescriptorSet& member){
+          void deserialize_VkDescriptorSet(boost::json::value& json, VkDescriptorSet& member){
                 VkDescriptorSet result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49771,7 +49745,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkDescriptorSetLayout& data){
+        void serialize_VkDescriptorSetLayout(boost::json::value& json, const VkDescriptorSetLayout& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49793,7 +49767,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkDescriptorSetLayout& member){
+          void deserialize_VkDescriptorSetLayout(boost::json::value& json, VkDescriptorSetLayout& member){
                 VkDescriptorSetLayout result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49824,7 +49798,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkDescriptorPool& data){
+        void serialize_VkDescriptorPool(boost::json::value& json, const VkDescriptorPool& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49846,7 +49820,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkDescriptorPool& member){
+          void deserialize_VkDescriptorPool(boost::json::value& json, VkDescriptorPool& member){
                 VkDescriptorPool result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49877,7 +49851,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkFence& data){
+        void serialize_VkFence(boost::json::value& json, const VkFence& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49899,7 +49873,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkFence& member){
+          void deserialize_VkFence(boost::json::value& json, VkFence& member){
                 VkFence result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49930,7 +49904,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkSemaphore& data){
+        void serialize_VkSemaphore(boost::json::value& json, const VkSemaphore& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -49952,7 +49926,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkSemaphore& member){
+          void deserialize_VkSemaphore(boost::json::value& json, VkSemaphore& member){
                 VkSemaphore result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -49983,7 +49957,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkEvent& data){
+        void serialize_VkEvent(boost::json::value& json, const VkEvent& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50005,7 +49979,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkEvent& member){
+          void deserialize_VkEvent(boost::json::value& json, VkEvent& member){
                 VkEvent result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50036,7 +50010,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkQueryPool& data){
+        void serialize_VkQueryPool(boost::json::value& json, const VkQueryPool& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50058,7 +50032,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkQueryPool& member){
+          void deserialize_VkQueryPool(boost::json::value& json, VkQueryPool& member){
                 VkQueryPool result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50089,7 +50063,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkFramebuffer& data){
+        void serialize_VkFramebuffer(boost::json::value& json, const VkFramebuffer& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50111,7 +50085,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkFramebuffer& member){
+          void deserialize_VkFramebuffer(boost::json::value& json, VkFramebuffer& member){
                 VkFramebuffer result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50142,7 +50116,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkRenderPass& data){
+        void serialize_VkRenderPass(boost::json::value& json, const VkRenderPass& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50164,7 +50138,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkRenderPass& member){
+          void deserialize_VkRenderPass(boost::json::value& json, VkRenderPass& member){
                 VkRenderPass result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50195,7 +50169,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkPipelineCache& data){
+        void serialize_VkPipelineCache(boost::json::value& json, const VkPipelineCache& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50217,7 +50191,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkPipelineCache& member){
+          void deserialize_VkPipelineCache(boost::json::value& json, VkPipelineCache& member){
                 VkPipelineCache result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50248,7 +50222,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkIndirectCommandsLayoutNV& data){
+        void serialize_VkIndirectCommandsLayoutNV(boost::json::value& json, const VkIndirectCommandsLayoutNV& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50270,7 +50244,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkIndirectCommandsLayoutNV& member){
+          void deserialize_VkIndirectCommandsLayoutNV(boost::json::value& json, VkIndirectCommandsLayoutNV& member){
                 VkIndirectCommandsLayoutNV result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50301,7 +50275,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkDescriptorUpdateTemplate& data){
+        void serialize_VkDescriptorUpdateTemplate(boost::json::value& json, const VkDescriptorUpdateTemplate& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50323,7 +50297,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkDescriptorUpdateTemplate& member){
+          void deserialize_VkDescriptorUpdateTemplate(boost::json::value& json, VkDescriptorUpdateTemplate& member){
                 VkDescriptorUpdateTemplate result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50354,7 +50328,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkDescriptorUpdateTemplateKHR& data){
+        void serialize_VkDescriptorUpdateTemplateKHR(boost::json::value& json, const VkDescriptorUpdateTemplateKHR& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50376,7 +50350,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkDescriptorUpdateTemplateKHR& member){
+          void deserialize_VkDescriptorUpdateTemplateKHR(boost::json::value& json, VkDescriptorUpdateTemplateKHR& member){
                 VkDescriptorUpdateTemplateKHR result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50407,7 +50381,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkSamplerYcbcrConversion& data){
+        void serialize_VkSamplerYcbcrConversion(boost::json::value& json, const VkSamplerYcbcrConversion& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50429,7 +50403,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkSamplerYcbcrConversion& member){
+          void deserialize_VkSamplerYcbcrConversion(boost::json::value& json, VkSamplerYcbcrConversion& member){
                 VkSamplerYcbcrConversion result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50460,7 +50434,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkSamplerYcbcrConversionKHR& data){
+        void serialize_VkSamplerYcbcrConversionKHR(boost::json::value& json, const VkSamplerYcbcrConversionKHR& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50482,7 +50456,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkSamplerYcbcrConversionKHR& member){
+          void deserialize_VkSamplerYcbcrConversionKHR(boost::json::value& json, VkSamplerYcbcrConversionKHR& member){
                 VkSamplerYcbcrConversionKHR result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50513,7 +50487,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkValidationCacheEXT& data){
+        void serialize_VkValidationCacheEXT(boost::json::value& json, const VkValidationCacheEXT& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50535,7 +50509,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkValidationCacheEXT& member){
+          void deserialize_VkValidationCacheEXT(boost::json::value& json, VkValidationCacheEXT& member){
                 VkValidationCacheEXT result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50566,7 +50540,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkAccelerationStructureKHR& data){
+        void serialize_VkAccelerationStructureKHR(boost::json::value& json, const VkAccelerationStructureKHR& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50588,7 +50562,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkAccelerationStructureKHR& member){
+          void deserialize_VkAccelerationStructureKHR(boost::json::value& json, VkAccelerationStructureKHR& member){
                 VkAccelerationStructureKHR result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50619,7 +50593,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkAccelerationStructureNV& data){
+        void serialize_VkAccelerationStructureNV(boost::json::value& json, const VkAccelerationStructureNV& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50641,7 +50615,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkAccelerationStructureNV& member){
+          void deserialize_VkAccelerationStructureNV(boost::json::value& json, VkAccelerationStructureNV& member){
                 VkAccelerationStructureNV result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50672,7 +50646,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkPerformanceConfigurationINTEL& data){
+        void serialize_VkPerformanceConfigurationINTEL(boost::json::value& json, const VkPerformanceConfigurationINTEL& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50694,7 +50668,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkPerformanceConfigurationINTEL& member){
+          void deserialize_VkPerformanceConfigurationINTEL(boost::json::value& json, VkPerformanceConfigurationINTEL& member){
                 VkPerformanceConfigurationINTEL result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50725,7 +50699,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkDeferredOperationKHR& data){
+        void serialize_VkDeferredOperationKHR(boost::json::value& json, const VkDeferredOperationKHR& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50747,7 +50721,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkDeferredOperationKHR& member){
+          void deserialize_VkDeferredOperationKHR(boost::json::value& json, VkDeferredOperationKHR& member){
                 VkDeferredOperationKHR result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50778,7 +50752,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkPrivateDataSlot& data){
+        void serialize_VkPrivateDataSlot(boost::json::value& json, const VkPrivateDataSlot& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50800,7 +50774,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkPrivateDataSlot& member){
+          void deserialize_VkPrivateDataSlot(boost::json::value& json, VkPrivateDataSlot& member){
                 VkPrivateDataSlot result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50831,7 +50805,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkPrivateDataSlotEXT& data){
+        void serialize_VkPrivateDataSlotEXT(boost::json::value& json, const VkPrivateDataSlotEXT& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50853,7 +50827,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkPrivateDataSlotEXT& member){
+          void deserialize_VkPrivateDataSlotEXT(boost::json::value& json, VkPrivateDataSlotEXT& member){
                 VkPrivateDataSlotEXT result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50884,7 +50858,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkCuModuleNVX& data){
+        void serialize_VkCuModuleNVX(boost::json::value& json, const VkCuModuleNVX& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50906,7 +50880,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkCuModuleNVX& member){
+          void deserialize_VkCuModuleNVX(boost::json::value& json, VkCuModuleNVX& member){
                 VkCuModuleNVX result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50937,7 +50911,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkCuFunctionNVX& data){
+        void serialize_VkCuFunctionNVX(boost::json::value& json, const VkCuFunctionNVX& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -50959,7 +50933,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkCuFunctionNVX& member){
+          void deserialize_VkCuFunctionNVX(boost::json::value& json, VkCuFunctionNVX& member){
                 VkCuFunctionNVX result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -50990,7 +50964,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkOpticalFlowSessionNV& data){
+        void serialize_VkOpticalFlowSessionNV(boost::json::value& json, const VkOpticalFlowSessionNV& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -51012,7 +50986,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkOpticalFlowSessionNV& member){
+          void deserialize_VkOpticalFlowSessionNV(boost::json::value& json, VkOpticalFlowSessionNV& member){
                 VkOpticalFlowSessionNV result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -51043,7 +51017,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkMicromapEXT& data){
+        void serialize_VkMicromapEXT(boost::json::value& json, const VkMicromapEXT& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -51065,7 +51039,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkMicromapEXT& member){
+          void deserialize_VkMicromapEXT(boost::json::value& json, VkMicromapEXT& member){
                 VkMicromapEXT result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -51096,7 +51070,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkShaderEXT& data){
+        void serialize_VkShaderEXT(boost::json::value& json, const VkShaderEXT& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -51118,7 +51092,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkShaderEXT& member){
+          void deserialize_VkShaderEXT(boost::json::value& json, VkShaderEXT& member){
                 VkShaderEXT result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -51149,7 +51123,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkDisplayKHR& data){
+        void serialize_VkDisplayKHR(boost::json::value& json, const VkDisplayKHR& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -51171,7 +51145,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkDisplayKHR& member){
+          void deserialize_VkDisplayKHR(boost::json::value& json, VkDisplayKHR& member){
                 VkDisplayKHR result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -51202,7 +51176,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkDisplayModeKHR& data){
+        void serialize_VkDisplayModeKHR(boost::json::value& json, const VkDisplayModeKHR& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -51224,7 +51198,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkDisplayModeKHR& member){
+          void deserialize_VkDisplayModeKHR(boost::json::value& json, VkDisplayModeKHR& member){
                 VkDisplayModeKHR result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -51255,7 +51229,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkSurfaceKHR& data){
+        void serialize_VkSurfaceKHR(boost::json::value& json, const VkSurfaceKHR& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -51277,7 +51251,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkSurfaceKHR& member){
+          void deserialize_VkSurfaceKHR(boost::json::value& json, VkSurfaceKHR& member){
                 VkSurfaceKHR result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -51308,7 +51282,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkSwapchainKHR& data){
+        void serialize_VkSwapchainKHR(boost::json::value& json, const VkSwapchainKHR& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -51330,7 +51304,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkSwapchainKHR& member){
+          void deserialize_VkSwapchainKHR(boost::json::value& json, VkSwapchainKHR& member){
                 VkSwapchainKHR result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -51361,7 +51335,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkDebugReportCallbackEXT& data){
+        void serialize_VkDebugReportCallbackEXT(boost::json::value& json, const VkDebugReportCallbackEXT& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -51383,7 +51357,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkDebugReportCallbackEXT& member){
+          void deserialize_VkDebugReportCallbackEXT(boost::json::value& json, VkDebugReportCallbackEXT& member){
                 VkDebugReportCallbackEXT result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -51414,7 +51388,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkDebugUtilsMessengerEXT& data){
+        void serialize_VkDebugUtilsMessengerEXT(boost::json::value& json, const VkDebugUtilsMessengerEXT& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -51436,7 +51410,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkDebugUtilsMessengerEXT& member){
+          void deserialize_VkDebugUtilsMessengerEXT(boost::json::value& json, VkDebugUtilsMessengerEXT& member){
                 VkDebugUtilsMessengerEXT result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -51467,7 +51441,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkVideoSessionKHR& data){
+        void serialize_VkVideoSessionKHR(boost::json::value& json, const VkVideoSessionKHR& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -51489,7 +51463,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkVideoSessionKHR& member){
+          void deserialize_VkVideoSessionKHR(boost::json::value& json, VkVideoSessionKHR& member){
                 VkVideoSessionKHR result;
                 auto data=value_to<uintptr_t>(json);
                 
@@ -51520,7 +51494,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         #endif
         
 
-        void serialize_handle(boost::json::value& json, const VkVideoSessionParametersKHR& data){
+        void serialize_VkVideoSessionParametersKHR(boost::json::value& json, const VkVideoSessionParametersKHR& data){
             uintptr_t result;
             #ifdef CLIENT
                 if (data==NULL){
@@ -51542,7 +51516,7 @@ std::map<uintptr_t,PFN_vkGetInstanceProcAddrLUNARG> id_to_PFN_vkGetInstanceProcA
         }
        
 
-          void deserialize_handle(boost::json::value& json, VkVideoSessionParametersKHR& member){
+          void deserialize_VkVideoSessionParametersKHR(boost::json::value& json, VkVideoSessionParametersKHR& member){
                 VkVideoSessionParametersKHR result;
                 auto data=value_to<uintptr_t>(json);
                 

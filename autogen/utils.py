@@ -171,6 +171,8 @@ def convert(variable, value, info, serialize, initialize=False):
     elif kind in ["struct","funcpointer"]:
         if info["type"]=="pNext": #pNext is handled specially
             kind=info["type"]
+        elif kind=="funcpointer":
+            kind=type
             
         if serialize:
             result+=f"""
@@ -195,9 +197,9 @@ def convert(variable, value, info, serialize, initialize=False):
             result+=f"""{variable}=static_cast<{type}>(value_to<int>({value}));"""
     elif kind=="handle":
         if serialize:
-            result+=f"serialize_{kind}({value},{variable});"
+            result+=f"serialize_{type}({value},{variable});"
         else:
-            result+=f"""deserialize_{kind}({value}, {variable});"""
+            result+=f"""deserialize_{type}({value}, {variable});"""
     elif ("alias" in info) or (kind=="basetype"):
         if "alias" in info:
             type_to_replace=info["alias"]

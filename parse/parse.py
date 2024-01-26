@@ -169,6 +169,7 @@ for item in vk.findall("./types/type"):
             elif param["header"].endswith(");"):
                 param["header"]=param["header"].removesuffix(");")
             
+            param["header"]+=";"
             params.append(param)
         result["params"]=params
     
