@@ -107,16 +107,15 @@ def convert(variable, value, info, serialize, initialize=False):
             """
         result +="return; }"
         
-    if (type=="void" and num_indirection==1):
+    if (type=="void" and num_indirection>1):
         info["type"]="char"
-        if len(length)==0: #Doesn't have predefined length
-            info["length"].append("null-terminated")
-        
+        info["header"]=info["header"].replace("void","char",1)
+        indirection_type_string="char"+("*"*num_indirection)
         if serialize:
-            variable=f"((char*)({variable}))"
+            variable=f"(({indirection_type_string})({variable}))"
         else:
             variable=temp_variable
-            result+=f"char* {temp_variable};"
+            result+=f"{indirection_type_string} {temp_variable};"
             initialize=True
             
         result+=convert(*args())
@@ -124,7 +123,7 @@ def convert(variable, value, info, serialize, initialize=False):
         if deserialize:
             result+=f"{old_variable}={temp_variable};"
     
-    elif (kind=="external_handle" and num_indirection<2):
+    elif (kind=="external_handle" and num_indirection<=1):
             if serialize:
                 result+=f"""{value}=(uintptr_t){variable};"""
             else:

@@ -118,6 +118,7 @@ auto subresource=VkImageSubresource{
 
 VkSubresourceLayout layout={};
 
+
 vkGetImageSubresourceLayout(device, image, &subresource, &layout);
 
 image_to_size[key]=layout.size;

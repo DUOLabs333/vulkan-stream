@@ -182,7 +182,7 @@ void handle_sync_init(boost::json::object& json){
     handle_sync_response(json);
     
     #ifndef CLIENT
-        if (sync.devicememory!=(uintptr_t)NULL){
+        if (sync.devicememory!=0){
              deregisterDeviceMemoryMap((VkDeviceMemory)(sync.devicememory));
         }
     #endif
