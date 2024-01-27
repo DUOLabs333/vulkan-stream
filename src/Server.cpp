@@ -124,10 +124,9 @@ boost::json::object readFromConn(){
     curr->parser.write(curr->data_buf, bytes_read);
     
     //if (size==0){ //All of the bytes have been read
-    try{
+    if(curr->parser.done()){
         return curr->parser.release().as_object();
-    }
-    catch (boost::json::system_error){ //Not done parsing yet
+    }else{
         continue;
     }
     }

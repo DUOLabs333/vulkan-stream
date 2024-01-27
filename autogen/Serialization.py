@@ -55,6 +55,8 @@ void serialize_Sync(boost::json::object& json, Sync& sync){
     json["lengths"]=boost::json::value_from(sync.lengths);
     json["starts"]=boost::json::value_from(sync.starts);
     json["buffers"]=boost::json::value_from(sync.buffers);
+    
+    json["type"]=static_cast<int>(SYNC);
 }
 
 void deserialize_Sync(boost::json::object& json, Sync& sync){

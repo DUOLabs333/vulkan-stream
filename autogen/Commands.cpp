@@ -52788,7 +52788,7 @@ MemoryMapLock.lock();
             return; }char* temp_syvZTtN;[&](){
             if (arr_syvZTtN[weOJAdg].as_array().size()==0){
                 temp_syvZTtN=NULL;
-            return; }
+            return; }temp_syvZTtN=(char*)malloc(size*sizeof(char));
         auto& arr_yHvgdEb=arr_syvZTtN[weOJAdg].as_array();
         for(int vgxltbA=0; vgxltbA < size; vgxltbA++){
             [&](){
@@ -55835,7 +55835,7 @@ debug_printf("Executing vkGetQueryPoolResults\n");
             return; }char* temp_hrhAtyM;[&](){
             if (json["pData"].as_array().size()==0){
                 temp_hrhAtyM=NULL;
-            return; }
+            return; }temp_hrhAtyM=(char*)malloc(dataSize*sizeof(char));
         auto& arr_AnvCwFj=json["pData"].as_array();
         for(int BSRqoqj=0; BSRqoqj < dataSize; BSRqoqj++){
             [&](){
@@ -57672,7 +57672,7 @@ debug_printf("Executing vkGetPipelineCacheData\n");
             return; }char* temp_ZtBEjVJ;[&](){
             if (json["pData"].as_array().size()==0){
                 temp_ZtBEjVJ=NULL;
-            return; }
+            return; }temp_ZtBEjVJ=(char*)malloc(*pDataSize*sizeof(char));
         auto& arr_AnvCwFj=json["pData"].as_array();
         for(int BSRqoqj=0; BSRqoqj < *pDataSize; BSRqoqj++){
             [&](){
@@ -80229,7 +80229,7 @@ debug_printf("Executing vkGetValidationCacheDataEXT\n");
             return; }char* temp_ZtBEjVJ;[&](){
             if (json["pData"].as_array().size()==0){
                 temp_ZtBEjVJ=NULL;
-            return; }
+            return; }temp_ZtBEjVJ=(char*)malloc(*pDataSize*sizeof(char));
         auto& arr_AnvCwFj=json["pData"].as_array();
         for(int BSRqoqj=0; BSRqoqj < *pDataSize; BSRqoqj++){
             [&](){
@@ -80638,7 +80638,7 @@ debug_printf("Executing vkGetShaderInfoAMD\n");
             return; }char* temp_ziBtDwK;[&](){
             if (json["pInfo"].as_array().size()==0){
                 temp_ziBtDwK=NULL;
-            return; }
+            return; }temp_ziBtDwK=(char*)malloc(*pInfoSize*sizeof(char));
         auto& arr_aWNzgGe=json["pInfo"].as_array();
         for(int sqfWcCN=0; sqfWcCN < *pInfoSize; sqfWcCN++){
             [&](){
@@ -87673,7 +87673,7 @@ debug_printf("Executing vkWriteAccelerationStructuresPropertiesKHR\n");
             return; }char* temp_hrhAtyM;[&](){
             if (json["pData"].as_array().size()==0){
                 temp_hrhAtyM=NULL;
-            return; }
+            return; }temp_hrhAtyM=(char*)malloc(dataSize*sizeof(char));
         auto& arr_AnvCwFj=json["pData"].as_array();
         for(int BSRqoqj=0; BSRqoqj < dataSize; BSRqoqj++){
             [&](){
@@ -88191,7 +88191,7 @@ debug_printf("Executing vkGetRayTracingShaderGroupHandlesKHR\n");
             return; }char* temp_hrhAtyM;[&](){
             if (json["pData"].as_array().size()==0){
                 temp_hrhAtyM=NULL;
-            return; }
+            return; }temp_hrhAtyM=(char*)malloc(dataSize*sizeof(char));
         auto& arr_AnvCwFj=json["pData"].as_array();
         for(int BSRqoqj=0; BSRqoqj < dataSize; BSRqoqj++){
             [&](){
@@ -88351,7 +88351,7 @@ debug_printf("Executing vkGetRayTracingCaptureReplayShaderGroupHandlesKHR\n");
             return; }char* temp_hrhAtyM;[&](){
             if (json["pData"].as_array().size()==0){
                 temp_hrhAtyM=NULL;
-            return; }
+            return; }temp_hrhAtyM=(char*)malloc(dataSize*sizeof(char));
         auto& arr_AnvCwFj=json["pData"].as_array();
         for(int BSRqoqj=0; BSRqoqj < dataSize; BSRqoqj++){
             [&](){
@@ -88488,7 +88488,7 @@ debug_printf("Executing vkGetAccelerationStructureHandleNV\n");
             return; }char* temp_hrhAtyM;[&](){
             if (json["pData"].as_array().size()==0){
                 temp_hrhAtyM=NULL;
-            return; }
+            return; }temp_hrhAtyM=(char*)malloc(dataSize*sizeof(char));
         auto& arr_AnvCwFj=json["pData"].as_array();
         for(int BSRqoqj=0; BSRqoqj < dataSize; BSRqoqj++){
             [&](){
@@ -104564,7 +104564,7 @@ debug_printf("Executing vkGetDescriptorEXT\n");
             return; }char* temp_mEHYUhJ;[&](){
             if (json["pDescriptor"].as_array().size()==0){
                 temp_mEHYUhJ=NULL;
-            return; }
+            return; }temp_mEHYUhJ=(char*)malloc(dataSize*sizeof(char));
         auto& arr_LMyOepF=json["pDescriptor"].as_array();
         for(int FBuPGmd=0; FBuPGmd < dataSize; FBuPGmd++){
             [&](){
@@ -105030,7 +105030,7 @@ debug_printf("Executing vkGetBufferOpaqueCaptureDescriptorDataEXT\n");
             return; }char* temp_lBHICWs;[&](){
             if (json["pData"].as_array().size()==0){
                 temp_lBHICWs=NULL;
-            return; }
+            return; }temp_lBHICWs=(char*)malloc(json["pData"].as_array().size()*sizeof(char));
         auto& arr_AnvCwFj=json["pData"].as_array();
         for(int BSRqoqj=0; BSRqoqj < json["pData"].as_array().size(); BSRqoqj++){
             [&](){
@@ -105168,7 +105168,7 @@ debug_printf("Executing vkGetImageOpaqueCaptureDescriptorDataEXT\n");
             return; }char* temp_lBHICWs;[&](){
             if (json["pData"].as_array().size()==0){
                 temp_lBHICWs=NULL;
-            return; }
+            return; }temp_lBHICWs=(char*)malloc(json["pData"].as_array().size()*sizeof(char));
         auto& arr_AnvCwFj=json["pData"].as_array();
         for(int BSRqoqj=0; BSRqoqj < json["pData"].as_array().size(); BSRqoqj++){
             [&](){
@@ -105306,7 +105306,7 @@ debug_printf("Executing vkGetImageViewOpaqueCaptureDescriptorDataEXT\n");
             return; }char* temp_lBHICWs;[&](){
             if (json["pData"].as_array().size()==0){
                 temp_lBHICWs=NULL;
-            return; }
+            return; }temp_lBHICWs=(char*)malloc(json["pData"].as_array().size()*sizeof(char));
         auto& arr_AnvCwFj=json["pData"].as_array();
         for(int BSRqoqj=0; BSRqoqj < json["pData"].as_array().size(); BSRqoqj++){
             [&](){
@@ -105444,7 +105444,7 @@ debug_printf("Executing vkGetSamplerOpaqueCaptureDescriptorDataEXT\n");
             return; }char* temp_lBHICWs;[&](){
             if (json["pData"].as_array().size()==0){
                 temp_lBHICWs=NULL;
-            return; }
+            return; }temp_lBHICWs=(char*)malloc(json["pData"].as_array().size()*sizeof(char));
         auto& arr_AnvCwFj=json["pData"].as_array();
         for(int BSRqoqj=0; BSRqoqj < json["pData"].as_array().size(); BSRqoqj++){
             [&](){
@@ -105582,7 +105582,7 @@ debug_printf("Executing vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT
             return; }char* temp_lBHICWs;[&](){
             if (json["pData"].as_array().size()==0){
                 temp_lBHICWs=NULL;
-            return; }
+            return; }temp_lBHICWs=(char*)malloc(json["pData"].as_array().size()*sizeof(char));
         auto& arr_AnvCwFj=json["pData"].as_array();
         for(int BSRqoqj=0; BSRqoqj < json["pData"].as_array().size(); BSRqoqj++){
             [&](){
@@ -106466,7 +106466,7 @@ debug_printf("Executing vkGetDescriptorSetHostMappingVALVE\n");
             return; }char* temp_JgRLJSK;[&](){
             if (arr_JgRLJSK[NsRFkBj].as_array().size()==0){
                 temp_JgRLJSK=NULL;
-            return; }
+            return; }temp_JgRLJSK=(char*)malloc(arr_JgRLJSK[NsRFkBj].as_array().size()*sizeof(char));
         auto& arr_yHvgdEb=arr_JgRLJSK[NsRFkBj].as_array();
         for(int vgxltbA=0; vgxltbA < arr_JgRLJSK[NsRFkBj].as_array().size(); vgxltbA++){
             [&](){
@@ -107813,7 +107813,7 @@ debug_printf("Executing vkWriteMicromapsPropertiesEXT\n");
             return; }char* temp_hrhAtyM;[&](){
             if (json["pData"].as_array().size()==0){
                 temp_hrhAtyM=NULL;
-            return; }
+            return; }temp_hrhAtyM=(char*)malloc(dataSize*sizeof(char));
         auto& arr_AnvCwFj=json["pData"].as_array();
         for(int BSRqoqj=0; BSRqoqj < dataSize; BSRqoqj++){
             [&](){
@@ -110052,7 +110052,7 @@ MemoryMapLock.lock();
             return; }char* temp_JgRLJSK;[&](){
             if (arr_JgRLJSK[NsRFkBj].as_array().size()==0){
                 temp_JgRLJSK=NULL;
-            return; }
+            return; }temp_JgRLJSK=(char*)malloc(arr_JgRLJSK[NsRFkBj].as_array().size()*sizeof(char));
         auto& arr_yHvgdEb=arr_JgRLJSK[NsRFkBj].as_array();
         for(int vgxltbA=0; vgxltbA < arr_JgRLJSK[NsRFkBj].as_array().size(); vgxltbA++){
             [&](){
@@ -110577,7 +110577,7 @@ debug_printf("Executing vkGetShaderBinaryDataEXT\n");
             return; }char* temp_ZtBEjVJ;[&](){
             if (json["pData"].as_array().size()==0){
                 temp_ZtBEjVJ=NULL;
-            return; }
+            return; }temp_ZtBEjVJ=(char*)malloc(*pDataSize*sizeof(char));
         auto& arr_AnvCwFj=json["pData"].as_array();
         for(int BSRqoqj=0; BSRqoqj < *pDataSize; BSRqoqj++){
             [&](){

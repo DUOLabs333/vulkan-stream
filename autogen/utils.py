@@ -117,6 +117,7 @@ def convert(variable, value, info, serialize, initialize=False):
         else:
             variable=temp_variable
             result+=f"char* {temp_variable};"
+            initialize=True
             
         result+=convert(*args())
         

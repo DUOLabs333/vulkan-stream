@@ -17,6 +17,8 @@ void serialize_Sync(boost::json::object& json, Sync& sync){
     json["lengths"]=boost::json::value_from(sync.lengths);
     json["starts"]=boost::json::value_from(sync.starts);
     json["buffers"]=boost::json::value_from(sync.buffers);
+    
+    json["type"]=static_cast<int>(SYNC);
 }
 
 void deserialize_Sync(boost::json::object& json, Sync& sync){
@@ -33,16 +35,16 @@ typedef struct {
     void* pUserData;
 
 uintptr_t PFN_vkFaultCallbackFunction;
-uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
 uintptr_t PFN_vkFreeFunction;
-uintptr_t PFN_vkVoidFunction;
-uintptr_t PFN_vkAllocationFunction;
 uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
-uintptr_t PFN_vkDebugReportCallbackEXT;
+uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
+uintptr_t PFN_vkVoidFunction;
 uintptr_t PFN_vkInternalFreeNotification;
 uintptr_t PFN_vkInternalAllocationNotification;
+uintptr_t PFN_vkDebugReportCallbackEXT;
 uintptr_t PFN_vkReallocationFunction;
-uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
+uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
+uintptr_t PFN_vkAllocationFunction;
 } pUserData_struct;
 
 void serialize_pNext(boost::json::object& json, const void* member){
@@ -73820,7 +73822,7 @@ std::map<uintptr_t,PFN_vkInternalAllocationNotification> id_to_PFN_vkInternalAll
             return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
-            return; }
+            return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
         auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
             [&](){
@@ -73996,7 +73998,7 @@ std::map<uintptr_t,PFN_vkInternalFreeNotification> id_to_PFN_vkInternalFreeNotif
             return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
-            return; }
+            return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
         auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
             [&](){
@@ -74184,7 +74186,7 @@ std::map<uintptr_t,PFN_vkReallocationFunction> id_to_PFN_vkReallocationFunction;
             return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
-            return; }
+            return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
         auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
             [&](){
@@ -74204,7 +74206,7 @@ std::map<uintptr_t,PFN_vkReallocationFunction> id_to_PFN_vkReallocationFunction;
             return; }char* temp_SZtjdWN;[&](){
             if (json["pOriginal"].as_array().size()==0){
                 temp_SZtjdWN=NULL;
-            return; }
+            return; }temp_SZtjdWN=(char*)malloc(json["pOriginal"].as_array().size()*sizeof(char));
         auto& arr_rITHcbq=json["pOriginal"].as_array();
         for(int oHRYLxY=0; oHRYLxY < json["pOriginal"].as_array().size(); oHRYLxY++){
             [&](){
@@ -74453,7 +74455,7 @@ std::map<uintptr_t,PFN_vkAllocationFunction> id_to_PFN_vkAllocationFunction;
             return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
-            return; }
+            return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
         auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
             [&](){
@@ -74678,7 +74680,7 @@ std::map<uintptr_t,PFN_vkFreeFunction> id_to_PFN_vkFreeFunction;
             return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
-            return; }
+            return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
         auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
             [&](){
@@ -74698,7 +74700,7 @@ std::map<uintptr_t,PFN_vkFreeFunction> id_to_PFN_vkFreeFunction;
             return; }char* temp_TQlreEU;[&](){
             if (json["pMemory"].as_array().size()==0){
                 temp_TQlreEU=NULL;
-            return; }
+            return; }temp_TQlreEU=(char*)malloc(json["pMemory"].as_array().size()*sizeof(char));
         auto& arr_qKvWVRO=json["pMemory"].as_array();
         for(int LkSrwrv=0; LkSrwrv < json["pMemory"].as_array().size(); LkSrwrv++){
             [&](){
@@ -74914,7 +74916,7 @@ std::map<uintptr_t,PFN_vkDebugReportCallbackEXT> id_to_PFN_vkDebugReportCallback
             return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
-            return; }
+            return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
         auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
             [&](){
@@ -75179,7 +75181,7 @@ std::map<uintptr_t,PFN_vkDebugUtilsMessengerCallbackEXT> id_to_PFN_vkDebugUtilsM
             return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
-            return; }
+            return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
         auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
             [&](){
@@ -75362,7 +75364,7 @@ std::map<uintptr_t,PFN_vkDeviceMemoryReportCallbackEXT> id_to_PFN_vkDeviceMemory
             return; }char* temp_PunOKTH;[&](){
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
-            return; }
+            return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
         auto& arr_wKsaVqw=json["pUserData"].as_array();
         for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
             [&](){
