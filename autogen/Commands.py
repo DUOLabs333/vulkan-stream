@@ -215,7 +215,8 @@ for name, command in parsed.items():
 
     write(registerDeviceMemoryMap(name,"(uintptr_t)(*ppData)"))
        
-    write("""
+    write(f"""
+        json["type"]={name.upper()};
         writeToConn(json);
     }""")
 
@@ -223,7 +224,7 @@ write("""
 void handle_command(boost::json::object json){
 //Will only be called by the server
 
-switch (static_cast<StreamType>(value_to<int>(json["enum"]))){
+switch (static_cast<StreamType>(value_to<int>(json["type"]))){
 """)
 
 for name, command in parsed.items():
@@ -324,8 +325,10 @@ for name, command in parsed.items():
     
     write(f"""
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]={name.upper()};
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     """)
     
     head=command["params"][0]
@@ -450,7 +453,6 @@ for name, command in parsed.items():
         
     write(deregisterDeviceMemoryMap(name))
     write(f"""
-        json["enum"]={name.upper()};
         writeToConn(json);
         
         while(true){{

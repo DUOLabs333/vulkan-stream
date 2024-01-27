@@ -32,17 +32,17 @@ void deserialize_Sync(boost::json::object& json, Sync& sync){
 typedef struct {
     void* pUserData;
 
+uintptr_t PFN_vkVoidFunction;
+uintptr_t PFN_vkFaultCallbackFunction;
 uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
 uintptr_t PFN_vkInternalAllocationNotification;
-uintptr_t PFN_vkInternalFreeNotification;
-uintptr_t PFN_vkFreeFunction;
-uintptr_t PFN_vkFaultCallbackFunction;
-uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
 uintptr_t PFN_vkAllocationFunction;
-uintptr_t PFN_vkReallocationFunction;
-uintptr_t PFN_vkVoidFunction;
-uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
+uintptr_t PFN_vkFreeFunction;
+uintptr_t PFN_vkInternalFreeNotification;
+uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
 uintptr_t PFN_vkDebugReportCallbackEXT;
+uintptr_t PFN_vkReallocationFunction;
+uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
 } pUserData_struct;
 
 void serialize_pNext(boost::json::object& json, const void* member){

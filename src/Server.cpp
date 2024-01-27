@@ -45,7 +45,7 @@ class RWError : public std::exception {
                 currStruct()->uuid=value_to<int>(json["uuid"]);
             }
             
-            if (static_cast<StreamType>(value_to<int>(json["enum"]))==SYNC){
+            if (static_cast<StreamType>(value_to<int>(json["type"]))==SYNC){
                 handle_sync_init(json);
             }
             else{

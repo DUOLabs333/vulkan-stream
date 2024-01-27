@@ -33485,7 +33485,7 @@ json.clear();
 void handle_command(boost::json::object json){
 //Will only be called by the server
 
-switch (static_cast<StreamType>(value_to<int>(json["enum"]))){
+switch (static_cast<StreamType>(value_to<int>(json["type"]))){
 
 
         case (VKCREATEINSTANCE):
@@ -36134,8 +36134,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateInstance( const VkInstan
 debug_printf("Executing vkCreateInstance\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEINSTANCE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 parent_json["instance"]=(uintptr_t)NULL;
 {
@@ -36175,7 +36177,6 @@ parent_json["instance"]=(uintptr_t)NULL;
 }
 
 
-        json["enum"]=VKCREATEINSTANCE;
         writeToConn(json);
         
         while(true){
@@ -36253,8 +36254,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyInstance( VkInstance instan
 debug_printf("Executing vkDestroyInstance\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYINSTANCE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
@@ -36282,7 +36285,6 @@ debug_printf("Executing vkDestroyInstance\n");
 }
 
 
-        json["enum"]=VKDESTROYINSTANCE;
         writeToConn(json);
         
         while(true){
@@ -36346,8 +36348,10 @@ __attribute__((visibility ("hidden"))) VkResult vkEnumeratePhysicalDevices( VkIn
 debug_printf("Executing vkEnumeratePhysicalDevices\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKENUMERATEPHYSICALDEVICES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
@@ -36381,7 +36385,6 @@ debug_printf("Executing vkEnumeratePhysicalDevices\n");
 }
 
 
-        json["enum"]=VKENUMERATEPHYSICALDEVICES;
         writeToConn(json);
         
         while(true){
@@ -36473,8 +36476,10 @@ __attribute__((visibility ("hidden"))) PFN_vkVoidFunction vkGetDeviceProcAddr( V
 debug_printf("Executing vkGetDeviceProcAddr\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEVICEPROCADDR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -36499,7 +36504,6 @@ debug_printf("Executing vkGetDeviceProcAddr\n");
 }
 
 
-        json["enum"]=VKGETDEVICEPROCADDR;
         writeToConn(json);
         
         while(true){
@@ -40824,8 +40828,10 @@ __attribute__((visibility ("hidden"))) PFN_vkVoidFunction vkGetInstanceProcAddr(
 debug_printf("Executing vkGetInstanceProcAddr\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETINSTANCEPROCADDR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
@@ -40850,7 +40856,6 @@ debug_printf("Executing vkGetInstanceProcAddr\n");
 }
 
 
-        json["enum"]=VKGETINSTANCEPROCADDR;
         writeToConn(json);
         
         while(true){
@@ -45175,8 +45180,10 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceProperties( VkPhy
 debug_printf("Executing vkGetPhysicalDeviceProperties\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEPROPERTIES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -45204,7 +45211,6 @@ debug_printf("Executing vkGetPhysicalDeviceProperties\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -45279,8 +45285,10 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceQueueFamilyProper
 debug_printf("Executing vkGetPhysicalDeviceQueueFamilyProperties\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -45317,7 +45325,6 @@ debug_printf("Executing vkGetPhysicalDeviceQueueFamilyProperties\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -45401,8 +45408,10 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceMemoryProperties(
 debug_printf("Executing vkGetPhysicalDeviceMemoryProperties\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEMEMORYPROPERTIES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -45430,7 +45439,6 @@ debug_printf("Executing vkGetPhysicalDeviceMemoryProperties\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEMEMORYPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -45505,8 +45513,10 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceFeatures( VkPhysi
 debug_printf("Executing vkGetPhysicalDeviceFeatures\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEFEATURES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -45534,7 +45544,6 @@ debug_printf("Executing vkGetPhysicalDeviceFeatures\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEFEATURES;
         writeToConn(json);
         
         while(true){
@@ -45609,8 +45618,10 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceFormatProperties(
 debug_printf("Executing vkGetPhysicalDeviceFormatProperties\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEFORMATPROPERTIES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -45639,7 +45650,6 @@ debug_printf("Executing vkGetPhysicalDeviceFormatProperties\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEFORMATPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -45715,8 +45725,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceImageFormatPr
 debug_printf("Executing vkGetPhysicalDeviceImageFormatProperties\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -45749,7 +45761,6 @@ debug_printf("Executing vkGetPhysicalDeviceImageFormatProperties\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -45833,8 +45844,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDevice( VkPhysicalDevice
 debug_printf("Executing vkCreateDevice\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEDEVICE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -45883,7 +45896,6 @@ debug_printf("Executing vkCreateDevice\n");
 }
 
 
-        json["enum"]=VKCREATEDEVICE;
         writeToConn(json);
         
         while(true){
@@ -45963,8 +45975,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyDevice( VkDevice device, co
 debug_printf("Executing vkDestroyDevice\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYDEVICE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -45992,7 +46006,6 @@ debug_printf("Executing vkDestroyDevice\n");
 }
 
 
-        json["enum"]=VKDESTROYDEVICE;
         writeToConn(json);
         
         while(true){
@@ -46056,8 +46069,10 @@ __attribute__((visibility ("hidden"))) VkResult vkEnumerateInstanceVersion( uint
 debug_printf("Executing vkEnumerateInstanceVersion\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKENUMERATEINSTANCEVERSION;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 parent_json["instance"]=(uintptr_t)NULL;
 {
@@ -46073,7 +46088,6 @@ parent_json["instance"]=(uintptr_t)NULL;
 }
 
 
-        json["enum"]=VKENUMERATEINSTANCEVERSION;
         writeToConn(json);
         
         while(true){
@@ -46148,8 +46162,10 @@ __attribute__((visibility ("hidden"))) VkResult vkEnumerateInstanceLayerProperti
 debug_printf("Executing vkEnumerateInstanceLayerProperties\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKENUMERATEINSTANCELAYERPROPERTIES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 parent_json["instance"]=(uintptr_t)NULL;
 {
@@ -46177,7 +46193,6 @@ parent_json["instance"]=(uintptr_t)NULL;
 }
 
 
-        json["enum"]=VKENUMERATEINSTANCELAYERPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -46264,8 +46279,10 @@ __attribute__((visibility ("hidden"))) VkResult vkEnumerateInstanceExtensionProp
 debug_printf("Executing vkEnumerateInstanceExtensionProperties\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKENUMERATEINSTANCEEXTENSIONPROPERTIES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 parent_json["instance"]=(uintptr_t)NULL;
 
@@ -46315,7 +46332,6 @@ parent_json["instance"]=(uintptr_t)NULL;
 }
 
 
-        json["enum"]=VKENUMERATEINSTANCEEXTENSIONPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -46435,8 +46451,10 @@ __attribute__((visibility ("hidden"))) VkResult vkEnumerateDeviceLayerProperties
 debug_printf("Executing vkEnumerateDeviceLayerProperties\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKENUMERATEDEVICELAYERPROPERTIES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -46473,7 +46491,6 @@ debug_printf("Executing vkEnumerateDeviceLayerProperties\n");
 }
 
 
-        json["enum"]=VKENUMERATEDEVICELAYERPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -46561,8 +46578,10 @@ __attribute__((visibility ("hidden"))) VkResult vkEnumerateDeviceExtensionProper
 debug_printf("Executing vkEnumerateDeviceExtensionProperties\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKENUMERATEDEVICEEXTENSIONPROPERTIES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -46608,7 +46627,6 @@ debug_printf("Executing vkEnumerateDeviceExtensionProperties\n");
 }
 
 
-        json["enum"]=VKENUMERATEDEVICEEXTENSIONPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -46697,8 +46715,10 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceQueue( VkDevice device, u
 debug_printf("Executing vkGetDeviceQueue\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEVICEQUEUE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -46725,7 +46745,6 @@ debug_printf("Executing vkGetDeviceQueue\n");
 }
 
 
-        json["enum"]=VKGETDEVICEQUEUE;
         writeToConn(json);
         
         while(true){
@@ -46807,8 +46826,10 @@ debug_printf("Executing vkQueueSubmit\n");
 MemoryMapLock.lock_shared();
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKQUEUESUBMIT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
@@ -46839,7 +46860,6 @@ MemoryMapLock.lock_shared();
 SyncAll();
 
 
-        json["enum"]=VKQUEUESUBMIT;
         writeToConn(json);
         
         while(true){
@@ -46910,8 +46930,10 @@ __attribute__((visibility ("hidden"))) VkResult vkQueueWaitIdle( VkQueue queue )
 debug_printf("Executing vkQueueWaitIdle\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKQUEUEWAITIDLE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
@@ -46927,7 +46949,6 @@ debug_printf("Executing vkQueueWaitIdle\n");
 }
 
 
-        json["enum"]=VKQUEUEWAITIDLE;
         writeToConn(json);
         
         while(true){
@@ -46994,8 +47015,10 @@ __attribute__((visibility ("hidden"))) VkResult vkDeviceWaitIdle( VkDevice devic
 debug_printf("Executing vkDeviceWaitIdle\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDEVICEWAITIDLE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -47011,7 +47034,6 @@ debug_printf("Executing vkDeviceWaitIdle\n");
 }
 
 
-        json["enum"]=VKDEVICEWAITIDLE;
         writeToConn(json);
         
         while(true){
@@ -47079,8 +47101,10 @@ __attribute__((visibility ("hidden"))) VkResult vkAllocateMemory( VkDevice devic
 debug_printf("Executing vkAllocateMemory\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKALLOCATEMEMORY;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -47129,7 +47153,6 @@ debug_printf("Executing vkAllocateMemory\n");
 }
 
 
-        json["enum"]=VKALLOCATEMEMORY;
         writeToConn(json);
         
         while(true){
@@ -47208,8 +47231,10 @@ __attribute__((visibility ("hidden"))) void vkFreeMemory( VkDevice device, VkDev
 debug_printf("Executing vkFreeMemory\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKFREEMEMORY;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -47239,7 +47264,6 @@ debug_printf("Executing vkFreeMemory\n");
 vkUnmapMemory(device,memory);
 
 
-        json["enum"]=VKFREEMEMORY;
         writeToConn(json);
         
         while(true){
@@ -47305,8 +47329,10 @@ debug_printf("Executing vkMapMemory\n");
 MemoryMapLock.lock();
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKMAPMEMORY;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -47352,7 +47378,6 @@ MemoryMapLock.lock();
 }
 
 
-        json["enum"]=VKMAPMEMORY;
         writeToConn(json);
         
         while(true){
@@ -47456,8 +47481,10 @@ debug_printf("Executing vkUnmapMemory\n");
 MemoryMapLock.lock();
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKUNMAPMEMORY;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -47474,7 +47501,6 @@ MemoryMapLock.lock();
 }
 deregisterDeviceMemoryMap(memory);
 
-        json["enum"]=VKUNMAPMEMORY;
         writeToConn(json);
         
         while(true){
@@ -47539,8 +47565,10 @@ __attribute__((visibility ("hidden"))) VkResult vkFlushMappedMemoryRanges( VkDev
 debug_printf("Executing vkFlushMappedMemoryRanges\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKFLUSHMAPPEDMEMORYRANGES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -47569,7 +47597,6 @@ debug_printf("Executing vkFlushMappedMemoryRanges\n");
 }
 
 
-        json["enum"]=VKFLUSHMAPPEDMEMORYRANGES;
         writeToConn(json);
         
         while(true){
@@ -47638,8 +47665,10 @@ __attribute__((visibility ("hidden"))) VkResult vkInvalidateMappedMemoryRanges( 
 debug_printf("Executing vkInvalidateMappedMemoryRanges\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKINVALIDATEMAPPEDMEMORYRANGES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -47668,7 +47697,6 @@ debug_printf("Executing vkInvalidateMappedMemoryRanges\n");
 }
 
 
-        json["enum"]=VKINVALIDATEMAPPEDMEMORYRANGES;
         writeToConn(json);
         
         while(true){
@@ -47737,8 +47765,10 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceMemoryCommitment( VkDevic
 debug_printf("Executing vkGetDeviceMemoryCommitment\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEVICEMEMORYCOMMITMENT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -47764,7 +47794,6 @@ debug_printf("Executing vkGetDeviceMemoryCommitment\n");
 }
 
 
-        json["enum"]=VKGETDEVICEMEMORYCOMMITMENT;
         writeToConn(json);
         
         while(true){
@@ -47837,8 +47866,10 @@ __attribute__((visibility ("hidden"))) void vkGetBufferMemoryRequirements( VkDev
 debug_printf("Executing vkGetBufferMemoryRequirements\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETBUFFERMEMORYREQUIREMENTS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -47867,7 +47898,6 @@ debug_printf("Executing vkGetBufferMemoryRequirements\n");
 }
 
 
-        json["enum"]=VKGETBUFFERMEMORYREQUIREMENTS;
         writeToConn(json);
         
         while(true){
@@ -47943,8 +47973,10 @@ __attribute__((visibility ("hidden"))) VkResult vkBindBufferMemory( VkDevice dev
 debug_printf("Executing vkBindBufferMemory\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKBINDBUFFERMEMORY;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -47963,7 +47995,6 @@ debug_printf("Executing vkBindBufferMemory\n");
 }
 
 
-        json["enum"]=VKBINDBUFFERMEMORY;
         writeToConn(json);
         
         while(true){
@@ -48033,8 +48064,10 @@ __attribute__((visibility ("hidden"))) void vkGetImageMemoryRequirements( VkDevi
 debug_printf("Executing vkGetImageMemoryRequirements\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETIMAGEMEMORYREQUIREMENTS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -48063,7 +48096,6 @@ debug_printf("Executing vkGetImageMemoryRequirements\n");
 }
 
 
-        json["enum"]=VKGETIMAGEMEMORYREQUIREMENTS;
         writeToConn(json);
         
         while(true){
@@ -48139,8 +48171,10 @@ __attribute__((visibility ("hidden"))) VkResult vkBindImageMemory( VkDevice devi
 debug_printf("Executing vkBindImageMemory\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKBINDIMAGEMEMORY;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -48159,7 +48193,6 @@ debug_printf("Executing vkBindImageMemory\n");
 }
 
 
-        json["enum"]=VKBINDIMAGEMEMORY;
         writeToConn(json);
         
         while(true){
@@ -48229,8 +48262,10 @@ __attribute__((visibility ("hidden"))) void vkGetImageSparseMemoryRequirements( 
 debug_printf("Executing vkGetImageSparseMemoryRequirements\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETIMAGESPARSEMEMORYREQUIREMENTS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -48268,7 +48303,6 @@ debug_printf("Executing vkGetImageSparseMemoryRequirements\n");
 }
 
 
-        json["enum"]=VKGETIMAGESPARSEMEMORYREQUIREMENTS;
         writeToConn(json);
         
         while(true){
@@ -48353,8 +48387,10 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceSparseImageFormat
 debug_printf("Executing vkGetPhysicalDeviceSparseImageFormatProperties\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -48396,7 +48432,6 @@ debug_printf("Executing vkGetPhysicalDeviceSparseImageFormatProperties\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -48485,8 +48520,10 @@ __attribute__((visibility ("hidden"))) VkResult vkQueueBindSparse( VkQueue queue
 debug_printf("Executing vkQueueBindSparse\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKQUEUEBINDSPARSE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
@@ -48516,7 +48553,6 @@ debug_printf("Executing vkQueueBindSparse\n");
 }
 
 
-        json["enum"]=VKQUEUEBINDSPARSE;
         writeToConn(json);
         
         while(true){
@@ -48586,8 +48622,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateFence( VkDevice device, 
 debug_printf("Executing vkCreateFence\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEFENCE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -48636,7 +48674,6 @@ debug_printf("Executing vkCreateFence\n");
 }
 
 
-        json["enum"]=VKCREATEFENCE;
         writeToConn(json);
         
         while(true){
@@ -48721,8 +48758,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyFence( VkDevice device, VkF
 debug_printf("Executing vkDestroyFence\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYFENCE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -48751,7 +48790,6 @@ debug_printf("Executing vkDestroyFence\n");
 }
 
 
-        json["enum"]=VKDESTROYFENCE;
         writeToConn(json);
         
         while(true){
@@ -48816,8 +48854,10 @@ __attribute__((visibility ("hidden"))) VkResult vkResetFences( VkDevice device, 
 debug_printf("Executing vkResetFences\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKRESETFENCES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -48843,7 +48883,6 @@ debug_printf("Executing vkResetFences\n");
 }
 
 
-        json["enum"]=VKRESETFENCES;
         writeToConn(json);
         
         while(true){
@@ -48912,8 +48951,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetFenceStatus( VkDevice devic
 debug_printf("Executing vkGetFenceStatus\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETFENCESTATUS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -48930,7 +48971,6 @@ debug_printf("Executing vkGetFenceStatus\n");
 }
 
 
-        json["enum"]=VKGETFENCESTATUS;
         writeToConn(json);
         
         while(true){
@@ -48999,8 +49039,10 @@ debug_printf("Executing vkWaitForFences\n");
 MemoryMapLock.lock_shared();
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKWAITFORFENCES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -49028,7 +49070,6 @@ MemoryMapLock.lock_shared();
 }
 
 
-        json["enum"]=VKWAITFORFENCES;
         writeToConn(json);
         
         while(true){
@@ -49100,8 +49141,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateSemaphore( VkDevice devi
 debug_printf("Executing vkCreateSemaphore\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATESEMAPHORE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -49150,7 +49193,6 @@ debug_printf("Executing vkCreateSemaphore\n");
 }
 
 
-        json["enum"]=VKCREATESEMAPHORE;
         writeToConn(json);
         
         while(true){
@@ -49235,8 +49277,10 @@ __attribute__((visibility ("hidden"))) void vkDestroySemaphore( VkDevice device,
 debug_printf("Executing vkDestroySemaphore\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYSEMAPHORE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -49265,7 +49309,6 @@ debug_printf("Executing vkDestroySemaphore\n");
 }
 
 
-        json["enum"]=VKDESTROYSEMAPHORE;
         writeToConn(json);
         
         while(true){
@@ -49330,8 +49373,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateEvent( VkDevice device, 
 debug_printf("Executing vkCreateEvent\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEEVENT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -49380,7 +49425,6 @@ debug_printf("Executing vkCreateEvent\n");
 }
 
 
-        json["enum"]=VKCREATEEVENT;
         writeToConn(json);
         
         while(true){
@@ -49465,8 +49509,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyEvent( VkDevice device, VkE
 debug_printf("Executing vkDestroyEvent\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYEVENT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -49495,7 +49541,6 @@ debug_printf("Executing vkDestroyEvent\n");
 }
 
 
-        json["enum"]=VKDESTROYEVENT;
         writeToConn(json);
         
         while(true){
@@ -49560,8 +49605,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetEventStatus( VkDevice devic
 debug_printf("Executing vkGetEventStatus\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETEVENTSTATUS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -49578,7 +49625,6 @@ debug_printf("Executing vkGetEventStatus\n");
 }
 
 
-        json["enum"]=VKGETEVENTSTATUS;
         writeToConn(json);
         
         while(true){
@@ -49646,8 +49692,10 @@ __attribute__((visibility ("hidden"))) VkResult vkSetEvent( VkDevice device, VkE
 debug_printf("Executing vkSetEvent\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKSETEVENT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -49664,7 +49712,6 @@ debug_printf("Executing vkSetEvent\n");
 }
 
 
-        json["enum"]=VKSETEVENT;
         writeToConn(json);
         
         while(true){
@@ -49732,8 +49779,10 @@ __attribute__((visibility ("hidden"))) VkResult vkResetEvent( VkDevice device, V
 debug_printf("Executing vkResetEvent\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKRESETEVENT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -49750,7 +49799,6 @@ debug_printf("Executing vkResetEvent\n");
 }
 
 
-        json["enum"]=VKRESETEVENT;
         writeToConn(json);
         
         while(true){
@@ -49818,8 +49866,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateQueryPool( VkDevice devi
 debug_printf("Executing vkCreateQueryPool\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEQUERYPOOL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -49868,7 +49918,6 @@ debug_printf("Executing vkCreateQueryPool\n");
 }
 
 
-        json["enum"]=VKCREATEQUERYPOOL;
         writeToConn(json);
         
         while(true){
@@ -49953,8 +50002,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyQueryPool( VkDevice device,
 debug_printf("Executing vkDestroyQueryPool\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYQUERYPOOL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -49983,7 +50034,6 @@ debug_printf("Executing vkDestroyQueryPool\n");
 }
 
 
-        json["enum"]=VKDESTROYQUERYPOOL;
         writeToConn(json);
         
         while(true){
@@ -50048,8 +50098,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetQueryPoolResults( VkDevice 
 debug_printf("Executing vkGetQueryPoolResults\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETQUERYPOOLRESULTS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -50083,7 +50135,6 @@ debug_printf("Executing vkGetQueryPoolResults\n");
 }
 
 
-        json["enum"]=VKGETQUERYPOOLRESULTS;
         writeToConn(json);
         
         while(true){
@@ -50168,8 +50219,10 @@ __attribute__((visibility ("hidden"))) void vkResetQueryPool( VkDevice device, V
 debug_printf("Executing vkResetQueryPool\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKRESETQUERYPOOL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -50188,7 +50241,6 @@ debug_printf("Executing vkResetQueryPool\n");
 }
 
 
-        json["enum"]=VKRESETQUERYPOOL;
         writeToConn(json);
         
         while(true){
@@ -50257,8 +50309,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateBuffer( VkDevice device,
 debug_printf("Executing vkCreateBuffer\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEBUFFER;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -50307,7 +50361,6 @@ debug_printf("Executing vkCreateBuffer\n");
 }
 
 
-        json["enum"]=VKCREATEBUFFER;
         writeToConn(json);
         
         while(true){
@@ -50392,8 +50445,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyBuffer( VkDevice device, Vk
 debug_printf("Executing vkDestroyBuffer\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYBUFFER;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -50422,7 +50477,6 @@ debug_printf("Executing vkDestroyBuffer\n");
 }
 
 
-        json["enum"]=VKDESTROYBUFFER;
         writeToConn(json);
         
         while(true){
@@ -50487,8 +50541,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateBufferView( VkDevice dev
 debug_printf("Executing vkCreateBufferView\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEBUFFERVIEW;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -50537,7 +50593,6 @@ debug_printf("Executing vkCreateBufferView\n");
 }
 
 
-        json["enum"]=VKCREATEBUFFERVIEW;
         writeToConn(json);
         
         while(true){
@@ -50622,8 +50677,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyBufferView( VkDevice device
 debug_printf("Executing vkDestroyBufferView\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYBUFFERVIEW;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -50652,7 +50709,6 @@ debug_printf("Executing vkDestroyBufferView\n");
 }
 
 
-        json["enum"]=VKDESTROYBUFFERVIEW;
         writeToConn(json);
         
         while(true){
@@ -50717,8 +50773,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateImage( VkDevice device, 
 debug_printf("Executing vkCreateImage\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEIMAGE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -50767,7 +50825,6 @@ debug_printf("Executing vkCreateImage\n");
 }
 
 
-        json["enum"]=VKCREATEIMAGE;
         writeToConn(json);
         
         while(true){
@@ -50852,8 +50909,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyImage( VkDevice device, VkI
 debug_printf("Executing vkDestroyImage\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYIMAGE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -50882,7 +50941,6 @@ debug_printf("Executing vkDestroyImage\n");
 }
 
 
-        json["enum"]=VKDESTROYIMAGE;
         writeToConn(json);
         
         while(true){
@@ -50947,8 +51005,10 @@ __attribute__((visibility ("hidden"))) void vkGetImageSubresourceLayout( VkDevic
 debug_printf("Executing vkGetImageSubresourceLayout\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETIMAGESUBRESOURCELAYOUT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -50989,7 +51049,6 @@ debug_printf("Executing vkGetImageSubresourceLayout\n");
 }
 
 
-        json["enum"]=VKGETIMAGESUBRESOURCELAYOUT;
         writeToConn(json);
         
         while(true){
@@ -51066,8 +51125,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateImageView( VkDevice devi
 debug_printf("Executing vkCreateImageView\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEIMAGEVIEW;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -51116,7 +51177,6 @@ debug_printf("Executing vkCreateImageView\n");
 }
 
 
-        json["enum"]=VKCREATEIMAGEVIEW;
         writeToConn(json);
         
         while(true){
@@ -51201,8 +51261,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyImageView( VkDevice device,
 debug_printf("Executing vkDestroyImageView\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYIMAGEVIEW;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -51231,7 +51293,6 @@ debug_printf("Executing vkDestroyImageView\n");
 }
 
 
-        json["enum"]=VKDESTROYIMAGEVIEW;
         writeToConn(json);
         
         while(true){
@@ -51296,8 +51357,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateShaderModule( VkDevice d
 debug_printf("Executing vkCreateShaderModule\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATESHADERMODULE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -51346,7 +51409,6 @@ debug_printf("Executing vkCreateShaderModule\n");
 }
 
 
-        json["enum"]=VKCREATESHADERMODULE;
         writeToConn(json);
         
         while(true){
@@ -51431,8 +51493,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyShaderModule( VkDevice devi
 debug_printf("Executing vkDestroyShaderModule\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYSHADERMODULE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -51461,7 +51525,6 @@ debug_printf("Executing vkDestroyShaderModule\n");
 }
 
 
-        json["enum"]=VKDESTROYSHADERMODULE;
         writeToConn(json);
         
         while(true){
@@ -51526,8 +51589,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreatePipelineCache( VkDevice 
 debug_printf("Executing vkCreatePipelineCache\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEPIPELINECACHE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -51576,7 +51641,6 @@ debug_printf("Executing vkCreatePipelineCache\n");
 }
 
 
-        json["enum"]=VKCREATEPIPELINECACHE;
         writeToConn(json);
         
         while(true){
@@ -51661,8 +51725,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyPipelineCache( VkDevice dev
 debug_printf("Executing vkDestroyPipelineCache\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYPIPELINECACHE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -51691,7 +51757,6 @@ debug_printf("Executing vkDestroyPipelineCache\n");
 }
 
 
-        json["enum"]=VKDESTROYPIPELINECACHE;
         writeToConn(json);
         
         while(true){
@@ -51756,8 +51821,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPipelineCacheData( VkDevice
 debug_printf("Executing vkGetPipelineCacheData\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPIPELINECACHEDATA;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -51795,7 +51862,6 @@ debug_printf("Executing vkGetPipelineCacheData\n");
 }
 
 
-        json["enum"]=VKGETPIPELINECACHEDATA;
         writeToConn(json);
         
         while(true){
@@ -51884,8 +51950,10 @@ __attribute__((visibility ("hidden"))) VkResult vkMergePipelineCaches( VkDevice 
 debug_printf("Executing vkMergePipelineCaches\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKMERGEPIPELINECACHES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -51912,7 +51980,6 @@ debug_printf("Executing vkMergePipelineCaches\n");
 }
 
 
-        json["enum"]=VKMERGEPIPELINECACHES;
         writeToConn(json);
         
         while(true){
@@ -51982,8 +52049,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateGraphicsPipelines( VkDev
 debug_printf("Executing vkCreateGraphicsPipelines\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEGRAPHICSPIPELINES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -52034,7 +52103,6 @@ debug_printf("Executing vkCreateGraphicsPipelines\n");
 }
 
 
-        json["enum"]=VKCREATEGRAPHICSPIPELINES;
         writeToConn(json);
         
         while(true){
@@ -52121,8 +52189,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateComputePipelines( VkDevi
 debug_printf("Executing vkCreateComputePipelines\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATECOMPUTEPIPELINES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -52173,7 +52243,6 @@ debug_printf("Executing vkCreateComputePipelines\n");
 }
 
 
-        json["enum"]=VKCREATECOMPUTEPIPELINES;
         writeToConn(json);
         
         while(true){
@@ -52260,8 +52329,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDeviceSubpassShadingMaxWork
 debug_printf("Executing vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEVICESUBPASSSHADINGMAXWORKGROUPSIZEHUAWEI;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -52290,7 +52361,6 @@ debug_printf("Executing vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI\n");
 }
 
 
-        json["enum"]=VKGETDEVICESUBPASSSHADINGMAXWORKGROUPSIZEHUAWEI;
         writeToConn(json);
         
         while(true){
@@ -52370,8 +52440,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyPipeline( VkDevice device, 
 debug_printf("Executing vkDestroyPipeline\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYPIPELINE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -52400,7 +52472,6 @@ debug_printf("Executing vkDestroyPipeline\n");
 }
 
 
-        json["enum"]=VKDESTROYPIPELINE;
         writeToConn(json);
         
         while(true){
@@ -52465,8 +52536,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreatePipelineLayout( VkDevice
 debug_printf("Executing vkCreatePipelineLayout\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEPIPELINELAYOUT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -52515,7 +52588,6 @@ debug_printf("Executing vkCreatePipelineLayout\n");
 }
 
 
-        json["enum"]=VKCREATEPIPELINELAYOUT;
         writeToConn(json);
         
         while(true){
@@ -52600,8 +52672,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyPipelineLayout( VkDevice de
 debug_printf("Executing vkDestroyPipelineLayout\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYPIPELINELAYOUT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -52630,7 +52704,6 @@ debug_printf("Executing vkDestroyPipelineLayout\n");
 }
 
 
-        json["enum"]=VKDESTROYPIPELINELAYOUT;
         writeToConn(json);
         
         while(true){
@@ -52695,8 +52768,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateSampler( VkDevice device
 debug_printf("Executing vkCreateSampler\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATESAMPLER;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -52745,7 +52820,6 @@ debug_printf("Executing vkCreateSampler\n");
 }
 
 
-        json["enum"]=VKCREATESAMPLER;
         writeToConn(json);
         
         while(true){
@@ -52830,8 +52904,10 @@ __attribute__((visibility ("hidden"))) void vkDestroySampler( VkDevice device, V
 debug_printf("Executing vkDestroySampler\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYSAMPLER;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -52860,7 +52936,6 @@ debug_printf("Executing vkDestroySampler\n");
 }
 
 
-        json["enum"]=VKDESTROYSAMPLER;
         writeToConn(json);
         
         while(true){
@@ -52925,8 +53000,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDescriptorSetLayout( VkD
 debug_printf("Executing vkCreateDescriptorSetLayout\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEDESCRIPTORSETLAYOUT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -52975,7 +53052,6 @@ debug_printf("Executing vkCreateDescriptorSetLayout\n");
 }
 
 
-        json["enum"]=VKCREATEDESCRIPTORSETLAYOUT;
         writeToConn(json);
         
         while(true){
@@ -53060,8 +53136,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyDescriptorSetLayout( VkDevi
 debug_printf("Executing vkDestroyDescriptorSetLayout\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYDESCRIPTORSETLAYOUT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -53090,7 +53168,6 @@ debug_printf("Executing vkDestroyDescriptorSetLayout\n");
 }
 
 
-        json["enum"]=VKDESTROYDESCRIPTORSETLAYOUT;
         writeToConn(json);
         
         while(true){
@@ -53155,8 +53232,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDescriptorPool( VkDevice
 debug_printf("Executing vkCreateDescriptorPool\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEDESCRIPTORPOOL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -53205,7 +53284,6 @@ debug_printf("Executing vkCreateDescriptorPool\n");
 }
 
 
-        json["enum"]=VKCREATEDESCRIPTORPOOL;
         writeToConn(json);
         
         while(true){
@@ -53290,8 +53368,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyDescriptorPool( VkDevice de
 debug_printf("Executing vkDestroyDescriptorPool\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYDESCRIPTORPOOL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -53320,7 +53400,6 @@ debug_printf("Executing vkDestroyDescriptorPool\n");
 }
 
 
-        json["enum"]=VKDESTROYDESCRIPTORPOOL;
         writeToConn(json);
         
         while(true){
@@ -53385,8 +53464,10 @@ __attribute__((visibility ("hidden"))) VkResult vkResetDescriptorPool( VkDevice 
 debug_printf("Executing vkResetDescriptorPool\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKRESETDESCRIPTORPOOL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -53404,7 +53485,6 @@ debug_printf("Executing vkResetDescriptorPool\n");
 }
 
 
-        json["enum"]=VKRESETDESCRIPTORPOOL;
         writeToConn(json);
         
         while(true){
@@ -53473,8 +53553,10 @@ __attribute__((visibility ("hidden"))) VkResult vkAllocateDescriptorSets( VkDevi
 debug_printf("Executing vkAllocateDescriptorSets\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKALLOCATEDESCRIPTORSETS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -53511,7 +53593,6 @@ debug_printf("Executing vkAllocateDescriptorSets\n");
 }
 
 
-        json["enum"]=VKALLOCATEDESCRIPTORSETS;
         writeToConn(json);
         
         while(true){
@@ -53595,8 +53676,10 @@ __attribute__((visibility ("hidden"))) VkResult vkFreeDescriptorSets( VkDevice d
 debug_printf("Executing vkFreeDescriptorSets\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKFREEDESCRIPTORSETS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -53623,7 +53706,6 @@ debug_printf("Executing vkFreeDescriptorSets\n");
 }
 
 
-        json["enum"]=VKFREEDESCRIPTORSETS;
         writeToConn(json);
         
         while(true){
@@ -53693,8 +53775,10 @@ __attribute__((visibility ("hidden"))) void vkUpdateDescriptorSets( VkDevice dev
 debug_printf("Executing vkUpdateDescriptorSets\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKUPDATEDESCRIPTORSETS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -53736,7 +53820,6 @@ debug_printf("Executing vkUpdateDescriptorSets\n");
 }
 
 
-        json["enum"]=VKUPDATEDESCRIPTORSETS;
         writeToConn(json);
         
         while(true){
@@ -53803,8 +53886,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateFramebuffer( VkDevice de
 debug_printf("Executing vkCreateFramebuffer\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEFRAMEBUFFER;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -53853,7 +53938,6 @@ debug_printf("Executing vkCreateFramebuffer\n");
 }
 
 
-        json["enum"]=VKCREATEFRAMEBUFFER;
         writeToConn(json);
         
         while(true){
@@ -53938,8 +54022,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyFramebuffer( VkDevice devic
 debug_printf("Executing vkDestroyFramebuffer\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYFRAMEBUFFER;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -53968,7 +54054,6 @@ debug_printf("Executing vkDestroyFramebuffer\n");
 }
 
 
-        json["enum"]=VKDESTROYFRAMEBUFFER;
         writeToConn(json);
         
         while(true){
@@ -54033,8 +54118,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateRenderPass( VkDevice dev
 debug_printf("Executing vkCreateRenderPass\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATERENDERPASS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -54083,7 +54170,6 @@ debug_printf("Executing vkCreateRenderPass\n");
 }
 
 
-        json["enum"]=VKCREATERENDERPASS;
         writeToConn(json);
         
         while(true){
@@ -54168,8 +54254,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyRenderPass( VkDevice device
 debug_printf("Executing vkDestroyRenderPass\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYRENDERPASS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -54198,7 +54286,6 @@ debug_printf("Executing vkDestroyRenderPass\n");
 }
 
 
-        json["enum"]=VKDESTROYRENDERPASS;
         writeToConn(json);
         
         while(true){
@@ -54263,8 +54350,10 @@ __attribute__((visibility ("hidden"))) void vkGetRenderAreaGranularity( VkDevice
 debug_printf("Executing vkGetRenderAreaGranularity\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETRENDERAREAGRANULARITY;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -54293,7 +54382,6 @@ debug_printf("Executing vkGetRenderAreaGranularity\n");
 }
 
 
-        json["enum"]=VKGETRENDERAREAGRANULARITY;
         writeToConn(json);
         
         while(true){
@@ -54369,8 +54457,10 @@ __attribute__((visibility ("hidden"))) void vkGetRenderingAreaGranularityKHR( Vk
 debug_printf("Executing vkGetRenderingAreaGranularityKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETRENDERINGAREAGRANULARITYKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -54410,7 +54500,6 @@ debug_printf("Executing vkGetRenderingAreaGranularityKHR\n");
 }
 
 
-        json["enum"]=VKGETRENDERINGAREAGRANULARITYKHR;
         writeToConn(json);
         
         while(true){
@@ -54486,8 +54575,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateCommandPool( VkDevice de
 debug_printf("Executing vkCreateCommandPool\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATECOMMANDPOOL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -54536,7 +54627,6 @@ debug_printf("Executing vkCreateCommandPool\n");
 }
 
 
-        json["enum"]=VKCREATECOMMANDPOOL;
         writeToConn(json);
         
         while(true){
@@ -54621,8 +54711,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyCommandPool( VkDevice devic
 debug_printf("Executing vkDestroyCommandPool\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYCOMMANDPOOL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -54651,7 +54743,6 @@ debug_printf("Executing vkDestroyCommandPool\n");
 }
 
 
-        json["enum"]=VKDESTROYCOMMANDPOOL;
         writeToConn(json);
         
         while(true){
@@ -54716,8 +54807,10 @@ __attribute__((visibility ("hidden"))) VkResult vkResetCommandPool( VkDevice dev
 debug_printf("Executing vkResetCommandPool\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKRESETCOMMANDPOOL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -54735,7 +54828,6 @@ debug_printf("Executing vkResetCommandPool\n");
 }
 
 
-        json["enum"]=VKRESETCOMMANDPOOL;
         writeToConn(json);
         
         while(true){
@@ -54804,8 +54896,10 @@ __attribute__((visibility ("hidden"))) VkResult vkAllocateCommandBuffers( VkDevi
 debug_printf("Executing vkAllocateCommandBuffers\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKALLOCATECOMMANDBUFFERS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -54842,7 +54936,6 @@ debug_printf("Executing vkAllocateCommandBuffers\n");
 }
 
 
-        json["enum"]=VKALLOCATECOMMANDBUFFERS;
         writeToConn(json);
         
         while(true){
@@ -54926,8 +55019,10 @@ __attribute__((visibility ("hidden"))) void vkFreeCommandBuffers( VkDevice devic
 debug_printf("Executing vkFreeCommandBuffers\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKFREECOMMANDBUFFERS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -54954,7 +55049,6 @@ debug_printf("Executing vkFreeCommandBuffers\n");
 }
 
 
-        json["enum"]=VKFREECOMMANDBUFFERS;
         writeToConn(json);
         
         while(true){
@@ -55020,8 +55114,10 @@ __attribute__((visibility ("hidden"))) VkResult vkBeginCommandBuffer( VkCommandB
 debug_printf("Executing vkBeginCommandBuffer\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKBEGINCOMMANDBUFFER;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -55049,7 +55145,6 @@ debug_printf("Executing vkBeginCommandBuffer\n");
 }
 
 
-        json["enum"]=VKBEGINCOMMANDBUFFER;
         writeToConn(json);
         
         while(true){
@@ -55117,8 +55212,10 @@ __attribute__((visibility ("hidden"))) VkResult vkEndCommandBuffer( VkCommandBuf
 debug_printf("Executing vkEndCommandBuffer\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKENDCOMMANDBUFFER;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -55134,7 +55231,6 @@ debug_printf("Executing vkEndCommandBuffer\n");
 }
 
 
-        json["enum"]=VKENDCOMMANDBUFFER;
         writeToConn(json);
         
         while(true){
@@ -55201,8 +55297,10 @@ __attribute__((visibility ("hidden"))) VkResult vkResetCommandBuffer( VkCommandB
 debug_printf("Executing vkResetCommandBuffer\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKRESETCOMMANDBUFFER;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -55219,7 +55317,6 @@ debug_printf("Executing vkResetCommandBuffer\n");
 }
 
 
-        json["enum"]=VKRESETCOMMANDBUFFER;
         writeToConn(json);
         
         while(true){
@@ -55287,8 +55384,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBindPipeline( VkCommandBuffer c
 debug_printf("Executing vkCmdBindPipeline\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBINDPIPELINE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -55306,7 +55405,6 @@ debug_printf("Executing vkCmdBindPipeline\n");
 }
 
 
-        json["enum"]=VKCMDBINDPIPELINE;
         writeToConn(json);
         
         while(true){
@@ -55371,8 +55469,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetAttachmentFeedbackLoopEnable
 debug_printf("Executing vkCmdSetAttachmentFeedbackLoopEnableEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETATTACHMENTFEEDBACKLOOPENABLEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -55389,7 +55489,6 @@ debug_printf("Executing vkCmdSetAttachmentFeedbackLoopEnableEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETATTACHMENTFEEDBACKLOOPENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -55453,8 +55552,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetViewport( VkCommandBuffer co
 debug_printf("Executing vkCmdSetViewport\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETVIEWPORT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -55484,7 +55585,6 @@ debug_printf("Executing vkCmdSetViewport\n");
 }
 
 
-        json["enum"]=VKCMDSETVIEWPORT;
         writeToConn(json);
         
         while(true){
@@ -55550,8 +55650,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetScissor( VkCommandBuffer com
 debug_printf("Executing vkCmdSetScissor\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETSCISSOR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -55581,7 +55683,6 @@ debug_printf("Executing vkCmdSetScissor\n");
 }
 
 
-        json["enum"]=VKCMDSETSCISSOR;
         writeToConn(json);
         
         while(true){
@@ -55647,8 +55748,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetLineWidth( VkCommandBuffer c
 debug_printf("Executing vkCmdSetLineWidth\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETLINEWIDTH;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -55665,7 +55768,6 @@ debug_printf("Executing vkCmdSetLineWidth\n");
 }
 
 
-        json["enum"]=VKCMDSETLINEWIDTH;
         writeToConn(json);
         
         while(true){
@@ -55729,8 +55831,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthBias( VkCommandBuffer c
 debug_printf("Executing vkCmdSetDepthBias\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETDEPTHBIAS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -55749,7 +55853,6 @@ debug_printf("Executing vkCmdSetDepthBias\n");
 }
 
 
-        json["enum"]=VKCMDSETDEPTHBIAS;
         writeToConn(json);
         
         while(true){
@@ -55815,8 +55918,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetBlendConstants( VkCommandBuf
 debug_printf("Executing vkCmdSetBlendConstants\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETBLENDCONSTANTS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -55838,7 +55943,6 @@ debug_printf("Executing vkCmdSetBlendConstants\n");
 }
 
 
-        json["enum"]=VKCMDSETBLENDCONSTANTS;
         writeToConn(json);
         
         while(true){
@@ -55907,8 +56011,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthBounds( VkCommandBuffer
 debug_printf("Executing vkCmdSetDepthBounds\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETDEPTHBOUNDS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -55926,7 +56032,6 @@ debug_printf("Executing vkCmdSetDepthBounds\n");
 }
 
 
-        json["enum"]=VKCMDSETDEPTHBOUNDS;
         writeToConn(json);
         
         while(true){
@@ -55991,8 +56096,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetStencilCompareMask( VkComman
 debug_printf("Executing vkCmdSetStencilCompareMask\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETSTENCILCOMPAREMASK;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -56010,7 +56117,6 @@ debug_printf("Executing vkCmdSetStencilCompareMask\n");
 }
 
 
-        json["enum"]=VKCMDSETSTENCILCOMPAREMASK;
         writeToConn(json);
         
         while(true){
@@ -56075,8 +56181,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetStencilWriteMask( VkCommandB
 debug_printf("Executing vkCmdSetStencilWriteMask\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETSTENCILWRITEMASK;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -56094,7 +56202,6 @@ debug_printf("Executing vkCmdSetStencilWriteMask\n");
 }
 
 
-        json["enum"]=VKCMDSETSTENCILWRITEMASK;
         writeToConn(json);
         
         while(true){
@@ -56159,8 +56266,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetStencilReference( VkCommandB
 debug_printf("Executing vkCmdSetStencilReference\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETSTENCILREFERENCE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -56178,7 +56287,6 @@ debug_printf("Executing vkCmdSetStencilReference\n");
 }
 
 
-        json["enum"]=VKCMDSETSTENCILREFERENCE;
         writeToConn(json);
         
         while(true){
@@ -56243,8 +56351,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBindDescriptorSets( VkCommandBu
 debug_printf("Executing vkCmdBindDescriptorSets\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBINDDESCRIPTORSETS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -56283,7 +56393,6 @@ debug_printf("Executing vkCmdBindDescriptorSets\n");
 }
 
 
-        json["enum"]=VKCMDBINDDESCRIPTORSETS;
         writeToConn(json);
         
         while(true){
@@ -56353,8 +56462,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBindIndexBuffer( VkCommandBuffe
 debug_printf("Executing vkCmdBindIndexBuffer\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBINDINDEXBUFFER;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -56373,7 +56484,6 @@ debug_printf("Executing vkCmdBindIndexBuffer\n");
 }
 
 
-        json["enum"]=VKCMDBINDINDEXBUFFER;
         writeToConn(json);
         
         while(true){
@@ -56439,8 +56549,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBindVertexBuffers( VkCommandBuf
 debug_printf("Executing vkCmdBindVertexBuffers\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBINDVERTEXBUFFERS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -56476,7 +56588,6 @@ debug_printf("Executing vkCmdBindVertexBuffers\n");
 }
 
 
-        json["enum"]=VKCMDBINDVERTEXBUFFERS;
         writeToConn(json);
         
         while(true){
@@ -56543,8 +56654,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDraw( VkCommandBuffer commandBu
 debug_printf("Executing vkCmdDraw\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDRAW;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -56564,7 +56677,6 @@ debug_printf("Executing vkCmdDraw\n");
 }
 
 
-        json["enum"]=VKCMDDRAW;
         writeToConn(json);
         
         while(true){
@@ -56631,8 +56743,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawIndexed( VkCommandBuffer co
 debug_printf("Executing vkCmdDrawIndexed\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDRAWINDEXED;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -56653,7 +56767,6 @@ debug_printf("Executing vkCmdDrawIndexed\n");
 }
 
 
-        json["enum"]=VKCMDDRAWINDEXED;
         writeToConn(json);
         
         while(true){
@@ -56721,8 +56834,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawMultiEXT( VkCommandBuffer c
 debug_printf("Executing vkCmdDrawMultiEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDRAWMULTIEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -56754,7 +56869,6 @@ debug_printf("Executing vkCmdDrawMultiEXT\n");
 }
 
 
-        json["enum"]=VKCMDDRAWMULTIEXT;
         writeToConn(json);
         
         while(true){
@@ -56822,8 +56936,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawMultiIndexedEXT( VkCommandB
 debug_printf("Executing vkCmdDrawMultiIndexedEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDRAWMULTIINDEXEDEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -56864,7 +56980,6 @@ debug_printf("Executing vkCmdDrawMultiIndexedEXT\n");
 }
 
 
-        json["enum"]=VKCMDDRAWMULTIINDEXEDEXT;
         writeToConn(json);
         
         while(true){
@@ -56933,8 +57048,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawIndirect( VkCommandBuffer c
 debug_printf("Executing vkCmdDrawIndirect\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDRAWINDIRECT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -56954,7 +57071,6 @@ debug_printf("Executing vkCmdDrawIndirect\n");
 }
 
 
-        json["enum"]=VKCMDDRAWINDIRECT;
         writeToConn(json);
         
         while(true){
@@ -57021,8 +57137,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawIndexedIndirect( VkCommandB
 debug_printf("Executing vkCmdDrawIndexedIndirect\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDRAWINDEXEDINDIRECT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -57042,7 +57160,6 @@ debug_printf("Executing vkCmdDrawIndexedIndirect\n");
 }
 
 
-        json["enum"]=VKCMDDRAWINDEXEDINDIRECT;
         writeToConn(json);
         
         while(true){
@@ -57109,8 +57226,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDispatch( VkCommandBuffer comma
 debug_printf("Executing vkCmdDispatch\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDISPATCH;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -57129,7 +57248,6 @@ debug_printf("Executing vkCmdDispatch\n");
 }
 
 
-        json["enum"]=VKCMDDISPATCH;
         writeToConn(json);
         
         while(true){
@@ -57195,8 +57313,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDispatchIndirect( VkCommandBuff
 debug_printf("Executing vkCmdDispatchIndirect\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDISPATCHINDIRECT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -57214,7 +57334,6 @@ debug_printf("Executing vkCmdDispatchIndirect\n");
 }
 
 
-        json["enum"]=VKCMDDISPATCHINDIRECT;
         writeToConn(json);
         
         while(true){
@@ -57279,8 +57398,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSubpassShadingHUAWEI( VkCommand
 debug_printf("Executing vkCmdSubpassShadingHUAWEI\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSUBPASSSHADINGHUAWEI;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -57296,7 +57417,6 @@ debug_printf("Executing vkCmdSubpassShadingHUAWEI\n");
 }
 
 
-        json["enum"]=VKCMDSUBPASSSHADINGHUAWEI;
         writeToConn(json);
         
         while(true){
@@ -57359,8 +57479,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawClusterHUAWEI( VkCommandBuf
 debug_printf("Executing vkCmdDrawClusterHUAWEI\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDRAWCLUSTERHUAWEI;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -57379,7 +57501,6 @@ debug_printf("Executing vkCmdDrawClusterHUAWEI\n");
 }
 
 
-        json["enum"]=VKCMDDRAWCLUSTERHUAWEI;
         writeToConn(json);
         
         while(true){
@@ -57445,8 +57566,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawClusterIndirectHUAWEI( VkCo
 debug_printf("Executing vkCmdDrawClusterIndirectHUAWEI\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDRAWCLUSTERINDIRECTHUAWEI;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -57464,7 +57587,6 @@ debug_printf("Executing vkCmdDrawClusterIndirectHUAWEI\n");
 }
 
 
-        json["enum"]=VKCMDDRAWCLUSTERINDIRECTHUAWEI;
         writeToConn(json);
         
         while(true){
@@ -57529,8 +57651,10 @@ __attribute__((visibility ("hidden"))) void vkCmdUpdatePipelineIndirectBufferNV(
 debug_printf("Executing vkCmdUpdatePipelineIndirectBufferNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDUPDATEPIPELINEINDIRECTBUFFERNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -57548,7 +57672,6 @@ debug_printf("Executing vkCmdUpdatePipelineIndirectBufferNV\n");
 }
 
 
-        json["enum"]=VKCMDUPDATEPIPELINEINDIRECTBUFFERNV;
         writeToConn(json);
         
         while(true){
@@ -57613,8 +57736,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyBuffer( VkCommandBuffer com
 debug_printf("Executing vkCmdCopyBuffer\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYBUFFER;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -57645,7 +57770,6 @@ debug_printf("Executing vkCmdCopyBuffer\n");
 }
 
 
-        json["enum"]=VKCMDCOPYBUFFER;
         writeToConn(json);
         
         while(true){
@@ -57712,8 +57836,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyImage( VkCommandBuffer comm
 debug_printf("Executing vkCmdCopyImage\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYIMAGE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -57746,7 +57872,6 @@ debug_printf("Executing vkCmdCopyImage\n");
 }
 
 
-        json["enum"]=VKCMDCOPYIMAGE;
         writeToConn(json);
         
         while(true){
@@ -57815,8 +57940,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBlitImage( VkCommandBuffer comm
 debug_printf("Executing vkCmdBlitImage\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBLITIMAGE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -57850,7 +57977,6 @@ debug_printf("Executing vkCmdBlitImage\n");
 }
 
 
-        json["enum"]=VKCMDBLITIMAGE;
         writeToConn(json);
         
         while(true){
@@ -57920,8 +58046,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyBufferToImage( VkCommandBuf
 debug_printf("Executing vkCmdCopyBufferToImage\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYBUFFERTOIMAGE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -57953,7 +58081,6 @@ debug_printf("Executing vkCmdCopyBufferToImage\n");
 }
 
 
-        json["enum"]=VKCMDCOPYBUFFERTOIMAGE;
         writeToConn(json);
         
         while(true){
@@ -58021,8 +58148,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyImageToBuffer( VkCommandBuf
 debug_printf("Executing vkCmdCopyImageToBuffer\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYIMAGETOBUFFER;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -58054,7 +58183,6 @@ debug_printf("Executing vkCmdCopyImageToBuffer\n");
 }
 
 
-        json["enum"]=VKCMDCOPYIMAGETOBUFFER;
         writeToConn(json);
         
         while(true){
@@ -58122,8 +58250,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyMemoryIndirectNV( VkCommand
 debug_printf("Executing vkCmdCopyMemoryIndirectNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYMEMORYINDIRECTNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -58142,7 +58272,6 @@ debug_printf("Executing vkCmdCopyMemoryIndirectNV\n");
 }
 
 
-        json["enum"]=VKCMDCOPYMEMORYINDIRECTNV;
         writeToConn(json);
         
         while(true){
@@ -58208,8 +58337,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyMemoryToImageIndirectNV( Vk
 debug_printf("Executing vkCmdCopyMemoryToImageIndirectNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYMEMORYTOIMAGEINDIRECTNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -58242,7 +58373,6 @@ debug_printf("Executing vkCmdCopyMemoryToImageIndirectNV\n");
 }
 
 
-        json["enum"]=VKCMDCOPYMEMORYTOIMAGEINDIRECTNV;
         writeToConn(json);
         
         while(true){
@@ -58311,8 +58441,10 @@ __attribute__((visibility ("hidden"))) void vkCmdUpdateBuffer( VkCommandBuffer c
 debug_printf("Executing vkCmdUpdateBuffer\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDUPDATEBUFFER;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -58343,7 +58475,6 @@ debug_printf("Executing vkCmdUpdateBuffer\n");
 }
 
 
-        json["enum"]=VKCMDUPDATEBUFFER;
         writeToConn(json);
         
         while(true){
@@ -58410,8 +58541,10 @@ __attribute__((visibility ("hidden"))) void vkCmdFillBuffer( VkCommandBuffer com
 debug_printf("Executing vkCmdFillBuffer\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDFILLBUFFER;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -58431,7 +58564,6 @@ debug_printf("Executing vkCmdFillBuffer\n");
 }
 
 
-        json["enum"]=VKCMDFILLBUFFER;
         writeToConn(json);
         
         while(true){
@@ -58498,8 +58630,10 @@ __attribute__((visibility ("hidden"))) void vkCmdClearColorImage( VkCommandBuffe
 debug_printf("Executing vkCmdClearColorImage\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCLEARCOLORIMAGE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -58542,7 +58676,6 @@ debug_printf("Executing vkCmdClearColorImage\n");
 }
 
 
-        json["enum"]=VKCMDCLEARCOLORIMAGE;
         writeToConn(json);
         
         while(true){
@@ -58610,8 +58743,10 @@ __attribute__((visibility ("hidden"))) void vkCmdClearDepthStencilImage( VkComma
 debug_printf("Executing vkCmdClearDepthStencilImage\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCLEARDEPTHSTENCILIMAGE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -58654,7 +58789,6 @@ debug_printf("Executing vkCmdClearDepthStencilImage\n");
 }
 
 
-        json["enum"]=VKCMDCLEARDEPTHSTENCILIMAGE;
         writeToConn(json);
         
         while(true){
@@ -58722,8 +58856,10 @@ __attribute__((visibility ("hidden"))) void vkCmdClearAttachments( VkCommandBuff
 debug_printf("Executing vkCmdClearAttachments\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCLEARATTACHMENTS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -58765,7 +58901,6 @@ debug_printf("Executing vkCmdClearAttachments\n");
 }
 
 
-        json["enum"]=VKCMDCLEARATTACHMENTS;
         writeToConn(json);
         
         while(true){
@@ -58832,8 +58967,10 @@ __attribute__((visibility ("hidden"))) void vkCmdResolveImage( VkCommandBuffer c
 debug_printf("Executing vkCmdResolveImage\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDRESOLVEIMAGE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -58866,7 +59003,6 @@ debug_printf("Executing vkCmdResolveImage\n");
 }
 
 
-        json["enum"]=VKCMDRESOLVEIMAGE;
         writeToConn(json);
         
         while(true){
@@ -58935,8 +59071,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetEvent( VkCommandBuffer comma
 debug_printf("Executing vkCmdSetEvent\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETEVENT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -58954,7 +59092,6 @@ debug_printf("Executing vkCmdSetEvent\n");
 }
 
 
-        json["enum"]=VKCMDSETEVENT;
         writeToConn(json);
         
         while(true){
@@ -59019,8 +59156,10 @@ __attribute__((visibility ("hidden"))) void vkCmdResetEvent( VkCommandBuffer com
 debug_printf("Executing vkCmdResetEvent\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDRESETEVENT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -59038,7 +59177,6 @@ debug_printf("Executing vkCmdResetEvent\n");
 }
 
 
-        json["enum"]=VKCMDRESETEVENT;
         writeToConn(json);
         
         while(true){
@@ -59103,8 +59241,10 @@ __attribute__((visibility ("hidden"))) void vkCmdWaitEvents( VkCommandBuffer com
 debug_printf("Executing vkCmdWaitEvents\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDWAITEVENTS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -59171,7 +59311,6 @@ debug_printf("Executing vkCmdWaitEvents\n");
 }
 
 
-        json["enum"]=VKCMDWAITEVENTS;
         writeToConn(json);
         
         while(true){
@@ -59244,8 +59383,10 @@ __attribute__((visibility ("hidden"))) void vkCmdPipelineBarrier( VkCommandBuffe
 debug_printf("Executing vkCmdPipelineBarrier\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDPIPELINEBARRIER;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -59303,7 +59444,6 @@ debug_printf("Executing vkCmdPipelineBarrier\n");
 }
 
 
-        json["enum"]=VKCMDPIPELINEBARRIER;
         writeToConn(json);
         
         while(true){
@@ -59375,8 +59515,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginQuery( VkCommandBuffer com
 debug_printf("Executing vkCmdBeginQuery\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBEGINQUERY;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -59395,7 +59537,6 @@ debug_printf("Executing vkCmdBeginQuery\n");
 }
 
 
-        json["enum"]=VKCMDBEGINQUERY;
         writeToConn(json);
         
         while(true){
@@ -59461,8 +59602,10 @@ __attribute__((visibility ("hidden"))) void vkCmdEndQuery( VkCommandBuffer comma
 debug_printf("Executing vkCmdEndQuery\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDENDQUERY;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -59480,7 +59623,6 @@ debug_printf("Executing vkCmdEndQuery\n");
 }
 
 
-        json["enum"]=VKCMDENDQUERY;
         writeToConn(json);
         
         while(true){
@@ -59545,8 +59687,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginConditionalRenderingEXT( V
 debug_printf("Executing vkCmdBeginConditionalRenderingEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBEGINCONDITIONALRENDERINGEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -59574,7 +59718,6 @@ debug_printf("Executing vkCmdBeginConditionalRenderingEXT\n");
 }
 
 
-        json["enum"]=VKCMDBEGINCONDITIONALRENDERINGEXT;
         writeToConn(json);
         
         while(true){
@@ -59638,8 +59781,10 @@ __attribute__((visibility ("hidden"))) void vkCmdEndConditionalRenderingEXT( VkC
 debug_printf("Executing vkCmdEndConditionalRenderingEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDENDCONDITIONALRENDERINGEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -59655,7 +59800,6 @@ debug_printf("Executing vkCmdEndConditionalRenderingEXT\n");
 }
 
 
-        json["enum"]=VKCMDENDCONDITIONALRENDERINGEXT;
         writeToConn(json);
         
         while(true){
@@ -59718,8 +59862,10 @@ __attribute__((visibility ("hidden"))) void vkCmdResetQueryPool( VkCommandBuffer
 debug_printf("Executing vkCmdResetQueryPool\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDRESETQUERYPOOL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -59738,7 +59884,6 @@ debug_printf("Executing vkCmdResetQueryPool\n");
 }
 
 
-        json["enum"]=VKCMDRESETQUERYPOOL;
         writeToConn(json);
         
         while(true){
@@ -59804,8 +59949,10 @@ __attribute__((visibility ("hidden"))) void vkCmdWriteTimestamp( VkCommandBuffer
 debug_printf("Executing vkCmdWriteTimestamp\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDWRITETIMESTAMP;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -59824,7 +59971,6 @@ debug_printf("Executing vkCmdWriteTimestamp\n");
 }
 
 
-        json["enum"]=VKCMDWRITETIMESTAMP;
         writeToConn(json);
         
         while(true){
@@ -59890,8 +60036,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyQueryPoolResults( VkCommand
 debug_printf("Executing vkCmdCopyQueryPoolResults\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYQUERYPOOLRESULTS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -59914,7 +60062,6 @@ debug_printf("Executing vkCmdCopyQueryPoolResults\n");
 }
 
 
-        json["enum"]=VKCMDCOPYQUERYPOOLRESULTS;
         writeToConn(json);
         
         while(true){
@@ -59984,8 +60131,10 @@ __attribute__((visibility ("hidden"))) void vkCmdPushConstants( VkCommandBuffer 
 debug_printf("Executing vkCmdPushConstants\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDPUSHCONSTANTS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -60017,7 +60166,6 @@ debug_printf("Executing vkCmdPushConstants\n");
 }
 
 
-        json["enum"]=VKCMDPUSHCONSTANTS;
         writeToConn(json);
         
         while(true){
@@ -60085,8 +60233,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginRenderPass( VkCommandBuffe
 debug_printf("Executing vkCmdBeginRenderPass\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBEGINRENDERPASS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -60115,7 +60265,6 @@ debug_printf("Executing vkCmdBeginRenderPass\n");
 }
 
 
-        json["enum"]=VKCMDBEGINRENDERPASS;
         writeToConn(json);
         
         while(true){
@@ -60180,8 +60329,10 @@ __attribute__((visibility ("hidden"))) void vkCmdNextSubpass( VkCommandBuffer co
 debug_printf("Executing vkCmdNextSubpass\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDNEXTSUBPASS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -60198,7 +60349,6 @@ debug_printf("Executing vkCmdNextSubpass\n");
 }
 
 
-        json["enum"]=VKCMDNEXTSUBPASS;
         writeToConn(json);
         
         while(true){
@@ -60262,8 +60412,10 @@ __attribute__((visibility ("hidden"))) void vkCmdEndRenderPass( VkCommandBuffer 
 debug_printf("Executing vkCmdEndRenderPass\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDENDRENDERPASS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -60279,7 +60431,6 @@ debug_printf("Executing vkCmdEndRenderPass\n");
 }
 
 
-        json["enum"]=VKCMDENDRENDERPASS;
         writeToConn(json);
         
         while(true){
@@ -60342,8 +60493,10 @@ __attribute__((visibility ("hidden"))) void vkCmdExecuteCommands( VkCommandBuffe
 debug_printf("Executing vkCmdExecuteCommands\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDEXECUTECOMMANDS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -60369,7 +60522,6 @@ debug_printf("Executing vkCmdExecuteCommands\n");
 }
 
 
-        json["enum"]=VKCMDEXECUTECOMMANDS;
         writeToConn(json);
         
         while(true){
@@ -60434,8 +60586,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceDisplayProper
 debug_printf("Executing vkGetPhysicalDeviceDisplayPropertiesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEDISPLAYPROPERTIESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -60472,7 +60626,6 @@ debug_printf("Executing vkGetPhysicalDeviceDisplayPropertiesKHR\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEDISPLAYPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
@@ -60560,8 +60713,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceDisplayPlaneP
 debug_printf("Executing vkGetPhysicalDeviceDisplayPlanePropertiesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -60598,7 +60753,6 @@ debug_printf("Executing vkGetPhysicalDeviceDisplayPlanePropertiesKHR\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
@@ -60686,8 +60840,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDisplayPlaneSupportedDispla
 debug_printf("Executing vkGetDisplayPlaneSupportedDisplaysKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDISPLAYPLANESUPPORTEDDISPLAYSKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -60722,7 +60878,6 @@ debug_printf("Executing vkGetDisplayPlaneSupportedDisplaysKHR\n");
 }
 
 
-        json["enum"]=VKGETDISPLAYPLANESUPPORTEDDISPLAYSKHR;
         writeToConn(json);
         
         while(true){
@@ -60808,8 +60963,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDisplayModePropertiesKHR( V
 debug_printf("Executing vkGetDisplayModePropertiesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDISPLAYMODEPROPERTIESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -60847,7 +61004,6 @@ debug_printf("Executing vkGetDisplayModePropertiesKHR\n");
 }
 
 
-        json["enum"]=VKGETDISPLAYMODEPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
@@ -60936,8 +61092,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDisplayModeKHR( VkPhysic
 debug_printf("Executing vkCreateDisplayModeKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEDISPLAYMODEKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -60987,7 +61145,6 @@ debug_printf("Executing vkCreateDisplayModeKHR\n");
 }
 
 
-        json["enum"]=VKCREATEDISPLAYMODEKHR;
         writeToConn(json);
         
         while(true){
@@ -61073,8 +61230,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDisplayPlaneCapabilitiesKHR
 debug_printf("Executing vkGetDisplayPlaneCapabilitiesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDISPLAYPLANECAPABILITIESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -61104,7 +61263,6 @@ debug_printf("Executing vkGetDisplayPlaneCapabilitiesKHR\n");
 }
 
 
-        json["enum"]=VKGETDISPLAYPLANECAPABILITIESKHR;
         writeToConn(json);
         
         while(true){
@@ -61185,8 +61343,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDisplayPlaneSurfaceKHR( 
 debug_printf("Executing vkCreateDisplayPlaneSurfaceKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEDISPLAYPLANESURFACEKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
@@ -61235,7 +61395,6 @@ debug_printf("Executing vkCreateDisplayPlaneSurfaceKHR\n");
 }
 
 
-        json["enum"]=VKCREATEDISPLAYPLANESURFACEKHR;
         writeToConn(json);
         
         while(true){
@@ -61320,8 +61479,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateSharedSwapchainsKHR( VkD
 debug_printf("Executing vkCreateSharedSwapchainsKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATESHAREDSWAPCHAINSKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -61371,7 +61532,6 @@ debug_printf("Executing vkCreateSharedSwapchainsKHR\n");
 }
 
 
-        json["enum"]=VKCREATESHAREDSWAPCHAINSKHR;
         writeToConn(json);
         
         while(true){
@@ -61457,8 +61617,10 @@ __attribute__((visibility ("hidden"))) void vkDestroySurfaceKHR( VkInstance inst
 debug_printf("Executing vkDestroySurfaceKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYSURFACEKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
@@ -61487,7 +61649,6 @@ debug_printf("Executing vkDestroySurfaceKHR\n");
 }
 
 
-        json["enum"]=VKDESTROYSURFACEKHR;
         writeToConn(json);
         
         while(true){
@@ -61552,8 +61713,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceSurfaceSuppor
 debug_printf("Executing vkGetPhysicalDeviceSurfaceSupportKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICESURFACESUPPORTKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -61580,7 +61743,6 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceSupportKHR\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICESURFACESUPPORTKHR;
         writeToConn(json);
         
         while(true){
@@ -61658,8 +61820,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceSurfaceCapabi
 debug_printf("Executing vkGetPhysicalDeviceSurfaceCapabilitiesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICESURFACECAPABILITIESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -61688,7 +61852,6 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceCapabilitiesKHR\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICESURFACECAPABILITIESKHR;
         writeToConn(json);
         
         while(true){
@@ -61773,8 +61936,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceSurfaceFormat
 debug_printf("Executing vkGetPhysicalDeviceSurfaceFormatsKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICESURFACEFORMATSKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -61812,7 +61977,6 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceFormatsKHR\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICESURFACEFORMATSKHR;
         writeToConn(json);
         
         while(true){
@@ -61901,8 +62065,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceSurfacePresen
 debug_printf("Executing vkGetPhysicalDeviceSurfacePresentModesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICESURFACEPRESENTMODESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -61937,7 +62103,6 @@ debug_printf("Executing vkGetPhysicalDeviceSurfacePresentModesKHR\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICESURFACEPRESENTMODESKHR;
         writeToConn(json);
         
         while(true){
@@ -62023,8 +62188,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateSwapchainKHR( VkDevice d
 debug_printf("Executing vkCreateSwapchainKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATESWAPCHAINKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -62080,7 +62247,6 @@ debug_printf("Executing vkCreateSwapchainKHR\n");
 }
 
 
-        json["enum"]=VKCREATESWAPCHAINKHR;
         writeToConn(json);
         
         while(true){
@@ -62166,8 +62332,10 @@ __attribute__((visibility ("hidden"))) void vkDestroySwapchainKHR( VkDevice devi
 debug_printf("Executing vkDestroySwapchainKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYSWAPCHAINKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -62196,7 +62364,6 @@ debug_printf("Executing vkDestroySwapchainKHR\n");
 }
 
 
-        json["enum"]=VKDESTROYSWAPCHAINKHR;
         writeToConn(json);
         
         while(true){
@@ -62261,8 +62428,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetSwapchainImagesKHR( VkDevic
 debug_printf("Executing vkGetSwapchainImagesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETSWAPCHAINIMAGESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -62297,7 +62466,6 @@ debug_printf("Executing vkGetSwapchainImagesKHR\n");
 }
 
 
-        json["enum"]=VKGETSWAPCHAINIMAGESKHR;
         writeToConn(json);
         
         while(true){
@@ -62383,8 +62551,10 @@ __attribute__((visibility ("hidden"))) VkResult vkAcquireNextImageKHR( VkDevice 
 debug_printf("Executing vkAcquireNextImageKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKACQUIRENEXTIMAGEKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -62413,7 +62583,6 @@ debug_printf("Executing vkAcquireNextImageKHR\n");
 }
 
 
-        json["enum"]=VKACQUIRENEXTIMAGEKHR;
         writeToConn(json);
         
         while(true){
@@ -62493,8 +62662,10 @@ __attribute__((visibility ("hidden"))) VkResult vkQueuePresentKHR( VkQueue queue
 debug_printf("Executing vkQueuePresentKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKQUEUEPRESENTKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
@@ -62572,7 +62743,6 @@ debug_printf("Executing vkQueuePresentKHR\n");
 }
 
 
-        json["enum"]=VKQUEUEPRESENTKHR;
         writeToConn(json);
         
         while(true){
@@ -62656,8 +62826,10 @@ __attribute__((visibility ("hidden"))) VkBool32 vkGetPhysicalDeviceXlibPresentat
 debug_printf("Executing vkGetPhysicalDeviceXlibPresentationSupportKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEXLIBPRESENTATIONSUPPORTKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -62679,7 +62851,6 @@ debug_printf("Executing vkGetPhysicalDeviceXlibPresentationSupportKHR\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEXLIBPRESENTATIONSUPPORTKHR;
         writeToConn(json);
         
         while(true){
@@ -62767,8 +62938,10 @@ __attribute__((visibility ("hidden"))) VkBool32 vkGetPhysicalDeviceXcbPresentati
 debug_printf("Executing vkGetPhysicalDeviceXcbPresentationSupportKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEXCBPRESENTATIONSUPPORTKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -62790,7 +62963,6 @@ debug_printf("Executing vkGetPhysicalDeviceXcbPresentationSupportKHR\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEXCBPRESENTATIONSUPPORTKHR;
         writeToConn(json);
         
         while(true){
@@ -62862,8 +63034,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDebugReportCallbackEXT( 
 debug_printf("Executing vkCreateDebugReportCallbackEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEDEBUGREPORTCALLBACKEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
@@ -62912,7 +63086,6 @@ debug_printf("Executing vkCreateDebugReportCallbackEXT\n");
 }
 
 
-        json["enum"]=VKCREATEDEBUGREPORTCALLBACKEXT;
         writeToConn(json);
         
         while(true){
@@ -62997,8 +63170,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyDebugReportCallbackEXT( VkI
 debug_printf("Executing vkDestroyDebugReportCallbackEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYDEBUGREPORTCALLBACKEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
@@ -63027,7 +63202,6 @@ debug_printf("Executing vkDestroyDebugReportCallbackEXT\n");
 }
 
 
-        json["enum"]=VKDESTROYDEBUGREPORTCALLBACKEXT;
         writeToConn(json);
         
         while(true){
@@ -63092,8 +63266,10 @@ __attribute__((visibility ("hidden"))) void vkDebugReportMessageEXT( VkInstance 
 debug_printf("Executing vkDebugReportMessageEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDEBUGREPORTMESSAGEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
@@ -63132,7 +63308,6 @@ debug_printf("Executing vkDebugReportMessageEXT\n");
 }
 
 
-        json["enum"]=VKDEBUGREPORTMESSAGEEXT;
         writeToConn(json);
         
         while(true){
@@ -63202,8 +63377,10 @@ __attribute__((visibility ("hidden"))) VkResult vkDebugMarkerSetObjectNameEXT( V
 debug_printf("Executing vkDebugMarkerSetObjectNameEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDEBUGMARKERSETOBJECTNAMEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -63231,7 +63408,6 @@ debug_printf("Executing vkDebugMarkerSetObjectNameEXT\n");
 }
 
 
-        json["enum"]=VKDEBUGMARKERSETOBJECTNAMEEXT;
         writeToConn(json);
         
         while(true){
@@ -63299,8 +63475,10 @@ __attribute__((visibility ("hidden"))) VkResult vkDebugMarkerSetObjectTagEXT( Vk
 debug_printf("Executing vkDebugMarkerSetObjectTagEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDEBUGMARKERSETOBJECTTAGEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -63328,7 +63506,6 @@ debug_printf("Executing vkDebugMarkerSetObjectTagEXT\n");
 }
 
 
-        json["enum"]=VKDEBUGMARKERSETOBJECTTAGEXT;
         writeToConn(json);
         
         while(true){
@@ -63396,8 +63573,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDebugMarkerBeginEXT( VkCommandB
 debug_printf("Executing vkCmdDebugMarkerBeginEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDEBUGMARKERBEGINEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -63425,7 +63604,6 @@ debug_printf("Executing vkCmdDebugMarkerBeginEXT\n");
 }
 
 
-        json["enum"]=VKCMDDEBUGMARKERBEGINEXT;
         writeToConn(json);
         
         while(true){
@@ -63489,8 +63667,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDebugMarkerEndEXT( VkCommandBuf
 debug_printf("Executing vkCmdDebugMarkerEndEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDEBUGMARKERENDEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -63506,7 +63686,6 @@ debug_printf("Executing vkCmdDebugMarkerEndEXT\n");
 }
 
 
-        json["enum"]=VKCMDDEBUGMARKERENDEXT;
         writeToConn(json);
         
         while(true){
@@ -63569,8 +63748,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDebugMarkerInsertEXT( VkCommand
 debug_printf("Executing vkCmdDebugMarkerInsertEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDEBUGMARKERINSERTEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -63598,7 +63779,6 @@ debug_printf("Executing vkCmdDebugMarkerInsertEXT\n");
 }
 
 
-        json["enum"]=VKCMDDEBUGMARKERINSERTEXT;
         writeToConn(json);
         
         while(true){
@@ -63662,8 +63842,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceExternalImage
 debug_printf("Executing vkGetPhysicalDeviceExternalImageFormatPropertiesNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEEXTERNALIMAGEFORMATPROPERTIESNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -63697,7 +63879,6 @@ debug_printf("Executing vkGetPhysicalDeviceExternalImageFormatPropertiesNV\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEEXTERNALIMAGEFORMATPROPERTIESNV;
         writeToConn(json);
         
         while(true){
@@ -63782,8 +63963,10 @@ __attribute__((visibility ("hidden"))) void vkCmdExecuteGeneratedCommandsNV( VkC
 debug_printf("Executing vkCmdExecuteGeneratedCommandsNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDEXECUTEGENERATEDCOMMANDSNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -63812,7 +63995,6 @@ debug_printf("Executing vkCmdExecuteGeneratedCommandsNV\n");
 }
 
 
-        json["enum"]=VKCMDEXECUTEGENERATEDCOMMANDSNV;
         writeToConn(json);
         
         while(true){
@@ -63877,8 +64059,10 @@ __attribute__((visibility ("hidden"))) void vkCmdPreprocessGeneratedCommandsNV( 
 debug_printf("Executing vkCmdPreprocessGeneratedCommandsNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDPREPROCESSGENERATEDCOMMANDSNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -63906,7 +64090,6 @@ debug_printf("Executing vkCmdPreprocessGeneratedCommandsNV\n");
 }
 
 
-        json["enum"]=VKCMDPREPROCESSGENERATEDCOMMANDSNV;
         writeToConn(json);
         
         while(true){
@@ -63970,8 +64153,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBindPipelineShaderGroupNV( VkCo
 debug_printf("Executing vkCmdBindPipelineShaderGroupNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBINDPIPELINESHADERGROUPNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -63990,7 +64175,6 @@ debug_printf("Executing vkCmdBindPipelineShaderGroupNV\n");
 }
 
 
-        json["enum"]=VKCMDBINDPIPELINESHADERGROUPNV;
         writeToConn(json);
         
         while(true){
@@ -64056,8 +64240,10 @@ __attribute__((visibility ("hidden"))) void vkGetGeneratedCommandsMemoryRequirem
 debug_printf("Executing vkGetGeneratedCommandsMemoryRequirementsNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETGENERATEDCOMMANDSMEMORYREQUIREMENTSNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -64097,7 +64283,6 @@ debug_printf("Executing vkGetGeneratedCommandsMemoryRequirementsNV\n");
 }
 
 
-        json["enum"]=VKGETGENERATEDCOMMANDSMEMORYREQUIREMENTSNV;
         writeToConn(json);
         
         while(true){
@@ -64173,8 +64358,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateIndirectCommandsLayoutNV
 debug_printf("Executing vkCreateIndirectCommandsLayoutNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEINDIRECTCOMMANDSLAYOUTNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -64223,7 +64410,6 @@ debug_printf("Executing vkCreateIndirectCommandsLayoutNV\n");
 }
 
 
-        json["enum"]=VKCREATEINDIRECTCOMMANDSLAYOUTNV;
         writeToConn(json);
         
         while(true){
@@ -64308,8 +64494,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyIndirectCommandsLayoutNV( V
 debug_printf("Executing vkDestroyIndirectCommandsLayoutNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYINDIRECTCOMMANDSLAYOUTNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -64338,7 +64526,6 @@ debug_printf("Executing vkDestroyIndirectCommandsLayoutNV\n");
 }
 
 
-        json["enum"]=VKDESTROYINDIRECTCOMMANDSLAYOUTNV;
         writeToConn(json);
         
         while(true){
@@ -64403,8 +64590,10 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceFeatures2( VkPhys
 debug_printf("Executing vkGetPhysicalDeviceFeatures2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEFEATURES2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -64432,7 +64621,6 @@ debug_printf("Executing vkGetPhysicalDeviceFeatures2\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEFEATURES2;
         writeToConn(json);
         
         while(true){
@@ -64510,8 +64698,10 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceProperties2( VkPh
 debug_printf("Executing vkGetPhysicalDeviceProperties2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEPROPERTIES2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -64539,7 +64729,6 @@ debug_printf("Executing vkGetPhysicalDeviceProperties2\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEPROPERTIES2;
         writeToConn(json);
         
         while(true){
@@ -64617,8 +64806,10 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceFormatProperties2
 debug_printf("Executing vkGetPhysicalDeviceFormatProperties2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEFORMATPROPERTIES2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -64647,7 +64838,6 @@ debug_printf("Executing vkGetPhysicalDeviceFormatProperties2\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEFORMATPROPERTIES2;
         writeToConn(json);
         
         while(true){
@@ -64726,8 +64916,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceImageFormatPr
 debug_printf("Executing vkGetPhysicalDeviceImageFormatProperties2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -64767,7 +64959,6 @@ debug_printf("Executing vkGetPhysicalDeviceImageFormatProperties2\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES2;
         writeToConn(json);
         
         while(true){
@@ -64850,8 +65041,10 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceQueueFamilyProper
 debug_printf("Executing vkGetPhysicalDeviceQueueFamilyProperties2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -64888,7 +65081,6 @@ debug_printf("Executing vkGetPhysicalDeviceQueueFamilyProperties2\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES2;
         writeToConn(json);
         
         while(true){
@@ -64975,8 +65167,10 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceMemoryProperties2
 debug_printf("Executing vkGetPhysicalDeviceMemoryProperties2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEMEMORYPROPERTIES2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -65004,7 +65198,6 @@ debug_printf("Executing vkGetPhysicalDeviceMemoryProperties2\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEMEMORYPROPERTIES2;
         writeToConn(json);
         
         while(true){
@@ -65082,8 +65275,10 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceSparseImageFormat
 debug_printf("Executing vkGetPhysicalDeviceSparseImageFormatProperties2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -65132,7 +65327,6 @@ debug_printf("Executing vkGetPhysicalDeviceSparseImageFormatProperties2\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES2;
         writeToConn(json);
         
         while(true){
@@ -65220,8 +65414,10 @@ __attribute__((visibility ("hidden"))) void vkCmdPushDescriptorSetKHR( VkCommand
 debug_printf("Executing vkCmdPushDescriptorSetKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDPUSHDESCRIPTORSETKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -65253,7 +65449,6 @@ debug_printf("Executing vkCmdPushDescriptorSetKHR\n");
 }
 
 
-        json["enum"]=VKCMDPUSHDESCRIPTORSETKHR;
         writeToConn(json);
         
         while(true){
@@ -65321,8 +65516,10 @@ __attribute__((visibility ("hidden"))) void vkTrimCommandPool( VkDevice device, 
 debug_printf("Executing vkTrimCommandPool\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKTRIMCOMMANDPOOL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -65340,7 +65537,6 @@ debug_printf("Executing vkTrimCommandPool\n");
 }
 
 
-        json["enum"]=VKTRIMCOMMANDPOOL;
         writeToConn(json);
         
         while(true){
@@ -65408,8 +65604,10 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceExternalBufferPro
 debug_printf("Executing vkGetPhysicalDeviceExternalBufferProperties\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEEXTERNALBUFFERPROPERTIES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -65449,7 +65647,6 @@ debug_printf("Executing vkGetPhysicalDeviceExternalBufferProperties\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEEXTERNALBUFFERPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -65528,8 +65725,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetMemoryFdKHR( VkDevice devic
 debug_printf("Executing vkGetMemoryFdKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETMEMORYFDKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -65566,7 +65765,6 @@ debug_printf("Executing vkGetMemoryFdKHR\n");
 }
 
 
-        json["enum"]=VKGETMEMORYFDKHR;
         writeToConn(json);
         
         while(true){
@@ -65643,8 +65841,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetMemoryFdPropertiesKHR( VkDe
 debug_printf("Executing vkGetMemoryFdPropertiesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETMEMORYFDPROPERTIESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -65674,7 +65874,6 @@ debug_printf("Executing vkGetMemoryFdPropertiesKHR\n");
 }
 
 
-        json["enum"]=VKGETMEMORYFDPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
@@ -65755,8 +65954,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetMemoryRemoteAddressNV( VkDe
 debug_printf("Executing vkGetMemoryRemoteAddressNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETMEMORYREMOTEADDRESSNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -65804,7 +66005,6 @@ debug_printf("Executing vkGetMemoryRemoteAddressNV\n");
 }
 
 
-        json["enum"]=VKGETMEMORYREMOTEADDRESSNV;
         writeToConn(json);
         
         while(true){
@@ -65892,8 +66092,10 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceExternalSemaphore
 debug_printf("Executing vkGetPhysicalDeviceExternalSemaphoreProperties\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEEXTERNALSEMAPHOREPROPERTIES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -65933,7 +66135,6 @@ debug_printf("Executing vkGetPhysicalDeviceExternalSemaphoreProperties\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEEXTERNALSEMAPHOREPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -66012,8 +66213,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetSemaphoreFdKHR( VkDevice de
 debug_printf("Executing vkGetSemaphoreFdKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETSEMAPHOREFDKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -66050,7 +66253,6 @@ debug_printf("Executing vkGetSemaphoreFdKHR\n");
 }
 
 
-        json["enum"]=VKGETSEMAPHOREFDKHR;
         writeToConn(json);
         
         while(true){
@@ -66127,8 +66329,10 @@ __attribute__((visibility ("hidden"))) VkResult vkImportSemaphoreFdKHR( VkDevice
 debug_printf("Executing vkImportSemaphoreFdKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKIMPORTSEMAPHOREFDKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -66156,7 +66360,6 @@ debug_printf("Executing vkImportSemaphoreFdKHR\n");
 }
 
 
-        json["enum"]=VKIMPORTSEMAPHOREFDKHR;
         writeToConn(json);
         
         while(true){
@@ -66224,8 +66427,10 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceExternalFenceProp
 debug_printf("Executing vkGetPhysicalDeviceExternalFenceProperties\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEEXTERNALFENCEPROPERTIES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -66265,7 +66470,6 @@ debug_printf("Executing vkGetPhysicalDeviceExternalFenceProperties\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEEXTERNALFENCEPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -66344,8 +66548,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetFenceFdKHR( VkDevice device
 debug_printf("Executing vkGetFenceFdKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETFENCEFDKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -66382,7 +66588,6 @@ debug_printf("Executing vkGetFenceFdKHR\n");
 }
 
 
-        json["enum"]=VKGETFENCEFDKHR;
         writeToConn(json);
         
         while(true){
@@ -66459,8 +66664,10 @@ __attribute__((visibility ("hidden"))) VkResult vkImportFenceFdKHR( VkDevice dev
 debug_printf("Executing vkImportFenceFdKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKIMPORTFENCEFDKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -66488,7 +66695,6 @@ debug_printf("Executing vkImportFenceFdKHR\n");
 }
 
 
-        json["enum"]=VKIMPORTFENCEFDKHR;
         writeToConn(json);
         
         while(true){
@@ -66556,8 +66762,10 @@ __attribute__((visibility ("hidden"))) VkResult vkReleaseDisplayEXT( VkPhysicalD
 debug_printf("Executing vkReleaseDisplayEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKRELEASEDISPLAYEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -66574,7 +66782,6 @@ debug_printf("Executing vkReleaseDisplayEXT\n");
 }
 
 
-        json["enum"]=VKRELEASEDISPLAYEXT;
         writeToConn(json);
         
         while(true){
@@ -66642,8 +66849,10 @@ __attribute__((visibility ("hidden"))) VkResult vkDisplayPowerControlEXT( VkDevi
 debug_printf("Executing vkDisplayPowerControlEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDISPLAYPOWERCONTROLEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -66672,7 +66881,6 @@ debug_printf("Executing vkDisplayPowerControlEXT\n");
 }
 
 
-        json["enum"]=VKDISPLAYPOWERCONTROLEXT;
         writeToConn(json);
         
         while(true){
@@ -66741,8 +66949,10 @@ __attribute__((visibility ("hidden"))) VkResult vkRegisterDeviceEventEXT( VkDevi
 debug_printf("Executing vkRegisterDeviceEventEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKREGISTERDEVICEEVENTEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -66791,7 +67001,6 @@ debug_printf("Executing vkRegisterDeviceEventEXT\n");
 }
 
 
-        json["enum"]=VKREGISTERDEVICEEVENTEXT;
         writeToConn(json);
         
         while(true){
@@ -66869,8 +67078,10 @@ __attribute__((visibility ("hidden"))) VkResult vkRegisterDisplayEventEXT( VkDev
 debug_printf("Executing vkRegisterDisplayEventEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKREGISTERDISPLAYEVENTEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -66920,7 +67131,6 @@ debug_printf("Executing vkRegisterDisplayEventEXT\n");
 }
 
 
-        json["enum"]=VKREGISTERDISPLAYEVENTEXT;
         writeToConn(json);
         
         while(true){
@@ -66999,8 +67209,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetSwapchainCounterEXT( VkDevi
 debug_printf("Executing vkGetSwapchainCounterEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETSWAPCHAINCOUNTEREXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -67027,7 +67239,6 @@ debug_printf("Executing vkGetSwapchainCounterEXT\n");
 }
 
 
-        json["enum"]=VKGETSWAPCHAINCOUNTEREXT;
         writeToConn(json);
         
         while(true){
@@ -67105,8 +67316,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceSurfaceCapabi
 debug_printf("Executing vkGetPhysicalDeviceSurfaceCapabilities2EXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICESURFACECAPABILITIES2EXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -67135,7 +67348,6 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceCapabilities2EXT\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICESURFACECAPABILITIES2EXT;
         writeToConn(json);
         
         while(true){
@@ -67215,8 +67427,10 @@ __attribute__((visibility ("hidden"))) VkResult vkEnumeratePhysicalDeviceGroups(
 debug_printf("Executing vkEnumeratePhysicalDeviceGroups\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKENUMERATEPHYSICALDEVICEGROUPS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
@@ -67253,7 +67467,6 @@ debug_printf("Executing vkEnumeratePhysicalDeviceGroups\n");
 }
 
 
-        json["enum"]=VKENUMERATEPHYSICALDEVICEGROUPS;
         writeToConn(json);
         
         while(true){
@@ -67344,8 +67557,10 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceGroupPeerMemoryFeatures( 
 debug_printf("Executing vkGetDeviceGroupPeerMemoryFeatures\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEVICEGROUPPEERMEMORYFEATURES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -67373,7 +67588,6 @@ debug_printf("Executing vkGetDeviceGroupPeerMemoryFeatures\n");
 }
 
 
-        json["enum"]=VKGETDEVICEGROUPPEERMEMORYFEATURES;
         writeToConn(json);
         
         while(true){
@@ -67451,8 +67665,10 @@ __attribute__((visibility ("hidden"))) VkResult vkBindBufferMemory2( VkDevice de
 debug_printf("Executing vkBindBufferMemory2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKBINDBUFFERMEMORY2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -67481,7 +67697,6 @@ debug_printf("Executing vkBindBufferMemory2\n");
 }
 
 
-        json["enum"]=VKBINDBUFFERMEMORY2;
         writeToConn(json);
         
         while(true){
@@ -67553,8 +67768,10 @@ __attribute__((visibility ("hidden"))) VkResult vkBindImageMemory2( VkDevice dev
 debug_printf("Executing vkBindImageMemory2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKBINDIMAGEMEMORY2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -67583,7 +67800,6 @@ debug_printf("Executing vkBindImageMemory2\n");
 }
 
 
-        json["enum"]=VKBINDIMAGEMEMORY2;
         writeToConn(json);
         
         while(true){
@@ -67655,8 +67871,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDeviceMask( VkCommandBuffer 
 debug_printf("Executing vkCmdSetDeviceMask\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETDEVICEMASK;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -67673,7 +67891,6 @@ debug_printf("Executing vkCmdSetDeviceMask\n");
 }
 
 
-        json["enum"]=VKCMDSETDEVICEMASK;
         writeToConn(json);
         
         while(true){
@@ -67740,8 +67957,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDeviceGroupPresentCapabilit
 debug_printf("Executing vkGetDeviceGroupPresentCapabilitiesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEVICEGROUPPRESENTCAPABILITIESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -67769,7 +67988,6 @@ debug_printf("Executing vkGetDeviceGroupPresentCapabilitiesKHR\n");
 }
 
 
-        json["enum"]=VKGETDEVICEGROUPPRESENTCAPABILITIESKHR;
         writeToConn(json);
         
         while(true){
@@ -67848,8 +68066,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDeviceGroupSurfacePresentMo
 debug_printf("Executing vkGetDeviceGroupSurfacePresentModesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEVICEGROUPSURFACEPRESENTMODESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -67875,7 +68095,6 @@ debug_printf("Executing vkGetDeviceGroupSurfacePresentModesKHR\n");
 }
 
 
-        json["enum"]=VKGETDEVICEGROUPSURFACEPRESENTMODESKHR;
         writeToConn(json);
         
         while(true){
@@ -67952,8 +68171,10 @@ __attribute__((visibility ("hidden"))) VkResult vkAcquireNextImage2KHR( VkDevice
 debug_printf("Executing vkAcquireNextImage2KHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKACQUIRENEXTIMAGE2KHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -67990,7 +68211,6 @@ debug_printf("Executing vkAcquireNextImage2KHR\n");
 }
 
 
-        json["enum"]=VKACQUIRENEXTIMAGE2KHR;
         writeToConn(json);
         
         while(true){
@@ -68067,8 +68287,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDispatchBase( VkCommandBuffer c
 debug_printf("Executing vkCmdDispatchBase\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDISPATCHBASE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -68090,7 +68312,6 @@ debug_printf("Executing vkCmdDispatchBase\n");
 }
 
 
-        json["enum"]=VKCMDDISPATCHBASE;
         writeToConn(json);
         
         while(true){
@@ -68162,8 +68383,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDevicePresentRectan
 debug_printf("Executing vkGetPhysicalDevicePresentRectanglesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEPRESENTRECTANGLESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -68201,7 +68424,6 @@ debug_printf("Executing vkGetPhysicalDevicePresentRectanglesKHR\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEPRESENTRECTANGLESKHR;
         writeToConn(json);
         
         while(true){
@@ -68290,8 +68512,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDescriptorUpdateTemplate
 debug_printf("Executing vkCreateDescriptorUpdateTemplate\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEDESCRIPTORUPDATETEMPLATE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -68340,7 +68564,6 @@ debug_printf("Executing vkCreateDescriptorUpdateTemplate\n");
 }
 
 
-        json["enum"]=VKCREATEDESCRIPTORUPDATETEMPLATE;
         writeToConn(json);
         
         while(true){
@@ -68428,8 +68651,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyDescriptorUpdateTemplate( V
 debug_printf("Executing vkDestroyDescriptorUpdateTemplate\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYDESCRIPTORUPDATETEMPLATE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -68458,7 +68683,6 @@ debug_printf("Executing vkDestroyDescriptorUpdateTemplate\n");
 }
 
 
-        json["enum"]=VKDESTROYDESCRIPTORUPDATETEMPLATE;
         writeToConn(json);
         
         while(true){
@@ -68526,8 +68750,10 @@ __attribute__((visibility ("hidden"))) void vkUpdateDescriptorSetWithTemplate( V
 debug_printf("Executing vkUpdateDescriptorSetWithTemplate\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKUPDATEDESCRIPTORSETWITHTEMPLATE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -68557,7 +68783,6 @@ debug_printf("Executing vkUpdateDescriptorSetWithTemplate\n");
 }
 
 
-        json["enum"]=VKUPDATEDESCRIPTORSETWITHTEMPLATE;
         writeToConn(json);
         
         while(true){
@@ -68626,8 +68851,10 @@ __attribute__((visibility ("hidden"))) void vkCmdPushDescriptorSetWithTemplateKH
 debug_printf("Executing vkCmdPushDescriptorSetWithTemplateKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDPUSHDESCRIPTORSETWITHTEMPLATEKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -68658,7 +68885,6 @@ debug_printf("Executing vkCmdPushDescriptorSetWithTemplateKHR\n");
 }
 
 
-        json["enum"]=VKCMDPUSHDESCRIPTORSETWITHTEMPLATEKHR;
         writeToConn(json);
         
         while(true){
@@ -68725,8 +68951,10 @@ __attribute__((visibility ("hidden"))) void vkSetHdrMetadataEXT( VkDevice device
 debug_printf("Executing vkSetHdrMetadataEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKSETHDRMETADATAEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -68764,7 +68992,6 @@ debug_printf("Executing vkSetHdrMetadataEXT\n");
 }
 
 
-        json["enum"]=VKSETHDRMETADATAEXT;
         writeToConn(json);
         
         while(true){
@@ -68830,8 +69057,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetSwapchainStatusKHR( VkDevic
 debug_printf("Executing vkGetSwapchainStatusKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETSWAPCHAINSTATUSKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -68848,7 +69077,6 @@ debug_printf("Executing vkGetSwapchainStatusKHR\n");
 }
 
 
-        json["enum"]=VKGETSWAPCHAINSTATUSKHR;
         writeToConn(json);
         
         while(true){
@@ -68916,8 +69144,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetRefreshCycleDurationGOOGLE(
 debug_printf("Executing vkGetRefreshCycleDurationGOOGLE\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETREFRESHCYCLEDURATIONGOOGLE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -68946,7 +69176,6 @@ debug_printf("Executing vkGetRefreshCycleDurationGOOGLE\n");
 }
 
 
-        json["enum"]=VKGETREFRESHCYCLEDURATIONGOOGLE;
         writeToConn(json);
         
         while(true){
@@ -69026,8 +69255,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPastPresentationTimingGOOGL
 debug_printf("Executing vkGetPastPresentationTimingGOOGLE\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPASTPRESENTATIONTIMINGGOOGLE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -69065,7 +69296,6 @@ debug_printf("Executing vkGetPastPresentationTimingGOOGLE\n");
 }
 
 
-        json["enum"]=VKGETPASTPRESENTATIONTIMINGGOOGLE;
         writeToConn(json);
         
         while(true){
@@ -69154,8 +69384,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetViewportWScalingNV( VkComman
 debug_printf("Executing vkCmdSetViewportWScalingNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETVIEWPORTWSCALINGNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -69185,7 +69417,6 @@ debug_printf("Executing vkCmdSetViewportWScalingNV\n");
 }
 
 
-        json["enum"]=VKCMDSETVIEWPORTWSCALINGNV;
         writeToConn(json);
         
         while(true){
@@ -69251,8 +69482,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDiscardRectangleEXT( VkComma
 debug_printf("Executing vkCmdSetDiscardRectangleEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETDISCARDRECTANGLEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -69282,7 +69515,6 @@ debug_printf("Executing vkCmdSetDiscardRectangleEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETDISCARDRECTANGLEEXT;
         writeToConn(json);
         
         while(true){
@@ -69348,8 +69580,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDiscardRectangleEnableEXT( V
 debug_printf("Executing vkCmdSetDiscardRectangleEnableEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETDISCARDRECTANGLEENABLEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -69366,7 +69600,6 @@ debug_printf("Executing vkCmdSetDiscardRectangleEnableEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETDISCARDRECTANGLEENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -69430,8 +69663,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDiscardRectangleModeEXT( VkC
 debug_printf("Executing vkCmdSetDiscardRectangleModeEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETDISCARDRECTANGLEMODEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -69448,7 +69683,6 @@ debug_printf("Executing vkCmdSetDiscardRectangleModeEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETDISCARDRECTANGLEMODEEXT;
         writeToConn(json);
         
         while(true){
@@ -69512,8 +69746,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetSampleLocationsEXT( VkComman
 debug_printf("Executing vkCmdSetSampleLocationsEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETSAMPLELOCATIONSEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -69541,7 +69777,6 @@ debug_printf("Executing vkCmdSetSampleLocationsEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETSAMPLELOCATIONSEXT;
         writeToConn(json);
         
         while(true){
@@ -69605,8 +69840,10 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceMultisampleProper
 debug_printf("Executing vkGetPhysicalDeviceMultisamplePropertiesEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEMULTISAMPLEPROPERTIESEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -69635,7 +69872,6 @@ debug_printf("Executing vkGetPhysicalDeviceMultisamplePropertiesEXT\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEMULTISAMPLEPROPERTIESEXT;
         writeToConn(json);
         
         while(true){
@@ -69711,8 +69947,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceSurfaceCapabi
 debug_printf("Executing vkGetPhysicalDeviceSurfaceCapabilities2KHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICESURFACECAPABILITIES2KHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -69752,7 +69990,6 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceCapabilities2KHR\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICESURFACECAPABILITIES2KHR;
         writeToConn(json);
         
         while(true){
@@ -69832,8 +70069,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceSurfaceFormat
 debug_printf("Executing vkGetPhysicalDeviceSurfaceFormats2KHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICESURFACEFORMATS2KHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -69882,7 +70121,6 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceFormats2KHR\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICESURFACEFORMATS2KHR;
         writeToConn(json);
         
         while(true){
@@ -69971,8 +70209,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceDisplayProper
 debug_printf("Executing vkGetPhysicalDeviceDisplayProperties2KHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEDISPLAYPROPERTIES2KHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -70009,7 +70249,6 @@ debug_printf("Executing vkGetPhysicalDeviceDisplayProperties2KHR\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEDISPLAYPROPERTIES2KHR;
         writeToConn(json);
         
         while(true){
@@ -70097,8 +70336,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceDisplayPlaneP
 debug_printf("Executing vkGetPhysicalDeviceDisplayPlaneProperties2KHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIES2KHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -70135,7 +70376,6 @@ debug_printf("Executing vkGetPhysicalDeviceDisplayPlaneProperties2KHR\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIES2KHR;
         writeToConn(json);
         
         while(true){
@@ -70223,8 +70463,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDisplayModeProperties2KHR( 
 debug_printf("Executing vkGetDisplayModeProperties2KHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDISPLAYMODEPROPERTIES2KHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -70262,7 +70504,6 @@ debug_printf("Executing vkGetDisplayModeProperties2KHR\n");
 }
 
 
-        json["enum"]=VKGETDISPLAYMODEPROPERTIES2KHR;
         writeToConn(json);
         
         while(true){
@@ -70351,8 +70592,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDisplayPlaneCapabilities2KH
 debug_printf("Executing vkGetDisplayPlaneCapabilities2KHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDISPLAYPLANECAPABILITIES2KHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -70392,7 +70635,6 @@ debug_printf("Executing vkGetDisplayPlaneCapabilities2KHR\n");
 }
 
 
-        json["enum"]=VKGETDISPLAYPLANECAPABILITIES2KHR;
         writeToConn(json);
         
         while(true){
@@ -70472,8 +70714,10 @@ __attribute__((visibility ("hidden"))) void vkGetBufferMemoryRequirements2( VkDe
 debug_printf("Executing vkGetBufferMemoryRequirements2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETBUFFERMEMORYREQUIREMENTS2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -70513,7 +70757,6 @@ debug_printf("Executing vkGetBufferMemoryRequirements2\n");
 }
 
 
-        json["enum"]=VKGETBUFFERMEMORYREQUIREMENTS2;
         writeToConn(json);
         
         while(true){
@@ -70592,8 +70835,10 @@ __attribute__((visibility ("hidden"))) void vkGetImageMemoryRequirements2( VkDev
 debug_printf("Executing vkGetImageMemoryRequirements2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETIMAGEMEMORYREQUIREMENTS2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -70633,7 +70878,6 @@ debug_printf("Executing vkGetImageMemoryRequirements2\n");
 }
 
 
-        json["enum"]=VKGETIMAGEMEMORYREQUIREMENTS2;
         writeToConn(json);
         
         while(true){
@@ -70712,8 +70956,10 @@ __attribute__((visibility ("hidden"))) void vkGetImageSparseMemoryRequirements2(
 debug_printf("Executing vkGetImageSparseMemoryRequirements2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETIMAGESPARSEMEMORYREQUIREMENTS2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -70762,7 +71008,6 @@ debug_printf("Executing vkGetImageSparseMemoryRequirements2\n");
 }
 
 
-        json["enum"]=VKGETIMAGESPARSEMEMORYREQUIREMENTS2;
         writeToConn(json);
         
         while(true){
@@ -70850,8 +71095,10 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceBufferMemoryRequirements(
 debug_printf("Executing vkGetDeviceBufferMemoryRequirements\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEVICEBUFFERMEMORYREQUIREMENTS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -70891,7 +71138,6 @@ debug_printf("Executing vkGetDeviceBufferMemoryRequirements\n");
 }
 
 
-        json["enum"]=VKGETDEVICEBUFFERMEMORYREQUIREMENTS;
         writeToConn(json);
         
         while(true){
@@ -70970,8 +71216,10 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceImageMemoryRequirements( 
 debug_printf("Executing vkGetDeviceImageMemoryRequirements\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEVICEIMAGEMEMORYREQUIREMENTS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -71011,7 +71259,6 @@ debug_printf("Executing vkGetDeviceImageMemoryRequirements\n");
 }
 
 
-        json["enum"]=VKGETDEVICEIMAGEMEMORYREQUIREMENTS;
         writeToConn(json);
         
         while(true){
@@ -71090,8 +71337,10 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceImageSparseMemoryRequirem
 debug_printf("Executing vkGetDeviceImageSparseMemoryRequirements\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEVICEIMAGESPARSEMEMORYREQUIREMENTS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -71140,7 +71389,6 @@ debug_printf("Executing vkGetDeviceImageSparseMemoryRequirements\n");
 }
 
 
-        json["enum"]=VKGETDEVICEIMAGESPARSEMEMORYREQUIREMENTS;
         writeToConn(json);
         
         while(true){
@@ -71228,8 +71476,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateSamplerYcbcrConversion( 
 debug_printf("Executing vkCreateSamplerYcbcrConversion\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATESAMPLERYCBCRCONVERSION;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -71278,7 +71528,6 @@ debug_printf("Executing vkCreateSamplerYcbcrConversion\n");
 }
 
 
-        json["enum"]=VKCREATESAMPLERYCBCRCONVERSION;
         writeToConn(json);
         
         while(true){
@@ -71366,8 +71615,10 @@ __attribute__((visibility ("hidden"))) void vkDestroySamplerYcbcrConversion( VkD
 debug_printf("Executing vkDestroySamplerYcbcrConversion\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYSAMPLERYCBCRCONVERSION;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -71396,7 +71647,6 @@ debug_printf("Executing vkDestroySamplerYcbcrConversion\n");
 }
 
 
-        json["enum"]=VKDESTROYSAMPLERYCBCRCONVERSION;
         writeToConn(json);
         
         while(true){
@@ -71464,8 +71714,10 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceQueue2( VkDevice device, 
 debug_printf("Executing vkGetDeviceQueue2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEVICEQUEUE2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -71502,7 +71754,6 @@ debug_printf("Executing vkGetDeviceQueue2\n");
 }
 
 
-        json["enum"]=VKGETDEVICEQUEUE2;
         writeToConn(json);
         
         while(true){
@@ -71575,8 +71826,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateValidationCacheEXT( VkDe
 debug_printf("Executing vkCreateValidationCacheEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEVALIDATIONCACHEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -71625,7 +71878,6 @@ debug_printf("Executing vkCreateValidationCacheEXT\n");
 }
 
 
-        json["enum"]=VKCREATEVALIDATIONCACHEEXT;
         writeToConn(json);
         
         while(true){
@@ -71710,8 +71962,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyValidationCacheEXT( VkDevic
 debug_printf("Executing vkDestroyValidationCacheEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYVALIDATIONCACHEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -71740,7 +71994,6 @@ debug_printf("Executing vkDestroyValidationCacheEXT\n");
 }
 
 
-        json["enum"]=VKDESTROYVALIDATIONCACHEEXT;
         writeToConn(json);
         
         while(true){
@@ -71805,8 +72058,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetValidationCacheDataEXT( VkD
 debug_printf("Executing vkGetValidationCacheDataEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETVALIDATIONCACHEDATAEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -71844,7 +72099,6 @@ debug_printf("Executing vkGetValidationCacheDataEXT\n");
 }
 
 
-        json["enum"]=VKGETVALIDATIONCACHEDATAEXT;
         writeToConn(json);
         
         while(true){
@@ -71933,8 +72187,10 @@ __attribute__((visibility ("hidden"))) VkResult vkMergeValidationCachesEXT( VkDe
 debug_printf("Executing vkMergeValidationCachesEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKMERGEVALIDATIONCACHESEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -71961,7 +72217,6 @@ debug_printf("Executing vkMergeValidationCachesEXT\n");
 }
 
 
-        json["enum"]=VKMERGEVALIDATIONCACHESEXT;
         writeToConn(json);
         
         while(true){
@@ -72031,8 +72286,10 @@ __attribute__((visibility ("hidden"))) void vkGetDescriptorSetLayoutSupport( VkD
 debug_printf("Executing vkGetDescriptorSetLayoutSupport\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDESCRIPTORSETLAYOUTSUPPORT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -72072,7 +72329,6 @@ debug_printf("Executing vkGetDescriptorSetLayoutSupport\n");
 }
 
 
-        json["enum"]=VKGETDESCRIPTORSETLAYOUTSUPPORT;
         writeToConn(json);
         
         while(true){
@@ -72151,8 +72407,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetShaderInfoAMD( VkDevice dev
 debug_printf("Executing vkGetShaderInfoAMD\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETSHADERINFOAMD;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -72192,7 +72450,6 @@ debug_printf("Executing vkGetShaderInfoAMD\n");
 }
 
 
-        json["enum"]=VKGETSHADERINFOAMD;
         writeToConn(json);
         
         while(true){
@@ -72283,8 +72540,10 @@ __attribute__((visibility ("hidden"))) void vkSetLocalDimmingAMD( VkDevice devic
 debug_printf("Executing vkSetLocalDimmingAMD\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKSETLOCALDIMMINGAMD;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -72302,7 +72561,6 @@ debug_printf("Executing vkSetLocalDimmingAMD\n");
 }
 
 
-        json["enum"]=VKSETLOCALDIMMINGAMD;
         writeToConn(json);
         
         while(true){
@@ -72367,8 +72625,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceCalibrateable
 debug_printf("Executing vkGetPhysicalDeviceCalibrateableTimeDomainsEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICECALIBRATEABLETIMEDOMAINSEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -72402,7 +72662,6 @@ debug_printf("Executing vkGetPhysicalDeviceCalibrateableTimeDomainsEXT\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICECALIBRATEABLETIMEDOMAINSEXT;
         writeToConn(json);
         
         while(true){
@@ -72487,8 +72746,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetCalibratedTimestampsEXT( Vk
 debug_printf("Executing vkGetCalibratedTimestampsEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETCALIBRATEDTIMESTAMPSEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -72535,7 +72796,6 @@ debug_printf("Executing vkGetCalibratedTimestampsEXT\n");
 }
 
 
-        json["enum"]=VKGETCALIBRATEDTIMESTAMPSEXT;
         writeToConn(json);
         
         while(true){
@@ -72622,8 +72882,10 @@ __attribute__((visibility ("hidden"))) VkResult vkSetDebugUtilsObjectNameEXT( Vk
 debug_printf("Executing vkSetDebugUtilsObjectNameEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKSETDEBUGUTILSOBJECTNAMEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -72651,7 +72913,6 @@ debug_printf("Executing vkSetDebugUtilsObjectNameEXT\n");
 }
 
 
-        json["enum"]=VKSETDEBUGUTILSOBJECTNAMEEXT;
         writeToConn(json);
         
         while(true){
@@ -72719,8 +72980,10 @@ __attribute__((visibility ("hidden"))) VkResult vkSetDebugUtilsObjectTagEXT( VkD
 debug_printf("Executing vkSetDebugUtilsObjectTagEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKSETDEBUGUTILSOBJECTTAGEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -72748,7 +73011,6 @@ debug_printf("Executing vkSetDebugUtilsObjectTagEXT\n");
 }
 
 
-        json["enum"]=VKSETDEBUGUTILSOBJECTTAGEXT;
         writeToConn(json);
         
         while(true){
@@ -72816,8 +73078,10 @@ __attribute__((visibility ("hidden"))) void vkQueueBeginDebugUtilsLabelEXT( VkQu
 debug_printf("Executing vkQueueBeginDebugUtilsLabelEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKQUEUEBEGINDEBUGUTILSLABELEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
@@ -72845,7 +73109,6 @@ debug_printf("Executing vkQueueBeginDebugUtilsLabelEXT\n");
 }
 
 
-        json["enum"]=VKQUEUEBEGINDEBUGUTILSLABELEXT;
         writeToConn(json);
         
         while(true){
@@ -72909,8 +73172,10 @@ __attribute__((visibility ("hidden"))) void vkQueueEndDebugUtilsLabelEXT( VkQueu
 debug_printf("Executing vkQueueEndDebugUtilsLabelEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKQUEUEENDDEBUGUTILSLABELEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
@@ -72926,7 +73191,6 @@ debug_printf("Executing vkQueueEndDebugUtilsLabelEXT\n");
 }
 
 
-        json["enum"]=VKQUEUEENDDEBUGUTILSLABELEXT;
         writeToConn(json);
         
         while(true){
@@ -72989,8 +73253,10 @@ __attribute__((visibility ("hidden"))) void vkQueueInsertDebugUtilsLabelEXT( VkQ
 debug_printf("Executing vkQueueInsertDebugUtilsLabelEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKQUEUEINSERTDEBUGUTILSLABELEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
@@ -73018,7 +73284,6 @@ debug_printf("Executing vkQueueInsertDebugUtilsLabelEXT\n");
 }
 
 
-        json["enum"]=VKQUEUEINSERTDEBUGUTILSLABELEXT;
         writeToConn(json);
         
         while(true){
@@ -73082,8 +73347,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginDebugUtilsLabelEXT( VkComm
 debug_printf("Executing vkCmdBeginDebugUtilsLabelEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBEGINDEBUGUTILSLABELEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -73111,7 +73378,6 @@ debug_printf("Executing vkCmdBeginDebugUtilsLabelEXT\n");
 }
 
 
-        json["enum"]=VKCMDBEGINDEBUGUTILSLABELEXT;
         writeToConn(json);
         
         while(true){
@@ -73175,8 +73441,10 @@ __attribute__((visibility ("hidden"))) void vkCmdEndDebugUtilsLabelEXT( VkComman
 debug_printf("Executing vkCmdEndDebugUtilsLabelEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDENDDEBUGUTILSLABELEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -73192,7 +73460,6 @@ debug_printf("Executing vkCmdEndDebugUtilsLabelEXT\n");
 }
 
 
-        json["enum"]=VKCMDENDDEBUGUTILSLABELEXT;
         writeToConn(json);
         
         while(true){
@@ -73255,8 +73522,10 @@ __attribute__((visibility ("hidden"))) void vkCmdInsertDebugUtilsLabelEXT( VkCom
 debug_printf("Executing vkCmdInsertDebugUtilsLabelEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDINSERTDEBUGUTILSLABELEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -73284,7 +73553,6 @@ debug_printf("Executing vkCmdInsertDebugUtilsLabelEXT\n");
 }
 
 
-        json["enum"]=VKCMDINSERTDEBUGUTILSLABELEXT;
         writeToConn(json);
         
         while(true){
@@ -73348,8 +73616,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDebugUtilsMessengerEXT( 
 debug_printf("Executing vkCreateDebugUtilsMessengerEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEDEBUGUTILSMESSENGEREXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
@@ -73398,7 +73668,6 @@ debug_printf("Executing vkCreateDebugUtilsMessengerEXT\n");
 }
 
 
-        json["enum"]=VKCREATEDEBUGUTILSMESSENGEREXT;
         writeToConn(json);
         
         while(true){
@@ -73483,8 +73752,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyDebugUtilsMessengerEXT( VkI
 debug_printf("Executing vkDestroyDebugUtilsMessengerEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYDEBUGUTILSMESSENGEREXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
@@ -73513,7 +73784,6 @@ debug_printf("Executing vkDestroyDebugUtilsMessengerEXT\n");
 }
 
 
-        json["enum"]=VKDESTROYDEBUGUTILSMESSENGEREXT;
         writeToConn(json);
         
         while(true){
@@ -73578,8 +73848,10 @@ __attribute__((visibility ("hidden"))) void vkSubmitDebugUtilsMessageEXT( VkInst
 debug_printf("Executing vkSubmitDebugUtilsMessageEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKSUBMITDEBUGUTILSMESSAGEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
@@ -73609,7 +73881,6 @@ debug_printf("Executing vkSubmitDebugUtilsMessageEXT\n");
 }
 
 
-        json["enum"]=VKSUBMITDEBUGUTILSMESSAGEEXT;
         writeToConn(json);
         
         while(true){
@@ -73675,8 +73946,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetMemoryHostPointerProperties
 debug_printf("Executing vkGetMemoryHostPointerPropertiesEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETMEMORYHOSTPOINTERPROPERTIESEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -73717,7 +73990,6 @@ debug_printf("Executing vkGetMemoryHostPointerPropertiesEXT\n");
 }
 
 
-        json["enum"]=VKGETMEMORYHOSTPOINTERPROPERTIESEXT;
         writeToConn(json);
         
         while(true){
@@ -73798,8 +74070,10 @@ __attribute__((visibility ("hidden"))) void vkCmdWriteBufferMarkerAMD( VkCommand
 debug_printf("Executing vkCmdWriteBufferMarkerAMD\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDWRITEBUFFERMARKERAMD;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -73819,7 +74093,6 @@ debug_printf("Executing vkCmdWriteBufferMarkerAMD\n");
 }
 
 
-        json["enum"]=VKCMDWRITEBUFFERMARKERAMD;
         writeToConn(json);
         
         while(true){
@@ -73886,8 +74159,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateRenderPass2( VkDevice de
 debug_printf("Executing vkCreateRenderPass2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATERENDERPASS2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -73936,7 +74211,6 @@ debug_printf("Executing vkCreateRenderPass2\n");
 }
 
 
-        json["enum"]=VKCREATERENDERPASS2;
         writeToConn(json);
         
         while(true){
@@ -74024,8 +74298,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginRenderPass2( VkCommandBuff
 debug_printf("Executing vkCmdBeginRenderPass2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBEGINRENDERPASS2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -74065,7 +74341,6 @@ debug_printf("Executing vkCmdBeginRenderPass2\n");
 }
 
 
-        json["enum"]=VKCMDBEGINRENDERPASS2;
         writeToConn(json);
         
         while(true){
@@ -74133,8 +74408,10 @@ __attribute__((visibility ("hidden"))) void vkCmdNextSubpass2( VkCommandBuffer c
 debug_printf("Executing vkCmdNextSubpass2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDNEXTSUBPASS2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -74174,7 +74451,6 @@ debug_printf("Executing vkCmdNextSubpass2\n");
 }
 
 
-        json["enum"]=VKCMDNEXTSUBPASS2;
         writeToConn(json);
         
         while(true){
@@ -74242,8 +74518,10 @@ __attribute__((visibility ("hidden"))) void vkCmdEndRenderPass2( VkCommandBuffer
 debug_printf("Executing vkCmdEndRenderPass2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDENDRENDERPASS2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -74271,7 +74549,6 @@ debug_printf("Executing vkCmdEndRenderPass2\n");
 }
 
 
-        json["enum"]=VKCMDENDRENDERPASS2;
         writeToConn(json);
         
         while(true){
@@ -74338,8 +74615,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetSemaphoreCounterValue( VkDe
 debug_printf("Executing vkGetSemaphoreCounterValue\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETSEMAPHORECOUNTERVALUE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -74365,7 +74644,6 @@ debug_printf("Executing vkGetSemaphoreCounterValue\n");
 }
 
 
-        json["enum"]=VKGETSEMAPHORECOUNTERVALUE;
         writeToConn(json);
         
         while(true){
@@ -74445,8 +74723,10 @@ __attribute__((visibility ("hidden"))) VkResult vkWaitSemaphores( VkDevice devic
 debug_printf("Executing vkWaitSemaphores\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKWAITSEMAPHORES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -74475,7 +74755,6 @@ debug_printf("Executing vkWaitSemaphores\n");
 }
 
 
-        json["enum"]=VKWAITSEMAPHORES;
         writeToConn(json);
         
         while(true){
@@ -74547,8 +74826,10 @@ __attribute__((visibility ("hidden"))) VkResult vkSignalSemaphore( VkDevice devi
 debug_printf("Executing vkSignalSemaphore\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKSIGNALSEMAPHORE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -74576,7 +74857,6 @@ debug_printf("Executing vkSignalSemaphore\n");
 }
 
 
-        json["enum"]=VKSIGNALSEMAPHORE;
         writeToConn(json);
         
         while(true){
@@ -74647,8 +74927,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawIndirectCount( VkCommandBuf
 debug_printf("Executing vkCmdDrawIndirectCount\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDRAWINDIRECTCOUNT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -74670,7 +74952,6 @@ debug_printf("Executing vkCmdDrawIndirectCount\n");
 }
 
 
-        json["enum"]=VKCMDDRAWINDIRECTCOUNT;
         writeToConn(json);
         
         while(true){
@@ -74745,8 +75026,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawIndexedIndirectCount( VkCom
 debug_printf("Executing vkCmdDrawIndexedIndirectCount\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDRAWINDEXEDINDIRECTCOUNT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -74768,7 +75051,6 @@ debug_printf("Executing vkCmdDrawIndexedIndirectCount\n");
 }
 
 
-        json["enum"]=VKCMDDRAWINDEXEDINDIRECTCOUNT;
         writeToConn(json);
         
         while(true){
@@ -74843,8 +75125,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCheckpointNV( VkCommandBuffe
 debug_printf("Executing vkCmdSetCheckpointNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETCHECKPOINTNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -74872,7 +75156,6 @@ debug_printf("Executing vkCmdSetCheckpointNV\n");
 }
 
 
-        json["enum"]=VKCMDSETCHECKPOINTNV;
         writeToConn(json);
         
         while(true){
@@ -74936,8 +75219,10 @@ __attribute__((visibility ("hidden"))) void vkGetQueueCheckpointDataNV( VkQueue 
 debug_printf("Executing vkGetQueueCheckpointDataNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETQUEUECHECKPOINTDATANV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
@@ -74974,7 +75259,6 @@ debug_printf("Executing vkGetQueueCheckpointDataNV\n");
 }
 
 
-        json["enum"]=VKGETQUEUECHECKPOINTDATANV;
         writeToConn(json);
         
         while(true){
@@ -75058,8 +75342,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBindTransformFeedbackBuffersEXT
 debug_printf("Executing vkCmdBindTransformFeedbackBuffersEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBINDTRANSFORMFEEDBACKBUFFERSEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -75104,7 +75390,6 @@ debug_printf("Executing vkCmdBindTransformFeedbackBuffersEXT\n");
 }
 
 
-        json["enum"]=VKCMDBINDTRANSFORMFEEDBACKBUFFERSEXT;
         writeToConn(json);
         
         while(true){
@@ -75172,8 +75457,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginTransformFeedbackEXT( VkCo
 debug_printf("Executing vkCmdBeginTransformFeedbackEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBEGINTRANSFORMFEEDBACKEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -75209,7 +75496,6 @@ debug_printf("Executing vkCmdBeginTransformFeedbackEXT\n");
 }
 
 
-        json["enum"]=VKCMDBEGINTRANSFORMFEEDBACKEXT;
         writeToConn(json);
         
         while(true){
@@ -75276,8 +75562,10 @@ __attribute__((visibility ("hidden"))) void vkCmdEndTransformFeedbackEXT( VkComm
 debug_printf("Executing vkCmdEndTransformFeedbackEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDENDTRANSFORMFEEDBACKEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -75313,7 +75601,6 @@ debug_printf("Executing vkCmdEndTransformFeedbackEXT\n");
 }
 
 
-        json["enum"]=VKCMDENDTRANSFORMFEEDBACKEXT;
         writeToConn(json);
         
         while(true){
@@ -75380,8 +75667,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginQueryIndexedEXT( VkCommand
 debug_printf("Executing vkCmdBeginQueryIndexedEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBEGINQUERYINDEXEDEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -75401,7 +75690,6 @@ debug_printf("Executing vkCmdBeginQueryIndexedEXT\n");
 }
 
 
-        json["enum"]=VKCMDBEGINQUERYINDEXEDEXT;
         writeToConn(json);
         
         while(true){
@@ -75468,8 +75756,10 @@ __attribute__((visibility ("hidden"))) void vkCmdEndQueryIndexedEXT( VkCommandBu
 debug_printf("Executing vkCmdEndQueryIndexedEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDENDQUERYINDEXEDEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -75488,7 +75778,6 @@ debug_printf("Executing vkCmdEndQueryIndexedEXT\n");
 }
 
 
-        json["enum"]=VKCMDENDQUERYINDEXEDEXT;
         writeToConn(json);
         
         while(true){
@@ -75554,8 +75843,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawIndirectByteCountEXT( VkCom
 debug_printf("Executing vkCmdDrawIndirectByteCountEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDRAWINDIRECTBYTECOUNTEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -75577,7 +75868,6 @@ debug_printf("Executing vkCmdDrawIndirectByteCountEXT\n");
 }
 
 
-        json["enum"]=VKCMDDRAWINDIRECTBYTECOUNTEXT;
         writeToConn(json);
         
         while(true){
@@ -75646,8 +75936,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetExclusiveScissorNV( VkComman
 debug_printf("Executing vkCmdSetExclusiveScissorNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETEXCLUSIVESCISSORNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -75677,7 +75969,6 @@ debug_printf("Executing vkCmdSetExclusiveScissorNV\n");
 }
 
 
-        json["enum"]=VKCMDSETEXCLUSIVESCISSORNV;
         writeToConn(json);
         
         while(true){
@@ -75743,8 +76034,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetExclusiveScissorEnableNV( Vk
 debug_printf("Executing vkCmdSetExclusiveScissorEnableNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETEXCLUSIVESCISSORENABLENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -75771,7 +76064,6 @@ debug_printf("Executing vkCmdSetExclusiveScissorEnableNV\n");
 }
 
 
-        json["enum"]=VKCMDSETEXCLUSIVESCISSORENABLENV;
         writeToConn(json);
         
         while(true){
@@ -75837,8 +76129,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBindShadingRateImageNV( VkComma
 debug_printf("Executing vkCmdBindShadingRateImageNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBINDSHADINGRATEIMAGENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -75856,7 +76150,6 @@ debug_printf("Executing vkCmdBindShadingRateImageNV\n");
 }
 
 
-        json["enum"]=VKCMDBINDSHADINGRATEIMAGENV;
         writeToConn(json);
         
         while(true){
@@ -75921,8 +76214,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetViewportShadingRatePaletteNV
 debug_printf("Executing vkCmdSetViewportShadingRatePaletteNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETVIEWPORTSHADINGRATEPALETTENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -75952,7 +76247,6 @@ debug_printf("Executing vkCmdSetViewportShadingRatePaletteNV\n");
 }
 
 
-        json["enum"]=VKCMDSETVIEWPORTSHADINGRATEPALETTENV;
         writeToConn(json);
         
         while(true){
@@ -76018,8 +76312,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCoarseSampleOrderNV( VkComma
 debug_printf("Executing vkCmdSetCoarseSampleOrderNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETCOARSESAMPLEORDERNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -76049,7 +76345,6 @@ debug_printf("Executing vkCmdSetCoarseSampleOrderNV\n");
 }
 
 
-        json["enum"]=VKCMDSETCOARSESAMPLEORDERNV;
         writeToConn(json);
         
         while(true){
@@ -76115,8 +76410,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawMeshTasksNV( VkCommandBuffe
 debug_printf("Executing vkCmdDrawMeshTasksNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDRAWMESHTASKSNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -76134,7 +76431,6 @@ debug_printf("Executing vkCmdDrawMeshTasksNV\n");
 }
 
 
-        json["enum"]=VKCMDDRAWMESHTASKSNV;
         writeToConn(json);
         
         while(true){
@@ -76199,8 +76495,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawMeshTasksIndirectNV( VkComm
 debug_printf("Executing vkCmdDrawMeshTasksIndirectNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDRAWMESHTASKSINDIRECTNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -76220,7 +76518,6 @@ debug_printf("Executing vkCmdDrawMeshTasksIndirectNV\n");
 }
 
 
-        json["enum"]=VKCMDDRAWMESHTASKSINDIRECTNV;
         writeToConn(json);
         
         while(true){
@@ -76287,8 +76584,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawMeshTasksIndirectCountNV( V
 debug_printf("Executing vkCmdDrawMeshTasksIndirectCountNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDRAWMESHTASKSINDIRECTCOUNTNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -76310,7 +76609,6 @@ debug_printf("Executing vkCmdDrawMeshTasksIndirectCountNV\n");
 }
 
 
-        json["enum"]=VKCMDDRAWMESHTASKSINDIRECTCOUNTNV;
         writeToConn(json);
         
         while(true){
@@ -76379,8 +76677,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawMeshTasksEXT( VkCommandBuff
 debug_printf("Executing vkCmdDrawMeshTasksEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDRAWMESHTASKSEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -76399,7 +76699,6 @@ debug_printf("Executing vkCmdDrawMeshTasksEXT\n");
 }
 
 
-        json["enum"]=VKCMDDRAWMESHTASKSEXT;
         writeToConn(json);
         
         while(true){
@@ -76465,8 +76764,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawMeshTasksIndirectEXT( VkCom
 debug_printf("Executing vkCmdDrawMeshTasksIndirectEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDRAWMESHTASKSINDIRECTEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -76486,7 +76787,6 @@ debug_printf("Executing vkCmdDrawMeshTasksIndirectEXT\n");
 }
 
 
-        json["enum"]=VKCMDDRAWMESHTASKSINDIRECTEXT;
         writeToConn(json);
         
         while(true){
@@ -76553,8 +76853,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawMeshTasksIndirectCountEXT( 
 debug_printf("Executing vkCmdDrawMeshTasksIndirectCountEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDRAWMESHTASKSINDIRECTCOUNTEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -76576,7 +76878,6 @@ debug_printf("Executing vkCmdDrawMeshTasksIndirectCountEXT\n");
 }
 
 
-        json["enum"]=VKCMDDRAWMESHTASKSINDIRECTCOUNTEXT;
         writeToConn(json);
         
         while(true){
@@ -76645,8 +76946,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCompileDeferredNV( VkDevice de
 debug_printf("Executing vkCompileDeferredNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCOMPILEDEFERREDNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -76664,7 +76967,6 @@ debug_printf("Executing vkCompileDeferredNV\n");
 }
 
 
-        json["enum"]=VKCOMPILEDEFERREDNV;
         writeToConn(json);
         
         while(true){
@@ -76733,8 +77035,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateAccelerationStructureNV(
 debug_printf("Executing vkCreateAccelerationStructureNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEACCELERATIONSTRUCTURENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -76783,7 +77087,6 @@ debug_printf("Executing vkCreateAccelerationStructureNV\n");
 }
 
 
-        json["enum"]=VKCREATEACCELERATIONSTRUCTURENV;
         writeToConn(json);
         
         while(true){
@@ -76868,8 +77171,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBindInvocationMaskHUAWEI( VkCom
 debug_printf("Executing vkCmdBindInvocationMaskHUAWEI\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBINDINVOCATIONMASKHUAWEI;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -76887,7 +77192,6 @@ debug_printf("Executing vkCmdBindInvocationMaskHUAWEI\n");
 }
 
 
-        json["enum"]=VKCMDBINDINVOCATIONMASKHUAWEI;
         writeToConn(json);
         
         while(true){
@@ -76952,8 +77256,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyAccelerationStructureKHR( V
 debug_printf("Executing vkDestroyAccelerationStructureKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYACCELERATIONSTRUCTUREKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -76982,7 +77288,6 @@ debug_printf("Executing vkDestroyAccelerationStructureKHR\n");
 }
 
 
-        json["enum"]=VKDESTROYACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
         
         while(true){
@@ -77047,8 +77352,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyAccelerationStructureNV( Vk
 debug_printf("Executing vkDestroyAccelerationStructureNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYACCELERATIONSTRUCTURENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -77077,7 +77384,6 @@ debug_printf("Executing vkDestroyAccelerationStructureNV\n");
 }
 
 
-        json["enum"]=VKDESTROYACCELERATIONSTRUCTURENV;
         writeToConn(json);
         
         while(true){
@@ -77142,8 +77448,10 @@ __attribute__((visibility ("hidden"))) void vkGetAccelerationStructureMemoryRequ
 debug_printf("Executing vkGetAccelerationStructureMemoryRequirementsNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETACCELERATIONSTRUCTUREMEMORYREQUIREMENTSNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -77183,7 +77491,6 @@ debug_printf("Executing vkGetAccelerationStructureMemoryRequirementsNV\n");
 }
 
 
-        json["enum"]=VKGETACCELERATIONSTRUCTUREMEMORYREQUIREMENTSNV;
         writeToConn(json);
         
         while(true){
@@ -77259,8 +77566,10 @@ __attribute__((visibility ("hidden"))) VkResult vkBindAccelerationStructureMemor
 debug_printf("Executing vkBindAccelerationStructureMemoryNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKBINDACCELERATIONSTRUCTUREMEMORYNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -77289,7 +77598,6 @@ debug_printf("Executing vkBindAccelerationStructureMemoryNV\n");
 }
 
 
-        json["enum"]=VKBINDACCELERATIONSTRUCTUREMEMORYNV;
         writeToConn(json);
         
         while(true){
@@ -77358,8 +77666,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyAccelerationStructureNV( Vk
 debug_printf("Executing vkCmdCopyAccelerationStructureNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYACCELERATIONSTRUCTURENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -77378,7 +77688,6 @@ debug_printf("Executing vkCmdCopyAccelerationStructureNV\n");
 }
 
 
-        json["enum"]=VKCMDCOPYACCELERATIONSTRUCTURENV;
         writeToConn(json);
         
         while(true){
@@ -77444,8 +77753,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyAccelerationStructureKHR( V
 debug_printf("Executing vkCmdCopyAccelerationStructureKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYACCELERATIONSTRUCTUREKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -77473,7 +77784,6 @@ debug_printf("Executing vkCmdCopyAccelerationStructureKHR\n");
 }
 
 
-        json["enum"]=VKCMDCOPYACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
         
         while(true){
@@ -77537,8 +77847,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyAccelerationStructureKHR( 
 debug_printf("Executing vkCopyAccelerationStructureKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCOPYACCELERATIONSTRUCTUREKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -77567,7 +77879,6 @@ debug_printf("Executing vkCopyAccelerationStructureKHR\n");
 }
 
 
-        json["enum"]=VKCOPYACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
         
         while(true){
@@ -77636,8 +77947,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyAccelerationStructureToMemo
 debug_printf("Executing vkCmdCopyAccelerationStructureToMemoryKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYACCELERATIONSTRUCTURETOMEMORYKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -77665,7 +77978,6 @@ debug_printf("Executing vkCmdCopyAccelerationStructureToMemoryKHR\n");
 }
 
 
-        json["enum"]=VKCMDCOPYACCELERATIONSTRUCTURETOMEMORYKHR;
         writeToConn(json);
         
         while(true){
@@ -77729,8 +78041,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyAccelerationStructureToMem
 debug_printf("Executing vkCopyAccelerationStructureToMemoryKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCOPYACCELERATIONSTRUCTURETOMEMORYKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -77759,7 +78073,6 @@ debug_printf("Executing vkCopyAccelerationStructureToMemoryKHR\n");
 }
 
 
-        json["enum"]=VKCOPYACCELERATIONSTRUCTURETOMEMORYKHR;
         writeToConn(json);
         
         while(true){
@@ -77828,8 +78141,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyMemoryToAccelerationStructu
 debug_printf("Executing vkCmdCopyMemoryToAccelerationStructureKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYMEMORYTOACCELERATIONSTRUCTUREKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -77857,7 +78172,6 @@ debug_printf("Executing vkCmdCopyMemoryToAccelerationStructureKHR\n");
 }
 
 
-        json["enum"]=VKCMDCOPYMEMORYTOACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
         
         while(true){
@@ -77921,8 +78235,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyMemoryToAccelerationStruct
 debug_printf("Executing vkCopyMemoryToAccelerationStructureKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCOPYMEMORYTOACCELERATIONSTRUCTUREKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -77951,7 +78267,6 @@ debug_printf("Executing vkCopyMemoryToAccelerationStructureKHR\n");
 }
 
 
-        json["enum"]=VKCOPYMEMORYTOACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
         
         while(true){
@@ -78020,8 +78335,10 @@ __attribute__((visibility ("hidden"))) void vkCmdWriteAccelerationStructuresProp
 debug_printf("Executing vkCmdWriteAccelerationStructuresPropertiesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -78050,7 +78367,6 @@ debug_printf("Executing vkCmdWriteAccelerationStructuresPropertiesKHR\n");
 }
 
 
-        json["enum"]=VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
@@ -78118,8 +78434,10 @@ __attribute__((visibility ("hidden"))) void vkCmdWriteAccelerationStructuresProp
 debug_printf("Executing vkCmdWriteAccelerationStructuresPropertiesNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -78148,7 +78466,6 @@ debug_printf("Executing vkCmdWriteAccelerationStructuresPropertiesNV\n");
 }
 
 
-        json["enum"]=VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESNV;
         writeToConn(json);
         
         while(true){
@@ -78216,8 +78533,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBuildAccelerationStructureNV( V
 debug_printf("Executing vkCmdBuildAccelerationStructureNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBUILDACCELERATIONSTRUCTURENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -78252,7 +78571,6 @@ debug_printf("Executing vkCmdBuildAccelerationStructureNV\n");
 }
 
 
-        json["enum"]=VKCMDBUILDACCELERATIONSTRUCTURENV;
         writeToConn(json);
         
         while(true){
@@ -78323,8 +78641,10 @@ __attribute__((visibility ("hidden"))) VkResult vkWriteAccelerationStructuresPro
 debug_printf("Executing vkWriteAccelerationStructuresPropertiesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKWRITEACCELERATIONSTRUCTURESPROPERTIESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -78365,7 +78685,6 @@ debug_printf("Executing vkWriteAccelerationStructuresPropertiesKHR\n");
 }
 
 
-        json["enum"]=VKWRITEACCELERATIONSTRUCTURESPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
@@ -78449,8 +78768,10 @@ __attribute__((visibility ("hidden"))) void vkCmdTraceRaysKHR( VkCommandBuffer c
 debug_printf("Executing vkCmdTraceRaysKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDTRACERAYSKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -78517,7 +78838,6 @@ debug_printf("Executing vkCmdTraceRaysKHR\n");
 }
 
 
-        json["enum"]=VKCMDTRACERAYSKHR;
         writeToConn(json);
         
         while(true){
@@ -78587,8 +78907,10 @@ __attribute__((visibility ("hidden"))) void vkCmdTraceRaysNV( VkCommandBuffer co
 debug_printf("Executing vkCmdTraceRaysNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDTRACERAYSNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -78618,7 +78940,6 @@ debug_printf("Executing vkCmdTraceRaysNV\n");
 }
 
 
-        json["enum"]=VKCMDTRACERAYSNV;
         writeToConn(json);
         
         while(true){
@@ -78695,8 +79016,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetRayTracingShaderGroupHandle
 debug_printf("Executing vkGetRayTracingShaderGroupHandlesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETRAYTRACINGSHADERGROUPHANDLESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -78728,7 +79051,6 @@ debug_printf("Executing vkGetRayTracingShaderGroupHandlesKHR\n");
 }
 
 
-        json["enum"]=VKGETRAYTRACINGSHADERGROUPHANDLESKHR;
         writeToConn(json);
         
         while(true){
@@ -78814,8 +79136,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetRayTracingCaptureReplayShad
 debug_printf("Executing vkGetRayTracingCaptureReplayShaderGroupHandlesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETRAYTRACINGCAPTUREREPLAYSHADERGROUPHANDLESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -78847,7 +79171,6 @@ debug_printf("Executing vkGetRayTracingCaptureReplayShaderGroupHandlesKHR\n");
 }
 
 
-        json["enum"]=VKGETRAYTRACINGCAPTUREREPLAYSHADERGROUPHANDLESKHR;
         writeToConn(json);
         
         while(true){
@@ -78930,8 +79253,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetAccelerationStructureHandle
 debug_printf("Executing vkGetAccelerationStructureHandleNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETACCELERATIONSTRUCTUREHANDLENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -78961,7 +79286,6 @@ debug_printf("Executing vkGetAccelerationStructureHandleNV\n");
 }
 
 
-        json["enum"]=VKGETACCELERATIONSTRUCTUREHANDLENV;
         writeToConn(json);
         
         while(true){
@@ -79042,8 +79366,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateRayTracingPipelinesNV( V
 debug_printf("Executing vkCreateRayTracingPipelinesNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATERAYTRACINGPIPELINESNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -79094,7 +79420,6 @@ debug_printf("Executing vkCreateRayTracingPipelinesNV\n");
 }
 
 
-        json["enum"]=VKCREATERAYTRACINGPIPELINESNV;
         writeToConn(json);
         
         while(true){
@@ -79181,8 +79506,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateRayTracingPipelinesKHR( 
 debug_printf("Executing vkCreateRayTracingPipelinesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATERAYTRACINGPIPELINESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -79234,7 +79561,6 @@ debug_printf("Executing vkCreateRayTracingPipelinesKHR\n");
 }
 
 
-        json["enum"]=VKCREATERAYTRACINGPIPELINESKHR;
         writeToConn(json);
         
         while(true){
@@ -79322,8 +79648,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceCooperativeMa
 debug_printf("Executing vkGetPhysicalDeviceCooperativeMatrixPropertiesNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -79360,7 +79688,6 @@ debug_printf("Executing vkGetPhysicalDeviceCooperativeMatrixPropertiesNV\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESNV;
         writeToConn(json);
         
         while(true){
@@ -79448,8 +79775,10 @@ __attribute__((visibility ("hidden"))) void vkCmdTraceRaysIndirectKHR( VkCommand
 debug_printf("Executing vkCmdTraceRaysIndirectKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDTRACERAYSINDIRECTKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -79514,7 +79843,6 @@ debug_printf("Executing vkCmdTraceRaysIndirectKHR\n");
 }
 
 
-        json["enum"]=VKCMDTRACERAYSINDIRECTKHR;
         writeToConn(json);
         
         while(true){
@@ -79582,8 +79910,10 @@ __attribute__((visibility ("hidden"))) void vkCmdTraceRaysIndirect2KHR( VkComman
 debug_printf("Executing vkCmdTraceRaysIndirect2KHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDTRACERAYSINDIRECT2KHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -79600,7 +79930,6 @@ debug_printf("Executing vkCmdTraceRaysIndirect2KHR\n");
 }
 
 
-        json["enum"]=VKCMDTRACERAYSINDIRECT2KHR;
         writeToConn(json);
         
         while(true){
@@ -79664,8 +79993,10 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceAccelerationStructureComp
 debug_printf("Executing vkGetDeviceAccelerationStructureCompatibilityKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEVICEACCELERATIONSTRUCTURECOMPATIBILITYKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -79702,7 +80033,6 @@ debug_printf("Executing vkGetDeviceAccelerationStructureCompatibilityKHR\n");
 }
 
 
-        json["enum"]=VKGETDEVICEACCELERATIONSTRUCTURECOMPATIBILITYKHR;
         writeToConn(json);
         
         while(true){
@@ -79775,8 +80105,10 @@ __attribute__((visibility ("hidden"))) VkDeviceSize vkGetRayTracingShaderGroupSt
 debug_printf("Executing vkGetRayTracingShaderGroupStackSizeKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETRAYTRACINGSHADERGROUPSTACKSIZEKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -79795,7 +80127,6 @@ debug_printf("Executing vkGetRayTracingShaderGroupStackSizeKHR\n");
 }
 
 
-        json["enum"]=VKGETRAYTRACINGSHADERGROUPSTACKSIZEKHR;
         writeToConn(json);
         
         while(true){
@@ -79864,8 +80195,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetRayTracingPipelineStackSizeK
 debug_printf("Executing vkCmdSetRayTracingPipelineStackSizeKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETRAYTRACINGPIPELINESTACKSIZEKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -79882,7 +80215,6 @@ debug_printf("Executing vkCmdSetRayTracingPipelineStackSizeKHR\n");
 }
 
 
-        json["enum"]=VKCMDSETRAYTRACINGPIPELINESTACKSIZEKHR;
         writeToConn(json);
         
         while(true){
@@ -79946,8 +80278,10 @@ __attribute__((visibility ("hidden"))) uint32_t vkGetImageViewHandleNVX( VkDevic
 debug_printf("Executing vkGetImageViewHandleNVX\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETIMAGEVIEWHANDLENVX;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -79975,7 +80309,6 @@ debug_printf("Executing vkGetImageViewHandleNVX\n");
 }
 
 
-        json["enum"]=VKGETIMAGEVIEWHANDLENVX;
         writeToConn(json);
         
         while(true){
@@ -80042,8 +80375,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetImageViewAddressNVX( VkDevi
 debug_printf("Executing vkGetImageViewAddressNVX\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETIMAGEVIEWADDRESSNVX;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -80072,7 +80407,6 @@ debug_printf("Executing vkGetImageViewAddressNVX\n");
 }
 
 
-        json["enum"]=VKGETIMAGEVIEWADDRESSNVX;
         writeToConn(json);
         
         while(true){
@@ -80152,8 +80486,10 @@ __attribute__((visibility ("hidden"))) VkResult vkEnumeratePhysicalDeviceQueueFa
 debug_printf("Executing vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKENUMERATEPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYCOUNTERSKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -80203,7 +80539,6 @@ debug_printf("Executing vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCoun
 }
 
 
-        json["enum"]=VKENUMERATEPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYCOUNTERSKHR;
         writeToConn(json);
         
         while(true){
@@ -80304,8 +80639,10 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceQueueFamilyPerfor
 debug_printf("Executing vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYPASSESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -80342,7 +80679,6 @@ debug_printf("Executing vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR\
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYPASSESKHR;
         writeToConn(json);
         
         while(true){
@@ -80415,8 +80751,10 @@ __attribute__((visibility ("hidden"))) VkResult vkAcquireProfilingLockKHR( VkDev
 debug_printf("Executing vkAcquireProfilingLockKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKACQUIREPROFILINGLOCKKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -80444,7 +80782,6 @@ debug_printf("Executing vkAcquireProfilingLockKHR\n");
 }
 
 
-        json["enum"]=VKACQUIREPROFILINGLOCKKHR;
         writeToConn(json);
         
         while(true){
@@ -80512,8 +80849,10 @@ __attribute__((visibility ("hidden"))) void vkReleaseProfilingLockKHR( VkDevice 
 debug_printf("Executing vkReleaseProfilingLockKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKRELEASEPROFILINGLOCKKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -80529,7 +80868,6 @@ debug_printf("Executing vkReleaseProfilingLockKHR\n");
 }
 
 
-        json["enum"]=VKRELEASEPROFILINGLOCKKHR;
         writeToConn(json);
         
         while(true){
@@ -80592,8 +80930,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetImageDrmFormatModifierPrope
 debug_printf("Executing vkGetImageDrmFormatModifierPropertiesEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETIMAGEDRMFORMATMODIFIERPROPERTIESEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -80622,7 +80962,6 @@ debug_printf("Executing vkGetImageDrmFormatModifierPropertiesEXT\n");
 }
 
 
-        json["enum"]=VKGETIMAGEDRMFORMATMODIFIERPROPERTIESEXT;
         writeToConn(json);
         
         while(true){
@@ -80702,8 +81041,10 @@ __attribute__((visibility ("hidden"))) uint64_t vkGetBufferOpaqueCaptureAddress(
 debug_printf("Executing vkGetBufferOpaqueCaptureAddress\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETBUFFEROPAQUECAPTUREADDRESS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -80731,7 +81072,6 @@ debug_printf("Executing vkGetBufferOpaqueCaptureAddress\n");
 }
 
 
-        json["enum"]=VKGETBUFFEROPAQUECAPTUREADDRESS;
         writeToConn(json);
         
         while(true){
@@ -80801,8 +81141,10 @@ __attribute__((visibility ("hidden"))) VkDeviceAddress vkGetBufferDeviceAddress(
 debug_printf("Executing vkGetBufferDeviceAddress\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETBUFFERDEVICEADDRESS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -80830,7 +81172,6 @@ debug_printf("Executing vkGetBufferDeviceAddress\n");
 }
 
 
-        json["enum"]=VKGETBUFFERDEVICEADDRESS;
         writeToConn(json);
         
         while(true){
@@ -80903,8 +81244,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateHeadlessSurfaceEXT( VkIn
 debug_printf("Executing vkCreateHeadlessSurfaceEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEHEADLESSSURFACEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)instance];
@@ -80953,7 +81296,6 @@ debug_printf("Executing vkCreateHeadlessSurfaceEXT\n");
 }
 
 
-        json["enum"]=VKCREATEHEADLESSSURFACEEXT;
         writeToConn(json);
         
         while(true){
@@ -81038,8 +81380,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceSupportedFram
 debug_printf("Executing vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICESUPPORTEDFRAMEBUFFERMIXEDSAMPLESCOMBINATIONSNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -81076,7 +81420,6 @@ debug_printf("Executing vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombi
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICESUPPORTEDFRAMEBUFFERMIXEDSAMPLESCOMBINATIONSNV;
         writeToConn(json);
         
         while(true){
@@ -81164,8 +81507,10 @@ __attribute__((visibility ("hidden"))) VkResult vkInitializePerformanceApiINTEL(
 debug_printf("Executing vkInitializePerformanceApiINTEL\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKINITIALIZEPERFORMANCEAPIINTEL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -81193,7 +81538,6 @@ debug_printf("Executing vkInitializePerformanceApiINTEL\n");
 }
 
 
-        json["enum"]=VKINITIALIZEPERFORMANCEAPIINTEL;
         writeToConn(json);
         
         while(true){
@@ -81261,8 +81605,10 @@ __attribute__((visibility ("hidden"))) void vkUninitializePerformanceApiINTEL( V
 debug_printf("Executing vkUninitializePerformanceApiINTEL\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKUNINITIALIZEPERFORMANCEAPIINTEL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -81278,7 +81624,6 @@ debug_printf("Executing vkUninitializePerformanceApiINTEL\n");
 }
 
 
-        json["enum"]=VKUNINITIALIZEPERFORMANCEAPIINTEL;
         writeToConn(json);
         
         while(true){
@@ -81341,8 +81686,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCmdSetPerformanceMarkerINTEL( 
 debug_printf("Executing vkCmdSetPerformanceMarkerINTEL\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETPERFORMANCEMARKERINTEL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -81370,7 +81717,6 @@ debug_printf("Executing vkCmdSetPerformanceMarkerINTEL\n");
 }
 
 
-        json["enum"]=VKCMDSETPERFORMANCEMARKERINTEL;
         writeToConn(json);
         
         while(true){
@@ -81438,8 +81784,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCmdSetPerformanceStreamMarkerI
 debug_printf("Executing vkCmdSetPerformanceStreamMarkerINTEL\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETPERFORMANCESTREAMMARKERINTEL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -81467,7 +81815,6 @@ debug_printf("Executing vkCmdSetPerformanceStreamMarkerINTEL\n");
 }
 
 
-        json["enum"]=VKCMDSETPERFORMANCESTREAMMARKERINTEL;
         writeToConn(json);
         
         while(true){
@@ -81535,8 +81882,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCmdSetPerformanceOverrideINTEL
 debug_printf("Executing vkCmdSetPerformanceOverrideINTEL\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETPERFORMANCEOVERRIDEINTEL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -81564,7 +81913,6 @@ debug_printf("Executing vkCmdSetPerformanceOverrideINTEL\n");
 }
 
 
-        json["enum"]=VKCMDSETPERFORMANCEOVERRIDEINTEL;
         writeToConn(json);
         
         while(true){
@@ -81632,8 +81980,10 @@ __attribute__((visibility ("hidden"))) VkResult vkAcquirePerformanceConfiguratio
 debug_printf("Executing vkAcquirePerformanceConfigurationINTEL\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKACQUIREPERFORMANCECONFIGURATIONINTEL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -81670,7 +82020,6 @@ debug_printf("Executing vkAcquirePerformanceConfigurationINTEL\n");
 }
 
 
-        json["enum"]=VKACQUIREPERFORMANCECONFIGURATIONINTEL;
         writeToConn(json);
         
         while(true){
@@ -81747,8 +82096,10 @@ __attribute__((visibility ("hidden"))) VkResult vkReleasePerformanceConfiguratio
 debug_printf("Executing vkReleasePerformanceConfigurationINTEL\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKRELEASEPERFORMANCECONFIGURATIONINTEL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -81765,7 +82116,6 @@ debug_printf("Executing vkReleasePerformanceConfigurationINTEL\n");
 }
 
 
-        json["enum"]=VKRELEASEPERFORMANCECONFIGURATIONINTEL;
         writeToConn(json);
         
         while(true){
@@ -81833,8 +82183,10 @@ __attribute__((visibility ("hidden"))) VkResult vkQueueSetPerformanceConfigurati
 debug_printf("Executing vkQueueSetPerformanceConfigurationINTEL\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKQUEUESETPERFORMANCECONFIGURATIONINTEL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
@@ -81851,7 +82203,6 @@ debug_printf("Executing vkQueueSetPerformanceConfigurationINTEL\n");
 }
 
 
-        json["enum"]=VKQUEUESETPERFORMANCECONFIGURATIONINTEL;
         writeToConn(json);
         
         while(true){
@@ -81919,8 +82270,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPerformanceParameterINTEL( 
 debug_printf("Executing vkGetPerformanceParameterINTEL\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPERFORMANCEPARAMETERINTEL;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -81949,7 +82302,6 @@ debug_printf("Executing vkGetPerformanceParameterINTEL\n");
 }
 
 
-        json["enum"]=VKGETPERFORMANCEPARAMETERINTEL;
         writeToConn(json);
         
         while(true){
@@ -82029,8 +82381,10 @@ __attribute__((visibility ("hidden"))) uint64_t vkGetDeviceMemoryOpaqueCaptureAd
 debug_printf("Executing vkGetDeviceMemoryOpaqueCaptureAddress\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEVICEMEMORYOPAQUECAPTUREADDRESS;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -82058,7 +82412,6 @@ debug_printf("Executing vkGetDeviceMemoryOpaqueCaptureAddress\n");
 }
 
 
-        json["enum"]=VKGETDEVICEMEMORYOPAQUECAPTUREADDRESS;
         writeToConn(json);
         
         while(true){
@@ -82128,8 +82481,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPipelineExecutablePropertie
 debug_printf("Executing vkGetPipelineExecutablePropertiesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPIPELINEEXECUTABLEPROPERTIESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -82178,7 +82533,6 @@ debug_printf("Executing vkGetPipelineExecutablePropertiesKHR\n");
 }
 
 
-        json["enum"]=VKGETPIPELINEEXECUTABLEPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
@@ -82267,8 +82621,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPipelineExecutableStatistic
 debug_printf("Executing vkGetPipelineExecutableStatisticsKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPIPELINEEXECUTABLESTATISTICSKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -82317,7 +82673,6 @@ debug_printf("Executing vkGetPipelineExecutableStatisticsKHR\n");
 }
 
 
-        json["enum"]=VKGETPIPELINEEXECUTABLESTATISTICSKHR;
         writeToConn(json);
         
         while(true){
@@ -82406,8 +82761,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPipelineExecutableInternalR
 debug_printf("Executing vkGetPipelineExecutableInternalRepresentationsKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPIPELINEEXECUTABLEINTERNALREPRESENTATIONSKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -82456,7 +82813,6 @@ debug_printf("Executing vkGetPipelineExecutableInternalRepresentationsKHR\n");
 }
 
 
-        json["enum"]=VKGETPIPELINEEXECUTABLEINTERNALREPRESENTATIONSKHR;
         writeToConn(json);
         
         while(true){
@@ -82545,8 +82901,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetLineStippleEXT( VkCommandBuf
 debug_printf("Executing vkCmdSetLineStippleEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETLINESTIPPLEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -82564,7 +82922,6 @@ debug_printf("Executing vkCmdSetLineStippleEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETLINESTIPPLEEXT;
         writeToConn(json);
         
         while(true){
@@ -82629,8 +82986,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceToolPropertie
 debug_printf("Executing vkGetPhysicalDeviceToolProperties\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICETOOLPROPERTIES;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -82667,7 +83026,6 @@ debug_printf("Executing vkGetPhysicalDeviceToolProperties\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICETOOLPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -82758,8 +83116,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateAccelerationStructureKHR
 debug_printf("Executing vkCreateAccelerationStructureKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEACCELERATIONSTRUCTUREKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -82808,7 +83168,6 @@ debug_printf("Executing vkCreateAccelerationStructureKHR\n");
 }
 
 
-        json["enum"]=VKCREATEACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
         
         while(true){
@@ -82893,8 +83252,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBuildAccelerationStructuresKHR(
 debug_printf("Executing vkCmdBuildAccelerationStructuresKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBUILDACCELERATIONSTRUCTURESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -82943,7 +83304,6 @@ debug_printf("Executing vkCmdBuildAccelerationStructuresKHR\n");
 }
 
 
-        json["enum"]=VKCMDBUILDACCELERATIONSTRUCTURESKHR;
         writeToConn(json);
         
         while(true){
@@ -83009,8 +83369,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBuildAccelerationStructuresIndi
 debug_printf("Executing vkCmdBuildAccelerationStructuresIndirectKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBUILDACCELERATIONSTRUCTURESINDIRECTKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -83074,7 +83436,6 @@ debug_printf("Executing vkCmdBuildAccelerationStructuresIndirectKHR\n");
 }
 
 
-        json["enum"]=VKCMDBUILDACCELERATIONSTRUCTURESINDIRECTKHR;
         writeToConn(json);
         
         while(true){
@@ -83142,8 +83503,10 @@ __attribute__((visibility ("hidden"))) VkResult vkBuildAccelerationStructuresKHR
 debug_printf("Executing vkBuildAccelerationStructuresKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKBUILDACCELERATIONSTRUCTURESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -83193,7 +83556,6 @@ debug_printf("Executing vkBuildAccelerationStructuresKHR\n");
 }
 
 
-        json["enum"]=VKBUILDACCELERATIONSTRUCTURESKHR;
         writeToConn(json);
         
         while(true){
@@ -83264,8 +83626,10 @@ __attribute__((visibility ("hidden"))) VkDeviceAddress vkGetAccelerationStructur
 debug_printf("Executing vkGetAccelerationStructureDeviceAddressKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETACCELERATIONSTRUCTUREDEVICEADDRESSKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -83293,7 +83657,6 @@ debug_printf("Executing vkGetAccelerationStructureDeviceAddressKHR\n");
 }
 
 
-        json["enum"]=VKGETACCELERATIONSTRUCTUREDEVICEADDRESSKHR;
         writeToConn(json);
         
         while(true){
@@ -83360,8 +83723,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDeferredOperationKHR( Vk
 debug_printf("Executing vkCreateDeferredOperationKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEDEFERREDOPERATIONKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -83398,7 +83763,6 @@ debug_printf("Executing vkCreateDeferredOperationKHR\n");
 }
 
 
-        json["enum"]=VKCREATEDEFERREDOPERATIONKHR;
         writeToConn(json);
         
         while(true){
@@ -83482,8 +83846,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyDeferredOperationKHR( VkDev
 debug_printf("Executing vkDestroyDeferredOperationKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYDEFERREDOPERATIONKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -83512,7 +83878,6 @@ debug_printf("Executing vkDestroyDeferredOperationKHR\n");
 }
 
 
-        json["enum"]=VKDESTROYDEFERREDOPERATIONKHR;
         writeToConn(json);
         
         while(true){
@@ -83577,8 +83942,10 @@ __attribute__((visibility ("hidden"))) uint32_t vkGetDeferredOperationMaxConcurr
 debug_printf("Executing vkGetDeferredOperationMaxConcurrencyKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEFERREDOPERATIONMAXCONCURRENCYKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -83595,7 +83962,6 @@ debug_printf("Executing vkGetDeferredOperationMaxConcurrencyKHR\n");
 }
 
 
-        json["enum"]=VKGETDEFERREDOPERATIONMAXCONCURRENCYKHR;
         writeToConn(json);
         
         while(true){
@@ -83662,8 +84028,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDeferredOperationResultKHR(
 debug_printf("Executing vkGetDeferredOperationResultKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEFERREDOPERATIONRESULTKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -83680,7 +84048,6 @@ debug_printf("Executing vkGetDeferredOperationResultKHR\n");
 }
 
 
-        json["enum"]=VKGETDEFERREDOPERATIONRESULTKHR;
         writeToConn(json);
         
         while(true){
@@ -83748,8 +84115,10 @@ __attribute__((visibility ("hidden"))) VkResult vkDeferredOperationJoinKHR( VkDe
 debug_printf("Executing vkDeferredOperationJoinKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDEFERREDOPERATIONJOINKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -83766,7 +84135,6 @@ debug_printf("Executing vkDeferredOperationJoinKHR\n");
 }
 
 
-        json["enum"]=VKDEFERREDOPERATIONJOINKHR;
         writeToConn(json);
         
         while(true){
@@ -83834,8 +84202,10 @@ __attribute__((visibility ("hidden"))) void vkGetPipelineIndirectMemoryRequireme
 debug_printf("Executing vkGetPipelineIndirectMemoryRequirementsNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPIPELINEINDIRECTMEMORYREQUIREMENTSNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -83875,7 +84245,6 @@ debug_printf("Executing vkGetPipelineIndirectMemoryRequirementsNV\n");
 }
 
 
-        json["enum"]=VKGETPIPELINEINDIRECTMEMORYREQUIREMENTSNV;
         writeToConn(json);
         
         while(true){
@@ -83951,8 +84320,10 @@ __attribute__((visibility ("hidden"))) VkDeviceAddress vkGetPipelineIndirectDevi
 debug_printf("Executing vkGetPipelineIndirectDeviceAddressNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPIPELINEINDIRECTDEVICEADDRESSNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -83980,7 +84351,6 @@ debug_printf("Executing vkGetPipelineIndirectDeviceAddressNV\n");
 }
 
 
-        json["enum"]=VKGETPIPELINEINDIRECTDEVICEADDRESSNV;
         writeToConn(json);
         
         while(true){
@@ -84047,8 +84417,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCullMode( VkCommandBuffer co
 debug_printf("Executing vkCmdSetCullMode\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETCULLMODE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -84065,7 +84437,6 @@ debug_printf("Executing vkCmdSetCullMode\n");
 }
 
 
-        json["enum"]=VKCMDSETCULLMODE;
         writeToConn(json);
         
         while(true){
@@ -84132,8 +84503,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetFrontFace( VkCommandBuffer c
 debug_printf("Executing vkCmdSetFrontFace\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETFRONTFACE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -84150,7 +84523,6 @@ debug_printf("Executing vkCmdSetFrontFace\n");
 }
 
 
-        json["enum"]=VKCMDSETFRONTFACE;
         writeToConn(json);
         
         while(true){
@@ -84217,8 +84589,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetPrimitiveTopology( VkCommand
 debug_printf("Executing vkCmdSetPrimitiveTopology\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETPRIMITIVETOPOLOGY;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -84235,7 +84609,6 @@ debug_printf("Executing vkCmdSetPrimitiveTopology\n");
 }
 
 
-        json["enum"]=VKCMDSETPRIMITIVETOPOLOGY;
         writeToConn(json);
         
         while(true){
@@ -84302,8 +84675,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetViewportWithCount( VkCommand
 debug_printf("Executing vkCmdSetViewportWithCount\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETVIEWPORTWITHCOUNT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -84332,7 +84707,6 @@ debug_printf("Executing vkCmdSetViewportWithCount\n");
 }
 
 
-        json["enum"]=VKCMDSETVIEWPORTWITHCOUNT;
         writeToConn(json);
         
         while(true){
@@ -84400,8 +84774,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetScissorWithCount( VkCommandB
 debug_printf("Executing vkCmdSetScissorWithCount\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETSCISSORWITHCOUNT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -84430,7 +84806,6 @@ debug_printf("Executing vkCmdSetScissorWithCount\n");
 }
 
 
-        json["enum"]=VKCMDSETSCISSORWITHCOUNT;
         writeToConn(json);
         
         while(true){
@@ -84498,8 +84873,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBindIndexBuffer2KHR( VkCommandB
 debug_printf("Executing vkCmdBindIndexBuffer2KHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBINDINDEXBUFFER2KHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -84519,7 +84896,6 @@ debug_printf("Executing vkCmdBindIndexBuffer2KHR\n");
 }
 
 
-        json["enum"]=VKCMDBINDINDEXBUFFER2KHR;
         writeToConn(json);
         
         while(true){
@@ -84586,8 +84962,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBindVertexBuffers2( VkCommandBu
 debug_printf("Executing vkCmdBindVertexBuffers2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBINDVERTEXBUFFERS2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -84641,7 +85019,6 @@ debug_printf("Executing vkCmdBindVertexBuffers2\n");
 }
 
 
-        json["enum"]=VKCMDBINDVERTEXBUFFERS2;
         writeToConn(json);
         
         while(true){
@@ -84713,8 +85090,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthTestEnable( VkCommandBu
 debug_printf("Executing vkCmdSetDepthTestEnable\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETDEPTHTESTENABLE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -84731,7 +85110,6 @@ debug_printf("Executing vkCmdSetDepthTestEnable\n");
 }
 
 
-        json["enum"]=VKCMDSETDEPTHTESTENABLE;
         writeToConn(json);
         
         while(true){
@@ -84798,8 +85176,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthWriteEnable( VkCommandB
 debug_printf("Executing vkCmdSetDepthWriteEnable\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETDEPTHWRITEENABLE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -84816,7 +85196,6 @@ debug_printf("Executing vkCmdSetDepthWriteEnable\n");
 }
 
 
-        json["enum"]=VKCMDSETDEPTHWRITEENABLE;
         writeToConn(json);
         
         while(true){
@@ -84883,8 +85262,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthCompareOp( VkCommandBuf
 debug_printf("Executing vkCmdSetDepthCompareOp\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETDEPTHCOMPAREOP;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -84901,7 +85282,6 @@ debug_printf("Executing vkCmdSetDepthCompareOp\n");
 }
 
 
-        json["enum"]=VKCMDSETDEPTHCOMPAREOP;
         writeToConn(json);
         
         while(true){
@@ -84968,8 +85348,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthBoundsTestEnable( VkCom
 debug_printf("Executing vkCmdSetDepthBoundsTestEnable\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETDEPTHBOUNDSTESTENABLE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -84986,7 +85368,6 @@ debug_printf("Executing vkCmdSetDepthBoundsTestEnable\n");
 }
 
 
-        json["enum"]=VKCMDSETDEPTHBOUNDSTESTENABLE;
         writeToConn(json);
         
         while(true){
@@ -85053,8 +85434,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetStencilTestEnable( VkCommand
 debug_printf("Executing vkCmdSetStencilTestEnable\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETSTENCILTESTENABLE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -85071,7 +85454,6 @@ debug_printf("Executing vkCmdSetStencilTestEnable\n");
 }
 
 
-        json["enum"]=VKCMDSETSTENCILTESTENABLE;
         writeToConn(json);
         
         while(true){
@@ -85138,8 +85520,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetStencilOp( VkCommandBuffer c
 debug_printf("Executing vkCmdSetStencilOp\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETSTENCILOP;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -85160,7 +85544,6 @@ debug_printf("Executing vkCmdSetStencilOp\n");
 }
 
 
-        json["enum"]=VKCMDSETSTENCILOP;
         writeToConn(json);
         
         while(true){
@@ -85231,8 +85614,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetPatchControlPointsEXT( VkCom
 debug_printf("Executing vkCmdSetPatchControlPointsEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETPATCHCONTROLPOINTSEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -85249,7 +85634,6 @@ debug_printf("Executing vkCmdSetPatchControlPointsEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETPATCHCONTROLPOINTSEXT;
         writeToConn(json);
         
         while(true){
@@ -85313,8 +85697,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetRasterizerDiscardEnable( VkC
 debug_printf("Executing vkCmdSetRasterizerDiscardEnable\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETRASTERIZERDISCARDENABLE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -85331,7 +85717,6 @@ debug_printf("Executing vkCmdSetRasterizerDiscardEnable\n");
 }
 
 
-        json["enum"]=VKCMDSETRASTERIZERDISCARDENABLE;
         writeToConn(json);
         
         while(true){
@@ -85398,8 +85783,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthBiasEnable( VkCommandBu
 debug_printf("Executing vkCmdSetDepthBiasEnable\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETDEPTHBIASENABLE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -85416,7 +85803,6 @@ debug_printf("Executing vkCmdSetDepthBiasEnable\n");
 }
 
 
-        json["enum"]=VKCMDSETDEPTHBIASENABLE;
         writeToConn(json);
         
         while(true){
@@ -85483,8 +85869,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetLogicOpEXT( VkCommandBuffer 
 debug_printf("Executing vkCmdSetLogicOpEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETLOGICOPEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -85501,7 +85889,6 @@ debug_printf("Executing vkCmdSetLogicOpEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETLOGICOPEXT;
         writeToConn(json);
         
         while(true){
@@ -85565,8 +85952,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetPrimitiveRestartEnable( VkCo
 debug_printf("Executing vkCmdSetPrimitiveRestartEnable\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETPRIMITIVERESTARTENABLE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -85583,7 +85972,6 @@ debug_printf("Executing vkCmdSetPrimitiveRestartEnable\n");
 }
 
 
-        json["enum"]=VKCMDSETPRIMITIVERESTARTENABLE;
         writeToConn(json);
         
         while(true){
@@ -85650,8 +86038,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetTessellationDomainOriginEXT(
 debug_printf("Executing vkCmdSetTessellationDomainOriginEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETTESSELLATIONDOMAINORIGINEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -85668,7 +86058,6 @@ debug_printf("Executing vkCmdSetTessellationDomainOriginEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETTESSELLATIONDOMAINORIGINEXT;
         writeToConn(json);
         
         while(true){
@@ -85732,8 +86121,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthClampEnableEXT( VkComma
 debug_printf("Executing vkCmdSetDepthClampEnableEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETDEPTHCLAMPENABLEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -85750,7 +86141,6 @@ debug_printf("Executing vkCmdSetDepthClampEnableEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETDEPTHCLAMPENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -85814,8 +86204,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetPolygonModeEXT( VkCommandBuf
 debug_printf("Executing vkCmdSetPolygonModeEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETPOLYGONMODEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -85832,7 +86224,6 @@ debug_printf("Executing vkCmdSetPolygonModeEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETPOLYGONMODEEXT;
         writeToConn(json);
         
         while(true){
@@ -85896,8 +86287,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetRasterizationSamplesEXT( VkC
 debug_printf("Executing vkCmdSetRasterizationSamplesEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETRASTERIZATIONSAMPLESEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -85914,7 +86307,6 @@ debug_printf("Executing vkCmdSetRasterizationSamplesEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETRASTERIZATIONSAMPLESEXT;
         writeToConn(json);
         
         while(true){
@@ -85978,8 +86370,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetSampleMaskEXT( VkCommandBuff
 debug_printf("Executing vkCmdSetSampleMaskEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETSAMPLEMASKEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -86005,7 +86399,6 @@ debug_printf("Executing vkCmdSetSampleMaskEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETSAMPLEMASKEXT;
         writeToConn(json);
         
         while(true){
@@ -86070,8 +86463,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetAlphaToCoverageEnableEXT( Vk
 debug_printf("Executing vkCmdSetAlphaToCoverageEnableEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETALPHATOCOVERAGEENABLEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -86088,7 +86483,6 @@ debug_printf("Executing vkCmdSetAlphaToCoverageEnableEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETALPHATOCOVERAGEENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -86152,8 +86546,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetAlphaToOneEnableEXT( VkComma
 debug_printf("Executing vkCmdSetAlphaToOneEnableEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETALPHATOONEENABLEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -86170,7 +86566,6 @@ debug_printf("Executing vkCmdSetAlphaToOneEnableEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETALPHATOONEENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -86234,8 +86629,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetLogicOpEnableEXT( VkCommandB
 debug_printf("Executing vkCmdSetLogicOpEnableEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETLOGICOPENABLEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -86252,7 +86649,6 @@ debug_printf("Executing vkCmdSetLogicOpEnableEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETLOGICOPENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -86316,8 +86712,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetColorBlendEnableEXT( VkComma
 debug_printf("Executing vkCmdSetColorBlendEnableEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETCOLORBLENDENABLEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -86344,7 +86742,6 @@ debug_printf("Executing vkCmdSetColorBlendEnableEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETCOLORBLENDENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -86410,8 +86807,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetColorBlendEquationEXT( VkCom
 debug_printf("Executing vkCmdSetColorBlendEquationEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETCOLORBLENDEQUATIONEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -86441,7 +86840,6 @@ debug_printf("Executing vkCmdSetColorBlendEquationEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETCOLORBLENDEQUATIONEXT;
         writeToConn(json);
         
         while(true){
@@ -86507,8 +86905,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetColorWriteMaskEXT( VkCommand
 debug_printf("Executing vkCmdSetColorWriteMaskEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETCOLORWRITEMASKEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -86535,7 +86935,6 @@ debug_printf("Executing vkCmdSetColorWriteMaskEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETCOLORWRITEMASKEXT;
         writeToConn(json);
         
         while(true){
@@ -86601,8 +87000,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetRasterizationStreamEXT( VkCo
 debug_printf("Executing vkCmdSetRasterizationStreamEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETRASTERIZATIONSTREAMEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -86619,7 +87020,6 @@ debug_printf("Executing vkCmdSetRasterizationStreamEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETRASTERIZATIONSTREAMEXT;
         writeToConn(json);
         
         while(true){
@@ -86683,8 +87083,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetConservativeRasterizationMod
 debug_printf("Executing vkCmdSetConservativeRasterizationModeEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETCONSERVATIVERASTERIZATIONMODEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -86701,7 +87103,6 @@ debug_printf("Executing vkCmdSetConservativeRasterizationModeEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETCONSERVATIVERASTERIZATIONMODEEXT;
         writeToConn(json);
         
         while(true){
@@ -86765,8 +87166,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetExtraPrimitiveOverestimation
 debug_printf("Executing vkCmdSetExtraPrimitiveOverestimationSizeEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETEXTRAPRIMITIVEOVERESTIMATIONSIZEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -86783,7 +87186,6 @@ debug_printf("Executing vkCmdSetExtraPrimitiveOverestimationSizeEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETEXTRAPRIMITIVEOVERESTIMATIONSIZEEXT;
         writeToConn(json);
         
         while(true){
@@ -86847,8 +87249,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthClipEnableEXT( VkComman
 debug_printf("Executing vkCmdSetDepthClipEnableEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETDEPTHCLIPENABLEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -86865,7 +87269,6 @@ debug_printf("Executing vkCmdSetDepthClipEnableEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETDEPTHCLIPENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -86929,8 +87332,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetSampleLocationsEnableEXT( Vk
 debug_printf("Executing vkCmdSetSampleLocationsEnableEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETSAMPLELOCATIONSENABLEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -86947,7 +87352,6 @@ debug_printf("Executing vkCmdSetSampleLocationsEnableEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETSAMPLELOCATIONSENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -87011,8 +87415,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetColorBlendAdvancedEXT( VkCom
 debug_printf("Executing vkCmdSetColorBlendAdvancedEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETCOLORBLENDADVANCEDEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -87042,7 +87448,6 @@ debug_printf("Executing vkCmdSetColorBlendAdvancedEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETCOLORBLENDADVANCEDEXT;
         writeToConn(json);
         
         while(true){
@@ -87108,8 +87513,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetProvokingVertexModeEXT( VkCo
 debug_printf("Executing vkCmdSetProvokingVertexModeEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETPROVOKINGVERTEXMODEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -87126,7 +87533,6 @@ debug_printf("Executing vkCmdSetProvokingVertexModeEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETPROVOKINGVERTEXMODEEXT;
         writeToConn(json);
         
         while(true){
@@ -87190,8 +87596,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetLineRasterizationModeEXT( Vk
 debug_printf("Executing vkCmdSetLineRasterizationModeEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETLINERASTERIZATIONMODEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -87208,7 +87616,6 @@ debug_printf("Executing vkCmdSetLineRasterizationModeEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETLINERASTERIZATIONMODEEXT;
         writeToConn(json);
         
         while(true){
@@ -87272,8 +87679,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetLineStippleEnableEXT( VkComm
 debug_printf("Executing vkCmdSetLineStippleEnableEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETLINESTIPPLEENABLEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -87290,7 +87699,6 @@ debug_printf("Executing vkCmdSetLineStippleEnableEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETLINESTIPPLEENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -87354,8 +87762,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthClipNegativeOneToOneEXT
 debug_printf("Executing vkCmdSetDepthClipNegativeOneToOneEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETDEPTHCLIPNEGATIVEONETOONEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -87372,7 +87782,6 @@ debug_printf("Executing vkCmdSetDepthClipNegativeOneToOneEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETDEPTHCLIPNEGATIVEONETOONEEXT;
         writeToConn(json);
         
         while(true){
@@ -87436,8 +87845,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetViewportWScalingEnableNV( Vk
 debug_printf("Executing vkCmdSetViewportWScalingEnableNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETVIEWPORTWSCALINGENABLENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -87454,7 +87865,6 @@ debug_printf("Executing vkCmdSetViewportWScalingEnableNV\n");
 }
 
 
-        json["enum"]=VKCMDSETVIEWPORTWSCALINGENABLENV;
         writeToConn(json);
         
         while(true){
@@ -87518,8 +87928,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetViewportSwizzleNV( VkCommand
 debug_printf("Executing vkCmdSetViewportSwizzleNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETVIEWPORTSWIZZLENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -87549,7 +87961,6 @@ debug_printf("Executing vkCmdSetViewportSwizzleNV\n");
 }
 
 
-        json["enum"]=VKCMDSETVIEWPORTSWIZZLENV;
         writeToConn(json);
         
         while(true){
@@ -87615,8 +88026,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCoverageToColorEnableNV( VkC
 debug_printf("Executing vkCmdSetCoverageToColorEnableNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETCOVERAGETOCOLORENABLENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -87633,7 +88046,6 @@ debug_printf("Executing vkCmdSetCoverageToColorEnableNV\n");
 }
 
 
-        json["enum"]=VKCMDSETCOVERAGETOCOLORENABLENV;
         writeToConn(json);
         
         while(true){
@@ -87697,8 +88109,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCoverageToColorLocationNV( V
 debug_printf("Executing vkCmdSetCoverageToColorLocationNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETCOVERAGETOCOLORLOCATIONNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -87715,7 +88129,6 @@ debug_printf("Executing vkCmdSetCoverageToColorLocationNV\n");
 }
 
 
-        json["enum"]=VKCMDSETCOVERAGETOCOLORLOCATIONNV;
         writeToConn(json);
         
         while(true){
@@ -87779,8 +88192,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCoverageModulationModeNV( Vk
 debug_printf("Executing vkCmdSetCoverageModulationModeNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETCOVERAGEMODULATIONMODENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -87797,7 +88212,6 @@ debug_printf("Executing vkCmdSetCoverageModulationModeNV\n");
 }
 
 
-        json["enum"]=VKCMDSETCOVERAGEMODULATIONMODENV;
         writeToConn(json);
         
         while(true){
@@ -87861,8 +88275,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCoverageModulationTableEnabl
 debug_printf("Executing vkCmdSetCoverageModulationTableEnableNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETCOVERAGEMODULATIONTABLEENABLENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -87879,7 +88295,6 @@ debug_printf("Executing vkCmdSetCoverageModulationTableEnableNV\n");
 }
 
 
-        json["enum"]=VKCMDSETCOVERAGEMODULATIONTABLEENABLENV;
         writeToConn(json);
         
         while(true){
@@ -87943,8 +88358,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCoverageModulationTableNV( V
 debug_printf("Executing vkCmdSetCoverageModulationTableNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETCOVERAGEMODULATIONTABLENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -87970,7 +88387,6 @@ debug_printf("Executing vkCmdSetCoverageModulationTableNV\n");
 }
 
 
-        json["enum"]=VKCMDSETCOVERAGEMODULATIONTABLENV;
         writeToConn(json);
         
         while(true){
@@ -88035,8 +88451,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetShadingRateImageEnableNV( Vk
 debug_printf("Executing vkCmdSetShadingRateImageEnableNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETSHADINGRATEIMAGEENABLENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -88053,7 +88471,6 @@ debug_printf("Executing vkCmdSetShadingRateImageEnableNV\n");
 }
 
 
-        json["enum"]=VKCMDSETSHADINGRATEIMAGEENABLENV;
         writeToConn(json);
         
         while(true){
@@ -88117,8 +88534,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCoverageReductionModeNV( VkC
 debug_printf("Executing vkCmdSetCoverageReductionModeNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETCOVERAGEREDUCTIONMODENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -88135,7 +88554,6 @@ debug_printf("Executing vkCmdSetCoverageReductionModeNV\n");
 }
 
 
-        json["enum"]=VKCMDSETCOVERAGEREDUCTIONMODENV;
         writeToConn(json);
         
         while(true){
@@ -88199,8 +88617,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetRepresentativeFragmentTestEn
 debug_printf("Executing vkCmdSetRepresentativeFragmentTestEnableNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETREPRESENTATIVEFRAGMENTTESTENABLENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -88217,7 +88637,6 @@ debug_printf("Executing vkCmdSetRepresentativeFragmentTestEnableNV\n");
 }
 
 
-        json["enum"]=VKCMDSETREPRESENTATIVEFRAGMENTTESTENABLENV;
         writeToConn(json);
         
         while(true){
@@ -88281,8 +88700,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreatePrivateDataSlot( VkDevic
 debug_printf("Executing vkCreatePrivateDataSlot\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEPRIVATEDATASLOT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -88331,7 +88752,6 @@ debug_printf("Executing vkCreatePrivateDataSlot\n");
 }
 
 
-        json["enum"]=VKCREATEPRIVATEDATASLOT;
         writeToConn(json);
         
         while(true){
@@ -88419,8 +88839,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyPrivateDataSlot( VkDevice d
 debug_printf("Executing vkDestroyPrivateDataSlot\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYPRIVATEDATASLOT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -88449,7 +88871,6 @@ debug_printf("Executing vkDestroyPrivateDataSlot\n");
 }
 
 
-        json["enum"]=VKDESTROYPRIVATEDATASLOT;
         writeToConn(json);
         
         while(true){
@@ -88517,8 +88938,10 @@ __attribute__((visibility ("hidden"))) VkResult vkSetPrivateData( VkDevice devic
 debug_printf("Executing vkSetPrivateData\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKSETPRIVATEDATA;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -88538,7 +88961,6 @@ debug_printf("Executing vkSetPrivateData\n");
 }
 
 
-        json["enum"]=VKSETPRIVATEDATA;
         writeToConn(json);
         
         while(true){
@@ -88612,8 +89034,10 @@ __attribute__((visibility ("hidden"))) void vkGetPrivateData( VkDevice device, V
 debug_printf("Executing vkGetPrivateData\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPRIVATEDATA;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -88641,7 +89065,6 @@ debug_printf("Executing vkGetPrivateData\n");
 }
 
 
-        json["enum"]=VKGETPRIVATEDATA;
         writeToConn(json);
         
         while(true){
@@ -88719,8 +89142,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyBuffer2( VkCommandBuffer co
 debug_printf("Executing vkCmdCopyBuffer2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYBUFFER2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -88748,7 +89173,6 @@ debug_printf("Executing vkCmdCopyBuffer2\n");
 }
 
 
-        json["enum"]=VKCMDCOPYBUFFER2;
         writeToConn(json);
         
         while(true){
@@ -88815,8 +89239,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyImage2( VkCommandBuffer com
 debug_printf("Executing vkCmdCopyImage2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYIMAGE2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -88844,7 +89270,6 @@ debug_printf("Executing vkCmdCopyImage2\n");
 }
 
 
-        json["enum"]=VKCMDCOPYIMAGE2;
         writeToConn(json);
         
         while(true){
@@ -88911,8 +89336,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBlitImage2( VkCommandBuffer com
 debug_printf("Executing vkCmdBlitImage2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBLITIMAGE2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -88940,7 +89367,6 @@ debug_printf("Executing vkCmdBlitImage2\n");
 }
 
 
-        json["enum"]=VKCMDBLITIMAGE2;
         writeToConn(json);
         
         while(true){
@@ -89007,8 +89433,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyBufferToImage2( VkCommandBu
 debug_printf("Executing vkCmdCopyBufferToImage2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYBUFFERTOIMAGE2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -89036,7 +89464,6 @@ debug_printf("Executing vkCmdCopyBufferToImage2\n");
 }
 
 
-        json["enum"]=VKCMDCOPYBUFFERTOIMAGE2;
         writeToConn(json);
         
         while(true){
@@ -89103,8 +89530,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyImageToBuffer2( VkCommandBu
 debug_printf("Executing vkCmdCopyImageToBuffer2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYIMAGETOBUFFER2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -89132,7 +89561,6 @@ debug_printf("Executing vkCmdCopyImageToBuffer2\n");
 }
 
 
-        json["enum"]=VKCMDCOPYIMAGETOBUFFER2;
         writeToConn(json);
         
         while(true){
@@ -89199,8 +89627,10 @@ __attribute__((visibility ("hidden"))) void vkCmdResolveImage2( VkCommandBuffer 
 debug_printf("Executing vkCmdResolveImage2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDRESOLVEIMAGE2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -89228,7 +89658,6 @@ debug_printf("Executing vkCmdResolveImage2\n");
 }
 
 
-        json["enum"]=VKCMDRESOLVEIMAGE2;
         writeToConn(json);
         
         while(true){
@@ -89295,8 +89724,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetFragmentShadingRateKHR( VkCo
 debug_printf("Executing vkCmdSetFragmentShadingRateKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETFRAGMENTSHADINGRATEKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -89330,7 +89761,6 @@ debug_printf("Executing vkCmdSetFragmentShadingRateKHR\n");
 }
 
 
-        json["enum"]=VKCMDSETFRAGMENTSHADINGRATEKHR;
         writeToConn(json);
         
         while(true){
@@ -89400,8 +89830,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceFragmentShadi
 debug_printf("Executing vkGetPhysicalDeviceFragmentShadingRatesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEFRAGMENTSHADINGRATESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -89438,7 +89870,6 @@ debug_printf("Executing vkGetPhysicalDeviceFragmentShadingRatesKHR\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEFRAGMENTSHADINGRATESKHR;
         writeToConn(json);
         
         while(true){
@@ -89526,8 +89957,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetFragmentShadingRateEnumNV( V
 debug_printf("Executing vkCmdSetFragmentShadingRateEnumNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETFRAGMENTSHADINGRATEENUMNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -89550,7 +89983,6 @@ debug_printf("Executing vkCmdSetFragmentShadingRateEnumNV\n");
 }
 
 
-        json["enum"]=VKCMDSETFRAGMENTSHADINGRATEENUMNV;
         writeToConn(json);
         
         while(true){
@@ -89620,8 +90052,10 @@ __attribute__((visibility ("hidden"))) void vkGetAccelerationStructureBuildSizes
 debug_printf("Executing vkGetAccelerationStructureBuildSizesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETACCELERATIONSTRUCTUREBUILDSIZESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -89671,7 +90105,6 @@ debug_printf("Executing vkGetAccelerationStructureBuildSizesKHR\n");
 }
 
 
-        json["enum"]=VKGETACCELERATIONSTRUCTUREBUILDSIZESKHR;
         writeToConn(json);
         
         while(true){
@@ -89749,8 +90182,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetVertexInputEXT( VkCommandBuf
 debug_printf("Executing vkCmdSetVertexInputEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETVERTEXINPUTEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -89792,7 +90227,6 @@ debug_printf("Executing vkCmdSetVertexInputEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETVERTEXINPUTEXT;
         writeToConn(json);
         
         while(true){
@@ -89859,8 +90293,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetColorWriteEnableEXT( VkComma
 debug_printf("Executing vkCmdSetColorWriteEnableEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETCOLORWRITEENABLEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -89886,7 +90322,6 @@ debug_printf("Executing vkCmdSetColorWriteEnableEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETCOLORWRITEENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -89951,8 +90386,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetEvent2( VkCommandBuffer comm
 debug_printf("Executing vkCmdSetEvent2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETEVENT2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -89981,7 +90418,6 @@ debug_printf("Executing vkCmdSetEvent2\n");
 }
 
 
-        json["enum"]=VKCMDSETEVENT2;
         writeToConn(json);
         
         while(true){
@@ -90049,8 +90485,10 @@ __attribute__((visibility ("hidden"))) void vkCmdResetEvent2( VkCommandBuffer co
 debug_printf("Executing vkCmdResetEvent2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDRESETEVENT2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -90068,7 +90506,6 @@ debug_printf("Executing vkCmdResetEvent2\n");
 }
 
 
-        json["enum"]=VKCMDRESETEVENT2;
         writeToConn(json);
         
         while(true){
@@ -90136,8 +90573,10 @@ __attribute__((visibility ("hidden"))) void vkCmdWaitEvents2( VkCommandBuffer co
 debug_printf("Executing vkCmdWaitEvents2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDWAITEVENTS2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -90175,7 +90614,6 @@ debug_printf("Executing vkCmdWaitEvents2\n");
 }
 
 
-        json["enum"]=VKCMDWAITEVENTS2;
         writeToConn(json);
         
         while(true){
@@ -90244,8 +90682,10 @@ __attribute__((visibility ("hidden"))) void vkCmdPipelineBarrier2( VkCommandBuff
 debug_printf("Executing vkCmdPipelineBarrier2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDPIPELINEBARRIER2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -90273,7 +90713,6 @@ debug_printf("Executing vkCmdPipelineBarrier2\n");
 }
 
 
-        json["enum"]=VKCMDPIPELINEBARRIER2;
         writeToConn(json);
         
         while(true){
@@ -90340,8 +90779,10 @@ __attribute__((visibility ("hidden"))) VkResult vkQueueSubmit2( VkQueue queue, u
 debug_printf("Executing vkQueueSubmit2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKQUEUESUBMIT2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
@@ -90371,7 +90812,6 @@ debug_printf("Executing vkQueueSubmit2\n");
 }
 
 
-        json["enum"]=VKQUEUESUBMIT2;
         writeToConn(json);
         
         while(true){
@@ -90444,8 +90884,10 @@ __attribute__((visibility ("hidden"))) void vkCmdWriteTimestamp2( VkCommandBuffe
 debug_printf("Executing vkCmdWriteTimestamp2\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDWRITETIMESTAMP2;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -90464,7 +90906,6 @@ debug_printf("Executing vkCmdWriteTimestamp2\n");
 }
 
 
-        json["enum"]=VKCMDWRITETIMESTAMP2;
         writeToConn(json);
         
         while(true){
@@ -90533,8 +90974,10 @@ __attribute__((visibility ("hidden"))) void vkCmdWriteBufferMarker2AMD( VkComman
 debug_printf("Executing vkCmdWriteBufferMarker2AMD\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDWRITEBUFFERMARKER2AMD;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -90554,7 +90997,6 @@ debug_printf("Executing vkCmdWriteBufferMarker2AMD\n");
 }
 
 
-        json["enum"]=VKCMDWRITEBUFFERMARKER2AMD;
         writeToConn(json);
         
         while(true){
@@ -90621,8 +91063,10 @@ __attribute__((visibility ("hidden"))) void vkGetQueueCheckpointData2NV( VkQueue
 debug_printf("Executing vkGetQueueCheckpointData2NV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETQUEUECHECKPOINTDATA2NV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)queue];
@@ -90659,7 +91103,6 @@ debug_printf("Executing vkGetQueueCheckpointData2NV\n");
 }
 
 
-        json["enum"]=VKGETQUEUECHECKPOINTDATA2NV;
         writeToConn(json);
         
         while(true){
@@ -90743,8 +91186,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyMemoryToImageEXT( VkDevice
 debug_printf("Executing vkCopyMemoryToImageEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCOPYMEMORYTOIMAGEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -90772,7 +91217,6 @@ debug_printf("Executing vkCopyMemoryToImageEXT\n");
 }
 
 
-        json["enum"]=VKCOPYMEMORYTOIMAGEEXT;
         writeToConn(json);
         
         while(true){
@@ -90840,8 +91284,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyImageToMemoryEXT( VkDevice
 debug_printf("Executing vkCopyImageToMemoryEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCOPYIMAGETOMEMORYEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -90869,7 +91315,6 @@ debug_printf("Executing vkCopyImageToMemoryEXT\n");
 }
 
 
-        json["enum"]=VKCOPYIMAGETOMEMORYEXT;
         writeToConn(json);
         
         while(true){
@@ -90937,8 +91382,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyImageToImageEXT( VkDevice 
 debug_printf("Executing vkCopyImageToImageEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCOPYIMAGETOIMAGEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -90966,7 +91413,6 @@ debug_printf("Executing vkCopyImageToImageEXT\n");
 }
 
 
-        json["enum"]=VKCOPYIMAGETOIMAGEEXT;
         writeToConn(json);
         
         while(true){
@@ -91034,8 +91480,10 @@ __attribute__((visibility ("hidden"))) VkResult vkTransitionImageLayoutEXT( VkDe
 debug_printf("Executing vkTransitionImageLayoutEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKTRANSITIONIMAGELAYOUTEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -91064,7 +91512,6 @@ debug_printf("Executing vkTransitionImageLayoutEXT\n");
 }
 
 
-        json["enum"]=VKTRANSITIONIMAGELAYOUTEXT;
         writeToConn(json);
         
         while(true){
@@ -91133,8 +91580,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceVideoCapabili
 debug_printf("Executing vkGetPhysicalDeviceVideoCapabilitiesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEVIDEOCAPABILITIESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -91174,7 +91623,6 @@ debug_printf("Executing vkGetPhysicalDeviceVideoCapabilitiesKHR\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEVIDEOCAPABILITIESKHR;
         writeToConn(json);
         
         while(true){
@@ -91254,8 +91702,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceVideoFormatPr
 debug_printf("Executing vkGetPhysicalDeviceVideoFormatPropertiesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEVIDEOFORMATPROPERTIESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -91304,7 +91754,6 @@ debug_printf("Executing vkGetPhysicalDeviceVideoFormatPropertiesKHR\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEVIDEOFORMATPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
@@ -91393,8 +91842,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateVideoSessionKHR( VkDevic
 debug_printf("Executing vkCreateVideoSessionKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEVIDEOSESSIONKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -91443,7 +91894,6 @@ debug_printf("Executing vkCreateVideoSessionKHR\n");
 }
 
 
-        json["enum"]=VKCREATEVIDEOSESSIONKHR;
         writeToConn(json);
         
         while(true){
@@ -91528,8 +91978,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyVideoSessionKHR( VkDevice d
 debug_printf("Executing vkDestroyVideoSessionKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYVIDEOSESSIONKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -91558,7 +92010,6 @@ debug_printf("Executing vkDestroyVideoSessionKHR\n");
 }
 
 
-        json["enum"]=VKDESTROYVIDEOSESSIONKHR;
         writeToConn(json);
         
         while(true){
@@ -91623,8 +92074,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateVideoSessionParametersKH
 debug_printf("Executing vkCreateVideoSessionParametersKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEVIDEOSESSIONPARAMETERSKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -91673,7 +92126,6 @@ debug_printf("Executing vkCreateVideoSessionParametersKHR\n");
 }
 
 
-        json["enum"]=VKCREATEVIDEOSESSIONPARAMETERSKHR;
         writeToConn(json);
         
         while(true){
@@ -91758,8 +92210,10 @@ __attribute__((visibility ("hidden"))) VkResult vkUpdateVideoSessionParametersKH
 debug_printf("Executing vkUpdateVideoSessionParametersKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKUPDATEVIDEOSESSIONPARAMETERSKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -91788,7 +92242,6 @@ debug_printf("Executing vkUpdateVideoSessionParametersKHR\n");
 }
 
 
-        json["enum"]=VKUPDATEVIDEOSESSIONPARAMETERSKHR;
         writeToConn(json);
         
         while(true){
@@ -91857,8 +92310,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyVideoSessionParametersKHR( 
 debug_printf("Executing vkDestroyVideoSessionParametersKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYVIDEOSESSIONPARAMETERSKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -91887,7 +92342,6 @@ debug_printf("Executing vkDestroyVideoSessionParametersKHR\n");
 }
 
 
-        json["enum"]=VKDESTROYVIDEOSESSIONPARAMETERSKHR;
         writeToConn(json);
         
         while(true){
@@ -91952,8 +92406,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetVideoSessionMemoryRequireme
 debug_printf("Executing vkGetVideoSessionMemoryRequirementsKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETVIDEOSESSIONMEMORYREQUIREMENTSKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -91991,7 +92447,6 @@ debug_printf("Executing vkGetVideoSessionMemoryRequirementsKHR\n");
 }
 
 
-        json["enum"]=VKGETVIDEOSESSIONMEMORYREQUIREMENTSKHR;
         writeToConn(json);
         
         while(true){
@@ -92080,8 +92535,10 @@ __attribute__((visibility ("hidden"))) VkResult vkBindVideoSessionMemoryKHR( VkD
 debug_printf("Executing vkBindVideoSessionMemoryKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKBINDVIDEOSESSIONMEMORYKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -92111,7 +92568,6 @@ debug_printf("Executing vkBindVideoSessionMemoryKHR\n");
 }
 
 
-        json["enum"]=VKBINDVIDEOSESSIONMEMORYKHR;
         writeToConn(json);
         
         while(true){
@@ -92181,8 +92637,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDecodeVideoKHR( VkCommandBuffer
 debug_printf("Executing vkCmdDecodeVideoKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDECODEVIDEOKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -92210,7 +92668,6 @@ debug_printf("Executing vkCmdDecodeVideoKHR\n");
 }
 
 
-        json["enum"]=VKCMDDECODEVIDEOKHR;
         writeToConn(json);
         
         while(true){
@@ -92274,8 +92731,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginVideoCodingKHR( VkCommandB
 debug_printf("Executing vkCmdBeginVideoCodingKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBEGINVIDEOCODINGKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -92303,7 +92762,6 @@ debug_printf("Executing vkCmdBeginVideoCodingKHR\n");
 }
 
 
-        json["enum"]=VKCMDBEGINVIDEOCODINGKHR;
         writeToConn(json);
         
         while(true){
@@ -92367,8 +92825,10 @@ __attribute__((visibility ("hidden"))) void vkCmdControlVideoCodingKHR( VkComman
 debug_printf("Executing vkCmdControlVideoCodingKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCONTROLVIDEOCODINGKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -92396,7 +92856,6 @@ debug_printf("Executing vkCmdControlVideoCodingKHR\n");
 }
 
 
-        json["enum"]=VKCMDCONTROLVIDEOCODINGKHR;
         writeToConn(json);
         
         while(true){
@@ -92460,8 +92919,10 @@ __attribute__((visibility ("hidden"))) void vkCmdEndVideoCodingKHR( VkCommandBuf
 debug_printf("Executing vkCmdEndVideoCodingKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDENDVIDEOCODINGKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -92489,7 +92950,6 @@ debug_printf("Executing vkCmdEndVideoCodingKHR\n");
 }
 
 
-        json["enum"]=VKCMDENDVIDEOCODINGKHR;
         writeToConn(json);
         
         while(true){
@@ -92553,8 +93013,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDecompressMemoryNV( VkCommandBu
 debug_printf("Executing vkCmdDecompressMemoryNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDECOMPRESSMEMORYNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -92583,7 +93045,6 @@ debug_printf("Executing vkCmdDecompressMemoryNV\n");
 }
 
 
-        json["enum"]=VKCMDDECOMPRESSMEMORYNV;
         writeToConn(json);
         
         while(true){
@@ -92648,8 +93109,10 @@ __attribute__((visibility ("hidden"))) void vkCmdDecompressMemoryIndirectCountNV
 debug_printf("Executing vkCmdDecompressMemoryIndirectCountNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDDECOMPRESSMEMORYINDIRECTCOUNTNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -92668,7 +93131,6 @@ debug_printf("Executing vkCmdDecompressMemoryIndirectCountNV\n");
 }
 
 
-        json["enum"]=VKCMDDECOMPRESSMEMORYINDIRECTCOUNTNV;
         writeToConn(json);
         
         while(true){
@@ -92734,8 +93196,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateCuModuleNVX( VkDevice de
 debug_printf("Executing vkCreateCuModuleNVX\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATECUMODULENVX;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -92784,7 +93248,6 @@ debug_printf("Executing vkCreateCuModuleNVX\n");
 }
 
 
-        json["enum"]=VKCREATECUMODULENVX;
         writeToConn(json);
         
         while(true){
@@ -92869,8 +93332,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateCuFunctionNVX( VkDevice 
 debug_printf("Executing vkCreateCuFunctionNVX\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATECUFUNCTIONNVX;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -92919,7 +93384,6 @@ debug_printf("Executing vkCreateCuFunctionNVX\n");
 }
 
 
-        json["enum"]=VKCREATECUFUNCTIONNVX;
         writeToConn(json);
         
         while(true){
@@ -93004,8 +93468,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyCuModuleNVX( VkDevice devic
 debug_printf("Executing vkDestroyCuModuleNVX\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYCUMODULENVX;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -93034,7 +93500,6 @@ debug_printf("Executing vkDestroyCuModuleNVX\n");
 }
 
 
-        json["enum"]=VKDESTROYCUMODULENVX;
         writeToConn(json);
         
         while(true){
@@ -93099,8 +93564,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyCuFunctionNVX( VkDevice dev
 debug_printf("Executing vkDestroyCuFunctionNVX\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYCUFUNCTIONNVX;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -93129,7 +93596,6 @@ debug_printf("Executing vkDestroyCuFunctionNVX\n");
 }
 
 
-        json["enum"]=VKDESTROYCUFUNCTIONNVX;
         writeToConn(json);
         
         while(true){
@@ -93194,8 +93660,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCuLaunchKernelNVX( VkCommandBuf
 debug_printf("Executing vkCmdCuLaunchKernelNVX\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCULAUNCHKERNELNVX;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -93223,7 +93691,6 @@ debug_printf("Executing vkCmdCuLaunchKernelNVX\n");
 }
 
 
-        json["enum"]=VKCMDCULAUNCHKERNELNVX;
         writeToConn(json);
         
         while(true){
@@ -93287,8 +93754,10 @@ __attribute__((visibility ("hidden"))) void vkGetDescriptorSetLayoutSizeEXT( VkD
 debug_printf("Executing vkGetDescriptorSetLayoutSizeEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDESCRIPTORSETLAYOUTSIZEEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -93314,7 +93783,6 @@ debug_printf("Executing vkGetDescriptorSetLayoutSizeEXT\n");
 }
 
 
-        json["enum"]=VKGETDESCRIPTORSETLAYOUTSIZEEXT;
         writeToConn(json);
         
         while(true){
@@ -93387,8 +93855,10 @@ __attribute__((visibility ("hidden"))) void vkGetDescriptorSetLayoutBindingOffse
 debug_printf("Executing vkGetDescriptorSetLayoutBindingOffsetEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDESCRIPTORSETLAYOUTBINDINGOFFSETEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -93415,7 +93885,6 @@ debug_printf("Executing vkGetDescriptorSetLayoutBindingOffsetEXT\n");
 }
 
 
-        json["enum"]=VKGETDESCRIPTORSETLAYOUTBINDINGOFFSETEXT;
         writeToConn(json);
         
         while(true){
@@ -93489,8 +93958,10 @@ __attribute__((visibility ("hidden"))) void vkGetDescriptorEXT( VkDevice device,
 debug_printf("Executing vkGetDescriptorEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDESCRIPTOREXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -93531,7 +94002,6 @@ debug_printf("Executing vkGetDescriptorEXT\n");
 }
 
 
-        json["enum"]=VKGETDESCRIPTOREXT;
         writeToConn(json);
         
         while(true){
@@ -93608,8 +94078,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBindDescriptorBuffersEXT( VkCom
 debug_printf("Executing vkCmdBindDescriptorBuffersEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBINDDESCRIPTORBUFFERSEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -93638,7 +94110,6 @@ debug_printf("Executing vkCmdBindDescriptorBuffersEXT\n");
 }
 
 
-        json["enum"]=VKCMDBINDDESCRIPTORBUFFERSEXT;
         writeToConn(json);
         
         while(true){
@@ -93703,8 +94174,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDescriptorBufferOffsetsEXT( 
 debug_printf("Executing vkCmdSetDescriptorBufferOffsetsEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETDESCRIPTORBUFFEROFFSETSEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -93742,7 +94215,6 @@ debug_printf("Executing vkCmdSetDescriptorBufferOffsetsEXT\n");
 }
 
 
-        json["enum"]=VKCMDSETDESCRIPTORBUFFEROFFSETSEXT;
         writeToConn(json);
         
         while(true){
@@ -93811,8 +94283,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBindDescriptorBufferEmbeddedSam
 debug_printf("Executing vkCmdBindDescriptorBufferEmbeddedSamplersEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBINDDESCRIPTORBUFFEREMBEDDEDSAMPLERSEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -93831,7 +94305,6 @@ debug_printf("Executing vkCmdBindDescriptorBufferEmbeddedSamplersEXT\n");
 }
 
 
-        json["enum"]=VKCMDBINDDESCRIPTORBUFFEREMBEDDEDSAMPLERSEXT;
         writeToConn(json);
         
         while(true){
@@ -93897,8 +94370,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetBufferOpaqueCaptureDescript
 debug_printf("Executing vkGetBufferOpaqueCaptureDescriptorDataEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETBUFFEROPAQUECAPTUREDESCRIPTORDATAEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -93938,7 +94413,6 @@ debug_printf("Executing vkGetBufferOpaqueCaptureDescriptorDataEXT\n");
 }
 
 
-        json["enum"]=VKGETBUFFEROPAQUECAPTUREDESCRIPTORDATAEXT;
         writeToConn(json);
         
         while(true){
@@ -94018,8 +94492,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetImageOpaqueCaptureDescripto
 debug_printf("Executing vkGetImageOpaqueCaptureDescriptorDataEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETIMAGEOPAQUECAPTUREDESCRIPTORDATAEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -94059,7 +94535,6 @@ debug_printf("Executing vkGetImageOpaqueCaptureDescriptorDataEXT\n");
 }
 
 
-        json["enum"]=VKGETIMAGEOPAQUECAPTUREDESCRIPTORDATAEXT;
         writeToConn(json);
         
         while(true){
@@ -94139,8 +94614,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetImageViewOpaqueCaptureDescr
 debug_printf("Executing vkGetImageViewOpaqueCaptureDescriptorDataEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETIMAGEVIEWOPAQUECAPTUREDESCRIPTORDATAEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -94180,7 +94657,6 @@ debug_printf("Executing vkGetImageViewOpaqueCaptureDescriptorDataEXT\n");
 }
 
 
-        json["enum"]=VKGETIMAGEVIEWOPAQUECAPTUREDESCRIPTORDATAEXT;
         writeToConn(json);
         
         while(true){
@@ -94260,8 +94736,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetSamplerOpaqueCaptureDescrip
 debug_printf("Executing vkGetSamplerOpaqueCaptureDescriptorDataEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETSAMPLEROPAQUECAPTUREDESCRIPTORDATAEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -94301,7 +94779,6 @@ debug_printf("Executing vkGetSamplerOpaqueCaptureDescriptorDataEXT\n");
 }
 
 
-        json["enum"]=VKGETSAMPLEROPAQUECAPTUREDESCRIPTORDATAEXT;
         writeToConn(json);
         
         while(true){
@@ -94381,8 +94858,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetAccelerationStructureOpaque
 debug_printf("Executing vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETACCELERATIONSTRUCTUREOPAQUECAPTUREDESCRIPTORDATAEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -94422,7 +94901,6 @@ debug_printf("Executing vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT
 }
 
 
-        json["enum"]=VKGETACCELERATIONSTRUCTUREOPAQUECAPTUREDESCRIPTORDATAEXT;
         writeToConn(json);
         
         while(true){
@@ -94502,8 +94980,10 @@ __attribute__((visibility ("hidden"))) void vkSetDeviceMemoryPriorityEXT( VkDevi
 debug_printf("Executing vkSetDeviceMemoryPriorityEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKSETDEVICEMEMORYPRIORITYEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -94521,7 +95001,6 @@ debug_printf("Executing vkSetDeviceMemoryPriorityEXT\n");
 }
 
 
-        json["enum"]=VKSETDEVICEMEMORYPRIORITYEXT;
         writeToConn(json);
         
         while(true){
@@ -94586,8 +95065,10 @@ __attribute__((visibility ("hidden"))) VkResult vkAcquireDrmDisplayEXT( VkPhysic
 debug_printf("Executing vkAcquireDrmDisplayEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKACQUIREDRMDISPLAYEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -94605,7 +95086,6 @@ debug_printf("Executing vkAcquireDrmDisplayEXT\n");
 }
 
 
-        json["enum"]=VKACQUIREDRMDISPLAYEXT;
         writeToConn(json);
         
         while(true){
@@ -94674,8 +95154,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDrmDisplayEXT( VkPhysicalDe
 debug_printf("Executing vkGetDrmDisplayEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDRMDISPLAYEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -94702,7 +95184,6 @@ debug_printf("Executing vkGetDrmDisplayEXT\n");
 }
 
 
-        json["enum"]=VKGETDRMDISPLAYEXT;
         writeToConn(json);
         
         while(true){
@@ -94780,8 +95261,10 @@ __attribute__((visibility ("hidden"))) VkResult vkWaitForPresentKHR( VkDevice de
 debug_printf("Executing vkWaitForPresentKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKWAITFORPRESENTKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -94800,7 +95283,6 @@ debug_printf("Executing vkWaitForPresentKHR\n");
 }
 
 
-        json["enum"]=VKWAITFORPRESENTKHR;
         writeToConn(json);
         
         while(true){
@@ -94870,8 +95352,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginRendering( VkCommandBuffer
 debug_printf("Executing vkCmdBeginRendering\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBEGINRENDERING;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -94899,7 +95383,6 @@ debug_printf("Executing vkCmdBeginRendering\n");
 }
 
 
-        json["enum"]=VKCMDBEGINRENDERING;
         writeToConn(json);
         
         while(true){
@@ -94966,8 +95449,10 @@ __attribute__((visibility ("hidden"))) void vkCmdEndRendering( VkCommandBuffer c
 debug_printf("Executing vkCmdEndRendering\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDENDRENDERING;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -94983,7 +95468,6 @@ debug_printf("Executing vkCmdEndRendering\n");
 }
 
 
-        json["enum"]=VKCMDENDRENDERING;
         writeToConn(json);
         
         while(true){
@@ -95049,8 +95533,10 @@ __attribute__((visibility ("hidden"))) void vkGetDescriptorSetLayoutHostMappingI
 debug_printf("Executing vkGetDescriptorSetLayoutHostMappingInfoVALVE\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDESCRIPTORSETLAYOUTHOSTMAPPINGINFOVALVE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -95090,7 +95576,6 @@ debug_printf("Executing vkGetDescriptorSetLayoutHostMappingInfoVALVE\n");
 }
 
 
-        json["enum"]=VKGETDESCRIPTORSETLAYOUTHOSTMAPPINGINFOVALVE;
         writeToConn(json);
         
         while(true){
@@ -95166,8 +95651,10 @@ __attribute__((visibility ("hidden"))) void vkGetDescriptorSetHostMappingVALVE( 
 debug_printf("Executing vkGetDescriptorSetHostMappingVALVE\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDESCRIPTORSETHOSTMAPPINGVALVE;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -95204,7 +95691,6 @@ debug_printf("Executing vkGetDescriptorSetHostMappingVALVE\n");
 }
 
 
-        json["enum"]=VKGETDESCRIPTORSETHOSTMAPPINGVALVE;
         writeToConn(json);
         
         while(true){
@@ -95288,8 +95774,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateMicromapEXT( VkDevice de
 debug_printf("Executing vkCreateMicromapEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEMICROMAPEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -95338,7 +95826,6 @@ debug_printf("Executing vkCreateMicromapEXT\n");
 }
 
 
-        json["enum"]=VKCREATEMICROMAPEXT;
         writeToConn(json);
         
         while(true){
@@ -95423,8 +95910,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBuildMicromapsEXT( VkCommandBuf
 debug_printf("Executing vkCmdBuildMicromapsEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBUILDMICROMAPSEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -95453,7 +95942,6 @@ debug_printf("Executing vkCmdBuildMicromapsEXT\n");
 }
 
 
-        json["enum"]=VKCMDBUILDMICROMAPSEXT;
         writeToConn(json);
         
         while(true){
@@ -95518,8 +96006,10 @@ __attribute__((visibility ("hidden"))) VkResult vkBuildMicromapsEXT( VkDevice de
 debug_printf("Executing vkBuildMicromapsEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKBUILDMICROMAPSEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -95549,7 +96039,6 @@ debug_printf("Executing vkBuildMicromapsEXT\n");
 }
 
 
-        json["enum"]=VKBUILDMICROMAPSEXT;
         writeToConn(json);
         
         while(true){
@@ -95619,8 +96108,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyMicromapEXT( VkDevice devic
 debug_printf("Executing vkDestroyMicromapEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYMICROMAPEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -95649,7 +96140,6 @@ debug_printf("Executing vkDestroyMicromapEXT\n");
 }
 
 
-        json["enum"]=VKDESTROYMICROMAPEXT;
         writeToConn(json);
         
         while(true){
@@ -95714,8 +96204,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyMicromapEXT( VkCommandBuffe
 debug_printf("Executing vkCmdCopyMicromapEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYMICROMAPEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -95743,7 +96235,6 @@ debug_printf("Executing vkCmdCopyMicromapEXT\n");
 }
 
 
-        json["enum"]=VKCMDCOPYMICROMAPEXT;
         writeToConn(json);
         
         while(true){
@@ -95807,8 +96298,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyMicromapEXT( VkDevice devi
 debug_printf("Executing vkCopyMicromapEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCOPYMICROMAPEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -95837,7 +96330,6 @@ debug_printf("Executing vkCopyMicromapEXT\n");
 }
 
 
-        json["enum"]=VKCOPYMICROMAPEXT;
         writeToConn(json);
         
         while(true){
@@ -95906,8 +96398,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyMicromapToMemoryEXT( VkComm
 debug_printf("Executing vkCmdCopyMicromapToMemoryEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYMICROMAPTOMEMORYEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -95935,7 +96429,6 @@ debug_printf("Executing vkCmdCopyMicromapToMemoryEXT\n");
 }
 
 
-        json["enum"]=VKCMDCOPYMICROMAPTOMEMORYEXT;
         writeToConn(json);
         
         while(true){
@@ -95999,8 +96492,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyMicromapToMemoryEXT( VkDev
 debug_printf("Executing vkCopyMicromapToMemoryEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCOPYMICROMAPTOMEMORYEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -96029,7 +96524,6 @@ debug_printf("Executing vkCopyMicromapToMemoryEXT\n");
 }
 
 
-        json["enum"]=VKCOPYMICROMAPTOMEMORYEXT;
         writeToConn(json);
         
         while(true){
@@ -96098,8 +96592,10 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyMemoryToMicromapEXT( VkComm
 debug_printf("Executing vkCmdCopyMemoryToMicromapEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDCOPYMEMORYTOMICROMAPEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -96127,7 +96623,6 @@ debug_printf("Executing vkCmdCopyMemoryToMicromapEXT\n");
 }
 
 
-        json["enum"]=VKCMDCOPYMEMORYTOMICROMAPEXT;
         writeToConn(json);
         
         while(true){
@@ -96191,8 +96686,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyMemoryToMicromapEXT( VkDev
 debug_printf("Executing vkCopyMemoryToMicromapEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCOPYMEMORYTOMICROMAPEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -96221,7 +96718,6 @@ debug_printf("Executing vkCopyMemoryToMicromapEXT\n");
 }
 
 
-        json["enum"]=VKCOPYMEMORYTOMICROMAPEXT;
         writeToConn(json);
         
         while(true){
@@ -96290,8 +96786,10 @@ __attribute__((visibility ("hidden"))) void vkCmdWriteMicromapsPropertiesEXT( Vk
 debug_printf("Executing vkCmdWriteMicromapsPropertiesEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDWRITEMICROMAPSPROPERTIESEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -96320,7 +96818,6 @@ debug_printf("Executing vkCmdWriteMicromapsPropertiesEXT\n");
 }
 
 
-        json["enum"]=VKCMDWRITEMICROMAPSPROPERTIESEXT;
         writeToConn(json);
         
         while(true){
@@ -96388,8 +96885,10 @@ __attribute__((visibility ("hidden"))) VkResult vkWriteMicromapsPropertiesEXT( V
 debug_printf("Executing vkWriteMicromapsPropertiesEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKWRITEMICROMAPSPROPERTIESEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -96430,7 +96929,6 @@ debug_printf("Executing vkWriteMicromapsPropertiesEXT\n");
 }
 
 
-        json["enum"]=VKWRITEMICROMAPSPROPERTIESEXT;
         writeToConn(json);
         
         while(true){
@@ -96514,8 +97012,10 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceMicromapCompatibilityEXT(
 debug_printf("Executing vkGetDeviceMicromapCompatibilityEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEVICEMICROMAPCOMPATIBILITYEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -96552,7 +97052,6 @@ debug_printf("Executing vkGetDeviceMicromapCompatibilityEXT\n");
 }
 
 
-        json["enum"]=VKGETDEVICEMICROMAPCOMPATIBILITYEXT;
         writeToConn(json);
         
         while(true){
@@ -96625,8 +97124,10 @@ __attribute__((visibility ("hidden"))) void vkGetMicromapBuildSizesEXT( VkDevice
 debug_printf("Executing vkGetMicromapBuildSizesEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETMICROMAPBUILDSIZESEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -96667,7 +97168,6 @@ debug_printf("Executing vkGetMicromapBuildSizesEXT\n");
 }
 
 
-        json["enum"]=VKGETMICROMAPBUILDSIZESEXT;
         writeToConn(json);
         
         while(true){
@@ -96744,8 +97244,10 @@ __attribute__((visibility ("hidden"))) void vkGetShaderModuleIdentifierEXT( VkDe
 debug_printf("Executing vkGetShaderModuleIdentifierEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETSHADERMODULEIDENTIFIEREXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -96774,7 +97276,6 @@ debug_printf("Executing vkGetShaderModuleIdentifierEXT\n");
 }
 
 
-        json["enum"]=VKGETSHADERMODULEIDENTIFIEREXT;
         writeToConn(json);
         
         while(true){
@@ -96850,8 +97351,10 @@ __attribute__((visibility ("hidden"))) void vkGetShaderModuleCreateInfoIdentifie
 debug_printf("Executing vkGetShaderModuleCreateInfoIdentifierEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETSHADERMODULECREATEINFOIDENTIFIEREXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -96891,7 +97394,6 @@ debug_printf("Executing vkGetShaderModuleCreateInfoIdentifierEXT\n");
 }
 
 
-        json["enum"]=VKGETSHADERMODULECREATEINFOIDENTIFIEREXT;
         writeToConn(json);
         
         while(true){
@@ -96967,8 +97469,10 @@ __attribute__((visibility ("hidden"))) void vkGetImageSubresourceLayout2KHR( VkD
 debug_printf("Executing vkGetImageSubresourceLayout2KHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETIMAGESUBRESOURCELAYOUT2KHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -97009,7 +97513,6 @@ debug_printf("Executing vkGetImageSubresourceLayout2KHR\n");
 }
 
 
-        json["enum"]=VKGETIMAGESUBRESOURCELAYOUT2KHR;
         writeToConn(json);
         
         while(true){
@@ -97089,8 +97592,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPipelinePropertiesEXT( VkDe
 debug_printf("Executing vkGetPipelinePropertiesEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPIPELINEPROPERTIESEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -97130,7 +97635,6 @@ debug_printf("Executing vkGetPipelinePropertiesEXT\n");
 }
 
 
-        json["enum"]=VKGETPIPELINEPROPERTIESEXT;
         writeToConn(json);
         
         while(true){
@@ -97210,8 +97714,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetFramebufferTilePropertiesQC
 debug_printf("Executing vkGetFramebufferTilePropertiesQCOM\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETFRAMEBUFFERTILEPROPERTIESQCOM;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -97249,7 +97755,6 @@ debug_printf("Executing vkGetFramebufferTilePropertiesQCOM\n");
 }
 
 
-        json["enum"]=VKGETFRAMEBUFFERTILEPROPERTIESQCOM;
         writeToConn(json);
         
         while(true){
@@ -97338,8 +97843,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDynamicRenderingTilePropert
 debug_printf("Executing vkGetDynamicRenderingTilePropertiesQCOM\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDYNAMICRENDERINGTILEPROPERTIESQCOM;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -97379,7 +97886,6 @@ debug_printf("Executing vkGetDynamicRenderingTilePropertiesQCOM\n");
 }
 
 
-        json["enum"]=VKGETDYNAMICRENDERINGTILEPROPERTIESQCOM;
         writeToConn(json);
         
         while(true){
@@ -97459,8 +97965,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceOpticalFlowIm
 debug_printf("Executing vkGetPhysicalDeviceOpticalFlowImageFormatsNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICEOPTICALFLOWIMAGEFORMATSNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -97509,7 +98017,6 @@ debug_printf("Executing vkGetPhysicalDeviceOpticalFlowImageFormatsNV\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICEOPTICALFLOWIMAGEFORMATSNV;
         writeToConn(json);
         
         while(true){
@@ -97598,8 +98105,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateOpticalFlowSessionNV( Vk
 debug_printf("Executing vkCreateOpticalFlowSessionNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATEOPTICALFLOWSESSIONNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -97648,7 +98157,6 @@ debug_printf("Executing vkCreateOpticalFlowSessionNV\n");
 }
 
 
-        json["enum"]=VKCREATEOPTICALFLOWSESSIONNV;
         writeToConn(json);
         
         while(true){
@@ -97733,8 +98241,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyOpticalFlowSessionNV( VkDev
 debug_printf("Executing vkDestroyOpticalFlowSessionNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYOPTICALFLOWSESSIONNV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -97763,7 +98273,6 @@ debug_printf("Executing vkDestroyOpticalFlowSessionNV\n");
 }
 
 
-        json["enum"]=VKDESTROYOPTICALFLOWSESSIONNV;
         writeToConn(json);
         
         while(true){
@@ -97828,8 +98337,10 @@ __attribute__((visibility ("hidden"))) VkResult vkBindOpticalFlowSessionImageNV(
 debug_printf("Executing vkBindOpticalFlowSessionImageNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKBINDOPTICALFLOWSESSIONIMAGENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -97849,7 +98360,6 @@ debug_printf("Executing vkBindOpticalFlowSessionImageNV\n");
 }
 
 
-        json["enum"]=VKBINDOPTICALFLOWSESSIONIMAGENV;
         writeToConn(json);
         
         while(true){
@@ -97920,8 +98430,10 @@ __attribute__((visibility ("hidden"))) void vkCmdOpticalFlowExecuteNV( VkCommand
 debug_printf("Executing vkCmdOpticalFlowExecuteNV\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDOPTICALFLOWEXECUTENV;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -97950,7 +98462,6 @@ debug_printf("Executing vkCmdOpticalFlowExecuteNV\n");
 }
 
 
-        json["enum"]=VKCMDOPTICALFLOWEXECUTENV;
         writeToConn(json);
         
         while(true){
@@ -98015,8 +98526,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDeviceFaultInfoEXT( VkDevic
 debug_printf("Executing vkGetDeviceFaultInfoEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEVICEFAULTINFOEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -98056,7 +98569,6 @@ debug_printf("Executing vkGetDeviceFaultInfoEXT\n");
 }
 
 
-        json["enum"]=VKGETDEVICEFAULTINFOEXT;
         writeToConn(json);
         
         while(true){
@@ -98147,8 +98659,10 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthBias2EXT( VkCommandBuff
 debug_printf("Executing vkCmdSetDepthBias2EXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDSETDEPTHBIAS2EXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -98176,7 +98690,6 @@ debug_printf("Executing vkCmdSetDepthBias2EXT\n");
 }
 
 
-        json["enum"]=VKCMDSETDEPTHBIAS2EXT;
         writeToConn(json);
         
         while(true){
@@ -98240,8 +98753,10 @@ __attribute__((visibility ("hidden"))) VkResult vkReleaseSwapchainImagesEXT( VkD
 debug_printf("Executing vkReleaseSwapchainImagesEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKRELEASESWAPCHAINIMAGESEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -98269,7 +98784,6 @@ debug_printf("Executing vkReleaseSwapchainImagesEXT\n");
 }
 
 
-        json["enum"]=VKRELEASESWAPCHAINIMAGESEXT;
         writeToConn(json);
         
         while(true){
@@ -98337,8 +98851,10 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceImageSubresourceLayoutKHR
 debug_printf("Executing vkGetDeviceImageSubresourceLayoutKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETDEVICEIMAGESUBRESOURCELAYOUTKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -98378,7 +98894,6 @@ debug_printf("Executing vkGetDeviceImageSubresourceLayoutKHR\n");
 }
 
 
-        json["enum"]=VKGETDEVICEIMAGESUBRESOURCELAYOUTKHR;
         writeToConn(json);
         
         while(true){
@@ -98455,8 +98970,10 @@ debug_printf("Executing vkMapMemory2KHR\n");
 MemoryMapLock.lock();
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKMAPMEMORY2KHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -98512,7 +99029,6 @@ MemoryMapLock.lock();
 }
 
 
-        json["enum"]=VKMAPMEMORY2KHR;
         writeToConn(json);
         
         while(true){
@@ -98613,8 +99129,10 @@ debug_printf("Executing vkUnmapMemory2KHR\n");
 MemoryMapLock.lock();
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKUNMAPMEMORY2KHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -98642,7 +99160,6 @@ MemoryMapLock.lock();
 }
 deregisterDeviceMemoryMap(pMemoryUnmapInfo->memory);
 
-        json["enum"]=VKUNMAPMEMORY2KHR;
         writeToConn(json);
         
         while(true){
@@ -98711,8 +99228,10 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateShadersEXT( VkDevice dev
 debug_printf("Executing vkCreateShadersEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCREATESHADERSEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -98762,7 +99281,6 @@ debug_printf("Executing vkCreateShadersEXT\n");
 }
 
 
-        json["enum"]=VKCREATESHADERSEXT;
         writeToConn(json);
         
         while(true){
@@ -98848,8 +99366,10 @@ __attribute__((visibility ("hidden"))) void vkDestroyShaderEXT( VkDevice device,
 debug_printf("Executing vkDestroyShaderEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKDESTROYSHADEREXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -98878,7 +99398,6 @@ debug_printf("Executing vkDestroyShaderEXT\n");
 }
 
 
-        json["enum"]=VKDESTROYSHADEREXT;
         writeToConn(json);
         
         while(true){
@@ -98943,8 +99462,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetShaderBinaryDataEXT( VkDevi
 debug_printf("Executing vkGetShaderBinaryDataEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETSHADERBINARYDATAEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)device];
@@ -98982,7 +99503,6 @@ debug_printf("Executing vkGetShaderBinaryDataEXT\n");
 }
 
 
-        json["enum"]=VKGETSHADERBINARYDATAEXT;
         writeToConn(json);
         
         while(true){
@@ -99071,8 +99591,10 @@ __attribute__((visibility ("hidden"))) void vkCmdBindShadersEXT( VkCommandBuffer
 debug_printf("Executing vkCmdBindShadersEXT\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKCMDBINDSHADERSEXT;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)commandBuffer];
@@ -99107,7 +99629,6 @@ debug_printf("Executing vkCmdBindShadersEXT\n");
 }
 
 
-        json["enum"]=VKCMDBINDSHADERSEXT;
         writeToConn(json);
         
         while(true){
@@ -99173,8 +99694,10 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceCooperativeMa
 debug_printf("Executing vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR\n");
 
     boost::json::object json;
-    auto parent_json=json["parent"].emplace_object();
     json["type"]=VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESKHR;
+    
+    auto& parent_json=json["parent"].emplace_object();
+    parent_json.clear();
     
 
         auto parent=handle_to_parent_handle_struct[(uintptr_t)physicalDevice];
@@ -99211,7 +99734,6 @@ debug_printf("Executing vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR\n");
 }
 
 
-        json["enum"]=VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
