@@ -36175,6 +36175,7 @@ parent_json["instance"]=(uintptr_t)NULL;
 }
 
 
+        json["enum"]=VKCREATEINSTANCE;
         writeToConn(json);
         
         while(true){
@@ -36240,7 +36241,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_lsbnNsC;[&](){temp_lsbnNsC=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_lsbnNsC;}();}();
+[&](){[&](){int temp_enXIhAI;[&](){temp_enXIhAI=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_enXIhAI;}();}();
 handle_to_parent_handle_struct[(uintptr_t)(*pInstance)]={.instance=(*pInstance),.device=NULL};
 
 debug_printf("Ending vkCreateInstance...\n");
@@ -36281,6 +36282,7 @@ debug_printf("Executing vkDestroyInstance\n");
 }
 
 
+        json["enum"]=VKDESTROYINSTANCE;
         writeToConn(json);
         
         while(true){
@@ -36379,6 +36381,7 @@ debug_printf("Executing vkEnumeratePhysicalDevices\n");
 }
 
 
+        json["enum"]=VKENUMERATEPHYSICALDEVICES;
         writeToConn(json);
         
         while(true){
@@ -36452,7 +36455,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_vEAfuKP;[&](){temp_vEAfuKP=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_vEAfuKP;}();}();
+[&](){[&](){int temp_lSnbIbV;[&](){temp_lSnbIbV=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_lSnbIbV;}();}();
 
                 if (pPhysicalDevices!=NULL){
                     for (int i=0; i<*pPhysicalDeviceCount; i++){
@@ -36496,6 +36499,7 @@ debug_printf("Executing vkGetDeviceProcAddr\n");
 }
 
 
+        json["enum"]=VKGETDEVICEPROCADDR;
         writeToConn(json);
         
         while(true){
@@ -40846,6 +40850,7 @@ debug_printf("Executing vkGetInstanceProcAddr\n");
 }
 
 
+        json["enum"]=VKGETINSTANCEPROCADDR;
         writeToConn(json);
         
         while(true){
@@ -45199,6 +45204,7 @@ debug_printf("Executing vkGetPhysicalDeviceProperties\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -45311,6 +45317,7 @@ debug_printf("Executing vkGetPhysicalDeviceQueueFamilyProperties\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -45423,6 +45430,7 @@ debug_printf("Executing vkGetPhysicalDeviceMemoryProperties\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEMEMORYPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -45526,6 +45534,7 @@ debug_printf("Executing vkGetPhysicalDeviceFeatures\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEFEATURES;
         writeToConn(json);
         
         while(true){
@@ -45630,6 +45639,7 @@ debug_printf("Executing vkGetPhysicalDeviceFormatProperties\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEFORMATPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -45739,6 +45749,7 @@ debug_printf("Executing vkGetPhysicalDeviceImageFormatProperties\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -45811,7 +45822,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_VDkKjCy;[&](){temp_VDkKjCy=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_VDkKjCy;}();}();
+[&](){[&](){int temp_Fblblty;[&](){temp_Fblblty=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_Fblblty;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceImageFormatProperties...\n");
 debug_printf("Return value of vkGetPhysicalDeviceImageFormatProperties is: %s...\n",string_VkResult(result));
@@ -45872,6 +45883,7 @@ debug_printf("Executing vkCreateDevice\n");
 }
 
 
+        json["enum"]=VKCREATEDEVICE;
         writeToConn(json);
         
         while(true){
@@ -45938,7 +45950,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_vNoBwLT;[&](){temp_vNoBwLT=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_vNoBwLT;}();}();
+[&](){[&](){int temp_arnVPXd;[&](){temp_arnVPXd=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_arnVPXd;}();}();
 handle_to_parent_handle_struct[(uintptr_t)(*pDevice)]={.instance=NULL,.device=(*pDevice) };
 registerDevice(*pDevice,physicalDevice);
 
@@ -45980,6 +45992,7 @@ debug_printf("Executing vkDestroyDevice\n");
 }
 
 
+        json["enum"]=VKDESTROYDEVICE;
         writeToConn(json);
         
         while(true){
@@ -46060,6 +46073,7 @@ parent_json["instance"]=(uintptr_t)NULL;
 }
 
 
+        json["enum"]=VKENUMERATEINSTANCEVERSION;
         writeToConn(json);
         
         while(true){
@@ -46123,7 +46137,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_WToUkej;[&](){temp_WToUkej=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_WToUkej;}();}();
+[&](){[&](){int temp_YOjYIAv;[&](){temp_YOjYIAv=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_YOjYIAv;}();}();
 
 debug_printf("Ending vkEnumerateInstanceVersion...\n");
 debug_printf("Return value of vkEnumerateInstanceVersion is: %s...\n",string_VkResult(result));
@@ -46163,6 +46177,7 @@ parent_json["instance"]=(uintptr_t)NULL;
 }
 
 
+        json["enum"]=VKENUMERATEINSTANCELAYERPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -46238,7 +46253,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_lTPioWe;[&](){temp_lTPioWe=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_lTPioWe;}();}();
+[&](){[&](){int temp_npLpYVw;[&](){temp_npLpYVw=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_npLpYVw;}();}();
 
 debug_printf("Ending vkEnumerateInstanceLayerProperties...\n");
 debug_printf("Return value of vkEnumerateInstanceLayerProperties is: %s...\n",string_VkResult(result));
@@ -46300,6 +46315,7 @@ parent_json["instance"]=(uintptr_t)NULL;
 }
 
 
+        json["enum"]=VKENUMERATEINSTANCEEXTENSIONPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -46408,7 +46424,7 @@ break;}}
             #endif
             
 VkResult result;
-[&](){[&](){int temp_TPUBHmQ;[&](){temp_TPUBHmQ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_TPUBHmQ;}();}();
+[&](){[&](){int temp_niAjHXZ;[&](){temp_niAjHXZ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_niAjHXZ;}();}();
 
 debug_printf("Ending vkEnumerateInstanceExtensionProperties...\n");
 debug_printf("Return value of vkEnumerateInstanceExtensionProperties is: %s...\n",string_VkResult(result));
@@ -46457,6 +46473,7 @@ debug_printf("Executing vkEnumerateDeviceLayerProperties\n");
 }
 
 
+        json["enum"]=VKENUMERATEDEVICELAYERPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -46533,7 +46550,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_wGlyXuH;[&](){temp_wGlyXuH=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_wGlyXuH;}();}();
+[&](){[&](){int temp_GURLKJj;[&](){temp_GURLKJj=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_GURLKJj;}();}();
 
 debug_printf("Ending vkEnumerateDeviceLayerProperties...\n");
 debug_printf("Return value of vkEnumerateDeviceLayerProperties is: %s...\n",string_VkResult(result));
@@ -46591,6 +46608,7 @@ debug_printf("Executing vkEnumerateDeviceExtensionProperties\n");
 }
 
 
+        json["enum"]=VKENUMERATEDEVICEEXTENSIONPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -46668,7 +46686,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_PXcskQJ;[&](){temp_PXcskQJ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_PXcskQJ;}();}();
+[&](){[&](){int temp_VtyFKEt;[&](){temp_VtyFKEt=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_VtyFKEt;}();}();
 
 debug_printf("Ending vkEnumerateDeviceExtensionProperties...\n");
 debug_printf("Return value of vkEnumerateDeviceExtensionProperties is: %s...\n",string_VkResult(result));
@@ -46707,6 +46725,7 @@ debug_printf("Executing vkGetDeviceQueue\n");
 }
 
 
+        json["enum"]=VKGETDEVICEQUEUE;
         writeToConn(json);
         
         while(true){
@@ -46820,6 +46839,7 @@ MemoryMapLock.lock_shared();
 SyncAll();
 
 
+        json["enum"]=VKQUEUESUBMIT;
         writeToConn(json);
         
         while(true){
@@ -46878,7 +46898,7 @@ break;}}
 
 [&](){deserialize_VkFence(json["fence"], fence);}();
 VkResult result;
-[&](){[&](){int temp_tvMipOm;[&](){temp_tvMipOm=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_tvMipOm;}();}();
+[&](){[&](){int temp_xDkRYSw;[&](){temp_xDkRYSw=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_xDkRYSw;}();}();
 
 MemoryMapLock.unlock_shared();
 debug_printf("Ending vkQueueSubmit...\n");
@@ -46907,6 +46927,7 @@ debug_printf("Executing vkQueueWaitIdle\n");
 }
 
 
+        json["enum"]=VKQUEUEWAITIDLE;
         writeToConn(json);
         
         while(true){
@@ -46962,7 +46983,7 @@ debug_printf("Executing vkQueueWaitIdle\n");
 break;}}
 [&](){deserialize_VkQueue(json["queue"], queue);}();
 VkResult result;
-[&](){[&](){int temp_DbglyCZ;[&](){temp_DbglyCZ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_DbglyCZ;}();}();
+[&](){[&](){int temp_tolQiBl;[&](){temp_tolQiBl=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_tolQiBl;}();}();
 
 debug_printf("Ending vkQueueWaitIdle...\n");
 debug_printf("Return value of vkQueueWaitIdle is: %s...\n",string_VkResult(result));
@@ -46990,6 +47011,7 @@ debug_printf("Executing vkDeviceWaitIdle\n");
 }
 
 
+        json["enum"]=VKDEVICEWAITIDLE;
         writeToConn(json);
         
         while(true){
@@ -47045,7 +47067,7 @@ debug_printf("Executing vkDeviceWaitIdle\n");
 break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkResult result;
-[&](){[&](){int temp_iRPdwrC;[&](){temp_iRPdwrC=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_iRPdwrC;}();}();
+[&](){[&](){int temp_acLKDuP;[&](){temp_acLKDuP=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_acLKDuP;}();}();
 
 waitForCounterIdle(device);
 debug_printf("Ending vkDeviceWaitIdle...\n");
@@ -47107,6 +47129,7 @@ debug_printf("Executing vkAllocateMemory\n");
 }
 
 
+        json["enum"]=VKALLOCATEMEMORY;
         writeToConn(json);
         
         while(true){
@@ -47173,7 +47196,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_NOgQUZs;[&](){temp_NOgQUZs=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_NOgQUZs;}();}();
+[&](){[&](){int temp_PToClmy;[&](){temp_PToClmy=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_PToClmy;}();}();
 registerDeviceMemory(*pMemory, pAllocateInfo->allocationSize);
 
 debug_printf("Ending vkAllocateMemory...\n");
@@ -47216,6 +47239,7 @@ debug_printf("Executing vkFreeMemory\n");
 vkUnmapMemory(device,memory);
 
 
+        json["enum"]=VKFREEMEMORY;
         writeToConn(json);
         
         while(true){
@@ -47328,6 +47352,7 @@ MemoryMapLock.lock();
 }
 
 
+        json["enum"]=VKMAPMEMORY;
         writeToConn(json);
         
         while(true){
@@ -47407,7 +47432,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_VmUJgEr;[&](){temp_VmUJgEr=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_VmUJgEr;}();}();
+[&](){[&](){int temp_wvjjzvw;[&](){temp_wvjjzvw=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_wvjjzvw;}();}();
 
         boost::json::value server_memory_json;
         serialize_VkDeviceMemory(server_memory_json, memory);
@@ -47449,6 +47474,7 @@ MemoryMapLock.lock();
 }
 deregisterDeviceMemoryMap(memory);
 
+        json["enum"]=VKUNMAPMEMORY;
         writeToConn(json);
         
         while(true){
@@ -47543,6 +47569,7 @@ debug_printf("Executing vkFlushMappedMemoryRanges\n");
 }
 
 
+        json["enum"]=VKFLUSHMAPPEDMEMORYRANGES;
         writeToConn(json);
         
         while(true){
@@ -47600,7 +47627,7 @@ break;}}
 [&](){memoryRangeCount=static_cast<uint32_t>(value_to<int>(json["memoryRangeCount"]));}();
 
 VkResult result;
-[&](){[&](){int temp_wEJNmiO;[&](){temp_wEJNmiO=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_wEJNmiO;}();}();
+[&](){[&](){int temp_trVQekJ;[&](){temp_trVQekJ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_trVQekJ;}();}();
 
 debug_printf("Ending vkFlushMappedMemoryRanges...\n");
 debug_printf("Return value of vkFlushMappedMemoryRanges is: %s...\n",string_VkResult(result));
@@ -47641,6 +47668,7 @@ debug_printf("Executing vkInvalidateMappedMemoryRanges\n");
 }
 
 
+        json["enum"]=VKINVALIDATEMAPPEDMEMORYRANGES;
         writeToConn(json);
         
         while(true){
@@ -47698,7 +47726,7 @@ break;}}
 [&](){memoryRangeCount=static_cast<uint32_t>(value_to<int>(json["memoryRangeCount"]));}();
 
 VkResult result;
-[&](){[&](){int temp_XdYFFJw;[&](){temp_XdYFFJw=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_XdYFFJw;}();}();
+[&](){[&](){int temp_jVSAMPV;[&](){temp_jVSAMPV=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_jVSAMPV;}();}();
 
 debug_printf("Ending vkInvalidateMappedMemoryRanges...\n");
 debug_printf("Return value of vkInvalidateMappedMemoryRanges is: %s...\n",string_VkResult(result));
@@ -47736,6 +47764,7 @@ debug_printf("Executing vkGetDeviceMemoryCommitment\n");
 }
 
 
+        json["enum"]=VKGETDEVICEMEMORYCOMMITMENT;
         writeToConn(json);
         
         while(true){
@@ -47838,6 +47867,7 @@ debug_printf("Executing vkGetBufferMemoryRequirements\n");
 }
 
 
+        json["enum"]=VKGETBUFFERMEMORYREQUIREMENTS;
         writeToConn(json);
         
         while(true){
@@ -47933,6 +47963,7 @@ debug_printf("Executing vkBindBufferMemory\n");
 }
 
 
+        json["enum"]=VKBINDBUFFERMEMORY;
         writeToConn(json);
         
         while(true){
@@ -47991,7 +48022,7 @@ break;}}
 [&](){deserialize_VkDeviceMemory(json["memory"], memory);}();
 [&](){uint64_t temp_yVqWYJm;[&](){temp_yVqWYJm=static_cast<uint64_t>(value_to<int>(json["memoryOffset"]));}();memoryOffset=(VkDeviceSize)temp_yVqWYJm;}();
 VkResult result;
-[&](){[&](){int temp_ckUKYFd;[&](){temp_ckUKYFd=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ckUKYFd;}();}();
+[&](){[&](){int temp_vWIXPNS;[&](){temp_vWIXPNS=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_vWIXPNS;}();}();
 
 debug_printf("Ending vkBindBufferMemory...\n");
 debug_printf("Return value of vkBindBufferMemory is: %s...\n",string_VkResult(result));
@@ -48032,6 +48063,7 @@ debug_printf("Executing vkGetImageMemoryRequirements\n");
 }
 
 
+        json["enum"]=VKGETIMAGEMEMORYREQUIREMENTS;
         writeToConn(json);
         
         while(true){
@@ -48127,6 +48159,7 @@ debug_printf("Executing vkBindImageMemory\n");
 }
 
 
+        json["enum"]=VKBINDIMAGEMEMORY;
         writeToConn(json);
         
         while(true){
@@ -48185,7 +48218,7 @@ break;}}
 [&](){deserialize_VkDeviceMemory(json["memory"], memory);}();
 [&](){uint64_t temp_yVqWYJm;[&](){temp_yVqWYJm=static_cast<uint64_t>(value_to<int>(json["memoryOffset"]));}();memoryOffset=(VkDeviceSize)temp_yVqWYJm;}();
 VkResult result;
-[&](){[&](){int temp_JdfkAvP;[&](){temp_JdfkAvP=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_JdfkAvP;}();}();
+[&](){[&](){int temp_DPbOQkR;[&](){temp_DPbOQkR=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_DPbOQkR;}();}();
 
 debug_printf("Ending vkBindImageMemory...\n");
 debug_printf("Return value of vkBindImageMemory is: %s...\n",string_VkResult(result));
@@ -48235,6 +48268,7 @@ debug_printf("Executing vkGetImageSparseMemoryRequirements\n");
 }
 
 
+        json["enum"]=VKGETIMAGESPARSEMEMORYREQUIREMENTS;
         writeToConn(json);
         
         while(true){
@@ -48362,6 +48396,7 @@ debug_printf("Executing vkGetPhysicalDeviceSparseImageFormatProperties\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -48481,6 +48516,7 @@ debug_printf("Executing vkQueueBindSparse\n");
 }
 
 
+        json["enum"]=VKQUEUEBINDSPARSE;
         writeToConn(json);
         
         while(true){
@@ -48539,7 +48575,7 @@ break;}}
 
 [&](){deserialize_VkFence(json["fence"], fence);}();
 VkResult result;
-[&](){[&](){int temp_buDedpb;[&](){temp_buDedpb=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_buDedpb;}();}();
+[&](){[&](){int temp_PpQvdMQ;[&](){temp_PpQvdMQ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_PpQvdMQ;}();}();
 
 debug_printf("Ending vkQueueBindSparse...\n");
 debug_printf("Return value of vkQueueBindSparse is: %s...\n",string_VkResult(result));
@@ -48600,6 +48636,7 @@ debug_printf("Executing vkCreateFence\n");
 }
 
 
+        json["enum"]=VKCREATEFENCE;
         writeToConn(json);
         
         while(true){
@@ -48666,7 +48703,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_gEfSkUD;[&](){temp_gEfSkUD=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_gEfSkUD;}();}();
+[&](){[&](){int temp_GExdWhT;[&](){temp_GExdWhT=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_GExdWhT;}();}();
 
                 if (pFence!=NULL){
                     for (int i=0; i<1; i++){
@@ -48714,6 +48751,7 @@ debug_printf("Executing vkDestroyFence\n");
 }
 
 
+        json["enum"]=VKDESTROYFENCE;
         writeToConn(json);
         
         while(true){
@@ -48805,6 +48843,7 @@ debug_printf("Executing vkResetFences\n");
 }
 
 
+        json["enum"]=VKRESETFENCES;
         writeToConn(json);
         
         while(true){
@@ -48862,7 +48901,7 @@ break;}}
 [&](){fenceCount=static_cast<uint32_t>(value_to<int>(json["fenceCount"]));}();
 
 VkResult result;
-[&](){[&](){int temp_bTybKmM;[&](){temp_bTybKmM=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_bTybKmM;}();}();
+[&](){[&](){int temp_vPmZsFt;[&](){temp_vPmZsFt=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_vPmZsFt;}();}();
 
 debug_printf("Ending vkResetFences...\n");
 debug_printf("Return value of vkResetFences is: %s...\n",string_VkResult(result));
@@ -48891,6 +48930,7 @@ debug_printf("Executing vkGetFenceStatus\n");
 }
 
 
+        json["enum"]=VKGETFENCESTATUS;
         writeToConn(json);
         
         while(true){
@@ -48947,7 +48987,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 [&](){deserialize_VkFence(json["fence"], fence);}();
 VkResult result;
-[&](){[&](){int temp_KfSFzfG;[&](){temp_KfSFzfG=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_KfSFzfG;}();}();
+[&](){[&](){int temp_kFznveb;[&](){temp_kFznveb=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_kFznveb;}();}();
 
 debug_printf("Ending vkGetFenceStatus...\n");
 debug_printf("Return value of vkGetFenceStatus is: %s...\n",string_VkResult(result));
@@ -48988,6 +49028,7 @@ MemoryMapLock.lock_shared();
 }
 
 
+        json["enum"]=VKWAITFORFENCES;
         writeToConn(json);
         
         while(true){
@@ -49047,7 +49088,7 @@ break;}}
 [&](){uint32_t temp_pqKsrTL;[&](){temp_pqKsrTL=static_cast<uint32_t>(value_to<int>(json["waitAll"]));}();waitAll=(VkBool32)temp_pqKsrTL;}();
 [&](){timeout=static_cast<uint64_t>(value_to<int>(json["timeout"]));}();
 VkResult result;
-[&](){[&](){int temp_UfhEDZO;[&](){temp_UfhEDZO=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_UfhEDZO;}();}();
+[&](){[&](){int temp_iXmjtzl;[&](){temp_iXmjtzl=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_iXmjtzl;}();}();
 
 MemoryMapLock.unlock_shared();
 debug_printf("Ending vkWaitForFences...\n");
@@ -49109,6 +49150,7 @@ debug_printf("Executing vkCreateSemaphore\n");
 }
 
 
+        json["enum"]=VKCREATESEMAPHORE;
         writeToConn(json);
         
         while(true){
@@ -49175,7 +49217,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_whDfYlO;[&](){temp_whDfYlO=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_whDfYlO;}();}();
+[&](){[&](){int temp_oYhdFMQ;[&](){temp_oYhdFMQ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_oYhdFMQ;}();}();
 
                 if (pSemaphore!=NULL){
                     for (int i=0; i<1; i++){
@@ -49223,6 +49265,7 @@ debug_printf("Executing vkDestroySemaphore\n");
 }
 
 
+        json["enum"]=VKDESTROYSEMAPHORE;
         writeToConn(json);
         
         while(true){
@@ -49337,6 +49380,7 @@ debug_printf("Executing vkCreateEvent\n");
 }
 
 
+        json["enum"]=VKCREATEEVENT;
         writeToConn(json);
         
         while(true){
@@ -49403,7 +49447,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_OjsPcKb;[&](){temp_OjsPcKb=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_OjsPcKb;}();}();
+[&](){[&](){int temp_RhjukGg;[&](){temp_RhjukGg=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_RhjukGg;}();}();
 
                 if (pEvent!=NULL){
                     for (int i=0; i<1; i++){
@@ -49451,6 +49495,7 @@ debug_printf("Executing vkDestroyEvent\n");
 }
 
 
+        json["enum"]=VKDESTROYEVENT;
         writeToConn(json);
         
         while(true){
@@ -49533,6 +49578,7 @@ debug_printf("Executing vkGetEventStatus\n");
 }
 
 
+        json["enum"]=VKGETEVENTSTATUS;
         writeToConn(json);
         
         while(true){
@@ -49589,7 +49635,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 [&](){deserialize_VkEvent(json["event"], event);}();
 VkResult result;
-[&](){[&](){int temp_XMFeSCI;[&](){temp_XMFeSCI=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_XMFeSCI;}();}();
+[&](){[&](){int temp_LjAnXKd;[&](){temp_LjAnXKd=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_LjAnXKd;}();}();
 
 debug_printf("Ending vkGetEventStatus...\n");
 debug_printf("Return value of vkGetEventStatus is: %s...\n",string_VkResult(result));
@@ -49618,6 +49664,7 @@ debug_printf("Executing vkSetEvent\n");
 }
 
 
+        json["enum"]=VKSETEVENT;
         writeToConn(json);
         
         while(true){
@@ -49674,7 +49721,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 [&](){deserialize_VkEvent(json["event"], event);}();
 VkResult result;
-[&](){[&](){int temp_fPoYzYF;[&](){temp_fPoYzYF=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_fPoYzYF;}();}();
+[&](){[&](){int temp_LpIefps;[&](){temp_LpIefps=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_LpIefps;}();}();
 
 debug_printf("Ending vkSetEvent...\n");
 debug_printf("Return value of vkSetEvent is: %s...\n",string_VkResult(result));
@@ -49703,6 +49750,7 @@ debug_printf("Executing vkResetEvent\n");
 }
 
 
+        json["enum"]=VKRESETEVENT;
         writeToConn(json);
         
         while(true){
@@ -49759,7 +49807,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 [&](){deserialize_VkEvent(json["event"], event);}();
 VkResult result;
-[&](){[&](){int temp_OJNFZGf;[&](){temp_OJNFZGf=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_OJNFZGf;}();}();
+[&](){[&](){int temp_IJKFvzI;[&](){temp_IJKFvzI=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_IJKFvzI;}();}();
 
 debug_printf("Ending vkResetEvent...\n");
 debug_printf("Return value of vkResetEvent is: %s...\n",string_VkResult(result));
@@ -49820,6 +49868,7 @@ debug_printf("Executing vkCreateQueryPool\n");
 }
 
 
+        json["enum"]=VKCREATEQUERYPOOL;
         writeToConn(json);
         
         while(true){
@@ -49886,7 +49935,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_UuzdUbG;[&](){temp_UuzdUbG=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_UuzdUbG;}();}();
+[&](){[&](){int temp_YCeirvy;[&](){temp_YCeirvy=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_YCeirvy;}();}();
 
                 if (pQueryPool!=NULL){
                     for (int i=0; i<1; i++){
@@ -49934,6 +49983,7 @@ debug_printf("Executing vkDestroyQueryPool\n");
 }
 
 
+        json["enum"]=VKDESTROYQUERYPOOL;
         writeToConn(json);
         
         while(true){
@@ -50033,6 +50083,7 @@ debug_printf("Executing vkGetQueryPoolResults\n");
 }
 
 
+        json["enum"]=VKGETQUERYPOOLRESULTS;
         writeToConn(json);
         
         while(true){
@@ -50106,7 +50157,7 @@ break;}}
 [&](){uint64_t temp_fLSTSIg;[&](){temp_fLSTSIg=static_cast<uint64_t>(value_to<int>(json["stride"]));}();stride=(VkDeviceSize)temp_fLSTSIg;}();
 [&](){[&](){int temp_jzLjdpj;[&](){temp_jzLjdpj=static_cast<int>(value_to<int>(json["flags"]));}();flags=(VkQueryResultFlags)temp_jzLjdpj;}();}();
 VkResult result;
-[&](){[&](){int temp_pIFNtPZ;[&](){temp_pIFNtPZ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_pIFNtPZ;}();}();
+[&](){[&](){int temp_uWvdBKW;[&](){temp_uWvdBKW=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_uWvdBKW;}();}();
 
 debug_printf("Ending vkGetQueryPoolResults...\n");
 debug_printf("Return value of vkGetQueryPoolResults is: %s...\n",string_VkResult(result));
@@ -50137,6 +50188,7 @@ debug_printf("Executing vkResetQueryPool\n");
 }
 
 
+        json["enum"]=VKRESETQUERYPOOL;
         writeToConn(json);
         
         while(true){
@@ -50255,6 +50307,7 @@ debug_printf("Executing vkCreateBuffer\n");
 }
 
 
+        json["enum"]=VKCREATEBUFFER;
         writeToConn(json);
         
         while(true){
@@ -50321,7 +50374,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_ycNtJRl;[&](){temp_ycNtJRl=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ycNtJRl;}();}();
+[&](){[&](){int temp_OnfWbtl;[&](){temp_OnfWbtl=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_OnfWbtl;}();}();
 
                 if (pBuffer!=NULL){
                     for (int i=0; i<1; i++){
@@ -50369,6 +50422,7 @@ debug_printf("Executing vkDestroyBuffer\n");
 }
 
 
+        json["enum"]=VKDESTROYBUFFER;
         writeToConn(json);
         
         while(true){
@@ -50483,6 +50537,7 @@ debug_printf("Executing vkCreateBufferView\n");
 }
 
 
+        json["enum"]=VKCREATEBUFFERVIEW;
         writeToConn(json);
         
         while(true){
@@ -50549,7 +50604,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_HuOiorC;[&](){temp_HuOiorC=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_HuOiorC;}();}();
+[&](){[&](){int temp_wpZAeSe;[&](){temp_wpZAeSe=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_wpZAeSe;}();}();
 
                 if (pView!=NULL){
                     for (int i=0; i<1; i++){
@@ -50597,6 +50652,7 @@ debug_printf("Executing vkDestroyBufferView\n");
 }
 
 
+        json["enum"]=VKDESTROYBUFFERVIEW;
         writeToConn(json);
         
         while(true){
@@ -50711,6 +50767,7 @@ debug_printf("Executing vkCreateImage\n");
 }
 
 
+        json["enum"]=VKCREATEIMAGE;
         writeToConn(json);
         
         while(true){
@@ -50777,7 +50834,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_YsNHIFZ;[&](){temp_YsNHIFZ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_YsNHIFZ;}();}();
+[&](){[&](){int temp_ZORigsY;[&](){temp_ZORigsY=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ZORigsY;}();}();
 
                 if (pImage!=NULL){
                     for (int i=0; i<1; i++){
@@ -50825,6 +50882,7 @@ debug_printf("Executing vkDestroyImage\n");
 }
 
 
+        json["enum"]=VKDESTROYIMAGE;
         writeToConn(json);
         
         while(true){
@@ -50931,6 +50989,7 @@ debug_printf("Executing vkGetImageSubresourceLayout\n");
 }
 
 
+        json["enum"]=VKGETIMAGESUBRESOURCELAYOUT;
         writeToConn(json);
         
         while(true){
@@ -51057,6 +51116,7 @@ debug_printf("Executing vkCreateImageView\n");
 }
 
 
+        json["enum"]=VKCREATEIMAGEVIEW;
         writeToConn(json);
         
         while(true){
@@ -51123,7 +51183,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_FVanQVO;[&](){temp_FVanQVO=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_FVanQVO;}();}();
+[&](){[&](){int temp_ZQdRwrg;[&](){temp_ZQdRwrg=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ZQdRwrg;}();}();
 
                 if (pView!=NULL){
                     for (int i=0; i<1; i++){
@@ -51171,6 +51231,7 @@ debug_printf("Executing vkDestroyImageView\n");
 }
 
 
+        json["enum"]=VKDESTROYIMAGEVIEW;
         writeToConn(json);
         
         while(true){
@@ -51285,6 +51346,7 @@ debug_printf("Executing vkCreateShaderModule\n");
 }
 
 
+        json["enum"]=VKCREATESHADERMODULE;
         writeToConn(json);
         
         while(true){
@@ -51351,7 +51413,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_EVVmLiR;[&](){temp_EVVmLiR=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_EVVmLiR;}();}();
+[&](){[&](){int temp_iuLPIVs;[&](){temp_iuLPIVs=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_iuLPIVs;}();}();
 
                 if (pShaderModule!=NULL){
                     for (int i=0; i<1; i++){
@@ -51399,6 +51461,7 @@ debug_printf("Executing vkDestroyShaderModule\n");
 }
 
 
+        json["enum"]=VKDESTROYSHADERMODULE;
         writeToConn(json);
         
         while(true){
@@ -51513,6 +51576,7 @@ debug_printf("Executing vkCreatePipelineCache\n");
 }
 
 
+        json["enum"]=VKCREATEPIPELINECACHE;
         writeToConn(json);
         
         while(true){
@@ -51579,7 +51643,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_aIGOsTa;[&](){temp_aIGOsTa=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_aIGOsTa;}();}();
+[&](){[&](){int temp_yYSuCeV;[&](){temp_yYSuCeV=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_yYSuCeV;}();}();
 
                 if (pPipelineCache!=NULL){
                     for (int i=0; i<1; i++){
@@ -51627,6 +51691,7 @@ debug_printf("Executing vkDestroyPipelineCache\n");
 }
 
 
+        json["enum"]=VKDESTROYPIPELINECACHE;
         writeToConn(json);
         
         while(true){
@@ -51730,6 +51795,7 @@ debug_printf("Executing vkGetPipelineCacheData\n");
 }
 
 
+        json["enum"]=VKGETPIPELINECACHEDATA;
         writeToConn(json);
         
         while(true){
@@ -51807,7 +51873,7 @@ break;}}
         }
         }();pData=temp_ZtBEjVJ;}();
 VkResult result;
-[&](){[&](){int temp_WFDLsZk;[&](){temp_WFDLsZk=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_WFDLsZk;}();}();
+[&](){[&](){int temp_jTTriaB;[&](){temp_jTTriaB=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_jTTriaB;}();}();
 
 debug_printf("Ending vkGetPipelineCacheData...\n");
 debug_printf("Return value of vkGetPipelineCacheData is: %s...\n",string_VkResult(result));
@@ -51846,6 +51912,7 @@ debug_printf("Executing vkMergePipelineCaches\n");
 }
 
 
+        json["enum"]=VKMERGEPIPELINECACHES;
         writeToConn(json);
         
         while(true){
@@ -51904,7 +51971,7 @@ break;}}
 [&](){srcCacheCount=static_cast<uint32_t>(value_to<int>(json["srcCacheCount"]));}();
 
 VkResult result;
-[&](){[&](){int temp_ySMmqvV;[&](){temp_ySMmqvV=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ySMmqvV;}();}();
+[&](){[&](){int temp_VCXflIX;[&](){temp_VCXflIX=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_VCXflIX;}();}();
 
 debug_printf("Ending vkMergePipelineCaches...\n");
 debug_printf("Return value of vkMergePipelineCaches is: %s...\n",string_VkResult(result));
@@ -51967,6 +52034,7 @@ debug_printf("Executing vkCreateGraphicsPipelines\n");
 }
 
 
+        json["enum"]=VKCREATEGRAPHICSPIPELINES;
         writeToConn(json);
         
         while(true){
@@ -52035,7 +52103,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_SJhAzEB;[&](){temp_SJhAzEB=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_SJhAzEB;}();}();
+[&](){[&](){int temp_fwluuIW;[&](){temp_fwluuIW=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_fwluuIW;}();}();
 
                 if (pPipelines!=NULL){
                     for (int i=0; i<createInfoCount; i++){
@@ -52105,6 +52173,7 @@ debug_printf("Executing vkCreateComputePipelines\n");
 }
 
 
+        json["enum"]=VKCREATECOMPUTEPIPELINES;
         writeToConn(json);
         
         while(true){
@@ -52173,7 +52242,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_tByZPwo;[&](){temp_tByZPwo=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_tByZPwo;}();}();
+[&](){[&](){int temp_XaCpxZE;[&](){temp_XaCpxZE=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_XaCpxZE;}();}();
 
                 if (pPipelines!=NULL){
                     for (int i=0; i<createInfoCount; i++){
@@ -52221,6 +52290,7 @@ debug_printf("Executing vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI\n");
 }
 
 
+        json["enum"]=VKGETDEVICESUBPASSSHADINGMAXWORKGROUPSIZEHUAWEI;
         writeToConn(json);
         
         while(true){
@@ -52289,7 +52359,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_optavPF;[&](){temp_optavPF=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_optavPF;}();}();
+[&](){[&](){int temp_bKsxLVR;[&](){temp_bKsxLVR=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_bKsxLVR;}();}();
 
 debug_printf("Ending vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI...\n");
 debug_printf("Return value of vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI is: %s...\n",string_VkResult(result));
@@ -52330,6 +52400,7 @@ debug_printf("Executing vkDestroyPipeline\n");
 }
 
 
+        json["enum"]=VKDESTROYPIPELINE;
         writeToConn(json);
         
         while(true){
@@ -52444,6 +52515,7 @@ debug_printf("Executing vkCreatePipelineLayout\n");
 }
 
 
+        json["enum"]=VKCREATEPIPELINELAYOUT;
         writeToConn(json);
         
         while(true){
@@ -52510,7 +52582,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_YRBHkCw;[&](){temp_YRBHkCw=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_YRBHkCw;}();}();
+[&](){[&](){int temp_JaTGUJz;[&](){temp_JaTGUJz=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_JaTGUJz;}();}();
 
                 if (pPipelineLayout!=NULL){
                     for (int i=0; i<1; i++){
@@ -52558,6 +52630,7 @@ debug_printf("Executing vkDestroyPipelineLayout\n");
 }
 
 
+        json["enum"]=VKDESTROYPIPELINELAYOUT;
         writeToConn(json);
         
         while(true){
@@ -52672,6 +52745,7 @@ debug_printf("Executing vkCreateSampler\n");
 }
 
 
+        json["enum"]=VKCREATESAMPLER;
         writeToConn(json);
         
         while(true){
@@ -52738,7 +52812,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_KIVoqao;[&](){temp_KIVoqao=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_KIVoqao;}();}();
+[&](){[&](){int temp_yPETNHz;[&](){temp_yPETNHz=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_yPETNHz;}();}();
 
                 if (pSampler!=NULL){
                     for (int i=0; i<1; i++){
@@ -52786,6 +52860,7 @@ debug_printf("Executing vkDestroySampler\n");
 }
 
 
+        json["enum"]=VKDESTROYSAMPLER;
         writeToConn(json);
         
         while(true){
@@ -52900,6 +52975,7 @@ debug_printf("Executing vkCreateDescriptorSetLayout\n");
 }
 
 
+        json["enum"]=VKCREATEDESCRIPTORSETLAYOUT;
         writeToConn(json);
         
         while(true){
@@ -52966,7 +53042,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_zYbjCOm;[&](){temp_zYbjCOm=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_zYbjCOm;}();}();
+[&](){[&](){int temp_QKciijQ;[&](){temp_QKciijQ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_QKciijQ;}();}();
 
                 if (pSetLayout!=NULL){
                     for (int i=0; i<1; i++){
@@ -53014,6 +53090,7 @@ debug_printf("Executing vkDestroyDescriptorSetLayout\n");
 }
 
 
+        json["enum"]=VKDESTROYDESCRIPTORSETLAYOUT;
         writeToConn(json);
         
         while(true){
@@ -53128,6 +53205,7 @@ debug_printf("Executing vkCreateDescriptorPool\n");
 }
 
 
+        json["enum"]=VKCREATEDESCRIPTORPOOL;
         writeToConn(json);
         
         while(true){
@@ -53194,7 +53272,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_uixcqXC;[&](){temp_uixcqXC=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_uixcqXC;}();}();
+[&](){[&](){int temp_POXquiI;[&](){temp_POXquiI=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_POXquiI;}();}();
 
                 if (pDescriptorPool!=NULL){
                     for (int i=0; i<1; i++){
@@ -53242,6 +53320,7 @@ debug_printf("Executing vkDestroyDescriptorPool\n");
 }
 
 
+        json["enum"]=VKDESTROYDESCRIPTORPOOL;
         writeToConn(json);
         
         while(true){
@@ -53325,6 +53404,7 @@ debug_printf("Executing vkResetDescriptorPool\n");
 }
 
 
+        json["enum"]=VKRESETDESCRIPTORPOOL;
         writeToConn(json);
         
         while(true){
@@ -53382,7 +53462,7 @@ break;}}
 [&](){deserialize_VkDescriptorPool(json["descriptorPool"], descriptorPool);}();
 [&](){[&](){int temp_zAsidUJ;[&](){temp_zAsidUJ=static_cast<int>(value_to<int>(json["flags"]));}();flags=(VkDescriptorPoolResetFlags)temp_zAsidUJ;}();}();
 VkResult result;
-[&](){[&](){int temp_eMIVKJe;[&](){temp_eMIVKJe=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_eMIVKJe;}();}();
+[&](){[&](){int temp_IyIFPmQ;[&](){temp_IyIFPmQ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_IyIFPmQ;}();}();
 
 debug_printf("Ending vkResetDescriptorPool...\n");
 debug_printf("Return value of vkResetDescriptorPool is: %s...\n",string_VkResult(result));
@@ -53431,6 +53511,7 @@ debug_printf("Executing vkAllocateDescriptorSets\n");
 }
 
 
+        json["enum"]=VKALLOCATEDESCRIPTORSETS;
         writeToConn(json);
         
         while(true){
@@ -53496,7 +53577,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_iCDmAqH;[&](){temp_iCDmAqH=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_iCDmAqH;}();}();
+[&](){[&](){int temp_LQaOJmJ;[&](){temp_LQaOJmJ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_LQaOJmJ;}();}();
 
                 if (pDescriptorSets!=NULL){
                     for (int i=0; i<pAllocateInfo->descriptorSetCount; i++){
@@ -53542,6 +53623,7 @@ debug_printf("Executing vkFreeDescriptorSets\n");
 }
 
 
+        json["enum"]=VKFREEDESCRIPTORSETS;
         writeToConn(json);
         
         while(true){
@@ -53600,7 +53682,7 @@ break;}}
 [&](){descriptorSetCount=static_cast<uint32_t>(value_to<int>(json["descriptorSetCount"]));}();
 
 VkResult result;
-[&](){[&](){int temp_kwglIzF;[&](){temp_kwglIzF=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_kwglIzF;}();}();
+[&](){[&](){int temp_YypqqnY;[&](){temp_YypqqnY=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_YypqqnY;}();}();
 
 debug_printf("Ending vkFreeDescriptorSets...\n");
 debug_printf("Return value of vkFreeDescriptorSets is: %s...\n",string_VkResult(result));
@@ -53654,6 +53736,7 @@ debug_printf("Executing vkUpdateDescriptorSets\n");
 }
 
 
+        json["enum"]=VKUPDATEDESCRIPTORSETS;
         writeToConn(json);
         
         while(true){
@@ -53770,6 +53853,7 @@ debug_printf("Executing vkCreateFramebuffer\n");
 }
 
 
+        json["enum"]=VKCREATEFRAMEBUFFER;
         writeToConn(json);
         
         while(true){
@@ -53836,7 +53920,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_cmYyImH;[&](){temp_cmYyImH=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_cmYyImH;}();}();
+[&](){[&](){int temp_AOWGmZj;[&](){temp_AOWGmZj=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_AOWGmZj;}();}();
 
                 if (pFramebuffer!=NULL){
                     for (int i=0; i<1; i++){
@@ -53884,6 +53968,7 @@ debug_printf("Executing vkDestroyFramebuffer\n");
 }
 
 
+        json["enum"]=VKDESTROYFRAMEBUFFER;
         writeToConn(json);
         
         while(true){
@@ -53998,6 +54083,7 @@ debug_printf("Executing vkCreateRenderPass\n");
 }
 
 
+        json["enum"]=VKCREATERENDERPASS;
         writeToConn(json);
         
         while(true){
@@ -54064,7 +54150,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_zWeBCln;[&](){temp_zWeBCln=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_zWeBCln;}();}();
+[&](){[&](){int temp_OCmIgFP;[&](){temp_OCmIgFP=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_OCmIgFP;}();}();
 
                 if (pRenderPass!=NULL){
                     for (int i=0; i<1; i++){
@@ -54112,6 +54198,7 @@ debug_printf("Executing vkDestroyRenderPass\n");
 }
 
 
+        json["enum"]=VKDESTROYRENDERPASS;
         writeToConn(json);
         
         while(true){
@@ -54206,6 +54293,7 @@ debug_printf("Executing vkGetRenderAreaGranularity\n");
 }
 
 
+        json["enum"]=VKGETRENDERAREAGRANULARITY;
         writeToConn(json);
         
         while(true){
@@ -54322,6 +54410,7 @@ debug_printf("Executing vkGetRenderingAreaGranularityKHR\n");
 }
 
 
+        json["enum"]=VKGETRENDERINGAREAGRANULARITYKHR;
         writeToConn(json);
         
         while(true){
@@ -54447,6 +54536,7 @@ debug_printf("Executing vkCreateCommandPool\n");
 }
 
 
+        json["enum"]=VKCREATECOMMANDPOOL;
         writeToConn(json);
         
         while(true){
@@ -54513,7 +54603,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_HYIvEtZ;[&](){temp_HYIvEtZ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_HYIvEtZ;}();}();
+[&](){[&](){int temp_TwnbacJ;[&](){temp_TwnbacJ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_TwnbacJ;}();}();
 
                 if (pCommandPool!=NULL){
                     for (int i=0; i<1; i++){
@@ -54561,6 +54651,7 @@ debug_printf("Executing vkDestroyCommandPool\n");
 }
 
 
+        json["enum"]=VKDESTROYCOMMANDPOOL;
         writeToConn(json);
         
         while(true){
@@ -54644,6 +54735,7 @@ debug_printf("Executing vkResetCommandPool\n");
 }
 
 
+        json["enum"]=VKRESETCOMMANDPOOL;
         writeToConn(json);
         
         while(true){
@@ -54701,7 +54793,7 @@ break;}}
 [&](){deserialize_VkCommandPool(json["commandPool"], commandPool);}();
 [&](){[&](){int temp_ZfbLqrp;[&](){temp_ZfbLqrp=static_cast<int>(value_to<int>(json["flags"]));}();flags=(VkCommandPoolResetFlags)temp_ZfbLqrp;}();}();
 VkResult result;
-[&](){[&](){int temp_CuEhFlV;[&](){temp_CuEhFlV=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_CuEhFlV;}();}();
+[&](){[&](){int temp_ysibPDT;[&](){temp_ysibPDT=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ysibPDT;}();}();
 
 debug_printf("Ending vkResetCommandPool...\n");
 debug_printf("Return value of vkResetCommandPool is: %s...\n",string_VkResult(result));
@@ -54750,6 +54842,7 @@ debug_printf("Executing vkAllocateCommandBuffers\n");
 }
 
 
+        json["enum"]=VKALLOCATECOMMANDBUFFERS;
         writeToConn(json);
         
         while(true){
@@ -54815,7 +54908,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_ovQhmYf;[&](){temp_ovQhmYf=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ovQhmYf;}();}();
+[&](){[&](){int temp_KJhrnJP;[&](){temp_KJhrnJP=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_KJhrnJP;}();}();
 
                 if (pCommandBuffers!=NULL){
                     for (int i=0; i<pAllocateInfo->commandBufferCount; i++){
@@ -54861,6 +54954,7 @@ debug_printf("Executing vkFreeCommandBuffers\n");
 }
 
 
+        json["enum"]=VKFREECOMMANDBUFFERS;
         writeToConn(json);
         
         while(true){
@@ -54955,6 +55049,7 @@ debug_printf("Executing vkBeginCommandBuffer\n");
 }
 
 
+        json["enum"]=VKBEGINCOMMANDBUFFER;
         writeToConn(json);
         
         while(true){
@@ -55011,7 +55106,7 @@ break;}}
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 
 VkResult result;
-[&](){[&](){int temp_OadhEnt;[&](){temp_OadhEnt=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_OadhEnt;}();}();
+[&](){[&](){int temp_mMeFygb;[&](){temp_mMeFygb=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_mMeFygb;}();}();
 
 debug_printf("Ending vkBeginCommandBuffer...\n");
 debug_printf("Return value of vkBeginCommandBuffer is: %s...\n",string_VkResult(result));
@@ -55039,6 +55134,7 @@ debug_printf("Executing vkEndCommandBuffer\n");
 }
 
 
+        json["enum"]=VKENDCOMMANDBUFFER;
         writeToConn(json);
         
         while(true){
@@ -55094,7 +55190,7 @@ debug_printf("Executing vkEndCommandBuffer\n");
 break;}}
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 VkResult result;
-[&](){[&](){int temp_UprYAUm;[&](){temp_UprYAUm=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_UprYAUm;}();}();
+[&](){[&](){int temp_BVLpkXY;[&](){temp_BVLpkXY=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_BVLpkXY;}();}();
 
 debug_printf("Ending vkEndCommandBuffer...\n");
 debug_printf("Return value of vkEndCommandBuffer is: %s...\n",string_VkResult(result));
@@ -55123,6 +55219,7 @@ debug_printf("Executing vkResetCommandBuffer\n");
 }
 
 
+        json["enum"]=VKRESETCOMMANDBUFFER;
         writeToConn(json);
         
         while(true){
@@ -55179,7 +55276,7 @@ break;}}
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 [&](){[&](){int temp_lxCkbVG;[&](){temp_lxCkbVG=static_cast<int>(value_to<int>(json["flags"]));}();flags=(VkCommandBufferResetFlags)temp_lxCkbVG;}();}();
 VkResult result;
-[&](){[&](){int temp_XiIQapg;[&](){temp_XiIQapg=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_XiIQapg;}();}();
+[&](){[&](){int temp_RMtPwdq;[&](){temp_RMtPwdq=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_RMtPwdq;}();}();
 
 debug_printf("Ending vkResetCommandBuffer...\n");
 debug_printf("Return value of vkResetCommandBuffer is: %s...\n",string_VkResult(result));
@@ -55209,6 +55306,7 @@ debug_printf("Executing vkCmdBindPipeline\n");
 }
 
 
+        json["enum"]=VKCMDBINDPIPELINE;
         writeToConn(json);
         
         while(true){
@@ -55291,6 +55389,7 @@ debug_printf("Executing vkCmdSetAttachmentFeedbackLoopEnableEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETATTACHMENTFEEDBACKLOOPENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -55385,6 +55484,7 @@ debug_printf("Executing vkCmdSetViewport\n");
 }
 
 
+        json["enum"]=VKCMDSETVIEWPORT;
         writeToConn(json);
         
         while(true){
@@ -55481,6 +55581,7 @@ debug_printf("Executing vkCmdSetScissor\n");
 }
 
 
+        json["enum"]=VKCMDSETSCISSOR;
         writeToConn(json);
         
         while(true){
@@ -55564,6 +55665,7 @@ debug_printf("Executing vkCmdSetLineWidth\n");
 }
 
 
+        json["enum"]=VKCMDSETLINEWIDTH;
         writeToConn(json);
         
         while(true){
@@ -55647,6 +55749,7 @@ debug_printf("Executing vkCmdSetDepthBias\n");
 }
 
 
+        json["enum"]=VKCMDSETDEPTHBIAS;
         writeToConn(json);
         
         while(true){
@@ -55735,6 +55838,7 @@ debug_printf("Executing vkCmdSetBlendConstants\n");
 }
 
 
+        json["enum"]=VKCMDSETBLENDCONSTANTS;
         writeToConn(json);
         
         while(true){
@@ -55822,6 +55926,7 @@ debug_printf("Executing vkCmdSetDepthBounds\n");
 }
 
 
+        json["enum"]=VKCMDSETDEPTHBOUNDS;
         writeToConn(json);
         
         while(true){
@@ -55905,6 +56010,7 @@ debug_printf("Executing vkCmdSetStencilCompareMask\n");
 }
 
 
+        json["enum"]=VKCMDSETSTENCILCOMPAREMASK;
         writeToConn(json);
         
         while(true){
@@ -55988,6 +56094,7 @@ debug_printf("Executing vkCmdSetStencilWriteMask\n");
 }
 
 
+        json["enum"]=VKCMDSETSTENCILWRITEMASK;
         writeToConn(json);
         
         while(true){
@@ -56071,6 +56178,7 @@ debug_printf("Executing vkCmdSetStencilReference\n");
 }
 
 
+        json["enum"]=VKCMDSETSTENCILREFERENCE;
         writeToConn(json);
         
         while(true){
@@ -56175,6 +56283,7 @@ debug_printf("Executing vkCmdBindDescriptorSets\n");
 }
 
 
+        json["enum"]=VKCMDBINDDESCRIPTORSETS;
         writeToConn(json);
         
         while(true){
@@ -56264,6 +56373,7 @@ debug_printf("Executing vkCmdBindIndexBuffer\n");
 }
 
 
+        json["enum"]=VKCMDBINDINDEXBUFFER;
         writeToConn(json);
         
         while(true){
@@ -56366,6 +56476,7 @@ debug_printf("Executing vkCmdBindVertexBuffers\n");
 }
 
 
+        json["enum"]=VKCMDBINDVERTEXBUFFERS;
         writeToConn(json);
         
         while(true){
@@ -56453,6 +56564,7 @@ debug_printf("Executing vkCmdDraw\n");
 }
 
 
+        json["enum"]=VKCMDDRAW;
         writeToConn(json);
         
         while(true){
@@ -56541,6 +56653,7 @@ debug_printf("Executing vkCmdDrawIndexed\n");
 }
 
 
+        json["enum"]=VKCMDDRAWINDEXED;
         writeToConn(json);
         
         while(true){
@@ -56641,6 +56754,7 @@ debug_printf("Executing vkCmdDrawMultiEXT\n");
 }
 
 
+        json["enum"]=VKCMDDRAWMULTIEXT;
         writeToConn(json);
         
         while(true){
@@ -56750,6 +56864,7 @@ debug_printf("Executing vkCmdDrawMultiIndexedEXT\n");
 }
 
 
+        json["enum"]=VKCMDDRAWMULTIINDEXEDEXT;
         writeToConn(json);
         
         while(true){
@@ -56839,6 +56954,7 @@ debug_printf("Executing vkCmdDrawIndirect\n");
 }
 
 
+        json["enum"]=VKCMDDRAWINDIRECT;
         writeToConn(json);
         
         while(true){
@@ -56926,6 +57042,7 @@ debug_printf("Executing vkCmdDrawIndexedIndirect\n");
 }
 
 
+        json["enum"]=VKCMDDRAWINDEXEDINDIRECT;
         writeToConn(json);
         
         while(true){
@@ -57012,6 +57129,7 @@ debug_printf("Executing vkCmdDispatch\n");
 }
 
 
+        json["enum"]=VKCMDDISPATCH;
         writeToConn(json);
         
         while(true){
@@ -57096,6 +57214,7 @@ debug_printf("Executing vkCmdDispatchIndirect\n");
 }
 
 
+        json["enum"]=VKCMDDISPATCHINDIRECT;
         writeToConn(json);
         
         while(true){
@@ -57177,6 +57296,7 @@ debug_printf("Executing vkCmdSubpassShadingHUAWEI\n");
 }
 
 
+        json["enum"]=VKCMDSUBPASSSHADINGHUAWEI;
         writeToConn(json);
         
         while(true){
@@ -57259,6 +57379,7 @@ debug_printf("Executing vkCmdDrawClusterHUAWEI\n");
 }
 
 
+        json["enum"]=VKCMDDRAWCLUSTERHUAWEI;
         writeToConn(json);
         
         while(true){
@@ -57343,6 +57464,7 @@ debug_printf("Executing vkCmdDrawClusterIndirectHUAWEI\n");
 }
 
 
+        json["enum"]=VKCMDDRAWCLUSTERINDIRECTHUAWEI;
         writeToConn(json);
         
         while(true){
@@ -57426,6 +57548,7 @@ debug_printf("Executing vkCmdUpdatePipelineIndirectBufferNV\n");
 }
 
 
+        json["enum"]=VKCMDUPDATEPIPELINEINDIRECTBUFFERNV;
         writeToConn(json);
         
         while(true){
@@ -57522,6 +57645,7 @@ debug_printf("Executing vkCmdCopyBuffer\n");
 }
 
 
+        json["enum"]=VKCMDCOPYBUFFER;
         writeToConn(json);
         
         while(true){
@@ -57622,6 +57746,7 @@ debug_printf("Executing vkCmdCopyImage\n");
 }
 
 
+        json["enum"]=VKCMDCOPYIMAGE;
         writeToConn(json);
         
         while(true){
@@ -57725,6 +57850,7 @@ debug_printf("Executing vkCmdBlitImage\n");
 }
 
 
+        json["enum"]=VKCMDBLITIMAGE;
         writeToConn(json);
         
         while(true){
@@ -57827,6 +57953,7 @@ debug_printf("Executing vkCmdCopyBufferToImage\n");
 }
 
 
+        json["enum"]=VKCMDCOPYBUFFERTOIMAGE;
         writeToConn(json);
         
         while(true){
@@ -57927,6 +58054,7 @@ debug_printf("Executing vkCmdCopyImageToBuffer\n");
 }
 
 
+        json["enum"]=VKCMDCOPYIMAGETOBUFFER;
         writeToConn(json);
         
         while(true){
@@ -58014,6 +58142,7 @@ debug_printf("Executing vkCmdCopyMemoryIndirectNV\n");
 }
 
 
+        json["enum"]=VKCMDCOPYMEMORYINDIRECTNV;
         writeToConn(json);
         
         while(true){
@@ -58113,6 +58242,7 @@ debug_printf("Executing vkCmdCopyMemoryToImageIndirectNV\n");
 }
 
 
+        json["enum"]=VKCMDCOPYMEMORYTOIMAGEINDIRECTNV;
         writeToConn(json);
         
         while(true){
@@ -58213,6 +58343,7 @@ debug_printf("Executing vkCmdUpdateBuffer\n");
 }
 
 
+        json["enum"]=VKCMDUPDATEBUFFER;
         writeToConn(json);
         
         while(true){
@@ -58300,6 +58431,7 @@ debug_printf("Executing vkCmdFillBuffer\n");
 }
 
 
+        json["enum"]=VKCMDFILLBUFFER;
         writeToConn(json);
         
         while(true){
@@ -58410,6 +58542,7 @@ debug_printf("Executing vkCmdClearColorImage\n");
 }
 
 
+        json["enum"]=VKCMDCLEARCOLORIMAGE;
         writeToConn(json);
         
         while(true){
@@ -58521,6 +58654,7 @@ debug_printf("Executing vkCmdClearDepthStencilImage\n");
 }
 
 
+        json["enum"]=VKCMDCLEARDEPTHSTENCILIMAGE;
         writeToConn(json);
         
         while(true){
@@ -58631,6 +58765,7 @@ debug_printf("Executing vkCmdClearAttachments\n");
 }
 
 
+        json["enum"]=VKCMDCLEARATTACHMENTS;
         writeToConn(json);
         
         while(true){
@@ -58731,6 +58866,7 @@ debug_printf("Executing vkCmdResolveImage\n");
 }
 
 
+        json["enum"]=VKCMDRESOLVEIMAGE;
         writeToConn(json);
         
         while(true){
@@ -58818,6 +58954,7 @@ debug_printf("Executing vkCmdSetEvent\n");
 }
 
 
+        json["enum"]=VKCMDSETEVENT;
         writeToConn(json);
         
         while(true){
@@ -58901,6 +59038,7 @@ debug_printf("Executing vkCmdResetEvent\n");
 }
 
 
+        json["enum"]=VKCMDRESETEVENT;
         writeToConn(json);
         
         while(true){
@@ -59033,6 +59171,7 @@ debug_printf("Executing vkCmdWaitEvents\n");
 }
 
 
+        json["enum"]=VKCMDWAITEVENTS;
         writeToConn(json);
         
         while(true){
@@ -59164,6 +59303,7 @@ debug_printf("Executing vkCmdPipelineBarrier\n");
 }
 
 
+        json["enum"]=VKCMDPIPELINEBARRIER;
         writeToConn(json);
         
         while(true){
@@ -59255,6 +59395,7 @@ debug_printf("Executing vkCmdBeginQuery\n");
 }
 
 
+        json["enum"]=VKCMDBEGINQUERY;
         writeToConn(json);
         
         while(true){
@@ -59339,6 +59480,7 @@ debug_printf("Executing vkCmdEndQuery\n");
 }
 
 
+        json["enum"]=VKCMDENDQUERY;
         writeToConn(json);
         
         while(true){
@@ -59432,6 +59574,7 @@ debug_printf("Executing vkCmdBeginConditionalRenderingEXT\n");
 }
 
 
+        json["enum"]=VKCMDBEGINCONDITIONALRENDERINGEXT;
         writeToConn(json);
         
         while(true){
@@ -59512,6 +59655,7 @@ debug_printf("Executing vkCmdEndConditionalRenderingEXT\n");
 }
 
 
+        json["enum"]=VKCMDENDCONDITIONALRENDERINGEXT;
         writeToConn(json);
         
         while(true){
@@ -59594,6 +59738,7 @@ debug_printf("Executing vkCmdResetQueryPool\n");
 }
 
 
+        json["enum"]=VKCMDRESETQUERYPOOL;
         writeToConn(json);
         
         while(true){
@@ -59679,6 +59824,7 @@ debug_printf("Executing vkCmdWriteTimestamp\n");
 }
 
 
+        json["enum"]=VKCMDWRITETIMESTAMP;
         writeToConn(json);
         
         while(true){
@@ -59768,6 +59914,7 @@ debug_printf("Executing vkCmdCopyQueryPoolResults\n");
 }
 
 
+        json["enum"]=VKCMDCOPYQUERYPOOLRESULTS;
         writeToConn(json);
         
         while(true){
@@ -59870,6 +60017,7 @@ debug_printf("Executing vkCmdPushConstants\n");
 }
 
 
+        json["enum"]=VKCMDPUSHCONSTANTS;
         writeToConn(json);
         
         while(true){
@@ -59967,6 +60115,7 @@ debug_printf("Executing vkCmdBeginRenderPass\n");
 }
 
 
+        json["enum"]=VKCMDBEGINRENDERPASS;
         writeToConn(json);
         
         while(true){
@@ -60049,6 +60198,7 @@ debug_printf("Executing vkCmdNextSubpass\n");
 }
 
 
+        json["enum"]=VKCMDNEXTSUBPASS;
         writeToConn(json);
         
         while(true){
@@ -60129,6 +60279,7 @@ debug_printf("Executing vkCmdEndRenderPass\n");
 }
 
 
+        json["enum"]=VKCMDENDRENDERPASS;
         writeToConn(json);
         
         while(true){
@@ -60218,6 +60369,7 @@ debug_printf("Executing vkCmdExecuteCommands\n");
 }
 
 
+        json["enum"]=VKCMDEXECUTECOMMANDS;
         writeToConn(json);
         
         while(true){
@@ -60320,6 +60472,7 @@ debug_printf("Executing vkGetPhysicalDeviceDisplayPropertiesKHR\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEDISPLAYPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
@@ -60396,7 +60549,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_ukLWRDF;[&](){temp_ukLWRDF=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ukLWRDF;}();}();
+[&](){[&](){int temp_wMWMDOL;[&](){temp_wMWMDOL=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_wMWMDOL;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceDisplayPropertiesKHR...\n");
 debug_printf("Return value of vkGetPhysicalDeviceDisplayPropertiesKHR is: %s...\n",string_VkResult(result));
@@ -60445,6 +60598,7 @@ debug_printf("Executing vkGetPhysicalDeviceDisplayPlanePropertiesKHR\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
@@ -60521,7 +60675,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_FyRLWbQ;[&](){temp_FyRLWbQ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_FyRLWbQ;}();}();
+[&](){[&](){int temp_ltzLwWn;[&](){temp_ltzLwWn=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ltzLwWn;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceDisplayPlanePropertiesKHR...\n");
 debug_printf("Return value of vkGetPhysicalDeviceDisplayPlanePropertiesKHR is: %s...\n",string_VkResult(result));
@@ -60568,6 +60722,7 @@ debug_printf("Executing vkGetDisplayPlaneSupportedDisplaysKHR\n");
 }
 
 
+        json["enum"]=VKGETDISPLAYPLANESUPPORTEDDISPLAYSKHR;
         writeToConn(json);
         
         while(true){
@@ -60642,7 +60797,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_vlwItRH;[&](){temp_vlwItRH=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_vlwItRH;}();}();
+[&](){[&](){int temp_OikTSIm;[&](){temp_OikTSIm=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_OikTSIm;}();}();
 
 debug_printf("Ending vkGetDisplayPlaneSupportedDisplaysKHR...\n");
 debug_printf("Return value of vkGetDisplayPlaneSupportedDisplaysKHR is: %s...\n",string_VkResult(result));
@@ -60692,6 +60847,7 @@ debug_printf("Executing vkGetDisplayModePropertiesKHR\n");
 }
 
 
+        json["enum"]=VKGETDISPLAYMODEPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
@@ -60769,7 +60925,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_rFVDHFY;[&](){temp_rFVDHFY=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_rFVDHFY;}();}();
+[&](){[&](){int temp_LoZRfEp;[&](){temp_LoZRfEp=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_LoZRfEp;}();}();
 
 debug_printf("Ending vkGetDisplayModePropertiesKHR...\n");
 debug_printf("Return value of vkGetDisplayModePropertiesKHR is: %s...\n",string_VkResult(result));
@@ -60831,6 +60987,7 @@ debug_printf("Executing vkCreateDisplayModeKHR\n");
 }
 
 
+        json["enum"]=VKCREATEDISPLAYMODEKHR;
         writeToConn(json);
         
         while(true){
@@ -60898,7 +61055,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_QxruGnP;[&](){temp_QxruGnP=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_QxruGnP;}();}();
+[&](){[&](){int temp_kniGOao;[&](){temp_kniGOao=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_kniGOao;}();}();
 
                 if (pMode!=NULL){
                     for (int i=0; i<1; i++){
@@ -60947,6 +61104,7 @@ debug_printf("Executing vkGetDisplayPlaneCapabilitiesKHR\n");
 }
 
 
+        json["enum"]=VKGETDISPLAYPLANECAPABILITIESKHR;
         writeToConn(json);
         
         while(true){
@@ -61016,7 +61174,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_BZyFTXN;[&](){temp_BZyFTXN=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_BZyFTXN;}();}();
+[&](){[&](){int temp_zLZXATV;[&](){temp_zLZXATV=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_zLZXATV;}();}();
 
 debug_printf("Ending vkGetDisplayPlaneCapabilitiesKHR...\n");
 debug_printf("Return value of vkGetDisplayPlaneCapabilitiesKHR is: %s...\n",string_VkResult(result));
@@ -61077,6 +61235,7 @@ debug_printf("Executing vkCreateDisplayPlaneSurfaceKHR\n");
 }
 
 
+        json["enum"]=VKCREATEDISPLAYPLANESURFACEKHR;
         writeToConn(json);
         
         while(true){
@@ -61143,7 +61302,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_UuVTpcb;[&](){temp_UuVTpcb=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_UuVTpcb;}();}();
+[&](){[&](){int temp_saNZXhN;[&](){temp_saNZXhN=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_saNZXhN;}();}();
 
                 if (pSurface!=NULL){
                     for (int i=0; i<1; i++){
@@ -61212,6 +61371,7 @@ debug_printf("Executing vkCreateSharedSwapchainsKHR\n");
 }
 
 
+        json["enum"]=VKCREATESHAREDSWAPCHAINSKHR;
         writeToConn(json);
         
         while(true){
@@ -61279,7 +61439,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_pdvkrdy;[&](){temp_pdvkrdy=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_pdvkrdy;}();}();
+[&](){[&](){int temp_MTbyvky;[&](){temp_MTbyvky=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_MTbyvky;}();}();
 
                 if (pSwapchains!=NULL){
                     for (int i=0; i<swapchainCount; i++){
@@ -61327,6 +61487,7 @@ debug_printf("Executing vkDestroySurfaceKHR\n");
 }
 
 
+        json["enum"]=VKDESTROYSURFACEKHR;
         writeToConn(json);
         
         while(true){
@@ -61419,6 +61580,7 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceSupportKHR\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICESURFACESUPPORTKHR;
         writeToConn(json);
         
         while(true){
@@ -61485,7 +61647,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_gHmWlfE;[&](){temp_gHmWlfE=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_gHmWlfE;}();}();
+[&](){[&](){int temp_LotRUeU;[&](){temp_LotRUeU=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_LotRUeU;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceSurfaceSupportKHR...\n");
 debug_printf("Return value of vkGetPhysicalDeviceSurfaceSupportKHR is: %s...\n",string_VkResult(result));
@@ -61526,6 +61688,7 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceCapabilitiesKHR\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICESURFACECAPABILITIESKHR;
         writeToConn(json);
         
         while(true){
@@ -61594,7 +61757,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_NxZQRYZ;[&](){temp_NxZQRYZ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_NxZQRYZ;}();}();
+[&](){[&](){int temp_ItXtZre;[&](){temp_ItXtZre=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ItXtZre;}();}();
 
         debug_printf("[INFO]: Current extent: %d, %d\n", pSurfaceCapabilities->currentExtent.width, pSurfaceCapabilities->currentExtent.height);
         debug_printf("[INFO]: Min extent: %d, %d\n", pSurfaceCapabilities->minImageExtent.width, pSurfaceCapabilities->minImageExtent.height);
@@ -61649,6 +61812,7 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceFormatsKHR\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICESURFACEFORMATSKHR;
         writeToConn(json);
         
         while(true){
@@ -61726,7 +61890,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_CDkGFTU;[&](){temp_CDkGFTU=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_CDkGFTU;}();}();
+[&](){[&](){int temp_uuOhwVg;[&](){temp_uuOhwVg=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_uuOhwVg;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceSurfaceFormatsKHR...\n");
 debug_printf("Return value of vkGetPhysicalDeviceSurfaceFormatsKHR is: %s...\n",string_VkResult(result));
@@ -61773,6 +61937,7 @@ debug_printf("Executing vkGetPhysicalDeviceSurfacePresentModesKHR\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICESURFACEPRESENTMODESKHR;
         writeToConn(json);
         
         while(true){
@@ -61847,7 +62012,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_NLAKUDB;[&](){temp_NLAKUDB=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_NLAKUDB;}();}();
+[&](){[&](){int temp_vbOoAvY;[&](){temp_vbOoAvY=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_vbOoAvY;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceSurfacePresentModesKHR...\n");
 debug_printf("Return value of vkGetPhysicalDeviceSurfacePresentModesKHR is: %s...\n",string_VkResult(result));
@@ -61915,6 +62080,7 @@ debug_printf("Executing vkCreateSwapchainKHR\n");
 }
 
 
+        json["enum"]=VKCREATESWAPCHAINKHR;
         writeToConn(json);
         
         while(true){
@@ -61981,7 +62147,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_RmneQzw;[&](){temp_RmneQzw=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_RmneQzw;}();}();
+[&](){[&](){int temp_zHrmoVe;[&](){temp_zHrmoVe=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_zHrmoVe;}();}();
 
                 if (pSwapchain!=NULL){
                     for (int i=0; i<1; i++){
@@ -62030,6 +62196,7 @@ debug_printf("Executing vkDestroySwapchainKHR\n");
 }
 
 
+        json["enum"]=VKDESTROYSWAPCHAINKHR;
         writeToConn(json);
         
         while(true){
@@ -62130,6 +62297,7 @@ debug_printf("Executing vkGetSwapchainImagesKHR\n");
 }
 
 
+        json["enum"]=VKGETSWAPCHAINIMAGESKHR;
         writeToConn(json);
         
         while(true){
@@ -62204,7 +62372,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_xbmjWOL;[&](){temp_xbmjWOL=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_xbmjWOL;}();}();
+[&](){[&](){int temp_RTeqDCy;[&](){temp_RTeqDCy=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_RTeqDCy;}();}();
 
 debug_printf("Ending vkGetSwapchainImagesKHR...\n");
 debug_printf("Return value of vkGetSwapchainImagesKHR is: %s...\n",string_VkResult(result));
@@ -62245,6 +62413,7 @@ debug_printf("Executing vkAcquireNextImageKHR\n");
 }
 
 
+        json["enum"]=VKACQUIRENEXTIMAGEKHR;
         writeToConn(json);
         
         while(true){
@@ -62313,7 +62482,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_iInAhNU;[&](){temp_iInAhNU=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_iInAhNU;}();}();
+[&](){[&](){int temp_wzTITSb;[&](){temp_wzTITSb=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_wzTITSb;}();}();
 
 debug_printf("Ending vkAcquireNextImageKHR...\n");
 debug_printf("Return value of vkAcquireNextImageKHR is: %s...\n",string_VkResult(result));
@@ -62403,6 +62572,7 @@ debug_printf("Executing vkQueuePresentKHR\n");
 }
 
 
+        json["enum"]=VKQUEUEPRESENTKHR;
         writeToConn(json);
         
         while(true){
@@ -62459,7 +62629,7 @@ break;}}
 [&](){deserialize_VkQueue(json["queue"], queue);}();
 
 VkResult result;
-[&](){[&](){int temp_zgjxZFz;[&](){temp_zgjxZFz=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_zgjxZFz;}();}();
+[&](){[&](){int temp_csTKlYw;[&](){temp_csTKlYw=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_csTKlYw;}();}();
 
 debug_printf("Ending vkQueuePresentKHR...\n");
 debug_printf("Return value of vkQueuePresentKHR is: %s...\n",string_VkResult(result));
@@ -62509,6 +62679,7 @@ debug_printf("Executing vkGetPhysicalDeviceXlibPresentationSupportKHR\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEXLIBPRESENTATIONSUPPORTKHR;
         writeToConn(json);
         
         while(true){
@@ -62570,7 +62741,7 @@ break;}}
             return; }dpy=(Display* )(value_to<uintptr_t>(json["dpy"]));}();
 [&](){visualID=(VisualID )(value_to<uintptr_t>(json["visualID"]));}();
 VkBool32 result;
-[&](){uint32_t temp_uHHjUPJ;[&](){temp_uHHjUPJ=static_cast<uint32_t>(value_to<int>(json["result"]));}();result=(VkBool32)temp_uHHjUPJ;}();
+[&](){uint32_t temp_hXhCCrN;[&](){temp_hXhCCrN=static_cast<uint32_t>(value_to<int>(json["result"]));}();result=(VkBool32)temp_hXhCCrN;}();
 
 debug_printf("Ending vkGetPhysicalDeviceXlibPresentationSupportKHR...\n");
 return result;
@@ -62619,6 +62790,7 @@ debug_printf("Executing vkGetPhysicalDeviceXcbPresentationSupportKHR\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEXCBPRESENTATIONSUPPORTKHR;
         writeToConn(json);
         
         while(true){
@@ -62680,7 +62852,7 @@ break;}}
             return; }connection=(xcb_connection_t* )(value_to<uintptr_t>(json["connection"]));}();
 [&](){visual_id=(xcb_visualid_t )(value_to<uintptr_t>(json["visual_id"]));}();
 VkBool32 result;
-[&](){uint32_t temp_mYSXjFA;[&](){temp_mYSXjFA=static_cast<uint32_t>(value_to<int>(json["result"]));}();result=(VkBool32)temp_mYSXjFA;}();
+[&](){uint32_t temp_TsntsfC;[&](){temp_TsntsfC=static_cast<uint32_t>(value_to<int>(json["result"]));}();result=(VkBool32)temp_TsntsfC;}();
 
 debug_printf("Ending vkGetPhysicalDeviceXcbPresentationSupportKHR...\n");
 return result;
@@ -62740,6 +62912,7 @@ debug_printf("Executing vkCreateDebugReportCallbackEXT\n");
 }
 
 
+        json["enum"]=VKCREATEDEBUGREPORTCALLBACKEXT;
         writeToConn(json);
         
         while(true){
@@ -62806,7 +62979,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_dcGePqW;[&](){temp_dcGePqW=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_dcGePqW;}();}();
+[&](){[&](){int temp_KbUnynS;[&](){temp_KbUnynS=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_KbUnynS;}();}();
 
                 if (pCallback!=NULL){
                     for (int i=0; i<1; i++){
@@ -62854,6 +63027,7 @@ debug_printf("Executing vkDestroyDebugReportCallbackEXT\n");
 }
 
 
+        json["enum"]=VKDESTROYDEBUGREPORTCALLBACKEXT;
         writeToConn(json);
         
         while(true){
@@ -62958,6 +63132,7 @@ debug_printf("Executing vkDebugReportMessageEXT\n");
 }
 
 
+        json["enum"]=VKDEBUGREPORTMESSAGEEXT;
         writeToConn(json);
         
         while(true){
@@ -63056,6 +63231,7 @@ debug_printf("Executing vkDebugMarkerSetObjectNameEXT\n");
 }
 
 
+        json["enum"]=VKDEBUGMARKERSETOBJECTNAMEEXT;
         writeToConn(json);
         
         while(true){
@@ -63112,7 +63288,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 VkResult result;
-[&](){[&](){int temp_zTVFTax;[&](){temp_zTVFTax=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_zTVFTax;}();}();
+[&](){[&](){int temp_VfBgOIt;[&](){temp_VfBgOIt=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_VfBgOIt;}();}();
 
 debug_printf("Ending vkDebugMarkerSetObjectNameEXT...\n");
 debug_printf("Return value of vkDebugMarkerSetObjectNameEXT is: %s...\n",string_VkResult(result));
@@ -63152,6 +63328,7 @@ debug_printf("Executing vkDebugMarkerSetObjectTagEXT\n");
 }
 
 
+        json["enum"]=VKDEBUGMARKERSETOBJECTTAGEXT;
         writeToConn(json);
         
         while(true){
@@ -63208,7 +63385,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 VkResult result;
-[&](){[&](){int temp_RXmxilc;[&](){temp_RXmxilc=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_RXmxilc;}();}();
+[&](){[&](){int temp_ZCuJyoB;[&](){temp_ZCuJyoB=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ZCuJyoB;}();}();
 
 debug_printf("Ending vkDebugMarkerSetObjectTagEXT...\n");
 debug_printf("Return value of vkDebugMarkerSetObjectTagEXT is: %s...\n",string_VkResult(result));
@@ -63248,6 +63425,7 @@ debug_printf("Executing vkCmdDebugMarkerBeginEXT\n");
 }
 
 
+        json["enum"]=VKCMDDEBUGMARKERBEGINEXT;
         writeToConn(json);
         
         while(true){
@@ -63328,6 +63506,7 @@ debug_printf("Executing vkCmdDebugMarkerEndEXT\n");
 }
 
 
+        json["enum"]=VKCMDDEBUGMARKERENDEXT;
         writeToConn(json);
         
         while(true){
@@ -63419,6 +63598,7 @@ debug_printf("Executing vkCmdDebugMarkerInsertEXT\n");
 }
 
 
+        json["enum"]=VKCMDDEBUGMARKERINSERTEXT;
         writeToConn(json);
         
         while(true){
@@ -63517,6 +63697,7 @@ debug_printf("Executing vkGetPhysicalDeviceExternalImageFormatPropertiesNV\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEEXTERNALIMAGEFORMATPROPERTIESNV;
         writeToConn(json);
         
         while(true){
@@ -63590,7 +63771,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_MzDarrQ;[&](){temp_MzDarrQ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_MzDarrQ;}();}();
+[&](){[&](){int temp_vEkPnlL;[&](){temp_vEkPnlL=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_vEkPnlL;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceExternalImageFormatPropertiesNV...\n");
 debug_printf("Return value of vkGetPhysicalDeviceExternalImageFormatPropertiesNV is: %s...\n",string_VkResult(result));
@@ -63631,6 +63812,7 @@ debug_printf("Executing vkCmdExecuteGeneratedCommandsNV\n");
 }
 
 
+        json["enum"]=VKCMDEXECUTEGENERATEDCOMMANDSNV;
         writeToConn(json);
         
         while(true){
@@ -63724,6 +63906,7 @@ debug_printf("Executing vkCmdPreprocessGeneratedCommandsNV\n");
 }
 
 
+        json["enum"]=VKCMDPREPROCESSGENERATEDCOMMANDSNV;
         writeToConn(json);
         
         while(true){
@@ -63807,6 +63990,7 @@ debug_printf("Executing vkCmdBindPipelineShaderGroupNV\n");
 }
 
 
+        json["enum"]=VKCMDBINDPIPELINESHADERGROUPNV;
         writeToConn(json);
         
         while(true){
@@ -63913,6 +64097,7 @@ debug_printf("Executing vkGetGeneratedCommandsMemoryRequirementsNV\n");
 }
 
 
+        json["enum"]=VKGETGENERATEDCOMMANDSMEMORYREQUIREMENTSNV;
         writeToConn(json);
         
         while(true){
@@ -64038,6 +64223,7 @@ debug_printf("Executing vkCreateIndirectCommandsLayoutNV\n");
 }
 
 
+        json["enum"]=VKCREATEINDIRECTCOMMANDSLAYOUTNV;
         writeToConn(json);
         
         while(true){
@@ -64104,7 +64290,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_pgQBDFz;[&](){temp_pgQBDFz=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_pgQBDFz;}();}();
+[&](){[&](){int temp_pvQcinN;[&](){temp_pvQcinN=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_pvQcinN;}();}();
 
                 if (pIndirectCommandsLayout!=NULL){
                     for (int i=0; i<1; i++){
@@ -64152,6 +64338,7 @@ debug_printf("Executing vkDestroyIndirectCommandsLayoutNV\n");
 }
 
 
+        json["enum"]=VKDESTROYINDIRECTCOMMANDSLAYOUTNV;
         writeToConn(json);
         
         while(true){
@@ -64245,6 +64432,7 @@ debug_printf("Executing vkGetPhysicalDeviceFeatures2\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEFEATURES2;
         writeToConn(json);
         
         while(true){
@@ -64351,6 +64539,7 @@ debug_printf("Executing vkGetPhysicalDeviceProperties2\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEPROPERTIES2;
         writeToConn(json);
         
         while(true){
@@ -64458,6 +64647,7 @@ debug_printf("Executing vkGetPhysicalDeviceFormatProperties2\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEFORMATPROPERTIES2;
         writeToConn(json);
         
         while(true){
@@ -64577,6 +64767,7 @@ debug_printf("Executing vkGetPhysicalDeviceImageFormatProperties2\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES2;
         writeToConn(json);
         
         while(true){
@@ -64645,7 +64836,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_vKmyCsh;[&](){temp_vKmyCsh=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_vKmyCsh;}();}();
+[&](){[&](){int temp_TYPijbq;[&](){temp_TYPijbq=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_TYPijbq;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceImageFormatProperties2...\n");
 debug_printf("Return value of vkGetPhysicalDeviceImageFormatProperties2 is: %s...\n",string_VkResult(result));
@@ -64697,6 +64888,7 @@ debug_printf("Executing vkGetPhysicalDeviceQueueFamilyProperties2\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES2;
         writeToConn(json);
         
         while(true){
@@ -64812,6 +65004,7 @@ debug_printf("Executing vkGetPhysicalDeviceMemoryProperties2\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEMEMORYPROPERTIES2;
         writeToConn(json);
         
         while(true){
@@ -64939,6 +65132,7 @@ debug_printf("Executing vkGetPhysicalDeviceSparseImageFormatProperties2\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES2;
         writeToConn(json);
         
         while(true){
@@ -65059,6 +65253,7 @@ debug_printf("Executing vkCmdPushDescriptorSetKHR\n");
 }
 
 
+        json["enum"]=VKCMDPUSHDESCRIPTORSETKHR;
         writeToConn(json);
         
         while(true){
@@ -65145,6 +65340,7 @@ debug_printf("Executing vkTrimCommandPool\n");
 }
 
 
+        json["enum"]=VKTRIMCOMMANDPOOL;
         writeToConn(json);
         
         while(true){
@@ -65253,6 +65449,7 @@ debug_printf("Executing vkGetPhysicalDeviceExternalBufferProperties\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEEXTERNALBUFFERPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -65369,6 +65566,7 @@ debug_printf("Executing vkGetMemoryFdKHR\n");
 }
 
 
+        json["enum"]=VKGETMEMORYFDKHR;
         writeToConn(json);
         
         while(true){
@@ -65434,7 +65632,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_OGgLqwm;[&](){temp_OGgLqwm=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_OGgLqwm;}();}();
+[&](){[&](){int temp_koObBcU;[&](){temp_koObBcU=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_koObBcU;}();}();
 
 debug_printf("Ending vkGetMemoryFdKHR...\n");
 debug_printf("Return value of vkGetMemoryFdKHR is: %s...\n",string_VkResult(result));
@@ -65476,6 +65674,7 @@ debug_printf("Executing vkGetMemoryFdPropertiesKHR\n");
 }
 
 
+        json["enum"]=VKGETMEMORYFDPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
@@ -65545,7 +65744,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_pUkZVXw;[&](){temp_pUkZVXw=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_pUkZVXw;}();}();
+[&](){[&](){int temp_HRcPPmY;[&](){temp_HRcPPmY=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_HRcPPmY;}();}();
 
 debug_printf("Ending vkGetMemoryFdPropertiesKHR...\n");
 debug_printf("Return value of vkGetMemoryFdPropertiesKHR is: %s...\n",string_VkResult(result));
@@ -65605,6 +65804,7 @@ debug_printf("Executing vkGetMemoryRemoteAddressNV\n");
 }
 
 
+        json["enum"]=VKGETMEMORYREMOTEADDRESSNV;
         writeToConn(json);
         
         while(true){
@@ -65681,7 +65881,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_AAlFXoN;[&](){temp_AAlFXoN=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_AAlFXoN;}();}();
+[&](){[&](){int temp_GmMstTE;[&](){temp_GmMstTE=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_GmMstTE;}();}();
 
 debug_printf("Ending vkGetMemoryRemoteAddressNV...\n");
 debug_printf("Return value of vkGetMemoryRemoteAddressNV is: %s...\n",string_VkResult(result));
@@ -65733,6 +65933,7 @@ debug_printf("Executing vkGetPhysicalDeviceExternalSemaphoreProperties\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEEXTERNALSEMAPHOREPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -65849,6 +66050,7 @@ debug_printf("Executing vkGetSemaphoreFdKHR\n");
 }
 
 
+        json["enum"]=VKGETSEMAPHOREFDKHR;
         writeToConn(json);
         
         while(true){
@@ -65914,7 +66116,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_lFHgwPB;[&](){temp_lFHgwPB=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_lFHgwPB;}();}();
+[&](){[&](){int temp_VbFkwnE;[&](){temp_VbFkwnE=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_VbFkwnE;}();}();
 
 debug_printf("Ending vkGetSemaphoreFdKHR...\n");
 debug_printf("Return value of vkGetSemaphoreFdKHR is: %s...\n",string_VkResult(result));
@@ -65954,6 +66156,7 @@ debug_printf("Executing vkImportSemaphoreFdKHR\n");
 }
 
 
+        json["enum"]=VKIMPORTSEMAPHOREFDKHR;
         writeToConn(json);
         
         while(true){
@@ -66010,7 +66213,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 VkResult result;
-[&](){[&](){int temp_WuiagkE;[&](){temp_WuiagkE=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_WuiagkE;}();}();
+[&](){[&](){int temp_cakEtRs;[&](){temp_cakEtRs=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_cakEtRs;}();}();
 
 debug_printf("Ending vkImportSemaphoreFdKHR...\n");
 debug_printf("Return value of vkImportSemaphoreFdKHR is: %s...\n",string_VkResult(result));
@@ -66062,6 +66265,7 @@ debug_printf("Executing vkGetPhysicalDeviceExternalFenceProperties\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEEXTERNALFENCEPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -66178,6 +66382,7 @@ debug_printf("Executing vkGetFenceFdKHR\n");
 }
 
 
+        json["enum"]=VKGETFENCEFDKHR;
         writeToConn(json);
         
         while(true){
@@ -66243,7 +66448,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_PZJhnPi;[&](){temp_PZJhnPi=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_PZJhnPi;}();}();
+[&](){[&](){int temp_LMnCBOV;[&](){temp_LMnCBOV=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_LMnCBOV;}();}();
 
 debug_printf("Ending vkGetFenceFdKHR...\n");
 debug_printf("Return value of vkGetFenceFdKHR is: %s...\n",string_VkResult(result));
@@ -66283,6 +66488,7 @@ debug_printf("Executing vkImportFenceFdKHR\n");
 }
 
 
+        json["enum"]=VKIMPORTFENCEFDKHR;
         writeToConn(json);
         
         while(true){
@@ -66339,7 +66545,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 VkResult result;
-[&](){[&](){int temp_amDOBHn;[&](){temp_amDOBHn=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_amDOBHn;}();}();
+[&](){[&](){int temp_qKtqMsG;[&](){temp_qKtqMsG=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_qKtqMsG;}();}();
 
 debug_printf("Ending vkImportFenceFdKHR...\n");
 debug_printf("Return value of vkImportFenceFdKHR is: %s...\n",string_VkResult(result));
@@ -66368,6 +66574,7 @@ debug_printf("Executing vkReleaseDisplayEXT\n");
 }
 
 
+        json["enum"]=VKRELEASEDISPLAYEXT;
         writeToConn(json);
         
         while(true){
@@ -66424,7 +66631,7 @@ break;}}
 [&](){deserialize_VkPhysicalDevice(json["physicalDevice"], physicalDevice);}();
 [&](){deserialize_VkDisplayKHR(json["display"], display);}();
 VkResult result;
-[&](){[&](){int temp_EKgqLcV;[&](){temp_EKgqLcV=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_EKgqLcV;}();}();
+[&](){[&](){int temp_ZiaeAKR;[&](){temp_ZiaeAKR=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ZiaeAKR;}();}();
 
 debug_printf("Ending vkReleaseDisplayEXT...\n");
 debug_printf("Return value of vkReleaseDisplayEXT is: %s...\n",string_VkResult(result));
@@ -66465,6 +66672,7 @@ debug_printf("Executing vkDisplayPowerControlEXT\n");
 }
 
 
+        json["enum"]=VKDISPLAYPOWERCONTROLEXT;
         writeToConn(json);
         
         while(true){
@@ -66522,7 +66730,7 @@ break;}}
 [&](){deserialize_VkDisplayKHR(json["display"], display);}();
 
 VkResult result;
-[&](){[&](){int temp_pjNFHxg;[&](){temp_pjNFHxg=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_pjNFHxg;}();}();
+[&](){[&](){int temp_XyteYho;[&](){temp_XyteYho=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_XyteYho;}();}();
 
 debug_printf("Ending vkDisplayPowerControlEXT...\n");
 debug_printf("Return value of vkDisplayPowerControlEXT is: %s...\n",string_VkResult(result));
@@ -66583,6 +66791,7 @@ debug_printf("Executing vkRegisterDeviceEventEXT\n");
 }
 
 
+        json["enum"]=VKREGISTERDEVICEEVENTEXT;
         writeToConn(json);
         
         while(true){
@@ -66649,7 +66858,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_GFBzKkr;[&](){temp_GFBzKkr=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_GFBzKkr;}();}();
+[&](){[&](){int temp_ZZbHdPH;[&](){temp_ZZbHdPH=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ZZbHdPH;}();}();
 
 debug_printf("Ending vkRegisterDeviceEventEXT...\n");
 debug_printf("Return value of vkRegisterDeviceEventEXT is: %s...\n",string_VkResult(result));
@@ -66711,6 +66920,7 @@ debug_printf("Executing vkRegisterDisplayEventEXT\n");
 }
 
 
+        json["enum"]=VKREGISTERDISPLAYEVENTEXT;
         writeToConn(json);
         
         while(true){
@@ -66778,7 +66988,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_xeseLpW;[&](){temp_xeseLpW=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_xeseLpW;}();}();
+[&](){[&](){int temp_taUgaUB;[&](){temp_taUgaUB=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_taUgaUB;}();}();
 
 debug_printf("Ending vkRegisterDisplayEventEXT...\n");
 debug_printf("Return value of vkRegisterDisplayEventEXT is: %s...\n",string_VkResult(result));
@@ -66817,6 +67027,7 @@ debug_printf("Executing vkGetSwapchainCounterEXT\n");
 }
 
 
+        json["enum"]=VKGETSWAPCHAINCOUNTEREXT;
         writeToConn(json);
         
         while(true){
@@ -66883,7 +67094,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_rIkTiqV;[&](){temp_rIkTiqV=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_rIkTiqV;}();}();
+[&](){[&](){int temp_ABsCcZw;[&](){temp_ABsCcZw=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ABsCcZw;}();}();
 
 debug_printf("Ending vkGetSwapchainCounterEXT...\n");
 debug_printf("Return value of vkGetSwapchainCounterEXT is: %s...\n",string_VkResult(result));
@@ -66924,6 +67135,7 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceCapabilities2EXT\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICESURFACECAPABILITIES2EXT;
         writeToConn(json);
         
         while(true){
@@ -66992,7 +67204,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_uUQHuJg;[&](){temp_uUQHuJg=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_uUQHuJg;}();}();
+[&](){[&](){int temp_XSKmzOC;[&](){temp_XSKmzOC=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_XSKmzOC;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceSurfaceCapabilities2EXT...\n");
 debug_printf("Return value of vkGetPhysicalDeviceSurfaceCapabilities2EXT is: %s...\n",string_VkResult(result));
@@ -67041,6 +67253,7 @@ debug_printf("Executing vkEnumeratePhysicalDeviceGroups\n");
 }
 
 
+        json["enum"]=VKENUMERATEPHYSICALDEVICEGROUPS;
         writeToConn(json);
         
         while(true){
@@ -67117,7 +67330,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_tAUWVlr;[&](){temp_tAUWVlr=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_tAUWVlr;}();}();
+[&](){[&](){int temp_PisRKZs;[&](){temp_PisRKZs=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_PisRKZs;}();}();
 
 debug_printf("Ending vkEnumeratePhysicalDeviceGroups...\n");
 debug_printf("Return value of vkEnumeratePhysicalDeviceGroups is: %s...\n",string_VkResult(result));
@@ -67160,6 +67373,7 @@ debug_printf("Executing vkGetDeviceGroupPeerMemoryFeatures\n");
 }
 
 
+        json["enum"]=VKGETDEVICEGROUPPEERMEMORYFEATURES;
         writeToConn(json);
         
         while(true){
@@ -67267,6 +67481,7 @@ debug_printf("Executing vkBindBufferMemory2\n");
 }
 
 
+        json["enum"]=VKBINDBUFFERMEMORY2;
         writeToConn(json);
         
         while(true){
@@ -67324,7 +67539,7 @@ break;}}
 [&](){bindInfoCount=static_cast<uint32_t>(value_to<int>(json["bindInfoCount"]));}();
 
 VkResult result;
-[&](){[&](){int temp_VZgSPJD;[&](){temp_VZgSPJD=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_VZgSPJD;}();}();
+[&](){[&](){int temp_vNOwvGi;[&](){temp_vNOwvGi=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_vNOwvGi;}();}();
 
 debug_printf("Ending vkBindBufferMemory2...\n");
 debug_printf("Return value of vkBindBufferMemory2 is: %s...\n",string_VkResult(result));
@@ -67368,6 +67583,7 @@ debug_printf("Executing vkBindImageMemory2\n");
 }
 
 
+        json["enum"]=VKBINDIMAGEMEMORY2;
         writeToConn(json);
         
         while(true){
@@ -67425,7 +67641,7 @@ break;}}
 [&](){bindInfoCount=static_cast<uint32_t>(value_to<int>(json["bindInfoCount"]));}();
 
 VkResult result;
-[&](){[&](){int temp_PDbaogl;[&](){temp_PDbaogl=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_PDbaogl;}();}();
+[&](){[&](){int temp_rQeTCPF;[&](){temp_rQeTCPF=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_rQeTCPF;}();}();
 
 debug_printf("Ending vkBindImageMemory2...\n");
 debug_printf("Return value of vkBindImageMemory2 is: %s...\n",string_VkResult(result));
@@ -67457,6 +67673,7 @@ debug_printf("Executing vkCmdSetDeviceMask\n");
 }
 
 
+        json["enum"]=VKCMDSETDEVICEMASK;
         writeToConn(json);
         
         while(true){
@@ -67552,6 +67769,7 @@ debug_printf("Executing vkGetDeviceGroupPresentCapabilitiesKHR\n");
 }
 
 
+        json["enum"]=VKGETDEVICEGROUPPRESENTCAPABILITIESKHR;
         writeToConn(json);
         
         while(true){
@@ -67619,7 +67837,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_aWJvGQa;[&](){temp_aWJvGQa=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_aWJvGQa;}();}();
+[&](){[&](){int temp_sVUfVso;[&](){temp_sVUfVso=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_sVUfVso;}();}();
 
 debug_printf("Ending vkGetDeviceGroupPresentCapabilitiesKHR...\n");
 debug_printf("Return value of vkGetDeviceGroupPresentCapabilitiesKHR is: %s...\n",string_VkResult(result));
@@ -67657,6 +67875,7 @@ debug_printf("Executing vkGetDeviceGroupSurfacePresentModesKHR\n");
 }
 
 
+        json["enum"]=VKGETDEVICEGROUPSURFACEPRESENTMODESKHR;
         writeToConn(json);
         
         while(true){
@@ -67722,7 +67941,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_UthFZPH;[&](){temp_UthFZPH=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_UthFZPH;}();}();
+[&](){[&](){int temp_lHEVacH;[&](){temp_lHEVacH=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_lHEVacH;}();}();
 
 debug_printf("Ending vkGetDeviceGroupSurfacePresentModesKHR...\n");
 debug_printf("Return value of vkGetDeviceGroupSurfacePresentModesKHR is: %s...\n",string_VkResult(result));
@@ -67771,6 +67990,7 @@ debug_printf("Executing vkAcquireNextImage2KHR\n");
 }
 
 
+        json["enum"]=VKACQUIRENEXTIMAGE2KHR;
         writeToConn(json);
         
         while(true){
@@ -67836,7 +68056,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_TLCaIVV;[&](){temp_TLCaIVV=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_TLCaIVV;}();}();
+[&](){[&](){int temp_NeZlQTZ;[&](){temp_NeZlQTZ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_NeZlQTZ;}();}();
 
 debug_printf("Ending vkAcquireNextImage2KHR...\n");
 debug_printf("Return value of vkAcquireNextImage2KHR is: %s...\n",string_VkResult(result));
@@ -67870,6 +68090,7 @@ debug_printf("Executing vkCmdDispatchBase\n");
 }
 
 
+        json["enum"]=VKCMDDISPATCHBASE;
         writeToConn(json);
         
         while(true){
@@ -67980,6 +68201,7 @@ debug_printf("Executing vkGetPhysicalDevicePresentRectanglesKHR\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEPRESENTRECTANGLESKHR;
         writeToConn(json);
         
         while(true){
@@ -68057,7 +68279,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_gIuEnea;[&](){temp_gIuEnea=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_gIuEnea;}();}();
+[&](){[&](){int temp_RnpDULR;[&](){temp_RnpDULR=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_RnpDULR;}();}();
 
 debug_printf("Ending vkGetPhysicalDevicePresentRectanglesKHR...\n");
 debug_printf("Return value of vkGetPhysicalDevicePresentRectanglesKHR is: %s...\n",string_VkResult(result));
@@ -68118,6 +68340,7 @@ debug_printf("Executing vkCreateDescriptorUpdateTemplate\n");
 }
 
 
+        json["enum"]=VKCREATEDESCRIPTORUPDATETEMPLATE;
         writeToConn(json);
         
         while(true){
@@ -68184,7 +68407,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_JrESYAz;[&](){temp_JrESYAz=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_JrESYAz;}();}();
+[&](){[&](){int temp_EHbIYub;[&](){temp_EHbIYub=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_EHbIYub;}();}();
 
                 if (pDescriptorUpdateTemplate!=NULL){
                     for (int i=0; i<1; i++){
@@ -68235,6 +68458,7 @@ debug_printf("Executing vkDestroyDescriptorUpdateTemplate\n");
 }
 
 
+        json["enum"]=VKDESTROYDESCRIPTORUPDATETEMPLATE;
         writeToConn(json);
         
         while(true){
@@ -68333,6 +68557,7 @@ debug_printf("Executing vkUpdateDescriptorSetWithTemplate\n");
 }
 
 
+        json["enum"]=VKUPDATEDESCRIPTORSETWITHTEMPLATE;
         writeToConn(json);
         
         while(true){
@@ -68433,6 +68658,7 @@ debug_printf("Executing vkCmdPushDescriptorSetWithTemplateKHR\n");
 }
 
 
+        json["enum"]=VKCMDPUSHDESCRIPTORSETWITHTEMPLATEKHR;
         writeToConn(json);
         
         while(true){
@@ -68538,6 +68764,7 @@ debug_printf("Executing vkSetHdrMetadataEXT\n");
 }
 
 
+        json["enum"]=VKSETHDRMETADATAEXT;
         writeToConn(json);
         
         while(true){
@@ -68621,6 +68848,7 @@ debug_printf("Executing vkGetSwapchainStatusKHR\n");
 }
 
 
+        json["enum"]=VKGETSWAPCHAINSTATUSKHR;
         writeToConn(json);
         
         while(true){
@@ -68677,7 +68905,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 [&](){deserialize_VkSwapchainKHR(json["swapchain"], swapchain);}();
 VkResult result;
-[&](){[&](){int temp_xfASmzO;[&](){temp_xfASmzO=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_xfASmzO;}();}();
+[&](){[&](){int temp_AdtrAXT;[&](){temp_AdtrAXT=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_AdtrAXT;}();}();
 
 debug_printf("Ending vkGetSwapchainStatusKHR...\n");
 debug_printf("Return value of vkGetSwapchainStatusKHR is: %s...\n",string_VkResult(result));
@@ -68718,6 +68946,7 @@ debug_printf("Executing vkGetRefreshCycleDurationGOOGLE\n");
 }
 
 
+        json["enum"]=VKGETREFRESHCYCLEDURATIONGOOGLE;
         writeToConn(json);
         
         while(true){
@@ -68786,7 +69015,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_DSOgfaq;[&](){temp_DSOgfaq=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_DSOgfaq;}();}();
+[&](){[&](){int temp_YFfCUgf;[&](){temp_YFfCUgf=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_YFfCUgf;}();}();
 
 debug_printf("Ending vkGetRefreshCycleDurationGOOGLE...\n");
 debug_printf("Return value of vkGetRefreshCycleDurationGOOGLE is: %s...\n",string_VkResult(result));
@@ -68836,6 +69065,7 @@ debug_printf("Executing vkGetPastPresentationTimingGOOGLE\n");
 }
 
 
+        json["enum"]=VKGETPASTPRESENTATIONTIMINGGOOGLE;
         writeToConn(json);
         
         while(true){
@@ -68913,7 +69143,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_lJRRFWO;[&](){temp_lJRRFWO=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_lJRRFWO;}();}();
+[&](){[&](){int temp_SaSGjng;[&](){temp_SaSGjng=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_SaSGjng;}();}();
 
 debug_printf("Ending vkGetPastPresentationTimingGOOGLE...\n");
 debug_printf("Return value of vkGetPastPresentationTimingGOOGLE is: %s...\n",string_VkResult(result));
@@ -68955,6 +69185,7 @@ debug_printf("Executing vkCmdSetViewportWScalingNV\n");
 }
 
 
+        json["enum"]=VKCMDSETVIEWPORTWSCALINGNV;
         writeToConn(json);
         
         while(true){
@@ -69051,6 +69282,7 @@ debug_printf("Executing vkCmdSetDiscardRectangleEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETDISCARDRECTANGLEEXT;
         writeToConn(json);
         
         while(true){
@@ -69134,6 +69366,7 @@ debug_printf("Executing vkCmdSetDiscardRectangleEnableEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETDISCARDRECTANGLEENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -69215,6 +69448,7 @@ debug_printf("Executing vkCmdSetDiscardRectangleModeEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETDISCARDRECTANGLEMODEEXT;
         writeToConn(json);
         
         while(true){
@@ -69307,6 +69541,7 @@ debug_printf("Executing vkCmdSetSampleLocationsEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETSAMPLELOCATIONSEXT;
         writeToConn(json);
         
         while(true){
@@ -69400,6 +69635,7 @@ debug_printf("Executing vkGetPhysicalDeviceMultisamplePropertiesEXT\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEMULTISAMPLEPROPERTIESEXT;
         writeToConn(json);
         
         while(true){
@@ -69516,6 +69752,7 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceCapabilities2KHR\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICESURFACECAPABILITIES2KHR;
         writeToConn(json);
         
         while(true){
@@ -69584,7 +69821,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_XymsZwX;[&](){temp_XymsZwX=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_XymsZwX;}();}();
+[&](){[&](){int temp_vrcoNXr;[&](){temp_vrcoNXr=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_vrcoNXr;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceSurfaceCapabilities2KHR...\n");
 debug_printf("Return value of vkGetPhysicalDeviceSurfaceCapabilities2KHR is: %s...\n",string_VkResult(result));
@@ -69645,6 +69882,7 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceFormats2KHR\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICESURFACEFORMATS2KHR;
         writeToConn(json);
         
         while(true){
@@ -69722,7 +69960,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_XHVeCWh;[&](){temp_XHVeCWh=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_XHVeCWh;}();}();
+[&](){[&](){int temp_IOZGDeU;[&](){temp_IOZGDeU=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_IOZGDeU;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceSurfaceFormats2KHR...\n");
 debug_printf("Return value of vkGetPhysicalDeviceSurfaceFormats2KHR is: %s...\n",string_VkResult(result));
@@ -69771,6 +70009,7 @@ debug_printf("Executing vkGetPhysicalDeviceDisplayProperties2KHR\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEDISPLAYPROPERTIES2KHR;
         writeToConn(json);
         
         while(true){
@@ -69847,7 +70086,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_tEIQQOJ;[&](){temp_tEIQQOJ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_tEIQQOJ;}();}();
+[&](){[&](){int temp_hJvdKix;[&](){temp_hJvdKix=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_hJvdKix;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceDisplayProperties2KHR...\n");
 debug_printf("Return value of vkGetPhysicalDeviceDisplayProperties2KHR is: %s...\n",string_VkResult(result));
@@ -69896,6 +70135,7 @@ debug_printf("Executing vkGetPhysicalDeviceDisplayPlaneProperties2KHR\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIES2KHR;
         writeToConn(json);
         
         while(true){
@@ -69972,7 +70212,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_SmiGvTk;[&](){temp_SmiGvTk=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_SmiGvTk;}();}();
+[&](){[&](){int temp_HhYxptS;[&](){temp_HhYxptS=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_HhYxptS;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceDisplayPlaneProperties2KHR...\n");
 debug_printf("Return value of vkGetPhysicalDeviceDisplayPlaneProperties2KHR is: %s...\n",string_VkResult(result));
@@ -70022,6 +70262,7 @@ debug_printf("Executing vkGetDisplayModeProperties2KHR\n");
 }
 
 
+        json["enum"]=VKGETDISPLAYMODEPROPERTIES2KHR;
         writeToConn(json);
         
         while(true){
@@ -70099,7 +70340,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_tuLJGSV;[&](){temp_tuLJGSV=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_tuLJGSV;}();}();
+[&](){[&](){int temp_xnvCFuo;[&](){temp_xnvCFuo=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_xnvCFuo;}();}();
 
 debug_printf("Ending vkGetDisplayModeProperties2KHR...\n");
 debug_printf("Return value of vkGetDisplayModeProperties2KHR is: %s...\n",string_VkResult(result));
@@ -70151,6 +70392,7 @@ debug_printf("Executing vkGetDisplayPlaneCapabilities2KHR\n");
 }
 
 
+        json["enum"]=VKGETDISPLAYPLANECAPABILITIES2KHR;
         writeToConn(json);
         
         while(true){
@@ -70219,7 +70461,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_xCSQphb;[&](){temp_xCSQphb=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_xCSQphb;}();}();
+[&](){[&](){int temp_SuQXlIN;[&](){temp_SuQXlIN=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_SuQXlIN;}();}();
 
 debug_printf("Ending vkGetDisplayPlaneCapabilities2KHR...\n");
 debug_printf("Return value of vkGetDisplayPlaneCapabilities2KHR is: %s...\n",string_VkResult(result));
@@ -70271,6 +70513,7 @@ debug_printf("Executing vkGetBufferMemoryRequirements2\n");
 }
 
 
+        json["enum"]=VKGETBUFFERMEMORYREQUIREMENTS2;
         writeToConn(json);
         
         while(true){
@@ -70390,6 +70633,7 @@ debug_printf("Executing vkGetImageMemoryRequirements2\n");
 }
 
 
+        json["enum"]=VKGETIMAGEMEMORYREQUIREMENTS2;
         writeToConn(json);
         
         while(true){
@@ -70518,6 +70762,7 @@ debug_printf("Executing vkGetImageSparseMemoryRequirements2\n");
 }
 
 
+        json["enum"]=VKGETIMAGESPARSEMEMORYREQUIREMENTS2;
         writeToConn(json);
         
         while(true){
@@ -70646,6 +70891,7 @@ debug_printf("Executing vkGetDeviceBufferMemoryRequirements\n");
 }
 
 
+        json["enum"]=VKGETDEVICEBUFFERMEMORYREQUIREMENTS;
         writeToConn(json);
         
         while(true){
@@ -70765,6 +71011,7 @@ debug_printf("Executing vkGetDeviceImageMemoryRequirements\n");
 }
 
 
+        json["enum"]=VKGETDEVICEIMAGEMEMORYREQUIREMENTS;
         writeToConn(json);
         
         while(true){
@@ -70893,6 +71140,7 @@ debug_printf("Executing vkGetDeviceImageSparseMemoryRequirements\n");
 }
 
 
+        json["enum"]=VKGETDEVICEIMAGESPARSEMEMORYREQUIREMENTS;
         writeToConn(json);
         
         while(true){
@@ -71030,6 +71278,7 @@ debug_printf("Executing vkCreateSamplerYcbcrConversion\n");
 }
 
 
+        json["enum"]=VKCREATESAMPLERYCBCRCONVERSION;
         writeToConn(json);
         
         while(true){
@@ -71096,7 +71345,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_zweNkqM;[&](){temp_zweNkqM=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_zweNkqM;}();}();
+[&](){[&](){int temp_isarYKk;[&](){temp_isarYKk=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_isarYKk;}();}();
 
                 if (pYcbcrConversion!=NULL){
                     for (int i=0; i<1; i++){
@@ -71147,6 +71396,7 @@ debug_printf("Executing vkDestroySamplerYcbcrConversion\n");
 }
 
 
+        json["enum"]=VKDESTROYSAMPLERYCBCRCONVERSION;
         writeToConn(json);
         
         while(true){
@@ -71252,6 +71502,7 @@ debug_printf("Executing vkGetDeviceQueue2\n");
 }
 
 
+        json["enum"]=VKGETDEVICEQUEUE2;
         writeToConn(json);
         
         while(true){
@@ -71374,6 +71625,7 @@ debug_printf("Executing vkCreateValidationCacheEXT\n");
 }
 
 
+        json["enum"]=VKCREATEVALIDATIONCACHEEXT;
         writeToConn(json);
         
         while(true){
@@ -71440,7 +71692,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_aLEbwvl;[&](){temp_aLEbwvl=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_aLEbwvl;}();}();
+[&](){[&](){int temp_NGqSAPw;[&](){temp_NGqSAPw=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_NGqSAPw;}();}();
 
                 if (pValidationCache!=NULL){
                     for (int i=0; i<1; i++){
@@ -71488,6 +71740,7 @@ debug_printf("Executing vkDestroyValidationCacheEXT\n");
 }
 
 
+        json["enum"]=VKDESTROYVALIDATIONCACHEEXT;
         writeToConn(json);
         
         while(true){
@@ -71591,6 +71844,7 @@ debug_printf("Executing vkGetValidationCacheDataEXT\n");
 }
 
 
+        json["enum"]=VKGETVALIDATIONCACHEDATAEXT;
         writeToConn(json);
         
         while(true){
@@ -71668,7 +71922,7 @@ break;}}
         }
         }();pData=temp_ZtBEjVJ;}();
 VkResult result;
-[&](){[&](){int temp_NgivFne;[&](){temp_NgivFne=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_NgivFne;}();}();
+[&](){[&](){int temp_qUleAuZ;[&](){temp_qUleAuZ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_qUleAuZ;}();}();
 
 debug_printf("Ending vkGetValidationCacheDataEXT...\n");
 debug_printf("Return value of vkGetValidationCacheDataEXT is: %s...\n",string_VkResult(result));
@@ -71707,6 +71961,7 @@ debug_printf("Executing vkMergeValidationCachesEXT\n");
 }
 
 
+        json["enum"]=VKMERGEVALIDATIONCACHESEXT;
         writeToConn(json);
         
         while(true){
@@ -71765,7 +72020,7 @@ break;}}
 [&](){srcCacheCount=static_cast<uint32_t>(value_to<int>(json["srcCacheCount"]));}();
 
 VkResult result;
-[&](){[&](){int temp_FcfMOyA;[&](){temp_FcfMOyA=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_FcfMOyA;}();}();
+[&](){[&](){int temp_fgUntwV;[&](){temp_fgUntwV=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_fgUntwV;}();}();
 
 debug_printf("Ending vkMergeValidationCachesEXT...\n");
 debug_printf("Return value of vkMergeValidationCachesEXT is: %s...\n",string_VkResult(result));
@@ -71817,6 +72072,7 @@ debug_printf("Executing vkGetDescriptorSetLayoutSupport\n");
 }
 
 
+        json["enum"]=VKGETDESCRIPTORSETLAYOUTSUPPORT;
         writeToConn(json);
         
         while(true){
@@ -71936,6 +72192,7 @@ debug_printf("Executing vkGetShaderInfoAMD\n");
 }
 
 
+        json["enum"]=VKGETSHADERINFOAMD;
         writeToConn(json);
         
         while(true){
@@ -72015,7 +72272,7 @@ break;}}
         }
         }();pInfo=temp_ziBtDwK;}();
 VkResult result;
-[&](){[&](){int temp_eQSVrgv;[&](){temp_eQSVrgv=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_eQSVrgv;}();}();
+[&](){[&](){int temp_SeHBHly;[&](){temp_SeHBHly=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_SeHBHly;}();}();
 
 debug_printf("Ending vkGetShaderInfoAMD...\n");
 debug_printf("Return value of vkGetShaderInfoAMD is: %s...\n",string_VkResult(result));
@@ -72045,6 +72302,7 @@ debug_printf("Executing vkSetLocalDimmingAMD\n");
 }
 
 
+        json["enum"]=VKSETLOCALDIMMINGAMD;
         writeToConn(json);
         
         while(true){
@@ -72144,6 +72402,7 @@ debug_printf("Executing vkGetPhysicalDeviceCalibrateableTimeDomainsEXT\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICECALIBRATEABLETIMEDOMAINSEXT;
         writeToConn(json);
         
         while(true){
@@ -72217,7 +72476,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_WDIxlsG;[&](){temp_WDIxlsG=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_WDIxlsG;}();}();
+[&](){[&](){int temp_mVFqWLu;[&](){temp_mVFqWLu=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_mVFqWLu;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceCalibrateableTimeDomainsEXT...\n");
 debug_printf("Return value of vkGetPhysicalDeviceCalibrateableTimeDomainsEXT is: %s...\n",string_VkResult(result));
@@ -72276,6 +72535,7 @@ debug_printf("Executing vkGetCalibratedTimestampsEXT\n");
 }
 
 
+        json["enum"]=VKGETCALIBRATEDTIMESTAMPSEXT;
         writeToConn(json);
         
         while(true){
@@ -72351,7 +72611,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_aXgXwZu;[&](){temp_aXgXwZu=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_aXgXwZu;}();}();
+[&](){[&](){int temp_AqSIVIC;[&](){temp_AqSIVIC=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_AqSIVIC;}();}();
 
 debug_printf("Ending vkGetCalibratedTimestampsEXT...\n");
 debug_printf("Return value of vkGetCalibratedTimestampsEXT is: %s...\n",string_VkResult(result));
@@ -72391,6 +72651,7 @@ debug_printf("Executing vkSetDebugUtilsObjectNameEXT\n");
 }
 
 
+        json["enum"]=VKSETDEBUGUTILSOBJECTNAMEEXT;
         writeToConn(json);
         
         while(true){
@@ -72447,7 +72708,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 VkResult result;
-[&](){[&](){int temp_yKLOovT;[&](){temp_yKLOovT=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_yKLOovT;}();}();
+[&](){[&](){int temp_ZbhglLt;[&](){temp_ZbhglLt=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ZbhglLt;}();}();
 
 debug_printf("Ending vkSetDebugUtilsObjectNameEXT...\n");
 debug_printf("Return value of vkSetDebugUtilsObjectNameEXT is: %s...\n",string_VkResult(result));
@@ -72487,6 +72748,7 @@ debug_printf("Executing vkSetDebugUtilsObjectTagEXT\n");
 }
 
 
+        json["enum"]=VKSETDEBUGUTILSOBJECTTAGEXT;
         writeToConn(json);
         
         while(true){
@@ -72543,7 +72805,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 VkResult result;
-[&](){[&](){int temp_FWYvzMZ;[&](){temp_FWYvzMZ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_FWYvzMZ;}();}();
+[&](){[&](){int temp_CgpaGeC;[&](){temp_CgpaGeC=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_CgpaGeC;}();}();
 
 debug_printf("Ending vkSetDebugUtilsObjectTagEXT...\n");
 debug_printf("Return value of vkSetDebugUtilsObjectTagEXT is: %s...\n",string_VkResult(result));
@@ -72583,6 +72845,7 @@ debug_printf("Executing vkQueueBeginDebugUtilsLabelEXT\n");
 }
 
 
+        json["enum"]=VKQUEUEBEGINDEBUGUTILSLABELEXT;
         writeToConn(json);
         
         while(true){
@@ -72663,6 +72926,7 @@ debug_printf("Executing vkQueueEndDebugUtilsLabelEXT\n");
 }
 
 
+        json["enum"]=VKQUEUEENDDEBUGUTILSLABELEXT;
         writeToConn(json);
         
         while(true){
@@ -72754,6 +73018,7 @@ debug_printf("Executing vkQueueInsertDebugUtilsLabelEXT\n");
 }
 
 
+        json["enum"]=VKQUEUEINSERTDEBUGUTILSLABELEXT;
         writeToConn(json);
         
         while(true){
@@ -72846,6 +73111,7 @@ debug_printf("Executing vkCmdBeginDebugUtilsLabelEXT\n");
 }
 
 
+        json["enum"]=VKCMDBEGINDEBUGUTILSLABELEXT;
         writeToConn(json);
         
         while(true){
@@ -72926,6 +73192,7 @@ debug_printf("Executing vkCmdEndDebugUtilsLabelEXT\n");
 }
 
 
+        json["enum"]=VKCMDENDDEBUGUTILSLABELEXT;
         writeToConn(json);
         
         while(true){
@@ -73017,6 +73284,7 @@ debug_printf("Executing vkCmdInsertDebugUtilsLabelEXT\n");
 }
 
 
+        json["enum"]=VKCMDINSERTDEBUGUTILSLABELEXT;
         writeToConn(json);
         
         while(true){
@@ -73130,6 +73398,7 @@ debug_printf("Executing vkCreateDebugUtilsMessengerEXT\n");
 }
 
 
+        json["enum"]=VKCREATEDEBUGUTILSMESSENGEREXT;
         writeToConn(json);
         
         while(true){
@@ -73196,7 +73465,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_txQQPPe;[&](){temp_txQQPPe=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_txQQPPe;}();}();
+[&](){[&](){int temp_GvoCfSy;[&](){temp_GvoCfSy=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_GvoCfSy;}();}();
 
                 if (pMessenger!=NULL){
                     for (int i=0; i<1; i++){
@@ -73244,6 +73513,7 @@ debug_printf("Executing vkDestroyDebugUtilsMessengerEXT\n");
 }
 
 
+        json["enum"]=VKDESTROYDEBUGUTILSMESSENGEREXT;
         writeToConn(json);
         
         while(true){
@@ -73339,6 +73609,7 @@ debug_printf("Executing vkSubmitDebugUtilsMessageEXT\n");
 }
 
 
+        json["enum"]=VKSUBMITDEBUGUTILSMESSAGEEXT;
         writeToConn(json);
         
         while(true){
@@ -73446,6 +73717,7 @@ debug_printf("Executing vkGetMemoryHostPointerPropertiesEXT\n");
 }
 
 
+        json["enum"]=VKGETMEMORYHOSTPOINTERPROPERTIESEXT;
         writeToConn(json);
         
         while(true){
@@ -73515,7 +73787,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_jzFrnFo;[&](){temp_jzFrnFo=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_jzFrnFo;}();}();
+[&](){[&](){int temp_Iwamftl;[&](){temp_Iwamftl=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_Iwamftl;}();}();
 
 debug_printf("Ending vkGetMemoryHostPointerPropertiesEXT...\n");
 debug_printf("Return value of vkGetMemoryHostPointerPropertiesEXT is: %s...\n",string_VkResult(result));
@@ -73547,6 +73819,7 @@ debug_printf("Executing vkCmdWriteBufferMarkerAMD\n");
 }
 
 
+        json["enum"]=VKCMDWRITEBUFFERMARKERAMD;
         writeToConn(json);
         
         while(true){
@@ -73663,6 +73936,7 @@ debug_printf("Executing vkCreateRenderPass2\n");
 }
 
 
+        json["enum"]=VKCREATERENDERPASS2;
         writeToConn(json);
         
         while(true){
@@ -73729,7 +74003,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_exWajoc;[&](){temp_exWajoc=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_exWajoc;}();}();
+[&](){[&](){int temp_DrIhxoS;[&](){temp_DrIhxoS=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_DrIhxoS;}();}();
 
                 if (pRenderPass!=NULL){
                     for (int i=0; i<1; i++){
@@ -73791,6 +74065,7 @@ debug_printf("Executing vkCmdBeginRenderPass2\n");
 }
 
 
+        json["enum"]=VKCMDBEGINRENDERPASS2;
         writeToConn(json);
         
         while(true){
@@ -73899,6 +74174,7 @@ debug_printf("Executing vkCmdNextSubpass2\n");
 }
 
 
+        json["enum"]=VKCMDNEXTSUBPASS2;
         writeToConn(json);
         
         while(true){
@@ -73995,6 +74271,7 @@ debug_printf("Executing vkCmdEndRenderPass2\n");
 }
 
 
+        json["enum"]=VKCMDENDRENDERPASS2;
         writeToConn(json);
         
         while(true){
@@ -74088,6 +74365,7 @@ debug_printf("Executing vkGetSemaphoreCounterValue\n");
 }
 
 
+        json["enum"]=VKGETSEMAPHORECOUNTERVALUE;
         writeToConn(json);
         
         while(true){
@@ -74153,7 +74431,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_VGLApiW;[&](){temp_VGLApiW=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_VGLApiW;}();}();
+[&](){[&](){int temp_HswTyiI;[&](){temp_HswTyiI=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_HswTyiI;}();}();
 
 debug_printf("Ending vkGetSemaphoreCounterValue...\n");
 debug_printf("Return value of vkGetSemaphoreCounterValue is: %s...\n",string_VkResult(result));
@@ -74197,6 +74475,7 @@ debug_printf("Executing vkWaitSemaphores\n");
 }
 
 
+        json["enum"]=VKWAITSEMAPHORES;
         writeToConn(json);
         
         while(true){
@@ -74254,7 +74533,7 @@ break;}}
 
 [&](){timeout=static_cast<uint64_t>(value_to<int>(json["timeout"]));}();
 VkResult result;
-[&](){[&](){int temp_wPTLoVi;[&](){temp_wPTLoVi=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_wPTLoVi;}();}();
+[&](){[&](){int temp_zsBKwrb;[&](){temp_zsBKwrb=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_zsBKwrb;}();}();
 
 debug_printf("Ending vkWaitSemaphores...\n");
 debug_printf("Return value of vkWaitSemaphores is: %s...\n",string_VkResult(result));
@@ -74297,6 +74576,7 @@ debug_printf("Executing vkSignalSemaphore\n");
 }
 
 
+        json["enum"]=VKSIGNALSEMAPHORE;
         writeToConn(json);
         
         while(true){
@@ -74353,7 +74633,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 VkResult result;
-[&](){[&](){int temp_QmFJpDR;[&](){temp_QmFJpDR=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_QmFJpDR;}();}();
+[&](){[&](){int temp_ebLddpw;[&](){temp_ebLddpw=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ebLddpw;}();}();
 
 debug_printf("Ending vkSignalSemaphore...\n");
 debug_printf("Return value of vkSignalSemaphore is: %s...\n",string_VkResult(result));
@@ -74390,6 +74670,7 @@ debug_printf("Executing vkCmdDrawIndirectCount\n");
 }
 
 
+        json["enum"]=VKCMDDRAWINDIRECTCOUNT;
         writeToConn(json);
         
         while(true){
@@ -74487,6 +74768,7 @@ debug_printf("Executing vkCmdDrawIndexedIndirectCount\n");
 }
 
 
+        json["enum"]=VKCMDDRAWINDEXEDINDIRECTCOUNT;
         writeToConn(json);
         
         while(true){
@@ -74590,6 +74872,7 @@ debug_printf("Executing vkCmdSetCheckpointNV\n");
 }
 
 
+        json["enum"]=VKCMDSETCHECKPOINTNV;
         writeToConn(json);
         
         while(true){
@@ -74691,6 +74974,7 @@ debug_printf("Executing vkGetQueueCheckpointDataNV\n");
 }
 
 
+        json["enum"]=VKGETQUEUECHECKPOINTDATANV;
         writeToConn(json);
         
         while(true){
@@ -74820,6 +75104,7 @@ debug_printf("Executing vkCmdBindTransformFeedbackBuffersEXT\n");
 }
 
 
+        json["enum"]=VKCMDBINDTRANSFORMFEEDBACKBUFFERSEXT;
         writeToConn(json);
         
         while(true){
@@ -74924,6 +75209,7 @@ debug_printf("Executing vkCmdBeginTransformFeedbackEXT\n");
 }
 
 
+        json["enum"]=VKCMDBEGINTRANSFORMFEEDBACKEXT;
         writeToConn(json);
         
         while(true){
@@ -75027,6 +75313,7 @@ debug_printf("Executing vkCmdEndTransformFeedbackEXT\n");
 }
 
 
+        json["enum"]=VKCMDENDTRANSFORMFEEDBACKEXT;
         writeToConn(json);
         
         while(true){
@@ -75114,6 +75401,7 @@ debug_printf("Executing vkCmdBeginQueryIndexedEXT\n");
 }
 
 
+        json["enum"]=VKCMDBEGINQUERYINDEXEDEXT;
         writeToConn(json);
         
         while(true){
@@ -75200,6 +75488,7 @@ debug_printf("Executing vkCmdEndQueryIndexedEXT\n");
 }
 
 
+        json["enum"]=VKCMDENDQUERYINDEXEDEXT;
         writeToConn(json);
         
         while(true){
@@ -75288,6 +75577,7 @@ debug_printf("Executing vkCmdDrawIndirectByteCountEXT\n");
 }
 
 
+        json["enum"]=VKCMDDRAWINDIRECTBYTECOUNTEXT;
         writeToConn(json);
         
         while(true){
@@ -75387,6 +75677,7 @@ debug_printf("Executing vkCmdSetExclusiveScissorNV\n");
 }
 
 
+        json["enum"]=VKCMDSETEXCLUSIVESCISSORNV;
         writeToConn(json);
         
         while(true){
@@ -75480,6 +75771,7 @@ debug_printf("Executing vkCmdSetExclusiveScissorEnableNV\n");
 }
 
 
+        json["enum"]=VKCMDSETEXCLUSIVESCISSORENABLENV;
         writeToConn(json);
         
         while(true){
@@ -75564,6 +75856,7 @@ debug_printf("Executing vkCmdBindShadingRateImageNV\n");
 }
 
 
+        json["enum"]=VKCMDBINDSHADINGRATEIMAGENV;
         writeToConn(json);
         
         while(true){
@@ -75659,6 +75952,7 @@ debug_printf("Executing vkCmdSetViewportShadingRatePaletteNV\n");
 }
 
 
+        json["enum"]=VKCMDSETVIEWPORTSHADINGRATEPALETTENV;
         writeToConn(json);
         
         while(true){
@@ -75755,6 +76049,7 @@ debug_printf("Executing vkCmdSetCoarseSampleOrderNV\n");
 }
 
 
+        json["enum"]=VKCMDSETCOARSESAMPLEORDERNV;
         writeToConn(json);
         
         while(true){
@@ -75839,6 +76134,7 @@ debug_printf("Executing vkCmdDrawMeshTasksNV\n");
 }
 
 
+        json["enum"]=VKCMDDRAWMESHTASKSNV;
         writeToConn(json);
         
         while(true){
@@ -75924,6 +76220,7 @@ debug_printf("Executing vkCmdDrawMeshTasksIndirectNV\n");
 }
 
 
+        json["enum"]=VKCMDDRAWMESHTASKSINDIRECTNV;
         writeToConn(json);
         
         while(true){
@@ -76013,6 +76310,7 @@ debug_printf("Executing vkCmdDrawMeshTasksIndirectCountNV\n");
 }
 
 
+        json["enum"]=VKCMDDRAWMESHTASKSINDIRECTCOUNTNV;
         writeToConn(json);
         
         while(true){
@@ -76101,6 +76399,7 @@ debug_printf("Executing vkCmdDrawMeshTasksEXT\n");
 }
 
 
+        json["enum"]=VKCMDDRAWMESHTASKSEXT;
         writeToConn(json);
         
         while(true){
@@ -76187,6 +76486,7 @@ debug_printf("Executing vkCmdDrawMeshTasksIndirectEXT\n");
 }
 
 
+        json["enum"]=VKCMDDRAWMESHTASKSINDIRECTEXT;
         writeToConn(json);
         
         while(true){
@@ -76276,6 +76576,7 @@ debug_printf("Executing vkCmdDrawMeshTasksIndirectCountEXT\n");
 }
 
 
+        json["enum"]=VKCMDDRAWMESHTASKSINDIRECTCOUNTEXT;
         writeToConn(json);
         
         while(true){
@@ -76363,6 +76664,7 @@ debug_printf("Executing vkCompileDeferredNV\n");
 }
 
 
+        json["enum"]=VKCOMPILEDEFERREDNV;
         writeToConn(json);
         
         while(true){
@@ -76420,7 +76722,7 @@ break;}}
 [&](){deserialize_VkPipeline(json["pipeline"], pipeline);}();
 [&](){shader=static_cast<uint32_t>(value_to<int>(json["shader"]));}();
 VkResult result;
-[&](){[&](){int temp_QQQvTJv;[&](){temp_QQQvTJv=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_QQQvTJv;}();}();
+[&](){[&](){int temp_lkDOwDU;[&](){temp_lkDOwDU=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_lkDOwDU;}();}();
 
 debug_printf("Ending vkCompileDeferredNV...\n");
 debug_printf("Return value of vkCompileDeferredNV is: %s...\n",string_VkResult(result));
@@ -76481,6 +76783,7 @@ debug_printf("Executing vkCreateAccelerationStructureNV\n");
 }
 
 
+        json["enum"]=VKCREATEACCELERATIONSTRUCTURENV;
         writeToConn(json);
         
         while(true){
@@ -76547,7 +76850,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_GbqTTfb;[&](){temp_GbqTTfb=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_GbqTTfb;}();}();
+[&](){[&](){int temp_IuEtyfT;[&](){temp_IuEtyfT=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_IuEtyfT;}();}();
 
                 if (pAccelerationStructure!=NULL){
                     for (int i=0; i<1; i++){
@@ -76584,6 +76887,7 @@ debug_printf("Executing vkCmdBindInvocationMaskHUAWEI\n");
 }
 
 
+        json["enum"]=VKCMDBINDINVOCATIONMASKHUAWEI;
         writeToConn(json);
         
         while(true){
@@ -76678,6 +76982,7 @@ debug_printf("Executing vkDestroyAccelerationStructureKHR\n");
 }
 
 
+        json["enum"]=VKDESTROYACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
         
         while(true){
@@ -76772,6 +77077,7 @@ debug_printf("Executing vkDestroyAccelerationStructureNV\n");
 }
 
 
+        json["enum"]=VKDESTROYACCELERATIONSTRUCTURENV;
         writeToConn(json);
         
         while(true){
@@ -76877,6 +77183,7 @@ debug_printf("Executing vkGetAccelerationStructureMemoryRequirementsNV\n");
 }
 
 
+        json["enum"]=VKGETACCELERATIONSTRUCTUREMEMORYREQUIREMENTSNV;
         writeToConn(json);
         
         while(true){
@@ -76982,6 +77289,7 @@ debug_printf("Executing vkBindAccelerationStructureMemoryNV\n");
 }
 
 
+        json["enum"]=VKBINDACCELERATIONSTRUCTUREMEMORYNV;
         writeToConn(json);
         
         while(true){
@@ -77039,7 +77347,7 @@ break;}}
 [&](){bindInfoCount=static_cast<uint32_t>(value_to<int>(json["bindInfoCount"]));}();
 
 VkResult result;
-[&](){[&](){int temp_TCzSJYj;[&](){temp_TCzSJYj=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_TCzSJYj;}();}();
+[&](){[&](){int temp_tcqhJAr;[&](){temp_tcqhJAr=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_tcqhJAr;}();}();
 
 debug_printf("Ending vkBindAccelerationStructureMemoryNV...\n");
 debug_printf("Return value of vkBindAccelerationStructureMemoryNV is: %s...\n",string_VkResult(result));
@@ -77070,6 +77378,7 @@ debug_printf("Executing vkCmdCopyAccelerationStructureNV\n");
 }
 
 
+        json["enum"]=VKCMDCOPYACCELERATIONSTRUCTURENV;
         writeToConn(json);
         
         while(true){
@@ -77164,6 +77473,7 @@ debug_printf("Executing vkCmdCopyAccelerationStructureKHR\n");
 }
 
 
+        json["enum"]=VKCMDCOPYACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
         
         while(true){
@@ -77257,6 +77567,7 @@ debug_printf("Executing vkCopyAccelerationStructureKHR\n");
 }
 
 
+        json["enum"]=VKCOPYACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
         
         while(true){
@@ -77314,7 +77625,7 @@ break;}}
 [&](){deserialize_VkDeferredOperationKHR(json["deferredOperation"], deferredOperation);}();
 
 VkResult result;
-[&](){[&](){int temp_nUbvWlj;[&](){temp_nUbvWlj=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_nUbvWlj;}();}();
+[&](){[&](){int temp_oTeNRkE;[&](){temp_oTeNRkE=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_oTeNRkE;}();}();
 
 debug_printf("Ending vkCopyAccelerationStructureKHR...\n");
 debug_printf("Return value of vkCopyAccelerationStructureKHR is: %s...\n",string_VkResult(result));
@@ -77354,6 +77665,7 @@ debug_printf("Executing vkCmdCopyAccelerationStructureToMemoryKHR\n");
 }
 
 
+        json["enum"]=VKCMDCOPYACCELERATIONSTRUCTURETOMEMORYKHR;
         writeToConn(json);
         
         while(true){
@@ -77447,6 +77759,7 @@ debug_printf("Executing vkCopyAccelerationStructureToMemoryKHR\n");
 }
 
 
+        json["enum"]=VKCOPYACCELERATIONSTRUCTURETOMEMORYKHR;
         writeToConn(json);
         
         while(true){
@@ -77504,7 +77817,7 @@ break;}}
 [&](){deserialize_VkDeferredOperationKHR(json["deferredOperation"], deferredOperation);}();
 
 VkResult result;
-[&](){[&](){int temp_uCkIOop;[&](){temp_uCkIOop=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_uCkIOop;}();}();
+[&](){[&](){int temp_yBdwNKk;[&](){temp_yBdwNKk=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_yBdwNKk;}();}();
 
 debug_printf("Ending vkCopyAccelerationStructureToMemoryKHR...\n");
 debug_printf("Return value of vkCopyAccelerationStructureToMemoryKHR is: %s...\n",string_VkResult(result));
@@ -77544,6 +77857,7 @@ debug_printf("Executing vkCmdCopyMemoryToAccelerationStructureKHR\n");
 }
 
 
+        json["enum"]=VKCMDCOPYMEMORYTOACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
         
         while(true){
@@ -77637,6 +77951,7 @@ debug_printf("Executing vkCopyMemoryToAccelerationStructureKHR\n");
 }
 
 
+        json["enum"]=VKCOPYMEMORYTOACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
         
         while(true){
@@ -77694,7 +78009,7 @@ break;}}
 [&](){deserialize_VkDeferredOperationKHR(json["deferredOperation"], deferredOperation);}();
 
 VkResult result;
-[&](){[&](){int temp_HusVZhG;[&](){temp_HusVZhG=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_HusVZhG;}();}();
+[&](){[&](){int temp_sCYLTOz;[&](){temp_sCYLTOz=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_sCYLTOz;}();}();
 
 debug_printf("Ending vkCopyMemoryToAccelerationStructureKHR...\n");
 debug_printf("Return value of vkCopyMemoryToAccelerationStructureKHR is: %s...\n",string_VkResult(result));
@@ -77735,6 +78050,7 @@ debug_printf("Executing vkCmdWriteAccelerationStructuresPropertiesKHR\n");
 }
 
 
+        json["enum"]=VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
@@ -77832,6 +78148,7 @@ debug_printf("Executing vkCmdWriteAccelerationStructuresPropertiesNV\n");
 }
 
 
+        json["enum"]=VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESNV;
         writeToConn(json);
         
         while(true){
@@ -77935,6 +78252,7 @@ debug_printf("Executing vkCmdBuildAccelerationStructureNV\n");
 }
 
 
+        json["enum"]=VKCMDBUILDACCELERATIONSTRUCTURENV;
         writeToConn(json);
         
         while(true){
@@ -78047,6 +78365,7 @@ debug_printf("Executing vkWriteAccelerationStructuresPropertiesKHR\n");
 }
 
 
+        json["enum"]=VKWRITEACCELERATIONSTRUCTURESPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
@@ -78119,7 +78438,7 @@ break;}}
         }();pData=temp_hrhAtyM;}();
 [&](){stride=static_cast<size_t>(value_to<int>(json["stride"]));}();
 VkResult result;
-[&](){[&](){int temp_CGwZkBw;[&](){temp_CGwZkBw=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_CGwZkBw;}();}();
+[&](){[&](){int temp_NtoSKQr;[&](){temp_NtoSKQr=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_NtoSKQr;}();}();
 
 debug_printf("Ending vkWriteAccelerationStructuresPropertiesKHR...\n");
 debug_printf("Return value of vkWriteAccelerationStructuresPropertiesKHR is: %s...\n",string_VkResult(result));
@@ -78198,6 +78517,7 @@ debug_printf("Executing vkCmdTraceRaysKHR\n");
 }
 
 
+        json["enum"]=VKCMDTRACERAYSKHR;
         writeToConn(json);
         
         while(true){
@@ -78298,6 +78618,7 @@ debug_printf("Executing vkCmdTraceRaysNV\n");
 }
 
 
+        json["enum"]=VKCMDTRACERAYSNV;
         writeToConn(json);
         
         while(true){
@@ -78407,6 +78728,7 @@ debug_printf("Executing vkGetRayTracingShaderGroupHandlesKHR\n");
 }
 
 
+        json["enum"]=VKGETRAYTRACINGSHADERGROUPHANDLESKHR;
         writeToConn(json);
         
         while(true){
@@ -78478,7 +78800,7 @@ break;}}
         }
         }();pData=temp_hrhAtyM;}();
 VkResult result;
-[&](){[&](){int temp_hVOdxSV;[&](){temp_hVOdxSV=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_hVOdxSV;}();}();
+[&](){[&](){int temp_KLLRitp;[&](){temp_KLLRitp=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_KLLRitp;}();}();
 
 debug_printf("Ending vkGetRayTracingShaderGroupHandlesKHR...\n");
 debug_printf("Return value of vkGetRayTracingShaderGroupHandlesKHR is: %s...\n",string_VkResult(result));
@@ -78525,6 +78847,7 @@ debug_printf("Executing vkGetRayTracingCaptureReplayShaderGroupHandlesKHR\n");
 }
 
 
+        json["enum"]=VKGETRAYTRACINGCAPTUREREPLAYSHADERGROUPHANDLESKHR;
         writeToConn(json);
         
         while(true){
@@ -78596,7 +78919,7 @@ break;}}
         }
         }();pData=temp_hrhAtyM;}();
 VkResult result;
-[&](){[&](){int temp_iyLSRBR;[&](){temp_iyLSRBR=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_iyLSRBR;}();}();
+[&](){[&](){int temp_eyQTZEO;[&](){temp_eyQTZEO=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_eyQTZEO;}();}();
 
 debug_printf("Ending vkGetRayTracingCaptureReplayShaderGroupHandlesKHR...\n");
 debug_printf("Return value of vkGetRayTracingCaptureReplayShaderGroupHandlesKHR is: %s...\n",string_VkResult(result));
@@ -78638,6 +78961,7 @@ debug_printf("Executing vkGetAccelerationStructureHandleNV\n");
 }
 
 
+        json["enum"]=VKGETACCELERATIONSTRUCTUREHANDLENV;
         writeToConn(json);
         
         while(true){
@@ -78707,7 +79031,7 @@ break;}}
         }
         }();pData=temp_hrhAtyM;}();
 VkResult result;
-[&](){[&](){int temp_lyDAiFa;[&](){temp_lyDAiFa=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_lyDAiFa;}();}();
+[&](){[&](){int temp_BimoMvo;[&](){temp_BimoMvo=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_BimoMvo;}();}();
 
 debug_printf("Ending vkGetAccelerationStructureHandleNV...\n");
 debug_printf("Return value of vkGetAccelerationStructureHandleNV is: %s...\n",string_VkResult(result));
@@ -78770,6 +79094,7 @@ debug_printf("Executing vkCreateRayTracingPipelinesNV\n");
 }
 
 
+        json["enum"]=VKCREATERAYTRACINGPIPELINESNV;
         writeToConn(json);
         
         while(true){
@@ -78838,7 +79163,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_ptpOsze;[&](){temp_ptpOsze=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ptpOsze;}();}();
+[&](){[&](){int temp_vIEvAGL;[&](){temp_vIEvAGL=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_vIEvAGL;}();}();
 
                 if (pPipelines!=NULL){
                     for (int i=0; i<createInfoCount; i++){
@@ -78909,6 +79234,7 @@ debug_printf("Executing vkCreateRayTracingPipelinesKHR\n");
 }
 
 
+        json["enum"]=VKCREATERAYTRACINGPIPELINESKHR;
         writeToConn(json);
         
         while(true){
@@ -78978,7 +79304,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_RaDYZgc;[&](){temp_RaDYZgc=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_RaDYZgc;}();}();
+[&](){[&](){int temp_HNasHBP;[&](){temp_HNasHBP=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_HNasHBP;}();}();
 
                 if (pPipelines!=NULL){
                     for (int i=0; i<createInfoCount; i++){
@@ -79034,6 +79360,7 @@ debug_printf("Executing vkGetPhysicalDeviceCooperativeMatrixPropertiesNV\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESNV;
         writeToConn(json);
         
         while(true){
@@ -79110,7 +79437,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_lkNQQWK;[&](){temp_lkNQQWK=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_lkNQQWK;}();}();
+[&](){[&](){int temp_wCoTUxK;[&](){temp_wCoTUxK=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_wCoTUxK;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceCooperativeMatrixPropertiesNV...\n");
 debug_printf("Return value of vkGetPhysicalDeviceCooperativeMatrixPropertiesNV is: %s...\n",string_VkResult(result));
@@ -79187,6 +79514,7 @@ debug_printf("Executing vkCmdTraceRaysIndirectKHR\n");
 }
 
 
+        json["enum"]=VKCMDTRACERAYSINDIRECTKHR;
         writeToConn(json);
         
         while(true){
@@ -79272,6 +79600,7 @@ debug_printf("Executing vkCmdTraceRaysIndirect2KHR\n");
 }
 
 
+        json["enum"]=VKCMDTRACERAYSINDIRECT2KHR;
         writeToConn(json);
         
         while(true){
@@ -79373,6 +79702,7 @@ debug_printf("Executing vkGetDeviceAccelerationStructureCompatibilityKHR\n");
 }
 
 
+        json["enum"]=VKGETDEVICEACCELERATIONSTRUCTURECOMPATIBILITYKHR;
         writeToConn(json);
         
         while(true){
@@ -79465,6 +79795,7 @@ debug_printf("Executing vkGetRayTracingShaderGroupStackSizeKHR\n");
 }
 
 
+        json["enum"]=VKGETRAYTRACINGSHADERGROUPSTACKSIZEKHR;
         writeToConn(json);
         
         while(true){
@@ -79523,7 +79854,7 @@ break;}}
 [&](){group=static_cast<uint32_t>(value_to<int>(json["group"]));}();
 [&](){[&](){int temp_EOWKSMj;[&](){temp_EOWKSMj=static_cast<int>(value_to<int>(json["groupShader"]));}();groupShader=(VkShaderGroupShaderKHR)temp_EOWKSMj;}();}();
 VkDeviceSize result;
-[&](){uint64_t temp_BcaJgap;[&](){temp_BcaJgap=static_cast<uint64_t>(value_to<int>(json["result"]));}();result=(VkDeviceSize)temp_BcaJgap;}();
+[&](){uint64_t temp_ZqPypzB;[&](){temp_ZqPypzB=static_cast<uint64_t>(value_to<int>(json["result"]));}();result=(VkDeviceSize)temp_ZqPypzB;}();
 
 debug_printf("Ending vkGetRayTracingShaderGroupStackSizeKHR...\n");
 return result;
@@ -79551,6 +79882,7 @@ debug_printf("Executing vkCmdSetRayTracingPipelineStackSizeKHR\n");
 }
 
 
+        json["enum"]=VKCMDSETRAYTRACINGPIPELINESTACKSIZEKHR;
         writeToConn(json);
         
         while(true){
@@ -79643,6 +79975,7 @@ debug_printf("Executing vkGetImageViewHandleNVX\n");
 }
 
 
+        json["enum"]=VKGETIMAGEVIEWHANDLENVX;
         writeToConn(json);
         
         while(true){
@@ -79739,6 +80072,7 @@ debug_printf("Executing vkGetImageViewAddressNVX\n");
 }
 
 
+        json["enum"]=VKGETIMAGEVIEWADDRESSNVX;
         writeToConn(json);
         
         while(true){
@@ -79807,7 +80141,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_AIEscwU;[&](){temp_AIEscwU=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_AIEscwU;}();}();
+[&](){[&](){int temp_APQqeGV;[&](){temp_APQqeGV=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_APQqeGV;}();}();
 
 debug_printf("Ending vkGetImageViewAddressNVX...\n");
 debug_printf("Return value of vkGetImageViewAddressNVX is: %s...\n",string_VkResult(result));
@@ -79869,6 +80203,7 @@ debug_printf("Executing vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCoun
 }
 
 
+        json["enum"]=VKENUMERATEPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYCOUNTERSKHR;
         writeToConn(json);
         
         while(true){
@@ -79958,7 +80293,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_xYrPsEn;[&](){temp_xYrPsEn=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_xYrPsEn;}();}();
+[&](){[&](){int temp_iuXpjxQ;[&](){temp_iuXpjxQ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_iuXpjxQ;}();}();
 
 debug_printf("Ending vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR...\n");
 debug_printf("Return value of vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR is: %s...\n",string_VkResult(result));
@@ -80007,6 +80342,7 @@ debug_printf("Executing vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR\
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYPASSESKHR;
         writeToConn(json);
         
         while(true){
@@ -80108,6 +80444,7 @@ debug_printf("Executing vkAcquireProfilingLockKHR\n");
 }
 
 
+        json["enum"]=VKACQUIREPROFILINGLOCKKHR;
         writeToConn(json);
         
         while(true){
@@ -80164,7 +80501,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 VkResult result;
-[&](){[&](){int temp_ezsaUrK;[&](){temp_ezsaUrK=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ezsaUrK;}();}();
+[&](){[&](){int temp_Proylyu;[&](){temp_Proylyu=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_Proylyu;}();}();
 
 debug_printf("Ending vkAcquireProfilingLockKHR...\n");
 debug_printf("Return value of vkAcquireProfilingLockKHR is: %s...\n",string_VkResult(result));
@@ -80192,6 +80529,7 @@ debug_printf("Executing vkReleaseProfilingLockKHR\n");
 }
 
 
+        json["enum"]=VKRELEASEPROFILINGLOCKKHR;
         writeToConn(json);
         
         while(true){
@@ -80284,6 +80622,7 @@ debug_printf("Executing vkGetImageDrmFormatModifierPropertiesEXT\n");
 }
 
 
+        json["enum"]=VKGETIMAGEDRMFORMATMODIFIERPROPERTIESEXT;
         writeToConn(json);
         
         while(true){
@@ -80352,7 +80691,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_TXdVvEr;[&](){temp_TXdVvEr=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_TXdVvEr;}();}();
+[&](){[&](){int temp_BityiSk;[&](){temp_BityiSk=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_BityiSk;}();}();
 
 debug_printf("Ending vkGetImageDrmFormatModifierPropertiesEXT...\n");
 debug_printf("Return value of vkGetImageDrmFormatModifierPropertiesEXT is: %s...\n",string_VkResult(result));
@@ -80392,6 +80731,7 @@ debug_printf("Executing vkGetBufferOpaqueCaptureAddress\n");
 }
 
 
+        json["enum"]=VKGETBUFFEROPAQUECAPTUREADDRESS;
         writeToConn(json);
         
         while(true){
@@ -80490,6 +80830,7 @@ debug_printf("Executing vkGetBufferDeviceAddress\n");
 }
 
 
+        json["enum"]=VKGETBUFFERDEVICEADDRESS;
         writeToConn(json);
         
         while(true){
@@ -80546,7 +80887,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 VkDeviceAddress result;
-[&](){uint64_t temp_MsmROiw;[&](){temp_MsmROiw=static_cast<uint64_t>(value_to<int>(json["result"]));}();result=(VkDeviceAddress)temp_MsmROiw;}();
+[&](){uint64_t temp_qUAUGbq;[&](){temp_qUAUGbq=static_cast<uint64_t>(value_to<int>(json["result"]));}();result=(VkDeviceAddress)temp_qUAUGbq;}();
 
 debug_printf("Ending vkGetBufferDeviceAddress...\n");
 return result;
@@ -80612,6 +80953,7 @@ debug_printf("Executing vkCreateHeadlessSurfaceEXT\n");
 }
 
 
+        json["enum"]=VKCREATEHEADLESSSURFACEEXT;
         writeToConn(json);
         
         while(true){
@@ -80678,7 +81020,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_sUGagdm;[&](){temp_sUGagdm=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_sUGagdm;}();}();
+[&](){[&](){int temp_TzZyHWk;[&](){temp_TzZyHWk=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_TzZyHWk;}();}();
 
                 if (pSurface!=NULL){
                     for (int i=0; i<1; i++){
@@ -80734,6 +81076,7 @@ debug_printf("Executing vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombi
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICESUPPORTEDFRAMEBUFFERMIXEDSAMPLESCOMBINATIONSNV;
         writeToConn(json);
         
         while(true){
@@ -80810,7 +81153,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_roUVeNn;[&](){temp_roUVeNn=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_roUVeNn;}();}();
+[&](){[&](){int temp_yOeKofu;[&](){temp_yOeKofu=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_yOeKofu;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV...\n");
 debug_printf("Return value of vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV is: %s...\n",string_VkResult(result));
@@ -80850,6 +81193,7 @@ debug_printf("Executing vkInitializePerformanceApiINTEL\n");
 }
 
 
+        json["enum"]=VKINITIALIZEPERFORMANCEAPIINTEL;
         writeToConn(json);
         
         while(true){
@@ -80906,7 +81250,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 VkResult result;
-[&](){[&](){int temp_FczrlCd;[&](){temp_FczrlCd=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_FczrlCd;}();}();
+[&](){[&](){int temp_giEXhKW;[&](){temp_giEXhKW=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_giEXhKW;}();}();
 
 debug_printf("Ending vkInitializePerformanceApiINTEL...\n");
 debug_printf("Return value of vkInitializePerformanceApiINTEL is: %s...\n",string_VkResult(result));
@@ -80934,6 +81278,7 @@ debug_printf("Executing vkUninitializePerformanceApiINTEL\n");
 }
 
 
+        json["enum"]=VKUNINITIALIZEPERFORMANCEAPIINTEL;
         writeToConn(json);
         
         while(true){
@@ -81025,6 +81370,7 @@ debug_printf("Executing vkCmdSetPerformanceMarkerINTEL\n");
 }
 
 
+        json["enum"]=VKCMDSETPERFORMANCEMARKERINTEL;
         writeToConn(json);
         
         while(true){
@@ -81081,7 +81427,7 @@ break;}}
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 
 VkResult result;
-[&](){[&](){int temp_JLIMAPs;[&](){temp_JLIMAPs=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_JLIMAPs;}();}();
+[&](){[&](){int temp_xYiZXdw;[&](){temp_xYiZXdw=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_xYiZXdw;}();}();
 
 debug_printf("Ending vkCmdSetPerformanceMarkerINTEL...\n");
 debug_printf("Return value of vkCmdSetPerformanceMarkerINTEL is: %s...\n",string_VkResult(result));
@@ -81121,6 +81467,7 @@ debug_printf("Executing vkCmdSetPerformanceStreamMarkerINTEL\n");
 }
 
 
+        json["enum"]=VKCMDSETPERFORMANCESTREAMMARKERINTEL;
         writeToConn(json);
         
         while(true){
@@ -81177,7 +81524,7 @@ break;}}
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 
 VkResult result;
-[&](){[&](){int temp_ejAUPtu;[&](){temp_ejAUPtu=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ejAUPtu;}();}();
+[&](){[&](){int temp_icTHZCa;[&](){temp_icTHZCa=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_icTHZCa;}();}();
 
 debug_printf("Ending vkCmdSetPerformanceStreamMarkerINTEL...\n");
 debug_printf("Return value of vkCmdSetPerformanceStreamMarkerINTEL is: %s...\n",string_VkResult(result));
@@ -81217,6 +81564,7 @@ debug_printf("Executing vkCmdSetPerformanceOverrideINTEL\n");
 }
 
 
+        json["enum"]=VKCMDSETPERFORMANCEOVERRIDEINTEL;
         writeToConn(json);
         
         while(true){
@@ -81273,7 +81621,7 @@ break;}}
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 
 VkResult result;
-[&](){[&](){int temp_krlxAmE;[&](){temp_krlxAmE=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_krlxAmE;}();}();
+[&](){[&](){int temp_kyUAzJJ;[&](){temp_kyUAzJJ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_kyUAzJJ;}();}();
 
 debug_printf("Ending vkCmdSetPerformanceOverrideINTEL...\n");
 debug_printf("Return value of vkCmdSetPerformanceOverrideINTEL is: %s...\n",string_VkResult(result));
@@ -81322,6 +81670,7 @@ debug_printf("Executing vkAcquirePerformanceConfigurationINTEL\n");
 }
 
 
+        json["enum"]=VKACQUIREPERFORMANCECONFIGURATIONINTEL;
         writeToConn(json);
         
         while(true){
@@ -81387,7 +81736,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_zOsUIZS;[&](){temp_zOsUIZS=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_zOsUIZS;}();}();
+[&](){[&](){int temp_AsKhKBD;[&](){temp_AsKhKBD=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_AsKhKBD;}();}();
 
 debug_printf("Ending vkAcquirePerformanceConfigurationINTEL...\n");
 debug_printf("Return value of vkAcquirePerformanceConfigurationINTEL is: %s...\n",string_VkResult(result));
@@ -81416,6 +81765,7 @@ debug_printf("Executing vkReleasePerformanceConfigurationINTEL\n");
 }
 
 
+        json["enum"]=VKRELEASEPERFORMANCECONFIGURATIONINTEL;
         writeToConn(json);
         
         while(true){
@@ -81472,7 +81822,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 [&](){deserialize_VkPerformanceConfigurationINTEL(json["configuration"], configuration);}();
 VkResult result;
-[&](){[&](){int temp_hRPwiGo;[&](){temp_hRPwiGo=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_hRPwiGo;}();}();
+[&](){[&](){int temp_ZlGbunc;[&](){temp_ZlGbunc=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ZlGbunc;}();}();
 
 debug_printf("Ending vkReleasePerformanceConfigurationINTEL...\n");
 debug_printf("Return value of vkReleasePerformanceConfigurationINTEL is: %s...\n",string_VkResult(result));
@@ -81501,6 +81851,7 @@ debug_printf("Executing vkQueueSetPerformanceConfigurationINTEL\n");
 }
 
 
+        json["enum"]=VKQUEUESETPERFORMANCECONFIGURATIONINTEL;
         writeToConn(json);
         
         while(true){
@@ -81557,7 +81908,7 @@ break;}}
 [&](){deserialize_VkQueue(json["queue"], queue);}();
 [&](){deserialize_VkPerformanceConfigurationINTEL(json["configuration"], configuration);}();
 VkResult result;
-[&](){[&](){int temp_qIkardh;[&](){temp_qIkardh=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_qIkardh;}();}();
+[&](){[&](){int temp_jsqfGAY;[&](){temp_jsqfGAY=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_jsqfGAY;}();}();
 
 debug_printf("Ending vkQueueSetPerformanceConfigurationINTEL...\n");
 debug_printf("Return value of vkQueueSetPerformanceConfigurationINTEL is: %s...\n",string_VkResult(result));
@@ -81598,6 +81949,7 @@ debug_printf("Executing vkGetPerformanceParameterINTEL\n");
 }
 
 
+        json["enum"]=VKGETPERFORMANCEPARAMETERINTEL;
         writeToConn(json);
         
         while(true){
@@ -81666,7 +82018,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_NqWzncd;[&](){temp_NqWzncd=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_NqWzncd;}();}();
+[&](){[&](){int temp_AOHjoLz;[&](){temp_AOHjoLz=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_AOHjoLz;}();}();
 
 debug_printf("Ending vkGetPerformanceParameterINTEL...\n");
 debug_printf("Return value of vkGetPerformanceParameterINTEL is: %s...\n",string_VkResult(result));
@@ -81706,6 +82058,7 @@ debug_printf("Executing vkGetDeviceMemoryOpaqueCaptureAddress\n");
 }
 
 
+        json["enum"]=VKGETDEVICEMEMORYOPAQUECAPTUREADDRESS;
         writeToConn(json);
         
         while(true){
@@ -81825,6 +82178,7 @@ debug_printf("Executing vkGetPipelineExecutablePropertiesKHR\n");
 }
 
 
+        json["enum"]=VKGETPIPELINEEXECUTABLEPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
@@ -81902,7 +82256,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_DBCOOfh;[&](){temp_DBCOOfh=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_DBCOOfh;}();}();
+[&](){[&](){int temp_bmoAfmd;[&](){temp_bmoAfmd=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_bmoAfmd;}();}();
 
 debug_printf("Ending vkGetPipelineExecutablePropertiesKHR...\n");
 debug_printf("Return value of vkGetPipelineExecutablePropertiesKHR is: %s...\n",string_VkResult(result));
@@ -81963,6 +82317,7 @@ debug_printf("Executing vkGetPipelineExecutableStatisticsKHR\n");
 }
 
 
+        json["enum"]=VKGETPIPELINEEXECUTABLESTATISTICSKHR;
         writeToConn(json);
         
         while(true){
@@ -82040,7 +82395,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_FuoCduI;[&](){temp_FuoCduI=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_FuoCduI;}();}();
+[&](){[&](){int temp_tgNgnbg;[&](){temp_tgNgnbg=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_tgNgnbg;}();}();
 
 debug_printf("Ending vkGetPipelineExecutableStatisticsKHR...\n");
 debug_printf("Return value of vkGetPipelineExecutableStatisticsKHR is: %s...\n",string_VkResult(result));
@@ -82101,6 +82456,7 @@ debug_printf("Executing vkGetPipelineExecutableInternalRepresentationsKHR\n");
 }
 
 
+        json["enum"]=VKGETPIPELINEEXECUTABLEINTERNALREPRESENTATIONSKHR;
         writeToConn(json);
         
         while(true){
@@ -82178,7 +82534,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_BcviJAt;[&](){temp_BcviJAt=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_BcviJAt;}();}();
+[&](){[&](){int temp_ZbFBqRu;[&](){temp_ZbFBqRu=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ZbFBqRu;}();}();
 
 debug_printf("Ending vkGetPipelineExecutableInternalRepresentationsKHR...\n");
 debug_printf("Return value of vkGetPipelineExecutableInternalRepresentationsKHR is: %s...\n",string_VkResult(result));
@@ -82208,6 +82564,7 @@ debug_printf("Executing vkCmdSetLineStippleEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETLINESTIPPLEEXT;
         writeToConn(json);
         
         while(true){
@@ -82310,6 +82667,7 @@ debug_printf("Executing vkGetPhysicalDeviceToolProperties\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICETOOLPROPERTIES;
         writeToConn(json);
         
         while(true){
@@ -82386,7 +82744,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_GnmTjEv;[&](){temp_GnmTjEv=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_GnmTjEv;}();}();
+[&](){[&](){int temp_quwAQvB;[&](){temp_quwAQvB=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_quwAQvB;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceToolProperties...\n");
 debug_printf("Return value of vkGetPhysicalDeviceToolProperties is: %s...\n",string_VkResult(result));
@@ -82450,6 +82808,7 @@ debug_printf("Executing vkCreateAccelerationStructureKHR\n");
 }
 
 
+        json["enum"]=VKCREATEACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
         
         while(true){
@@ -82516,7 +82875,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_UIXJrXH;[&](){temp_UIXJrXH=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_UIXJrXH;}();}();
+[&](){[&](){int temp_xpTclnw;[&](){temp_xpTclnw=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_xpTclnw;}();}();
 
                 if (pAccelerationStructure!=NULL){
                     for (int i=0; i<1; i++){
@@ -82584,6 +82943,7 @@ debug_printf("Executing vkCmdBuildAccelerationStructuresKHR\n");
 }
 
 
+        json["enum"]=VKCMDBUILDACCELERATIONSTRUCTURESKHR;
         writeToConn(json);
         
         while(true){
@@ -82714,6 +83074,7 @@ debug_printf("Executing vkCmdBuildAccelerationStructuresIndirectKHR\n");
 }
 
 
+        json["enum"]=VKCMDBUILDACCELERATIONSTRUCTURESINDIRECTKHR;
         writeToConn(json);
         
         while(true){
@@ -82832,6 +83193,7 @@ debug_printf("Executing vkBuildAccelerationStructuresKHR\n");
 }
 
 
+        json["enum"]=VKBUILDACCELERATIONSTRUCTURESKHR;
         writeToConn(json);
         
         while(true){
@@ -82891,7 +83253,7 @@ break;}}
 
 
 VkResult result;
-[&](){[&](){int temp_mWNDixi;[&](){temp_mWNDixi=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_mWNDixi;}();}();
+[&](){[&](){int temp_jDxtCth;[&](){temp_jDxtCth=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_jDxtCth;}();}();
 
 debug_printf("Ending vkBuildAccelerationStructuresKHR...\n");
 debug_printf("Return value of vkBuildAccelerationStructuresKHR is: %s...\n",string_VkResult(result));
@@ -82931,6 +83293,7 @@ debug_printf("Executing vkGetAccelerationStructureDeviceAddressKHR\n");
 }
 
 
+        json["enum"]=VKGETACCELERATIONSTRUCTUREDEVICEADDRESSKHR;
         writeToConn(json);
         
         while(true){
@@ -82987,7 +83350,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 VkDeviceAddress result;
-[&](){uint64_t temp_FctqCQd;[&](){temp_FctqCQd=static_cast<uint64_t>(value_to<int>(json["result"]));}();result=(VkDeviceAddress)temp_FctqCQd;}();
+[&](){uint64_t temp_TsXKzrv;[&](){temp_TsXKzrv=static_cast<uint64_t>(value_to<int>(json["result"]));}();result=(VkDeviceAddress)temp_TsXKzrv;}();
 
 debug_printf("Ending vkGetAccelerationStructureDeviceAddressKHR...\n");
 return result;
@@ -83035,6 +83398,7 @@ debug_printf("Executing vkCreateDeferredOperationKHR\n");
 }
 
 
+        json["enum"]=VKCREATEDEFERREDOPERATIONKHR;
         writeToConn(json);
         
         while(true){
@@ -83100,7 +83464,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_MHVUWnu;[&](){temp_MHVUWnu=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_MHVUWnu;}();}();
+[&](){[&](){int temp_LPzNqZx;[&](){temp_LPzNqZx=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_LPzNqZx;}();}();
 
                 if (pDeferredOperation!=NULL){
                     for (int i=0; i<1; i++){
@@ -83148,6 +83512,7 @@ debug_printf("Executing vkDestroyDeferredOperationKHR\n");
 }
 
 
+        json["enum"]=VKDESTROYDEFERREDOPERATIONKHR;
         writeToConn(json);
         
         while(true){
@@ -83230,6 +83595,7 @@ debug_printf("Executing vkGetDeferredOperationMaxConcurrencyKHR\n");
 }
 
 
+        json["enum"]=VKGETDEFERREDOPERATIONMAXCONCURRENCYKHR;
         writeToConn(json);
         
         while(true){
@@ -83314,6 +83680,7 @@ debug_printf("Executing vkGetDeferredOperationResultKHR\n");
 }
 
 
+        json["enum"]=VKGETDEFERREDOPERATIONRESULTKHR;
         writeToConn(json);
         
         while(true){
@@ -83370,7 +83737,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 [&](){deserialize_VkDeferredOperationKHR(json["operation"], operation);}();
 VkResult result;
-[&](){[&](){int temp_qYqlPqC;[&](){temp_qYqlPqC=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_qYqlPqC;}();}();
+[&](){[&](){int temp_WGAgFkU;[&](){temp_WGAgFkU=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_WGAgFkU;}();}();
 
 debug_printf("Ending vkGetDeferredOperationResultKHR...\n");
 debug_printf("Return value of vkGetDeferredOperationResultKHR is: %s...\n",string_VkResult(result));
@@ -83399,6 +83766,7 @@ debug_printf("Executing vkDeferredOperationJoinKHR\n");
 }
 
 
+        json["enum"]=VKDEFERREDOPERATIONJOINKHR;
         writeToConn(json);
         
         while(true){
@@ -83455,7 +83823,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 [&](){deserialize_VkDeferredOperationKHR(json["operation"], operation);}();
 VkResult result;
-[&](){[&](){int temp_lIpaDoP;[&](){temp_lIpaDoP=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_lIpaDoP;}();}();
+[&](){[&](){int temp_DKlerev;[&](){temp_DKlerev=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_DKlerev;}();}();
 
 debug_printf("Ending vkDeferredOperationJoinKHR...\n");
 debug_printf("Return value of vkDeferredOperationJoinKHR is: %s...\n",string_VkResult(result));
@@ -83507,6 +83875,7 @@ debug_printf("Executing vkGetPipelineIndirectMemoryRequirementsNV\n");
 }
 
 
+        json["enum"]=VKGETPIPELINEINDIRECTMEMORYREQUIREMENTSNV;
         writeToConn(json);
         
         while(true){
@@ -83611,6 +83980,7 @@ debug_printf("Executing vkGetPipelineIndirectDeviceAddressNV\n");
 }
 
 
+        json["enum"]=VKGETPIPELINEINDIRECTDEVICEADDRESSNV;
         writeToConn(json);
         
         while(true){
@@ -83667,7 +84037,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 VkDeviceAddress result;
-[&](){uint64_t temp_UYfSvRJ;[&](){temp_UYfSvRJ=static_cast<uint64_t>(value_to<int>(json["result"]));}();result=(VkDeviceAddress)temp_UYfSvRJ;}();
+[&](){uint64_t temp_FNTHIwh;[&](){temp_FNTHIwh=static_cast<uint64_t>(value_to<int>(json["result"]));}();result=(VkDeviceAddress)temp_FNTHIwh;}();
 
 debug_printf("Ending vkGetPipelineIndirectDeviceAddressNV...\n");
 return result;
@@ -83695,6 +84065,7 @@ debug_printf("Executing vkCmdSetCullMode\n");
 }
 
 
+        json["enum"]=VKCMDSETCULLMODE;
         writeToConn(json);
         
         while(true){
@@ -83779,6 +84150,7 @@ debug_printf("Executing vkCmdSetFrontFace\n");
 }
 
 
+        json["enum"]=VKCMDSETFRONTFACE;
         writeToConn(json);
         
         while(true){
@@ -83863,6 +84235,7 @@ debug_printf("Executing vkCmdSetPrimitiveTopology\n");
 }
 
 
+        json["enum"]=VKCMDSETPRIMITIVETOPOLOGY;
         writeToConn(json);
         
         while(true){
@@ -83959,6 +84332,7 @@ debug_printf("Executing vkCmdSetViewportWithCount\n");
 }
 
 
+        json["enum"]=VKCMDSETVIEWPORTWITHCOUNT;
         writeToConn(json);
         
         while(true){
@@ -84056,6 +84430,7 @@ debug_printf("Executing vkCmdSetScissorWithCount\n");
 }
 
 
+        json["enum"]=VKCMDSETSCISSORWITHCOUNT;
         writeToConn(json);
         
         while(true){
@@ -84144,6 +84519,7 @@ debug_printf("Executing vkCmdBindIndexBuffer2KHR\n");
 }
 
 
+        json["enum"]=VKCMDBINDINDEXBUFFER2KHR;
         writeToConn(json);
         
         while(true){
@@ -84265,6 +84641,7 @@ debug_printf("Executing vkCmdBindVertexBuffers2\n");
 }
 
 
+        json["enum"]=VKCMDBINDVERTEXBUFFERS2;
         writeToConn(json);
         
         while(true){
@@ -84354,6 +84731,7 @@ debug_printf("Executing vkCmdSetDepthTestEnable\n");
 }
 
 
+        json["enum"]=VKCMDSETDEPTHTESTENABLE;
         writeToConn(json);
         
         while(true){
@@ -84438,6 +84816,7 @@ debug_printf("Executing vkCmdSetDepthWriteEnable\n");
 }
 
 
+        json["enum"]=VKCMDSETDEPTHWRITEENABLE;
         writeToConn(json);
         
         while(true){
@@ -84522,6 +84901,7 @@ debug_printf("Executing vkCmdSetDepthCompareOp\n");
 }
 
 
+        json["enum"]=VKCMDSETDEPTHCOMPAREOP;
         writeToConn(json);
         
         while(true){
@@ -84606,6 +84986,7 @@ debug_printf("Executing vkCmdSetDepthBoundsTestEnable\n");
 }
 
 
+        json["enum"]=VKCMDSETDEPTHBOUNDSTESTENABLE;
         writeToConn(json);
         
         while(true){
@@ -84690,6 +85071,7 @@ debug_printf("Executing vkCmdSetStencilTestEnable\n");
 }
 
 
+        json["enum"]=VKCMDSETSTENCILTESTENABLE;
         writeToConn(json);
         
         while(true){
@@ -84778,6 +85160,7 @@ debug_printf("Executing vkCmdSetStencilOp\n");
 }
 
 
+        json["enum"]=VKCMDSETSTENCILOP;
         writeToConn(json);
         
         while(true){
@@ -84866,6 +85249,7 @@ debug_printf("Executing vkCmdSetPatchControlPointsEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETPATCHCONTROLPOINTSEXT;
         writeToConn(json);
         
         while(true){
@@ -84947,6 +85331,7 @@ debug_printf("Executing vkCmdSetRasterizerDiscardEnable\n");
 }
 
 
+        json["enum"]=VKCMDSETRASTERIZERDISCARDENABLE;
         writeToConn(json);
         
         while(true){
@@ -85031,6 +85416,7 @@ debug_printf("Executing vkCmdSetDepthBiasEnable\n");
 }
 
 
+        json["enum"]=VKCMDSETDEPTHBIASENABLE;
         writeToConn(json);
         
         while(true){
@@ -85115,6 +85501,7 @@ debug_printf("Executing vkCmdSetLogicOpEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETLOGICOPEXT;
         writeToConn(json);
         
         while(true){
@@ -85196,6 +85583,7 @@ debug_printf("Executing vkCmdSetPrimitiveRestartEnable\n");
 }
 
 
+        json["enum"]=VKCMDSETPRIMITIVERESTARTENABLE;
         writeToConn(json);
         
         while(true){
@@ -85280,6 +85668,7 @@ debug_printf("Executing vkCmdSetTessellationDomainOriginEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETTESSELLATIONDOMAINORIGINEXT;
         writeToConn(json);
         
         while(true){
@@ -85361,6 +85750,7 @@ debug_printf("Executing vkCmdSetDepthClampEnableEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETDEPTHCLAMPENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -85442,6 +85832,7 @@ debug_printf("Executing vkCmdSetPolygonModeEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETPOLYGONMODEEXT;
         writeToConn(json);
         
         while(true){
@@ -85523,6 +85914,7 @@ debug_printf("Executing vkCmdSetRasterizationSamplesEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETRASTERIZATIONSAMPLESEXT;
         writeToConn(json);
         
         while(true){
@@ -85613,6 +86005,7 @@ debug_printf("Executing vkCmdSetSampleMaskEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETSAMPLEMASKEXT;
         writeToConn(json);
         
         while(true){
@@ -85695,6 +86088,7 @@ debug_printf("Executing vkCmdSetAlphaToCoverageEnableEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETALPHATOCOVERAGEENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -85776,6 +86170,7 @@ debug_printf("Executing vkCmdSetAlphaToOneEnableEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETALPHATOONEENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -85857,6 +86252,7 @@ debug_printf("Executing vkCmdSetLogicOpEnableEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETLOGICOPENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -85948,6 +86344,7 @@ debug_printf("Executing vkCmdSetColorBlendEnableEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETCOLORBLENDENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -86044,6 +86441,7 @@ debug_printf("Executing vkCmdSetColorBlendEquationEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETCOLORBLENDEQUATIONEXT;
         writeToConn(json);
         
         while(true){
@@ -86137,6 +86535,7 @@ debug_printf("Executing vkCmdSetColorWriteMaskEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETCOLORWRITEMASKEXT;
         writeToConn(json);
         
         while(true){
@@ -86220,6 +86619,7 @@ debug_printf("Executing vkCmdSetRasterizationStreamEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETRASTERIZATIONSTREAMEXT;
         writeToConn(json);
         
         while(true){
@@ -86301,6 +86701,7 @@ debug_printf("Executing vkCmdSetConservativeRasterizationModeEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETCONSERVATIVERASTERIZATIONMODEEXT;
         writeToConn(json);
         
         while(true){
@@ -86382,6 +86783,7 @@ debug_printf("Executing vkCmdSetExtraPrimitiveOverestimationSizeEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETEXTRAPRIMITIVEOVERESTIMATIONSIZEEXT;
         writeToConn(json);
         
         while(true){
@@ -86463,6 +86865,7 @@ debug_printf("Executing vkCmdSetDepthClipEnableEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETDEPTHCLIPENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -86544,6 +86947,7 @@ debug_printf("Executing vkCmdSetSampleLocationsEnableEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETSAMPLELOCATIONSENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -86638,6 +87042,7 @@ debug_printf("Executing vkCmdSetColorBlendAdvancedEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETCOLORBLENDADVANCEDEXT;
         writeToConn(json);
         
         while(true){
@@ -86721,6 +87126,7 @@ debug_printf("Executing vkCmdSetProvokingVertexModeEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETPROVOKINGVERTEXMODEEXT;
         writeToConn(json);
         
         while(true){
@@ -86802,6 +87208,7 @@ debug_printf("Executing vkCmdSetLineRasterizationModeEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETLINERASTERIZATIONMODEEXT;
         writeToConn(json);
         
         while(true){
@@ -86883,6 +87290,7 @@ debug_printf("Executing vkCmdSetLineStippleEnableEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETLINESTIPPLEENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -86964,6 +87372,7 @@ debug_printf("Executing vkCmdSetDepthClipNegativeOneToOneEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETDEPTHCLIPNEGATIVEONETOONEEXT;
         writeToConn(json);
         
         while(true){
@@ -87045,6 +87454,7 @@ debug_printf("Executing vkCmdSetViewportWScalingEnableNV\n");
 }
 
 
+        json["enum"]=VKCMDSETVIEWPORTWSCALINGENABLENV;
         writeToConn(json);
         
         while(true){
@@ -87139,6 +87549,7 @@ debug_printf("Executing vkCmdSetViewportSwizzleNV\n");
 }
 
 
+        json["enum"]=VKCMDSETVIEWPORTSWIZZLENV;
         writeToConn(json);
         
         while(true){
@@ -87222,6 +87633,7 @@ debug_printf("Executing vkCmdSetCoverageToColorEnableNV\n");
 }
 
 
+        json["enum"]=VKCMDSETCOVERAGETOCOLORENABLENV;
         writeToConn(json);
         
         while(true){
@@ -87303,6 +87715,7 @@ debug_printf("Executing vkCmdSetCoverageToColorLocationNV\n");
 }
 
 
+        json["enum"]=VKCMDSETCOVERAGETOCOLORLOCATIONNV;
         writeToConn(json);
         
         while(true){
@@ -87384,6 +87797,7 @@ debug_printf("Executing vkCmdSetCoverageModulationModeNV\n");
 }
 
 
+        json["enum"]=VKCMDSETCOVERAGEMODULATIONMODENV;
         writeToConn(json);
         
         while(true){
@@ -87465,6 +87879,7 @@ debug_printf("Executing vkCmdSetCoverageModulationTableEnableNV\n");
 }
 
 
+        json["enum"]=VKCMDSETCOVERAGEMODULATIONTABLEENABLENV;
         writeToConn(json);
         
         while(true){
@@ -87555,6 +87970,7 @@ debug_printf("Executing vkCmdSetCoverageModulationTableNV\n");
 }
 
 
+        json["enum"]=VKCMDSETCOVERAGEMODULATIONTABLENV;
         writeToConn(json);
         
         while(true){
@@ -87637,6 +88053,7 @@ debug_printf("Executing vkCmdSetShadingRateImageEnableNV\n");
 }
 
 
+        json["enum"]=VKCMDSETSHADINGRATEIMAGEENABLENV;
         writeToConn(json);
         
         while(true){
@@ -87718,6 +88135,7 @@ debug_printf("Executing vkCmdSetCoverageReductionModeNV\n");
 }
 
 
+        json["enum"]=VKCMDSETCOVERAGEREDUCTIONMODENV;
         writeToConn(json);
         
         while(true){
@@ -87799,6 +88217,7 @@ debug_printf("Executing vkCmdSetRepresentativeFragmentTestEnableNV\n");
 }
 
 
+        json["enum"]=VKCMDSETREPRESENTATIVEFRAGMENTTESTENABLENV;
         writeToConn(json);
         
         while(true){
@@ -87912,6 +88331,7 @@ debug_printf("Executing vkCreatePrivateDataSlot\n");
 }
 
 
+        json["enum"]=VKCREATEPRIVATEDATASLOT;
         writeToConn(json);
         
         while(true){
@@ -87978,7 +88398,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_PIfQXAF;[&](){temp_PIfQXAF=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_PIfQXAF;}();}();
+[&](){[&](){int temp_qQVSpod;[&](){temp_qQVSpod=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_qQVSpod;}();}();
 
                 if (pPrivateDataSlot!=NULL){
                     for (int i=0; i<1; i++){
@@ -88029,6 +88449,7 @@ debug_printf("Executing vkDestroyPrivateDataSlot\n");
 }
 
 
+        json["enum"]=VKDESTROYPRIVATEDATASLOT;
         writeToConn(json);
         
         while(true){
@@ -88117,6 +88538,7 @@ debug_printf("Executing vkSetPrivateData\n");
 }
 
 
+        json["enum"]=VKSETPRIVATEDATA;
         writeToConn(json);
         
         while(true){
@@ -88176,7 +88598,7 @@ break;}}
 [&](){deserialize_VkPrivateDataSlot(json["privateDataSlot"], privateDataSlot);}();
 [&](){data=static_cast<uint64_t>(value_to<int>(json["data"]));}();
 VkResult result;
-[&](){[&](){int temp_WuDtERc;[&](){temp_WuDtERc=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_WuDtERc;}();}();
+[&](){[&](){int temp_HIenTTf;[&](){temp_HIenTTf=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_HIenTTf;}();}();
 
 debug_printf("Ending vkSetPrivateData...\n");
 debug_printf("Return value of vkSetPrivateData is: %s...\n",string_VkResult(result));
@@ -88219,6 +88641,7 @@ debug_printf("Executing vkGetPrivateData\n");
 }
 
 
+        json["enum"]=VKGETPRIVATEDATA;
         writeToConn(json);
         
         while(true){
@@ -88325,6 +88748,7 @@ debug_printf("Executing vkCmdCopyBuffer2\n");
 }
 
 
+        json["enum"]=VKCMDCOPYBUFFER2;
         writeToConn(json);
         
         while(true){
@@ -88420,6 +88844,7 @@ debug_printf("Executing vkCmdCopyImage2\n");
 }
 
 
+        json["enum"]=VKCMDCOPYIMAGE2;
         writeToConn(json);
         
         while(true){
@@ -88515,6 +88940,7 @@ debug_printf("Executing vkCmdBlitImage2\n");
 }
 
 
+        json["enum"]=VKCMDBLITIMAGE2;
         writeToConn(json);
         
         while(true){
@@ -88610,6 +89036,7 @@ debug_printf("Executing vkCmdCopyBufferToImage2\n");
 }
 
 
+        json["enum"]=VKCMDCOPYBUFFERTOIMAGE2;
         writeToConn(json);
         
         while(true){
@@ -88705,6 +89132,7 @@ debug_printf("Executing vkCmdCopyImageToBuffer2\n");
 }
 
 
+        json["enum"]=VKCMDCOPYIMAGETOBUFFER2;
         writeToConn(json);
         
         while(true){
@@ -88800,6 +89228,7 @@ debug_printf("Executing vkCmdResolveImage2\n");
 }
 
 
+        json["enum"]=VKCMDRESOLVEIMAGE2;
         writeToConn(json);
         
         while(true){
@@ -88901,6 +89330,7 @@ debug_printf("Executing vkCmdSetFragmentShadingRateKHR\n");
 }
 
 
+        json["enum"]=VKCMDSETFRAGMENTSHADINGRATEKHR;
         writeToConn(json);
         
         while(true){
@@ -89008,6 +89438,7 @@ debug_printf("Executing vkGetPhysicalDeviceFragmentShadingRatesKHR\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEFRAGMENTSHADINGRATESKHR;
         writeToConn(json);
         
         while(true){
@@ -89084,7 +89515,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_kDRUeAG;[&](){temp_kDRUeAG=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_kDRUeAG;}();}();
+[&](){[&](){int temp_YWmAync;[&](){temp_YWmAync=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_YWmAync;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceFragmentShadingRatesKHR...\n");
 debug_printf("Return value of vkGetPhysicalDeviceFragmentShadingRatesKHR is: %s...\n",string_VkResult(result));
@@ -89119,6 +89550,7 @@ debug_printf("Executing vkCmdSetFragmentShadingRateEnumNV\n");
 }
 
 
+        json["enum"]=VKCMDSETFRAGMENTSHADINGRATEENUMNV;
         writeToConn(json);
         
         while(true){
@@ -89239,6 +89671,7 @@ debug_printf("Executing vkGetAccelerationStructureBuildSizesKHR\n");
 }
 
 
+        json["enum"]=VKGETACCELERATIONSTRUCTUREBUILDSIZESKHR;
         writeToConn(json);
         
         while(true){
@@ -89359,6 +89792,7 @@ debug_printf("Executing vkCmdSetVertexInputEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETVERTEXINPUTEXT;
         writeToConn(json);
         
         while(true){
@@ -89452,6 +89886,7 @@ debug_printf("Executing vkCmdSetColorWriteEnableEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETCOLORWRITEENABLEEXT;
         writeToConn(json);
         
         while(true){
@@ -89546,6 +89981,7 @@ debug_printf("Executing vkCmdSetEvent2\n");
 }
 
 
+        json["enum"]=VKCMDSETEVENT2;
         writeToConn(json);
         
         while(true){
@@ -89632,6 +90068,7 @@ debug_printf("Executing vkCmdResetEvent2\n");
 }
 
 
+        json["enum"]=VKCMDRESETEVENT2;
         writeToConn(json);
         
         while(true){
@@ -89738,6 +90175,7 @@ debug_printf("Executing vkCmdWaitEvents2\n");
 }
 
 
+        json["enum"]=VKCMDWAITEVENTS2;
         writeToConn(json);
         
         while(true){
@@ -89835,6 +90273,7 @@ debug_printf("Executing vkCmdPipelineBarrier2\n");
 }
 
 
+        json["enum"]=VKCMDPIPELINEBARRIER2;
         writeToConn(json);
         
         while(true){
@@ -89932,6 +90371,7 @@ debug_printf("Executing vkQueueSubmit2\n");
 }
 
 
+        json["enum"]=VKQUEUESUBMIT2;
         writeToConn(json);
         
         while(true){
@@ -89990,7 +90430,7 @@ break;}}
 
 [&](){deserialize_VkFence(json["fence"], fence);}();
 VkResult result;
-[&](){[&](){int temp_yhCllWM;[&](){temp_yhCllWM=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_yhCllWM;}();}();
+[&](){[&](){int temp_kyODmSO;[&](){temp_kyODmSO=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_kyODmSO;}();}();
 
 debug_printf("Ending vkQueueSubmit2...\n");
 debug_printf("Return value of vkQueueSubmit2 is: %s...\n",string_VkResult(result));
@@ -90024,6 +90464,7 @@ debug_printf("Executing vkCmdWriteTimestamp2\n");
 }
 
 
+        json["enum"]=VKCMDWRITETIMESTAMP2;
         writeToConn(json);
         
         while(true){
@@ -90113,6 +90554,7 @@ debug_printf("Executing vkCmdWriteBufferMarker2AMD\n");
 }
 
 
+        json["enum"]=VKCMDWRITEBUFFERMARKER2AMD;
         writeToConn(json);
         
         while(true){
@@ -90217,6 +90659,7 @@ debug_printf("Executing vkGetQueueCheckpointData2NV\n");
 }
 
 
+        json["enum"]=VKGETQUEUECHECKPOINTDATA2NV;
         writeToConn(json);
         
         while(true){
@@ -90329,6 +90772,7 @@ debug_printf("Executing vkCopyMemoryToImageEXT\n");
 }
 
 
+        json["enum"]=VKCOPYMEMORYTOIMAGEEXT;
         writeToConn(json);
         
         while(true){
@@ -90385,7 +90829,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 VkResult result;
-[&](){[&](){int temp_XYlspZI;[&](){temp_XYlspZI=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_XYlspZI;}();}();
+[&](){[&](){int temp_LkGTyEt;[&](){temp_LkGTyEt=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_LkGTyEt;}();}();
 
 debug_printf("Ending vkCopyMemoryToImageEXT...\n");
 debug_printf("Return value of vkCopyMemoryToImageEXT is: %s...\n",string_VkResult(result));
@@ -90425,6 +90869,7 @@ debug_printf("Executing vkCopyImageToMemoryEXT\n");
 }
 
 
+        json["enum"]=VKCOPYIMAGETOMEMORYEXT;
         writeToConn(json);
         
         while(true){
@@ -90481,7 +90926,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 VkResult result;
-[&](){[&](){int temp_EBlIlcA;[&](){temp_EBlIlcA=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_EBlIlcA;}();}();
+[&](){[&](){int temp_reiMRMs;[&](){temp_reiMRMs=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_reiMRMs;}();}();
 
 debug_printf("Ending vkCopyImageToMemoryEXT...\n");
 debug_printf("Return value of vkCopyImageToMemoryEXT is: %s...\n",string_VkResult(result));
@@ -90521,6 +90966,7 @@ debug_printf("Executing vkCopyImageToImageEXT\n");
 }
 
 
+        json["enum"]=VKCOPYIMAGETOIMAGEEXT;
         writeToConn(json);
         
         while(true){
@@ -90577,7 +91023,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 VkResult result;
-[&](){[&](){int temp_llTiROc;[&](){temp_llTiROc=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_llTiROc;}();}();
+[&](){[&](){int temp_rdZDVxa;[&](){temp_rdZDVxa=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_rdZDVxa;}();}();
 
 debug_printf("Ending vkCopyImageToImageEXT...\n");
 debug_printf("Return value of vkCopyImageToImageEXT is: %s...\n",string_VkResult(result));
@@ -90618,6 +91064,7 @@ debug_printf("Executing vkTransitionImageLayoutEXT\n");
 }
 
 
+        json["enum"]=VKTRANSITIONIMAGELAYOUTEXT;
         writeToConn(json);
         
         while(true){
@@ -90675,7 +91122,7 @@ break;}}
 [&](){transitionCount=static_cast<uint32_t>(value_to<int>(json["transitionCount"]));}();
 
 VkResult result;
-[&](){[&](){int temp_gLeRVxE;[&](){temp_gLeRVxE=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_gLeRVxE;}();}();
+[&](){[&](){int temp_pjFnweb;[&](){temp_pjFnweb=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_pjFnweb;}();}();
 
 debug_printf("Ending vkTransitionImageLayoutEXT...\n");
 debug_printf("Return value of vkTransitionImageLayoutEXT is: %s...\n",string_VkResult(result));
@@ -90727,6 +91174,7 @@ debug_printf("Executing vkGetPhysicalDeviceVideoCapabilitiesKHR\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEVIDEOCAPABILITIESKHR;
         writeToConn(json);
         
         while(true){
@@ -90795,7 +91243,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_kUMqPKt;[&](){temp_kUMqPKt=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_kUMqPKt;}();}();
+[&](){[&](){int temp_DRSBHXR;[&](){temp_DRSBHXR=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_DRSBHXR;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceVideoCapabilitiesKHR...\n");
 debug_printf("Return value of vkGetPhysicalDeviceVideoCapabilitiesKHR is: %s...\n",string_VkResult(result));
@@ -90856,6 +91304,7 @@ debug_printf("Executing vkGetPhysicalDeviceVideoFormatPropertiesKHR\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEVIDEOFORMATPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
@@ -90933,7 +91382,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_xLlKefl;[&](){temp_xLlKefl=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_xLlKefl;}();}();
+[&](){[&](){int temp_KDbEDAY;[&](){temp_KDbEDAY=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_KDbEDAY;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceVideoFormatPropertiesKHR...\n");
 debug_printf("Return value of vkGetPhysicalDeviceVideoFormatPropertiesKHR is: %s...\n",string_VkResult(result));
@@ -90994,6 +91443,7 @@ debug_printf("Executing vkCreateVideoSessionKHR\n");
 }
 
 
+        json["enum"]=VKCREATEVIDEOSESSIONKHR;
         writeToConn(json);
         
         while(true){
@@ -91060,7 +91510,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_KvLdlOb;[&](){temp_KvLdlOb=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_KvLdlOb;}();}();
+[&](){[&](){int temp_dWIUHBt;[&](){temp_dWIUHBt=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_dWIUHBt;}();}();
 
                 if (pVideoSession!=NULL){
                     for (int i=0; i<1; i++){
@@ -91108,6 +91558,7 @@ debug_printf("Executing vkDestroyVideoSessionKHR\n");
 }
 
 
+        json["enum"]=VKDESTROYVIDEOSESSIONKHR;
         writeToConn(json);
         
         while(true){
@@ -91222,6 +91673,7 @@ debug_printf("Executing vkCreateVideoSessionParametersKHR\n");
 }
 
 
+        json["enum"]=VKCREATEVIDEOSESSIONPARAMETERSKHR;
         writeToConn(json);
         
         while(true){
@@ -91288,7 +91740,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_tOijjSH;[&](){temp_tOijjSH=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_tOijjSH;}();}();
+[&](){[&](){int temp_sWaVcNh;[&](){temp_sWaVcNh=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_sWaVcNh;}();}();
 
                 if (pVideoSessionParameters!=NULL){
                     for (int i=0; i<1; i++){
@@ -91336,6 +91788,7 @@ debug_printf("Executing vkUpdateVideoSessionParametersKHR\n");
 }
 
 
+        json["enum"]=VKUPDATEVIDEOSESSIONPARAMETERSKHR;
         writeToConn(json);
         
         while(true){
@@ -91393,7 +91846,7 @@ break;}}
 [&](){deserialize_VkVideoSessionParametersKHR(json["videoSessionParameters"], videoSessionParameters);}();
 
 VkResult result;
-[&](){[&](){int temp_OrwQerQ;[&](){temp_OrwQerQ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_OrwQerQ;}();}();
+[&](){[&](){int temp_EZpQGsU;[&](){temp_EZpQGsU=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_EZpQGsU;}();}();
 
 debug_printf("Ending vkUpdateVideoSessionParametersKHR...\n");
 debug_printf("Return value of vkUpdateVideoSessionParametersKHR is: %s...\n",string_VkResult(result));
@@ -91434,6 +91887,7 @@ debug_printf("Executing vkDestroyVideoSessionParametersKHR\n");
 }
 
 
+        json["enum"]=VKDESTROYVIDEOSESSIONPARAMETERSKHR;
         writeToConn(json);
         
         while(true){
@@ -91537,6 +91991,7 @@ debug_printf("Executing vkGetVideoSessionMemoryRequirementsKHR\n");
 }
 
 
+        json["enum"]=VKGETVIDEOSESSIONMEMORYREQUIREMENTSKHR;
         writeToConn(json);
         
         while(true){
@@ -91614,7 +92069,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_wQRLlDp;[&](){temp_wQRLlDp=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_wQRLlDp;}();}();
+[&](){[&](){int temp_bfyMKzS;[&](){temp_bfyMKzS=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_bfyMKzS;}();}();
 
 debug_printf("Ending vkGetVideoSessionMemoryRequirementsKHR...\n");
 debug_printf("Return value of vkGetVideoSessionMemoryRequirementsKHR is: %s...\n",string_VkResult(result));
@@ -91656,6 +92111,7 @@ debug_printf("Executing vkBindVideoSessionMemoryKHR\n");
 }
 
 
+        json["enum"]=VKBINDVIDEOSESSIONMEMORYKHR;
         writeToConn(json);
         
         while(true){
@@ -91714,7 +92170,7 @@ break;}}
 [&](){bindSessionMemoryInfoCount=static_cast<uint32_t>(value_to<int>(json["bindSessionMemoryInfoCount"]));}();
 
 VkResult result;
-[&](){[&](){int temp_YjMtOFB;[&](){temp_YjMtOFB=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_YjMtOFB;}();}();
+[&](){[&](){int temp_VaKszLh;[&](){temp_VaKszLh=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_VaKszLh;}();}();
 
 debug_printf("Ending vkBindVideoSessionMemoryKHR...\n");
 debug_printf("Return value of vkBindVideoSessionMemoryKHR is: %s...\n",string_VkResult(result));
@@ -91754,6 +92210,7 @@ debug_printf("Executing vkCmdDecodeVideoKHR\n");
 }
 
 
+        json["enum"]=VKCMDDECODEVIDEOKHR;
         writeToConn(json);
         
         while(true){
@@ -91846,6 +92303,7 @@ debug_printf("Executing vkCmdBeginVideoCodingKHR\n");
 }
 
 
+        json["enum"]=VKCMDBEGINVIDEOCODINGKHR;
         writeToConn(json);
         
         while(true){
@@ -91938,6 +92396,7 @@ debug_printf("Executing vkCmdControlVideoCodingKHR\n");
 }
 
 
+        json["enum"]=VKCMDCONTROLVIDEOCODINGKHR;
         writeToConn(json);
         
         while(true){
@@ -92030,6 +92489,7 @@ debug_printf("Executing vkCmdEndVideoCodingKHR\n");
 }
 
 
+        json["enum"]=VKCMDENDVIDEOCODINGKHR;
         writeToConn(json);
         
         while(true){
@@ -92123,6 +92583,7 @@ debug_printf("Executing vkCmdDecompressMemoryNV\n");
 }
 
 
+        json["enum"]=VKCMDDECOMPRESSMEMORYNV;
         writeToConn(json);
         
         while(true){
@@ -92207,6 +92668,7 @@ debug_printf("Executing vkCmdDecompressMemoryIndirectCountNV\n");
 }
 
 
+        json["enum"]=VKCMDDECOMPRESSMEMORYINDIRECTCOUNTNV;
         writeToConn(json);
         
         while(true){
@@ -92322,6 +92784,7 @@ debug_printf("Executing vkCreateCuModuleNVX\n");
 }
 
 
+        json["enum"]=VKCREATECUMODULENVX;
         writeToConn(json);
         
         while(true){
@@ -92388,7 +92851,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_YYTFaBo;[&](){temp_YYTFaBo=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_YYTFaBo;}();}();
+[&](){[&](){int temp_yCFJkOi;[&](){temp_yCFJkOi=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_yCFJkOi;}();}();
 
                 if (pModule!=NULL){
                     for (int i=0; i<1; i++){
@@ -92456,6 +92919,7 @@ debug_printf("Executing vkCreateCuFunctionNVX\n");
 }
 
 
+        json["enum"]=VKCREATECUFUNCTIONNVX;
         writeToConn(json);
         
         while(true){
@@ -92522,7 +92986,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_txvDXBI;[&](){temp_txvDXBI=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_txvDXBI;}();}();
+[&](){[&](){int temp_rHMlbiM;[&](){temp_rHMlbiM=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_rHMlbiM;}();}();
 
                 if (pFunction!=NULL){
                     for (int i=0; i<1; i++){
@@ -92570,6 +93034,7 @@ debug_printf("Executing vkDestroyCuModuleNVX\n");
 }
 
 
+        json["enum"]=VKDESTROYCUMODULENVX;
         writeToConn(json);
         
         while(true){
@@ -92664,6 +93129,7 @@ debug_printf("Executing vkDestroyCuFunctionNVX\n");
 }
 
 
+        json["enum"]=VKDESTROYCUFUNCTIONNVX;
         writeToConn(json);
         
         while(true){
@@ -92757,6 +93223,7 @@ debug_printf("Executing vkCmdCuLaunchKernelNVX\n");
 }
 
 
+        json["enum"]=VKCMDCULAUNCHKERNELNVX;
         writeToConn(json);
         
         while(true){
@@ -92847,6 +93314,7 @@ debug_printf("Executing vkGetDescriptorSetLayoutSizeEXT\n");
 }
 
 
+        json["enum"]=VKGETDESCRIPTORSETLAYOUTSIZEEXT;
         writeToConn(json);
         
         while(true){
@@ -92947,6 +93415,7 @@ debug_printf("Executing vkGetDescriptorSetLayoutBindingOffsetEXT\n");
 }
 
 
+        json["enum"]=VKGETDESCRIPTORSETLAYOUTBINDINGOFFSETEXT;
         writeToConn(json);
         
         while(true){
@@ -93062,6 +93531,7 @@ debug_printf("Executing vkGetDescriptorEXT\n");
 }
 
 
+        json["enum"]=VKGETDESCRIPTOREXT;
         writeToConn(json);
         
         while(true){
@@ -93168,6 +93638,7 @@ debug_printf("Executing vkCmdBindDescriptorBuffersEXT\n");
 }
 
 
+        json["enum"]=VKCMDBINDDESCRIPTORBUFFERSEXT;
         writeToConn(json);
         
         while(true){
@@ -93271,6 +93742,7 @@ debug_printf("Executing vkCmdSetDescriptorBufferOffsetsEXT\n");
 }
 
 
+        json["enum"]=VKCMDSETDESCRIPTORBUFFEROFFSETSEXT;
         writeToConn(json);
         
         while(true){
@@ -93359,6 +93831,7 @@ debug_printf("Executing vkCmdBindDescriptorBufferEmbeddedSamplersEXT\n");
 }
 
 
+        json["enum"]=VKCMDBINDDESCRIPTORBUFFEREMBEDDEDSAMPLERSEXT;
         writeToConn(json);
         
         while(true){
@@ -93465,6 +93938,7 @@ debug_printf("Executing vkGetBufferOpaqueCaptureDescriptorDataEXT\n");
 }
 
 
+        json["enum"]=VKGETBUFFEROPAQUECAPTUREDESCRIPTORDATAEXT;
         writeToConn(json);
         
         while(true){
@@ -93533,7 +94007,7 @@ break;}}
         }
         }();pData=temp_lBHICWs;}();
 VkResult result;
-[&](){[&](){int temp_xwzikKs;[&](){temp_xwzikKs=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_xwzikKs;}();}();
+[&](){[&](){int temp_BreRMSA;[&](){temp_BreRMSA=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_BreRMSA;}();}();
 
 debug_printf("Ending vkGetBufferOpaqueCaptureDescriptorDataEXT...\n");
 debug_printf("Return value of vkGetBufferOpaqueCaptureDescriptorDataEXT is: %s...\n",string_VkResult(result));
@@ -93585,6 +94059,7 @@ debug_printf("Executing vkGetImageOpaqueCaptureDescriptorDataEXT\n");
 }
 
 
+        json["enum"]=VKGETIMAGEOPAQUECAPTUREDESCRIPTORDATAEXT;
         writeToConn(json);
         
         while(true){
@@ -93653,7 +94128,7 @@ break;}}
         }
         }();pData=temp_lBHICWs;}();
 VkResult result;
-[&](){[&](){int temp_TPyqMAV;[&](){temp_TPyqMAV=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_TPyqMAV;}();}();
+[&](){[&](){int temp_PrnsDXW;[&](){temp_PrnsDXW=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_PrnsDXW;}();}();
 
 debug_printf("Ending vkGetImageOpaqueCaptureDescriptorDataEXT...\n");
 debug_printf("Return value of vkGetImageOpaqueCaptureDescriptorDataEXT is: %s...\n",string_VkResult(result));
@@ -93705,6 +94180,7 @@ debug_printf("Executing vkGetImageViewOpaqueCaptureDescriptorDataEXT\n");
 }
 
 
+        json["enum"]=VKGETIMAGEVIEWOPAQUECAPTUREDESCRIPTORDATAEXT;
         writeToConn(json);
         
         while(true){
@@ -93773,7 +94249,7 @@ break;}}
         }
         }();pData=temp_lBHICWs;}();
 VkResult result;
-[&](){[&](){int temp_OdFZoNY;[&](){temp_OdFZoNY=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_OdFZoNY;}();}();
+[&](){[&](){int temp_UkGTadX;[&](){temp_UkGTadX=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_UkGTadX;}();}();
 
 debug_printf("Ending vkGetImageViewOpaqueCaptureDescriptorDataEXT...\n");
 debug_printf("Return value of vkGetImageViewOpaqueCaptureDescriptorDataEXT is: %s...\n",string_VkResult(result));
@@ -93825,6 +94301,7 @@ debug_printf("Executing vkGetSamplerOpaqueCaptureDescriptorDataEXT\n");
 }
 
 
+        json["enum"]=VKGETSAMPLEROPAQUECAPTUREDESCRIPTORDATAEXT;
         writeToConn(json);
         
         while(true){
@@ -93893,7 +94370,7 @@ break;}}
         }
         }();pData=temp_lBHICWs;}();
 VkResult result;
-[&](){[&](){int temp_FcQRCfn;[&](){temp_FcQRCfn=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_FcQRCfn;}();}();
+[&](){[&](){int temp_qhwUZoX;[&](){temp_qhwUZoX=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_qhwUZoX;}();}();
 
 debug_printf("Ending vkGetSamplerOpaqueCaptureDescriptorDataEXT...\n");
 debug_printf("Return value of vkGetSamplerOpaqueCaptureDescriptorDataEXT is: %s...\n",string_VkResult(result));
@@ -93945,6 +94422,7 @@ debug_printf("Executing vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT
 }
 
 
+        json["enum"]=VKGETACCELERATIONSTRUCTUREOPAQUECAPTUREDESCRIPTORDATAEXT;
         writeToConn(json);
         
         while(true){
@@ -94013,7 +94491,7 @@ break;}}
         }
         }();pData=temp_lBHICWs;}();
 VkResult result;
-[&](){[&](){int temp_dMYyLsp;[&](){temp_dMYyLsp=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_dMYyLsp;}();}();
+[&](){[&](){int temp_EdBxllU;[&](){temp_EdBxllU=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_EdBxllU;}();}();
 
 debug_printf("Ending vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT...\n");
 debug_printf("Return value of vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT is: %s...\n",string_VkResult(result));
@@ -94043,6 +94521,7 @@ debug_printf("Executing vkSetDeviceMemoryPriorityEXT\n");
 }
 
 
+        json["enum"]=VKSETDEVICEMEMORYPRIORITYEXT;
         writeToConn(json);
         
         while(true){
@@ -94126,6 +94605,7 @@ debug_printf("Executing vkAcquireDrmDisplayEXT\n");
 }
 
 
+        json["enum"]=VKACQUIREDRMDISPLAYEXT;
         writeToConn(json);
         
         while(true){
@@ -94183,7 +94663,7 @@ break;}}
 [&](){drmFd=static_cast<int32_t>(value_to<int>(json["drmFd"]));}();
 [&](){deserialize_VkDisplayKHR(json["display"], display);}();
 VkResult result;
-[&](){[&](){int temp_YxBMtij;[&](){temp_YxBMtij=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_YxBMtij;}();}();
+[&](){[&](){int temp_VLASVci;[&](){temp_VLASVci=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_VLASVci;}();}();
 
 debug_printf("Ending vkAcquireDrmDisplayEXT...\n");
 debug_printf("Return value of vkAcquireDrmDisplayEXT is: %s...\n",string_VkResult(result));
@@ -94222,6 +94702,7 @@ debug_printf("Executing vkGetDrmDisplayEXT\n");
 }
 
 
+        json["enum"]=VKGETDRMDISPLAYEXT;
         writeToConn(json);
         
         while(true){
@@ -94288,7 +94769,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_kqOIadV;[&](){temp_kqOIadV=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_kqOIadV;}();}();
+[&](){[&](){int temp_pCKulNk;[&](){temp_pCKulNk=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_pCKulNk;}();}();
 
 debug_printf("Ending vkGetDrmDisplayEXT...\n");
 debug_printf("Return value of vkGetDrmDisplayEXT is: %s...\n",string_VkResult(result));
@@ -94319,6 +94800,7 @@ debug_printf("Executing vkWaitForPresentKHR\n");
 }
 
 
+        json["enum"]=VKWAITFORPRESENTKHR;
         writeToConn(json);
         
         while(true){
@@ -94377,7 +94859,7 @@ break;}}
 [&](){presentId=static_cast<uint64_t>(value_to<int>(json["presentId"]));}();
 [&](){timeout=static_cast<uint64_t>(value_to<int>(json["timeout"]));}();
 VkResult result;
-[&](){[&](){int temp_IJKocXl;[&](){temp_IJKocXl=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_IJKocXl;}();}();
+[&](){[&](){int temp_GxvXpqW;[&](){temp_GxvXpqW=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_GxvXpqW;}();}();
 
 debug_printf("Ending vkWaitForPresentKHR...\n");
 debug_printf("Return value of vkWaitForPresentKHR is: %s...\n",string_VkResult(result));
@@ -94417,6 +94899,7 @@ debug_printf("Executing vkCmdBeginRendering\n");
 }
 
 
+        json["enum"]=VKCMDBEGINRENDERING;
         writeToConn(json);
         
         while(true){
@@ -94500,6 +94983,7 @@ debug_printf("Executing vkCmdEndRendering\n");
 }
 
 
+        json["enum"]=VKCMDENDRENDERING;
         writeToConn(json);
         
         while(true){
@@ -94606,6 +95090,7 @@ debug_printf("Executing vkGetDescriptorSetLayoutHostMappingInfoVALVE\n");
 }
 
 
+        json["enum"]=VKGETDESCRIPTORSETLAYOUTHOSTMAPPINGINFOVALVE;
         writeToConn(json);
         
         while(true){
@@ -94719,6 +95204,7 @@ debug_printf("Executing vkGetDescriptorSetHostMappingVALVE\n");
 }
 
 
+        json["enum"]=VKGETDESCRIPTORSETHOSTMAPPINGVALVE;
         writeToConn(json);
         
         while(true){
@@ -94852,6 +95338,7 @@ debug_printf("Executing vkCreateMicromapEXT\n");
 }
 
 
+        json["enum"]=VKCREATEMICROMAPEXT;
         writeToConn(json);
         
         while(true){
@@ -94918,7 +95405,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_HMbPbkA;[&](){temp_HMbPbkA=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_HMbPbkA;}();}();
+[&](){[&](){int temp_kPZvlkz;[&](){temp_kPZvlkz=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_kPZvlkz;}();}();
 
                 if (pMicromap!=NULL){
                     for (int i=0; i<1; i++){
@@ -94966,6 +95453,7 @@ debug_printf("Executing vkCmdBuildMicromapsEXT\n");
 }
 
 
+        json["enum"]=VKCMDBUILDMICROMAPSEXT;
         writeToConn(json);
         
         while(true){
@@ -95061,6 +95549,7 @@ debug_printf("Executing vkBuildMicromapsEXT\n");
 }
 
 
+        json["enum"]=VKBUILDMICROMAPSEXT;
         writeToConn(json);
         
         while(true){
@@ -95119,7 +95608,7 @@ break;}}
 [&](){infoCount=static_cast<uint32_t>(value_to<int>(json["infoCount"]));}();
 
 VkResult result;
-[&](){[&](){int temp_IKdsnOC;[&](){temp_IKdsnOC=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_IKdsnOC;}();}();
+[&](){[&](){int temp_UtJGuJG;[&](){temp_UtJGuJG=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_UtJGuJG;}();}();
 
 debug_printf("Ending vkBuildMicromapsEXT...\n");
 debug_printf("Return value of vkBuildMicromapsEXT is: %s...\n",string_VkResult(result));
@@ -95160,6 +95649,7 @@ debug_printf("Executing vkDestroyMicromapEXT\n");
 }
 
 
+        json["enum"]=VKDESTROYMICROMAPEXT;
         writeToConn(json);
         
         while(true){
@@ -95253,6 +95743,7 @@ debug_printf("Executing vkCmdCopyMicromapEXT\n");
 }
 
 
+        json["enum"]=VKCMDCOPYMICROMAPEXT;
         writeToConn(json);
         
         while(true){
@@ -95346,6 +95837,7 @@ debug_printf("Executing vkCopyMicromapEXT\n");
 }
 
 
+        json["enum"]=VKCOPYMICROMAPEXT;
         writeToConn(json);
         
         while(true){
@@ -95403,7 +95895,7 @@ break;}}
 [&](){deserialize_VkDeferredOperationKHR(json["deferredOperation"], deferredOperation);}();
 
 VkResult result;
-[&](){[&](){int temp_LwBoIWY;[&](){temp_LwBoIWY=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_LwBoIWY;}();}();
+[&](){[&](){int temp_ONHPOzE;[&](){temp_ONHPOzE=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ONHPOzE;}();}();
 
 debug_printf("Ending vkCopyMicromapEXT...\n");
 debug_printf("Return value of vkCopyMicromapEXT is: %s...\n",string_VkResult(result));
@@ -95443,6 +95935,7 @@ debug_printf("Executing vkCmdCopyMicromapToMemoryEXT\n");
 }
 
 
+        json["enum"]=VKCMDCOPYMICROMAPTOMEMORYEXT;
         writeToConn(json);
         
         while(true){
@@ -95536,6 +96029,7 @@ debug_printf("Executing vkCopyMicromapToMemoryEXT\n");
 }
 
 
+        json["enum"]=VKCOPYMICROMAPTOMEMORYEXT;
         writeToConn(json);
         
         while(true){
@@ -95593,7 +96087,7 @@ break;}}
 [&](){deserialize_VkDeferredOperationKHR(json["deferredOperation"], deferredOperation);}();
 
 VkResult result;
-[&](){[&](){int temp_UIvmryr;[&](){temp_UIvmryr=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_UIvmryr;}();}();
+[&](){[&](){int temp_FivEhpk;[&](){temp_FivEhpk=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_FivEhpk;}();}();
 
 debug_printf("Ending vkCopyMicromapToMemoryEXT...\n");
 debug_printf("Return value of vkCopyMicromapToMemoryEXT is: %s...\n",string_VkResult(result));
@@ -95633,6 +96127,7 @@ debug_printf("Executing vkCmdCopyMemoryToMicromapEXT\n");
 }
 
 
+        json["enum"]=VKCMDCOPYMEMORYTOMICROMAPEXT;
         writeToConn(json);
         
         while(true){
@@ -95726,6 +96221,7 @@ debug_printf("Executing vkCopyMemoryToMicromapEXT\n");
 }
 
 
+        json["enum"]=VKCOPYMEMORYTOMICROMAPEXT;
         writeToConn(json);
         
         while(true){
@@ -95783,7 +96279,7 @@ break;}}
 [&](){deserialize_VkDeferredOperationKHR(json["deferredOperation"], deferredOperation);}();
 
 VkResult result;
-[&](){[&](){int temp_TMcEvWr;[&](){temp_TMcEvWr=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_TMcEvWr;}();}();
+[&](){[&](){int temp_TKYMlWK;[&](){temp_TKYMlWK=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_TKYMlWK;}();}();
 
 debug_printf("Ending vkCopyMemoryToMicromapEXT...\n");
 debug_printf("Return value of vkCopyMemoryToMicromapEXT is: %s...\n",string_VkResult(result));
@@ -95824,6 +96320,7 @@ debug_printf("Executing vkCmdWriteMicromapsPropertiesEXT\n");
 }
 
 
+        json["enum"]=VKCMDWRITEMICROMAPSPROPERTIESEXT;
         writeToConn(json);
         
         while(true){
@@ -95933,6 +96430,7 @@ debug_printf("Executing vkWriteMicromapsPropertiesEXT\n");
 }
 
 
+        json["enum"]=VKWRITEMICROMAPSPROPERTIESEXT;
         writeToConn(json);
         
         while(true){
@@ -96005,7 +96503,7 @@ break;}}
         }();pData=temp_hrhAtyM;}();
 [&](){stride=static_cast<size_t>(value_to<int>(json["stride"]));}();
 VkResult result;
-[&](){[&](){int temp_oOtApCx;[&](){temp_oOtApCx=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_oOtApCx;}();}();
+[&](){[&](){int temp_zcmywrl;[&](){temp_zcmywrl=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_zcmywrl;}();}();
 
 debug_printf("Ending vkWriteMicromapsPropertiesEXT...\n");
 debug_printf("Return value of vkWriteMicromapsPropertiesEXT is: %s...\n",string_VkResult(result));
@@ -96054,6 +96552,7 @@ debug_printf("Executing vkGetDeviceMicromapCompatibilityEXT\n");
 }
 
 
+        json["enum"]=VKGETDEVICEMICROMAPCOMPATIBILITYEXT;
         writeToConn(json);
         
         while(true){
@@ -96168,6 +96667,7 @@ debug_printf("Executing vkGetMicromapBuildSizesEXT\n");
 }
 
 
+        json["enum"]=VKGETMICROMAPBUILDSIZESEXT;
         writeToConn(json);
         
         while(true){
@@ -96274,6 +96774,7 @@ debug_printf("Executing vkGetShaderModuleIdentifierEXT\n");
 }
 
 
+        json["enum"]=VKGETSHADERMODULEIDENTIFIEREXT;
         writeToConn(json);
         
         while(true){
@@ -96390,6 +96891,7 @@ debug_printf("Executing vkGetShaderModuleCreateInfoIdentifierEXT\n");
 }
 
 
+        json["enum"]=VKGETSHADERMODULECREATEINFOIDENTIFIEREXT;
         writeToConn(json);
         
         while(true){
@@ -96507,6 +97009,7 @@ debug_printf("Executing vkGetImageSubresourceLayout2KHR\n");
 }
 
 
+        json["enum"]=VKGETIMAGESUBRESOURCELAYOUT2KHR;
         writeToConn(json);
         
         while(true){
@@ -96627,6 +97130,7 @@ debug_printf("Executing vkGetPipelinePropertiesEXT\n");
 }
 
 
+        json["enum"]=VKGETPIPELINEPROPERTIESEXT;
         writeToConn(json);
         
         while(true){
@@ -96695,7 +97199,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_rtnEbkZ;[&](){temp_rtnEbkZ=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_rtnEbkZ;}();}();
+[&](){[&](){int temp_XOJEaHr;[&](){temp_XOJEaHr=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_XOJEaHr;}();}();
 
 debug_printf("Ending vkGetPipelinePropertiesEXT...\n");
 debug_printf("Return value of vkGetPipelinePropertiesEXT is: %s...\n",string_VkResult(result));
@@ -96745,6 +97249,7 @@ debug_printf("Executing vkGetFramebufferTilePropertiesQCOM\n");
 }
 
 
+        json["enum"]=VKGETFRAMEBUFFERTILEPROPERTIESQCOM;
         writeToConn(json);
         
         while(true){
@@ -96822,7 +97327,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_CCkpolI;[&](){temp_CCkpolI=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_CCkpolI;}();}();
+[&](){[&](){int temp_TLkSlaU;[&](){temp_TLkSlaU=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_TLkSlaU;}();}();
 
 debug_printf("Ending vkGetFramebufferTilePropertiesQCOM...\n");
 debug_printf("Return value of vkGetFramebufferTilePropertiesQCOM is: %s...\n",string_VkResult(result));
@@ -96874,6 +97379,7 @@ debug_printf("Executing vkGetDynamicRenderingTilePropertiesQCOM\n");
 }
 
 
+        json["enum"]=VKGETDYNAMICRENDERINGTILEPROPERTIESQCOM;
         writeToConn(json);
         
         while(true){
@@ -96942,7 +97448,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_xXOYsds;[&](){temp_xXOYsds=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_xXOYsds;}();}();
+[&](){[&](){int temp_inlNtLF;[&](){temp_inlNtLF=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_inlNtLF;}();}();
 
 debug_printf("Ending vkGetDynamicRenderingTilePropertiesQCOM...\n");
 debug_printf("Return value of vkGetDynamicRenderingTilePropertiesQCOM is: %s...\n",string_VkResult(result));
@@ -97003,6 +97509,7 @@ debug_printf("Executing vkGetPhysicalDeviceOpticalFlowImageFormatsNV\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICEOPTICALFLOWIMAGEFORMATSNV;
         writeToConn(json);
         
         while(true){
@@ -97080,7 +97587,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_DDLaKkM;[&](){temp_DDLaKkM=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_DDLaKkM;}();}();
+[&](){[&](){int temp_tYfFThn;[&](){temp_tYfFThn=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_tYfFThn;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceOpticalFlowImageFormatsNV...\n");
 debug_printf("Return value of vkGetPhysicalDeviceOpticalFlowImageFormatsNV is: %s...\n",string_VkResult(result));
@@ -97141,6 +97648,7 @@ debug_printf("Executing vkCreateOpticalFlowSessionNV\n");
 }
 
 
+        json["enum"]=VKCREATEOPTICALFLOWSESSIONNV;
         writeToConn(json);
         
         while(true){
@@ -97207,7 +97715,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_GMVZnva;[&](){temp_GMVZnva=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_GMVZnva;}();}();
+[&](){[&](){int temp_gzRTYMj;[&](){temp_gzRTYMj=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_gzRTYMj;}();}();
 
                 if (pSession!=NULL){
                     for (int i=0; i<1; i++){
@@ -97255,6 +97763,7 @@ debug_printf("Executing vkDestroyOpticalFlowSessionNV\n");
 }
 
 
+        json["enum"]=VKDESTROYOPTICALFLOWSESSIONNV;
         writeToConn(json);
         
         while(true){
@@ -97340,6 +97849,7 @@ debug_printf("Executing vkBindOpticalFlowSessionImageNV\n");
 }
 
 
+        json["enum"]=VKBINDOPTICALFLOWSESSIONIMAGENV;
         writeToConn(json);
         
         while(true){
@@ -97399,7 +97909,7 @@ break;}}
 [&](){deserialize_VkImageView(json["view"], view);}();
 [&](){[&](){int temp_IaQZtFR;[&](){temp_IaQZtFR=static_cast<int>(value_to<int>(json["layout"]));}();layout=(VkImageLayout)temp_IaQZtFR;}();}();
 VkResult result;
-[&](){[&](){int temp_xSrgGPB;[&](){temp_xSrgGPB=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_xSrgGPB;}();}();
+[&](){[&](){int temp_PXkQMYg;[&](){temp_PXkQMYg=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_PXkQMYg;}();}();
 
 debug_printf("Ending vkBindOpticalFlowSessionImageNV...\n");
 debug_printf("Return value of vkBindOpticalFlowSessionImageNV is: %s...\n",string_VkResult(result));
@@ -97440,6 +97950,7 @@ debug_printf("Executing vkCmdOpticalFlowExecuteNV\n");
 }
 
 
+        json["enum"]=VKCMDOPTICALFLOWEXECUTENV;
         writeToConn(json);
         
         while(true){
@@ -97545,6 +98056,7 @@ debug_printf("Executing vkGetDeviceFaultInfoEXT\n");
 }
 
 
+        json["enum"]=VKGETDEVICEFAULTINFOEXT;
         writeToConn(json);
         
         while(true){
@@ -97624,7 +98136,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_gZDLICk;[&](){temp_gZDLICk=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_gZDLICk;}();}();
+[&](){[&](){int temp_QCKCJeX;[&](){temp_QCKCJeX=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_QCKCJeX;}();}();
 
 debug_printf("Ending vkGetDeviceFaultInfoEXT...\n");
 debug_printf("Return value of vkGetDeviceFaultInfoEXT is: %s...\n",string_VkResult(result));
@@ -97664,6 +98176,7 @@ debug_printf("Executing vkCmdSetDepthBias2EXT\n");
 }
 
 
+        json["enum"]=VKCMDSETDEPTHBIAS2EXT;
         writeToConn(json);
         
         while(true){
@@ -97756,6 +98269,7 @@ debug_printf("Executing vkReleaseSwapchainImagesEXT\n");
 }
 
 
+        json["enum"]=VKRELEASESWAPCHAINIMAGESEXT;
         writeToConn(json);
         
         while(true){
@@ -97812,7 +98326,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 VkResult result;
-[&](){[&](){int temp_kVLSBQV;[&](){temp_kVLSBQV=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_kVLSBQV;}();}();
+[&](){[&](){int temp_MnSoniu;[&](){temp_MnSoniu=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_MnSoniu;}();}();
 
 debug_printf("Ending vkReleaseSwapchainImagesEXT...\n");
 debug_printf("Return value of vkReleaseSwapchainImagesEXT is: %s...\n",string_VkResult(result));
@@ -97864,6 +98378,7 @@ debug_printf("Executing vkGetDeviceImageSubresourceLayoutKHR\n");
 }
 
 
+        json["enum"]=VKGETDEVICEIMAGESUBRESOURCELAYOUTKHR;
         writeToConn(json);
         
         while(true){
@@ -97997,6 +98512,7 @@ MemoryMapLock.lock();
 }
 
 
+        json["enum"]=VKMAPMEMORY2KHR;
         writeToConn(json);
         
         while(true){
@@ -98073,7 +98589,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_Zfsbwuz;[&](){temp_Zfsbwuz=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_Zfsbwuz;}();}();
+[&](){[&](){int temp_ISWBnyX;[&](){temp_ISWBnyX=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_ISWBnyX;}();}();
 
         boost::json::value server_memory_json;
         serialize_VkDeviceMemory(server_memory_json, pMemoryMapInfo->memory);
@@ -98126,6 +98642,7 @@ MemoryMapLock.lock();
 }
 deregisterDeviceMemoryMap(pMemoryUnmapInfo->memory);
 
+        json["enum"]=VKUNMAPMEMORY2KHR;
         writeToConn(json);
         
         while(true){
@@ -98182,7 +98699,7 @@ break;}}
 [&](){deserialize_VkDevice(json["device"], device);}();
 
 VkResult result;
-[&](){[&](){int temp_OlaptaP;[&](){temp_OlaptaP=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_OlaptaP;}();}();
+[&](){[&](){int temp_yHbgkCw;[&](){temp_yHbgkCw=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_yHbgkCw;}();}();
 
 MemoryMapLock.unlock();
 debug_printf("Ending vkUnmapMemory2KHR...\n");
@@ -98245,6 +98762,7 @@ debug_printf("Executing vkCreateShadersEXT\n");
 }
 
 
+        json["enum"]=VKCREATESHADERSEXT;
         writeToConn(json);
         
         while(true){
@@ -98312,7 +98830,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_MeDToGu;[&](){temp_MeDToGu=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_MeDToGu;}();}();
+[&](){[&](){int temp_DjHJocd;[&](){temp_DjHJocd=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_DjHJocd;}();}();
 
                 if (pShaders!=NULL){
                     for (int i=0; i<createInfoCount; i++){
@@ -98360,6 +98878,7 @@ debug_printf("Executing vkDestroyShaderEXT\n");
 }
 
 
+        json["enum"]=VKDESTROYSHADEREXT;
         writeToConn(json);
         
         while(true){
@@ -98463,6 +98982,7 @@ debug_printf("Executing vkGetShaderBinaryDataEXT\n");
 }
 
 
+        json["enum"]=VKGETSHADERBINARYDATAEXT;
         writeToConn(json);
         
         while(true){
@@ -98540,7 +99060,7 @@ break;}}
         }
         }();pData=temp_ZtBEjVJ;}();
 VkResult result;
-[&](){[&](){int temp_opirLWL;[&](){temp_opirLWL=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_opirLWL;}();}();
+[&](){[&](){int temp_zXjNUAM;[&](){temp_zXjNUAM=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_zXjNUAM;}();}();
 
 debug_printf("Ending vkGetShaderBinaryDataEXT...\n");
 debug_printf("Return value of vkGetShaderBinaryDataEXT is: %s...\n",string_VkResult(result));
@@ -98587,6 +99107,7 @@ debug_printf("Executing vkCmdBindShadersEXT\n");
 }
 
 
+        json["enum"]=VKCMDBINDSHADERSEXT;
         writeToConn(json);
         
         while(true){
@@ -98690,6 +99211,7 @@ debug_printf("Executing vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR\n");
 }
 
 
+        json["enum"]=VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESKHR;
         writeToConn(json);
         
         while(true){
@@ -98766,7 +99288,7 @@ break;}}
         }
         }();
 VkResult result;
-[&](){[&](){int temp_FrXDimv;[&](){temp_FrXDimv=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_FrXDimv;}();}();
+[&](){[&](){int temp_HxBNOnK;[&](){temp_HxBNOnK=static_cast<int>(value_to<int>(json["result"]));}();result=(VkResult)temp_HxBNOnK;}();}();
 
 debug_printf("Ending vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR...\n");
 debug_printf("Return value of vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR is: %s...\n",string_VkResult(result));

@@ -450,6 +450,7 @@ for name, command in parsed.items():
         
     write(deregisterDeviceMemoryMap(name))
     write(f"""
+        json["enum"]={name.upper()};
         writeToConn(json);
         
         while(true){{

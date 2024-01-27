@@ -32,17 +32,17 @@ void deserialize_Sync(boost::json::object& json, Sync& sync){
 typedef struct {
     void* pUserData;
 
+uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
 uintptr_t PFN_vkInternalAllocationNotification;
 uintptr_t PFN_vkInternalFreeNotification;
 uintptr_t PFN_vkFreeFunction;
 uintptr_t PFN_vkFaultCallbackFunction;
-uintptr_t PFN_vkAllocationFunction;
-uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
-uintptr_t PFN_vkReallocationFunction;
-uintptr_t PFN_vkDebugReportCallbackEXT;
-uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
 uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
+uintptr_t PFN_vkAllocationFunction;
+uintptr_t PFN_vkReallocationFunction;
 uintptr_t PFN_vkVoidFunction;
+uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
+uintptr_t PFN_vkDebugReportCallbackEXT;
 } pUserData_struct;
 
 void serialize_pNext(boost::json::object& json, const void* member){
@@ -48025,15 +48025,15 @@ void* result;
 [&](){
             if (json["result"].as_array().size()==0){
                 result=NULL;
-            return; }char* temp_mfOyRuO;[&](){
+            return; }char* temp_IcIzwPV;[&](){
             if (json["result"].as_array().size()==0){
-                temp_mfOyRuO=NULL;
-            return; }temp_mfOyRuO=(char*)malloc(json["result"].as_array().size()*sizeof(char));
-        auto& arr_JtpBCLv=json["result"].as_array();
-        for(int zeZDtIB=0; zeZDtIB < json["result"].as_array().size(); zeZDtIB++){
-            [&](){temp_mfOyRuO[zeZDtIB]=static_cast<char>(value_to<int>(arr_JtpBCLv[zeZDtIB]));}();
+                temp_IcIzwPV=NULL;
+            return; }temp_IcIzwPV=(char*)malloc(json["result"].as_array().size()*sizeof(char));
+        auto& arr_LiwXrkM=json["result"].as_array();
+        for(int CrRTcID=0; CrRTcID < json["result"].as_array().size(); CrRTcID++){
+            [&](){temp_IcIzwPV[CrRTcID]=static_cast<char>(value_to<int>(arr_LiwXrkM[CrRTcID]));}();
         }
-        }();result=temp_mfOyRuO;}();
+        }();result=temp_IcIzwPV;}();
 json.clear();
 registerAllocatedMem(result,size);
 json["mem"]=(uintptr_t)result;
@@ -48119,9 +48119,9 @@ json.clear();
             if (((char*)(result))==NULL){
                 json["result"]=boost::json::array();
             return; }json["result"]=boost::json::array(strlen(((char*)(result)))+1);
-        auto& arr_btTrgOB=json["result"].as_array();
-        for(int SxUiOLQ=0; SxUiOLQ < strlen(((char*)(result)))+1; SxUiOLQ++){
-            [&](){arr_btTrgOB[SxUiOLQ]=((char*)(result))[SxUiOLQ];}();
+        auto& arr_fKfzVOD=json["result"].as_array();
+        for(int rfEQqjG=0; rfEQqjG < strlen(((char*)(result)))+1; rfEQqjG++){
+            [&](){arr_fKfzVOD[rfEQqjG]=((char*)(result))[rfEQqjG];}();
         }
         }();}();
 writeToConn(json);
@@ -48194,15 +48194,15 @@ void* result;
 [&](){
             if (json["result"].as_array().size()==0){
                 result=NULL;
-            return; }char* temp_CAhilRS;[&](){
+            return; }char* temp_vIskEJn;[&](){
             if (json["result"].as_array().size()==0){
-                temp_CAhilRS=NULL;
-            return; }temp_CAhilRS=(char*)malloc(size*sizeof(char));
-        auto& arr_xzcKtwa=json["result"].as_array();
-        for(int JyYPOMg=0; JyYPOMg < size; JyYPOMg++){
-            [&](){temp_CAhilRS[JyYPOMg]=static_cast<char>(value_to<int>(arr_xzcKtwa[JyYPOMg]));}();
+                temp_vIskEJn=NULL;
+            return; }temp_vIskEJn=(char*)malloc(size*sizeof(char));
+        auto& arr_hfmlfUi=json["result"].as_array();
+        for(int irXenxH=0; irXenxH < size; irXenxH++){
+            [&](){temp_vIskEJn[irXenxH]=static_cast<char>(value_to<int>(arr_hfmlfUi[irXenxH]));}();
         }
-        }();result=temp_CAhilRS;}();
+        }();result=temp_vIskEJn;}();
 json.clear();
 registerAllocatedMem(result,size);
 json["mem"]=(uintptr_t)result;
@@ -48263,9 +48263,9 @@ json.clear();
             if (((char*)(result))==NULL){
                 json["result"]=boost::json::array();
             return; }json["result"]=boost::json::array(size);
-        auto& arr_XWGMNNp=json["result"].as_array();
-        for(int NEwfNSt=0; NEwfNSt < size; NEwfNSt++){
-            [&](){arr_XWGMNNp[NEwfNSt]=((char*)(result))[NEwfNSt];}();
+        auto& arr_xtFOIbA=json["result"].as_array();
+        for(int CcKxMXg=0; CcKxMXg < size; CcKxMXg++){
+            [&](){arr_xtFOIbA[CcKxMXg]=((char*)(result))[CcKxMXg];}();
         }
         }();}();
 writeToConn(json);
@@ -48505,7 +48505,7 @@ std::map<uintptr_t,PFN_vkDebugReportCallbackEXT> id_to_PFN_vkDebugReportCallback
         }
         }();pUserData=temp_PunOKTH;}();
 VkBool32 result;
-[&](){uint32_t temp_QvzZPUc;[&](){temp_QvzZPUc=static_cast<uint32_t>(value_to<int>(json["result"]));}();result=(VkBool32)temp_QvzZPUc;}();
+[&](){uint32_t temp_WFCRZTD;[&](){temp_WFCRZTD=static_cast<uint32_t>(value_to<int>(json["result"]));}();result=(VkBool32)temp_WFCRZTD;}();
 json.clear();
 json.erase("mem");
 
@@ -48674,7 +48674,7 @@ std::map<uintptr_t,PFN_vkDebugUtilsMessengerCallbackEXT> id_to_PFN_vkDebugUtilsM
         }
         }();pUserData=temp_PunOKTH;}();
 VkBool32 result;
-[&](){uint32_t temp_okUhmbQ;[&](){temp_okUhmbQ=static_cast<uint32_t>(value_to<int>(json["result"]));}();result=(VkBool32)temp_okUhmbQ;}();
+[&](){uint32_t temp_PEAhYzx;[&](){temp_PEAhYzx=static_cast<uint32_t>(value_to<int>(json["result"]));}();result=(VkBool32)temp_PEAhYzx;}();
 json.clear();
 json.erase("mem");
 

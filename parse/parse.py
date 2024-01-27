@@ -56,10 +56,14 @@ def get_length(item,info):
         result.extend(["1"]*(num_indirection-len(result)))
     
     info["length"]=result
-    
+
+global_id=1
 for item in vk.findall("./types/type"):
     result={}
     kind=item.attrib.get("category","")
+    
+    result["id"]=global_id
+    global_id+=1
     
     if item.attrib.get("requires","").endswith(".h"):
         name=item.attrib["name"]
@@ -212,6 +216,10 @@ for item in vk.findall("./commands/command"):
     result={}
     result["kind"]="command"
     result["relation"]="return"
+    
+    result["id"]=global_id
+    global_id+=1
+    
     if "alias" in item.attrib:
         name=item.attrib["name"]
         result["alias"]=item.attrib["alias"]

@@ -28,7 +28,8 @@ SYNC = 0,
 for i, name in enumerate(parsed):
     if parsed[name].get("kind","") not in ["command", "funcpointer"]:
         continue
-    write(f"{name.upper()}={i+1},", header=True)
+    
+    write(f"""{name.upper()}={parsed[name]["id"]},""", header=True)
 write("};",header=True)
 
 

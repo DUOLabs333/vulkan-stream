@@ -76,18 +76,19 @@ class RWError : public std::exception {
 #endif
 
 
-void serializeInt(uint8_t *buf, uint32_t val) { //Assumes that val is a 32-bit number (almost always true). Serializes in little endian in endian-agnostic way
+void serializeInt(std::array<uint8_t,4>& buf, uint32_t val) { //Assumes that val is a 32-bit number (almost always true). Serializes in little endian in endian-agnostic way
     buf[0] = (val) & 0xFF;
     buf[1] = (val >> 8) & 0xFF;
     buf[2] = (val >> 16) & 0xFF;
     buf[3] = (val >> 24) & 0xFF;
 }
 
-uint32_t deserializeInt(uint8_t* buf){ //Deserialzes from little endian in endian-agnostic way
+uint32_t deserializeInt(std::array<uint8_t,4>& buf){ //Deserialzes from little endian in endian-agnostic way
     return buf[0] | (buf[1] << 8) | (buf[2] << 16) | (buf[3] << 24);
 }
 
 boost::json::object readFromConn(){
+    debug_printf("Reading!...\n");
     auto curr=currStruct();
       
     asio::error_code ec;
@@ -101,19 +102,23 @@ boost::json::object readFromConn(){
     }
     */
     
-    auto buf = asio::buffer(curr->data_buf, BUFFER_SIZE);
+    auto size_buf = asio::buffer(curr->size_buf, 4);
+    auto data_buf = asio::buffer(curr->data_buf, BUFFER_SIZE);
     
     curr->parser.reset();
     
     while (true){
-    auto bytes_read = asio::read(*(curr->conn), buf, ec);
+    asio::read(*(curr->conn), size_buf, asio::transfer_exactly(4), ec);
     if (ec){
         throw RWError(ec);
     }
     
-    if (bytes_read==0){
-        continue;
+    auto bytes_read=deserializeInt(curr->size_buf);
+    asio::read(*(curr->conn), data_buf, asio::transfer_exactly(bytes_read), ec);
+    if (ec){
+        throw RWError(ec);
     }
+    
     //size-=bytes_read;
     
     curr->parser.write(curr->data_buf, bytes_read);
@@ -130,7 +135,7 @@ boost::json::object readFromConn(){
 }
 
 void writeToConn(boost::json::object& json){
-    debug_printf("Serializing!...");
+    debug_printf("Serializing!...\n");
     json["uuid"]=uuid;
     auto curr=currStruct();
     asio::error_code ec;
@@ -150,11 +155,20 @@ void writeToConn(boost::json::object& json){
     curr->serializer.reset(&json);
     
     std::size_t bytes_serialized=0; //Also serves to point to the first non-empty space in data_buf
+    auto size_buf=asio::buffer(curr->size_buf, 4);
     
     while(true){
-    bytes_serialized+=(curr->serializer.read(&(curr->data_buf[bytes_serialized]), BUFFER_SIZE-bytes_serialized).size());
+    auto written_chars=curr->serializer.read(&(curr->data_buf[bytes_serialized]), BUFFER_SIZE-bytes_serialized);
+    printf("Written chars: %.*s\n", written_chars.size(), written_chars.data());
+    bytes_serialized+=(written_chars.size());
     
     if ((bytes_serialized==BUFFER_SIZE) || (curr->serializer.done())){
+        serializeInt(curr->size_buf, bytes_serialized);
+        asio::write(*(curr->conn), size_buf, ec);
+        if (ec){
+            throw RWError(ec);
+        }
+        
         asio::write(*(curr->conn), asio::buffer(curr->data_buf, bytes_serialized), ec);
         if (ec){
             throw RWError(ec);
