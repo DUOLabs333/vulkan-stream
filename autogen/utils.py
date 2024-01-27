@@ -198,7 +198,15 @@ def convert(variable, value, info, serialize, initialize=False):
         if serialize:
             result+=f"""{value}={variable};"""
         else:
-            result+=f"""{variable}=static_cast<{type}>(value_to<int>({value}));"""
+            result+=f"""
+            if ({value}.is_uint64()){{
+                {variable}=static_cast<{type}>({value}.as_uint64());
+            }}else if ({value}.is_int64()){{
+                {variable}=static_cast<{type}>({value}.as_int64());
+            }}else{{
+                {variable}=static_cast<{type}>({value}.as_double());
+            }}
+            """
     elif kind=="handle":
         if serialize:
             result+=f"serialize_{type}({value},{variable});"

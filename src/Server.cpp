@@ -135,7 +135,6 @@ boost::json::object readFromConn(){
 }
 
 void writeToConn(boost::json::object& json){
-    debug_printf("Serializing!...\n");
     json["uuid"]=uuid;
     auto curr=currStruct();
     asio::error_code ec;
@@ -159,7 +158,6 @@ void writeToConn(boost::json::object& json){
     
     while(true){
     auto written_chars=curr->serializer.read(&(curr->data_buf[bytes_serialized]), BUFFER_SIZE-bytes_serialized);
-    printf("Written chars: %.*s\n", written_chars.size(), written_chars.data());
     bytes_serialized+=(written_chars.size());
     
     if ((bytes_serialized==BUFFER_SIZE) || (curr->serializer.done())){

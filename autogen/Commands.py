@@ -218,7 +218,7 @@ for name, command in parsed.items():
     write(f"""
         json["type"]={name.upper()};
         writeToConn(json);
-    }""")
+    }}""")
 
 write("""
 void handle_command(boost::json::object json){
@@ -476,7 +476,7 @@ for name, command in parsed.items():
             continue;
         """)
         
-    write("break;}}")
+    write("}break;}")
     
     for param in command["params"]:
         write(convert(param["name"],f"""json["{param["name"]}"]""", param, serialize=False))
