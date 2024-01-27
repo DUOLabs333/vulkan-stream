@@ -53,6 +53,9 @@ def convert(variable, value, info, serialize, initialize=False):
     if is_void(info):
         return ""
     
+    if (not serialize) and info.get("name","")=="blendConstants":
+        pass
+        #print(info)
     #Make it easier to refer to
     num_indirection=info["num_indirection"]
     length=info["length"]
@@ -81,7 +84,7 @@ def convert(variable, value, info, serialize, initialize=False):
             variable=temp_variable
             info["header"]=info["header"].replace("const","")
             
-            result+=info["header"].replace(info["name"],temp_variable)
+            result+=re.sub(fr"""\b{info["name"]}\b""",temp_variable,info["header"])+";"
             
             info["const"]=False
             result+=convert(*args())
@@ -145,17 +148,18 @@ def convert(variable, value, info, serialize, initialize=False):
         info["num_indirection"]-=1
         
         if "header" in info:
-            info["header"]=info["header"].replace("*","",1) #Since the the array is one smaller
+            if "*" in info["header"]:
+                info["header"]=info["header"].replace("*","",1) #Since the the array is one smaller
+            else:
+                info["header"]=re.sub(r"\[.*?\]","", info["header"],count=1)
         
         if serialize:
             result+=f"{value}=boost::json::array({size});"
-            
+        
         arr=f"{value}.as_array()"
-        
-        variable+=f"[{temp_iterator}]"
-        
         arr_json=f"arr_{random_string(info)}"
         
+        variable+=f"[{temp_iterator}]"
         value=f"{arr_json}[{temp_iterator}]"
         
         result+=f"""

@@ -220,13 +220,13 @@ for name, struct in parsed.items():
             #ifdef CLIENT
                void* pUserData;
                {convert("pUserData",'json["pUserData"]',pUserData_info, serialize=False,initialize=True)}
-            #else
-                pUserData=new pUserData_struct();
+            #else 
+                auto pUserData=new pUserData_struct();
         """)
-        write(convert("pUserData.pUserData",'json["pUserData"]',pUserData_info,serialize=False,initialize=True))
+        write(convert("pUserData->pUserData",'json["pUserData"]',pUserData_info,serialize=False,initialize=True))
         for member in members:
             if member["type"] in pUserData_members:
-                write(f"""pUserData.{member["name"]}=({member["type"]})(value_to<uintptr_t>(json["{member["type"]}"]));""")
+                write(f"""pUserData->{member["type"]}=(value_to<uintptr_t>(json["{member["type"]}"]));""")
         write("""
         #endif
         member.pUserData=pUserData;

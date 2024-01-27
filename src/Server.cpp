@@ -3,6 +3,7 @@
 #include "Server.hpp"
 #include <ThreadStruct.hpp>
 #include <Synchronization.hpp>
+#include <Serialization.hpp>
 #include <Commands.hpp>
 #include <thread>
 
@@ -35,7 +36,7 @@ class RWError : public std::exception {
         
         currStruct()->conn=socket;
         
-        object json;
+        boost::json::object json;
         while(true){
             try{
             json=readFromConn();
@@ -44,7 +45,7 @@ class RWError : public std::exception {
                 currStruct()->uuid=value_to<int>(json["uuid"]);
             }
             
-            if (value_to<StreamType>(json)==SYNC){
+            if (static_cast<StreamType>(value_to<int>(json["enum"]))==SYNC){
                 handle_sync_init(json);
             }
             else{
@@ -129,7 +130,7 @@ boost::json::object readFromConn(){
 }
 
 void writeToConn(boost::json::object& json){
-    
+    debug_printf("Serializing!...");
     json["uuid"]=uuid;
     auto curr=currStruct();
     asio::error_code ec;

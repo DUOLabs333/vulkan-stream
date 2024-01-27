@@ -41,32 +41,32 @@ auto get_device_proc_addr=(PFN_vkGetDeviceProcAddr)dlsym(vulkan_library,"vkGetDe
     void handle_vkCreateInstance(boost::json::object& json){
     //Will only be called by the server
     
-VkInstanceCreateInfo* pCreateInfo;
-[&](){ VkInstanceCreateInfo* temp_abtPaMc[&](){
+ VkInstanceCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_abtPaMc=NULL;
-            return; }temp_abtPaMc=(VkInstanceCreateInfo*)malloc(1*sizeof(VkInstanceCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkInstanceCreateInfo*)malloc(1*sizeof(VkInstanceCreateInfo));
         auto& arr_KMjnDnU=json["pCreateInfo"].as_array();
         for(int tBToPhv=0; tBToPhv < 1; tBToPhv++){
             [&](){
             auto& temp=arr_KMjnDnU[tBToPhv].as_object();
-            deserialize_struct(temp,temp_abtPaMc[tBToPhv]);
+            deserialize_struct(temp,pCreateInfo[tBToPhv]);
             }();
         }
-        }();pCreateInfo=temp_abtPaMc;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkInstance* pInstance;
 [&](){
             if (json["pInstance"].as_array().size()==0){
@@ -92,6 +92,7 @@ VkInstance* pInstance;
         call_function=(PFN_vkCreateInstance)get_device_proc_addr(parent,"vkCreateInstance");
     }  
     
+VkResult  result;
 {
 
 
@@ -132,7 +133,7 @@ VkInstance* pInstance;
         pCreateInfo->ppEnabledExtensionNames=extensions_list;
         pCreateInfo->enabledExtensionCount=extensions_length;            
         
-auto result=call_function(pCreateInfo, pAllocator, pInstance);
+result=call_function(pCreateInfo, pAllocator, pInstance);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -179,19 +180,19 @@ json.clear();
     
 VkInstance instance;
 [&](){deserialize_VkInstance(json["instance"], instance);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyInstance call_function;
     
@@ -270,8 +271,9 @@ VkPhysicalDevice* pPhysicalDevices;
         call_function=(PFN_vkEnumeratePhysicalDevices)get_device_proc_addr(parent,"vkEnumeratePhysicalDevices");
     }  
     
+VkResult  result;
 {
-auto result=call_function(instance, pPhysicalDeviceCount, pPhysicalDevices);
+result=call_function(instance, pPhysicalDeviceCount, pPhysicalDevices);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -304,16 +306,16 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-char* pName;
-[&](){ char* temp_sjnYeTb[&](){
+ char* pName;
+[&](){
             if (json["pName"].as_array().size()==0){
-                temp_sjnYeTb=NULL;
-            return; }temp_sjnYeTb=(char*)malloc(json["pName"].as_array().size()*sizeof(char));
+                pName=NULL;
+            return; }pName=(char*)malloc(json["pName"].as_array().size()*sizeof(char));
         auto& arr_OBaQazs=json["pName"].as_array();
         for(int eoosrrl=0; eoosrrl < json["pName"].as_array().size(); eoosrrl++){
-            [&](){temp_sjnYeTb[eoosrrl]=static_cast<char>(value_to<int>(arr_OBaQazs[eoosrrl]));}();
+            [&](){pName[eoosrrl]=static_cast<char>(value_to<int>(arr_OBaQazs[eoosrrl]));}();
         }
-        }();pName=temp_sjnYeTb;}();
+        }();
 
     PFN_vkGetDeviceProcAddr call_function;
     
@@ -329,8 +331,9 @@ char* pName;
         call_function=(PFN_vkGetDeviceProcAddr)get_device_proc_addr(parent,"vkGetDeviceProcAddr");
     }  
     
+PFN_vkVoidFunction  result;
 {
-auto result=call_function(device, pName);
+result=call_function(device, pName);
 }
 json.clear();
 json["result"]=(uintptr_t)result;
@@ -354,16 +357,16 @@ json["result"]=(uintptr_t)result;
     
 VkInstance instance;
 [&](){deserialize_VkInstance(json["instance"], instance);}();
-char* pName;
-[&](){ char* temp_sjnYeTb[&](){
+ char* pName;
+[&](){
             if (json["pName"].as_array().size()==0){
-                temp_sjnYeTb=NULL;
-            return; }temp_sjnYeTb=(char*)malloc(json["pName"].as_array().size()*sizeof(char));
+                pName=NULL;
+            return; }pName=(char*)malloc(json["pName"].as_array().size()*sizeof(char));
         auto& arr_OBaQazs=json["pName"].as_array();
         for(int eoosrrl=0; eoosrrl < json["pName"].as_array().size(); eoosrrl++){
-            [&](){temp_sjnYeTb[eoosrrl]=static_cast<char>(value_to<int>(arr_OBaQazs[eoosrrl]));}();
+            [&](){pName[eoosrrl]=static_cast<char>(value_to<int>(arr_OBaQazs[eoosrrl]));}();
         }
-        }();pName=temp_sjnYeTb;}();
+        }();
 
     PFN_vkGetInstanceProcAddr call_function;
     
@@ -379,8 +382,9 @@ char* pName;
         call_function=(PFN_vkGetInstanceProcAddr)get_device_proc_addr(parent,"vkGetInstanceProcAddr");
     }  
     
+PFN_vkVoidFunction  result;
 {
-auto result=call_function(instance, pName);
+result=call_function(instance, pName);
 }
 debug_printf("Getting %s\n",pName);
 json.clear();
@@ -745,8 +749,9 @@ VkImageFormatProperties* pImageFormatProperties;
         call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties)get_device_proc_addr(parent,"vkGetPhysicalDeviceImageFormatProperties");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, format, type, tiling, usage, flags, pImageFormatProperties);
+result=call_function(physicalDevice, format, type, tiling, usage, flags, pImageFormatProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -778,32 +783,32 @@ json.clear();
     
 VkPhysicalDevice physicalDevice;
 [&](){deserialize_VkPhysicalDevice(json["physicalDevice"], physicalDevice);}();
-VkDeviceCreateInfo* pCreateInfo;
-[&](){ VkDeviceCreateInfo* temp_BaoTgZc[&](){
+ VkDeviceCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_BaoTgZc=NULL;
-            return; }temp_BaoTgZc=(VkDeviceCreateInfo*)malloc(1*sizeof(VkDeviceCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkDeviceCreateInfo*)malloc(1*sizeof(VkDeviceCreateInfo));
         auto& arr_weWBoax=json["pCreateInfo"].as_array();
         for(int JAVPgPK=0; JAVPgPK < 1; JAVPgPK++){
             [&](){
             auto& temp=arr_weWBoax[JAVPgPK].as_object();
-            deserialize_struct(temp,temp_BaoTgZc[JAVPgPK]);
+            deserialize_struct(temp,pCreateInfo[JAVPgPK]);
             }();
         }
-        }();pCreateInfo=temp_BaoTgZc;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkDevice* pDevice;
 [&](){
             if (json["pDevice"].as_array().size()==0){
@@ -829,6 +834,7 @@ VkDevice* pDevice;
         call_function=(PFN_vkCreateDevice)get_device_proc_addr(parent,"vkCreateDevice");
     }  
     
+VkResult  result;
 {
 
         VkDeviceCreateInfo* temp_info=pCreateInfo;
@@ -861,7 +867,7 @@ VkDevice* pDevice;
         pCreateInfo->ppEnabledExtensionNames=extensions_list;
         pCreateInfo->enabledExtensionCount=extensions_length;            
         
-auto result=call_function(physicalDevice, pCreateInfo, pAllocator, pDevice);
+result=call_function(physicalDevice, pCreateInfo, pAllocator, pDevice);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -909,19 +915,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyDevice call_function;
     
@@ -988,8 +994,9 @@ uint32_t* pApiVersion;
         call_function=(PFN_vkEnumerateInstanceVersion)get_device_proc_addr(parent,"vkEnumerateInstanceVersion");
     }  
     
+VkResult  result;
 {
-auto result=call_function(pApiVersion);
+result=call_function(pApiVersion);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -1048,8 +1055,9 @@ VkLayerProperties* pProperties;
         call_function=(PFN_vkEnumerateInstanceLayerProperties)get_device_proc_addr(parent,"vkEnumerateInstanceLayerProperties");
     }  
     
+VkResult  result;
 {
-auto result=call_function(pPropertyCount, pProperties);
+result=call_function(pPropertyCount, pProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -1082,16 +1090,16 @@ json.clear();
     void handle_vkEnumerateInstanceExtensionProperties(boost::json::object& json){
     //Will only be called by the server
     
-char* pLayerName;
-[&](){ char* temp_qzFPgHh[&](){
+ char* pLayerName;
+[&](){
             if (json["pLayerName"].as_array().size()==0){
-                temp_qzFPgHh=NULL;
-            return; }temp_qzFPgHh=(char*)malloc(json["pLayerName"].as_array().size()*sizeof(char));
+                pLayerName=NULL;
+            return; }pLayerName=(char*)malloc(json["pLayerName"].as_array().size()*sizeof(char));
         auto& arr_pwIbPmt=json["pLayerName"].as_array();
         for(int ybQeduD=0; ybQeduD < json["pLayerName"].as_array().size(); ybQeduD++){
-            [&](){temp_qzFPgHh[ybQeduD]=static_cast<char>(value_to<int>(arr_pwIbPmt[ybQeduD]));}();
+            [&](){pLayerName[ybQeduD]=static_cast<char>(value_to<int>(arr_pwIbPmt[ybQeduD]));}();
         }
-        }();pLayerName=temp_qzFPgHh;}();
+        }();
 uint32_t* pPropertyCount;
 [&](){
             if (json["pPropertyCount"].as_array().size()==0){
@@ -1130,8 +1138,9 @@ VkExtensionProperties* pProperties;
         call_function=(PFN_vkEnumerateInstanceExtensionProperties)get_device_proc_addr(parent,"vkEnumerateInstanceExtensionProperties");
     }  
     
+VkResult  result;
 {
-auto result=call_function(pLayerName, pPropertyCount, pProperties);
+result=call_function(pLayerName, pPropertyCount, pProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -1213,8 +1222,9 @@ VkLayerProperties* pProperties;
         call_function=(PFN_vkEnumerateDeviceLayerProperties)get_device_proc_addr(parent,"vkEnumerateDeviceLayerProperties");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pPropertyCount, pProperties);
+result=call_function(physicalDevice, pPropertyCount, pProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -1250,16 +1260,16 @@ json.clear();
     
 VkPhysicalDevice physicalDevice;
 [&](){deserialize_VkPhysicalDevice(json["physicalDevice"], physicalDevice);}();
-char* pLayerName;
-[&](){ char* temp_qzFPgHh[&](){
+ char* pLayerName;
+[&](){
             if (json["pLayerName"].as_array().size()==0){
-                temp_qzFPgHh=NULL;
-            return; }temp_qzFPgHh=(char*)malloc(json["pLayerName"].as_array().size()*sizeof(char));
+                pLayerName=NULL;
+            return; }pLayerName=(char*)malloc(json["pLayerName"].as_array().size()*sizeof(char));
         auto& arr_pwIbPmt=json["pLayerName"].as_array();
         for(int ybQeduD=0; ybQeduD < json["pLayerName"].as_array().size(); ybQeduD++){
-            [&](){temp_qzFPgHh[ybQeduD]=static_cast<char>(value_to<int>(arr_pwIbPmt[ybQeduD]));}();
+            [&](){pLayerName[ybQeduD]=static_cast<char>(value_to<int>(arr_pwIbPmt[ybQeduD]));}();
         }
-        }();pLayerName=temp_qzFPgHh;}();
+        }();
 uint32_t* pPropertyCount;
 [&](){
             if (json["pPropertyCount"].as_array().size()==0){
@@ -1298,8 +1308,9 @@ VkExtensionProperties* pProperties;
         call_function=(PFN_vkEnumerateDeviceExtensionProperties)get_device_proc_addr(parent,"vkEnumerateDeviceExtensionProperties");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pLayerName, pPropertyCount, pProperties);
+result=call_function(physicalDevice, pLayerName, pPropertyCount, pProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -1402,19 +1413,19 @@ VkQueue queue;
 [&](){deserialize_VkQueue(json["queue"], queue);}();
 uint32_t submitCount;
 [&](){submitCount=static_cast<uint32_t>(value_to<int>(json["submitCount"]));}();
-VkSubmitInfo* pSubmits;
-[&](){ VkSubmitInfo* temp_xTlWHqk[&](){
+ VkSubmitInfo* pSubmits;
+[&](){
             if (json["pSubmits"].as_array().size()==0){
-                temp_xTlWHqk=NULL;
-            return; }temp_xTlWHqk=(VkSubmitInfo*)malloc(submitCount*sizeof(VkSubmitInfo));
+                pSubmits=NULL;
+            return; }pSubmits=(VkSubmitInfo*)malloc(submitCount*sizeof(VkSubmitInfo));
         auto& arr_TcbTpKH=json["pSubmits"].as_array();
         for(int XjgvzRX=0; XjgvzRX < submitCount; XjgvzRX++){
             [&](){
             auto& temp=arr_TcbTpKH[XjgvzRX].as_object();
-            deserialize_struct(temp,temp_xTlWHqk[XjgvzRX]);
+            deserialize_struct(temp,pSubmits[XjgvzRX]);
             }();
         }
-        }();pSubmits=temp_xTlWHqk;}();
+        }();
 VkFence fence;
 [&](){deserialize_VkFence(json["fence"], fence);}();
 
@@ -1432,8 +1443,9 @@ VkFence fence;
         call_function=(PFN_vkQueueSubmit)get_device_proc_addr(parent,"vkQueueSubmit");
     }  
     
+VkResult  result;
 {
-auto result=call_function(queue, submitCount, pSubmits, fence);
+result=call_function(queue, submitCount, pSubmits, fence);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -1477,8 +1489,9 @@ VkQueue queue;
         call_function=(PFN_vkQueueWaitIdle)get_device_proc_addr(parent,"vkQueueWaitIdle");
     }  
     
+VkResult  result;
 {
-auto result=call_function(queue);
+result=call_function(queue);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -1508,8 +1521,9 @@ VkDevice device;
         call_function=(PFN_vkDeviceWaitIdle)get_device_proc_addr(parent,"vkDeviceWaitIdle");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device);
+result=call_function(device);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -1524,32 +1538,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkMemoryAllocateInfo* pAllocateInfo;
-[&](){ VkMemoryAllocateInfo* temp_mqYZmru[&](){
+ VkMemoryAllocateInfo* pAllocateInfo;
+[&](){
             if (json["pAllocateInfo"].as_array().size()==0){
-                temp_mqYZmru=NULL;
-            return; }temp_mqYZmru=(VkMemoryAllocateInfo*)malloc(1*sizeof(VkMemoryAllocateInfo));
+                pAllocateInfo=NULL;
+            return; }pAllocateInfo=(VkMemoryAllocateInfo*)malloc(1*sizeof(VkMemoryAllocateInfo));
         auto& arr_deRkgom=json["pAllocateInfo"].as_array();
         for(int ujZsXLJ=0; ujZsXLJ < 1; ujZsXLJ++){
             [&](){
             auto& temp=arr_deRkgom[ujZsXLJ].as_object();
-            deserialize_struct(temp,temp_mqYZmru[ujZsXLJ]);
+            deserialize_struct(temp,pAllocateInfo[ujZsXLJ]);
             }();
         }
-        }();pAllocateInfo=temp_mqYZmru;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkDeviceMemory* pMemory;
 [&](){
             if (json["pMemory"].as_array().size()==0){
@@ -1575,8 +1589,9 @@ VkDeviceMemory* pMemory;
         call_function=(PFN_vkAllocateMemory)get_device_proc_addr(parent,"vkAllocateMemory");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pAllocateInfo, pAllocator, pMemory);
+result=call_function(device, pAllocateInfo, pAllocator, pMemory);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -1626,19 +1641,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkDeviceMemory memory;
 [&](){deserialize_VkDeviceMemory(json["memory"], memory);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkFreeMemory call_function;
     
@@ -1727,8 +1742,9 @@ void** ppData;
         call_function=(PFN_vkMapMemory)get_device_proc_addr(parent,"vkMapMemory");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, memory, offset, size, flags, ppData);
+result=call_function(device, memory, offset, size, flags, ppData);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -1814,19 +1830,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 uint32_t memoryRangeCount;
 [&](){memoryRangeCount=static_cast<uint32_t>(value_to<int>(json["memoryRangeCount"]));}();
-VkMappedMemoryRange* pMemoryRanges;
-[&](){ VkMappedMemoryRange* temp_clUIhVC[&](){
+ VkMappedMemoryRange* pMemoryRanges;
+[&](){
             if (json["pMemoryRanges"].as_array().size()==0){
-                temp_clUIhVC=NULL;
-            return; }temp_clUIhVC=(VkMappedMemoryRange*)malloc(memoryRangeCount*sizeof(VkMappedMemoryRange));
+                pMemoryRanges=NULL;
+            return; }pMemoryRanges=(VkMappedMemoryRange*)malloc(memoryRangeCount*sizeof(VkMappedMemoryRange));
         auto& arr_nFHDtPn=json["pMemoryRanges"].as_array();
         for(int oXMPKll=0; oXMPKll < memoryRangeCount; oXMPKll++){
             [&](){
             auto& temp=arr_nFHDtPn[oXMPKll].as_object();
-            deserialize_struct(temp,temp_clUIhVC[oXMPKll]);
+            deserialize_struct(temp,pMemoryRanges[oXMPKll]);
             }();
         }
-        }();pMemoryRanges=temp_clUIhVC;}();
+        }();
 
     PFN_vkFlushMappedMemoryRanges call_function;
     
@@ -1842,8 +1858,9 @@ VkMappedMemoryRange* pMemoryRanges;
         call_function=(PFN_vkFlushMappedMemoryRanges)get_device_proc_addr(parent,"vkFlushMappedMemoryRanges");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, memoryRangeCount, pMemoryRanges);
+result=call_function(device, memoryRangeCount, pMemoryRanges);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -1873,19 +1890,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 uint32_t memoryRangeCount;
 [&](){memoryRangeCount=static_cast<uint32_t>(value_to<int>(json["memoryRangeCount"]));}();
-VkMappedMemoryRange* pMemoryRanges;
-[&](){ VkMappedMemoryRange* temp_clUIhVC[&](){
+ VkMappedMemoryRange* pMemoryRanges;
+[&](){
             if (json["pMemoryRanges"].as_array().size()==0){
-                temp_clUIhVC=NULL;
-            return; }temp_clUIhVC=(VkMappedMemoryRange*)malloc(memoryRangeCount*sizeof(VkMappedMemoryRange));
+                pMemoryRanges=NULL;
+            return; }pMemoryRanges=(VkMappedMemoryRange*)malloc(memoryRangeCount*sizeof(VkMappedMemoryRange));
         auto& arr_nFHDtPn=json["pMemoryRanges"].as_array();
         for(int oXMPKll=0; oXMPKll < memoryRangeCount; oXMPKll++){
             [&](){
             auto& temp=arr_nFHDtPn[oXMPKll].as_object();
-            deserialize_struct(temp,temp_clUIhVC[oXMPKll]);
+            deserialize_struct(temp,pMemoryRanges[oXMPKll]);
             }();
         }
-        }();pMemoryRanges=temp_clUIhVC;}();
+        }();
 
     PFN_vkInvalidateMappedMemoryRanges call_function;
     
@@ -1901,8 +1918,9 @@ VkMappedMemoryRange* pMemoryRanges;
         call_function=(PFN_vkInvalidateMappedMemoryRanges)get_device_proc_addr(parent,"vkInvalidateMappedMemoryRanges");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, memoryRangeCount, pMemoryRanges);
+result=call_function(device, memoryRangeCount, pMemoryRanges);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -2063,8 +2081,9 @@ VkDeviceSize memoryOffset;
         call_function=(PFN_vkBindBufferMemory)get_device_proc_addr(parent,"vkBindBufferMemory");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, buffer, memory, memoryOffset);
+result=call_function(device, buffer, memory, memoryOffset);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -2162,8 +2181,9 @@ VkDeviceSize memoryOffset;
         call_function=(PFN_vkBindImageMemory)get_device_proc_addr(parent,"vkBindImageMemory");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, image, memory, memoryOffset);
+result=call_function(device, image, memory, memoryOffset);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -2351,19 +2371,19 @@ VkQueue queue;
 [&](){deserialize_VkQueue(json["queue"], queue);}();
 uint32_t bindInfoCount;
 [&](){bindInfoCount=static_cast<uint32_t>(value_to<int>(json["bindInfoCount"]));}();
-VkBindSparseInfo* pBindInfo;
-[&](){ VkBindSparseInfo* temp_FhLonTg[&](){
+ VkBindSparseInfo* pBindInfo;
+[&](){
             if (json["pBindInfo"].as_array().size()==0){
-                temp_FhLonTg=NULL;
-            return; }temp_FhLonTg=(VkBindSparseInfo*)malloc(bindInfoCount*sizeof(VkBindSparseInfo));
+                pBindInfo=NULL;
+            return; }pBindInfo=(VkBindSparseInfo*)malloc(bindInfoCount*sizeof(VkBindSparseInfo));
         auto& arr_yoxMwfS=json["pBindInfo"].as_array();
         for(int dbkPgzh=0; dbkPgzh < bindInfoCount; dbkPgzh++){
             [&](){
             auto& temp=arr_yoxMwfS[dbkPgzh].as_object();
-            deserialize_struct(temp,temp_FhLonTg[dbkPgzh]);
+            deserialize_struct(temp,pBindInfo[dbkPgzh]);
             }();
         }
-        }();pBindInfo=temp_FhLonTg;}();
+        }();
 VkFence fence;
 [&](){deserialize_VkFence(json["fence"], fence);}();
 
@@ -2381,8 +2401,9 @@ VkFence fence;
         call_function=(PFN_vkQueueBindSparse)get_device_proc_addr(parent,"vkQueueBindSparse");
     }  
     
+VkResult  result;
 {
-auto result=call_function(queue, bindInfoCount, pBindInfo, fence);
+result=call_function(queue, bindInfoCount, pBindInfo, fence);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -2411,32 +2432,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkFenceCreateInfo* pCreateInfo;
-[&](){ VkFenceCreateInfo* temp_SvAOcpg[&](){
+ VkFenceCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_SvAOcpg=NULL;
-            return; }temp_SvAOcpg=(VkFenceCreateInfo*)malloc(1*sizeof(VkFenceCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkFenceCreateInfo*)malloc(1*sizeof(VkFenceCreateInfo));
         auto& arr_cSMNytM=json["pCreateInfo"].as_array();
         for(int JOkcmyM=0; JOkcmyM < 1; JOkcmyM++){
             [&](){
             auto& temp=arr_cSMNytM[JOkcmyM].as_object();
-            deserialize_struct(temp,temp_SvAOcpg[JOkcmyM]);
+            deserialize_struct(temp,pCreateInfo[JOkcmyM]);
             }();
         }
-        }();pCreateInfo=temp_SvAOcpg;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkFence* pFence;
 [&](){
             if (json["pFence"].as_array().size()==0){
@@ -2462,8 +2483,9 @@ VkFence* pFence;
         call_function=(PFN_vkCreateFence)get_device_proc_addr(parent,"vkCreateFence");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pFence);
+result=call_function(device, pCreateInfo, pAllocator, pFence);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -2513,19 +2535,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkFence fence;
 [&](){deserialize_VkFence(json["fence"], fence);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyFence call_function;
     
@@ -2572,16 +2594,16 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 uint32_t fenceCount;
 [&](){fenceCount=static_cast<uint32_t>(value_to<int>(json["fenceCount"]));}();
-VkFence* pFences;
-[&](){ VkFence* temp_AqhVhJs[&](){
+ VkFence* pFences;
+[&](){
             if (json["pFences"].as_array().size()==0){
-                temp_AqhVhJs=NULL;
-            return; }temp_AqhVhJs=(VkFence*)malloc(fenceCount*sizeof(VkFence));
+                pFences=NULL;
+            return; }pFences=(VkFence*)malloc(fenceCount*sizeof(VkFence));
         auto& arr_nntmqqP=json["pFences"].as_array();
         for(int hksYnfK=0; hksYnfK < fenceCount; hksYnfK++){
-            [&](){deserialize_VkFence(arr_nntmqqP[hksYnfK], temp_AqhVhJs[hksYnfK]);}();
+            [&](){deserialize_VkFence(arr_nntmqqP[hksYnfK], pFences[hksYnfK]);}();
         }
-        }();pFences=temp_AqhVhJs;}();
+        }();
 
     PFN_vkResetFences call_function;
     
@@ -2597,8 +2619,9 @@ VkFence* pFences;
         call_function=(PFN_vkResetFences)get_device_proc_addr(parent,"vkResetFences");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, fenceCount, pFences);
+result=call_function(device, fenceCount, pFences);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -2640,8 +2663,9 @@ VkFence fence;
         call_function=(PFN_vkGetFenceStatus)get_device_proc_addr(parent,"vkGetFenceStatus");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, fence);
+result=call_function(device, fence);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -2659,16 +2683,16 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 uint32_t fenceCount;
 [&](){fenceCount=static_cast<uint32_t>(value_to<int>(json["fenceCount"]));}();
-VkFence* pFences;
-[&](){ VkFence* temp_AqhVhJs[&](){
+ VkFence* pFences;
+[&](){
             if (json["pFences"].as_array().size()==0){
-                temp_AqhVhJs=NULL;
-            return; }temp_AqhVhJs=(VkFence*)malloc(fenceCount*sizeof(VkFence));
+                pFences=NULL;
+            return; }pFences=(VkFence*)malloc(fenceCount*sizeof(VkFence));
         auto& arr_nntmqqP=json["pFences"].as_array();
         for(int hksYnfK=0; hksYnfK < fenceCount; hksYnfK++){
-            [&](){deserialize_VkFence(arr_nntmqqP[hksYnfK], temp_AqhVhJs[hksYnfK]);}();
+            [&](){deserialize_VkFence(arr_nntmqqP[hksYnfK], pFences[hksYnfK]);}();
         }
-        }();pFences=temp_AqhVhJs;}();
+        }();
 VkBool32 waitAll;
 [&](){uint32_t temp_pqKsrTL;[&](){temp_pqKsrTL=static_cast<uint32_t>(value_to<int>(json["waitAll"]));}();waitAll=(VkBool32)temp_pqKsrTL;}();
 uint64_t timeout;
@@ -2688,8 +2712,9 @@ uint64_t timeout;
         call_function=(PFN_vkWaitForFences)get_device_proc_addr(parent,"vkWaitForFences");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, fenceCount, pFences, waitAll, timeout);
+result=call_function(device, fenceCount, pFences, waitAll, timeout);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -2721,32 +2746,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkSemaphoreCreateInfo* pCreateInfo;
-[&](){ VkSemaphoreCreateInfo* temp_vcypzvq[&](){
+ VkSemaphoreCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_vcypzvq=NULL;
-            return; }temp_vcypzvq=(VkSemaphoreCreateInfo*)malloc(1*sizeof(VkSemaphoreCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkSemaphoreCreateInfo*)malloc(1*sizeof(VkSemaphoreCreateInfo));
         auto& arr_FJDFSKM=json["pCreateInfo"].as_array();
         for(int aGXpPVQ=0; aGXpPVQ < 1; aGXpPVQ++){
             [&](){
             auto& temp=arr_FJDFSKM[aGXpPVQ].as_object();
-            deserialize_struct(temp,temp_vcypzvq[aGXpPVQ]);
+            deserialize_struct(temp,pCreateInfo[aGXpPVQ]);
             }();
         }
-        }();pCreateInfo=temp_vcypzvq;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkSemaphore* pSemaphore;
 [&](){
             if (json["pSemaphore"].as_array().size()==0){
@@ -2772,8 +2797,9 @@ VkSemaphore* pSemaphore;
         call_function=(PFN_vkCreateSemaphore)get_device_proc_addr(parent,"vkCreateSemaphore");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pSemaphore);
+result=call_function(device, pCreateInfo, pAllocator, pSemaphore);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -2823,19 +2849,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkSemaphore semaphore;
 [&](){deserialize_VkSemaphore(json["semaphore"], semaphore);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroySemaphore call_function;
     
@@ -2880,32 +2906,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkEventCreateInfo* pCreateInfo;
-[&](){ VkEventCreateInfo* temp_hcihAHF[&](){
+ VkEventCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_hcihAHF=NULL;
-            return; }temp_hcihAHF=(VkEventCreateInfo*)malloc(1*sizeof(VkEventCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkEventCreateInfo*)malloc(1*sizeof(VkEventCreateInfo));
         auto& arr_cHgRyNm=json["pCreateInfo"].as_array();
         for(int gikyLcY=0; gikyLcY < 1; gikyLcY++){
             [&](){
             auto& temp=arr_cHgRyNm[gikyLcY].as_object();
-            deserialize_struct(temp,temp_hcihAHF[gikyLcY]);
+            deserialize_struct(temp,pCreateInfo[gikyLcY]);
             }();
         }
-        }();pCreateInfo=temp_hcihAHF;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkEvent* pEvent;
 [&](){
             if (json["pEvent"].as_array().size()==0){
@@ -2931,8 +2957,9 @@ VkEvent* pEvent;
         call_function=(PFN_vkCreateEvent)get_device_proc_addr(parent,"vkCreateEvent");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pEvent);
+result=call_function(device, pCreateInfo, pAllocator, pEvent);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -2982,19 +3009,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkEvent event;
 [&](){deserialize_VkEvent(json["event"], event);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyEvent call_function;
     
@@ -3056,8 +3083,9 @@ VkEvent event;
         call_function=(PFN_vkGetEventStatus)get_device_proc_addr(parent,"vkGetEventStatus");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, event);
+result=call_function(device, event);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -3090,8 +3118,9 @@ VkEvent event;
         call_function=(PFN_vkSetEvent)get_device_proc_addr(parent,"vkSetEvent");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, event);
+result=call_function(device, event);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -3124,8 +3153,9 @@ VkEvent event;
         call_function=(PFN_vkResetEvent)get_device_proc_addr(parent,"vkResetEvent");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, event);
+result=call_function(device, event);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -3141,32 +3171,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkQueryPoolCreateInfo* pCreateInfo;
-[&](){ VkQueryPoolCreateInfo* temp_SDSXpYj[&](){
+ VkQueryPoolCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_SDSXpYj=NULL;
-            return; }temp_SDSXpYj=(VkQueryPoolCreateInfo*)malloc(1*sizeof(VkQueryPoolCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkQueryPoolCreateInfo*)malloc(1*sizeof(VkQueryPoolCreateInfo));
         auto& arr_OFyRSSf=json["pCreateInfo"].as_array();
         for(int HxljsQx=0; HxljsQx < 1; HxljsQx++){
             [&](){
             auto& temp=arr_OFyRSSf[HxljsQx].as_object();
-            deserialize_struct(temp,temp_SDSXpYj[HxljsQx]);
+            deserialize_struct(temp,pCreateInfo[HxljsQx]);
             }();
         }
-        }();pCreateInfo=temp_SDSXpYj;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkQueryPool* pQueryPool;
 [&](){
             if (json["pQueryPool"].as_array().size()==0){
@@ -3192,8 +3222,9 @@ VkQueryPool* pQueryPool;
         call_function=(PFN_vkCreateQueryPool)get_device_proc_addr(parent,"vkCreateQueryPool");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pQueryPool);
+result=call_function(device, pCreateInfo, pAllocator, pQueryPool);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -3243,19 +3274,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkQueryPool queryPool;
 [&](){deserialize_VkQueryPool(json["queryPool"], queryPool);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyQueryPool call_function;
     
@@ -3340,8 +3371,9 @@ VkQueryResultFlags flags;
         call_function=(PFN_vkGetQueryPoolResults)get_device_proc_addr(parent,"vkGetQueryPoolResults");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, queryPool, firstQuery, queryCount, dataSize, pData, stride, flags);
+result=call_function(device, queryPool, firstQuery, queryCount, dataSize, pData, stride, flags);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -3414,32 +3446,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkBufferCreateInfo* pCreateInfo;
-[&](){ VkBufferCreateInfo* temp_gfIPKwm[&](){
+ VkBufferCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_gfIPKwm=NULL;
-            return; }temp_gfIPKwm=(VkBufferCreateInfo*)malloc(1*sizeof(VkBufferCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkBufferCreateInfo*)malloc(1*sizeof(VkBufferCreateInfo));
         auto& arr_vAtICCQ=json["pCreateInfo"].as_array();
         for(int kBYZDCM=0; kBYZDCM < 1; kBYZDCM++){
             [&](){
             auto& temp=arr_vAtICCQ[kBYZDCM].as_object();
-            deserialize_struct(temp,temp_gfIPKwm[kBYZDCM]);
+            deserialize_struct(temp,pCreateInfo[kBYZDCM]);
             }();
         }
-        }();pCreateInfo=temp_gfIPKwm;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkBuffer* pBuffer;
 [&](){
             if (json["pBuffer"].as_array().size()==0){
@@ -3465,8 +3497,9 @@ VkBuffer* pBuffer;
         call_function=(PFN_vkCreateBuffer)get_device_proc_addr(parent,"vkCreateBuffer");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pBuffer);
+result=call_function(device, pCreateInfo, pAllocator, pBuffer);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -3516,19 +3549,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkBuffer buffer;
 [&](){deserialize_VkBuffer(json["buffer"], buffer);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyBuffer call_function;
     
@@ -3573,32 +3606,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkBufferViewCreateInfo* pCreateInfo;
-[&](){ VkBufferViewCreateInfo* temp_AokAAPK[&](){
+ VkBufferViewCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_AokAAPK=NULL;
-            return; }temp_AokAAPK=(VkBufferViewCreateInfo*)malloc(1*sizeof(VkBufferViewCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkBufferViewCreateInfo*)malloc(1*sizeof(VkBufferViewCreateInfo));
         auto& arr_MSlizKJ=json["pCreateInfo"].as_array();
         for(int bEIfqcJ=0; bEIfqcJ < 1; bEIfqcJ++){
             [&](){
             auto& temp=arr_MSlizKJ[bEIfqcJ].as_object();
-            deserialize_struct(temp,temp_AokAAPK[bEIfqcJ]);
+            deserialize_struct(temp,pCreateInfo[bEIfqcJ]);
             }();
         }
-        }();pCreateInfo=temp_AokAAPK;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkBufferView* pView;
 [&](){
             if (json["pView"].as_array().size()==0){
@@ -3624,8 +3657,9 @@ VkBufferView* pView;
         call_function=(PFN_vkCreateBufferView)get_device_proc_addr(parent,"vkCreateBufferView");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pView);
+result=call_function(device, pCreateInfo, pAllocator, pView);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -3675,19 +3709,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkBufferView bufferView;
 [&](){deserialize_VkBufferView(json["bufferView"], bufferView);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyBufferView call_function;
     
@@ -3732,32 +3766,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkImageCreateInfo* pCreateInfo;
-[&](){ VkImageCreateInfo* temp_uEOPMPT[&](){
+ VkImageCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_uEOPMPT=NULL;
-            return; }temp_uEOPMPT=(VkImageCreateInfo*)malloc(1*sizeof(VkImageCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkImageCreateInfo*)malloc(1*sizeof(VkImageCreateInfo));
         auto& arr_yCiQzQk=json["pCreateInfo"].as_array();
         for(int QiYISUj=0; QiYISUj < 1; QiYISUj++){
             [&](){
             auto& temp=arr_yCiQzQk[QiYISUj].as_object();
-            deserialize_struct(temp,temp_uEOPMPT[QiYISUj]);
+            deserialize_struct(temp,pCreateInfo[QiYISUj]);
             }();
         }
-        }();pCreateInfo=temp_uEOPMPT;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkImage* pImage;
 [&](){
             if (json["pImage"].as_array().size()==0){
@@ -3783,8 +3817,9 @@ VkImage* pImage;
         call_function=(PFN_vkCreateImage)get_device_proc_addr(parent,"vkCreateImage");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pImage);
+result=call_function(device, pCreateInfo, pAllocator, pImage);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -3834,19 +3869,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkImage image;
 [&](){deserialize_VkImage(json["image"], image);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyImage call_function;
     
@@ -3893,19 +3928,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkImage image;
 [&](){deserialize_VkImage(json["image"], image);}();
-VkImageSubresource* pSubresource;
-[&](){ VkImageSubresource* temp_nosABzE[&](){
+ VkImageSubresource* pSubresource;
+[&](){
             if (json["pSubresource"].as_array().size()==0){
-                temp_nosABzE=NULL;
-            return; }temp_nosABzE=(VkImageSubresource*)malloc(1*sizeof(VkImageSubresource));
+                pSubresource=NULL;
+            return; }pSubresource=(VkImageSubresource*)malloc(1*sizeof(VkImageSubresource));
         auto& arr_zbWgqCd=json["pSubresource"].as_array();
         for(int ioHtFIy=0; ioHtFIy < 1; ioHtFIy++){
             [&](){
             auto& temp=arr_zbWgqCd[ioHtFIy].as_object();
-            deserialize_struct(temp,temp_nosABzE[ioHtFIy]);
+            deserialize_struct(temp,pSubresource[ioHtFIy]);
             }();
         }
-        }();pSubresource=temp_nosABzE;}();
+        }();
 VkSubresourceLayout* pLayout;
 [&](){
             if (json["pLayout"].as_array().size()==0){
@@ -3975,32 +4010,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkImageViewCreateInfo* pCreateInfo;
-[&](){ VkImageViewCreateInfo* temp_wrOeeAb[&](){
+ VkImageViewCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_wrOeeAb=NULL;
-            return; }temp_wrOeeAb=(VkImageViewCreateInfo*)malloc(1*sizeof(VkImageViewCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkImageViewCreateInfo*)malloc(1*sizeof(VkImageViewCreateInfo));
         auto& arr_JenFyWd=json["pCreateInfo"].as_array();
         for(int RiehwsS=0; RiehwsS < 1; RiehwsS++){
             [&](){
             auto& temp=arr_JenFyWd[RiehwsS].as_object();
-            deserialize_struct(temp,temp_wrOeeAb[RiehwsS]);
+            deserialize_struct(temp,pCreateInfo[RiehwsS]);
             }();
         }
-        }();pCreateInfo=temp_wrOeeAb;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkImageView* pView;
 [&](){
             if (json["pView"].as_array().size()==0){
@@ -4026,8 +4061,9 @@ VkImageView* pView;
         call_function=(PFN_vkCreateImageView)get_device_proc_addr(parent,"vkCreateImageView");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pView);
+result=call_function(device, pCreateInfo, pAllocator, pView);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -4077,19 +4113,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkImageView imageView;
 [&](){deserialize_VkImageView(json["imageView"], imageView);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyImageView call_function;
     
@@ -4134,32 +4170,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkShaderModuleCreateInfo* pCreateInfo;
-[&](){ VkShaderModuleCreateInfo* temp_VfXsFIV[&](){
+ VkShaderModuleCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_VfXsFIV=NULL;
-            return; }temp_VfXsFIV=(VkShaderModuleCreateInfo*)malloc(1*sizeof(VkShaderModuleCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkShaderModuleCreateInfo*)malloc(1*sizeof(VkShaderModuleCreateInfo));
         auto& arr_GtIQgds=json["pCreateInfo"].as_array();
         for(int PbmosKP=0; PbmosKP < 1; PbmosKP++){
             [&](){
             auto& temp=arr_GtIQgds[PbmosKP].as_object();
-            deserialize_struct(temp,temp_VfXsFIV[PbmosKP]);
+            deserialize_struct(temp,pCreateInfo[PbmosKP]);
             }();
         }
-        }();pCreateInfo=temp_VfXsFIV;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkShaderModule* pShaderModule;
 [&](){
             if (json["pShaderModule"].as_array().size()==0){
@@ -4185,8 +4221,9 @@ VkShaderModule* pShaderModule;
         call_function=(PFN_vkCreateShaderModule)get_device_proc_addr(parent,"vkCreateShaderModule");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pShaderModule);
+result=call_function(device, pCreateInfo, pAllocator, pShaderModule);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -4236,19 +4273,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkShaderModule shaderModule;
 [&](){deserialize_VkShaderModule(json["shaderModule"], shaderModule);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyShaderModule call_function;
     
@@ -4293,32 +4330,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkPipelineCacheCreateInfo* pCreateInfo;
-[&](){ VkPipelineCacheCreateInfo* temp_ZqKWOLK[&](){
+ VkPipelineCacheCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_ZqKWOLK=NULL;
-            return; }temp_ZqKWOLK=(VkPipelineCacheCreateInfo*)malloc(1*sizeof(VkPipelineCacheCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkPipelineCacheCreateInfo*)malloc(1*sizeof(VkPipelineCacheCreateInfo));
         auto& arr_tPFcwyz=json["pCreateInfo"].as_array();
         for(int ccOebrR=0; ccOebrR < 1; ccOebrR++){
             [&](){
             auto& temp=arr_tPFcwyz[ccOebrR].as_object();
-            deserialize_struct(temp,temp_ZqKWOLK[ccOebrR]);
+            deserialize_struct(temp,pCreateInfo[ccOebrR]);
             }();
         }
-        }();pCreateInfo=temp_ZqKWOLK;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkPipelineCache* pPipelineCache;
 [&](){
             if (json["pPipelineCache"].as_array().size()==0){
@@ -4344,8 +4381,9 @@ VkPipelineCache* pPipelineCache;
         call_function=(PFN_vkCreatePipelineCache)get_device_proc_addr(parent,"vkCreatePipelineCache");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pPipelineCache);
+result=call_function(device, pCreateInfo, pAllocator, pPipelineCache);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -4395,19 +4433,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkPipelineCache pipelineCache;
 [&](){deserialize_VkPipelineCache(json["pipelineCache"], pipelineCache);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyPipelineCache call_function;
     
@@ -4492,8 +4530,9 @@ void* pData;
         call_function=(PFN_vkGetPipelineCacheData)get_device_proc_addr(parent,"vkGetPipelineCacheData");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pipelineCache, pDataSize, pData);
+result=call_function(device, pipelineCache, pDataSize, pData);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -4534,16 +4573,16 @@ VkPipelineCache dstCache;
 [&](){deserialize_VkPipelineCache(json["dstCache"], dstCache);}();
 uint32_t srcCacheCount;
 [&](){srcCacheCount=static_cast<uint32_t>(value_to<int>(json["srcCacheCount"]));}();
-VkPipelineCache* pSrcCaches;
-[&](){ VkPipelineCache* temp_VrNnHBc[&](){
+ VkPipelineCache* pSrcCaches;
+[&](){
             if (json["pSrcCaches"].as_array().size()==0){
-                temp_VrNnHBc=NULL;
-            return; }temp_VrNnHBc=(VkPipelineCache*)malloc(srcCacheCount*sizeof(VkPipelineCache));
+                pSrcCaches=NULL;
+            return; }pSrcCaches=(VkPipelineCache*)malloc(srcCacheCount*sizeof(VkPipelineCache));
         auto& arr_criceHb=json["pSrcCaches"].as_array();
         for(int TBfRFpH=0; TBfRFpH < srcCacheCount; TBfRFpH++){
-            [&](){deserialize_VkPipelineCache(arr_criceHb[TBfRFpH], temp_VrNnHBc[TBfRFpH]);}();
+            [&](){deserialize_VkPipelineCache(arr_criceHb[TBfRFpH], pSrcCaches[TBfRFpH]);}();
         }
-        }();pSrcCaches=temp_VrNnHBc;}();
+        }();
 
     PFN_vkMergePipelineCaches call_function;
     
@@ -4559,8 +4598,9 @@ VkPipelineCache* pSrcCaches;
         call_function=(PFN_vkMergePipelineCaches)get_device_proc_addr(parent,"vkMergePipelineCaches");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, dstCache, srcCacheCount, pSrcCaches);
+result=call_function(device, dstCache, srcCacheCount, pSrcCaches);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -4590,32 +4630,32 @@ VkPipelineCache pipelineCache;
 [&](){deserialize_VkPipelineCache(json["pipelineCache"], pipelineCache);}();
 uint32_t createInfoCount;
 [&](){createInfoCount=static_cast<uint32_t>(value_to<int>(json["createInfoCount"]));}();
-VkGraphicsPipelineCreateInfo* pCreateInfos;
-[&](){ VkGraphicsPipelineCreateInfo* temp_nnqGnqi[&](){
+ VkGraphicsPipelineCreateInfo* pCreateInfos;
+[&](){
             if (json["pCreateInfos"].as_array().size()==0){
-                temp_nnqGnqi=NULL;
-            return; }temp_nnqGnqi=(VkGraphicsPipelineCreateInfo*)malloc(createInfoCount*sizeof(VkGraphicsPipelineCreateInfo));
+                pCreateInfos=NULL;
+            return; }pCreateInfos=(VkGraphicsPipelineCreateInfo*)malloc(createInfoCount*sizeof(VkGraphicsPipelineCreateInfo));
         auto& arr_bKkRMWv=json["pCreateInfos"].as_array();
         for(int kSHyOYR=0; kSHyOYR < createInfoCount; kSHyOYR++){
             [&](){
             auto& temp=arr_bKkRMWv[kSHyOYR].as_object();
-            deserialize_struct(temp,temp_nnqGnqi[kSHyOYR]);
+            deserialize_struct(temp,pCreateInfos[kSHyOYR]);
             }();
         }
-        }();pCreateInfos=temp_nnqGnqi;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkPipeline* pPipelines;
 [&](){
             if (json["pPipelines"].as_array().size()==0){
@@ -4641,8 +4681,9 @@ VkPipeline* pPipelines;
         call_function=(PFN_vkCreateGraphicsPipelines)get_device_proc_addr(parent,"vkCreateGraphicsPipelines");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
+result=call_function(device, pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -4696,32 +4737,32 @@ VkPipelineCache pipelineCache;
 [&](){deserialize_VkPipelineCache(json["pipelineCache"], pipelineCache);}();
 uint32_t createInfoCount;
 [&](){createInfoCount=static_cast<uint32_t>(value_to<int>(json["createInfoCount"]));}();
-VkComputePipelineCreateInfo* pCreateInfos;
-[&](){ VkComputePipelineCreateInfo* temp_VtfWSvy[&](){
+ VkComputePipelineCreateInfo* pCreateInfos;
+[&](){
             if (json["pCreateInfos"].as_array().size()==0){
-                temp_VtfWSvy=NULL;
-            return; }temp_VtfWSvy=(VkComputePipelineCreateInfo*)malloc(createInfoCount*sizeof(VkComputePipelineCreateInfo));
+                pCreateInfos=NULL;
+            return; }pCreateInfos=(VkComputePipelineCreateInfo*)malloc(createInfoCount*sizeof(VkComputePipelineCreateInfo));
         auto& arr_THdSKsK=json["pCreateInfos"].as_array();
         for(int qnUOnCC=0; qnUOnCC < createInfoCount; qnUOnCC++){
             [&](){
             auto& temp=arr_THdSKsK[qnUOnCC].as_object();
-            deserialize_struct(temp,temp_VtfWSvy[qnUOnCC]);
+            deserialize_struct(temp,pCreateInfos[qnUOnCC]);
             }();
         }
-        }();pCreateInfos=temp_VtfWSvy;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkPipeline* pPipelines;
 [&](){
             if (json["pPipelines"].as_array().size()==0){
@@ -4747,8 +4788,9 @@ VkPipeline* pPipelines;
         call_function=(PFN_vkCreateComputePipelines)get_device_proc_addr(parent,"vkCreateComputePipelines");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
+result=call_function(device, pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -4828,8 +4870,9 @@ VkExtent2D* pMaxWorkgroupSize;
         call_function=(PFN_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI)get_device_proc_addr(parent,"vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, renderpass, pMaxWorkgroupSize);
+result=call_function(device, renderpass, pMaxWorkgroupSize);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -4859,19 +4902,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkPipeline pipeline;
 [&](){deserialize_VkPipeline(json["pipeline"], pipeline);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyPipeline call_function;
     
@@ -4916,32 +4959,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkPipelineLayoutCreateInfo* pCreateInfo;
-[&](){ VkPipelineLayoutCreateInfo* temp_UXlQaAm[&](){
+ VkPipelineLayoutCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_UXlQaAm=NULL;
-            return; }temp_UXlQaAm=(VkPipelineLayoutCreateInfo*)malloc(1*sizeof(VkPipelineLayoutCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkPipelineLayoutCreateInfo*)malloc(1*sizeof(VkPipelineLayoutCreateInfo));
         auto& arr_oLPmvyU=json["pCreateInfo"].as_array();
         for(int wpAzccn=0; wpAzccn < 1; wpAzccn++){
             [&](){
             auto& temp=arr_oLPmvyU[wpAzccn].as_object();
-            deserialize_struct(temp,temp_UXlQaAm[wpAzccn]);
+            deserialize_struct(temp,pCreateInfo[wpAzccn]);
             }();
         }
-        }();pCreateInfo=temp_UXlQaAm;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkPipelineLayout* pPipelineLayout;
 [&](){
             if (json["pPipelineLayout"].as_array().size()==0){
@@ -4967,8 +5010,9 @@ VkPipelineLayout* pPipelineLayout;
         call_function=(PFN_vkCreatePipelineLayout)get_device_proc_addr(parent,"vkCreatePipelineLayout");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pPipelineLayout);
+result=call_function(device, pCreateInfo, pAllocator, pPipelineLayout);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -5018,19 +5062,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkPipelineLayout pipelineLayout;
 [&](){deserialize_VkPipelineLayout(json["pipelineLayout"], pipelineLayout);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyPipelineLayout call_function;
     
@@ -5075,32 +5119,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkSamplerCreateInfo* pCreateInfo;
-[&](){ VkSamplerCreateInfo* temp_elQKknk[&](){
+ VkSamplerCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_elQKknk=NULL;
-            return; }temp_elQKknk=(VkSamplerCreateInfo*)malloc(1*sizeof(VkSamplerCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkSamplerCreateInfo*)malloc(1*sizeof(VkSamplerCreateInfo));
         auto& arr_tMhVauC=json["pCreateInfo"].as_array();
         for(int yZfhKUj=0; yZfhKUj < 1; yZfhKUj++){
             [&](){
             auto& temp=arr_tMhVauC[yZfhKUj].as_object();
-            deserialize_struct(temp,temp_elQKknk[yZfhKUj]);
+            deserialize_struct(temp,pCreateInfo[yZfhKUj]);
             }();
         }
-        }();pCreateInfo=temp_elQKknk;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkSampler* pSampler;
 [&](){
             if (json["pSampler"].as_array().size()==0){
@@ -5126,8 +5170,9 @@ VkSampler* pSampler;
         call_function=(PFN_vkCreateSampler)get_device_proc_addr(parent,"vkCreateSampler");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pSampler);
+result=call_function(device, pCreateInfo, pAllocator, pSampler);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -5177,19 +5222,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkSampler sampler;
 [&](){deserialize_VkSampler(json["sampler"], sampler);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroySampler call_function;
     
@@ -5234,32 +5279,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDescriptorSetLayoutCreateInfo* pCreateInfo;
-[&](){ VkDescriptorSetLayoutCreateInfo* temp_JRXOWVB[&](){
+ VkDescriptorSetLayoutCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_JRXOWVB=NULL;
-            return; }temp_JRXOWVB=(VkDescriptorSetLayoutCreateInfo*)malloc(1*sizeof(VkDescriptorSetLayoutCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkDescriptorSetLayoutCreateInfo*)malloc(1*sizeof(VkDescriptorSetLayoutCreateInfo));
         auto& arr_oELBvJU=json["pCreateInfo"].as_array();
         for(int RmYFXzA=0; RmYFXzA < 1; RmYFXzA++){
             [&](){
             auto& temp=arr_oELBvJU[RmYFXzA].as_object();
-            deserialize_struct(temp,temp_JRXOWVB[RmYFXzA]);
+            deserialize_struct(temp,pCreateInfo[RmYFXzA]);
             }();
         }
-        }();pCreateInfo=temp_JRXOWVB;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkDescriptorSetLayout* pSetLayout;
 [&](){
             if (json["pSetLayout"].as_array().size()==0){
@@ -5285,8 +5330,9 @@ VkDescriptorSetLayout* pSetLayout;
         call_function=(PFN_vkCreateDescriptorSetLayout)get_device_proc_addr(parent,"vkCreateDescriptorSetLayout");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pSetLayout);
+result=call_function(device, pCreateInfo, pAllocator, pSetLayout);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -5336,19 +5382,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkDescriptorSetLayout descriptorSetLayout;
 [&](){deserialize_VkDescriptorSetLayout(json["descriptorSetLayout"], descriptorSetLayout);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyDescriptorSetLayout call_function;
     
@@ -5393,32 +5439,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDescriptorPoolCreateInfo* pCreateInfo;
-[&](){ VkDescriptorPoolCreateInfo* temp_musTBgd[&](){
+ VkDescriptorPoolCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_musTBgd=NULL;
-            return; }temp_musTBgd=(VkDescriptorPoolCreateInfo*)malloc(1*sizeof(VkDescriptorPoolCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkDescriptorPoolCreateInfo*)malloc(1*sizeof(VkDescriptorPoolCreateInfo));
         auto& arr_aaNyAKF=json["pCreateInfo"].as_array();
         for(int zIfzhBg=0; zIfzhBg < 1; zIfzhBg++){
             [&](){
             auto& temp=arr_aaNyAKF[zIfzhBg].as_object();
-            deserialize_struct(temp,temp_musTBgd[zIfzhBg]);
+            deserialize_struct(temp,pCreateInfo[zIfzhBg]);
             }();
         }
-        }();pCreateInfo=temp_musTBgd;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkDescriptorPool* pDescriptorPool;
 [&](){
             if (json["pDescriptorPool"].as_array().size()==0){
@@ -5444,8 +5490,9 @@ VkDescriptorPool* pDescriptorPool;
         call_function=(PFN_vkCreateDescriptorPool)get_device_proc_addr(parent,"vkCreateDescriptorPool");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pDescriptorPool);
+result=call_function(device, pCreateInfo, pAllocator, pDescriptorPool);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -5495,19 +5542,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkDescriptorPool descriptorPool;
 [&](){deserialize_VkDescriptorPool(json["descriptorPool"], descriptorPool);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyDescriptorPool call_function;
     
@@ -5571,8 +5618,9 @@ VkDescriptorPoolResetFlags flags;
         call_function=(PFN_vkResetDescriptorPool)get_device_proc_addr(parent,"vkResetDescriptorPool");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, descriptorPool, flags);
+result=call_function(device, descriptorPool, flags);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -5589,19 +5637,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDescriptorSetAllocateInfo* pAllocateInfo;
-[&](){ VkDescriptorSetAllocateInfo* temp_phatNqO[&](){
+ VkDescriptorSetAllocateInfo* pAllocateInfo;
+[&](){
             if (json["pAllocateInfo"].as_array().size()==0){
-                temp_phatNqO=NULL;
-            return; }temp_phatNqO=(VkDescriptorSetAllocateInfo*)malloc(1*sizeof(VkDescriptorSetAllocateInfo));
+                pAllocateInfo=NULL;
+            return; }pAllocateInfo=(VkDescriptorSetAllocateInfo*)malloc(1*sizeof(VkDescriptorSetAllocateInfo));
         auto& arr_scxnpgA=json["pAllocateInfo"].as_array();
         for(int LkJrMgh=0; LkJrMgh < 1; LkJrMgh++){
             [&](){
             auto& temp=arr_scxnpgA[LkJrMgh].as_object();
-            deserialize_struct(temp,temp_phatNqO[LkJrMgh]);
+            deserialize_struct(temp,pAllocateInfo[LkJrMgh]);
             }();
         }
-        }();pAllocateInfo=temp_phatNqO;}();
+        }();
 VkDescriptorSet* pDescriptorSets;
 [&](){
             if (json["pDescriptorSets"].as_array().size()==0){
@@ -5627,8 +5675,9 @@ VkDescriptorSet* pDescriptorSets;
         call_function=(PFN_vkAllocateDescriptorSets)get_device_proc_addr(parent,"vkAllocateDescriptorSets");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pAllocateInfo, pDescriptorSets);
+result=call_function(device, pAllocateInfo, pDescriptorSets);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -5668,16 +5717,16 @@ VkDescriptorPool descriptorPool;
 [&](){deserialize_VkDescriptorPool(json["descriptorPool"], descriptorPool);}();
 uint32_t descriptorSetCount;
 [&](){descriptorSetCount=static_cast<uint32_t>(value_to<int>(json["descriptorSetCount"]));}();
-VkDescriptorSet* pDescriptorSets;
-[&](){ VkDescriptorSet* temp_ypxprPw[&](){
+ VkDescriptorSet* pDescriptorSets;
+[&](){
             if (json["pDescriptorSets"].as_array().size()==0){
-                temp_ypxprPw=NULL;
-            return; }temp_ypxprPw=(VkDescriptorSet*)malloc(descriptorSetCount*sizeof(VkDescriptorSet));
+                pDescriptorSets=NULL;
+            return; }pDescriptorSets=(VkDescriptorSet*)malloc(descriptorSetCount*sizeof(VkDescriptorSet));
         auto& arr_EoTJzqV=json["pDescriptorSets"].as_array();
         for(int ignhEiw=0; ignhEiw < descriptorSetCount; ignhEiw++){
-            [&](){deserialize_VkDescriptorSet(arr_EoTJzqV[ignhEiw], temp_ypxprPw[ignhEiw]);}();
+            [&](){deserialize_VkDescriptorSet(arr_EoTJzqV[ignhEiw], pDescriptorSets[ignhEiw]);}();
         }
-        }();pDescriptorSets=temp_ypxprPw;}();
+        }();
 
     PFN_vkFreeDescriptorSets call_function;
     
@@ -5693,8 +5742,9 @@ VkDescriptorSet* pDescriptorSets;
         call_function=(PFN_vkFreeDescriptorSets)get_device_proc_addr(parent,"vkFreeDescriptorSets");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, descriptorPool, descriptorSetCount, pDescriptorSets);
+result=call_function(device, descriptorPool, descriptorSetCount, pDescriptorSets);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -5722,34 +5772,34 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 uint32_t descriptorWriteCount;
 [&](){descriptorWriteCount=static_cast<uint32_t>(value_to<int>(json["descriptorWriteCount"]));}();
-VkWriteDescriptorSet* pDescriptorWrites;
-[&](){ VkWriteDescriptorSet* temp_RotfizJ[&](){
+ VkWriteDescriptorSet* pDescriptorWrites;
+[&](){
             if (json["pDescriptorWrites"].as_array().size()==0){
-                temp_RotfizJ=NULL;
-            return; }temp_RotfizJ=(VkWriteDescriptorSet*)malloc(descriptorWriteCount*sizeof(VkWriteDescriptorSet));
+                pDescriptorWrites=NULL;
+            return; }pDescriptorWrites=(VkWriteDescriptorSet*)malloc(descriptorWriteCount*sizeof(VkWriteDescriptorSet));
         auto& arr_YJcGFpk=json["pDescriptorWrites"].as_array();
         for(int PyFuMgH=0; PyFuMgH < descriptorWriteCount; PyFuMgH++){
             [&](){
             auto& temp=arr_YJcGFpk[PyFuMgH].as_object();
-            deserialize_struct(temp,temp_RotfizJ[PyFuMgH]);
+            deserialize_struct(temp,pDescriptorWrites[PyFuMgH]);
             }();
         }
-        }();pDescriptorWrites=temp_RotfizJ;}();
+        }();
 uint32_t descriptorCopyCount;
 [&](){descriptorCopyCount=static_cast<uint32_t>(value_to<int>(json["descriptorCopyCount"]));}();
-VkCopyDescriptorSet* pDescriptorCopies;
-[&](){ VkCopyDescriptorSet* temp_yaFNCDe[&](){
+ VkCopyDescriptorSet* pDescriptorCopies;
+[&](){
             if (json["pDescriptorCopies"].as_array().size()==0){
-                temp_yaFNCDe=NULL;
-            return; }temp_yaFNCDe=(VkCopyDescriptorSet*)malloc(descriptorCopyCount*sizeof(VkCopyDescriptorSet));
+                pDescriptorCopies=NULL;
+            return; }pDescriptorCopies=(VkCopyDescriptorSet*)malloc(descriptorCopyCount*sizeof(VkCopyDescriptorSet));
         auto& arr_kgDeqJO=json["pDescriptorCopies"].as_array();
         for(int ygJPsJJ=0; ygJPsJJ < descriptorCopyCount; ygJPsJJ++){
             [&](){
             auto& temp=arr_kgDeqJO[ygJPsJJ].as_object();
-            deserialize_struct(temp,temp_yaFNCDe[ygJPsJJ]);
+            deserialize_struct(temp,pDescriptorCopies[ygJPsJJ]);
             }();
         }
-        }();pDescriptorCopies=temp_yaFNCDe;}();
+        }();
 
     PFN_vkUpdateDescriptorSets call_function;
     
@@ -5807,32 +5857,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkFramebufferCreateInfo* pCreateInfo;
-[&](){ VkFramebufferCreateInfo* temp_yBfXASx[&](){
+ VkFramebufferCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_yBfXASx=NULL;
-            return; }temp_yBfXASx=(VkFramebufferCreateInfo*)malloc(1*sizeof(VkFramebufferCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkFramebufferCreateInfo*)malloc(1*sizeof(VkFramebufferCreateInfo));
         auto& arr_JrEGPNB=json["pCreateInfo"].as_array();
         for(int NUUgVax=0; NUUgVax < 1; NUUgVax++){
             [&](){
             auto& temp=arr_JrEGPNB[NUUgVax].as_object();
-            deserialize_struct(temp,temp_yBfXASx[NUUgVax]);
+            deserialize_struct(temp,pCreateInfo[NUUgVax]);
             }();
         }
-        }();pCreateInfo=temp_yBfXASx;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkFramebuffer* pFramebuffer;
 [&](){
             if (json["pFramebuffer"].as_array().size()==0){
@@ -5858,8 +5908,9 @@ VkFramebuffer* pFramebuffer;
         call_function=(PFN_vkCreateFramebuffer)get_device_proc_addr(parent,"vkCreateFramebuffer");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pFramebuffer);
+result=call_function(device, pCreateInfo, pAllocator, pFramebuffer);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -5909,19 +5960,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkFramebuffer framebuffer;
 [&](){deserialize_VkFramebuffer(json["framebuffer"], framebuffer);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyFramebuffer call_function;
     
@@ -5966,32 +6017,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkRenderPassCreateInfo* pCreateInfo;
-[&](){ VkRenderPassCreateInfo* temp_nZEGjxk[&](){
+ VkRenderPassCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_nZEGjxk=NULL;
-            return; }temp_nZEGjxk=(VkRenderPassCreateInfo*)malloc(1*sizeof(VkRenderPassCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkRenderPassCreateInfo*)malloc(1*sizeof(VkRenderPassCreateInfo));
         auto& arr_aQkDqwy=json["pCreateInfo"].as_array();
         for(int RbeQDgp=0; RbeQDgp < 1; RbeQDgp++){
             [&](){
             auto& temp=arr_aQkDqwy[RbeQDgp].as_object();
-            deserialize_struct(temp,temp_nZEGjxk[RbeQDgp]);
+            deserialize_struct(temp,pCreateInfo[RbeQDgp]);
             }();
         }
-        }();pCreateInfo=temp_nZEGjxk;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkRenderPass* pRenderPass;
 [&](){
             if (json["pRenderPass"].as_array().size()==0){
@@ -6017,8 +6068,9 @@ VkRenderPass* pRenderPass;
         call_function=(PFN_vkCreateRenderPass)get_device_proc_addr(parent,"vkCreateRenderPass");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pRenderPass);
+result=call_function(device, pCreateInfo, pAllocator, pRenderPass);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -6068,19 +6120,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkRenderPass renderPass;
 [&](){deserialize_VkRenderPass(json["renderPass"], renderPass);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyRenderPass call_function;
     
@@ -6184,19 +6236,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkRenderingAreaInfoKHR* pRenderingAreaInfo;
-[&](){ VkRenderingAreaInfoKHR* temp_jpMwmxR[&](){
+ VkRenderingAreaInfoKHR* pRenderingAreaInfo;
+[&](){
             if (json["pRenderingAreaInfo"].as_array().size()==0){
-                temp_jpMwmxR=NULL;
-            return; }temp_jpMwmxR=(VkRenderingAreaInfoKHR*)malloc(1*sizeof(VkRenderingAreaInfoKHR));
+                pRenderingAreaInfo=NULL;
+            return; }pRenderingAreaInfo=(VkRenderingAreaInfoKHR*)malloc(1*sizeof(VkRenderingAreaInfoKHR));
         auto& arr_WDJFhzk=json["pRenderingAreaInfo"].as_array();
         for(int Eyzmwzy=0; Eyzmwzy < 1; Eyzmwzy++){
             [&](){
             auto& temp=arr_WDJFhzk[Eyzmwzy].as_object();
-            deserialize_struct(temp,temp_jpMwmxR[Eyzmwzy]);
+            deserialize_struct(temp,pRenderingAreaInfo[Eyzmwzy]);
             }();
         }
-        }();pRenderingAreaInfo=temp_jpMwmxR;}();
+        }();
 VkExtent2D* pGranularity;
 [&](){
             if (json["pGranularity"].as_array().size()==0){
@@ -6265,32 +6317,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkCommandPoolCreateInfo* pCreateInfo;
-[&](){ VkCommandPoolCreateInfo* temp_TXLADqx[&](){
+ VkCommandPoolCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_TXLADqx=NULL;
-            return; }temp_TXLADqx=(VkCommandPoolCreateInfo*)malloc(1*sizeof(VkCommandPoolCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkCommandPoolCreateInfo*)malloc(1*sizeof(VkCommandPoolCreateInfo));
         auto& arr_gbWnDrT=json["pCreateInfo"].as_array();
         for(int kFYaAKf=0; kFYaAKf < 1; kFYaAKf++){
             [&](){
             auto& temp=arr_gbWnDrT[kFYaAKf].as_object();
-            deserialize_struct(temp,temp_TXLADqx[kFYaAKf]);
+            deserialize_struct(temp,pCreateInfo[kFYaAKf]);
             }();
         }
-        }();pCreateInfo=temp_TXLADqx;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkCommandPool* pCommandPool;
 [&](){
             if (json["pCommandPool"].as_array().size()==0){
@@ -6316,8 +6368,9 @@ VkCommandPool* pCommandPool;
         call_function=(PFN_vkCreateCommandPool)get_device_proc_addr(parent,"vkCreateCommandPool");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pCommandPool);
+result=call_function(device, pCreateInfo, pAllocator, pCommandPool);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -6367,19 +6420,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkCommandPool commandPool;
 [&](){deserialize_VkCommandPool(json["commandPool"], commandPool);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyCommandPool call_function;
     
@@ -6443,8 +6496,9 @@ VkCommandPoolResetFlags flags;
         call_function=(PFN_vkResetCommandPool)get_device_proc_addr(parent,"vkResetCommandPool");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, commandPool, flags);
+result=call_function(device, commandPool, flags);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -6461,19 +6515,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkCommandBufferAllocateInfo* pAllocateInfo;
-[&](){ VkCommandBufferAllocateInfo* temp_XuIPIXe[&](){
+ VkCommandBufferAllocateInfo* pAllocateInfo;
+[&](){
             if (json["pAllocateInfo"].as_array().size()==0){
-                temp_XuIPIXe=NULL;
-            return; }temp_XuIPIXe=(VkCommandBufferAllocateInfo*)malloc(1*sizeof(VkCommandBufferAllocateInfo));
+                pAllocateInfo=NULL;
+            return; }pAllocateInfo=(VkCommandBufferAllocateInfo*)malloc(1*sizeof(VkCommandBufferAllocateInfo));
         auto& arr_IZSSdEC=json["pAllocateInfo"].as_array();
         for(int VNokfaI=0; VNokfaI < 1; VNokfaI++){
             [&](){
             auto& temp=arr_IZSSdEC[VNokfaI].as_object();
-            deserialize_struct(temp,temp_XuIPIXe[VNokfaI]);
+            deserialize_struct(temp,pAllocateInfo[VNokfaI]);
             }();
         }
-        }();pAllocateInfo=temp_XuIPIXe;}();
+        }();
 VkCommandBuffer* pCommandBuffers;
 [&](){
             if (json["pCommandBuffers"].as_array().size()==0){
@@ -6499,8 +6553,9 @@ VkCommandBuffer* pCommandBuffers;
         call_function=(PFN_vkAllocateCommandBuffers)get_device_proc_addr(parent,"vkAllocateCommandBuffers");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pAllocateInfo, pCommandBuffers);
+result=call_function(device, pAllocateInfo, pCommandBuffers);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -6540,16 +6595,16 @@ VkCommandPool commandPool;
 [&](){deserialize_VkCommandPool(json["commandPool"], commandPool);}();
 uint32_t commandBufferCount;
 [&](){commandBufferCount=static_cast<uint32_t>(value_to<int>(json["commandBufferCount"]));}();
-VkCommandBuffer* pCommandBuffers;
-[&](){ VkCommandBuffer* temp_zutnffS[&](){
+ VkCommandBuffer* pCommandBuffers;
+[&](){
             if (json["pCommandBuffers"].as_array().size()==0){
-                temp_zutnffS=NULL;
-            return; }temp_zutnffS=(VkCommandBuffer*)malloc(commandBufferCount*sizeof(VkCommandBuffer));
+                pCommandBuffers=NULL;
+            return; }pCommandBuffers=(VkCommandBuffer*)malloc(commandBufferCount*sizeof(VkCommandBuffer));
         auto& arr_aIQpbyi=json["pCommandBuffers"].as_array();
         for(int Neoyndt=0; Neoyndt < commandBufferCount; Neoyndt++){
-            [&](){deserialize_VkCommandBuffer(arr_aIQpbyi[Neoyndt], temp_zutnffS[Neoyndt]);}();
+            [&](){deserialize_VkCommandBuffer(arr_aIQpbyi[Neoyndt], pCommandBuffers[Neoyndt]);}();
         }
-        }();pCommandBuffers=temp_zutnffS;}();
+        }();
 
     PFN_vkFreeCommandBuffers call_function;
     
@@ -6592,19 +6647,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkCommandBufferBeginInfo* pBeginInfo;
-[&](){ VkCommandBufferBeginInfo* temp_UBfumFg[&](){
+ VkCommandBufferBeginInfo* pBeginInfo;
+[&](){
             if (json["pBeginInfo"].as_array().size()==0){
-                temp_UBfumFg=NULL;
-            return; }temp_UBfumFg=(VkCommandBufferBeginInfo*)malloc(1*sizeof(VkCommandBufferBeginInfo));
+                pBeginInfo=NULL;
+            return; }pBeginInfo=(VkCommandBufferBeginInfo*)malloc(1*sizeof(VkCommandBufferBeginInfo));
         auto& arr_IMPwIrn=json["pBeginInfo"].as_array();
         for(int yjPwvUw=0; yjPwvUw < 1; yjPwvUw++){
             [&](){
             auto& temp=arr_IMPwIrn[yjPwvUw].as_object();
-            deserialize_struct(temp,temp_UBfumFg[yjPwvUw]);
+            deserialize_struct(temp,pBeginInfo[yjPwvUw]);
             }();
         }
-        }();pBeginInfo=temp_UBfumFg;}();
+        }();
 
     PFN_vkBeginCommandBuffer call_function;
     
@@ -6620,8 +6675,9 @@ VkCommandBufferBeginInfo* pBeginInfo;
         call_function=(PFN_vkBeginCommandBuffer)get_device_proc_addr(parent,"vkBeginCommandBuffer");
     }  
     
+VkResult  result;
 {
-auto result=call_function(commandBuffer, pBeginInfo);
+result=call_function(commandBuffer, pBeginInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -6663,8 +6719,9 @@ VkCommandBuffer commandBuffer;
         call_function=(PFN_vkEndCommandBuffer)get_device_proc_addr(parent,"vkEndCommandBuffer");
     }  
     
+VkResult  result;
 {
-auto result=call_function(commandBuffer);
+result=call_function(commandBuffer);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -6696,8 +6753,9 @@ VkCommandBufferResetFlags flags;
         call_function=(PFN_vkResetCommandBuffer)get_device_proc_addr(parent,"vkResetCommandBuffer");
     }  
     
+VkResult  result;
 {
-auto result=call_function(commandBuffer, flags);
+result=call_function(commandBuffer, flags);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -6788,19 +6846,19 @@ uint32_t firstViewport;
 [&](){firstViewport=static_cast<uint32_t>(value_to<int>(json["firstViewport"]));}();
 uint32_t viewportCount;
 [&](){viewportCount=static_cast<uint32_t>(value_to<int>(json["viewportCount"]));}();
-VkViewport* pViewports;
-[&](){ VkViewport* temp_NINOLjT[&](){
+ VkViewport* pViewports;
+[&](){
             if (json["pViewports"].as_array().size()==0){
-                temp_NINOLjT=NULL;
-            return; }temp_NINOLjT=(VkViewport*)malloc(viewportCount*sizeof(VkViewport));
+                pViewports=NULL;
+            return; }pViewports=(VkViewport*)malloc(viewportCount*sizeof(VkViewport));
         auto& arr_NYoDqxX=json["pViewports"].as_array();
         for(int SjlAQpy=0; SjlAQpy < viewportCount; SjlAQpy++){
             [&](){
             auto& temp=arr_NYoDqxX[SjlAQpy].as_object();
-            deserialize_struct(temp,temp_NINOLjT[SjlAQpy]);
+            deserialize_struct(temp,pViewports[SjlAQpy]);
             }();
         }
-        }();pViewports=temp_NINOLjT;}();
+        }();
 
     PFN_vkCmdSetViewport call_function;
     
@@ -6850,19 +6908,19 @@ uint32_t firstScissor;
 [&](){firstScissor=static_cast<uint32_t>(value_to<int>(json["firstScissor"]));}();
 uint32_t scissorCount;
 [&](){scissorCount=static_cast<uint32_t>(value_to<int>(json["scissorCount"]));}();
-VkRect2D* pScissors;
-[&](){ VkRect2D* temp_FCRcmyF[&](){
+ VkRect2D* pScissors;
+[&](){
             if (json["pScissors"].as_array().size()==0){
-                temp_FCRcmyF=NULL;
-            return; }temp_FCRcmyF=(VkRect2D*)malloc(scissorCount*sizeof(VkRect2D));
+                pScissors=NULL;
+            return; }pScissors=(VkRect2D*)malloc(scissorCount*sizeof(VkRect2D));
         auto& arr_bIRAuhj=json["pScissors"].as_array();
         for(int QukNmCZ=0; QukNmCZ < scissorCount; QukNmCZ++){
             [&](){
             auto& temp=arr_bIRAuhj[QukNmCZ].as_object();
-            deserialize_struct(temp,temp_FCRcmyF[QukNmCZ]);
+            deserialize_struct(temp,pScissors[QukNmCZ]);
             }();
         }
-        }();pScissors=temp_FCRcmyF;}();
+        }();
 
     PFN_vkCmdSetScissor call_function;
     
@@ -6982,11 +7040,11 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-float blendConstants[4];
+ float blendConstants[4];
 [&](){
-        auto& arr_SsKZRbG=json["blendConstants"].as_array();
-        for(int lLRJClr=0; lLRJClr < 4; lLRJClr++){
-            [&](){ float temp_SsKZRbG[4][&](){temp_SsKZRbG=static_cast<float>(value_to<int>(arr_SsKZRbG[lLRJClr]));}();blendConstants[lLRJClr]=temp_SsKZRbG;}();
+        auto& arr_jgecLWF=json["blendConstants"].as_array();
+        for(int JTJKYzw=0; JTJKYzw < 4; JTJKYzw++){
+            [&](){blendConstants[JTJKYzw]=static_cast<float>(value_to<int>(arr_jgecLWF[JTJKYzw]));}();
         }
         }();
 
@@ -7011,9 +7069,9 @@ json.clear();
 
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 [&](){json["blendConstants"]=boost::json::array(4);
-        auto& arr_SsKZRbG=json["blendConstants"].as_array();
+        auto& arr_HTjCZtj=json["blendConstants"].as_array();
         for(int lLRJClr=0; lLRJClr < 4; lLRJClr++){
-            [&](){arr_SsKZRbG[lLRJClr]=blendConstants[lLRJClr];}();
+            [&](){arr_HTjCZtj[lLRJClr]=blendConstants[lLRJClr];}();
         }
         }();
 
@@ -7182,28 +7240,28 @@ uint32_t firstSet;
 [&](){firstSet=static_cast<uint32_t>(value_to<int>(json["firstSet"]));}();
 uint32_t descriptorSetCount;
 [&](){descriptorSetCount=static_cast<uint32_t>(value_to<int>(json["descriptorSetCount"]));}();
-VkDescriptorSet* pDescriptorSets;
-[&](){ VkDescriptorSet* temp_ypxprPw[&](){
+ VkDescriptorSet* pDescriptorSets;
+[&](){
             if (json["pDescriptorSets"].as_array().size()==0){
-                temp_ypxprPw=NULL;
-            return; }temp_ypxprPw=(VkDescriptorSet*)malloc(descriptorSetCount*sizeof(VkDescriptorSet));
+                pDescriptorSets=NULL;
+            return; }pDescriptorSets=(VkDescriptorSet*)malloc(descriptorSetCount*sizeof(VkDescriptorSet));
         auto& arr_EoTJzqV=json["pDescriptorSets"].as_array();
         for(int ignhEiw=0; ignhEiw < descriptorSetCount; ignhEiw++){
-            [&](){deserialize_VkDescriptorSet(arr_EoTJzqV[ignhEiw], temp_ypxprPw[ignhEiw]);}();
+            [&](){deserialize_VkDescriptorSet(arr_EoTJzqV[ignhEiw], pDescriptorSets[ignhEiw]);}();
         }
-        }();pDescriptorSets=temp_ypxprPw;}();
+        }();
 uint32_t dynamicOffsetCount;
 [&](){dynamicOffsetCount=static_cast<uint32_t>(value_to<int>(json["dynamicOffsetCount"]));}();
-uint32_t* pDynamicOffsets;
-[&](){ uint32_t* temp_jGgZaTJ[&](){
+ uint32_t* pDynamicOffsets;
+[&](){
             if (json["pDynamicOffsets"].as_array().size()==0){
-                temp_jGgZaTJ=NULL;
-            return; }temp_jGgZaTJ=(uint32_t*)malloc(dynamicOffsetCount*sizeof(uint32_t));
+                pDynamicOffsets=NULL;
+            return; }pDynamicOffsets=(uint32_t*)malloc(dynamicOffsetCount*sizeof(uint32_t));
         auto& arr_QbUQxOl=json["pDynamicOffsets"].as_array();
         for(int yNPUnDM=0; yNPUnDM < dynamicOffsetCount; yNPUnDM++){
-            [&](){temp_jGgZaTJ[yNPUnDM]=static_cast<uint32_t>(value_to<int>(arr_QbUQxOl[yNPUnDM]));}();
+            [&](){pDynamicOffsets[yNPUnDM]=static_cast<uint32_t>(value_to<int>(arr_QbUQxOl[yNPUnDM]));}();
         }
-        }();pDynamicOffsets=temp_jGgZaTJ;}();
+        }();
 
     PFN_vkCmdBindDescriptorSets call_function;
     
@@ -7302,26 +7360,26 @@ uint32_t firstBinding;
 [&](){firstBinding=static_cast<uint32_t>(value_to<int>(json["firstBinding"]));}();
 uint32_t bindingCount;
 [&](){bindingCount=static_cast<uint32_t>(value_to<int>(json["bindingCount"]));}();
-VkBuffer* pBuffers;
-[&](){ VkBuffer* temp_XooJXwK[&](){
+ VkBuffer* pBuffers;
+[&](){
             if (json["pBuffers"].as_array().size()==0){
-                temp_XooJXwK=NULL;
-            return; }temp_XooJXwK=(VkBuffer*)malloc(bindingCount*sizeof(VkBuffer));
+                pBuffers=NULL;
+            return; }pBuffers=(VkBuffer*)malloc(bindingCount*sizeof(VkBuffer));
         auto& arr_ShVTBbp=json["pBuffers"].as_array();
         for(int loSrvWd=0; loSrvWd < bindingCount; loSrvWd++){
-            [&](){deserialize_VkBuffer(arr_ShVTBbp[loSrvWd], temp_XooJXwK[loSrvWd]);}();
+            [&](){deserialize_VkBuffer(arr_ShVTBbp[loSrvWd], pBuffers[loSrvWd]);}();
         }
-        }();pBuffers=temp_XooJXwK;}();
-VkDeviceSize* pOffsets;
-[&](){ VkDeviceSize* temp_rsVsAoT[&](){
+        }();
+ VkDeviceSize* pOffsets;
+[&](){
             if (json["pOffsets"].as_array().size()==0){
-                temp_rsVsAoT=NULL;
-            return; }temp_rsVsAoT=(VkDeviceSize*)malloc(bindingCount*sizeof(VkDeviceSize));
+                pOffsets=NULL;
+            return; }pOffsets=(VkDeviceSize*)malloc(bindingCount*sizeof(VkDeviceSize));
         auto& arr_uWdiGtF=json["pOffsets"].as_array();
         for(int ELYQTNF=0; ELYQTNF < bindingCount; ELYQTNF++){
-            [&](){uint64_t temp_uWdiGtF;[&](){temp_uWdiGtF=static_cast<uint64_t>(value_to<int>(arr_uWdiGtF[ELYQTNF]));}();temp_rsVsAoT[ELYQTNF]=(VkDeviceSize)temp_uWdiGtF;}();
+            [&](){uint64_t temp_uWdiGtF;[&](){temp_uWdiGtF=static_cast<uint64_t>(value_to<int>(arr_uWdiGtF[ELYQTNF]));}();pOffsets[ELYQTNF]=(VkDeviceSize)temp_uWdiGtF;}();
         }
-        }();pOffsets=temp_rsVsAoT;}();
+        }();
 
     PFN_vkCmdBindVertexBuffers call_function;
     
@@ -7464,19 +7522,19 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t drawCount;
 [&](){drawCount=static_cast<uint32_t>(value_to<int>(json["drawCount"]));}();
-VkMultiDrawInfoEXT* pVertexInfo;
-[&](){ VkMultiDrawInfoEXT* temp_Oawkcae[&](){
+ VkMultiDrawInfoEXT* pVertexInfo;
+[&](){
             if (json["pVertexInfo"].as_array().size()==0){
-                temp_Oawkcae=NULL;
-            return; }temp_Oawkcae=(VkMultiDrawInfoEXT*)malloc(drawCount*sizeof(VkMultiDrawInfoEXT));
+                pVertexInfo=NULL;
+            return; }pVertexInfo=(VkMultiDrawInfoEXT*)malloc(drawCount*sizeof(VkMultiDrawInfoEXT));
         auto& arr_SygHzZS=json["pVertexInfo"].as_array();
         for(int iVtYwjb=0; iVtYwjb < drawCount; iVtYwjb++){
             [&](){
             auto& temp=arr_SygHzZS[iVtYwjb].as_object();
-            deserialize_struct(temp,temp_Oawkcae[iVtYwjb]);
+            deserialize_struct(temp,pVertexInfo[iVtYwjb]);
             }();
         }
-        }();pVertexInfo=temp_Oawkcae;}();
+        }();
 uint32_t instanceCount;
 [&](){instanceCount=static_cast<uint32_t>(value_to<int>(json["instanceCount"]));}();
 uint32_t firstInstance;
@@ -7532,35 +7590,35 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t drawCount;
 [&](){drawCount=static_cast<uint32_t>(value_to<int>(json["drawCount"]));}();
-VkMultiDrawIndexedInfoEXT* pIndexInfo;
-[&](){ VkMultiDrawIndexedInfoEXT* temp_oEhYbjO[&](){
+ VkMultiDrawIndexedInfoEXT* pIndexInfo;
+[&](){
             if (json["pIndexInfo"].as_array().size()==0){
-                temp_oEhYbjO=NULL;
-            return; }temp_oEhYbjO=(VkMultiDrawIndexedInfoEXT*)malloc(drawCount*sizeof(VkMultiDrawIndexedInfoEXT));
+                pIndexInfo=NULL;
+            return; }pIndexInfo=(VkMultiDrawIndexedInfoEXT*)malloc(drawCount*sizeof(VkMultiDrawIndexedInfoEXT));
         auto& arr_jliksnn=json["pIndexInfo"].as_array();
         for(int cbQpceE=0; cbQpceE < drawCount; cbQpceE++){
             [&](){
             auto& temp=arr_jliksnn[cbQpceE].as_object();
-            deserialize_struct(temp,temp_oEhYbjO[cbQpceE]);
+            deserialize_struct(temp,pIndexInfo[cbQpceE]);
             }();
         }
-        }();pIndexInfo=temp_oEhYbjO;}();
+        }();
 uint32_t instanceCount;
 [&](){instanceCount=static_cast<uint32_t>(value_to<int>(json["instanceCount"]));}();
 uint32_t firstInstance;
 [&](){firstInstance=static_cast<uint32_t>(value_to<int>(json["firstInstance"]));}();
 uint32_t stride;
 [&](){stride=static_cast<uint32_t>(value_to<int>(json["stride"]));}();
-int32_t* pVertexOffset;
-[&](){ int32_t* temp_qdOrHRD[&](){
+ int32_t* pVertexOffset;
+[&](){
             if (json["pVertexOffset"].as_array().size()==0){
-                temp_qdOrHRD=NULL;
-            return; }temp_qdOrHRD=(int32_t*)malloc(1*sizeof(int32_t));
+                pVertexOffset=NULL;
+            return; }pVertexOffset=(int32_t*)malloc(1*sizeof(int32_t));
         auto& arr_IdSDtoD=json["pVertexOffset"].as_array();
         for(int XPkpqBK=0; XPkpqBK < 1; XPkpqBK++){
-            [&](){temp_qdOrHRD[XPkpqBK]=static_cast<int32_t>(value_to<int>(arr_IdSDtoD[XPkpqBK]));}();
+            [&](){pVertexOffset[XPkpqBK]=static_cast<int32_t>(value_to<int>(arr_IdSDtoD[XPkpqBK]));}();
         }
-        }();pVertexOffset=temp_qdOrHRD;}();
+        }();
 
     PFN_vkCmdDrawMultiIndexedEXT call_function;
     
@@ -7931,19 +7989,19 @@ VkBuffer dstBuffer;
 [&](){deserialize_VkBuffer(json["dstBuffer"], dstBuffer);}();
 uint32_t regionCount;
 [&](){regionCount=static_cast<uint32_t>(value_to<int>(json["regionCount"]));}();
-VkBufferCopy* pRegions;
-[&](){ VkBufferCopy* temp_kIqXSWJ[&](){
+ VkBufferCopy* pRegions;
+[&](){
             if (json["pRegions"].as_array().size()==0){
-                temp_kIqXSWJ=NULL;
-            return; }temp_kIqXSWJ=(VkBufferCopy*)malloc(regionCount*sizeof(VkBufferCopy));
+                pRegions=NULL;
+            return; }pRegions=(VkBufferCopy*)malloc(regionCount*sizeof(VkBufferCopy));
         auto& arr_MJNgYRy=json["pRegions"].as_array();
         for(int BwnoKUH=0; BwnoKUH < regionCount; BwnoKUH++){
             [&](){
             auto& temp=arr_MJNgYRy[BwnoKUH].as_object();
-            deserialize_struct(temp,temp_kIqXSWJ[BwnoKUH]);
+            deserialize_struct(temp,pRegions[BwnoKUH]);
             }();
         }
-        }();pRegions=temp_kIqXSWJ;}();
+        }();
 
     PFN_vkCmdCopyBuffer call_function;
     
@@ -8000,19 +8058,19 @@ VkImageLayout dstImageLayout;
 [&](){[&](){int temp_jOGlaAP;[&](){temp_jOGlaAP=static_cast<int>(value_to<int>(json["dstImageLayout"]));}();dstImageLayout=(VkImageLayout)temp_jOGlaAP;}();}();
 uint32_t regionCount;
 [&](){regionCount=static_cast<uint32_t>(value_to<int>(json["regionCount"]));}();
-VkImageCopy* pRegions;
-[&](){ VkImageCopy* temp_xdHPqoW[&](){
+ VkImageCopy* pRegions;
+[&](){
             if (json["pRegions"].as_array().size()==0){
-                temp_xdHPqoW=NULL;
-            return; }temp_xdHPqoW=(VkImageCopy*)malloc(regionCount*sizeof(VkImageCopy));
+                pRegions=NULL;
+            return; }pRegions=(VkImageCopy*)malloc(regionCount*sizeof(VkImageCopy));
         auto& arr_sMBHaLF=json["pRegions"].as_array();
         for(int lLnttNm=0; lLnttNm < regionCount; lLnttNm++){
             [&](){
             auto& temp=arr_sMBHaLF[lLnttNm].as_object();
-            deserialize_struct(temp,temp_xdHPqoW[lLnttNm]);
+            deserialize_struct(temp,pRegions[lLnttNm]);
             }();
         }
-        }();pRegions=temp_xdHPqoW;}();
+        }();
 
     PFN_vkCmdCopyImage call_function;
     
@@ -8071,19 +8129,19 @@ VkImageLayout dstImageLayout;
 [&](){[&](){int temp_jOGlaAP;[&](){temp_jOGlaAP=static_cast<int>(value_to<int>(json["dstImageLayout"]));}();dstImageLayout=(VkImageLayout)temp_jOGlaAP;}();}();
 uint32_t regionCount;
 [&](){regionCount=static_cast<uint32_t>(value_to<int>(json["regionCount"]));}();
-VkImageBlit* pRegions;
-[&](){ VkImageBlit* temp_AoEBCHe[&](){
+ VkImageBlit* pRegions;
+[&](){
             if (json["pRegions"].as_array().size()==0){
-                temp_AoEBCHe=NULL;
-            return; }temp_AoEBCHe=(VkImageBlit*)malloc(regionCount*sizeof(VkImageBlit));
+                pRegions=NULL;
+            return; }pRegions=(VkImageBlit*)malloc(regionCount*sizeof(VkImageBlit));
         auto& arr_aDcnXeL=json["pRegions"].as_array();
         for(int khqBNUP=0; khqBNUP < regionCount; khqBNUP++){
             [&](){
             auto& temp=arr_aDcnXeL[khqBNUP].as_object();
-            deserialize_struct(temp,temp_AoEBCHe[khqBNUP]);
+            deserialize_struct(temp,pRegions[khqBNUP]);
             }();
         }
-        }();pRegions=temp_AoEBCHe;}();
+        }();
 VkFilter filter;
 [&](){[&](){int temp_DaCTyEq;[&](){temp_DaCTyEq=static_cast<int>(value_to<int>(json["filter"]));}();filter=(VkFilter)temp_DaCTyEq;}();}();
 
@@ -8143,19 +8201,19 @@ VkImageLayout dstImageLayout;
 [&](){[&](){int temp_jOGlaAP;[&](){temp_jOGlaAP=static_cast<int>(value_to<int>(json["dstImageLayout"]));}();dstImageLayout=(VkImageLayout)temp_jOGlaAP;}();}();
 uint32_t regionCount;
 [&](){regionCount=static_cast<uint32_t>(value_to<int>(json["regionCount"]));}();
-VkBufferImageCopy* pRegions;
-[&](){ VkBufferImageCopy* temp_rMefUms[&](){
+ VkBufferImageCopy* pRegions;
+[&](){
             if (json["pRegions"].as_array().size()==0){
-                temp_rMefUms=NULL;
-            return; }temp_rMefUms=(VkBufferImageCopy*)malloc(regionCount*sizeof(VkBufferImageCopy));
+                pRegions=NULL;
+            return; }pRegions=(VkBufferImageCopy*)malloc(regionCount*sizeof(VkBufferImageCopy));
         auto& arr_Gfapiec=json["pRegions"].as_array();
         for(int edvwarx=0; edvwarx < regionCount; edvwarx++){
             [&](){
             auto& temp=arr_Gfapiec[edvwarx].as_object();
-            deserialize_struct(temp,temp_rMefUms[edvwarx]);
+            deserialize_struct(temp,pRegions[edvwarx]);
             }();
         }
-        }();pRegions=temp_rMefUms;}();
+        }();
 
     PFN_vkCmdCopyBufferToImage call_function;
     
@@ -8211,19 +8269,19 @@ VkBuffer dstBuffer;
 [&](){deserialize_VkBuffer(json["dstBuffer"], dstBuffer);}();
 uint32_t regionCount;
 [&](){regionCount=static_cast<uint32_t>(value_to<int>(json["regionCount"]));}();
-VkBufferImageCopy* pRegions;
-[&](){ VkBufferImageCopy* temp_rMefUms[&](){
+ VkBufferImageCopy* pRegions;
+[&](){
             if (json["pRegions"].as_array().size()==0){
-                temp_rMefUms=NULL;
-            return; }temp_rMefUms=(VkBufferImageCopy*)malloc(regionCount*sizeof(VkBufferImageCopy));
+                pRegions=NULL;
+            return; }pRegions=(VkBufferImageCopy*)malloc(regionCount*sizeof(VkBufferImageCopy));
         auto& arr_Gfapiec=json["pRegions"].as_array();
         for(int edvwarx=0; edvwarx < regionCount; edvwarx++){
             [&](){
             auto& temp=arr_Gfapiec[edvwarx].as_object();
-            deserialize_struct(temp,temp_rMefUms[edvwarx]);
+            deserialize_struct(temp,pRegions[edvwarx]);
             }();
         }
-        }();pRegions=temp_rMefUms;}();
+        }();
 
     PFN_vkCmdCopyImageToBuffer call_function;
     
@@ -8321,19 +8379,19 @@ VkImage dstImage;
 [&](){deserialize_VkImage(json["dstImage"], dstImage);}();
 VkImageLayout dstImageLayout;
 [&](){[&](){int temp_jOGlaAP;[&](){temp_jOGlaAP=static_cast<int>(value_to<int>(json["dstImageLayout"]));}();dstImageLayout=(VkImageLayout)temp_jOGlaAP;}();}();
-VkImageSubresourceLayers* pImageSubresources;
-[&](){ VkImageSubresourceLayers* temp_QzEBEGL[&](){
+ VkImageSubresourceLayers* pImageSubresources;
+[&](){
             if (json["pImageSubresources"].as_array().size()==0){
-                temp_QzEBEGL=NULL;
-            return; }temp_QzEBEGL=(VkImageSubresourceLayers*)malloc(copyCount*sizeof(VkImageSubresourceLayers));
+                pImageSubresources=NULL;
+            return; }pImageSubresources=(VkImageSubresourceLayers*)malloc(copyCount*sizeof(VkImageSubresourceLayers));
         auto& arr_WxjWdjD=json["pImageSubresources"].as_array();
         for(int ApBwZPM=0; ApBwZPM < copyCount; ApBwZPM++){
             [&](){
             auto& temp=arr_WxjWdjD[ApBwZPM].as_object();
-            deserialize_struct(temp,temp_QzEBEGL[ApBwZPM]);
+            deserialize_struct(temp,pImageSubresources[ApBwZPM]);
             }();
         }
-        }();pImageSubresources=temp_QzEBEGL;}();
+        }();
 
     PFN_vkCmdCopyMemoryToImageIndirectNV call_function;
     
@@ -8388,10 +8446,10 @@ VkDeviceSize dstOffset;
 [&](){uint64_t temp_fIjfpOW;[&](){temp_fIjfpOW=static_cast<uint64_t>(value_to<int>(json["dstOffset"]));}();dstOffset=(VkDeviceSize)temp_fIjfpOW;}();
 VkDeviceSize dataSize;
 [&](){uint64_t temp_SwYyzuh;[&](){temp_SwYyzuh=static_cast<uint64_t>(value_to<int>(json["dataSize"]));}();dataSize=(VkDeviceSize)temp_SwYyzuh;}();
-void* pData;
-[&](){ void* temp_wIvtWll[&](){
+ void* pData;
+[&](){
             if (json["pData"].as_array().size()==0){
-                temp_wIvtWll=NULL;
+                pData=NULL;
             return; }char* temp_eeRffBc;[&](){
             if (json["pData"].as_array().size()==0){
                 temp_eeRffBc=NULL;
@@ -8400,7 +8458,7 @@ void* pData;
         for(int mhoQVXX=0; mhoQVXX < dataSize; mhoQVXX++){
             [&](){temp_eeRffBc[mhoQVXX]=static_cast<char>(value_to<int>(arr_ZPnOSxW[mhoQVXX]));}();
         }
-        }();temp_wIvtWll=temp_eeRffBc;}();pData=temp_wIvtWll;}();
+        }();pData=temp_eeRffBc;}();
 
     PFN_vkCmdUpdateBuffer call_function;
     
@@ -8494,34 +8552,34 @@ VkImage image;
 [&](){deserialize_VkImage(json["image"], image);}();
 VkImageLayout imageLayout;
 [&](){[&](){int temp_VgsvIeW;[&](){temp_VgsvIeW=static_cast<int>(value_to<int>(json["imageLayout"]));}();imageLayout=(VkImageLayout)temp_VgsvIeW;}();}();
-VkClearColorValue* pColor;
-[&](){ VkClearColorValue* temp_YJDXyAr[&](){
+ VkClearColorValue* pColor;
+[&](){
             if (json["pColor"].as_array().size()==0){
-                temp_YJDXyAr=NULL;
-            return; }temp_YJDXyAr=(VkClearColorValue*)malloc(1*sizeof(VkClearColorValue));
+                pColor=NULL;
+            return; }pColor=(VkClearColorValue*)malloc(1*sizeof(VkClearColorValue));
         auto& arr_GpwuhjC=json["pColor"].as_array();
         for(int ltCZWMn=0; ltCZWMn < 1; ltCZWMn++){
             [&](){
             auto& temp=arr_GpwuhjC[ltCZWMn].as_object();
-            deserialize_struct(temp,temp_YJDXyAr[ltCZWMn]);
+            deserialize_struct(temp,pColor[ltCZWMn]);
             }();
         }
-        }();pColor=temp_YJDXyAr;}();
+        }();
 uint32_t rangeCount;
 [&](){rangeCount=static_cast<uint32_t>(value_to<int>(json["rangeCount"]));}();
-VkImageSubresourceRange* pRanges;
-[&](){ VkImageSubresourceRange* temp_FeuXmjY[&](){
+ VkImageSubresourceRange* pRanges;
+[&](){
             if (json["pRanges"].as_array().size()==0){
-                temp_FeuXmjY=NULL;
-            return; }temp_FeuXmjY=(VkImageSubresourceRange*)malloc(rangeCount*sizeof(VkImageSubresourceRange));
+                pRanges=NULL;
+            return; }pRanges=(VkImageSubresourceRange*)malloc(rangeCount*sizeof(VkImageSubresourceRange));
         auto& arr_HvOwEDl=json["pRanges"].as_array();
         for(int zzMqHgz=0; zzMqHgz < rangeCount; zzMqHgz++){
             [&](){
             auto& temp=arr_HvOwEDl[zzMqHgz].as_object();
-            deserialize_struct(temp,temp_FeuXmjY[zzMqHgz]);
+            deserialize_struct(temp,pRanges[zzMqHgz]);
             }();
         }
-        }();pRanges=temp_FeuXmjY;}();
+        }();
 
     PFN_vkCmdClearColorImage call_function;
     
@@ -8584,34 +8642,34 @@ VkImage image;
 [&](){deserialize_VkImage(json["image"], image);}();
 VkImageLayout imageLayout;
 [&](){[&](){int temp_VgsvIeW;[&](){temp_VgsvIeW=static_cast<int>(value_to<int>(json["imageLayout"]));}();imageLayout=(VkImageLayout)temp_VgsvIeW;}();}();
-VkClearDepthStencilValue* pDepthStencil;
-[&](){ VkClearDepthStencilValue* temp_AkkBMYS[&](){
+ VkClearDepthStencilValue* pDepthStencil;
+[&](){
             if (json["pDepthStencil"].as_array().size()==0){
-                temp_AkkBMYS=NULL;
-            return; }temp_AkkBMYS=(VkClearDepthStencilValue*)malloc(1*sizeof(VkClearDepthStencilValue));
+                pDepthStencil=NULL;
+            return; }pDepthStencil=(VkClearDepthStencilValue*)malloc(1*sizeof(VkClearDepthStencilValue));
         auto& arr_PIAYblz=json["pDepthStencil"].as_array();
         for(int zQOULOl=0; zQOULOl < 1; zQOULOl++){
             [&](){
             auto& temp=arr_PIAYblz[zQOULOl].as_object();
-            deserialize_struct(temp,temp_AkkBMYS[zQOULOl]);
+            deserialize_struct(temp,pDepthStencil[zQOULOl]);
             }();
         }
-        }();pDepthStencil=temp_AkkBMYS;}();
+        }();
 uint32_t rangeCount;
 [&](){rangeCount=static_cast<uint32_t>(value_to<int>(json["rangeCount"]));}();
-VkImageSubresourceRange* pRanges;
-[&](){ VkImageSubresourceRange* temp_FeuXmjY[&](){
+ VkImageSubresourceRange* pRanges;
+[&](){
             if (json["pRanges"].as_array().size()==0){
-                temp_FeuXmjY=NULL;
-            return; }temp_FeuXmjY=(VkImageSubresourceRange*)malloc(rangeCount*sizeof(VkImageSubresourceRange));
+                pRanges=NULL;
+            return; }pRanges=(VkImageSubresourceRange*)malloc(rangeCount*sizeof(VkImageSubresourceRange));
         auto& arr_HvOwEDl=json["pRanges"].as_array();
         for(int zzMqHgz=0; zzMqHgz < rangeCount; zzMqHgz++){
             [&](){
             auto& temp=arr_HvOwEDl[zzMqHgz].as_object();
-            deserialize_struct(temp,temp_FeuXmjY[zzMqHgz]);
+            deserialize_struct(temp,pRanges[zzMqHgz]);
             }();
         }
-        }();pRanges=temp_FeuXmjY;}();
+        }();
 
     PFN_vkCmdClearDepthStencilImage call_function;
     
@@ -8672,34 +8730,34 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t attachmentCount;
 [&](){attachmentCount=static_cast<uint32_t>(value_to<int>(json["attachmentCount"]));}();
-VkClearAttachment* pAttachments;
-[&](){ VkClearAttachment* temp_KHUtHEe[&](){
+ VkClearAttachment* pAttachments;
+[&](){
             if (json["pAttachments"].as_array().size()==0){
-                temp_KHUtHEe=NULL;
-            return; }temp_KHUtHEe=(VkClearAttachment*)malloc(attachmentCount*sizeof(VkClearAttachment));
+                pAttachments=NULL;
+            return; }pAttachments=(VkClearAttachment*)malloc(attachmentCount*sizeof(VkClearAttachment));
         auto& arr_cdEOPrs=json["pAttachments"].as_array();
         for(int bLOSZTT=0; bLOSZTT < attachmentCount; bLOSZTT++){
             [&](){
             auto& temp=arr_cdEOPrs[bLOSZTT].as_object();
-            deserialize_struct(temp,temp_KHUtHEe[bLOSZTT]);
+            deserialize_struct(temp,pAttachments[bLOSZTT]);
             }();
         }
-        }();pAttachments=temp_KHUtHEe;}();
+        }();
 uint32_t rectCount;
 [&](){rectCount=static_cast<uint32_t>(value_to<int>(json["rectCount"]));}();
-VkClearRect* pRects;
-[&](){ VkClearRect* temp_YKDsnTr[&](){
+ VkClearRect* pRects;
+[&](){
             if (json["pRects"].as_array().size()==0){
-                temp_YKDsnTr=NULL;
-            return; }temp_YKDsnTr=(VkClearRect*)malloc(rectCount*sizeof(VkClearRect));
+                pRects=NULL;
+            return; }pRects=(VkClearRect*)malloc(rectCount*sizeof(VkClearRect));
         auto& arr_cMVnppZ=json["pRects"].as_array();
         for(int RmtJABT=0; RmtJABT < rectCount; RmtJABT++){
             [&](){
             auto& temp=arr_cMVnppZ[RmtJABT].as_object();
-            deserialize_struct(temp,temp_YKDsnTr[RmtJABT]);
+            deserialize_struct(temp,pRects[RmtJABT]);
             }();
         }
-        }();pRects=temp_YKDsnTr;}();
+        }();
 
     PFN_vkCmdClearAttachments call_function;
     
@@ -8767,19 +8825,19 @@ VkImageLayout dstImageLayout;
 [&](){[&](){int temp_jOGlaAP;[&](){temp_jOGlaAP=static_cast<int>(value_to<int>(json["dstImageLayout"]));}();dstImageLayout=(VkImageLayout)temp_jOGlaAP;}();}();
 uint32_t regionCount;
 [&](){regionCount=static_cast<uint32_t>(value_to<int>(json["regionCount"]));}();
-VkImageResolve* pRegions;
-[&](){ VkImageResolve* temp_rjwJGWS[&](){
+ VkImageResolve* pRegions;
+[&](){
             if (json["pRegions"].as_array().size()==0){
-                temp_rjwJGWS=NULL;
-            return; }temp_rjwJGWS=(VkImageResolve*)malloc(regionCount*sizeof(VkImageResolve));
+                pRegions=NULL;
+            return; }pRegions=(VkImageResolve*)malloc(regionCount*sizeof(VkImageResolve));
         auto& arr_XxhLAuH=json["pRegions"].as_array();
         for(int vuJYXjg=0; vuJYXjg < regionCount; vuJYXjg++){
             [&](){
             auto& temp=arr_XxhLAuH[vuJYXjg].as_object();
-            deserialize_struct(temp,temp_rjwJGWS[vuJYXjg]);
+            deserialize_struct(temp,pRegions[vuJYXjg]);
             }();
         }
-        }();pRegions=temp_rjwJGWS;}();
+        }();
 
     PFN_vkCmdResolveImage call_function;
     
@@ -8904,65 +8962,65 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t eventCount;
 [&](){eventCount=static_cast<uint32_t>(value_to<int>(json["eventCount"]));}();
-VkEvent* pEvents;
-[&](){ VkEvent* temp_DnisCCa[&](){
+ VkEvent* pEvents;
+[&](){
             if (json["pEvents"].as_array().size()==0){
-                temp_DnisCCa=NULL;
-            return; }temp_DnisCCa=(VkEvent*)malloc(eventCount*sizeof(VkEvent));
+                pEvents=NULL;
+            return; }pEvents=(VkEvent*)malloc(eventCount*sizeof(VkEvent));
         auto& arr_QYtHNne=json["pEvents"].as_array();
         for(int RuhNVwi=0; RuhNVwi < eventCount; RuhNVwi++){
-            [&](){deserialize_VkEvent(arr_QYtHNne[RuhNVwi], temp_DnisCCa[RuhNVwi]);}();
+            [&](){deserialize_VkEvent(arr_QYtHNne[RuhNVwi], pEvents[RuhNVwi]);}();
         }
-        }();pEvents=temp_DnisCCa;}();
+        }();
 VkPipelineStageFlags srcStageMask;
 [&](){[&](){int temp_puDZLNO;[&](){temp_puDZLNO=static_cast<int>(value_to<int>(json["srcStageMask"]));}();srcStageMask=(VkPipelineStageFlags)temp_puDZLNO;}();}();
 VkPipelineStageFlags dstStageMask;
 [&](){[&](){int temp_OgAwXVW;[&](){temp_OgAwXVW=static_cast<int>(value_to<int>(json["dstStageMask"]));}();dstStageMask=(VkPipelineStageFlags)temp_OgAwXVW;}();}();
 uint32_t memoryBarrierCount;
 [&](){memoryBarrierCount=static_cast<uint32_t>(value_to<int>(json["memoryBarrierCount"]));}();
-VkMemoryBarrier* pMemoryBarriers;
-[&](){ VkMemoryBarrier* temp_CZHoAZh[&](){
+ VkMemoryBarrier* pMemoryBarriers;
+[&](){
             if (json["pMemoryBarriers"].as_array().size()==0){
-                temp_CZHoAZh=NULL;
-            return; }temp_CZHoAZh=(VkMemoryBarrier*)malloc(memoryBarrierCount*sizeof(VkMemoryBarrier));
+                pMemoryBarriers=NULL;
+            return; }pMemoryBarriers=(VkMemoryBarrier*)malloc(memoryBarrierCount*sizeof(VkMemoryBarrier));
         auto& arr_jpHrKrx=json["pMemoryBarriers"].as_array();
         for(int TyfEutX=0; TyfEutX < memoryBarrierCount; TyfEutX++){
             [&](){
             auto& temp=arr_jpHrKrx[TyfEutX].as_object();
-            deserialize_struct(temp,temp_CZHoAZh[TyfEutX]);
+            deserialize_struct(temp,pMemoryBarriers[TyfEutX]);
             }();
         }
-        }();pMemoryBarriers=temp_CZHoAZh;}();
+        }();
 uint32_t bufferMemoryBarrierCount;
 [&](){bufferMemoryBarrierCount=static_cast<uint32_t>(value_to<int>(json["bufferMemoryBarrierCount"]));}();
-VkBufferMemoryBarrier* pBufferMemoryBarriers;
-[&](){ VkBufferMemoryBarrier* temp_hFLMYHu[&](){
+ VkBufferMemoryBarrier* pBufferMemoryBarriers;
+[&](){
             if (json["pBufferMemoryBarriers"].as_array().size()==0){
-                temp_hFLMYHu=NULL;
-            return; }temp_hFLMYHu=(VkBufferMemoryBarrier*)malloc(bufferMemoryBarrierCount*sizeof(VkBufferMemoryBarrier));
+                pBufferMemoryBarriers=NULL;
+            return; }pBufferMemoryBarriers=(VkBufferMemoryBarrier*)malloc(bufferMemoryBarrierCount*sizeof(VkBufferMemoryBarrier));
         auto& arr_gVbYbae=json["pBufferMemoryBarriers"].as_array();
         for(int ewqDhcn=0; ewqDhcn < bufferMemoryBarrierCount; ewqDhcn++){
             [&](){
             auto& temp=arr_gVbYbae[ewqDhcn].as_object();
-            deserialize_struct(temp,temp_hFLMYHu[ewqDhcn]);
+            deserialize_struct(temp,pBufferMemoryBarriers[ewqDhcn]);
             }();
         }
-        }();pBufferMemoryBarriers=temp_hFLMYHu;}();
+        }();
 uint32_t imageMemoryBarrierCount;
 [&](){imageMemoryBarrierCount=static_cast<uint32_t>(value_to<int>(json["imageMemoryBarrierCount"]));}();
-VkImageMemoryBarrier* pImageMemoryBarriers;
-[&](){ VkImageMemoryBarrier* temp_jZSPyTO[&](){
+ VkImageMemoryBarrier* pImageMemoryBarriers;
+[&](){
             if (json["pImageMemoryBarriers"].as_array().size()==0){
-                temp_jZSPyTO=NULL;
-            return; }temp_jZSPyTO=(VkImageMemoryBarrier*)malloc(imageMemoryBarrierCount*sizeof(VkImageMemoryBarrier));
+                pImageMemoryBarriers=NULL;
+            return; }pImageMemoryBarriers=(VkImageMemoryBarrier*)malloc(imageMemoryBarrierCount*sizeof(VkImageMemoryBarrier));
         auto& arr_bBtNYaN=json["pImageMemoryBarriers"].as_array();
         for(int ASYxaRK=0; ASYxaRK < imageMemoryBarrierCount; ASYxaRK++){
             [&](){
             auto& temp=arr_bBtNYaN[ASYxaRK].as_object();
-            deserialize_struct(temp,temp_jZSPyTO[ASYxaRK]);
+            deserialize_struct(temp,pImageMemoryBarriers[ASYxaRK]);
             }();
         }
-        }();pImageMemoryBarriers=temp_jZSPyTO;}();
+        }();
 
     PFN_vkCmdWaitEvents call_function;
     
@@ -9053,49 +9111,49 @@ VkDependencyFlags dependencyFlags;
 [&](){[&](){int temp_MJCELwI;[&](){temp_MJCELwI=static_cast<int>(value_to<int>(json["dependencyFlags"]));}();dependencyFlags=(VkDependencyFlags)temp_MJCELwI;}();}();
 uint32_t memoryBarrierCount;
 [&](){memoryBarrierCount=static_cast<uint32_t>(value_to<int>(json["memoryBarrierCount"]));}();
-VkMemoryBarrier* pMemoryBarriers;
-[&](){ VkMemoryBarrier* temp_CZHoAZh[&](){
+ VkMemoryBarrier* pMemoryBarriers;
+[&](){
             if (json["pMemoryBarriers"].as_array().size()==0){
-                temp_CZHoAZh=NULL;
-            return; }temp_CZHoAZh=(VkMemoryBarrier*)malloc(memoryBarrierCount*sizeof(VkMemoryBarrier));
+                pMemoryBarriers=NULL;
+            return; }pMemoryBarriers=(VkMemoryBarrier*)malloc(memoryBarrierCount*sizeof(VkMemoryBarrier));
         auto& arr_jpHrKrx=json["pMemoryBarriers"].as_array();
         for(int TyfEutX=0; TyfEutX < memoryBarrierCount; TyfEutX++){
             [&](){
             auto& temp=arr_jpHrKrx[TyfEutX].as_object();
-            deserialize_struct(temp,temp_CZHoAZh[TyfEutX]);
+            deserialize_struct(temp,pMemoryBarriers[TyfEutX]);
             }();
         }
-        }();pMemoryBarriers=temp_CZHoAZh;}();
+        }();
 uint32_t bufferMemoryBarrierCount;
 [&](){bufferMemoryBarrierCount=static_cast<uint32_t>(value_to<int>(json["bufferMemoryBarrierCount"]));}();
-VkBufferMemoryBarrier* pBufferMemoryBarriers;
-[&](){ VkBufferMemoryBarrier* temp_hFLMYHu[&](){
+ VkBufferMemoryBarrier* pBufferMemoryBarriers;
+[&](){
             if (json["pBufferMemoryBarriers"].as_array().size()==0){
-                temp_hFLMYHu=NULL;
-            return; }temp_hFLMYHu=(VkBufferMemoryBarrier*)malloc(bufferMemoryBarrierCount*sizeof(VkBufferMemoryBarrier));
+                pBufferMemoryBarriers=NULL;
+            return; }pBufferMemoryBarriers=(VkBufferMemoryBarrier*)malloc(bufferMemoryBarrierCount*sizeof(VkBufferMemoryBarrier));
         auto& arr_gVbYbae=json["pBufferMemoryBarriers"].as_array();
         for(int ewqDhcn=0; ewqDhcn < bufferMemoryBarrierCount; ewqDhcn++){
             [&](){
             auto& temp=arr_gVbYbae[ewqDhcn].as_object();
-            deserialize_struct(temp,temp_hFLMYHu[ewqDhcn]);
+            deserialize_struct(temp,pBufferMemoryBarriers[ewqDhcn]);
             }();
         }
-        }();pBufferMemoryBarriers=temp_hFLMYHu;}();
+        }();
 uint32_t imageMemoryBarrierCount;
 [&](){imageMemoryBarrierCount=static_cast<uint32_t>(value_to<int>(json["imageMemoryBarrierCount"]));}();
-VkImageMemoryBarrier* pImageMemoryBarriers;
-[&](){ VkImageMemoryBarrier* temp_jZSPyTO[&](){
+ VkImageMemoryBarrier* pImageMemoryBarriers;
+[&](){
             if (json["pImageMemoryBarriers"].as_array().size()==0){
-                temp_jZSPyTO=NULL;
-            return; }temp_jZSPyTO=(VkImageMemoryBarrier*)malloc(imageMemoryBarrierCount*sizeof(VkImageMemoryBarrier));
+                pImageMemoryBarriers=NULL;
+            return; }pImageMemoryBarriers=(VkImageMemoryBarrier*)malloc(imageMemoryBarrierCount*sizeof(VkImageMemoryBarrier));
         auto& arr_bBtNYaN=json["pImageMemoryBarriers"].as_array();
         for(int ASYxaRK=0; ASYxaRK < imageMemoryBarrierCount; ASYxaRK++){
             [&](){
             auto& temp=arr_bBtNYaN[ASYxaRK].as_object();
-            deserialize_struct(temp,temp_jZSPyTO[ASYxaRK]);
+            deserialize_struct(temp,pImageMemoryBarriers[ASYxaRK]);
             }();
         }
-        }();pImageMemoryBarriers=temp_jZSPyTO;}();
+        }();
 
     PFN_vkCmdPipelineBarrier call_function;
     
@@ -9246,19 +9304,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkConditionalRenderingBeginInfoEXT* pConditionalRenderingBegin;
-[&](){ VkConditionalRenderingBeginInfoEXT* temp_HYLiQwM[&](){
+ VkConditionalRenderingBeginInfoEXT* pConditionalRenderingBegin;
+[&](){
             if (json["pConditionalRenderingBegin"].as_array().size()==0){
-                temp_HYLiQwM=NULL;
-            return; }temp_HYLiQwM=(VkConditionalRenderingBeginInfoEXT*)malloc(1*sizeof(VkConditionalRenderingBeginInfoEXT));
+                pConditionalRenderingBegin=NULL;
+            return; }pConditionalRenderingBegin=(VkConditionalRenderingBeginInfoEXT*)malloc(1*sizeof(VkConditionalRenderingBeginInfoEXT));
         auto& arr_OXqnNde=json["pConditionalRenderingBegin"].as_array();
         for(int xncJDyc=0; xncJDyc < 1; xncJDyc++){
             [&](){
             auto& temp=arr_OXqnNde[xncJDyc].as_object();
-            deserialize_struct(temp,temp_HYLiQwM[xncJDyc]);
+            deserialize_struct(temp,pConditionalRenderingBegin[xncJDyc]);
             }();
         }
-        }();pConditionalRenderingBegin=temp_HYLiQwM;}();
+        }();
 
     PFN_vkCmdBeginConditionalRenderingEXT call_function;
     
@@ -9473,10 +9531,10 @@ uint32_t offset;
 [&](){offset=static_cast<uint32_t>(value_to<int>(json["offset"]));}();
 uint32_t size;
 [&](){size=static_cast<uint32_t>(value_to<int>(json["size"]));}();
-void* pValues;
-[&](){ void* temp_rTtOoAA[&](){
+ void* pValues;
+[&](){
             if (json["pValues"].as_array().size()==0){
-                temp_rTtOoAA=NULL;
+                pValues=NULL;
             return; }char* temp_JvCgRni;[&](){
             if (json["pValues"].as_array().size()==0){
                 temp_JvCgRni=NULL;
@@ -9485,7 +9543,7 @@ void* pValues;
         for(int eyrTqdl=0; eyrTqdl < size; eyrTqdl++){
             [&](){temp_JvCgRni[eyrTqdl]=static_cast<char>(value_to<int>(arr_XmPsHqR[eyrTqdl]));}();
         }
-        }();temp_rTtOoAA=temp_JvCgRni;}();pValues=temp_rTtOoAA;}();
+        }();pValues=temp_JvCgRni;}();
 
     PFN_vkCmdPushConstants call_function;
     
@@ -9533,19 +9591,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkRenderPassBeginInfo* pRenderPassBegin;
-[&](){ VkRenderPassBeginInfo* temp_ziYLYAn[&](){
+ VkRenderPassBeginInfo* pRenderPassBegin;
+[&](){
             if (json["pRenderPassBegin"].as_array().size()==0){
-                temp_ziYLYAn=NULL;
-            return; }temp_ziYLYAn=(VkRenderPassBeginInfo*)malloc(1*sizeof(VkRenderPassBeginInfo));
+                pRenderPassBegin=NULL;
+            return; }pRenderPassBegin=(VkRenderPassBeginInfo*)malloc(1*sizeof(VkRenderPassBeginInfo));
         auto& arr_DvmhBAI=json["pRenderPassBegin"].as_array();
         for(int MzTximI=0; MzTximI < 1; MzTximI++){
             [&](){
             auto& temp=arr_DvmhBAI[MzTximI].as_object();
-            deserialize_struct(temp,temp_ziYLYAn[MzTximI]);
+            deserialize_struct(temp,pRenderPassBegin[MzTximI]);
             }();
         }
-        }();pRenderPassBegin=temp_ziYLYAn;}();
+        }();
 VkSubpassContents contents;
 [&](){[&](){int temp_pXPXcBB;[&](){temp_pXPXcBB=static_cast<int>(value_to<int>(json["contents"]));}();contents=(VkSubpassContents)temp_pXPXcBB;}();}();
 
@@ -9659,16 +9717,16 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t commandBufferCount;
 [&](){commandBufferCount=static_cast<uint32_t>(value_to<int>(json["commandBufferCount"]));}();
-VkCommandBuffer* pCommandBuffers;
-[&](){ VkCommandBuffer* temp_zutnffS[&](){
+ VkCommandBuffer* pCommandBuffers;
+[&](){
             if (json["pCommandBuffers"].as_array().size()==0){
-                temp_zutnffS=NULL;
-            return; }temp_zutnffS=(VkCommandBuffer*)malloc(commandBufferCount*sizeof(VkCommandBuffer));
+                pCommandBuffers=NULL;
+            return; }pCommandBuffers=(VkCommandBuffer*)malloc(commandBufferCount*sizeof(VkCommandBuffer));
         auto& arr_aIQpbyi=json["pCommandBuffers"].as_array();
         for(int Neoyndt=0; Neoyndt < commandBufferCount; Neoyndt++){
-            [&](){deserialize_VkCommandBuffer(arr_aIQpbyi[Neoyndt], temp_zutnffS[Neoyndt]);}();
+            [&](){deserialize_VkCommandBuffer(arr_aIQpbyi[Neoyndt], pCommandBuffers[Neoyndt]);}();
         }
-        }();pCommandBuffers=temp_zutnffS;}();
+        }();
 
     PFN_vkCmdExecuteCommands call_function;
     
@@ -9748,8 +9806,9 @@ VkDisplayPropertiesKHR* pProperties;
         call_function=(PFN_vkGetPhysicalDeviceDisplayPropertiesKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceDisplayPropertiesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pPropertyCount, pProperties);
+result=call_function(physicalDevice, pPropertyCount, pProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -9823,8 +9882,9 @@ VkDisplayPlanePropertiesKHR* pProperties;
         call_function=(PFN_vkGetPhysicalDeviceDisplayPlanePropertiesKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceDisplayPlanePropertiesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pPropertyCount, pProperties);
+result=call_function(physicalDevice, pPropertyCount, pProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -9897,8 +9957,9 @@ VkDisplayKHR* pDisplays;
         call_function=(PFN_vkGetDisplayPlaneSupportedDisplaysKHR)get_device_proc_addr(parent,"vkGetDisplayPlaneSupportedDisplaysKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, planeIndex, pDisplayCount, pDisplays);
+result=call_function(physicalDevice, planeIndex, pDisplayCount, pDisplays);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -9972,8 +10033,9 @@ VkDisplayModePropertiesKHR* pProperties;
         call_function=(PFN_vkGetDisplayModePropertiesKHR)get_device_proc_addr(parent,"vkGetDisplayModePropertiesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, display, pPropertyCount, pProperties);
+result=call_function(physicalDevice, display, pPropertyCount, pProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -10012,32 +10074,32 @@ VkPhysicalDevice physicalDevice;
 [&](){deserialize_VkPhysicalDevice(json["physicalDevice"], physicalDevice);}();
 VkDisplayKHR display;
 [&](){deserialize_VkDisplayKHR(json["display"], display);}();
-VkDisplayModeCreateInfoKHR* pCreateInfo;
-[&](){ VkDisplayModeCreateInfoKHR* temp_rTdQksT[&](){
+ VkDisplayModeCreateInfoKHR* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_rTdQksT=NULL;
-            return; }temp_rTdQksT=(VkDisplayModeCreateInfoKHR*)malloc(1*sizeof(VkDisplayModeCreateInfoKHR));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkDisplayModeCreateInfoKHR*)malloc(1*sizeof(VkDisplayModeCreateInfoKHR));
         auto& arr_UCnUDZD=json["pCreateInfo"].as_array();
         for(int WMiWEeP=0; WMiWEeP < 1; WMiWEeP++){
             [&](){
             auto& temp=arr_UCnUDZD[WMiWEeP].as_object();
-            deserialize_struct(temp,temp_rTdQksT[WMiWEeP]);
+            deserialize_struct(temp,pCreateInfo[WMiWEeP]);
             }();
         }
-        }();pCreateInfo=temp_rTdQksT;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkDisplayModeKHR* pMode;
 [&](){
             if (json["pMode"].as_array().size()==0){
@@ -10063,8 +10125,9 @@ VkDisplayModeKHR* pMode;
         call_function=(PFN_vkCreateDisplayModeKHR)get_device_proc_addr(parent,"vkCreateDisplayModeKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, display, pCreateInfo, pAllocator, pMode);
+result=call_function(physicalDevice, display, pCreateInfo, pAllocator, pMode);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -10145,8 +10208,9 @@ VkDisplayPlaneCapabilitiesKHR* pCapabilities;
         call_function=(PFN_vkGetDisplayPlaneCapabilitiesKHR)get_device_proc_addr(parent,"vkGetDisplayPlaneCapabilitiesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, mode, planeIndex, pCapabilities);
+result=call_function(physicalDevice, mode, planeIndex, pCapabilities);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -10175,32 +10239,32 @@ json.clear();
     
 VkInstance instance;
 [&](){deserialize_VkInstance(json["instance"], instance);}();
-VkDisplaySurfaceCreateInfoKHR* pCreateInfo;
-[&](){ VkDisplaySurfaceCreateInfoKHR* temp_LRRcgWe[&](){
+ VkDisplaySurfaceCreateInfoKHR* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_LRRcgWe=NULL;
-            return; }temp_LRRcgWe=(VkDisplaySurfaceCreateInfoKHR*)malloc(1*sizeof(VkDisplaySurfaceCreateInfoKHR));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkDisplaySurfaceCreateInfoKHR*)malloc(1*sizeof(VkDisplaySurfaceCreateInfoKHR));
         auto& arr_KiZtqkd=json["pCreateInfo"].as_array();
         for(int MxInMZf=0; MxInMZf < 1; MxInMZf++){
             [&](){
             auto& temp=arr_KiZtqkd[MxInMZf].as_object();
-            deserialize_struct(temp,temp_LRRcgWe[MxInMZf]);
+            deserialize_struct(temp,pCreateInfo[MxInMZf]);
             }();
         }
-        }();pCreateInfo=temp_LRRcgWe;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkSurfaceKHR* pSurface;
 [&](){
             if (json["pSurface"].as_array().size()==0){
@@ -10226,8 +10290,9 @@ VkSurfaceKHR* pSurface;
         call_function=(PFN_vkCreateDisplayPlaneSurfaceKHR)get_device_proc_addr(parent,"vkCreateDisplayPlaneSurfaceKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(instance, pCreateInfo, pAllocator, pSurface);
+result=call_function(instance, pCreateInfo, pAllocator, pSurface);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -10277,32 +10342,32 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 uint32_t swapchainCount;
 [&](){swapchainCount=static_cast<uint32_t>(value_to<int>(json["swapchainCount"]));}();
-VkSwapchainCreateInfoKHR* pCreateInfos;
-[&](){ VkSwapchainCreateInfoKHR* temp_AcZsudY[&](){
+ VkSwapchainCreateInfoKHR* pCreateInfos;
+[&](){
             if (json["pCreateInfos"].as_array().size()==0){
-                temp_AcZsudY=NULL;
-            return; }temp_AcZsudY=(VkSwapchainCreateInfoKHR*)malloc(swapchainCount*sizeof(VkSwapchainCreateInfoKHR));
+                pCreateInfos=NULL;
+            return; }pCreateInfos=(VkSwapchainCreateInfoKHR*)malloc(swapchainCount*sizeof(VkSwapchainCreateInfoKHR));
         auto& arr_bfxCAiC=json["pCreateInfos"].as_array();
         for(int hPtbvYT=0; hPtbvYT < swapchainCount; hPtbvYT++){
             [&](){
             auto& temp=arr_bfxCAiC[hPtbvYT].as_object();
-            deserialize_struct(temp,temp_AcZsudY[hPtbvYT]);
+            deserialize_struct(temp,pCreateInfos[hPtbvYT]);
             }();
         }
-        }();pCreateInfos=temp_AcZsudY;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkSwapchainKHR* pSwapchains;
 [&](){
             if (json["pSwapchains"].as_array().size()==0){
@@ -10328,8 +10393,9 @@ VkSwapchainKHR* pSwapchains;
         call_function=(PFN_vkCreateSharedSwapchainsKHR)get_device_proc_addr(parent,"vkCreateSharedSwapchainsKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, swapchainCount, pCreateInfos, pAllocator, pSwapchains);
+result=call_function(device, swapchainCount, pCreateInfos, pAllocator, pSwapchains);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -10380,19 +10446,19 @@ VkInstance instance;
 [&](){deserialize_VkInstance(json["instance"], instance);}();
 VkSurfaceKHR surface;
 [&](){deserialize_VkSurfaceKHR(json["surface"], surface);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroySurfaceKHR call_function;
     
@@ -10466,8 +10532,9 @@ VkBool32* pSupported;
         call_function=(PFN_vkGetPhysicalDeviceSurfaceSupportKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceSurfaceSupportKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, queueFamilyIndex, surface, pSupported);
+result=call_function(physicalDevice, queueFamilyIndex, surface, pSupported);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -10523,8 +10590,9 @@ VkSurfaceCapabilitiesKHR* pSurfaceCapabilities;
         call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceSurfaceCapabilitiesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, surface, pSurfaceCapabilities);
+result=call_function(physicalDevice, surface, pSurfaceCapabilities);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -10592,8 +10660,9 @@ VkSurfaceFormatKHR* pSurfaceFormats;
         call_function=(PFN_vkGetPhysicalDeviceSurfaceFormatsKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceSurfaceFormatsKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, surface, pSurfaceFormatCount, pSurfaceFormats);
+result=call_function(physicalDevice, surface, pSurfaceFormatCount, pSurfaceFormats);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -10667,8 +10736,9 @@ VkPresentModeKHR* pPresentModes;
         call_function=(PFN_vkGetPhysicalDeviceSurfacePresentModesKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceSurfacePresentModesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, surface, pPresentModeCount, pPresentModes);
+result=call_function(physicalDevice, surface, pPresentModeCount, pPresentModes);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -10702,32 +10772,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkSwapchainCreateInfoKHR* pCreateInfo;
-[&](){ VkSwapchainCreateInfoKHR* temp_aSmcOBE[&](){
+ VkSwapchainCreateInfoKHR* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_aSmcOBE=NULL;
-            return; }temp_aSmcOBE=(VkSwapchainCreateInfoKHR*)malloc(1*sizeof(VkSwapchainCreateInfoKHR));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkSwapchainCreateInfoKHR*)malloc(1*sizeof(VkSwapchainCreateInfoKHR));
         auto& arr_ioKDSXs=json["pCreateInfo"].as_array();
         for(int ugpCvwH=0; ugpCvwH < 1; ugpCvwH++){
             [&](){
             auto& temp=arr_ioKDSXs[ugpCvwH].as_object();
-            deserialize_struct(temp,temp_aSmcOBE[ugpCvwH]);
+            deserialize_struct(temp,pCreateInfo[ugpCvwH]);
             }();
         }
-        }();pCreateInfo=temp_aSmcOBE;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkSwapchainKHR* pSwapchain;
 [&](){
             if (json["pSwapchain"].as_array().size()==0){
@@ -10753,8 +10823,9 @@ VkSwapchainKHR* pSwapchain;
         call_function=(PFN_vkCreateSwapchainKHR)get_device_proc_addr(parent,"vkCreateSwapchainKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pSwapchain);
+result=call_function(device, pCreateInfo, pAllocator, pSwapchain);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -10804,19 +10875,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkSwapchainKHR swapchain;
 [&](){deserialize_VkSwapchainKHR(json["swapchain"], swapchain);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroySwapchainKHR call_function;
     
@@ -10898,8 +10969,9 @@ VkImage* pSwapchainImages;
         call_function=(PFN_vkGetSwapchainImagesKHR)get_device_proc_addr(parent,"vkGetSwapchainImagesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, swapchain, pSwapchainImageCount, pSwapchainImages);
+result=call_function(device, swapchain, pSwapchainImageCount, pSwapchainImages);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -10966,8 +11038,9 @@ uint32_t* pImageIndex;
         call_function=(PFN_vkAcquireNextImageKHR)get_device_proc_addr(parent,"vkAcquireNextImageKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, swapchain, timeout, semaphore, fence, pImageIndex);
+result=call_function(device, swapchain, timeout, semaphore, fence, pImageIndex);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -10995,19 +11068,19 @@ json.clear();
     
 VkQueue queue;
 [&](){deserialize_VkQueue(json["queue"], queue);}();
-VkPresentInfoKHR* pPresentInfo;
-[&](){ VkPresentInfoKHR* temp_bNoOQnS[&](){
+ VkPresentInfoKHR* pPresentInfo;
+[&](){
             if (json["pPresentInfo"].as_array().size()==0){
-                temp_bNoOQnS=NULL;
-            return; }temp_bNoOQnS=(VkPresentInfoKHR*)malloc(1*sizeof(VkPresentInfoKHR));
+                pPresentInfo=NULL;
+            return; }pPresentInfo=(VkPresentInfoKHR*)malloc(1*sizeof(VkPresentInfoKHR));
         auto& arr_lGNUHER=json["pPresentInfo"].as_array();
         for(int gefTrKz=0; gefTrKz < 1; gefTrKz++){
             [&](){
             auto& temp=arr_lGNUHER[gefTrKz].as_object();
-            deserialize_struct(temp,temp_bNoOQnS[gefTrKz]);
+            deserialize_struct(temp,pPresentInfo[gefTrKz]);
             }();
         }
-        }();pPresentInfo=temp_bNoOQnS;}();
+        }();
 
     PFN_vkQueuePresentKHR call_function;
     
@@ -11023,8 +11096,9 @@ VkPresentInfoKHR* pPresentInfo;
         call_function=(PFN_vkQueuePresentKHR)get_device_proc_addr(parent,"vkQueuePresentKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(queue, pPresentInfo);
+result=call_function(queue, pPresentInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -11051,32 +11125,32 @@ json.clear();
     
 VkInstance instance;
 [&](){deserialize_VkInstance(json["instance"], instance);}();
-VkXlibSurfaceCreateInfoKHR* pCreateInfo;
-[&](){ VkXlibSurfaceCreateInfoKHR* temp_zSgnZxI[&](){
+ VkXlibSurfaceCreateInfoKHR* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_zSgnZxI=NULL;
-            return; }temp_zSgnZxI=(VkXlibSurfaceCreateInfoKHR*)malloc(1*sizeof(VkXlibSurfaceCreateInfoKHR));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkXlibSurfaceCreateInfoKHR*)malloc(1*sizeof(VkXlibSurfaceCreateInfoKHR));
         auto& arr_wdGSkCh=json["pCreateInfo"].as_array();
         for(int iNgqKFe=0; iNgqKFe < 1; iNgqKFe++){
             [&](){
             auto& temp=arr_wdGSkCh[iNgqKFe].as_object();
-            deserialize_struct(temp,temp_zSgnZxI[iNgqKFe]);
+            deserialize_struct(temp,pCreateInfo[iNgqKFe]);
             }();
         }
-        }();pCreateInfo=temp_zSgnZxI;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkSurfaceKHR* pSurface;
 [&](){
             if (json["pSurface"].as_array().size()==0){
@@ -11102,8 +11176,9 @@ VkSurfaceKHR* pSurface;
         call_function=(PFN_vkCreateXlibSurfaceKHR)get_device_proc_addr(parent,"vkCreateXlibSurfaceKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(instance, pCreateInfo, pAllocator, pSurface);
+result=call_function(instance, pCreateInfo, pAllocator, pSurface);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -11175,8 +11250,9 @@ VisualID visualID;
         call_function=(PFN_vkGetPhysicalDeviceXlibPresentationSupportKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceXlibPresentationSupportKHR");
     }  
     
+VkBool32  result;
 {
-auto result=call_function(physicalDevice, queueFamilyIndex, dpy, visualID);
+result=call_function(physicalDevice, queueFamilyIndex, dpy, visualID);
 }
 json.clear();
 [&](){[&](){json["result"]=result;}();}();
@@ -11197,32 +11273,32 @@ json.clear();
     
 VkInstance instance;
 [&](){deserialize_VkInstance(json["instance"], instance);}();
-VkXcbSurfaceCreateInfoKHR* pCreateInfo;
-[&](){ VkXcbSurfaceCreateInfoKHR* temp_nWWNXgc[&](){
+ VkXcbSurfaceCreateInfoKHR* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_nWWNXgc=NULL;
-            return; }temp_nWWNXgc=(VkXcbSurfaceCreateInfoKHR*)malloc(1*sizeof(VkXcbSurfaceCreateInfoKHR));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkXcbSurfaceCreateInfoKHR*)malloc(1*sizeof(VkXcbSurfaceCreateInfoKHR));
         auto& arr_fIYRZSR=json["pCreateInfo"].as_array();
         for(int QDYAgHl=0; QDYAgHl < 1; QDYAgHl++){
             [&](){
             auto& temp=arr_fIYRZSR[QDYAgHl].as_object();
-            deserialize_struct(temp,temp_nWWNXgc[QDYAgHl]);
+            deserialize_struct(temp,pCreateInfo[QDYAgHl]);
             }();
         }
-        }();pCreateInfo=temp_nWWNXgc;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkSurfaceKHR* pSurface;
 [&](){
             if (json["pSurface"].as_array().size()==0){
@@ -11248,8 +11324,9 @@ VkSurfaceKHR* pSurface;
         call_function=(PFN_vkCreateXcbSurfaceKHR)get_device_proc_addr(parent,"vkCreateXcbSurfaceKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(instance, pCreateInfo, pAllocator, pSurface);
+result=call_function(instance, pCreateInfo, pAllocator, pSurface);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -11321,8 +11398,9 @@ xcb_visualid_t visual_id;
         call_function=(PFN_vkGetPhysicalDeviceXcbPresentationSupportKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceXcbPresentationSupportKHR");
     }  
     
+VkBool32  result;
 {
-auto result=call_function(physicalDevice, queueFamilyIndex, connection, visual_id);
+result=call_function(physicalDevice, queueFamilyIndex, connection, visual_id);
 }
 json.clear();
 [&](){[&](){json["result"]=result;}();}();
@@ -11343,32 +11421,32 @@ json.clear();
     
 VkInstance instance;
 [&](){deserialize_VkInstance(json["instance"], instance);}();
-VkDebugReportCallbackCreateInfoEXT* pCreateInfo;
-[&](){ VkDebugReportCallbackCreateInfoEXT* temp_iSTySca[&](){
+ VkDebugReportCallbackCreateInfoEXT* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_iSTySca=NULL;
-            return; }temp_iSTySca=(VkDebugReportCallbackCreateInfoEXT*)malloc(1*sizeof(VkDebugReportCallbackCreateInfoEXT));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkDebugReportCallbackCreateInfoEXT*)malloc(1*sizeof(VkDebugReportCallbackCreateInfoEXT));
         auto& arr_bvXzZVI=json["pCreateInfo"].as_array();
         for(int wOLpuxo=0; wOLpuxo < 1; wOLpuxo++){
             [&](){
             auto& temp=arr_bvXzZVI[wOLpuxo].as_object();
-            deserialize_struct(temp,temp_iSTySca[wOLpuxo]);
+            deserialize_struct(temp,pCreateInfo[wOLpuxo]);
             }();
         }
-        }();pCreateInfo=temp_iSTySca;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkDebugReportCallbackEXT* pCallback;
 [&](){
             if (json["pCallback"].as_array().size()==0){
@@ -11394,8 +11472,9 @@ VkDebugReportCallbackEXT* pCallback;
         call_function=(PFN_vkCreateDebugReportCallbackEXT)get_device_proc_addr(parent,"vkCreateDebugReportCallbackEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(instance, pCreateInfo, pAllocator, pCallback);
+result=call_function(instance, pCreateInfo, pAllocator, pCallback);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -11445,19 +11524,19 @@ VkInstance instance;
 [&](){deserialize_VkInstance(json["instance"], instance);}();
 VkDebugReportCallbackEXT callback;
 [&](){deserialize_VkDebugReportCallbackEXT(json["callback"], callback);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyDebugReportCallbackEXT call_function;
     
@@ -11512,26 +11591,26 @@ size_t location;
 [&](){location=static_cast<size_t>(value_to<int>(json["location"]));}();
 int32_t messageCode;
 [&](){messageCode=static_cast<int32_t>(value_to<int>(json["messageCode"]));}();
-char* pLayerPrefix;
-[&](){ char* temp_QkxHNwY[&](){
+ char* pLayerPrefix;
+[&](){
             if (json["pLayerPrefix"].as_array().size()==0){
-                temp_QkxHNwY=NULL;
-            return; }temp_QkxHNwY=(char*)malloc(json["pLayerPrefix"].as_array().size()*sizeof(char));
+                pLayerPrefix=NULL;
+            return; }pLayerPrefix=(char*)malloc(json["pLayerPrefix"].as_array().size()*sizeof(char));
         auto& arr_uXlnNyO=json["pLayerPrefix"].as_array();
         for(int tgIwrYh=0; tgIwrYh < json["pLayerPrefix"].as_array().size(); tgIwrYh++){
-            [&](){temp_QkxHNwY[tgIwrYh]=static_cast<char>(value_to<int>(arr_uXlnNyO[tgIwrYh]));}();
+            [&](){pLayerPrefix[tgIwrYh]=static_cast<char>(value_to<int>(arr_uXlnNyO[tgIwrYh]));}();
         }
-        }();pLayerPrefix=temp_QkxHNwY;}();
-char* pMessage;
-[&](){ char* temp_jYCwXfq[&](){
+        }();
+ char* pMessage;
+[&](){
             if (json["pMessage"].as_array().size()==0){
-                temp_jYCwXfq=NULL;
-            return; }temp_jYCwXfq=(char*)malloc(json["pMessage"].as_array().size()*sizeof(char));
+                pMessage=NULL;
+            return; }pMessage=(char*)malloc(json["pMessage"].as_array().size()*sizeof(char));
         auto& arr_hjvjHsV=json["pMessage"].as_array();
         for(int WEDXGTi=0; WEDXGTi < json["pMessage"].as_array().size(); WEDXGTi++){
-            [&](){temp_jYCwXfq[WEDXGTi]=static_cast<char>(value_to<int>(arr_hjvjHsV[WEDXGTi]));}();
+            [&](){pMessage[WEDXGTi]=static_cast<char>(value_to<int>(arr_hjvjHsV[WEDXGTi]));}();
         }
-        }();pMessage=temp_jYCwXfq;}();
+        }();
 
     PFN_vkDebugReportMessageEXT call_function;
     
@@ -11586,19 +11665,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDebugMarkerObjectNameInfoEXT* pNameInfo;
-[&](){ VkDebugMarkerObjectNameInfoEXT* temp_WzToUiV[&](){
+ VkDebugMarkerObjectNameInfoEXT* pNameInfo;
+[&](){
             if (json["pNameInfo"].as_array().size()==0){
-                temp_WzToUiV=NULL;
-            return; }temp_WzToUiV=(VkDebugMarkerObjectNameInfoEXT*)malloc(1*sizeof(VkDebugMarkerObjectNameInfoEXT));
+                pNameInfo=NULL;
+            return; }pNameInfo=(VkDebugMarkerObjectNameInfoEXT*)malloc(1*sizeof(VkDebugMarkerObjectNameInfoEXT));
         auto& arr_VqYlRlZ=json["pNameInfo"].as_array();
         for(int rPEeNJT=0; rPEeNJT < 1; rPEeNJT++){
             [&](){
             auto& temp=arr_VqYlRlZ[rPEeNJT].as_object();
-            deserialize_struct(temp,temp_WzToUiV[rPEeNJT]);
+            deserialize_struct(temp,pNameInfo[rPEeNJT]);
             }();
         }
-        }();pNameInfo=temp_WzToUiV;}();
+        }();
 
     PFN_vkDebugMarkerSetObjectNameEXT call_function;
     
@@ -11614,8 +11693,9 @@ VkDebugMarkerObjectNameInfoEXT* pNameInfo;
         call_function=(PFN_vkDebugMarkerSetObjectNameEXT)get_device_proc_addr(parent,"vkDebugMarkerSetObjectNameEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pNameInfo);
+result=call_function(device, pNameInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -11642,19 +11722,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDebugMarkerObjectTagInfoEXT* pTagInfo;
-[&](){ VkDebugMarkerObjectTagInfoEXT* temp_GQDZGYy[&](){
+ VkDebugMarkerObjectTagInfoEXT* pTagInfo;
+[&](){
             if (json["pTagInfo"].as_array().size()==0){
-                temp_GQDZGYy=NULL;
-            return; }temp_GQDZGYy=(VkDebugMarkerObjectTagInfoEXT*)malloc(1*sizeof(VkDebugMarkerObjectTagInfoEXT));
+                pTagInfo=NULL;
+            return; }pTagInfo=(VkDebugMarkerObjectTagInfoEXT*)malloc(1*sizeof(VkDebugMarkerObjectTagInfoEXT));
         auto& arr_RbbYJqv=json["pTagInfo"].as_array();
         for(int RnIbuuZ=0; RnIbuuZ < 1; RnIbuuZ++){
             [&](){
             auto& temp=arr_RbbYJqv[RnIbuuZ].as_object();
-            deserialize_struct(temp,temp_GQDZGYy[RnIbuuZ]);
+            deserialize_struct(temp,pTagInfo[RnIbuuZ]);
             }();
         }
-        }();pTagInfo=temp_GQDZGYy;}();
+        }();
 
     PFN_vkDebugMarkerSetObjectTagEXT call_function;
     
@@ -11670,8 +11750,9 @@ VkDebugMarkerObjectTagInfoEXT* pTagInfo;
         call_function=(PFN_vkDebugMarkerSetObjectTagEXT)get_device_proc_addr(parent,"vkDebugMarkerSetObjectTagEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pTagInfo);
+result=call_function(device, pTagInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -11698,19 +11779,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkDebugMarkerMarkerInfoEXT* pMarkerInfo;
-[&](){ VkDebugMarkerMarkerInfoEXT* temp_YBrWqkU[&](){
+ VkDebugMarkerMarkerInfoEXT* pMarkerInfo;
+[&](){
             if (json["pMarkerInfo"].as_array().size()==0){
-                temp_YBrWqkU=NULL;
-            return; }temp_YBrWqkU=(VkDebugMarkerMarkerInfoEXT*)malloc(1*sizeof(VkDebugMarkerMarkerInfoEXT));
+                pMarkerInfo=NULL;
+            return; }pMarkerInfo=(VkDebugMarkerMarkerInfoEXT*)malloc(1*sizeof(VkDebugMarkerMarkerInfoEXT));
         auto& arr_dufSdWh=json["pMarkerInfo"].as_array();
         for(int wWwHKWF=0; wWwHKWF < 1; wWwHKWF++){
             [&](){
             auto& temp=arr_dufSdWh[wWwHKWF].as_object();
-            deserialize_struct(temp,temp_YBrWqkU[wWwHKWF]);
+            deserialize_struct(temp,pMarkerInfo[wWwHKWF]);
             }();
         }
-        }();pMarkerInfo=temp_YBrWqkU;}();
+        }();
 
     PFN_vkCmdDebugMarkerBeginEXT call_function;
     
@@ -11785,19 +11866,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkDebugMarkerMarkerInfoEXT* pMarkerInfo;
-[&](){ VkDebugMarkerMarkerInfoEXT* temp_YBrWqkU[&](){
+ VkDebugMarkerMarkerInfoEXT* pMarkerInfo;
+[&](){
             if (json["pMarkerInfo"].as_array().size()==0){
-                temp_YBrWqkU=NULL;
-            return; }temp_YBrWqkU=(VkDebugMarkerMarkerInfoEXT*)malloc(1*sizeof(VkDebugMarkerMarkerInfoEXT));
+                pMarkerInfo=NULL;
+            return; }pMarkerInfo=(VkDebugMarkerMarkerInfoEXT*)malloc(1*sizeof(VkDebugMarkerMarkerInfoEXT));
         auto& arr_dufSdWh=json["pMarkerInfo"].as_array();
         for(int wWwHKWF=0; wWwHKWF < 1; wWwHKWF++){
             [&](){
             auto& temp=arr_dufSdWh[wWwHKWF].as_object();
-            deserialize_struct(temp,temp_YBrWqkU[wWwHKWF]);
+            deserialize_struct(temp,pMarkerInfo[wWwHKWF]);
             }();
         }
-        }();pMarkerInfo=temp_YBrWqkU;}();
+        }();
 
     PFN_vkCmdDebugMarkerInsertEXT call_function;
     
@@ -11881,8 +11962,9 @@ VkExternalImageFormatPropertiesNV* pExternalImageFormatProperties;
         call_function=(PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV)get_device_proc_addr(parent,"vkGetPhysicalDeviceExternalImageFormatPropertiesNV");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, format, type, tiling, usage, flags, externalHandleType, pExternalImageFormatProperties);
+result=call_function(physicalDevice, format, type, tiling, usage, flags, externalHandleType, pExternalImageFormatProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -11917,19 +11999,19 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 VkBool32 isPreprocessed;
 [&](){uint32_t temp_tPMaOPc;[&](){temp_tPMaOPc=static_cast<uint32_t>(value_to<int>(json["isPreprocessed"]));}();isPreprocessed=(VkBool32)temp_tPMaOPc;}();
-VkGeneratedCommandsInfoNV* pGeneratedCommandsInfo;
-[&](){ VkGeneratedCommandsInfoNV* temp_AYGolkM[&](){
+ VkGeneratedCommandsInfoNV* pGeneratedCommandsInfo;
+[&](){
             if (json["pGeneratedCommandsInfo"].as_array().size()==0){
-                temp_AYGolkM=NULL;
-            return; }temp_AYGolkM=(VkGeneratedCommandsInfoNV*)malloc(1*sizeof(VkGeneratedCommandsInfoNV));
+                pGeneratedCommandsInfo=NULL;
+            return; }pGeneratedCommandsInfo=(VkGeneratedCommandsInfoNV*)malloc(1*sizeof(VkGeneratedCommandsInfoNV));
         auto& arr_HWCDzqJ=json["pGeneratedCommandsInfo"].as_array();
         for(int ZktpRSr=0; ZktpRSr < 1; ZktpRSr++){
             [&](){
             auto& temp=arr_HWCDzqJ[ZktpRSr].as_object();
-            deserialize_struct(temp,temp_AYGolkM[ZktpRSr]);
+            deserialize_struct(temp,pGeneratedCommandsInfo[ZktpRSr]);
             }();
         }
-        }();pGeneratedCommandsInfo=temp_AYGolkM;}();
+        }();
 
     PFN_vkCmdExecuteGeneratedCommandsNV call_function;
     
@@ -11974,19 +12056,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkGeneratedCommandsInfoNV* pGeneratedCommandsInfo;
-[&](){ VkGeneratedCommandsInfoNV* temp_AYGolkM[&](){
+ VkGeneratedCommandsInfoNV* pGeneratedCommandsInfo;
+[&](){
             if (json["pGeneratedCommandsInfo"].as_array().size()==0){
-                temp_AYGolkM=NULL;
-            return; }temp_AYGolkM=(VkGeneratedCommandsInfoNV*)malloc(1*sizeof(VkGeneratedCommandsInfoNV));
+                pGeneratedCommandsInfo=NULL;
+            return; }pGeneratedCommandsInfo=(VkGeneratedCommandsInfoNV*)malloc(1*sizeof(VkGeneratedCommandsInfoNV));
         auto& arr_HWCDzqJ=json["pGeneratedCommandsInfo"].as_array();
         for(int ZktpRSr=0; ZktpRSr < 1; ZktpRSr++){
             [&](){
             auto& temp=arr_HWCDzqJ[ZktpRSr].as_object();
-            deserialize_struct(temp,temp_AYGolkM[ZktpRSr]);
+            deserialize_struct(temp,pGeneratedCommandsInfo[ZktpRSr]);
             }();
         }
-        }();pGeneratedCommandsInfo=temp_AYGolkM;}();
+        }();
 
     PFN_vkCmdPreprocessGeneratedCommandsNV call_function;
     
@@ -12070,19 +12152,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkGeneratedCommandsMemoryRequirementsInfoNV* pInfo;
-[&](){ VkGeneratedCommandsMemoryRequirementsInfoNV* temp_lJhIAmh[&](){
+ VkGeneratedCommandsMemoryRequirementsInfoNV* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_lJhIAmh=NULL;
-            return; }temp_lJhIAmh=(VkGeneratedCommandsMemoryRequirementsInfoNV*)malloc(1*sizeof(VkGeneratedCommandsMemoryRequirementsInfoNV));
+                pInfo=NULL;
+            return; }pInfo=(VkGeneratedCommandsMemoryRequirementsInfoNV*)malloc(1*sizeof(VkGeneratedCommandsMemoryRequirementsInfoNV));
         auto& arr_KgvktJY=json["pInfo"].as_array();
         for(int JNwrpFH=0; JNwrpFH < 1; JNwrpFH++){
             [&](){
             auto& temp=arr_KgvktJY[JNwrpFH].as_object();
-            deserialize_struct(temp,temp_lJhIAmh[JNwrpFH]);
+            deserialize_struct(temp,pInfo[JNwrpFH]);
             }();
         }
-        }();pInfo=temp_lJhIAmh;}();
+        }();
 VkMemoryRequirements2* pMemoryRequirements;
 [&](){
             if (json["pMemoryRequirements"].as_array().size()==0){
@@ -12151,32 +12233,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkIndirectCommandsLayoutCreateInfoNV* pCreateInfo;
-[&](){ VkIndirectCommandsLayoutCreateInfoNV* temp_IoZfFzs[&](){
+ VkIndirectCommandsLayoutCreateInfoNV* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_IoZfFzs=NULL;
-            return; }temp_IoZfFzs=(VkIndirectCommandsLayoutCreateInfoNV*)malloc(1*sizeof(VkIndirectCommandsLayoutCreateInfoNV));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkIndirectCommandsLayoutCreateInfoNV*)malloc(1*sizeof(VkIndirectCommandsLayoutCreateInfoNV));
         auto& arr_moJlSYv=json["pCreateInfo"].as_array();
         for(int GBtaMlf=0; GBtaMlf < 1; GBtaMlf++){
             [&](){
             auto& temp=arr_moJlSYv[GBtaMlf].as_object();
-            deserialize_struct(temp,temp_IoZfFzs[GBtaMlf]);
+            deserialize_struct(temp,pCreateInfo[GBtaMlf]);
             }();
         }
-        }();pCreateInfo=temp_IoZfFzs;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkIndirectCommandsLayoutNV* pIndirectCommandsLayout;
 [&](){
             if (json["pIndirectCommandsLayout"].as_array().size()==0){
@@ -12202,8 +12284,9 @@ VkIndirectCommandsLayoutNV* pIndirectCommandsLayout;
         call_function=(PFN_vkCreateIndirectCommandsLayoutNV)get_device_proc_addr(parent,"vkCreateIndirectCommandsLayoutNV");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pIndirectCommandsLayout);
+result=call_function(device, pCreateInfo, pAllocator, pIndirectCommandsLayout);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -12253,19 +12336,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkIndirectCommandsLayoutNV indirectCommandsLayout;
 [&](){deserialize_VkIndirectCommandsLayoutNV(json["indirectCommandsLayout"], indirectCommandsLayout);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyIndirectCommandsLayoutNV call_function;
     
@@ -12481,19 +12564,19 @@ json.clear();
     
 VkPhysicalDevice physicalDevice;
 [&](){deserialize_VkPhysicalDevice(json["physicalDevice"], physicalDevice);}();
-VkPhysicalDeviceImageFormatInfo2* pImageFormatInfo;
-[&](){ VkPhysicalDeviceImageFormatInfo2* temp_alkoaXY[&](){
+ VkPhysicalDeviceImageFormatInfo2* pImageFormatInfo;
+[&](){
             if (json["pImageFormatInfo"].as_array().size()==0){
-                temp_alkoaXY=NULL;
-            return; }temp_alkoaXY=(VkPhysicalDeviceImageFormatInfo2*)malloc(1*sizeof(VkPhysicalDeviceImageFormatInfo2));
+                pImageFormatInfo=NULL;
+            return; }pImageFormatInfo=(VkPhysicalDeviceImageFormatInfo2*)malloc(1*sizeof(VkPhysicalDeviceImageFormatInfo2));
         auto& arr_DmAdZhK=json["pImageFormatInfo"].as_array();
         for(int ZeNdrVN=0; ZeNdrVN < 1; ZeNdrVN++){
             [&](){
             auto& temp=arr_DmAdZhK[ZeNdrVN].as_object();
-            deserialize_struct(temp,temp_alkoaXY[ZeNdrVN]);
+            deserialize_struct(temp,pImageFormatInfo[ZeNdrVN]);
             }();
         }
-        }();pImageFormatInfo=temp_alkoaXY;}();
+        }();
 VkImageFormatProperties2* pImageFormatProperties;
 [&](){
             if (json["pImageFormatProperties"].as_array().size()==0){
@@ -12522,8 +12605,9 @@ VkImageFormatProperties2* pImageFormatProperties;
         call_function=(PFN_vkGetPhysicalDeviceImageFormatProperties2)get_device_proc_addr(parent,"vkGetPhysicalDeviceImageFormatProperties2");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pImageFormatInfo, pImageFormatProperties);
+result=call_function(physicalDevice, pImageFormatInfo, pImageFormatProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -12693,19 +12777,19 @@ json.clear();
     
 VkPhysicalDevice physicalDevice;
 [&](){deserialize_VkPhysicalDevice(json["physicalDevice"], physicalDevice);}();
-VkPhysicalDeviceSparseImageFormatInfo2* pFormatInfo;
-[&](){ VkPhysicalDeviceSparseImageFormatInfo2* temp_XIPmBGZ[&](){
+ VkPhysicalDeviceSparseImageFormatInfo2* pFormatInfo;
+[&](){
             if (json["pFormatInfo"].as_array().size()==0){
-                temp_XIPmBGZ=NULL;
-            return; }temp_XIPmBGZ=(VkPhysicalDeviceSparseImageFormatInfo2*)malloc(1*sizeof(VkPhysicalDeviceSparseImageFormatInfo2));
+                pFormatInfo=NULL;
+            return; }pFormatInfo=(VkPhysicalDeviceSparseImageFormatInfo2*)malloc(1*sizeof(VkPhysicalDeviceSparseImageFormatInfo2));
         auto& arr_NQMYVvv=json["pFormatInfo"].as_array();
         for(int SsKlkUy=0; SsKlkUy < 1; SsKlkUy++){
             [&](){
             auto& temp=arr_NQMYVvv[SsKlkUy].as_object();
-            deserialize_struct(temp,temp_XIPmBGZ[SsKlkUy]);
+            deserialize_struct(temp,pFormatInfo[SsKlkUy]);
             }();
         }
-        }();pFormatInfo=temp_XIPmBGZ;}();
+        }();
 uint32_t* pPropertyCount;
 [&](){
             if (json["pPropertyCount"].as_array().size()==0){
@@ -12801,19 +12885,19 @@ uint32_t set;
 [&](){set=static_cast<uint32_t>(value_to<int>(json["set"]));}();
 uint32_t descriptorWriteCount;
 [&](){descriptorWriteCount=static_cast<uint32_t>(value_to<int>(json["descriptorWriteCount"]));}();
-VkWriteDescriptorSet* pDescriptorWrites;
-[&](){ VkWriteDescriptorSet* temp_RotfizJ[&](){
+ VkWriteDescriptorSet* pDescriptorWrites;
+[&](){
             if (json["pDescriptorWrites"].as_array().size()==0){
-                temp_RotfizJ=NULL;
-            return; }temp_RotfizJ=(VkWriteDescriptorSet*)malloc(descriptorWriteCount*sizeof(VkWriteDescriptorSet));
+                pDescriptorWrites=NULL;
+            return; }pDescriptorWrites=(VkWriteDescriptorSet*)malloc(descriptorWriteCount*sizeof(VkWriteDescriptorSet));
         auto& arr_YJcGFpk=json["pDescriptorWrites"].as_array();
         for(int PyFuMgH=0; PyFuMgH < descriptorWriteCount; PyFuMgH++){
             [&](){
             auto& temp=arr_YJcGFpk[PyFuMgH].as_object();
-            deserialize_struct(temp,temp_RotfizJ[PyFuMgH]);
+            deserialize_struct(temp,pDescriptorWrites[PyFuMgH]);
             }();
         }
-        }();pDescriptorWrites=temp_RotfizJ;}();
+        }();
 
     PFN_vkCmdPushDescriptorSetKHR call_function;
     
@@ -12898,19 +12982,19 @@ json.clear();
     
 VkPhysicalDevice physicalDevice;
 [&](){deserialize_VkPhysicalDevice(json["physicalDevice"], physicalDevice);}();
-VkPhysicalDeviceExternalBufferInfo* pExternalBufferInfo;
-[&](){ VkPhysicalDeviceExternalBufferInfo* temp_BiGBBFw[&](){
+ VkPhysicalDeviceExternalBufferInfo* pExternalBufferInfo;
+[&](){
             if (json["pExternalBufferInfo"].as_array().size()==0){
-                temp_BiGBBFw=NULL;
-            return; }temp_BiGBBFw=(VkPhysicalDeviceExternalBufferInfo*)malloc(1*sizeof(VkPhysicalDeviceExternalBufferInfo));
+                pExternalBufferInfo=NULL;
+            return; }pExternalBufferInfo=(VkPhysicalDeviceExternalBufferInfo*)malloc(1*sizeof(VkPhysicalDeviceExternalBufferInfo));
         auto& arr_ISfKJVQ=json["pExternalBufferInfo"].as_array();
         for(int rmWnLWl=0; rmWnLWl < 1; rmWnLWl++){
             [&](){
             auto& temp=arr_ISfKJVQ[rmWnLWl].as_object();
-            deserialize_struct(temp,temp_BiGBBFw[rmWnLWl]);
+            deserialize_struct(temp,pExternalBufferInfo[rmWnLWl]);
             }();
         }
-        }();pExternalBufferInfo=temp_BiGBBFw;}();
+        }();
 VkExternalBufferProperties* pExternalBufferProperties;
 [&](){
             if (json["pExternalBufferProperties"].as_array().size()==0){
@@ -12979,19 +13063,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkMemoryGetFdInfoKHR* pGetFdInfo;
-[&](){ VkMemoryGetFdInfoKHR* temp_fLjnSxF[&](){
+ VkMemoryGetFdInfoKHR* pGetFdInfo;
+[&](){
             if (json["pGetFdInfo"].as_array().size()==0){
-                temp_fLjnSxF=NULL;
-            return; }temp_fLjnSxF=(VkMemoryGetFdInfoKHR*)malloc(1*sizeof(VkMemoryGetFdInfoKHR));
+                pGetFdInfo=NULL;
+            return; }pGetFdInfo=(VkMemoryGetFdInfoKHR*)malloc(1*sizeof(VkMemoryGetFdInfoKHR));
         auto& arr_YGnGiDl=json["pGetFdInfo"].as_array();
         for(int QwmRuDs=0; QwmRuDs < 1; QwmRuDs++){
             [&](){
             auto& temp=arr_YGnGiDl[QwmRuDs].as_object();
-            deserialize_struct(temp,temp_fLjnSxF[QwmRuDs]);
+            deserialize_struct(temp,pGetFdInfo[QwmRuDs]);
             }();
         }
-        }();pGetFdInfo=temp_fLjnSxF;}();
+        }();
 int* pFd;
 [&](){
             if (json["pFd"].as_array().size()==0){
@@ -13017,8 +13101,9 @@ int* pFd;
         call_function=(PFN_vkGetMemoryFdKHR)get_device_proc_addr(parent,"vkGetMemoryFdKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pGetFdInfo, pFd);
+result=call_function(device, pGetFdInfo, pFd);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -13086,8 +13171,9 @@ VkMemoryFdPropertiesKHR* pMemoryFdProperties;
         call_function=(PFN_vkGetMemoryFdPropertiesKHR)get_device_proc_addr(parent,"vkGetMemoryFdPropertiesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, handleType, fd, pMemoryFdProperties);
+result=call_function(device, handleType, fd, pMemoryFdProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -13116,19 +13202,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkMemoryGetRemoteAddressInfoNV* pMemoryGetRemoteAddressInfo;
-[&](){ VkMemoryGetRemoteAddressInfoNV* temp_lZyOzjo[&](){
+ VkMemoryGetRemoteAddressInfoNV* pMemoryGetRemoteAddressInfo;
+[&](){
             if (json["pMemoryGetRemoteAddressInfo"].as_array().size()==0){
-                temp_lZyOzjo=NULL;
-            return; }temp_lZyOzjo=(VkMemoryGetRemoteAddressInfoNV*)malloc(1*sizeof(VkMemoryGetRemoteAddressInfoNV));
+                pMemoryGetRemoteAddressInfo=NULL;
+            return; }pMemoryGetRemoteAddressInfo=(VkMemoryGetRemoteAddressInfoNV*)malloc(1*sizeof(VkMemoryGetRemoteAddressInfoNV));
         auto& arr_qzVONyK=json["pMemoryGetRemoteAddressInfo"].as_array();
         for(int vBoigyh=0; vBoigyh < 1; vBoigyh++){
             [&](){
             auto& temp=arr_qzVONyK[vBoigyh].as_object();
-            deserialize_struct(temp,temp_lZyOzjo[vBoigyh]);
+            deserialize_struct(temp,pMemoryGetRemoteAddressInfo[vBoigyh]);
             }();
         }
-        }();pMemoryGetRemoteAddressInfo=temp_lZyOzjo;}();
+        }();
 VkRemoteAddressNV* pAddress;
 [&](){
             if (json["pAddress"].as_array().size()==0){
@@ -13165,8 +13251,9 @@ VkRemoteAddressNV* pAddress;
         call_function=(PFN_vkGetMemoryRemoteAddressNV)get_device_proc_addr(parent,"vkGetMemoryRemoteAddressNV");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pMemoryGetRemoteAddressInfo, pAddress);
+result=call_function(device, pMemoryGetRemoteAddressInfo, pAddress);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -13213,19 +13300,19 @@ json.clear();
     
 VkPhysicalDevice physicalDevice;
 [&](){deserialize_VkPhysicalDevice(json["physicalDevice"], physicalDevice);}();
-VkPhysicalDeviceExternalSemaphoreInfo* pExternalSemaphoreInfo;
-[&](){ VkPhysicalDeviceExternalSemaphoreInfo* temp_CfnUsYN[&](){
+ VkPhysicalDeviceExternalSemaphoreInfo* pExternalSemaphoreInfo;
+[&](){
             if (json["pExternalSemaphoreInfo"].as_array().size()==0){
-                temp_CfnUsYN=NULL;
-            return; }temp_CfnUsYN=(VkPhysicalDeviceExternalSemaphoreInfo*)malloc(1*sizeof(VkPhysicalDeviceExternalSemaphoreInfo));
+                pExternalSemaphoreInfo=NULL;
+            return; }pExternalSemaphoreInfo=(VkPhysicalDeviceExternalSemaphoreInfo*)malloc(1*sizeof(VkPhysicalDeviceExternalSemaphoreInfo));
         auto& arr_giUwPMB=json["pExternalSemaphoreInfo"].as_array();
         for(int gtMcAOQ=0; gtMcAOQ < 1; gtMcAOQ++){
             [&](){
             auto& temp=arr_giUwPMB[gtMcAOQ].as_object();
-            deserialize_struct(temp,temp_CfnUsYN[gtMcAOQ]);
+            deserialize_struct(temp,pExternalSemaphoreInfo[gtMcAOQ]);
             }();
         }
-        }();pExternalSemaphoreInfo=temp_CfnUsYN;}();
+        }();
 VkExternalSemaphoreProperties* pExternalSemaphoreProperties;
 [&](){
             if (json["pExternalSemaphoreProperties"].as_array().size()==0){
@@ -13294,19 +13381,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkSemaphoreGetFdInfoKHR* pGetFdInfo;
-[&](){ VkSemaphoreGetFdInfoKHR* temp_PPrOOdl[&](){
+ VkSemaphoreGetFdInfoKHR* pGetFdInfo;
+[&](){
             if (json["pGetFdInfo"].as_array().size()==0){
-                temp_PPrOOdl=NULL;
-            return; }temp_PPrOOdl=(VkSemaphoreGetFdInfoKHR*)malloc(1*sizeof(VkSemaphoreGetFdInfoKHR));
+                pGetFdInfo=NULL;
+            return; }pGetFdInfo=(VkSemaphoreGetFdInfoKHR*)malloc(1*sizeof(VkSemaphoreGetFdInfoKHR));
         auto& arr_BVoUZWb=json["pGetFdInfo"].as_array();
         for(int BGuubyW=0; BGuubyW < 1; BGuubyW++){
             [&](){
             auto& temp=arr_BVoUZWb[BGuubyW].as_object();
-            deserialize_struct(temp,temp_PPrOOdl[BGuubyW]);
+            deserialize_struct(temp,pGetFdInfo[BGuubyW]);
             }();
         }
-        }();pGetFdInfo=temp_PPrOOdl;}();
+        }();
 int* pFd;
 [&](){
             if (json["pFd"].as_array().size()==0){
@@ -13332,8 +13419,9 @@ int* pFd;
         call_function=(PFN_vkGetSemaphoreFdKHR)get_device_proc_addr(parent,"vkGetSemaphoreFdKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pGetFdInfo, pFd);
+result=call_function(device, pGetFdInfo, pFd);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -13369,19 +13457,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkImportSemaphoreFdInfoKHR* pImportSemaphoreFdInfo;
-[&](){ VkImportSemaphoreFdInfoKHR* temp_nydLElg[&](){
+ VkImportSemaphoreFdInfoKHR* pImportSemaphoreFdInfo;
+[&](){
             if (json["pImportSemaphoreFdInfo"].as_array().size()==0){
-                temp_nydLElg=NULL;
-            return; }temp_nydLElg=(VkImportSemaphoreFdInfoKHR*)malloc(1*sizeof(VkImportSemaphoreFdInfoKHR));
+                pImportSemaphoreFdInfo=NULL;
+            return; }pImportSemaphoreFdInfo=(VkImportSemaphoreFdInfoKHR*)malloc(1*sizeof(VkImportSemaphoreFdInfoKHR));
         auto& arr_UrxNRxs=json["pImportSemaphoreFdInfo"].as_array();
         for(int QfVGtJH=0; QfVGtJH < 1; QfVGtJH++){
             [&](){
             auto& temp=arr_UrxNRxs[QfVGtJH].as_object();
-            deserialize_struct(temp,temp_nydLElg[QfVGtJH]);
+            deserialize_struct(temp,pImportSemaphoreFdInfo[QfVGtJH]);
             }();
         }
-        }();pImportSemaphoreFdInfo=temp_nydLElg;}();
+        }();
 
     PFN_vkImportSemaphoreFdKHR call_function;
     
@@ -13397,8 +13485,9 @@ VkImportSemaphoreFdInfoKHR* pImportSemaphoreFdInfo;
         call_function=(PFN_vkImportSemaphoreFdKHR)get_device_proc_addr(parent,"vkImportSemaphoreFdKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pImportSemaphoreFdInfo);
+result=call_function(device, pImportSemaphoreFdInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -13425,19 +13514,19 @@ json.clear();
     
 VkPhysicalDevice physicalDevice;
 [&](){deserialize_VkPhysicalDevice(json["physicalDevice"], physicalDevice);}();
-VkPhysicalDeviceExternalFenceInfo* pExternalFenceInfo;
-[&](){ VkPhysicalDeviceExternalFenceInfo* temp_LfaSRmq[&](){
+ VkPhysicalDeviceExternalFenceInfo* pExternalFenceInfo;
+[&](){
             if (json["pExternalFenceInfo"].as_array().size()==0){
-                temp_LfaSRmq=NULL;
-            return; }temp_LfaSRmq=(VkPhysicalDeviceExternalFenceInfo*)malloc(1*sizeof(VkPhysicalDeviceExternalFenceInfo));
+                pExternalFenceInfo=NULL;
+            return; }pExternalFenceInfo=(VkPhysicalDeviceExternalFenceInfo*)malloc(1*sizeof(VkPhysicalDeviceExternalFenceInfo));
         auto& arr_cmsSEwq=json["pExternalFenceInfo"].as_array();
         for(int qxHSgjk=0; qxHSgjk < 1; qxHSgjk++){
             [&](){
             auto& temp=arr_cmsSEwq[qxHSgjk].as_object();
-            deserialize_struct(temp,temp_LfaSRmq[qxHSgjk]);
+            deserialize_struct(temp,pExternalFenceInfo[qxHSgjk]);
             }();
         }
-        }();pExternalFenceInfo=temp_LfaSRmq;}();
+        }();
 VkExternalFenceProperties* pExternalFenceProperties;
 [&](){
             if (json["pExternalFenceProperties"].as_array().size()==0){
@@ -13506,19 +13595,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkFenceGetFdInfoKHR* pGetFdInfo;
-[&](){ VkFenceGetFdInfoKHR* temp_tuaomnR[&](){
+ VkFenceGetFdInfoKHR* pGetFdInfo;
+[&](){
             if (json["pGetFdInfo"].as_array().size()==0){
-                temp_tuaomnR=NULL;
-            return; }temp_tuaomnR=(VkFenceGetFdInfoKHR*)malloc(1*sizeof(VkFenceGetFdInfoKHR));
+                pGetFdInfo=NULL;
+            return; }pGetFdInfo=(VkFenceGetFdInfoKHR*)malloc(1*sizeof(VkFenceGetFdInfoKHR));
         auto& arr_xyswZQS=json["pGetFdInfo"].as_array();
         for(int pCVXTsZ=0; pCVXTsZ < 1; pCVXTsZ++){
             [&](){
             auto& temp=arr_xyswZQS[pCVXTsZ].as_object();
-            deserialize_struct(temp,temp_tuaomnR[pCVXTsZ]);
+            deserialize_struct(temp,pGetFdInfo[pCVXTsZ]);
             }();
         }
-        }();pGetFdInfo=temp_tuaomnR;}();
+        }();
 int* pFd;
 [&](){
             if (json["pFd"].as_array().size()==0){
@@ -13544,8 +13633,9 @@ int* pFd;
         call_function=(PFN_vkGetFenceFdKHR)get_device_proc_addr(parent,"vkGetFenceFdKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pGetFdInfo, pFd);
+result=call_function(device, pGetFdInfo, pFd);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -13581,19 +13671,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkImportFenceFdInfoKHR* pImportFenceFdInfo;
-[&](){ VkImportFenceFdInfoKHR* temp_jQnJUqC[&](){
+ VkImportFenceFdInfoKHR* pImportFenceFdInfo;
+[&](){
             if (json["pImportFenceFdInfo"].as_array().size()==0){
-                temp_jQnJUqC=NULL;
-            return; }temp_jQnJUqC=(VkImportFenceFdInfoKHR*)malloc(1*sizeof(VkImportFenceFdInfoKHR));
+                pImportFenceFdInfo=NULL;
+            return; }pImportFenceFdInfo=(VkImportFenceFdInfoKHR*)malloc(1*sizeof(VkImportFenceFdInfoKHR));
         auto& arr_fzWADTd=json["pImportFenceFdInfo"].as_array();
         for(int nbyOjBi=0; nbyOjBi < 1; nbyOjBi++){
             [&](){
             auto& temp=arr_fzWADTd[nbyOjBi].as_object();
-            deserialize_struct(temp,temp_jQnJUqC[nbyOjBi]);
+            deserialize_struct(temp,pImportFenceFdInfo[nbyOjBi]);
             }();
         }
-        }();pImportFenceFdInfo=temp_jQnJUqC;}();
+        }();
 
     PFN_vkImportFenceFdKHR call_function;
     
@@ -13609,8 +13699,9 @@ VkImportFenceFdInfoKHR* pImportFenceFdInfo;
         call_function=(PFN_vkImportFenceFdKHR)get_device_proc_addr(parent,"vkImportFenceFdKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pImportFenceFdInfo);
+result=call_function(device, pImportFenceFdInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -13654,8 +13745,9 @@ VkDisplayKHR display;
         call_function=(PFN_vkReleaseDisplayEXT)get_device_proc_addr(parent,"vkReleaseDisplayEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, display);
+result=call_function(physicalDevice, display);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -13673,19 +13765,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkDisplayKHR display;
 [&](){deserialize_VkDisplayKHR(json["display"], display);}();
-VkDisplayPowerInfoEXT* pDisplayPowerInfo;
-[&](){ VkDisplayPowerInfoEXT* temp_ZNXmGnS[&](){
+ VkDisplayPowerInfoEXT* pDisplayPowerInfo;
+[&](){
             if (json["pDisplayPowerInfo"].as_array().size()==0){
-                temp_ZNXmGnS=NULL;
-            return; }temp_ZNXmGnS=(VkDisplayPowerInfoEXT*)malloc(1*sizeof(VkDisplayPowerInfoEXT));
+                pDisplayPowerInfo=NULL;
+            return; }pDisplayPowerInfo=(VkDisplayPowerInfoEXT*)malloc(1*sizeof(VkDisplayPowerInfoEXT));
         auto& arr_VSwTzCL=json["pDisplayPowerInfo"].as_array();
         for(int KtsnURa=0; KtsnURa < 1; KtsnURa++){
             [&](){
             auto& temp=arr_VSwTzCL[KtsnURa].as_object();
-            deserialize_struct(temp,temp_ZNXmGnS[KtsnURa]);
+            deserialize_struct(temp,pDisplayPowerInfo[KtsnURa]);
             }();
         }
-        }();pDisplayPowerInfo=temp_ZNXmGnS;}();
+        }();
 
     PFN_vkDisplayPowerControlEXT call_function;
     
@@ -13701,8 +13793,9 @@ VkDisplayPowerInfoEXT* pDisplayPowerInfo;
         call_function=(PFN_vkDisplayPowerControlEXT)get_device_proc_addr(parent,"vkDisplayPowerControlEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, display, pDisplayPowerInfo);
+result=call_function(device, display, pDisplayPowerInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -13730,32 +13823,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDeviceEventInfoEXT* pDeviceEventInfo;
-[&](){ VkDeviceEventInfoEXT* temp_JaFgtFd[&](){
+ VkDeviceEventInfoEXT* pDeviceEventInfo;
+[&](){
             if (json["pDeviceEventInfo"].as_array().size()==0){
-                temp_JaFgtFd=NULL;
-            return; }temp_JaFgtFd=(VkDeviceEventInfoEXT*)malloc(1*sizeof(VkDeviceEventInfoEXT));
+                pDeviceEventInfo=NULL;
+            return; }pDeviceEventInfo=(VkDeviceEventInfoEXT*)malloc(1*sizeof(VkDeviceEventInfoEXT));
         auto& arr_EoseEDE=json["pDeviceEventInfo"].as_array();
         for(int obNGZvs=0; obNGZvs < 1; obNGZvs++){
             [&](){
             auto& temp=arr_EoseEDE[obNGZvs].as_object();
-            deserialize_struct(temp,temp_JaFgtFd[obNGZvs]);
+            deserialize_struct(temp,pDeviceEventInfo[obNGZvs]);
             }();
         }
-        }();pDeviceEventInfo=temp_JaFgtFd;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkFence* pFence;
 [&](){
             if (json["pFence"].as_array().size()==0){
@@ -13781,8 +13874,9 @@ VkFence* pFence;
         call_function=(PFN_vkRegisterDeviceEventEXT)get_device_proc_addr(parent,"vkRegisterDeviceEventEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pDeviceEventInfo, pAllocator, pFence);
+result=call_function(device, pDeviceEventInfo, pAllocator, pFence);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -13832,32 +13926,32 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkDisplayKHR display;
 [&](){deserialize_VkDisplayKHR(json["display"], display);}();
-VkDisplayEventInfoEXT* pDisplayEventInfo;
-[&](){ VkDisplayEventInfoEXT* temp_iAVCSup[&](){
+ VkDisplayEventInfoEXT* pDisplayEventInfo;
+[&](){
             if (json["pDisplayEventInfo"].as_array().size()==0){
-                temp_iAVCSup=NULL;
-            return; }temp_iAVCSup=(VkDisplayEventInfoEXT*)malloc(1*sizeof(VkDisplayEventInfoEXT));
+                pDisplayEventInfo=NULL;
+            return; }pDisplayEventInfo=(VkDisplayEventInfoEXT*)malloc(1*sizeof(VkDisplayEventInfoEXT));
         auto& arr_dFojYev=json["pDisplayEventInfo"].as_array();
         for(int ABwoOha=0; ABwoOha < 1; ABwoOha++){
             [&](){
             auto& temp=arr_dFojYev[ABwoOha].as_object();
-            deserialize_struct(temp,temp_iAVCSup[ABwoOha]);
+            deserialize_struct(temp,pDisplayEventInfo[ABwoOha]);
             }();
         }
-        }();pDisplayEventInfo=temp_iAVCSup;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkFence* pFence;
 [&](){
             if (json["pFence"].as_array().size()==0){
@@ -13883,8 +13977,9 @@ VkFence* pFence;
         call_function=(PFN_vkRegisterDisplayEventEXT)get_device_proc_addr(parent,"vkRegisterDisplayEventEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, display, pDisplayEventInfo, pAllocator, pFence);
+result=call_function(device, display, pDisplayEventInfo, pAllocator, pFence);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -13962,8 +14057,9 @@ uint64_t* pCounterValue;
         call_function=(PFN_vkGetSwapchainCounterEXT)get_device_proc_addr(parent,"vkGetSwapchainCounterEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, swapchain, counter, pCounterValue);
+result=call_function(device, swapchain, counter, pCounterValue);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -14019,8 +14115,9 @@ VkSurfaceCapabilities2EXT* pSurfaceCapabilities;
         call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilities2EXT)get_device_proc_addr(parent,"vkGetPhysicalDeviceSurfaceCapabilities2EXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, surface, pSurfaceCapabilities);
+result=call_function(physicalDevice, surface, pSurfaceCapabilities);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -14086,8 +14183,9 @@ VkPhysicalDeviceGroupProperties* pPhysicalDeviceGroupProperties;
         call_function=(PFN_vkEnumeratePhysicalDeviceGroups)get_device_proc_addr(parent,"vkEnumeratePhysicalDeviceGroups");
     }  
     
+VkResult  result;
 {
-auto result=call_function(instance, pPhysicalDeviceGroupCount, pPhysicalDeviceGroupProperties);
+result=call_function(instance, pPhysicalDeviceGroupCount, pPhysicalDeviceGroupProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -14184,19 +14282,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 uint32_t bindInfoCount;
 [&](){bindInfoCount=static_cast<uint32_t>(value_to<int>(json["bindInfoCount"]));}();
-VkBindBufferMemoryInfo* pBindInfos;
-[&](){ VkBindBufferMemoryInfo* temp_ZJzzJwa[&](){
+ VkBindBufferMemoryInfo* pBindInfos;
+[&](){
             if (json["pBindInfos"].as_array().size()==0){
-                temp_ZJzzJwa=NULL;
-            return; }temp_ZJzzJwa=(VkBindBufferMemoryInfo*)malloc(bindInfoCount*sizeof(VkBindBufferMemoryInfo));
+                pBindInfos=NULL;
+            return; }pBindInfos=(VkBindBufferMemoryInfo*)malloc(bindInfoCount*sizeof(VkBindBufferMemoryInfo));
         auto& arr_KcaAJZC=json["pBindInfos"].as_array();
         for(int sAHPDKw=0; sAHPDKw < bindInfoCount; sAHPDKw++){
             [&](){
             auto& temp=arr_KcaAJZC[sAHPDKw].as_object();
-            deserialize_struct(temp,temp_ZJzzJwa[sAHPDKw]);
+            deserialize_struct(temp,pBindInfos[sAHPDKw]);
             }();
         }
-        }();pBindInfos=temp_ZJzzJwa;}();
+        }();
 
     PFN_vkBindBufferMemory2 call_function;
     
@@ -14212,8 +14310,9 @@ VkBindBufferMemoryInfo* pBindInfos;
         call_function=(PFN_vkBindBufferMemory2)get_device_proc_addr(parent,"vkBindBufferMemory2");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, bindInfoCount, pBindInfos);
+result=call_function(device, bindInfoCount, pBindInfos);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -14243,19 +14342,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 uint32_t bindInfoCount;
 [&](){bindInfoCount=static_cast<uint32_t>(value_to<int>(json["bindInfoCount"]));}();
-VkBindImageMemoryInfo* pBindInfos;
-[&](){ VkBindImageMemoryInfo* temp_aqUJUsD[&](){
+ VkBindImageMemoryInfo* pBindInfos;
+[&](){
             if (json["pBindInfos"].as_array().size()==0){
-                temp_aqUJUsD=NULL;
-            return; }temp_aqUJUsD=(VkBindImageMemoryInfo*)malloc(bindInfoCount*sizeof(VkBindImageMemoryInfo));
+                pBindInfos=NULL;
+            return; }pBindInfos=(VkBindImageMemoryInfo*)malloc(bindInfoCount*sizeof(VkBindImageMemoryInfo));
         auto& arr_OyrgWGZ=json["pBindInfos"].as_array();
         for(int jeBxOVo=0; jeBxOVo < bindInfoCount; jeBxOVo++){
             [&](){
             auto& temp=arr_OyrgWGZ[jeBxOVo].as_object();
-            deserialize_struct(temp,temp_aqUJUsD[jeBxOVo]);
+            deserialize_struct(temp,pBindInfos[jeBxOVo]);
             }();
         }
-        }();pBindInfos=temp_aqUJUsD;}();
+        }();
 
     PFN_vkBindImageMemory2 call_function;
     
@@ -14271,8 +14370,9 @@ VkBindImageMemoryInfo* pBindInfos;
         call_function=(PFN_vkBindImageMemory2)get_device_proc_addr(parent,"vkBindImageMemory2");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, bindInfoCount, pBindInfos);
+result=call_function(device, bindInfoCount, pBindInfos);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -14362,8 +14462,9 @@ VkDeviceGroupPresentCapabilitiesKHR* pDeviceGroupPresentCapabilities;
         call_function=(PFN_vkGetDeviceGroupPresentCapabilitiesKHR)get_device_proc_addr(parent,"vkGetDeviceGroupPresentCapabilitiesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pDeviceGroupPresentCapabilities);
+result=call_function(device, pDeviceGroupPresentCapabilities);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -14417,8 +14518,9 @@ VkDeviceGroupPresentModeFlagsKHR* pModes;
         call_function=(PFN_vkGetDeviceGroupSurfacePresentModesKHR)get_device_proc_addr(parent,"vkGetDeviceGroupSurfacePresentModesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, surface, pModes);
+result=call_function(device, surface, pModes);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -14443,19 +14545,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkAcquireNextImageInfoKHR* pAcquireInfo;
-[&](){ VkAcquireNextImageInfoKHR* temp_lUDrJTD[&](){
+ VkAcquireNextImageInfoKHR* pAcquireInfo;
+[&](){
             if (json["pAcquireInfo"].as_array().size()==0){
-                temp_lUDrJTD=NULL;
-            return; }temp_lUDrJTD=(VkAcquireNextImageInfoKHR*)malloc(1*sizeof(VkAcquireNextImageInfoKHR));
+                pAcquireInfo=NULL;
+            return; }pAcquireInfo=(VkAcquireNextImageInfoKHR*)malloc(1*sizeof(VkAcquireNextImageInfoKHR));
         auto& arr_DnycGJU=json["pAcquireInfo"].as_array();
         for(int tNYAOen=0; tNYAOen < 1; tNYAOen++){
             [&](){
             auto& temp=arr_DnycGJU[tNYAOen].as_object();
-            deserialize_struct(temp,temp_lUDrJTD[tNYAOen]);
+            deserialize_struct(temp,pAcquireInfo[tNYAOen]);
             }();
         }
-        }();pAcquireInfo=temp_lUDrJTD;}();
+        }();
 uint32_t* pImageIndex;
 [&](){
             if (json["pImageIndex"].as_array().size()==0){
@@ -14481,8 +14583,9 @@ uint32_t* pImageIndex;
         call_function=(PFN_vkAcquireNextImage2KHR)get_device_proc_addr(parent,"vkAcquireNextImage2KHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pAcquireInfo, pImageIndex);
+result=call_function(device, pAcquireInfo, pImageIndex);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -14607,8 +14710,9 @@ VkRect2D* pRects;
         call_function=(PFN_vkGetPhysicalDevicePresentRectanglesKHR)get_device_proc_addr(parent,"vkGetPhysicalDevicePresentRectanglesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, surface, pRectCount, pRects);
+result=call_function(physicalDevice, surface, pRectCount, pRects);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -14645,32 +14749,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDescriptorUpdateTemplateCreateInfo* pCreateInfo;
-[&](){ VkDescriptorUpdateTemplateCreateInfo* temp_sVyOEvx[&](){
+ VkDescriptorUpdateTemplateCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_sVyOEvx=NULL;
-            return; }temp_sVyOEvx=(VkDescriptorUpdateTemplateCreateInfo*)malloc(1*sizeof(VkDescriptorUpdateTemplateCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkDescriptorUpdateTemplateCreateInfo*)malloc(1*sizeof(VkDescriptorUpdateTemplateCreateInfo));
         auto& arr_VGzFxGk=json["pCreateInfo"].as_array();
         for(int nfmnALE=0; nfmnALE < 1; nfmnALE++){
             [&](){
             auto& temp=arr_VGzFxGk[nfmnALE].as_object();
-            deserialize_struct(temp,temp_sVyOEvx[nfmnALE]);
+            deserialize_struct(temp,pCreateInfo[nfmnALE]);
             }();
         }
-        }();pCreateInfo=temp_sVyOEvx;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkDescriptorUpdateTemplate* pDescriptorUpdateTemplate;
 [&](){
             if (json["pDescriptorUpdateTemplate"].as_array().size()==0){
@@ -14696,8 +14800,9 @@ VkDescriptorUpdateTemplate* pDescriptorUpdateTemplate;
         call_function=(PFN_vkCreateDescriptorUpdateTemplate)get_device_proc_addr(parent,"vkCreateDescriptorUpdateTemplate");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pDescriptorUpdateTemplate);
+result=call_function(device, pCreateInfo, pAllocator, pDescriptorUpdateTemplate);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -14747,19 +14852,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkDescriptorUpdateTemplate descriptorUpdateTemplate;
 [&](){deserialize_VkDescriptorUpdateTemplate(json["descriptorUpdateTemplate"], descriptorUpdateTemplate);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyDescriptorUpdateTemplate call_function;
     
@@ -14808,10 +14913,10 @@ VkDescriptorSet descriptorSet;
 [&](){deserialize_VkDescriptorSet(json["descriptorSet"], descriptorSet);}();
 VkDescriptorUpdateTemplate descriptorUpdateTemplate;
 [&](){deserialize_VkDescriptorUpdateTemplate(json["descriptorUpdateTemplate"], descriptorUpdateTemplate);}();
-void* pData;
-[&](){ void* temp_GGzqbkU[&](){
+ void* pData;
+[&](){
             if (json["pData"].as_array().size()==0){
-                temp_GGzqbkU=NULL;
+                pData=NULL;
             return; }char* temp_cNzVPDf;[&](){
             if (json["pData"].as_array().size()==0){
                 temp_cNzVPDf=NULL;
@@ -14820,7 +14925,7 @@ void* pData;
         for(int mhoQVXX=0; mhoQVXX < json["pData"].as_array().size(); mhoQVXX++){
             [&](){temp_cNzVPDf[mhoQVXX]=static_cast<char>(value_to<int>(arr_ZPnOSxW[mhoQVXX]));}();
         }
-        }();temp_GGzqbkU=temp_cNzVPDf;}();pData=temp_GGzqbkU;}();
+        }();pData=temp_cNzVPDf;}();
 
     PFN_vkUpdateDescriptorSetWithTemplate call_function;
     
@@ -14872,10 +14977,10 @@ VkPipelineLayout layout;
 [&](){deserialize_VkPipelineLayout(json["layout"], layout);}();
 uint32_t set;
 [&](){set=static_cast<uint32_t>(value_to<int>(json["set"]));}();
-void* pData;
-[&](){ void* temp_GGzqbkU[&](){
+ void* pData;
+[&](){
             if (json["pData"].as_array().size()==0){
-                temp_GGzqbkU=NULL;
+                pData=NULL;
             return; }char* temp_cNzVPDf;[&](){
             if (json["pData"].as_array().size()==0){
                 temp_cNzVPDf=NULL;
@@ -14884,7 +14989,7 @@ void* pData;
         for(int mhoQVXX=0; mhoQVXX < json["pData"].as_array().size(); mhoQVXX++){
             [&](){temp_cNzVPDf[mhoQVXX]=static_cast<char>(value_to<int>(arr_ZPnOSxW[mhoQVXX]));}();
         }
-        }();temp_GGzqbkU=temp_cNzVPDf;}();pData=temp_GGzqbkU;}();
+        }();pData=temp_cNzVPDf;}();
 
     PFN_vkCmdPushDescriptorSetWithTemplateKHR call_function;
     
@@ -14933,29 +15038,29 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 uint32_t swapchainCount;
 [&](){swapchainCount=static_cast<uint32_t>(value_to<int>(json["swapchainCount"]));}();
-VkSwapchainKHR* pSwapchains;
-[&](){ VkSwapchainKHR* temp_POCwOFt[&](){
+ VkSwapchainKHR* pSwapchains;
+[&](){
             if (json["pSwapchains"].as_array().size()==0){
-                temp_POCwOFt=NULL;
-            return; }temp_POCwOFt=(VkSwapchainKHR*)malloc(swapchainCount*sizeof(VkSwapchainKHR));
+                pSwapchains=NULL;
+            return; }pSwapchains=(VkSwapchainKHR*)malloc(swapchainCount*sizeof(VkSwapchainKHR));
         auto& arr_iHlSrAW=json["pSwapchains"].as_array();
         for(int IasqrAl=0; IasqrAl < swapchainCount; IasqrAl++){
-            [&](){deserialize_VkSwapchainKHR(arr_iHlSrAW[IasqrAl], temp_POCwOFt[IasqrAl]);}();
+            [&](){deserialize_VkSwapchainKHR(arr_iHlSrAW[IasqrAl], pSwapchains[IasqrAl]);}();
         }
-        }();pSwapchains=temp_POCwOFt;}();
-VkHdrMetadataEXT* pMetadata;
-[&](){ VkHdrMetadataEXT* temp_WwZqcHf[&](){
+        }();
+ VkHdrMetadataEXT* pMetadata;
+[&](){
             if (json["pMetadata"].as_array().size()==0){
-                temp_WwZqcHf=NULL;
-            return; }temp_WwZqcHf=(VkHdrMetadataEXT*)malloc(swapchainCount*sizeof(VkHdrMetadataEXT));
+                pMetadata=NULL;
+            return; }pMetadata=(VkHdrMetadataEXT*)malloc(swapchainCount*sizeof(VkHdrMetadataEXT));
         auto& arr_kUxcKTi=json["pMetadata"].as_array();
         for(int IpDaPDf=0; IpDaPDf < swapchainCount; IpDaPDf++){
             [&](){
             auto& temp=arr_kUxcKTi[IpDaPDf].as_object();
-            deserialize_struct(temp,temp_WwZqcHf[IpDaPDf]);
+            deserialize_struct(temp,pMetadata[IpDaPDf]);
             }();
         }
-        }();pMetadata=temp_WwZqcHf;}();
+        }();
 
     PFN_vkSetHdrMetadataEXT call_function;
     
@@ -15026,8 +15131,9 @@ VkSwapchainKHR swapchain;
         call_function=(PFN_vkGetSwapchainStatusKHR)get_device_proc_addr(parent,"vkGetSwapchainStatusKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, swapchain);
+result=call_function(device, swapchain);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -15073,8 +15179,9 @@ VkRefreshCycleDurationGOOGLE* pDisplayTimingProperties;
         call_function=(PFN_vkGetRefreshCycleDurationGOOGLE)get_device_proc_addr(parent,"vkGetRefreshCycleDurationGOOGLE");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, swapchain, pDisplayTimingProperties);
+result=call_function(device, swapchain, pDisplayTimingProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -15142,8 +15249,9 @@ VkPastPresentationTimingGOOGLE* pPresentationTimings;
         call_function=(PFN_vkGetPastPresentationTimingGOOGLE)get_device_proc_addr(parent,"vkGetPastPresentationTimingGOOGLE");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, swapchain, pPresentationTimingCount, pPresentationTimings);
+result=call_function(device, swapchain, pPresentationTimingCount, pPresentationTimings);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -15184,19 +15292,19 @@ uint32_t firstViewport;
 [&](){firstViewport=static_cast<uint32_t>(value_to<int>(json["firstViewport"]));}();
 uint32_t viewportCount;
 [&](){viewportCount=static_cast<uint32_t>(value_to<int>(json["viewportCount"]));}();
-VkViewportWScalingNV* pViewportWScalings;
-[&](){ VkViewportWScalingNV* temp_EdVORuF[&](){
+ VkViewportWScalingNV* pViewportWScalings;
+[&](){
             if (json["pViewportWScalings"].as_array().size()==0){
-                temp_EdVORuF=NULL;
-            return; }temp_EdVORuF=(VkViewportWScalingNV*)malloc(viewportCount*sizeof(VkViewportWScalingNV));
+                pViewportWScalings=NULL;
+            return; }pViewportWScalings=(VkViewportWScalingNV*)malloc(viewportCount*sizeof(VkViewportWScalingNV));
         auto& arr_mRBzXTN=json["pViewportWScalings"].as_array();
         for(int jZGgaiG=0; jZGgaiG < viewportCount; jZGgaiG++){
             [&](){
             auto& temp=arr_mRBzXTN[jZGgaiG].as_object();
-            deserialize_struct(temp,temp_EdVORuF[jZGgaiG]);
+            deserialize_struct(temp,pViewportWScalings[jZGgaiG]);
             }();
         }
-        }();pViewportWScalings=temp_EdVORuF;}();
+        }();
 
     PFN_vkCmdSetViewportWScalingNV call_function;
     
@@ -15246,19 +15354,19 @@ uint32_t firstDiscardRectangle;
 [&](){firstDiscardRectangle=static_cast<uint32_t>(value_to<int>(json["firstDiscardRectangle"]));}();
 uint32_t discardRectangleCount;
 [&](){discardRectangleCount=static_cast<uint32_t>(value_to<int>(json["discardRectangleCount"]));}();
-VkRect2D* pDiscardRectangles;
-[&](){ VkRect2D* temp_lgoItKt[&](){
+ VkRect2D* pDiscardRectangles;
+[&](){
             if (json["pDiscardRectangles"].as_array().size()==0){
-                temp_lgoItKt=NULL;
-            return; }temp_lgoItKt=(VkRect2D*)malloc(discardRectangleCount*sizeof(VkRect2D));
+                pDiscardRectangles=NULL;
+            return; }pDiscardRectangles=(VkRect2D*)malloc(discardRectangleCount*sizeof(VkRect2D));
         auto& arr_GRSsdXy=json["pDiscardRectangles"].as_array();
         for(int sWyneMb=0; sWyneMb < discardRectangleCount; sWyneMb++){
             [&](){
             auto& temp=arr_GRSsdXy[sWyneMb].as_object();
-            deserialize_struct(temp,temp_lgoItKt[sWyneMb]);
+            deserialize_struct(temp,pDiscardRectangles[sWyneMb]);
             }();
         }
-        }();pDiscardRectangles=temp_lgoItKt;}();
+        }();
 
     PFN_vkCmdSetDiscardRectangleEXT call_function;
     
@@ -15372,19 +15480,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkSampleLocationsInfoEXT* pSampleLocationsInfo;
-[&](){ VkSampleLocationsInfoEXT* temp_KuvVbSa[&](){
+ VkSampleLocationsInfoEXT* pSampleLocationsInfo;
+[&](){
             if (json["pSampleLocationsInfo"].as_array().size()==0){
-                temp_KuvVbSa=NULL;
-            return; }temp_KuvVbSa=(VkSampleLocationsInfoEXT*)malloc(1*sizeof(VkSampleLocationsInfoEXT));
+                pSampleLocationsInfo=NULL;
+            return; }pSampleLocationsInfo=(VkSampleLocationsInfoEXT*)malloc(1*sizeof(VkSampleLocationsInfoEXT));
         auto& arr_bqTfGpl=json["pSampleLocationsInfo"].as_array();
         for(int zJxCCYx=0; zJxCCYx < 1; zJxCCYx++){
             [&](){
             auto& temp=arr_bqTfGpl[zJxCCYx].as_object();
-            deserialize_struct(temp,temp_KuvVbSa[zJxCCYx]);
+            deserialize_struct(temp,pSampleLocationsInfo[zJxCCYx]);
             }();
         }
-        }();pSampleLocationsInfo=temp_KuvVbSa;}();
+        }();
 
     PFN_vkCmdSetSampleLocationsEXT call_function;
     
@@ -15487,19 +15595,19 @@ json.clear();
     
 VkPhysicalDevice physicalDevice;
 [&](){deserialize_VkPhysicalDevice(json["physicalDevice"], physicalDevice);}();
-VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo;
-[&](){ VkPhysicalDeviceSurfaceInfo2KHR* temp_sZatDoK[&](){
+ VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo;
+[&](){
             if (json["pSurfaceInfo"].as_array().size()==0){
-                temp_sZatDoK=NULL;
-            return; }temp_sZatDoK=(VkPhysicalDeviceSurfaceInfo2KHR*)malloc(1*sizeof(VkPhysicalDeviceSurfaceInfo2KHR));
+                pSurfaceInfo=NULL;
+            return; }pSurfaceInfo=(VkPhysicalDeviceSurfaceInfo2KHR*)malloc(1*sizeof(VkPhysicalDeviceSurfaceInfo2KHR));
         auto& arr_wNHWsze=json["pSurfaceInfo"].as_array();
         for(int lTfpfvZ=0; lTfpfvZ < 1; lTfpfvZ++){
             [&](){
             auto& temp=arr_wNHWsze[lTfpfvZ].as_object();
-            deserialize_struct(temp,temp_sZatDoK[lTfpfvZ]);
+            deserialize_struct(temp,pSurfaceInfo[lTfpfvZ]);
             }();
         }
-        }();pSurfaceInfo=temp_sZatDoK;}();
+        }();
 VkSurfaceCapabilities2KHR* pSurfaceCapabilities;
 [&](){
             if (json["pSurfaceCapabilities"].as_array().size()==0){
@@ -15528,8 +15636,9 @@ VkSurfaceCapabilities2KHR* pSurfaceCapabilities;
         call_function=(PFN_vkGetPhysicalDeviceSurfaceCapabilities2KHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceSurfaceCapabilities2KHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pSurfaceInfo, pSurfaceCapabilities);
+result=call_function(physicalDevice, pSurfaceInfo, pSurfaceCapabilities);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -15568,19 +15677,19 @@ json.clear();
     
 VkPhysicalDevice physicalDevice;
 [&](){deserialize_VkPhysicalDevice(json["physicalDevice"], physicalDevice);}();
-VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo;
-[&](){ VkPhysicalDeviceSurfaceInfo2KHR* temp_sZatDoK[&](){
+ VkPhysicalDeviceSurfaceInfo2KHR* pSurfaceInfo;
+[&](){
             if (json["pSurfaceInfo"].as_array().size()==0){
-                temp_sZatDoK=NULL;
-            return; }temp_sZatDoK=(VkPhysicalDeviceSurfaceInfo2KHR*)malloc(1*sizeof(VkPhysicalDeviceSurfaceInfo2KHR));
+                pSurfaceInfo=NULL;
+            return; }pSurfaceInfo=(VkPhysicalDeviceSurfaceInfo2KHR*)malloc(1*sizeof(VkPhysicalDeviceSurfaceInfo2KHR));
         auto& arr_wNHWsze=json["pSurfaceInfo"].as_array();
         for(int lTfpfvZ=0; lTfpfvZ < 1; lTfpfvZ++){
             [&](){
             auto& temp=arr_wNHWsze[lTfpfvZ].as_object();
-            deserialize_struct(temp,temp_sZatDoK[lTfpfvZ]);
+            deserialize_struct(temp,pSurfaceInfo[lTfpfvZ]);
             }();
         }
-        }();pSurfaceInfo=temp_sZatDoK;}();
+        }();
 uint32_t* pSurfaceFormatCount;
 [&](){
             if (json["pSurfaceFormatCount"].as_array().size()==0){
@@ -15619,8 +15728,9 @@ VkSurfaceFormat2KHR* pSurfaceFormats;
         call_function=(PFN_vkGetPhysicalDeviceSurfaceFormats2KHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceSurfaceFormats2KHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pSurfaceInfo, pSurfaceFormatCount, pSurfaceFormats);
+result=call_function(physicalDevice, pSurfaceInfo, pSurfaceFormatCount, pSurfaceFormats);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -15706,8 +15816,9 @@ VkDisplayProperties2KHR* pProperties;
         call_function=(PFN_vkGetPhysicalDeviceDisplayProperties2KHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceDisplayProperties2KHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pPropertyCount, pProperties);
+result=call_function(physicalDevice, pPropertyCount, pProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -15781,8 +15892,9 @@ VkDisplayPlaneProperties2KHR* pProperties;
         call_function=(PFN_vkGetPhysicalDeviceDisplayPlaneProperties2KHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceDisplayPlaneProperties2KHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pPropertyCount, pProperties);
+result=call_function(physicalDevice, pPropertyCount, pProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -15858,8 +15970,9 @@ VkDisplayModeProperties2KHR* pProperties;
         call_function=(PFN_vkGetDisplayModeProperties2KHR)get_device_proc_addr(parent,"vkGetDisplayModeProperties2KHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, display, pPropertyCount, pProperties);
+result=call_function(physicalDevice, display, pPropertyCount, pProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -15896,19 +16009,19 @@ json.clear();
     
 VkPhysicalDevice physicalDevice;
 [&](){deserialize_VkPhysicalDevice(json["physicalDevice"], physicalDevice);}();
-VkDisplayPlaneInfo2KHR* pDisplayPlaneInfo;
-[&](){ VkDisplayPlaneInfo2KHR* temp_QCGsCKU[&](){
+ VkDisplayPlaneInfo2KHR* pDisplayPlaneInfo;
+[&](){
             if (json["pDisplayPlaneInfo"].as_array().size()==0){
-                temp_QCGsCKU=NULL;
-            return; }temp_QCGsCKU=(VkDisplayPlaneInfo2KHR*)malloc(1*sizeof(VkDisplayPlaneInfo2KHR));
+                pDisplayPlaneInfo=NULL;
+            return; }pDisplayPlaneInfo=(VkDisplayPlaneInfo2KHR*)malloc(1*sizeof(VkDisplayPlaneInfo2KHR));
         auto& arr_TBmwloa=json["pDisplayPlaneInfo"].as_array();
         for(int OOfQKMi=0; OOfQKMi < 1; OOfQKMi++){
             [&](){
             auto& temp=arr_TBmwloa[OOfQKMi].as_object();
-            deserialize_struct(temp,temp_QCGsCKU[OOfQKMi]);
+            deserialize_struct(temp,pDisplayPlaneInfo[OOfQKMi]);
             }();
         }
-        }();pDisplayPlaneInfo=temp_QCGsCKU;}();
+        }();
 VkDisplayPlaneCapabilities2KHR* pCapabilities;
 [&](){
             if (json["pCapabilities"].as_array().size()==0){
@@ -15937,8 +16050,9 @@ VkDisplayPlaneCapabilities2KHR* pCapabilities;
         call_function=(PFN_vkGetDisplayPlaneCapabilities2KHR)get_device_proc_addr(parent,"vkGetDisplayPlaneCapabilities2KHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pDisplayPlaneInfo, pCapabilities);
+result=call_function(physicalDevice, pDisplayPlaneInfo, pCapabilities);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -15977,19 +16091,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkBufferMemoryRequirementsInfo2* pInfo;
-[&](){ VkBufferMemoryRequirementsInfo2* temp_hINJQmh[&](){
+ VkBufferMemoryRequirementsInfo2* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_hINJQmh=NULL;
-            return; }temp_hINJQmh=(VkBufferMemoryRequirementsInfo2*)malloc(1*sizeof(VkBufferMemoryRequirementsInfo2));
+                pInfo=NULL;
+            return; }pInfo=(VkBufferMemoryRequirementsInfo2*)malloc(1*sizeof(VkBufferMemoryRequirementsInfo2));
         auto& arr_ollhCFD=json["pInfo"].as_array();
         for(int XMajJXL=0; XMajJXL < 1; XMajJXL++){
             [&](){
             auto& temp=arr_ollhCFD[XMajJXL].as_object();
-            deserialize_struct(temp,temp_hINJQmh[XMajJXL]);
+            deserialize_struct(temp,pInfo[XMajJXL]);
             }();
         }
-        }();pInfo=temp_hINJQmh;}();
+        }();
 VkMemoryRequirements2* pMemoryRequirements;
 [&](){
             if (json["pMemoryRequirements"].as_array().size()==0){
@@ -16058,19 +16172,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkImageMemoryRequirementsInfo2* pInfo;
-[&](){ VkImageMemoryRequirementsInfo2* temp_qKqLBvY[&](){
+ VkImageMemoryRequirementsInfo2* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_qKqLBvY=NULL;
-            return; }temp_qKqLBvY=(VkImageMemoryRequirementsInfo2*)malloc(1*sizeof(VkImageMemoryRequirementsInfo2));
+                pInfo=NULL;
+            return; }pInfo=(VkImageMemoryRequirementsInfo2*)malloc(1*sizeof(VkImageMemoryRequirementsInfo2));
         auto& arr_TCaTbMc=json["pInfo"].as_array();
         for(int fOqTthF=0; fOqTthF < 1; fOqTthF++){
             [&](){
             auto& temp=arr_TCaTbMc[fOqTthF].as_object();
-            deserialize_struct(temp,temp_qKqLBvY[fOqTthF]);
+            deserialize_struct(temp,pInfo[fOqTthF]);
             }();
         }
-        }();pInfo=temp_qKqLBvY;}();
+        }();
 VkMemoryRequirements2* pMemoryRequirements;
 [&](){
             if (json["pMemoryRequirements"].as_array().size()==0){
@@ -16139,19 +16253,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkImageSparseMemoryRequirementsInfo2* pInfo;
-[&](){ VkImageSparseMemoryRequirementsInfo2* temp_xynaEcz[&](){
+ VkImageSparseMemoryRequirementsInfo2* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_xynaEcz=NULL;
-            return; }temp_xynaEcz=(VkImageSparseMemoryRequirementsInfo2*)malloc(1*sizeof(VkImageSparseMemoryRequirementsInfo2));
+                pInfo=NULL;
+            return; }pInfo=(VkImageSparseMemoryRequirementsInfo2*)malloc(1*sizeof(VkImageSparseMemoryRequirementsInfo2));
         auto& arr_lAUqSdP=json["pInfo"].as_array();
         for(int HzCSbsD=0; HzCSbsD < 1; HzCSbsD++){
             [&](){
             auto& temp=arr_lAUqSdP[HzCSbsD].as_object();
-            deserialize_struct(temp,temp_xynaEcz[HzCSbsD]);
+            deserialize_struct(temp,pInfo[HzCSbsD]);
             }();
         }
-        }();pInfo=temp_xynaEcz;}();
+        }();
 uint32_t* pSparseMemoryRequirementCount;
 [&](){
             if (json["pSparseMemoryRequirementCount"].as_array().size()==0){
@@ -16239,19 +16353,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDeviceBufferMemoryRequirements* pInfo;
-[&](){ VkDeviceBufferMemoryRequirements* temp_UMehEib[&](){
+ VkDeviceBufferMemoryRequirements* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_UMehEib=NULL;
-            return; }temp_UMehEib=(VkDeviceBufferMemoryRequirements*)malloc(1*sizeof(VkDeviceBufferMemoryRequirements));
+                pInfo=NULL;
+            return; }pInfo=(VkDeviceBufferMemoryRequirements*)malloc(1*sizeof(VkDeviceBufferMemoryRequirements));
         auto& arr_YweeoPK=json["pInfo"].as_array();
         for(int AxMxoFf=0; AxMxoFf < 1; AxMxoFf++){
             [&](){
             auto& temp=arr_YweeoPK[AxMxoFf].as_object();
-            deserialize_struct(temp,temp_UMehEib[AxMxoFf]);
+            deserialize_struct(temp,pInfo[AxMxoFf]);
             }();
         }
-        }();pInfo=temp_UMehEib;}();
+        }();
 VkMemoryRequirements2* pMemoryRequirements;
 [&](){
             if (json["pMemoryRequirements"].as_array().size()==0){
@@ -16320,19 +16434,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDeviceImageMemoryRequirements* pInfo;
-[&](){ VkDeviceImageMemoryRequirements* temp_JIbaGIi[&](){
+ VkDeviceImageMemoryRequirements* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_JIbaGIi=NULL;
-            return; }temp_JIbaGIi=(VkDeviceImageMemoryRequirements*)malloc(1*sizeof(VkDeviceImageMemoryRequirements));
+                pInfo=NULL;
+            return; }pInfo=(VkDeviceImageMemoryRequirements*)malloc(1*sizeof(VkDeviceImageMemoryRequirements));
         auto& arr_dPaAvfp=json["pInfo"].as_array();
         for(int xoxwYjr=0; xoxwYjr < 1; xoxwYjr++){
             [&](){
             auto& temp=arr_dPaAvfp[xoxwYjr].as_object();
-            deserialize_struct(temp,temp_JIbaGIi[xoxwYjr]);
+            deserialize_struct(temp,pInfo[xoxwYjr]);
             }();
         }
-        }();pInfo=temp_JIbaGIi;}();
+        }();
 VkMemoryRequirements2* pMemoryRequirements;
 [&](){
             if (json["pMemoryRequirements"].as_array().size()==0){
@@ -16401,19 +16515,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDeviceImageMemoryRequirements* pInfo;
-[&](){ VkDeviceImageMemoryRequirements* temp_JIbaGIi[&](){
+ VkDeviceImageMemoryRequirements* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_JIbaGIi=NULL;
-            return; }temp_JIbaGIi=(VkDeviceImageMemoryRequirements*)malloc(1*sizeof(VkDeviceImageMemoryRequirements));
+                pInfo=NULL;
+            return; }pInfo=(VkDeviceImageMemoryRequirements*)malloc(1*sizeof(VkDeviceImageMemoryRequirements));
         auto& arr_dPaAvfp=json["pInfo"].as_array();
         for(int xoxwYjr=0; xoxwYjr < 1; xoxwYjr++){
             [&](){
             auto& temp=arr_dPaAvfp[xoxwYjr].as_object();
-            deserialize_struct(temp,temp_JIbaGIi[xoxwYjr]);
+            deserialize_struct(temp,pInfo[xoxwYjr]);
             }();
         }
-        }();pInfo=temp_JIbaGIi;}();
+        }();
 uint32_t* pSparseMemoryRequirementCount;
 [&](){
             if (json["pSparseMemoryRequirementCount"].as_array().size()==0){
@@ -16501,32 +16615,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkSamplerYcbcrConversionCreateInfo* pCreateInfo;
-[&](){ VkSamplerYcbcrConversionCreateInfo* temp_cfabXOi[&](){
+ VkSamplerYcbcrConversionCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_cfabXOi=NULL;
-            return; }temp_cfabXOi=(VkSamplerYcbcrConversionCreateInfo*)malloc(1*sizeof(VkSamplerYcbcrConversionCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkSamplerYcbcrConversionCreateInfo*)malloc(1*sizeof(VkSamplerYcbcrConversionCreateInfo));
         auto& arr_oCKmosw=json["pCreateInfo"].as_array();
         for(int LUUMfzS=0; LUUMfzS < 1; LUUMfzS++){
             [&](){
             auto& temp=arr_oCKmosw[LUUMfzS].as_object();
-            deserialize_struct(temp,temp_cfabXOi[LUUMfzS]);
+            deserialize_struct(temp,pCreateInfo[LUUMfzS]);
             }();
         }
-        }();pCreateInfo=temp_cfabXOi;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkSamplerYcbcrConversion* pYcbcrConversion;
 [&](){
             if (json["pYcbcrConversion"].as_array().size()==0){
@@ -16552,8 +16666,9 @@ VkSamplerYcbcrConversion* pYcbcrConversion;
         call_function=(PFN_vkCreateSamplerYcbcrConversion)get_device_proc_addr(parent,"vkCreateSamplerYcbcrConversion");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pYcbcrConversion);
+result=call_function(device, pCreateInfo, pAllocator, pYcbcrConversion);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -16603,19 +16718,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkSamplerYcbcrConversion ycbcrConversion;
 [&](){deserialize_VkSamplerYcbcrConversion(json["ycbcrConversion"], ycbcrConversion);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroySamplerYcbcrConversion call_function;
     
@@ -16660,19 +16775,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDeviceQueueInfo2* pQueueInfo;
-[&](){ VkDeviceQueueInfo2* temp_LsPcKuI[&](){
+ VkDeviceQueueInfo2* pQueueInfo;
+[&](){
             if (json["pQueueInfo"].as_array().size()==0){
-                temp_LsPcKuI=NULL;
-            return; }temp_LsPcKuI=(VkDeviceQueueInfo2*)malloc(1*sizeof(VkDeviceQueueInfo2));
+                pQueueInfo=NULL;
+            return; }pQueueInfo=(VkDeviceQueueInfo2*)malloc(1*sizeof(VkDeviceQueueInfo2));
         auto& arr_GihFKhN=json["pQueueInfo"].as_array();
         for(int cWpAFXW=0; cWpAFXW < 1; cWpAFXW++){
             [&](){
             auto& temp=arr_GihFKhN[cWpAFXW].as_object();
-            deserialize_struct(temp,temp_LsPcKuI[cWpAFXW]);
+            deserialize_struct(temp,pQueueInfo[cWpAFXW]);
             }();
         }
-        }();pQueueInfo=temp_LsPcKuI;}();
+        }();
 VkQueue* pQueue;
 [&](){
             if (json["pQueue"].as_array().size()==0){
@@ -16735,32 +16850,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkValidationCacheCreateInfoEXT* pCreateInfo;
-[&](){ VkValidationCacheCreateInfoEXT* temp_yFXdRVO[&](){
+ VkValidationCacheCreateInfoEXT* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_yFXdRVO=NULL;
-            return; }temp_yFXdRVO=(VkValidationCacheCreateInfoEXT*)malloc(1*sizeof(VkValidationCacheCreateInfoEXT));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkValidationCacheCreateInfoEXT*)malloc(1*sizeof(VkValidationCacheCreateInfoEXT));
         auto& arr_xouGZzH=json["pCreateInfo"].as_array();
         for(int kadSIIj=0; kadSIIj < 1; kadSIIj++){
             [&](){
             auto& temp=arr_xouGZzH[kadSIIj].as_object();
-            deserialize_struct(temp,temp_yFXdRVO[kadSIIj]);
+            deserialize_struct(temp,pCreateInfo[kadSIIj]);
             }();
         }
-        }();pCreateInfo=temp_yFXdRVO;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkValidationCacheEXT* pValidationCache;
 [&](){
             if (json["pValidationCache"].as_array().size()==0){
@@ -16786,8 +16901,9 @@ VkValidationCacheEXT* pValidationCache;
         call_function=(PFN_vkCreateValidationCacheEXT)get_device_proc_addr(parent,"vkCreateValidationCacheEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pValidationCache);
+result=call_function(device, pCreateInfo, pAllocator, pValidationCache);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -16837,19 +16953,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkValidationCacheEXT validationCache;
 [&](){deserialize_VkValidationCacheEXT(json["validationCache"], validationCache);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyValidationCacheEXT call_function;
     
@@ -16934,8 +17050,9 @@ void* pData;
         call_function=(PFN_vkGetValidationCacheDataEXT)get_device_proc_addr(parent,"vkGetValidationCacheDataEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, validationCache, pDataSize, pData);
+result=call_function(device, validationCache, pDataSize, pData);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -16976,16 +17093,16 @@ VkValidationCacheEXT dstCache;
 [&](){deserialize_VkValidationCacheEXT(json["dstCache"], dstCache);}();
 uint32_t srcCacheCount;
 [&](){srcCacheCount=static_cast<uint32_t>(value_to<int>(json["srcCacheCount"]));}();
-VkValidationCacheEXT* pSrcCaches;
-[&](){ VkValidationCacheEXT* temp_ckYqxom[&](){
+ VkValidationCacheEXT* pSrcCaches;
+[&](){
             if (json["pSrcCaches"].as_array().size()==0){
-                temp_ckYqxom=NULL;
-            return; }temp_ckYqxom=(VkValidationCacheEXT*)malloc(srcCacheCount*sizeof(VkValidationCacheEXT));
+                pSrcCaches=NULL;
+            return; }pSrcCaches=(VkValidationCacheEXT*)malloc(srcCacheCount*sizeof(VkValidationCacheEXT));
         auto& arr_viZfWEe=json["pSrcCaches"].as_array();
         for(int svBdHjE=0; svBdHjE < srcCacheCount; svBdHjE++){
-            [&](){deserialize_VkValidationCacheEXT(arr_viZfWEe[svBdHjE], temp_ckYqxom[svBdHjE]);}();
+            [&](){deserialize_VkValidationCacheEXT(arr_viZfWEe[svBdHjE], pSrcCaches[svBdHjE]);}();
         }
-        }();pSrcCaches=temp_ckYqxom;}();
+        }();
 
     PFN_vkMergeValidationCachesEXT call_function;
     
@@ -17001,8 +17118,9 @@ VkValidationCacheEXT* pSrcCaches;
         call_function=(PFN_vkMergeValidationCachesEXT)get_device_proc_addr(parent,"vkMergeValidationCachesEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, dstCache, srcCacheCount, pSrcCaches);
+result=call_function(device, dstCache, srcCacheCount, pSrcCaches);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -17028,19 +17146,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDescriptorSetLayoutCreateInfo* pCreateInfo;
-[&](){ VkDescriptorSetLayoutCreateInfo* temp_JRXOWVB[&](){
+ VkDescriptorSetLayoutCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_JRXOWVB=NULL;
-            return; }temp_JRXOWVB=(VkDescriptorSetLayoutCreateInfo*)malloc(1*sizeof(VkDescriptorSetLayoutCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkDescriptorSetLayoutCreateInfo*)malloc(1*sizeof(VkDescriptorSetLayoutCreateInfo));
         auto& arr_oELBvJU=json["pCreateInfo"].as_array();
         for(int RmYFXzA=0; RmYFXzA < 1; RmYFXzA++){
             [&](){
             auto& temp=arr_oELBvJU[RmYFXzA].as_object();
-            deserialize_struct(temp,temp_JRXOWVB[RmYFXzA]);
+            deserialize_struct(temp,pCreateInfo[RmYFXzA]);
             }();
         }
-        }();pCreateInfo=temp_JRXOWVB;}();
+        }();
 VkDescriptorSetLayoutSupport* pSupport;
 [&](){
             if (json["pSupport"].as_array().size()==0){
@@ -17153,8 +17271,9 @@ void* pInfo;
         call_function=(PFN_vkGetShaderInfoAMD)get_device_proc_addr(parent,"vkGetShaderInfoAMD");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pipeline, shaderStage, infoType, pInfoSize, pInfo);
+result=call_function(device, pipeline, shaderStage, infoType, pInfoSize, pInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -17265,8 +17384,9 @@ VkTimeDomainEXT* pTimeDomains;
         call_function=(PFN_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT)get_device_proc_addr(parent,"vkGetPhysicalDeviceCalibrateableTimeDomainsEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pTimeDomainCount, pTimeDomains);
+result=call_function(physicalDevice, pTimeDomainCount, pTimeDomains);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -17301,19 +17421,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 uint32_t timestampCount;
 [&](){timestampCount=static_cast<uint32_t>(value_to<int>(json["timestampCount"]));}();
-VkCalibratedTimestampInfoEXT* pTimestampInfos;
-[&](){ VkCalibratedTimestampInfoEXT* temp_rBhqhqM[&](){
+ VkCalibratedTimestampInfoEXT* pTimestampInfos;
+[&](){
             if (json["pTimestampInfos"].as_array().size()==0){
-                temp_rBhqhqM=NULL;
-            return; }temp_rBhqhqM=(VkCalibratedTimestampInfoEXT*)malloc(timestampCount*sizeof(VkCalibratedTimestampInfoEXT));
+                pTimestampInfos=NULL;
+            return; }pTimestampInfos=(VkCalibratedTimestampInfoEXT*)malloc(timestampCount*sizeof(VkCalibratedTimestampInfoEXT));
         auto& arr_nEtDxWp=json["pTimestampInfos"].as_array();
         for(int GetmFjY=0; GetmFjY < timestampCount; GetmFjY++){
             [&](){
             auto& temp=arr_nEtDxWp[GetmFjY].as_object();
-            deserialize_struct(temp,temp_rBhqhqM[GetmFjY]);
+            deserialize_struct(temp,pTimestampInfos[GetmFjY]);
             }();
         }
-        }();pTimestampInfos=temp_rBhqhqM;}();
+        }();
 uint64_t* pTimestamps;
 [&](){
             if (json["pTimestamps"].as_array().size()==0){
@@ -17349,8 +17469,9 @@ uint64_t* pMaxDeviation;
         call_function=(PFN_vkGetCalibratedTimestampsEXT)get_device_proc_addr(parent,"vkGetCalibratedTimestampsEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, timestampCount, pTimestampInfos, pTimestamps, pMaxDeviation);
+result=call_function(device, timestampCount, pTimestampInfos, pTimestamps, pMaxDeviation);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -17396,19 +17517,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDebugUtilsObjectNameInfoEXT* pNameInfo;
-[&](){ VkDebugUtilsObjectNameInfoEXT* temp_gYgsdux[&](){
+ VkDebugUtilsObjectNameInfoEXT* pNameInfo;
+[&](){
             if (json["pNameInfo"].as_array().size()==0){
-                temp_gYgsdux=NULL;
-            return; }temp_gYgsdux=(VkDebugUtilsObjectNameInfoEXT*)malloc(1*sizeof(VkDebugUtilsObjectNameInfoEXT));
+                pNameInfo=NULL;
+            return; }pNameInfo=(VkDebugUtilsObjectNameInfoEXT*)malloc(1*sizeof(VkDebugUtilsObjectNameInfoEXT));
         auto& arr_xezbRdt=json["pNameInfo"].as_array();
         for(int bpyMrKI=0; bpyMrKI < 1; bpyMrKI++){
             [&](){
             auto& temp=arr_xezbRdt[bpyMrKI].as_object();
-            deserialize_struct(temp,temp_gYgsdux[bpyMrKI]);
+            deserialize_struct(temp,pNameInfo[bpyMrKI]);
             }();
         }
-        }();pNameInfo=temp_gYgsdux;}();
+        }();
 
     PFN_vkSetDebugUtilsObjectNameEXT call_function;
     
@@ -17424,8 +17545,9 @@ VkDebugUtilsObjectNameInfoEXT* pNameInfo;
         call_function=(PFN_vkSetDebugUtilsObjectNameEXT)get_device_proc_addr(parent,"vkSetDebugUtilsObjectNameEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pNameInfo);
+result=call_function(device, pNameInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -17452,19 +17574,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDebugUtilsObjectTagInfoEXT* pTagInfo;
-[&](){ VkDebugUtilsObjectTagInfoEXT* temp_uzkdzSN[&](){
+ VkDebugUtilsObjectTagInfoEXT* pTagInfo;
+[&](){
             if (json["pTagInfo"].as_array().size()==0){
-                temp_uzkdzSN=NULL;
-            return; }temp_uzkdzSN=(VkDebugUtilsObjectTagInfoEXT*)malloc(1*sizeof(VkDebugUtilsObjectTagInfoEXT));
+                pTagInfo=NULL;
+            return; }pTagInfo=(VkDebugUtilsObjectTagInfoEXT*)malloc(1*sizeof(VkDebugUtilsObjectTagInfoEXT));
         auto& arr_Ltvhugt=json["pTagInfo"].as_array();
         for(int kYwKoxa=0; kYwKoxa < 1; kYwKoxa++){
             [&](){
             auto& temp=arr_Ltvhugt[kYwKoxa].as_object();
-            deserialize_struct(temp,temp_uzkdzSN[kYwKoxa]);
+            deserialize_struct(temp,pTagInfo[kYwKoxa]);
             }();
         }
-        }();pTagInfo=temp_uzkdzSN;}();
+        }();
 
     PFN_vkSetDebugUtilsObjectTagEXT call_function;
     
@@ -17480,8 +17602,9 @@ VkDebugUtilsObjectTagInfoEXT* pTagInfo;
         call_function=(PFN_vkSetDebugUtilsObjectTagEXT)get_device_proc_addr(parent,"vkSetDebugUtilsObjectTagEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pTagInfo);
+result=call_function(device, pTagInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -17508,19 +17631,19 @@ json.clear();
     
 VkQueue queue;
 [&](){deserialize_VkQueue(json["queue"], queue);}();
-VkDebugUtilsLabelEXT* pLabelInfo;
-[&](){ VkDebugUtilsLabelEXT* temp_uqejSGR[&](){
+ VkDebugUtilsLabelEXT* pLabelInfo;
+[&](){
             if (json["pLabelInfo"].as_array().size()==0){
-                temp_uqejSGR=NULL;
-            return; }temp_uqejSGR=(VkDebugUtilsLabelEXT*)malloc(1*sizeof(VkDebugUtilsLabelEXT));
+                pLabelInfo=NULL;
+            return; }pLabelInfo=(VkDebugUtilsLabelEXT*)malloc(1*sizeof(VkDebugUtilsLabelEXT));
         auto& arr_dixLKcm=json["pLabelInfo"].as_array();
         for(int lWNBzGj=0; lWNBzGj < 1; lWNBzGj++){
             [&](){
             auto& temp=arr_dixLKcm[lWNBzGj].as_object();
-            deserialize_struct(temp,temp_uqejSGR[lWNBzGj]);
+            deserialize_struct(temp,pLabelInfo[lWNBzGj]);
             }();
         }
-        }();pLabelInfo=temp_uqejSGR;}();
+        }();
 
     PFN_vkQueueBeginDebugUtilsLabelEXT call_function;
     
@@ -17595,19 +17718,19 @@ json.clear();
     
 VkQueue queue;
 [&](){deserialize_VkQueue(json["queue"], queue);}();
-VkDebugUtilsLabelEXT* pLabelInfo;
-[&](){ VkDebugUtilsLabelEXT* temp_uqejSGR[&](){
+ VkDebugUtilsLabelEXT* pLabelInfo;
+[&](){
             if (json["pLabelInfo"].as_array().size()==0){
-                temp_uqejSGR=NULL;
-            return; }temp_uqejSGR=(VkDebugUtilsLabelEXT*)malloc(1*sizeof(VkDebugUtilsLabelEXT));
+                pLabelInfo=NULL;
+            return; }pLabelInfo=(VkDebugUtilsLabelEXT*)malloc(1*sizeof(VkDebugUtilsLabelEXT));
         auto& arr_dixLKcm=json["pLabelInfo"].as_array();
         for(int lWNBzGj=0; lWNBzGj < 1; lWNBzGj++){
             [&](){
             auto& temp=arr_dixLKcm[lWNBzGj].as_object();
-            deserialize_struct(temp,temp_uqejSGR[lWNBzGj]);
+            deserialize_struct(temp,pLabelInfo[lWNBzGj]);
             }();
         }
-        }();pLabelInfo=temp_uqejSGR;}();
+        }();
 
     PFN_vkQueueInsertDebugUtilsLabelEXT call_function;
     
@@ -17651,19 +17774,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkDebugUtilsLabelEXT* pLabelInfo;
-[&](){ VkDebugUtilsLabelEXT* temp_uqejSGR[&](){
+ VkDebugUtilsLabelEXT* pLabelInfo;
+[&](){
             if (json["pLabelInfo"].as_array().size()==0){
-                temp_uqejSGR=NULL;
-            return; }temp_uqejSGR=(VkDebugUtilsLabelEXT*)malloc(1*sizeof(VkDebugUtilsLabelEXT));
+                pLabelInfo=NULL;
+            return; }pLabelInfo=(VkDebugUtilsLabelEXT*)malloc(1*sizeof(VkDebugUtilsLabelEXT));
         auto& arr_dixLKcm=json["pLabelInfo"].as_array();
         for(int lWNBzGj=0; lWNBzGj < 1; lWNBzGj++){
             [&](){
             auto& temp=arr_dixLKcm[lWNBzGj].as_object();
-            deserialize_struct(temp,temp_uqejSGR[lWNBzGj]);
+            deserialize_struct(temp,pLabelInfo[lWNBzGj]);
             }();
         }
-        }();pLabelInfo=temp_uqejSGR;}();
+        }();
 
     PFN_vkCmdBeginDebugUtilsLabelEXT call_function;
     
@@ -17738,19 +17861,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkDebugUtilsLabelEXT* pLabelInfo;
-[&](){ VkDebugUtilsLabelEXT* temp_uqejSGR[&](){
+ VkDebugUtilsLabelEXT* pLabelInfo;
+[&](){
             if (json["pLabelInfo"].as_array().size()==0){
-                temp_uqejSGR=NULL;
-            return; }temp_uqejSGR=(VkDebugUtilsLabelEXT*)malloc(1*sizeof(VkDebugUtilsLabelEXT));
+                pLabelInfo=NULL;
+            return; }pLabelInfo=(VkDebugUtilsLabelEXT*)malloc(1*sizeof(VkDebugUtilsLabelEXT));
         auto& arr_dixLKcm=json["pLabelInfo"].as_array();
         for(int lWNBzGj=0; lWNBzGj < 1; lWNBzGj++){
             [&](){
             auto& temp=arr_dixLKcm[lWNBzGj].as_object();
-            deserialize_struct(temp,temp_uqejSGR[lWNBzGj]);
+            deserialize_struct(temp,pLabelInfo[lWNBzGj]);
             }();
         }
-        }();pLabelInfo=temp_uqejSGR;}();
+        }();
 
     PFN_vkCmdInsertDebugUtilsLabelEXT call_function;
     
@@ -17794,32 +17917,32 @@ json.clear();
     
 VkInstance instance;
 [&](){deserialize_VkInstance(json["instance"], instance);}();
-VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo;
-[&](){ VkDebugUtilsMessengerCreateInfoEXT* temp_vaOqMqw[&](){
+ VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_vaOqMqw=NULL;
-            return; }temp_vaOqMqw=(VkDebugUtilsMessengerCreateInfoEXT*)malloc(1*sizeof(VkDebugUtilsMessengerCreateInfoEXT));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkDebugUtilsMessengerCreateInfoEXT*)malloc(1*sizeof(VkDebugUtilsMessengerCreateInfoEXT));
         auto& arr_kPYPRLp=json["pCreateInfo"].as_array();
         for(int XvRVXaf=0; XvRVXaf < 1; XvRVXaf++){
             [&](){
             auto& temp=arr_kPYPRLp[XvRVXaf].as_object();
-            deserialize_struct(temp,temp_vaOqMqw[XvRVXaf]);
+            deserialize_struct(temp,pCreateInfo[XvRVXaf]);
             }();
         }
-        }();pCreateInfo=temp_vaOqMqw;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkDebugUtilsMessengerEXT* pMessenger;
 [&](){
             if (json["pMessenger"].as_array().size()==0){
@@ -17845,8 +17968,9 @@ VkDebugUtilsMessengerEXT* pMessenger;
         call_function=(PFN_vkCreateDebugUtilsMessengerEXT)get_device_proc_addr(parent,"vkCreateDebugUtilsMessengerEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(instance, pCreateInfo, pAllocator, pMessenger);
+result=call_function(instance, pCreateInfo, pAllocator, pMessenger);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -17896,19 +18020,19 @@ VkInstance instance;
 [&](){deserialize_VkInstance(json["instance"], instance);}();
 VkDebugUtilsMessengerEXT messenger;
 [&](){deserialize_VkDebugUtilsMessengerEXT(json["messenger"], messenger);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyDebugUtilsMessengerEXT call_function;
     
@@ -17957,19 +18081,19 @@ VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity;
 [&](){[&](){int temp_UpocUQR;[&](){temp_UpocUQR=static_cast<int>(value_to<int>(json["messageSeverity"]));}();messageSeverity=(VkDebugUtilsMessageSeverityFlagBitsEXT)temp_UpocUQR;}();}();
 VkDebugUtilsMessageTypeFlagsEXT messageTypes;
 [&](){[&](){int temp_vbjSEUE;[&](){temp_vbjSEUE=static_cast<int>(value_to<int>(json["messageTypes"]));}();messageTypes=(VkDebugUtilsMessageTypeFlagsEXT)temp_vbjSEUE;}();}();
-VkDebugUtilsMessengerCallbackDataEXT* pCallbackData;
-[&](){ VkDebugUtilsMessengerCallbackDataEXT* temp_wYKMSxv[&](){
+ VkDebugUtilsMessengerCallbackDataEXT* pCallbackData;
+[&](){
             if (json["pCallbackData"].as_array().size()==0){
-                temp_wYKMSxv=NULL;
-            return; }temp_wYKMSxv=(VkDebugUtilsMessengerCallbackDataEXT*)malloc(1*sizeof(VkDebugUtilsMessengerCallbackDataEXT));
+                pCallbackData=NULL;
+            return; }pCallbackData=(VkDebugUtilsMessengerCallbackDataEXT*)malloc(1*sizeof(VkDebugUtilsMessengerCallbackDataEXT));
         auto& arr_MlNAOAx=json["pCallbackData"].as_array();
         for(int EdtNsto=0; EdtNsto < 1; EdtNsto++){
             [&](){
             auto& temp=arr_MlNAOAx[EdtNsto].as_object();
-            deserialize_struct(temp,temp_wYKMSxv[EdtNsto]);
+            deserialize_struct(temp,pCallbackData[EdtNsto]);
             }();
         }
-        }();pCallbackData=temp_wYKMSxv;}();
+        }();
 
     PFN_vkSubmitDebugUtilsMessageEXT call_function;
     
@@ -18017,10 +18141,10 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkExternalMemoryHandleTypeFlagBits handleType;
 [&](){[&](){int temp_vuWMBJk;[&](){temp_vuWMBJk=static_cast<int>(value_to<int>(json["handleType"]));}();handleType=(VkExternalMemoryHandleTypeFlagBits)temp_vuWMBJk;}();}();
-void* pHostPointer;
-[&](){ void* temp_pfxjiZa[&](){
+ void* pHostPointer;
+[&](){
             if (json["pHostPointer"].as_array().size()==0){
-                temp_pfxjiZa=NULL;
+                pHostPointer=NULL;
             return; }char* temp_EiZqusU;[&](){
             if (json["pHostPointer"].as_array().size()==0){
                 temp_EiZqusU=NULL;
@@ -18029,7 +18153,7 @@ void* pHostPointer;
         for(int xxnXlKy=0; xxnXlKy < json["pHostPointer"].as_array().size(); xxnXlKy++){
             [&](){temp_EiZqusU[xxnXlKy]=static_cast<char>(value_to<int>(arr_QQzcAle[xxnXlKy]));}();
         }
-        }();temp_pfxjiZa=temp_EiZqusU;}();pHostPointer=temp_pfxjiZa;}();
+        }();pHostPointer=temp_EiZqusU;}();
 VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties;
 [&](){
             if (json["pMemoryHostPointerProperties"].as_array().size()==0){
@@ -18058,8 +18182,9 @@ VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties;
         call_function=(PFN_vkGetMemoryHostPointerPropertiesEXT)get_device_proc_addr(parent,"vkGetMemoryHostPointerPropertiesEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, handleType, pHostPointer, pMemoryHostPointerProperties);
+result=call_function(device, handleType, pHostPointer, pMemoryHostPointerProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -18142,32 +18267,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkRenderPassCreateInfo2* pCreateInfo;
-[&](){ VkRenderPassCreateInfo2* temp_ZzjHUjM[&](){
+ VkRenderPassCreateInfo2* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_ZzjHUjM=NULL;
-            return; }temp_ZzjHUjM=(VkRenderPassCreateInfo2*)malloc(1*sizeof(VkRenderPassCreateInfo2));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkRenderPassCreateInfo2*)malloc(1*sizeof(VkRenderPassCreateInfo2));
         auto& arr_wVuIjAr=json["pCreateInfo"].as_array();
         for(int LBnjMyA=0; LBnjMyA < 1; LBnjMyA++){
             [&](){
             auto& temp=arr_wVuIjAr[LBnjMyA].as_object();
-            deserialize_struct(temp,temp_ZzjHUjM[LBnjMyA]);
+            deserialize_struct(temp,pCreateInfo[LBnjMyA]);
             }();
         }
-        }();pCreateInfo=temp_ZzjHUjM;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkRenderPass* pRenderPass;
 [&](){
             if (json["pRenderPass"].as_array().size()==0){
@@ -18193,8 +18318,9 @@ VkRenderPass* pRenderPass;
         call_function=(PFN_vkCreateRenderPass2)get_device_proc_addr(parent,"vkCreateRenderPass2");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pRenderPass);
+result=call_function(device, pCreateInfo, pAllocator, pRenderPass);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -18242,32 +18368,32 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkRenderPassBeginInfo* pRenderPassBegin;
-[&](){ VkRenderPassBeginInfo* temp_ziYLYAn[&](){
+ VkRenderPassBeginInfo* pRenderPassBegin;
+[&](){
             if (json["pRenderPassBegin"].as_array().size()==0){
-                temp_ziYLYAn=NULL;
-            return; }temp_ziYLYAn=(VkRenderPassBeginInfo*)malloc(1*sizeof(VkRenderPassBeginInfo));
+                pRenderPassBegin=NULL;
+            return; }pRenderPassBegin=(VkRenderPassBeginInfo*)malloc(1*sizeof(VkRenderPassBeginInfo));
         auto& arr_DvmhBAI=json["pRenderPassBegin"].as_array();
         for(int MzTximI=0; MzTximI < 1; MzTximI++){
             [&](){
             auto& temp=arr_DvmhBAI[MzTximI].as_object();
-            deserialize_struct(temp,temp_ziYLYAn[MzTximI]);
+            deserialize_struct(temp,pRenderPassBegin[MzTximI]);
             }();
         }
-        }();pRenderPassBegin=temp_ziYLYAn;}();
-VkSubpassBeginInfo* pSubpassBeginInfo;
-[&](){ VkSubpassBeginInfo* temp_RrUVaEN[&](){
+        }();
+ VkSubpassBeginInfo* pSubpassBeginInfo;
+[&](){
             if (json["pSubpassBeginInfo"].as_array().size()==0){
-                temp_RrUVaEN=NULL;
-            return; }temp_RrUVaEN=(VkSubpassBeginInfo*)malloc(1*sizeof(VkSubpassBeginInfo));
+                pSubpassBeginInfo=NULL;
+            return; }pSubpassBeginInfo=(VkSubpassBeginInfo*)malloc(1*sizeof(VkSubpassBeginInfo));
         auto& arr_EzXVEdi=json["pSubpassBeginInfo"].as_array();
         for(int nrSIqlz=0; nrSIqlz < 1; nrSIqlz++){
             [&](){
             auto& temp=arr_EzXVEdi[nrSIqlz].as_object();
-            deserialize_struct(temp,temp_RrUVaEN[nrSIqlz]);
+            deserialize_struct(temp,pSubpassBeginInfo[nrSIqlz]);
             }();
         }
-        }();pSubpassBeginInfo=temp_RrUVaEN;}();
+        }();
 
     PFN_vkCmdBeginRenderPass2 call_function;
     
@@ -18323,32 +18449,32 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkSubpassBeginInfo* pSubpassBeginInfo;
-[&](){ VkSubpassBeginInfo* temp_RrUVaEN[&](){
+ VkSubpassBeginInfo* pSubpassBeginInfo;
+[&](){
             if (json["pSubpassBeginInfo"].as_array().size()==0){
-                temp_RrUVaEN=NULL;
-            return; }temp_RrUVaEN=(VkSubpassBeginInfo*)malloc(1*sizeof(VkSubpassBeginInfo));
+                pSubpassBeginInfo=NULL;
+            return; }pSubpassBeginInfo=(VkSubpassBeginInfo*)malloc(1*sizeof(VkSubpassBeginInfo));
         auto& arr_EzXVEdi=json["pSubpassBeginInfo"].as_array();
         for(int nrSIqlz=0; nrSIqlz < 1; nrSIqlz++){
             [&](){
             auto& temp=arr_EzXVEdi[nrSIqlz].as_object();
-            deserialize_struct(temp,temp_RrUVaEN[nrSIqlz]);
+            deserialize_struct(temp,pSubpassBeginInfo[nrSIqlz]);
             }();
         }
-        }();pSubpassBeginInfo=temp_RrUVaEN;}();
-VkSubpassEndInfo* pSubpassEndInfo;
-[&](){ VkSubpassEndInfo* temp_VCIKazT[&](){
+        }();
+ VkSubpassEndInfo* pSubpassEndInfo;
+[&](){
             if (json["pSubpassEndInfo"].as_array().size()==0){
-                temp_VCIKazT=NULL;
-            return; }temp_VCIKazT=(VkSubpassEndInfo*)malloc(1*sizeof(VkSubpassEndInfo));
+                pSubpassEndInfo=NULL;
+            return; }pSubpassEndInfo=(VkSubpassEndInfo*)malloc(1*sizeof(VkSubpassEndInfo));
         auto& arr_GcsVuns=json["pSubpassEndInfo"].as_array();
         for(int rFLLcAK=0; rFLLcAK < 1; rFLLcAK++){
             [&](){
             auto& temp=arr_GcsVuns[rFLLcAK].as_object();
-            deserialize_struct(temp,temp_VCIKazT[rFLLcAK]);
+            deserialize_struct(temp,pSubpassEndInfo[rFLLcAK]);
             }();
         }
-        }();pSubpassEndInfo=temp_VCIKazT;}();
+        }();
 
     PFN_vkCmdNextSubpass2 call_function;
     
@@ -18404,19 +18530,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkSubpassEndInfo* pSubpassEndInfo;
-[&](){ VkSubpassEndInfo* temp_VCIKazT[&](){
+ VkSubpassEndInfo* pSubpassEndInfo;
+[&](){
             if (json["pSubpassEndInfo"].as_array().size()==0){
-                temp_VCIKazT=NULL;
-            return; }temp_VCIKazT=(VkSubpassEndInfo*)malloc(1*sizeof(VkSubpassEndInfo));
+                pSubpassEndInfo=NULL;
+            return; }pSubpassEndInfo=(VkSubpassEndInfo*)malloc(1*sizeof(VkSubpassEndInfo));
         auto& arr_GcsVuns=json["pSubpassEndInfo"].as_array();
         for(int rFLLcAK=0; rFLLcAK < 1; rFLLcAK++){
             [&](){
             auto& temp=arr_GcsVuns[rFLLcAK].as_object();
-            deserialize_struct(temp,temp_VCIKazT[rFLLcAK]);
+            deserialize_struct(temp,pSubpassEndInfo[rFLLcAK]);
             }();
         }
-        }();pSubpassEndInfo=temp_VCIKazT;}();
+        }();
 
     PFN_vkCmdEndRenderPass2 call_function;
     
@@ -18487,8 +18613,9 @@ uint64_t* pValue;
         call_function=(PFN_vkGetSemaphoreCounterValue)get_device_proc_addr(parent,"vkGetSemaphoreCounterValue");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, semaphore, pValue);
+result=call_function(device, semaphore, pValue);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -18513,19 +18640,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkSemaphoreWaitInfo* pWaitInfo;
-[&](){ VkSemaphoreWaitInfo* temp_MGfkJIs[&](){
+ VkSemaphoreWaitInfo* pWaitInfo;
+[&](){
             if (json["pWaitInfo"].as_array().size()==0){
-                temp_MGfkJIs=NULL;
-            return; }temp_MGfkJIs=(VkSemaphoreWaitInfo*)malloc(1*sizeof(VkSemaphoreWaitInfo));
+                pWaitInfo=NULL;
+            return; }pWaitInfo=(VkSemaphoreWaitInfo*)malloc(1*sizeof(VkSemaphoreWaitInfo));
         auto& arr_saOfReP=json["pWaitInfo"].as_array();
         for(int PdcqhvB=0; PdcqhvB < 1; PdcqhvB++){
             [&](){
             auto& temp=arr_saOfReP[PdcqhvB].as_object();
-            deserialize_struct(temp,temp_MGfkJIs[PdcqhvB]);
+            deserialize_struct(temp,pWaitInfo[PdcqhvB]);
             }();
         }
-        }();pWaitInfo=temp_MGfkJIs;}();
+        }();
 uint64_t timeout;
 [&](){timeout=static_cast<uint64_t>(value_to<int>(json["timeout"]));}();
 
@@ -18543,8 +18670,9 @@ uint64_t timeout;
         call_function=(PFN_vkWaitSemaphores)get_device_proc_addr(parent,"vkWaitSemaphores");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pWaitInfo, timeout);
+result=call_function(device, pWaitInfo, timeout);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -18572,19 +18700,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkSemaphoreSignalInfo* pSignalInfo;
-[&](){ VkSemaphoreSignalInfo* temp_Goozuvn[&](){
+ VkSemaphoreSignalInfo* pSignalInfo;
+[&](){
             if (json["pSignalInfo"].as_array().size()==0){
-                temp_Goozuvn=NULL;
-            return; }temp_Goozuvn=(VkSemaphoreSignalInfo*)malloc(1*sizeof(VkSemaphoreSignalInfo));
+                pSignalInfo=NULL;
+            return; }pSignalInfo=(VkSemaphoreSignalInfo*)malloc(1*sizeof(VkSemaphoreSignalInfo));
         auto& arr_NpBehDR=json["pSignalInfo"].as_array();
         for(int AsjxdFQ=0; AsjxdFQ < 1; AsjxdFQ++){
             [&](){
             auto& temp=arr_NpBehDR[AsjxdFQ].as_object();
-            deserialize_struct(temp,temp_Goozuvn[AsjxdFQ]);
+            deserialize_struct(temp,pSignalInfo[AsjxdFQ]);
             }();
         }
-        }();pSignalInfo=temp_Goozuvn;}();
+        }();
 
     PFN_vkSignalSemaphore call_function;
     
@@ -18600,8 +18728,9 @@ VkSemaphoreSignalInfo* pSignalInfo;
         call_function=(PFN_vkSignalSemaphore)get_device_proc_addr(parent,"vkSignalSemaphore");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pSignalInfo);
+result=call_function(device, pSignalInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -18726,10 +18855,10 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-void* pCheckpointMarker;
-[&](){ void* temp_HtEUWlc[&](){
+ void* pCheckpointMarker;
+[&](){
             if (json["pCheckpointMarker"].as_array().size()==0){
-                temp_HtEUWlc=NULL;
+                pCheckpointMarker=NULL;
             return; }char* temp_AspjKUC;[&](){
             if (json["pCheckpointMarker"].as_array().size()==0){
                 temp_AspjKUC=NULL;
@@ -18738,7 +18867,7 @@ void* pCheckpointMarker;
         for(int PQOCPcH=0; PQOCPcH < json["pCheckpointMarker"].as_array().size(); PQOCPcH++){
             [&](){temp_AspjKUC[PQOCPcH]=static_cast<char>(value_to<int>(arr_QXjSoct[PQOCPcH]));}();
         }
-        }();temp_HtEUWlc=temp_AspjKUC;}();pCheckpointMarker=temp_HtEUWlc;}();
+        }();pCheckpointMarker=temp_AspjKUC;}();
 
     PFN_vkCmdSetCheckpointNV call_function;
     
@@ -18861,36 +18990,36 @@ uint32_t firstBinding;
 [&](){firstBinding=static_cast<uint32_t>(value_to<int>(json["firstBinding"]));}();
 uint32_t bindingCount;
 [&](){bindingCount=static_cast<uint32_t>(value_to<int>(json["bindingCount"]));}();
-VkBuffer* pBuffers;
-[&](){ VkBuffer* temp_XooJXwK[&](){
+ VkBuffer* pBuffers;
+[&](){
             if (json["pBuffers"].as_array().size()==0){
-                temp_XooJXwK=NULL;
-            return; }temp_XooJXwK=(VkBuffer*)malloc(bindingCount*sizeof(VkBuffer));
+                pBuffers=NULL;
+            return; }pBuffers=(VkBuffer*)malloc(bindingCount*sizeof(VkBuffer));
         auto& arr_ShVTBbp=json["pBuffers"].as_array();
         for(int loSrvWd=0; loSrvWd < bindingCount; loSrvWd++){
-            [&](){deserialize_VkBuffer(arr_ShVTBbp[loSrvWd], temp_XooJXwK[loSrvWd]);}();
+            [&](){deserialize_VkBuffer(arr_ShVTBbp[loSrvWd], pBuffers[loSrvWd]);}();
         }
-        }();pBuffers=temp_XooJXwK;}();
-VkDeviceSize* pOffsets;
-[&](){ VkDeviceSize* temp_rsVsAoT[&](){
+        }();
+ VkDeviceSize* pOffsets;
+[&](){
             if (json["pOffsets"].as_array().size()==0){
-                temp_rsVsAoT=NULL;
-            return; }temp_rsVsAoT=(VkDeviceSize*)malloc(bindingCount*sizeof(VkDeviceSize));
+                pOffsets=NULL;
+            return; }pOffsets=(VkDeviceSize*)malloc(bindingCount*sizeof(VkDeviceSize));
         auto& arr_uWdiGtF=json["pOffsets"].as_array();
         for(int ELYQTNF=0; ELYQTNF < bindingCount; ELYQTNF++){
-            [&](){uint64_t temp_uWdiGtF;[&](){temp_uWdiGtF=static_cast<uint64_t>(value_to<int>(arr_uWdiGtF[ELYQTNF]));}();temp_rsVsAoT[ELYQTNF]=(VkDeviceSize)temp_uWdiGtF;}();
+            [&](){uint64_t temp_uWdiGtF;[&](){temp_uWdiGtF=static_cast<uint64_t>(value_to<int>(arr_uWdiGtF[ELYQTNF]));}();pOffsets[ELYQTNF]=(VkDeviceSize)temp_uWdiGtF;}();
         }
-        }();pOffsets=temp_rsVsAoT;}();
-VkDeviceSize* pSizes;
-[&](){ VkDeviceSize* temp_VbqhwxK[&](){
+        }();
+ VkDeviceSize* pSizes;
+[&](){
             if (json["pSizes"].as_array().size()==0){
-                temp_VbqhwxK=NULL;
-            return; }temp_VbqhwxK=(VkDeviceSize*)malloc(bindingCount*sizeof(VkDeviceSize));
+                pSizes=NULL;
+            return; }pSizes=(VkDeviceSize*)malloc(bindingCount*sizeof(VkDeviceSize));
         auto& arr_cHIDMyb=json["pSizes"].as_array();
         for(int yLUmhkZ=0; yLUmhkZ < bindingCount; yLUmhkZ++){
-            [&](){uint64_t temp_cHIDMyb;[&](){temp_cHIDMyb=static_cast<uint64_t>(value_to<int>(arr_cHIDMyb[yLUmhkZ]));}();temp_VbqhwxK[yLUmhkZ]=(VkDeviceSize)temp_cHIDMyb;}();
+            [&](){uint64_t temp_cHIDMyb;[&](){temp_cHIDMyb=static_cast<uint64_t>(value_to<int>(arr_cHIDMyb[yLUmhkZ]));}();pSizes[yLUmhkZ]=(VkDeviceSize)temp_cHIDMyb;}();
         }
-        }();pSizes=temp_VbqhwxK;}();
+        }();
 
     PFN_vkCmdBindTransformFeedbackBuffersEXT call_function;
     
@@ -18955,26 +19084,26 @@ uint32_t firstCounterBuffer;
 [&](){firstCounterBuffer=static_cast<uint32_t>(value_to<int>(json["firstCounterBuffer"]));}();
 uint32_t counterBufferCount;
 [&](){counterBufferCount=static_cast<uint32_t>(value_to<int>(json["counterBufferCount"]));}();
-VkBuffer* pCounterBuffers;
-[&](){ VkBuffer* temp_wFllMRv[&](){
+ VkBuffer* pCounterBuffers;
+[&](){
             if (json["pCounterBuffers"].as_array().size()==0){
-                temp_wFllMRv=NULL;
-            return; }temp_wFllMRv=(VkBuffer*)malloc(counterBufferCount*sizeof(VkBuffer));
+                pCounterBuffers=NULL;
+            return; }pCounterBuffers=(VkBuffer*)malloc(counterBufferCount*sizeof(VkBuffer));
         auto& arr_BxMTckm=json["pCounterBuffers"].as_array();
         for(int TXsvtyB=0; TXsvtyB < counterBufferCount; TXsvtyB++){
-            [&](){deserialize_VkBuffer(arr_BxMTckm[TXsvtyB], temp_wFllMRv[TXsvtyB]);}();
+            [&](){deserialize_VkBuffer(arr_BxMTckm[TXsvtyB], pCounterBuffers[TXsvtyB]);}();
         }
-        }();pCounterBuffers=temp_wFllMRv;}();
-VkDeviceSize* pCounterBufferOffsets;
-[&](){ VkDeviceSize* temp_EUGeeyL[&](){
+        }();
+ VkDeviceSize* pCounterBufferOffsets;
+[&](){
             if (json["pCounterBufferOffsets"].as_array().size()==0){
-                temp_EUGeeyL=NULL;
-            return; }temp_EUGeeyL=(VkDeviceSize*)malloc(counterBufferCount*sizeof(VkDeviceSize));
+                pCounterBufferOffsets=NULL;
+            return; }pCounterBufferOffsets=(VkDeviceSize*)malloc(counterBufferCount*sizeof(VkDeviceSize));
         auto& arr_LrVQuLK=json["pCounterBufferOffsets"].as_array();
         for(int FmZEqMc=0; FmZEqMc < counterBufferCount; FmZEqMc++){
-            [&](){uint64_t temp_LrVQuLK;[&](){temp_LrVQuLK=static_cast<uint64_t>(value_to<int>(arr_LrVQuLK[FmZEqMc]));}();temp_EUGeeyL[FmZEqMc]=(VkDeviceSize)temp_LrVQuLK;}();
+            [&](){uint64_t temp_LrVQuLK;[&](){temp_LrVQuLK=static_cast<uint64_t>(value_to<int>(arr_LrVQuLK[FmZEqMc]));}();pCounterBufferOffsets[FmZEqMc]=(VkDeviceSize)temp_LrVQuLK;}();
         }
-        }();pCounterBufferOffsets=temp_EUGeeyL;}();
+        }();
 
     PFN_vkCmdBeginTransformFeedbackEXT call_function;
     
@@ -19030,26 +19159,26 @@ uint32_t firstCounterBuffer;
 [&](){firstCounterBuffer=static_cast<uint32_t>(value_to<int>(json["firstCounterBuffer"]));}();
 uint32_t counterBufferCount;
 [&](){counterBufferCount=static_cast<uint32_t>(value_to<int>(json["counterBufferCount"]));}();
-VkBuffer* pCounterBuffers;
-[&](){ VkBuffer* temp_wFllMRv[&](){
+ VkBuffer* pCounterBuffers;
+[&](){
             if (json["pCounterBuffers"].as_array().size()==0){
-                temp_wFllMRv=NULL;
-            return; }temp_wFllMRv=(VkBuffer*)malloc(counterBufferCount*sizeof(VkBuffer));
+                pCounterBuffers=NULL;
+            return; }pCounterBuffers=(VkBuffer*)malloc(counterBufferCount*sizeof(VkBuffer));
         auto& arr_BxMTckm=json["pCounterBuffers"].as_array();
         for(int TXsvtyB=0; TXsvtyB < counterBufferCount; TXsvtyB++){
-            [&](){deserialize_VkBuffer(arr_BxMTckm[TXsvtyB], temp_wFllMRv[TXsvtyB]);}();
+            [&](){deserialize_VkBuffer(arr_BxMTckm[TXsvtyB], pCounterBuffers[TXsvtyB]);}();
         }
-        }();pCounterBuffers=temp_wFllMRv;}();
-VkDeviceSize* pCounterBufferOffsets;
-[&](){ VkDeviceSize* temp_EUGeeyL[&](){
+        }();
+ VkDeviceSize* pCounterBufferOffsets;
+[&](){
             if (json["pCounterBufferOffsets"].as_array().size()==0){
-                temp_EUGeeyL=NULL;
-            return; }temp_EUGeeyL=(VkDeviceSize*)malloc(counterBufferCount*sizeof(VkDeviceSize));
+                pCounterBufferOffsets=NULL;
+            return; }pCounterBufferOffsets=(VkDeviceSize*)malloc(counterBufferCount*sizeof(VkDeviceSize));
         auto& arr_LrVQuLK=json["pCounterBufferOffsets"].as_array();
         for(int FmZEqMc=0; FmZEqMc < counterBufferCount; FmZEqMc++){
-            [&](){uint64_t temp_LrVQuLK;[&](){temp_LrVQuLK=static_cast<uint64_t>(value_to<int>(arr_LrVQuLK[FmZEqMc]));}();temp_EUGeeyL[FmZEqMc]=(VkDeviceSize)temp_LrVQuLK;}();
+            [&](){uint64_t temp_LrVQuLK;[&](){temp_LrVQuLK=static_cast<uint64_t>(value_to<int>(arr_LrVQuLK[FmZEqMc]));}();pCounterBufferOffsets[FmZEqMc]=(VkDeviceSize)temp_LrVQuLK;}();
         }
-        }();pCounterBufferOffsets=temp_EUGeeyL;}();
+        }();
 
     PFN_vkCmdEndTransformFeedbackEXT call_function;
     
@@ -19237,19 +19366,19 @@ uint32_t firstExclusiveScissor;
 [&](){firstExclusiveScissor=static_cast<uint32_t>(value_to<int>(json["firstExclusiveScissor"]));}();
 uint32_t exclusiveScissorCount;
 [&](){exclusiveScissorCount=static_cast<uint32_t>(value_to<int>(json["exclusiveScissorCount"]));}();
-VkRect2D* pExclusiveScissors;
-[&](){ VkRect2D* temp_GmuOKdX[&](){
+ VkRect2D* pExclusiveScissors;
+[&](){
             if (json["pExclusiveScissors"].as_array().size()==0){
-                temp_GmuOKdX=NULL;
-            return; }temp_GmuOKdX=(VkRect2D*)malloc(exclusiveScissorCount*sizeof(VkRect2D));
+                pExclusiveScissors=NULL;
+            return; }pExclusiveScissors=(VkRect2D*)malloc(exclusiveScissorCount*sizeof(VkRect2D));
         auto& arr_ZinqSQR=json["pExclusiveScissors"].as_array();
         for(int SkofLXN=0; SkofLXN < exclusiveScissorCount; SkofLXN++){
             [&](){
             auto& temp=arr_ZinqSQR[SkofLXN].as_object();
-            deserialize_struct(temp,temp_GmuOKdX[SkofLXN]);
+            deserialize_struct(temp,pExclusiveScissors[SkofLXN]);
             }();
         }
-        }();pExclusiveScissors=temp_GmuOKdX;}();
+        }();
 
     PFN_vkCmdSetExclusiveScissorNV call_function;
     
@@ -19299,16 +19428,16 @@ uint32_t firstExclusiveScissor;
 [&](){firstExclusiveScissor=static_cast<uint32_t>(value_to<int>(json["firstExclusiveScissor"]));}();
 uint32_t exclusiveScissorCount;
 [&](){exclusiveScissorCount=static_cast<uint32_t>(value_to<int>(json["exclusiveScissorCount"]));}();
-VkBool32* pExclusiveScissorEnables;
-[&](){ VkBool32* temp_RHrSSfg[&](){
+ VkBool32* pExclusiveScissorEnables;
+[&](){
             if (json["pExclusiveScissorEnables"].as_array().size()==0){
-                temp_RHrSSfg=NULL;
-            return; }temp_RHrSSfg=(VkBool32*)malloc(exclusiveScissorCount*sizeof(VkBool32));
+                pExclusiveScissorEnables=NULL;
+            return; }pExclusiveScissorEnables=(VkBool32*)malloc(exclusiveScissorCount*sizeof(VkBool32));
         auto& arr_gutsiaF=json["pExclusiveScissorEnables"].as_array();
         for(int DJnjHfh=0; DJnjHfh < exclusiveScissorCount; DJnjHfh++){
-            [&](){uint32_t temp_gutsiaF;[&](){temp_gutsiaF=static_cast<uint32_t>(value_to<int>(arr_gutsiaF[DJnjHfh]));}();temp_RHrSSfg[DJnjHfh]=(VkBool32)temp_gutsiaF;}();
+            [&](){uint32_t temp_gutsiaF;[&](){temp_gutsiaF=static_cast<uint32_t>(value_to<int>(arr_gutsiaF[DJnjHfh]));}();pExclusiveScissorEnables[DJnjHfh]=(VkBool32)temp_gutsiaF;}();
         }
-        }();pExclusiveScissorEnables=temp_RHrSSfg;}();
+        }();
 
     PFN_vkCmdSetExclusiveScissorEnableNV call_function;
     
@@ -19392,19 +19521,19 @@ uint32_t firstViewport;
 [&](){firstViewport=static_cast<uint32_t>(value_to<int>(json["firstViewport"]));}();
 uint32_t viewportCount;
 [&](){viewportCount=static_cast<uint32_t>(value_to<int>(json["viewportCount"]));}();
-VkShadingRatePaletteNV* pShadingRatePalettes;
-[&](){ VkShadingRatePaletteNV* temp_FveXKEl[&](){
+ VkShadingRatePaletteNV* pShadingRatePalettes;
+[&](){
             if (json["pShadingRatePalettes"].as_array().size()==0){
-                temp_FveXKEl=NULL;
-            return; }temp_FveXKEl=(VkShadingRatePaletteNV*)malloc(viewportCount*sizeof(VkShadingRatePaletteNV));
+                pShadingRatePalettes=NULL;
+            return; }pShadingRatePalettes=(VkShadingRatePaletteNV*)malloc(viewportCount*sizeof(VkShadingRatePaletteNV));
         auto& arr_wkMlexp=json["pShadingRatePalettes"].as_array();
         for(int SqzUOqM=0; SqzUOqM < viewportCount; SqzUOqM++){
             [&](){
             auto& temp=arr_wkMlexp[SqzUOqM].as_object();
-            deserialize_struct(temp,temp_FveXKEl[SqzUOqM]);
+            deserialize_struct(temp,pShadingRatePalettes[SqzUOqM]);
             }();
         }
-        }();pShadingRatePalettes=temp_FveXKEl;}();
+        }();
 
     PFN_vkCmdSetViewportShadingRatePaletteNV call_function;
     
@@ -19454,19 +19583,19 @@ VkCoarseSampleOrderTypeNV sampleOrderType;
 [&](){[&](){int temp_iGYbmmy;[&](){temp_iGYbmmy=static_cast<int>(value_to<int>(json["sampleOrderType"]));}();sampleOrderType=(VkCoarseSampleOrderTypeNV)temp_iGYbmmy;}();}();
 uint32_t customSampleOrderCount;
 [&](){customSampleOrderCount=static_cast<uint32_t>(value_to<int>(json["customSampleOrderCount"]));}();
-VkCoarseSampleOrderCustomNV* pCustomSampleOrders;
-[&](){ VkCoarseSampleOrderCustomNV* temp_wKTqBQC[&](){
+ VkCoarseSampleOrderCustomNV* pCustomSampleOrders;
+[&](){
             if (json["pCustomSampleOrders"].as_array().size()==0){
-                temp_wKTqBQC=NULL;
-            return; }temp_wKTqBQC=(VkCoarseSampleOrderCustomNV*)malloc(customSampleOrderCount*sizeof(VkCoarseSampleOrderCustomNV));
+                pCustomSampleOrders=NULL;
+            return; }pCustomSampleOrders=(VkCoarseSampleOrderCustomNV*)malloc(customSampleOrderCount*sizeof(VkCoarseSampleOrderCustomNV));
         auto& arr_XDqsEzE=json["pCustomSampleOrders"].as_array();
         for(int MsAfwio=0; MsAfwio < customSampleOrderCount; MsAfwio++){
             [&](){
             auto& temp=arr_XDqsEzE[MsAfwio].as_object();
-            deserialize_struct(temp,temp_wKTqBQC[MsAfwio]);
+            deserialize_struct(temp,pCustomSampleOrders[MsAfwio]);
             }();
         }
-        }();pCustomSampleOrders=temp_wKTqBQC;}();
+        }();
 
     PFN_vkCmdSetCoarseSampleOrderNV call_function;
     
@@ -19792,8 +19921,9 @@ uint32_t shader;
         call_function=(PFN_vkCompileDeferredNV)get_device_proc_addr(parent,"vkCompileDeferredNV");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pipeline, shader);
+result=call_function(device, pipeline, shader);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -19810,32 +19940,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkAccelerationStructureCreateInfoNV* pCreateInfo;
-[&](){ VkAccelerationStructureCreateInfoNV* temp_EKmRHED[&](){
+ VkAccelerationStructureCreateInfoNV* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_EKmRHED=NULL;
-            return; }temp_EKmRHED=(VkAccelerationStructureCreateInfoNV*)malloc(1*sizeof(VkAccelerationStructureCreateInfoNV));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkAccelerationStructureCreateInfoNV*)malloc(1*sizeof(VkAccelerationStructureCreateInfoNV));
         auto& arr_CZnEXLZ=json["pCreateInfo"].as_array();
         for(int HkuZrvQ=0; HkuZrvQ < 1; HkuZrvQ++){
             [&](){
             auto& temp=arr_CZnEXLZ[HkuZrvQ].as_object();
-            deserialize_struct(temp,temp_EKmRHED[HkuZrvQ]);
+            deserialize_struct(temp,pCreateInfo[HkuZrvQ]);
             }();
         }
-        }();pCreateInfo=temp_EKmRHED;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkAccelerationStructureNV* pAccelerationStructure;
 [&](){
             if (json["pAccelerationStructure"].as_array().size()==0){
@@ -19861,8 +19991,9 @@ VkAccelerationStructureNV* pAccelerationStructure;
         call_function=(PFN_vkCreateAccelerationStructureNV)get_device_proc_addr(parent,"vkCreateAccelerationStructureNV");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pAccelerationStructure);
+result=call_function(device, pCreateInfo, pAllocator, pAccelerationStructure);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -19949,19 +20080,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkAccelerationStructureKHR accelerationStructure;
 [&](){deserialize_VkAccelerationStructureKHR(json["accelerationStructure"], accelerationStructure);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyAccelerationStructureKHR call_function;
     
@@ -20008,19 +20139,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkAccelerationStructureNV accelerationStructure;
 [&](){deserialize_VkAccelerationStructureNV(json["accelerationStructure"], accelerationStructure);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyAccelerationStructureNV call_function;
     
@@ -20065,19 +20196,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkAccelerationStructureMemoryRequirementsInfoNV* pInfo;
-[&](){ VkAccelerationStructureMemoryRequirementsInfoNV* temp_Javeapk[&](){
+ VkAccelerationStructureMemoryRequirementsInfoNV* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_Javeapk=NULL;
-            return; }temp_Javeapk=(VkAccelerationStructureMemoryRequirementsInfoNV*)malloc(1*sizeof(VkAccelerationStructureMemoryRequirementsInfoNV));
+                pInfo=NULL;
+            return; }pInfo=(VkAccelerationStructureMemoryRequirementsInfoNV*)malloc(1*sizeof(VkAccelerationStructureMemoryRequirementsInfoNV));
         auto& arr_VDaHmqz=json["pInfo"].as_array();
         for(int wDTIoch=0; wDTIoch < 1; wDTIoch++){
             [&](){
             auto& temp=arr_VDaHmqz[wDTIoch].as_object();
-            deserialize_struct(temp,temp_Javeapk[wDTIoch]);
+            deserialize_struct(temp,pInfo[wDTIoch]);
             }();
         }
-        }();pInfo=temp_Javeapk;}();
+        }();
 VkMemoryRequirements2KHR* pMemoryRequirements;
 [&](){
             if (json["pMemoryRequirements"].as_array().size()==0){
@@ -20148,19 +20279,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 uint32_t bindInfoCount;
 [&](){bindInfoCount=static_cast<uint32_t>(value_to<int>(json["bindInfoCount"]));}();
-VkBindAccelerationStructureMemoryInfoNV* pBindInfos;
-[&](){ VkBindAccelerationStructureMemoryInfoNV* temp_lvzfIWG[&](){
+ VkBindAccelerationStructureMemoryInfoNV* pBindInfos;
+[&](){
             if (json["pBindInfos"].as_array().size()==0){
-                temp_lvzfIWG=NULL;
-            return; }temp_lvzfIWG=(VkBindAccelerationStructureMemoryInfoNV*)malloc(bindInfoCount*sizeof(VkBindAccelerationStructureMemoryInfoNV));
+                pBindInfos=NULL;
+            return; }pBindInfos=(VkBindAccelerationStructureMemoryInfoNV*)malloc(bindInfoCount*sizeof(VkBindAccelerationStructureMemoryInfoNV));
         auto& arr_AgWFhtE=json["pBindInfos"].as_array();
         for(int NpOYBOz=0; NpOYBOz < bindInfoCount; NpOYBOz++){
             [&](){
             auto& temp=arr_AgWFhtE[NpOYBOz].as_object();
-            deserialize_struct(temp,temp_lvzfIWG[NpOYBOz]);
+            deserialize_struct(temp,pBindInfos[NpOYBOz]);
             }();
         }
-        }();pBindInfos=temp_lvzfIWG;}();
+        }();
 
     PFN_vkBindAccelerationStructureMemoryNV call_function;
     
@@ -20176,8 +20307,9 @@ VkBindAccelerationStructureMemoryInfoNV* pBindInfos;
         call_function=(PFN_vkBindAccelerationStructureMemoryNV)get_device_proc_addr(parent,"vkBindAccelerationStructureMemoryNV");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, bindInfoCount, pBindInfos);
+result=call_function(device, bindInfoCount, pBindInfos);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -20245,19 +20377,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkCopyAccelerationStructureInfoKHR* pInfo;
-[&](){ VkCopyAccelerationStructureInfoKHR* temp_jIAATHR[&](){
+ VkCopyAccelerationStructureInfoKHR* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_jIAATHR=NULL;
-            return; }temp_jIAATHR=(VkCopyAccelerationStructureInfoKHR*)malloc(1*sizeof(VkCopyAccelerationStructureInfoKHR));
+                pInfo=NULL;
+            return; }pInfo=(VkCopyAccelerationStructureInfoKHR*)malloc(1*sizeof(VkCopyAccelerationStructureInfoKHR));
         auto& arr_WSMeNoY=json["pInfo"].as_array();
         for(int qgjgiZh=0; qgjgiZh < 1; qgjgiZh++){
             [&](){
             auto& temp=arr_WSMeNoY[qgjgiZh].as_object();
-            deserialize_struct(temp,temp_jIAATHR[qgjgiZh]);
+            deserialize_struct(temp,pInfo[qgjgiZh]);
             }();
         }
-        }();pInfo=temp_jIAATHR;}();
+        }();
 
     PFN_vkCmdCopyAccelerationStructureKHR call_function;
     
@@ -20303,19 +20435,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkDeferredOperationKHR deferredOperation;
 [&](){deserialize_VkDeferredOperationKHR(json["deferredOperation"], deferredOperation);}();
-VkCopyAccelerationStructureInfoKHR* pInfo;
-[&](){ VkCopyAccelerationStructureInfoKHR* temp_jIAATHR[&](){
+ VkCopyAccelerationStructureInfoKHR* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_jIAATHR=NULL;
-            return; }temp_jIAATHR=(VkCopyAccelerationStructureInfoKHR*)malloc(1*sizeof(VkCopyAccelerationStructureInfoKHR));
+                pInfo=NULL;
+            return; }pInfo=(VkCopyAccelerationStructureInfoKHR*)malloc(1*sizeof(VkCopyAccelerationStructureInfoKHR));
         auto& arr_WSMeNoY=json["pInfo"].as_array();
         for(int qgjgiZh=0; qgjgiZh < 1; qgjgiZh++){
             [&](){
             auto& temp=arr_WSMeNoY[qgjgiZh].as_object();
-            deserialize_struct(temp,temp_jIAATHR[qgjgiZh]);
+            deserialize_struct(temp,pInfo[qgjgiZh]);
             }();
         }
-        }();pInfo=temp_jIAATHR;}();
+        }();
 
     PFN_vkCopyAccelerationStructureKHR call_function;
     
@@ -20331,8 +20463,9 @@ VkCopyAccelerationStructureInfoKHR* pInfo;
         call_function=(PFN_vkCopyAccelerationStructureKHR)get_device_proc_addr(parent,"vkCopyAccelerationStructureKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, deferredOperation, pInfo);
+result=call_function(device, deferredOperation, pInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -20360,19 +20493,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkCopyAccelerationStructureToMemoryInfoKHR* pInfo;
-[&](){ VkCopyAccelerationStructureToMemoryInfoKHR* temp_aUYRjub[&](){
+ VkCopyAccelerationStructureToMemoryInfoKHR* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_aUYRjub=NULL;
-            return; }temp_aUYRjub=(VkCopyAccelerationStructureToMemoryInfoKHR*)malloc(1*sizeof(VkCopyAccelerationStructureToMemoryInfoKHR));
+                pInfo=NULL;
+            return; }pInfo=(VkCopyAccelerationStructureToMemoryInfoKHR*)malloc(1*sizeof(VkCopyAccelerationStructureToMemoryInfoKHR));
         auto& arr_lkaVawI=json["pInfo"].as_array();
         for(int qcYcnXp=0; qcYcnXp < 1; qcYcnXp++){
             [&](){
             auto& temp=arr_lkaVawI[qcYcnXp].as_object();
-            deserialize_struct(temp,temp_aUYRjub[qcYcnXp]);
+            deserialize_struct(temp,pInfo[qcYcnXp]);
             }();
         }
-        }();pInfo=temp_aUYRjub;}();
+        }();
 
     PFN_vkCmdCopyAccelerationStructureToMemoryKHR call_function;
     
@@ -20418,19 +20551,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkDeferredOperationKHR deferredOperation;
 [&](){deserialize_VkDeferredOperationKHR(json["deferredOperation"], deferredOperation);}();
-VkCopyAccelerationStructureToMemoryInfoKHR* pInfo;
-[&](){ VkCopyAccelerationStructureToMemoryInfoKHR* temp_aUYRjub[&](){
+ VkCopyAccelerationStructureToMemoryInfoKHR* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_aUYRjub=NULL;
-            return; }temp_aUYRjub=(VkCopyAccelerationStructureToMemoryInfoKHR*)malloc(1*sizeof(VkCopyAccelerationStructureToMemoryInfoKHR));
+                pInfo=NULL;
+            return; }pInfo=(VkCopyAccelerationStructureToMemoryInfoKHR*)malloc(1*sizeof(VkCopyAccelerationStructureToMemoryInfoKHR));
         auto& arr_lkaVawI=json["pInfo"].as_array();
         for(int qcYcnXp=0; qcYcnXp < 1; qcYcnXp++){
             [&](){
             auto& temp=arr_lkaVawI[qcYcnXp].as_object();
-            deserialize_struct(temp,temp_aUYRjub[qcYcnXp]);
+            deserialize_struct(temp,pInfo[qcYcnXp]);
             }();
         }
-        }();pInfo=temp_aUYRjub;}();
+        }();
 
     PFN_vkCopyAccelerationStructureToMemoryKHR call_function;
     
@@ -20446,8 +20579,9 @@ VkCopyAccelerationStructureToMemoryInfoKHR* pInfo;
         call_function=(PFN_vkCopyAccelerationStructureToMemoryKHR)get_device_proc_addr(parent,"vkCopyAccelerationStructureToMemoryKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, deferredOperation, pInfo);
+result=call_function(device, deferredOperation, pInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -20475,19 +20609,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkCopyMemoryToAccelerationStructureInfoKHR* pInfo;
-[&](){ VkCopyMemoryToAccelerationStructureInfoKHR* temp_ftCDuhg[&](){
+ VkCopyMemoryToAccelerationStructureInfoKHR* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_ftCDuhg=NULL;
-            return; }temp_ftCDuhg=(VkCopyMemoryToAccelerationStructureInfoKHR*)malloc(1*sizeof(VkCopyMemoryToAccelerationStructureInfoKHR));
+                pInfo=NULL;
+            return; }pInfo=(VkCopyMemoryToAccelerationStructureInfoKHR*)malloc(1*sizeof(VkCopyMemoryToAccelerationStructureInfoKHR));
         auto& arr_bZDMHqg=json["pInfo"].as_array();
         for(int exexFjs=0; exexFjs < 1; exexFjs++){
             [&](){
             auto& temp=arr_bZDMHqg[exexFjs].as_object();
-            deserialize_struct(temp,temp_ftCDuhg[exexFjs]);
+            deserialize_struct(temp,pInfo[exexFjs]);
             }();
         }
-        }();pInfo=temp_ftCDuhg;}();
+        }();
 
     PFN_vkCmdCopyMemoryToAccelerationStructureKHR call_function;
     
@@ -20533,19 +20667,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkDeferredOperationKHR deferredOperation;
 [&](){deserialize_VkDeferredOperationKHR(json["deferredOperation"], deferredOperation);}();
-VkCopyMemoryToAccelerationStructureInfoKHR* pInfo;
-[&](){ VkCopyMemoryToAccelerationStructureInfoKHR* temp_ftCDuhg[&](){
+ VkCopyMemoryToAccelerationStructureInfoKHR* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_ftCDuhg=NULL;
-            return; }temp_ftCDuhg=(VkCopyMemoryToAccelerationStructureInfoKHR*)malloc(1*sizeof(VkCopyMemoryToAccelerationStructureInfoKHR));
+                pInfo=NULL;
+            return; }pInfo=(VkCopyMemoryToAccelerationStructureInfoKHR*)malloc(1*sizeof(VkCopyMemoryToAccelerationStructureInfoKHR));
         auto& arr_bZDMHqg=json["pInfo"].as_array();
         for(int exexFjs=0; exexFjs < 1; exexFjs++){
             [&](){
             auto& temp=arr_bZDMHqg[exexFjs].as_object();
-            deserialize_struct(temp,temp_ftCDuhg[exexFjs]);
+            deserialize_struct(temp,pInfo[exexFjs]);
             }();
         }
-        }();pInfo=temp_ftCDuhg;}();
+        }();
 
     PFN_vkCopyMemoryToAccelerationStructureKHR call_function;
     
@@ -20561,8 +20695,9 @@ VkCopyMemoryToAccelerationStructureInfoKHR* pInfo;
         call_function=(PFN_vkCopyMemoryToAccelerationStructureKHR)get_device_proc_addr(parent,"vkCopyMemoryToAccelerationStructureKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, deferredOperation, pInfo);
+result=call_function(device, deferredOperation, pInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -20592,16 +20727,16 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t accelerationStructureCount;
 [&](){accelerationStructureCount=static_cast<uint32_t>(value_to<int>(json["accelerationStructureCount"]));}();
-VkAccelerationStructureKHR* pAccelerationStructures;
-[&](){ VkAccelerationStructureKHR* temp_FxtZZQa[&](){
+ VkAccelerationStructureKHR* pAccelerationStructures;
+[&](){
             if (json["pAccelerationStructures"].as_array().size()==0){
-                temp_FxtZZQa=NULL;
-            return; }temp_FxtZZQa=(VkAccelerationStructureKHR*)malloc(accelerationStructureCount*sizeof(VkAccelerationStructureKHR));
+                pAccelerationStructures=NULL;
+            return; }pAccelerationStructures=(VkAccelerationStructureKHR*)malloc(accelerationStructureCount*sizeof(VkAccelerationStructureKHR));
         auto& arr_QDDZeVb=json["pAccelerationStructures"].as_array();
         for(int dBhihII=0; dBhihII < accelerationStructureCount; dBhihII++){
-            [&](){deserialize_VkAccelerationStructureKHR(arr_QDDZeVb[dBhihII], temp_FxtZZQa[dBhihII]);}();
+            [&](){deserialize_VkAccelerationStructureKHR(arr_QDDZeVb[dBhihII], pAccelerationStructures[dBhihII]);}();
         }
-        }();pAccelerationStructures=temp_FxtZZQa;}();
+        }();
 VkQueryType queryType;
 [&](){[&](){int temp_VdJSktT;[&](){temp_VdJSktT=static_cast<int>(value_to<int>(json["queryType"]));}();queryType=(VkQueryType)temp_VdJSktT;}();}();
 VkQueryPool queryPool;
@@ -20654,16 +20789,16 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t accelerationStructureCount;
 [&](){accelerationStructureCount=static_cast<uint32_t>(value_to<int>(json["accelerationStructureCount"]));}();
-VkAccelerationStructureNV* pAccelerationStructures;
-[&](){ VkAccelerationStructureNV* temp_tLplqmX[&](){
+ VkAccelerationStructureNV* pAccelerationStructures;
+[&](){
             if (json["pAccelerationStructures"].as_array().size()==0){
-                temp_tLplqmX=NULL;
-            return; }temp_tLplqmX=(VkAccelerationStructureNV*)malloc(accelerationStructureCount*sizeof(VkAccelerationStructureNV));
+                pAccelerationStructures=NULL;
+            return; }pAccelerationStructures=(VkAccelerationStructureNV*)malloc(accelerationStructureCount*sizeof(VkAccelerationStructureNV));
         auto& arr_jMdvwQK=json["pAccelerationStructures"].as_array();
         for(int lmeuIny=0; lmeuIny < accelerationStructureCount; lmeuIny++){
-            [&](){deserialize_VkAccelerationStructureNV(arr_jMdvwQK[lmeuIny], temp_tLplqmX[lmeuIny]);}();
+            [&](){deserialize_VkAccelerationStructureNV(arr_jMdvwQK[lmeuIny], pAccelerationStructures[lmeuIny]);}();
         }
-        }();pAccelerationStructures=temp_tLplqmX;}();
+        }();
 VkQueryType queryType;
 [&](){[&](){int temp_VdJSktT;[&](){temp_VdJSktT=static_cast<int>(value_to<int>(json["queryType"]));}();queryType=(VkQueryType)temp_VdJSktT;}();}();
 VkQueryPool queryPool;
@@ -20714,19 +20849,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkAccelerationStructureInfoNV* pInfo;
-[&](){ VkAccelerationStructureInfoNV* temp_onVmopW[&](){
+ VkAccelerationStructureInfoNV* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_onVmopW=NULL;
-            return; }temp_onVmopW=(VkAccelerationStructureInfoNV*)malloc(1*sizeof(VkAccelerationStructureInfoNV));
+                pInfo=NULL;
+            return; }pInfo=(VkAccelerationStructureInfoNV*)malloc(1*sizeof(VkAccelerationStructureInfoNV));
         auto& arr_lerVBoc=json["pInfo"].as_array();
         for(int mMkuLVq=0; mMkuLVq < 1; mMkuLVq++){
             [&](){
             auto& temp=arr_lerVBoc[mMkuLVq].as_object();
-            deserialize_struct(temp,temp_onVmopW[mMkuLVq]);
+            deserialize_struct(temp,pInfo[mMkuLVq]);
             }();
         }
-        }();pInfo=temp_onVmopW;}();
+        }();
 VkBuffer instanceData;
 [&](){deserialize_VkBuffer(json["instanceData"], instanceData);}();
 VkDeviceSize instanceOffset;
@@ -20793,16 +20928,16 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 uint32_t accelerationStructureCount;
 [&](){accelerationStructureCount=static_cast<uint32_t>(value_to<int>(json["accelerationStructureCount"]));}();
-VkAccelerationStructureKHR* pAccelerationStructures;
-[&](){ VkAccelerationStructureKHR* temp_FxtZZQa[&](){
+ VkAccelerationStructureKHR* pAccelerationStructures;
+[&](){
             if (json["pAccelerationStructures"].as_array().size()==0){
-                temp_FxtZZQa=NULL;
-            return; }temp_FxtZZQa=(VkAccelerationStructureKHR*)malloc(accelerationStructureCount*sizeof(VkAccelerationStructureKHR));
+                pAccelerationStructures=NULL;
+            return; }pAccelerationStructures=(VkAccelerationStructureKHR*)malloc(accelerationStructureCount*sizeof(VkAccelerationStructureKHR));
         auto& arr_QDDZeVb=json["pAccelerationStructures"].as_array();
         for(int dBhihII=0; dBhihII < accelerationStructureCount; dBhihII++){
-            [&](){deserialize_VkAccelerationStructureKHR(arr_QDDZeVb[dBhihII], temp_FxtZZQa[dBhihII]);}();
+            [&](){deserialize_VkAccelerationStructureKHR(arr_QDDZeVb[dBhihII], pAccelerationStructures[dBhihII]);}();
         }
-        }();pAccelerationStructures=temp_FxtZZQa;}();
+        }();
 VkQueryType queryType;
 [&](){[&](){int temp_VdJSktT;[&](){temp_VdJSktT=static_cast<int>(value_to<int>(json["queryType"]));}();queryType=(VkQueryType)temp_VdJSktT;}();}();
 size_t dataSize;
@@ -20837,8 +20972,9 @@ size_t stride;
         call_function=(PFN_vkWriteAccelerationStructuresPropertiesKHR)get_device_proc_addr(parent,"vkWriteAccelerationStructuresPropertiesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, accelerationStructureCount, pAccelerationStructures, queryType, dataSize, pData, stride);
+result=call_function(device, accelerationStructureCount, pAccelerationStructures, queryType, dataSize, pData, stride);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -20878,58 +21014,58 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkStridedDeviceAddressRegionKHR* pRaygenShaderBindingTable;
-[&](){ VkStridedDeviceAddressRegionKHR* temp_ybBfOsB[&](){
+ VkStridedDeviceAddressRegionKHR* pRaygenShaderBindingTable;
+[&](){
             if (json["pRaygenShaderBindingTable"].as_array().size()==0){
-                temp_ybBfOsB=NULL;
-            return; }temp_ybBfOsB=(VkStridedDeviceAddressRegionKHR*)malloc(1*sizeof(VkStridedDeviceAddressRegionKHR));
+                pRaygenShaderBindingTable=NULL;
+            return; }pRaygenShaderBindingTable=(VkStridedDeviceAddressRegionKHR*)malloc(1*sizeof(VkStridedDeviceAddressRegionKHR));
         auto& arr_vmdxRLm=json["pRaygenShaderBindingTable"].as_array();
         for(int xvlAiIt=0; xvlAiIt < 1; xvlAiIt++){
             [&](){
             auto& temp=arr_vmdxRLm[xvlAiIt].as_object();
-            deserialize_struct(temp,temp_ybBfOsB[xvlAiIt]);
+            deserialize_struct(temp,pRaygenShaderBindingTable[xvlAiIt]);
             }();
         }
-        }();pRaygenShaderBindingTable=temp_ybBfOsB;}();
-VkStridedDeviceAddressRegionKHR* pMissShaderBindingTable;
-[&](){ VkStridedDeviceAddressRegionKHR* temp_JtxUbyV[&](){
+        }();
+ VkStridedDeviceAddressRegionKHR* pMissShaderBindingTable;
+[&](){
             if (json["pMissShaderBindingTable"].as_array().size()==0){
-                temp_JtxUbyV=NULL;
-            return; }temp_JtxUbyV=(VkStridedDeviceAddressRegionKHR*)malloc(1*sizeof(VkStridedDeviceAddressRegionKHR));
+                pMissShaderBindingTable=NULL;
+            return; }pMissShaderBindingTable=(VkStridedDeviceAddressRegionKHR*)malloc(1*sizeof(VkStridedDeviceAddressRegionKHR));
         auto& arr_aiNBoIa=json["pMissShaderBindingTable"].as_array();
         for(int fjwDbNz=0; fjwDbNz < 1; fjwDbNz++){
             [&](){
             auto& temp=arr_aiNBoIa[fjwDbNz].as_object();
-            deserialize_struct(temp,temp_JtxUbyV[fjwDbNz]);
+            deserialize_struct(temp,pMissShaderBindingTable[fjwDbNz]);
             }();
         }
-        }();pMissShaderBindingTable=temp_JtxUbyV;}();
-VkStridedDeviceAddressRegionKHR* pHitShaderBindingTable;
-[&](){ VkStridedDeviceAddressRegionKHR* temp_OcrBtYb[&](){
+        }();
+ VkStridedDeviceAddressRegionKHR* pHitShaderBindingTable;
+[&](){
             if (json["pHitShaderBindingTable"].as_array().size()==0){
-                temp_OcrBtYb=NULL;
-            return; }temp_OcrBtYb=(VkStridedDeviceAddressRegionKHR*)malloc(1*sizeof(VkStridedDeviceAddressRegionKHR));
+                pHitShaderBindingTable=NULL;
+            return; }pHitShaderBindingTable=(VkStridedDeviceAddressRegionKHR*)malloc(1*sizeof(VkStridedDeviceAddressRegionKHR));
         auto& arr_MsArahD=json["pHitShaderBindingTable"].as_array();
         for(int TYXtQRB=0; TYXtQRB < 1; TYXtQRB++){
             [&](){
             auto& temp=arr_MsArahD[TYXtQRB].as_object();
-            deserialize_struct(temp,temp_OcrBtYb[TYXtQRB]);
+            deserialize_struct(temp,pHitShaderBindingTable[TYXtQRB]);
             }();
         }
-        }();pHitShaderBindingTable=temp_OcrBtYb;}();
-VkStridedDeviceAddressRegionKHR* pCallableShaderBindingTable;
-[&](){ VkStridedDeviceAddressRegionKHR* temp_UolJmIv[&](){
+        }();
+ VkStridedDeviceAddressRegionKHR* pCallableShaderBindingTable;
+[&](){
             if (json["pCallableShaderBindingTable"].as_array().size()==0){
-                temp_UolJmIv=NULL;
-            return; }temp_UolJmIv=(VkStridedDeviceAddressRegionKHR*)malloc(1*sizeof(VkStridedDeviceAddressRegionKHR));
+                pCallableShaderBindingTable=NULL;
+            return; }pCallableShaderBindingTable=(VkStridedDeviceAddressRegionKHR*)malloc(1*sizeof(VkStridedDeviceAddressRegionKHR));
         auto& arr_ZxEGCDr=json["pCallableShaderBindingTable"].as_array();
         for(int rzAeWYt=0; rzAeWYt < 1; rzAeWYt++){
             [&](){
             auto& temp=arr_ZxEGCDr[rzAeWYt].as_object();
-            deserialize_struct(temp,temp_UolJmIv[rzAeWYt]);
+            deserialize_struct(temp,pCallableShaderBindingTable[rzAeWYt]);
             }();
         }
-        }();pCallableShaderBindingTable=temp_UolJmIv;}();
+        }();
 uint32_t width;
 [&](){width=static_cast<uint32_t>(value_to<int>(json["width"]));}();
 uint32_t height;
@@ -21127,8 +21263,9 @@ void* pData;
         call_function=(PFN_vkGetRayTracingShaderGroupHandlesKHR)get_device_proc_addr(parent,"vkGetRayTracingShaderGroupHandlesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pipeline, firstGroup, groupCount, dataSize, pData);
+result=call_function(device, pipeline, firstGroup, groupCount, dataSize, pData);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -21195,8 +21332,9 @@ void* pData;
         call_function=(PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR)get_device_proc_addr(parent,"vkGetRayTracingCaptureReplayShaderGroupHandlesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pipeline, firstGroup, groupCount, dataSize, pData);
+result=call_function(device, pipeline, firstGroup, groupCount, dataSize, pData);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -21259,8 +21397,9 @@ void* pData;
         call_function=(PFN_vkGetAccelerationStructureHandleNV)get_device_proc_addr(parent,"vkGetAccelerationStructureHandleNV");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, accelerationStructure, dataSize, pData);
+result=call_function(device, accelerationStructure, dataSize, pData);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -21293,32 +21432,32 @@ VkPipelineCache pipelineCache;
 [&](){deserialize_VkPipelineCache(json["pipelineCache"], pipelineCache);}();
 uint32_t createInfoCount;
 [&](){createInfoCount=static_cast<uint32_t>(value_to<int>(json["createInfoCount"]));}();
-VkRayTracingPipelineCreateInfoNV* pCreateInfos;
-[&](){ VkRayTracingPipelineCreateInfoNV* temp_ThSDvQC[&](){
+ VkRayTracingPipelineCreateInfoNV* pCreateInfos;
+[&](){
             if (json["pCreateInfos"].as_array().size()==0){
-                temp_ThSDvQC=NULL;
-            return; }temp_ThSDvQC=(VkRayTracingPipelineCreateInfoNV*)malloc(createInfoCount*sizeof(VkRayTracingPipelineCreateInfoNV));
+                pCreateInfos=NULL;
+            return; }pCreateInfos=(VkRayTracingPipelineCreateInfoNV*)malloc(createInfoCount*sizeof(VkRayTracingPipelineCreateInfoNV));
         auto& arr_XJbewcz=json["pCreateInfos"].as_array();
         for(int OYHdDIG=0; OYHdDIG < createInfoCount; OYHdDIG++){
             [&](){
             auto& temp=arr_XJbewcz[OYHdDIG].as_object();
-            deserialize_struct(temp,temp_ThSDvQC[OYHdDIG]);
+            deserialize_struct(temp,pCreateInfos[OYHdDIG]);
             }();
         }
-        }();pCreateInfos=temp_ThSDvQC;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkPipeline* pPipelines;
 [&](){
             if (json["pPipelines"].as_array().size()==0){
@@ -21344,8 +21483,9 @@ VkPipeline* pPipelines;
         call_function=(PFN_vkCreateRayTracingPipelinesNV)get_device_proc_addr(parent,"vkCreateRayTracingPipelinesNV");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
+result=call_function(device, pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -21401,32 +21541,32 @@ VkPipelineCache pipelineCache;
 [&](){deserialize_VkPipelineCache(json["pipelineCache"], pipelineCache);}();
 uint32_t createInfoCount;
 [&](){createInfoCount=static_cast<uint32_t>(value_to<int>(json["createInfoCount"]));}();
-VkRayTracingPipelineCreateInfoKHR* pCreateInfos;
-[&](){ VkRayTracingPipelineCreateInfoKHR* temp_IzFVNeG[&](){
+ VkRayTracingPipelineCreateInfoKHR* pCreateInfos;
+[&](){
             if (json["pCreateInfos"].as_array().size()==0){
-                temp_IzFVNeG=NULL;
-            return; }temp_IzFVNeG=(VkRayTracingPipelineCreateInfoKHR*)malloc(createInfoCount*sizeof(VkRayTracingPipelineCreateInfoKHR));
+                pCreateInfos=NULL;
+            return; }pCreateInfos=(VkRayTracingPipelineCreateInfoKHR*)malloc(createInfoCount*sizeof(VkRayTracingPipelineCreateInfoKHR));
         auto& arr_IiabYtV=json["pCreateInfos"].as_array();
         for(int NFMtVfO=0; NFMtVfO < createInfoCount; NFMtVfO++){
             [&](){
             auto& temp=arr_IiabYtV[NFMtVfO].as_object();
-            deserialize_struct(temp,temp_IzFVNeG[NFMtVfO]);
+            deserialize_struct(temp,pCreateInfos[NFMtVfO]);
             }();
         }
-        }();pCreateInfos=temp_IzFVNeG;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkPipeline* pPipelines;
 [&](){
             if (json["pPipelines"].as_array().size()==0){
@@ -21452,8 +21592,9 @@ VkPipeline* pPipelines;
         call_function=(PFN_vkCreateRayTracingPipelinesKHR)get_device_proc_addr(parent,"vkCreateRayTracingPipelinesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, deferredOperation, pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
+result=call_function(device, deferredOperation, pipelineCache, createInfoCount, pCreateInfos, pAllocator, pPipelines);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -21542,8 +21683,9 @@ VkCooperativeMatrixPropertiesNV* pProperties;
         call_function=(PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV)get_device_proc_addr(parent,"vkGetPhysicalDeviceCooperativeMatrixPropertiesNV");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pPropertyCount, pProperties);
+result=call_function(physicalDevice, pPropertyCount, pProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -21579,58 +21721,58 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkStridedDeviceAddressRegionKHR* pRaygenShaderBindingTable;
-[&](){ VkStridedDeviceAddressRegionKHR* temp_ybBfOsB[&](){
+ VkStridedDeviceAddressRegionKHR* pRaygenShaderBindingTable;
+[&](){
             if (json["pRaygenShaderBindingTable"].as_array().size()==0){
-                temp_ybBfOsB=NULL;
-            return; }temp_ybBfOsB=(VkStridedDeviceAddressRegionKHR*)malloc(1*sizeof(VkStridedDeviceAddressRegionKHR));
+                pRaygenShaderBindingTable=NULL;
+            return; }pRaygenShaderBindingTable=(VkStridedDeviceAddressRegionKHR*)malloc(1*sizeof(VkStridedDeviceAddressRegionKHR));
         auto& arr_vmdxRLm=json["pRaygenShaderBindingTable"].as_array();
         for(int xvlAiIt=0; xvlAiIt < 1; xvlAiIt++){
             [&](){
             auto& temp=arr_vmdxRLm[xvlAiIt].as_object();
-            deserialize_struct(temp,temp_ybBfOsB[xvlAiIt]);
+            deserialize_struct(temp,pRaygenShaderBindingTable[xvlAiIt]);
             }();
         }
-        }();pRaygenShaderBindingTable=temp_ybBfOsB;}();
-VkStridedDeviceAddressRegionKHR* pMissShaderBindingTable;
-[&](){ VkStridedDeviceAddressRegionKHR* temp_JtxUbyV[&](){
+        }();
+ VkStridedDeviceAddressRegionKHR* pMissShaderBindingTable;
+[&](){
             if (json["pMissShaderBindingTable"].as_array().size()==0){
-                temp_JtxUbyV=NULL;
-            return; }temp_JtxUbyV=(VkStridedDeviceAddressRegionKHR*)malloc(1*sizeof(VkStridedDeviceAddressRegionKHR));
+                pMissShaderBindingTable=NULL;
+            return; }pMissShaderBindingTable=(VkStridedDeviceAddressRegionKHR*)malloc(1*sizeof(VkStridedDeviceAddressRegionKHR));
         auto& arr_aiNBoIa=json["pMissShaderBindingTable"].as_array();
         for(int fjwDbNz=0; fjwDbNz < 1; fjwDbNz++){
             [&](){
             auto& temp=arr_aiNBoIa[fjwDbNz].as_object();
-            deserialize_struct(temp,temp_JtxUbyV[fjwDbNz]);
+            deserialize_struct(temp,pMissShaderBindingTable[fjwDbNz]);
             }();
         }
-        }();pMissShaderBindingTable=temp_JtxUbyV;}();
-VkStridedDeviceAddressRegionKHR* pHitShaderBindingTable;
-[&](){ VkStridedDeviceAddressRegionKHR* temp_OcrBtYb[&](){
+        }();
+ VkStridedDeviceAddressRegionKHR* pHitShaderBindingTable;
+[&](){
             if (json["pHitShaderBindingTable"].as_array().size()==0){
-                temp_OcrBtYb=NULL;
-            return; }temp_OcrBtYb=(VkStridedDeviceAddressRegionKHR*)malloc(1*sizeof(VkStridedDeviceAddressRegionKHR));
+                pHitShaderBindingTable=NULL;
+            return; }pHitShaderBindingTable=(VkStridedDeviceAddressRegionKHR*)malloc(1*sizeof(VkStridedDeviceAddressRegionKHR));
         auto& arr_MsArahD=json["pHitShaderBindingTable"].as_array();
         for(int TYXtQRB=0; TYXtQRB < 1; TYXtQRB++){
             [&](){
             auto& temp=arr_MsArahD[TYXtQRB].as_object();
-            deserialize_struct(temp,temp_OcrBtYb[TYXtQRB]);
+            deserialize_struct(temp,pHitShaderBindingTable[TYXtQRB]);
             }();
         }
-        }();pHitShaderBindingTable=temp_OcrBtYb;}();
-VkStridedDeviceAddressRegionKHR* pCallableShaderBindingTable;
-[&](){ VkStridedDeviceAddressRegionKHR* temp_UolJmIv[&](){
+        }();
+ VkStridedDeviceAddressRegionKHR* pCallableShaderBindingTable;
+[&](){
             if (json["pCallableShaderBindingTable"].as_array().size()==0){
-                temp_UolJmIv=NULL;
-            return; }temp_UolJmIv=(VkStridedDeviceAddressRegionKHR*)malloc(1*sizeof(VkStridedDeviceAddressRegionKHR));
+                pCallableShaderBindingTable=NULL;
+            return; }pCallableShaderBindingTable=(VkStridedDeviceAddressRegionKHR*)malloc(1*sizeof(VkStridedDeviceAddressRegionKHR));
         auto& arr_ZxEGCDr=json["pCallableShaderBindingTable"].as_array();
         for(int rzAeWYt=0; rzAeWYt < 1; rzAeWYt++){
             [&](){
             auto& temp=arr_ZxEGCDr[rzAeWYt].as_object();
-            deserialize_struct(temp,temp_UolJmIv[rzAeWYt]);
+            deserialize_struct(temp,pCallableShaderBindingTable[rzAeWYt]);
             }();
         }
-        }();pCallableShaderBindingTable=temp_UolJmIv;}();
+        }();
 VkDeviceAddress indirectDeviceAddress;
 [&](){uint64_t temp_QXnaHDk;[&](){temp_QXnaHDk=static_cast<uint64_t>(value_to<int>(json["indirectDeviceAddress"]));}();indirectDeviceAddress=(VkDeviceAddress)temp_QXnaHDk;}();
 
@@ -21747,19 +21889,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkAccelerationStructureVersionInfoKHR* pVersionInfo;
-[&](){ VkAccelerationStructureVersionInfoKHR* temp_MiRKijG[&](){
+ VkAccelerationStructureVersionInfoKHR* pVersionInfo;
+[&](){
             if (json["pVersionInfo"].as_array().size()==0){
-                temp_MiRKijG=NULL;
-            return; }temp_MiRKijG=(VkAccelerationStructureVersionInfoKHR*)malloc(1*sizeof(VkAccelerationStructureVersionInfoKHR));
+                pVersionInfo=NULL;
+            return; }pVersionInfo=(VkAccelerationStructureVersionInfoKHR*)malloc(1*sizeof(VkAccelerationStructureVersionInfoKHR));
         auto& arr_aFpiHMk=json["pVersionInfo"].as_array();
         for(int hlcodPX=0; hlcodPX < 1; hlcodPX++){
             [&](){
             auto& temp=arr_aFpiHMk[hlcodPX].as_object();
-            deserialize_struct(temp,temp_MiRKijG[hlcodPX]);
+            deserialize_struct(temp,pVersionInfo[hlcodPX]);
             }();
         }
-        }();pVersionInfo=temp_MiRKijG;}();
+        }();
 VkAccelerationStructureCompatibilityKHR* pCompatibility;
 [&](){
             if (json["pCompatibility"].as_array().size()==0){
@@ -21843,8 +21985,9 @@ VkShaderGroupShaderKHR groupShader;
         call_function=(PFN_vkGetRayTracingShaderGroupStackSizeKHR)get_device_proc_addr(parent,"vkGetRayTracingShaderGroupStackSizeKHR");
     }  
     
+VkDeviceSize  result;
 {
-auto result=call_function(device, pipeline, group, groupShader);
+result=call_function(device, pipeline, group, groupShader);
 }
 json.clear();
 [&](){[&](){json["result"]=result;}();}();
@@ -21896,19 +22039,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkImageViewHandleInfoNVX* pInfo;
-[&](){ VkImageViewHandleInfoNVX* temp_vxZVBSA[&](){
+ VkImageViewHandleInfoNVX* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_vxZVBSA=NULL;
-            return; }temp_vxZVBSA=(VkImageViewHandleInfoNVX*)malloc(1*sizeof(VkImageViewHandleInfoNVX));
+                pInfo=NULL;
+            return; }pInfo=(VkImageViewHandleInfoNVX*)malloc(1*sizeof(VkImageViewHandleInfoNVX));
         auto& arr_WPyvhGm=json["pInfo"].as_array();
         for(int WwmPLiZ=0; WwmPLiZ < 1; WwmPLiZ++){
             [&](){
             auto& temp=arr_WPyvhGm[WwmPLiZ].as_object();
-            deserialize_struct(temp,temp_vxZVBSA[WwmPLiZ]);
+            deserialize_struct(temp,pInfo[WwmPLiZ]);
             }();
         }
-        }();pInfo=temp_vxZVBSA;}();
+        }();
 
     PFN_vkGetImageViewHandleNVX call_function;
     
@@ -21924,8 +22067,9 @@ VkImageViewHandleInfoNVX* pInfo;
         call_function=(PFN_vkGetImageViewHandleNVX)get_device_proc_addr(parent,"vkGetImageViewHandleNVX");
     }  
     
+uint32_t  result;
 {
-auto result=call_function(device, pInfo);
+result=call_function(device, pInfo);
 }
 json.clear();
 [&](){json["result"]=result;}();
@@ -21982,8 +22126,9 @@ VkImageViewAddressPropertiesNVX* pProperties;
         call_function=(PFN_vkGetImageViewAddressNVX)get_device_proc_addr(parent,"vkGetImageViewAddressNVX");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, imageView, pProperties);
+result=call_function(device, imageView, pProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -22064,8 +22209,9 @@ VkPerformanceCounterDescriptionKHR* pCounterDescriptions;
         call_function=(PFN_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR)get_device_proc_addr(parent,"vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, queueFamilyIndex, pCounterCount, pCounters, pCounterDescriptions);
+result=call_function(physicalDevice, queueFamilyIndex, pCounterCount, pCounters, pCounterDescriptions);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -22114,19 +22260,19 @@ json.clear();
     
 VkPhysicalDevice physicalDevice;
 [&](){deserialize_VkPhysicalDevice(json["physicalDevice"], physicalDevice);}();
-VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo;
-[&](){ VkQueryPoolPerformanceCreateInfoKHR* temp_eziwqNT[&](){
+ VkQueryPoolPerformanceCreateInfoKHR* pPerformanceQueryCreateInfo;
+[&](){
             if (json["pPerformanceQueryCreateInfo"].as_array().size()==0){
-                temp_eziwqNT=NULL;
-            return; }temp_eziwqNT=(VkQueryPoolPerformanceCreateInfoKHR*)malloc(1*sizeof(VkQueryPoolPerformanceCreateInfoKHR));
+                pPerformanceQueryCreateInfo=NULL;
+            return; }pPerformanceQueryCreateInfo=(VkQueryPoolPerformanceCreateInfoKHR*)malloc(1*sizeof(VkQueryPoolPerformanceCreateInfoKHR));
         auto& arr_WMdwLVX=json["pPerformanceQueryCreateInfo"].as_array();
         for(int wpxitrA=0; wpxitrA < 1; wpxitrA++){
             [&](){
             auto& temp=arr_WMdwLVX[wpxitrA].as_object();
-            deserialize_struct(temp,temp_eziwqNT[wpxitrA]);
+            deserialize_struct(temp,pPerformanceQueryCreateInfo[wpxitrA]);
             }();
         }
-        }();pPerformanceQueryCreateInfo=temp_eziwqNT;}();
+        }();
 uint32_t* pNumPasses;
 [&](){
             if (json["pNumPasses"].as_array().size()==0){
@@ -22189,19 +22335,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkAcquireProfilingLockInfoKHR* pInfo;
-[&](){ VkAcquireProfilingLockInfoKHR* temp_DEZHpqF[&](){
+ VkAcquireProfilingLockInfoKHR* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_DEZHpqF=NULL;
-            return; }temp_DEZHpqF=(VkAcquireProfilingLockInfoKHR*)malloc(1*sizeof(VkAcquireProfilingLockInfoKHR));
+                pInfo=NULL;
+            return; }pInfo=(VkAcquireProfilingLockInfoKHR*)malloc(1*sizeof(VkAcquireProfilingLockInfoKHR));
         auto& arr_cbbacNs=json["pInfo"].as_array();
         for(int ykaKCfg=0; ykaKCfg < 1; ykaKCfg++){
             [&](){
             auto& temp=arr_cbbacNs[ykaKCfg].as_object();
-            deserialize_struct(temp,temp_DEZHpqF[ykaKCfg]);
+            deserialize_struct(temp,pInfo[ykaKCfg]);
             }();
         }
-        }();pInfo=temp_DEZHpqF;}();
+        }();
 
     PFN_vkAcquireProfilingLockKHR call_function;
     
@@ -22217,8 +22363,9 @@ VkAcquireProfilingLockInfoKHR* pInfo;
         call_function=(PFN_vkAcquireProfilingLockKHR)get_device_proc_addr(parent,"vkAcquireProfilingLockKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pInfo);
+result=call_function(device, pInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -22306,8 +22453,9 @@ VkImageDrmFormatModifierPropertiesEXT* pProperties;
         call_function=(PFN_vkGetImageDrmFormatModifierPropertiesEXT)get_device_proc_addr(parent,"vkGetImageDrmFormatModifierPropertiesEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, image, pProperties);
+result=call_function(device, image, pProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -22335,19 +22483,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkBufferDeviceAddressInfo* pInfo;
-[&](){ VkBufferDeviceAddressInfo* temp_tIuYeSp[&](){
+ VkBufferDeviceAddressInfo* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_tIuYeSp=NULL;
-            return; }temp_tIuYeSp=(VkBufferDeviceAddressInfo*)malloc(1*sizeof(VkBufferDeviceAddressInfo));
+                pInfo=NULL;
+            return; }pInfo=(VkBufferDeviceAddressInfo*)malloc(1*sizeof(VkBufferDeviceAddressInfo));
         auto& arr_Dpwjlow=json["pInfo"].as_array();
         for(int htSgjqN=0; htSgjqN < 1; htSgjqN++){
             [&](){
             auto& temp=arr_Dpwjlow[htSgjqN].as_object();
-            deserialize_struct(temp,temp_tIuYeSp[htSgjqN]);
+            deserialize_struct(temp,pInfo[htSgjqN]);
             }();
         }
-        }();pInfo=temp_tIuYeSp;}();
+        }();
 
     PFN_vkGetBufferOpaqueCaptureAddress call_function;
     
@@ -22363,8 +22511,9 @@ VkBufferDeviceAddressInfo* pInfo;
         call_function=(PFN_vkGetBufferOpaqueCaptureAddress)get_device_proc_addr(parent,"vkGetBufferOpaqueCaptureAddress");
     }  
     
+uint64_t  result;
 {
-auto result=call_function(device, pInfo);
+result=call_function(device, pInfo);
 }
 json.clear();
 [&](){json["result"]=result;}();
@@ -22391,19 +22540,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkBufferDeviceAddressInfo* pInfo;
-[&](){ VkBufferDeviceAddressInfo* temp_tIuYeSp[&](){
+ VkBufferDeviceAddressInfo* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_tIuYeSp=NULL;
-            return; }temp_tIuYeSp=(VkBufferDeviceAddressInfo*)malloc(1*sizeof(VkBufferDeviceAddressInfo));
+                pInfo=NULL;
+            return; }pInfo=(VkBufferDeviceAddressInfo*)malloc(1*sizeof(VkBufferDeviceAddressInfo));
         auto& arr_Dpwjlow=json["pInfo"].as_array();
         for(int htSgjqN=0; htSgjqN < 1; htSgjqN++){
             [&](){
             auto& temp=arr_Dpwjlow[htSgjqN].as_object();
-            deserialize_struct(temp,temp_tIuYeSp[htSgjqN]);
+            deserialize_struct(temp,pInfo[htSgjqN]);
             }();
         }
-        }();pInfo=temp_tIuYeSp;}();
+        }();
 
     PFN_vkGetBufferDeviceAddress call_function;
     
@@ -22419,8 +22568,9 @@ VkBufferDeviceAddressInfo* pInfo;
         call_function=(PFN_vkGetBufferDeviceAddress)get_device_proc_addr(parent,"vkGetBufferDeviceAddress");
     }  
     
+VkDeviceAddress  result;
 {
-auto result=call_function(device, pInfo);
+result=call_function(device, pInfo);
 }
 json.clear();
 [&](){[&](){json["result"]=result;}();}();
@@ -22447,32 +22597,32 @@ json.clear();
     
 VkInstance instance;
 [&](){deserialize_VkInstance(json["instance"], instance);}();
-VkHeadlessSurfaceCreateInfoEXT* pCreateInfo;
-[&](){ VkHeadlessSurfaceCreateInfoEXT* temp_oSUhWss[&](){
+ VkHeadlessSurfaceCreateInfoEXT* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_oSUhWss=NULL;
-            return; }temp_oSUhWss=(VkHeadlessSurfaceCreateInfoEXT*)malloc(1*sizeof(VkHeadlessSurfaceCreateInfoEXT));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkHeadlessSurfaceCreateInfoEXT*)malloc(1*sizeof(VkHeadlessSurfaceCreateInfoEXT));
         auto& arr_ZPTPwbX=json["pCreateInfo"].as_array();
         for(int zfADAts=0; zfADAts < 1; zfADAts++){
             [&](){
             auto& temp=arr_ZPTPwbX[zfADAts].as_object();
-            deserialize_struct(temp,temp_oSUhWss[zfADAts]);
+            deserialize_struct(temp,pCreateInfo[zfADAts]);
             }();
         }
-        }();pCreateInfo=temp_oSUhWss;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkSurfaceKHR* pSurface;
 [&](){
             if (json["pSurface"].as_array().size()==0){
@@ -22498,8 +22648,9 @@ VkSurfaceKHR* pSurface;
         call_function=(PFN_vkCreateHeadlessSurfaceEXT)get_device_proc_addr(parent,"vkCreateHeadlessSurfaceEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(instance, pCreateInfo, pAllocator, pSurface);
+result=call_function(instance, pCreateInfo, pAllocator, pSurface);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -22585,8 +22736,9 @@ VkFramebufferMixedSamplesCombinationNV* pCombinations;
         call_function=(PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV)get_device_proc_addr(parent,"vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pCombinationCount, pCombinations);
+result=call_function(physicalDevice, pCombinationCount, pCombinations);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -22622,19 +22774,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkInitializePerformanceApiInfoINTEL* pInitializeInfo;
-[&](){ VkInitializePerformanceApiInfoINTEL* temp_WjhHZMq[&](){
+ VkInitializePerformanceApiInfoINTEL* pInitializeInfo;
+[&](){
             if (json["pInitializeInfo"].as_array().size()==0){
-                temp_WjhHZMq=NULL;
-            return; }temp_WjhHZMq=(VkInitializePerformanceApiInfoINTEL*)malloc(1*sizeof(VkInitializePerformanceApiInfoINTEL));
+                pInitializeInfo=NULL;
+            return; }pInitializeInfo=(VkInitializePerformanceApiInfoINTEL*)malloc(1*sizeof(VkInitializePerformanceApiInfoINTEL));
         auto& arr_cpZIIic=json["pInitializeInfo"].as_array();
         for(int BZrUSpL=0; BZrUSpL < 1; BZrUSpL++){
             [&](){
             auto& temp=arr_cpZIIic[BZrUSpL].as_object();
-            deserialize_struct(temp,temp_WjhHZMq[BZrUSpL]);
+            deserialize_struct(temp,pInitializeInfo[BZrUSpL]);
             }();
         }
-        }();pInitializeInfo=temp_WjhHZMq;}();
+        }();
 
     PFN_vkInitializePerformanceApiINTEL call_function;
     
@@ -22650,8 +22802,9 @@ VkInitializePerformanceApiInfoINTEL* pInitializeInfo;
         call_function=(PFN_vkInitializePerformanceApiINTEL)get_device_proc_addr(parent,"vkInitializePerformanceApiINTEL");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pInitializeInfo);
+result=call_function(device, pInitializeInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -22709,19 +22862,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkPerformanceMarkerInfoINTEL* pMarkerInfo;
-[&](){ VkPerformanceMarkerInfoINTEL* temp_WHGTBNl[&](){
+ VkPerformanceMarkerInfoINTEL* pMarkerInfo;
+[&](){
             if (json["pMarkerInfo"].as_array().size()==0){
-                temp_WHGTBNl=NULL;
-            return; }temp_WHGTBNl=(VkPerformanceMarkerInfoINTEL*)malloc(1*sizeof(VkPerformanceMarkerInfoINTEL));
+                pMarkerInfo=NULL;
+            return; }pMarkerInfo=(VkPerformanceMarkerInfoINTEL*)malloc(1*sizeof(VkPerformanceMarkerInfoINTEL));
         auto& arr_mjbTuwx=json["pMarkerInfo"].as_array();
         for(int aadJAzE=0; aadJAzE < 1; aadJAzE++){
             [&](){
             auto& temp=arr_mjbTuwx[aadJAzE].as_object();
-            deserialize_struct(temp,temp_WHGTBNl[aadJAzE]);
+            deserialize_struct(temp,pMarkerInfo[aadJAzE]);
             }();
         }
-        }();pMarkerInfo=temp_WHGTBNl;}();
+        }();
 
     PFN_vkCmdSetPerformanceMarkerINTEL call_function;
     
@@ -22737,8 +22890,9 @@ VkPerformanceMarkerInfoINTEL* pMarkerInfo;
         call_function=(PFN_vkCmdSetPerformanceMarkerINTEL)get_device_proc_addr(parent,"vkCmdSetPerformanceMarkerINTEL");
     }  
     
+VkResult  result;
 {
-auto result=call_function(commandBuffer, pMarkerInfo);
+result=call_function(commandBuffer, pMarkerInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -22765,19 +22919,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkPerformanceStreamMarkerInfoINTEL* pMarkerInfo;
-[&](){ VkPerformanceStreamMarkerInfoINTEL* temp_EbaLtIF[&](){
+ VkPerformanceStreamMarkerInfoINTEL* pMarkerInfo;
+[&](){
             if (json["pMarkerInfo"].as_array().size()==0){
-                temp_EbaLtIF=NULL;
-            return; }temp_EbaLtIF=(VkPerformanceStreamMarkerInfoINTEL*)malloc(1*sizeof(VkPerformanceStreamMarkerInfoINTEL));
+                pMarkerInfo=NULL;
+            return; }pMarkerInfo=(VkPerformanceStreamMarkerInfoINTEL*)malloc(1*sizeof(VkPerformanceStreamMarkerInfoINTEL));
         auto& arr_QvDzNEm=json["pMarkerInfo"].as_array();
         for(int ylzDRXy=0; ylzDRXy < 1; ylzDRXy++){
             [&](){
             auto& temp=arr_QvDzNEm[ylzDRXy].as_object();
-            deserialize_struct(temp,temp_EbaLtIF[ylzDRXy]);
+            deserialize_struct(temp,pMarkerInfo[ylzDRXy]);
             }();
         }
-        }();pMarkerInfo=temp_EbaLtIF;}();
+        }();
 
     PFN_vkCmdSetPerformanceStreamMarkerINTEL call_function;
     
@@ -22793,8 +22947,9 @@ VkPerformanceStreamMarkerInfoINTEL* pMarkerInfo;
         call_function=(PFN_vkCmdSetPerformanceStreamMarkerINTEL)get_device_proc_addr(parent,"vkCmdSetPerformanceStreamMarkerINTEL");
     }  
     
+VkResult  result;
 {
-auto result=call_function(commandBuffer, pMarkerInfo);
+result=call_function(commandBuffer, pMarkerInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -22821,19 +22976,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkPerformanceOverrideInfoINTEL* pOverrideInfo;
-[&](){ VkPerformanceOverrideInfoINTEL* temp_faMWIHH[&](){
+ VkPerformanceOverrideInfoINTEL* pOverrideInfo;
+[&](){
             if (json["pOverrideInfo"].as_array().size()==0){
-                temp_faMWIHH=NULL;
-            return; }temp_faMWIHH=(VkPerformanceOverrideInfoINTEL*)malloc(1*sizeof(VkPerformanceOverrideInfoINTEL));
+                pOverrideInfo=NULL;
+            return; }pOverrideInfo=(VkPerformanceOverrideInfoINTEL*)malloc(1*sizeof(VkPerformanceOverrideInfoINTEL));
         auto& arr_ZThQunI=json["pOverrideInfo"].as_array();
         for(int VQeLutW=0; VQeLutW < 1; VQeLutW++){
             [&](){
             auto& temp=arr_ZThQunI[VQeLutW].as_object();
-            deserialize_struct(temp,temp_faMWIHH[VQeLutW]);
+            deserialize_struct(temp,pOverrideInfo[VQeLutW]);
             }();
         }
-        }();pOverrideInfo=temp_faMWIHH;}();
+        }();
 
     PFN_vkCmdSetPerformanceOverrideINTEL call_function;
     
@@ -22849,8 +23004,9 @@ VkPerformanceOverrideInfoINTEL* pOverrideInfo;
         call_function=(PFN_vkCmdSetPerformanceOverrideINTEL)get_device_proc_addr(parent,"vkCmdSetPerformanceOverrideINTEL");
     }  
     
+VkResult  result;
 {
-auto result=call_function(commandBuffer, pOverrideInfo);
+result=call_function(commandBuffer, pOverrideInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -22877,19 +23033,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkPerformanceConfigurationAcquireInfoINTEL* pAcquireInfo;
-[&](){ VkPerformanceConfigurationAcquireInfoINTEL* temp_LLiFsPU[&](){
+ VkPerformanceConfigurationAcquireInfoINTEL* pAcquireInfo;
+[&](){
             if (json["pAcquireInfo"].as_array().size()==0){
-                temp_LLiFsPU=NULL;
-            return; }temp_LLiFsPU=(VkPerformanceConfigurationAcquireInfoINTEL*)malloc(1*sizeof(VkPerformanceConfigurationAcquireInfoINTEL));
+                pAcquireInfo=NULL;
+            return; }pAcquireInfo=(VkPerformanceConfigurationAcquireInfoINTEL*)malloc(1*sizeof(VkPerformanceConfigurationAcquireInfoINTEL));
         auto& arr_vfPlthd=json["pAcquireInfo"].as_array();
         for(int IYVMDgx=0; IYVMDgx < 1; IYVMDgx++){
             [&](){
             auto& temp=arr_vfPlthd[IYVMDgx].as_object();
-            deserialize_struct(temp,temp_LLiFsPU[IYVMDgx]);
+            deserialize_struct(temp,pAcquireInfo[IYVMDgx]);
             }();
         }
-        }();pAcquireInfo=temp_LLiFsPU;}();
+        }();
 VkPerformanceConfigurationINTEL* pConfiguration;
 [&](){
             if (json["pConfiguration"].as_array().size()==0){
@@ -22915,8 +23071,9 @@ VkPerformanceConfigurationINTEL* pConfiguration;
         call_function=(PFN_vkAcquirePerformanceConfigurationINTEL)get_device_proc_addr(parent,"vkAcquirePerformanceConfigurationINTEL");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pAcquireInfo, pConfiguration);
+result=call_function(device, pAcquireInfo, pConfiguration);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -22969,8 +23126,9 @@ VkPerformanceConfigurationINTEL configuration;
         call_function=(PFN_vkReleasePerformanceConfigurationINTEL)get_device_proc_addr(parent,"vkReleasePerformanceConfigurationINTEL");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, configuration);
+result=call_function(device, configuration);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -23003,8 +23161,9 @@ VkPerformanceConfigurationINTEL configuration;
         call_function=(PFN_vkQueueSetPerformanceConfigurationINTEL)get_device_proc_addr(parent,"vkQueueSetPerformanceConfigurationINTEL");
     }  
     
+VkResult  result;
 {
-auto result=call_function(queue, configuration);
+result=call_function(queue, configuration);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -23050,8 +23209,9 @@ VkPerformanceValueINTEL* pValue;
         call_function=(PFN_vkGetPerformanceParameterINTEL)get_device_proc_addr(parent,"vkGetPerformanceParameterINTEL");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, parameter, pValue);
+result=call_function(device, parameter, pValue);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -23079,19 +23239,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDeviceMemoryOpaqueCaptureAddressInfo* pInfo;
-[&](){ VkDeviceMemoryOpaqueCaptureAddressInfo* temp_RzwOpvc[&](){
+ VkDeviceMemoryOpaqueCaptureAddressInfo* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_RzwOpvc=NULL;
-            return; }temp_RzwOpvc=(VkDeviceMemoryOpaqueCaptureAddressInfo*)malloc(1*sizeof(VkDeviceMemoryOpaqueCaptureAddressInfo));
+                pInfo=NULL;
+            return; }pInfo=(VkDeviceMemoryOpaqueCaptureAddressInfo*)malloc(1*sizeof(VkDeviceMemoryOpaqueCaptureAddressInfo));
         auto& arr_AaiLWsP=json["pInfo"].as_array();
         for(int PJKtAPm=0; PJKtAPm < 1; PJKtAPm++){
             [&](){
             auto& temp=arr_AaiLWsP[PJKtAPm].as_object();
-            deserialize_struct(temp,temp_RzwOpvc[PJKtAPm]);
+            deserialize_struct(temp,pInfo[PJKtAPm]);
             }();
         }
-        }();pInfo=temp_RzwOpvc;}();
+        }();
 
     PFN_vkGetDeviceMemoryOpaqueCaptureAddress call_function;
     
@@ -23107,8 +23267,9 @@ VkDeviceMemoryOpaqueCaptureAddressInfo* pInfo;
         call_function=(PFN_vkGetDeviceMemoryOpaqueCaptureAddress)get_device_proc_addr(parent,"vkGetDeviceMemoryOpaqueCaptureAddress");
     }  
     
+uint64_t  result;
 {
-auto result=call_function(device, pInfo);
+result=call_function(device, pInfo);
 }
 json.clear();
 [&](){json["result"]=result;}();
@@ -23135,19 +23296,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkPipelineInfoKHR* pPipelineInfo;
-[&](){ VkPipelineInfoKHR* temp_bCSfDoR[&](){
+ VkPipelineInfoKHR* pPipelineInfo;
+[&](){
             if (json["pPipelineInfo"].as_array().size()==0){
-                temp_bCSfDoR=NULL;
-            return; }temp_bCSfDoR=(VkPipelineInfoKHR*)malloc(1*sizeof(VkPipelineInfoKHR));
+                pPipelineInfo=NULL;
+            return; }pPipelineInfo=(VkPipelineInfoKHR*)malloc(1*sizeof(VkPipelineInfoKHR));
         auto& arr_TqFxxbV=json["pPipelineInfo"].as_array();
         for(int yiBzToE=0; yiBzToE < 1; yiBzToE++){
             [&](){
             auto& temp=arr_TqFxxbV[yiBzToE].as_object();
-            deserialize_struct(temp,temp_bCSfDoR[yiBzToE]);
+            deserialize_struct(temp,pPipelineInfo[yiBzToE]);
             }();
         }
-        }();pPipelineInfo=temp_bCSfDoR;}();
+        }();
 uint32_t* pExecutableCount;
 [&](){
             if (json["pExecutableCount"].as_array().size()==0){
@@ -23186,8 +23347,9 @@ VkPipelineExecutablePropertiesKHR* pProperties;
         call_function=(PFN_vkGetPipelineExecutablePropertiesKHR)get_device_proc_addr(parent,"vkGetPipelineExecutablePropertiesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pPipelineInfo, pExecutableCount, pProperties);
+result=call_function(device, pPipelineInfo, pExecutableCount, pProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -23235,19 +23397,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkPipelineExecutableInfoKHR* pExecutableInfo;
-[&](){ VkPipelineExecutableInfoKHR* temp_fqWWUgC[&](){
+ VkPipelineExecutableInfoKHR* pExecutableInfo;
+[&](){
             if (json["pExecutableInfo"].as_array().size()==0){
-                temp_fqWWUgC=NULL;
-            return; }temp_fqWWUgC=(VkPipelineExecutableInfoKHR*)malloc(1*sizeof(VkPipelineExecutableInfoKHR));
+                pExecutableInfo=NULL;
+            return; }pExecutableInfo=(VkPipelineExecutableInfoKHR*)malloc(1*sizeof(VkPipelineExecutableInfoKHR));
         auto& arr_NilRUQP=json["pExecutableInfo"].as_array();
         for(int bxhNcYs=0; bxhNcYs < 1; bxhNcYs++){
             [&](){
             auto& temp=arr_NilRUQP[bxhNcYs].as_object();
-            deserialize_struct(temp,temp_fqWWUgC[bxhNcYs]);
+            deserialize_struct(temp,pExecutableInfo[bxhNcYs]);
             }();
         }
-        }();pExecutableInfo=temp_fqWWUgC;}();
+        }();
 uint32_t* pStatisticCount;
 [&](){
             if (json["pStatisticCount"].as_array().size()==0){
@@ -23286,8 +23448,9 @@ VkPipelineExecutableStatisticKHR* pStatistics;
         call_function=(PFN_vkGetPipelineExecutableStatisticsKHR)get_device_proc_addr(parent,"vkGetPipelineExecutableStatisticsKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pExecutableInfo, pStatisticCount, pStatistics);
+result=call_function(device, pExecutableInfo, pStatisticCount, pStatistics);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -23335,19 +23498,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkPipelineExecutableInfoKHR* pExecutableInfo;
-[&](){ VkPipelineExecutableInfoKHR* temp_fqWWUgC[&](){
+ VkPipelineExecutableInfoKHR* pExecutableInfo;
+[&](){
             if (json["pExecutableInfo"].as_array().size()==0){
-                temp_fqWWUgC=NULL;
-            return; }temp_fqWWUgC=(VkPipelineExecutableInfoKHR*)malloc(1*sizeof(VkPipelineExecutableInfoKHR));
+                pExecutableInfo=NULL;
+            return; }pExecutableInfo=(VkPipelineExecutableInfoKHR*)malloc(1*sizeof(VkPipelineExecutableInfoKHR));
         auto& arr_NilRUQP=json["pExecutableInfo"].as_array();
         for(int bxhNcYs=0; bxhNcYs < 1; bxhNcYs++){
             [&](){
             auto& temp=arr_NilRUQP[bxhNcYs].as_object();
-            deserialize_struct(temp,temp_fqWWUgC[bxhNcYs]);
+            deserialize_struct(temp,pExecutableInfo[bxhNcYs]);
             }();
         }
-        }();pExecutableInfo=temp_fqWWUgC;}();
+        }();
 uint32_t* pInternalRepresentationCount;
 [&](){
             if (json["pInternalRepresentationCount"].as_array().size()==0){
@@ -23386,8 +23549,9 @@ VkPipelineExecutableInternalRepresentationKHR* pInternalRepresentations;
         call_function=(PFN_vkGetPipelineExecutableInternalRepresentationsKHR)get_device_proc_addr(parent,"vkGetPipelineExecutableInternalRepresentationsKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pExecutableInfo, pInternalRepresentationCount, pInternalRepresentations);
+result=call_function(device, pExecutableInfo, pInternalRepresentationCount, pInternalRepresentations);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -23510,8 +23674,9 @@ VkPhysicalDeviceToolProperties* pToolProperties;
         call_function=(PFN_vkGetPhysicalDeviceToolProperties)get_device_proc_addr(parent,"vkGetPhysicalDeviceToolProperties");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pToolCount, pToolProperties);
+result=call_function(physicalDevice, pToolCount, pToolProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -23547,32 +23712,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkAccelerationStructureCreateInfoKHR* pCreateInfo;
-[&](){ VkAccelerationStructureCreateInfoKHR* temp_ByTTUcg[&](){
+ VkAccelerationStructureCreateInfoKHR* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_ByTTUcg=NULL;
-            return; }temp_ByTTUcg=(VkAccelerationStructureCreateInfoKHR*)malloc(1*sizeof(VkAccelerationStructureCreateInfoKHR));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkAccelerationStructureCreateInfoKHR*)malloc(1*sizeof(VkAccelerationStructureCreateInfoKHR));
         auto& arr_rLnSCOE=json["pCreateInfo"].as_array();
         for(int tKisKdf=0; tKisKdf < 1; tKisKdf++){
             [&](){
             auto& temp=arr_rLnSCOE[tKisKdf].as_object();
-            deserialize_struct(temp,temp_ByTTUcg[tKisKdf]);
+            deserialize_struct(temp,pCreateInfo[tKisKdf]);
             }();
         }
-        }();pCreateInfo=temp_ByTTUcg;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkAccelerationStructureKHR* pAccelerationStructure;
 [&](){
             if (json["pAccelerationStructure"].as_array().size()==0){
@@ -23598,8 +23763,9 @@ VkAccelerationStructureKHR* pAccelerationStructure;
         call_function=(PFN_vkCreateAccelerationStructureKHR)get_device_proc_addr(parent,"vkCreateAccelerationStructureKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pAccelerationStructure);
+result=call_function(device, pCreateInfo, pAllocator, pAccelerationStructure);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -23649,40 +23815,40 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t infoCount;
 [&](){infoCount=static_cast<uint32_t>(value_to<int>(json["infoCount"]));}();
-VkAccelerationStructureBuildGeometryInfoKHR* pInfos;
-[&](){ VkAccelerationStructureBuildGeometryInfoKHR* temp_driNJAJ[&](){
+ VkAccelerationStructureBuildGeometryInfoKHR* pInfos;
+[&](){
             if (json["pInfos"].as_array().size()==0){
-                temp_driNJAJ=NULL;
-            return; }temp_driNJAJ=(VkAccelerationStructureBuildGeometryInfoKHR*)malloc(infoCount*sizeof(VkAccelerationStructureBuildGeometryInfoKHR));
+                pInfos=NULL;
+            return; }pInfos=(VkAccelerationStructureBuildGeometryInfoKHR*)malloc(infoCount*sizeof(VkAccelerationStructureBuildGeometryInfoKHR));
         auto& arr_pLxHocT=json["pInfos"].as_array();
         for(int iIAEWFy=0; iIAEWFy < infoCount; iIAEWFy++){
             [&](){
             auto& temp=arr_pLxHocT[iIAEWFy].as_object();
-            deserialize_struct(temp,temp_driNJAJ[iIAEWFy]);
+            deserialize_struct(temp,pInfos[iIAEWFy]);
             }();
         }
-        }();pInfos=temp_driNJAJ;}();
-VkAccelerationStructureBuildRangeInfoKHR* const* ppBuildRangeInfos;
-[&](){ VkAccelerationStructureBuildRangeInfoKHR* * temp_XqDyztq[&](){
+        }();
+ VkAccelerationStructureBuildRangeInfoKHR* * ppBuildRangeInfos;
+[&](){
             if (json["ppBuildRangeInfos"].as_array().size()==0){
-                temp_XqDyztq=NULL;
-            return; }temp_XqDyztq=(VkAccelerationStructureBuildRangeInfoKHR**)malloc(1*sizeof(VkAccelerationStructureBuildRangeInfoKHR*));
+                ppBuildRangeInfos=NULL;
+            return; }ppBuildRangeInfos=(VkAccelerationStructureBuildRangeInfoKHR**)malloc(1*sizeof(VkAccelerationStructureBuildRangeInfoKHR*));
         auto& arr_LOFGJKx=json["ppBuildRangeInfos"].as_array();
         for(int gLEYTdh=0; gLEYTdh < 1; gLEYTdh++){
             [&](){
             if (arr_LOFGJKx[gLEYTdh].as_array().size()==0){
-                temp_XqDyztq[gLEYTdh]=NULL;
-            return; }temp_XqDyztq[gLEYTdh]=(VkAccelerationStructureBuildRangeInfoKHR*)malloc(infoCount*sizeof(VkAccelerationStructureBuildRangeInfoKHR));
+                ppBuildRangeInfos[gLEYTdh]=NULL;
+            return; }ppBuildRangeInfos[gLEYTdh]=(VkAccelerationStructureBuildRangeInfoKHR*)malloc(infoCount*sizeof(VkAccelerationStructureBuildRangeInfoKHR));
         auto& arr_HqQzokg=arr_LOFGJKx[gLEYTdh].as_array();
         for(int TwVqYHk=0; TwVqYHk < infoCount; TwVqYHk++){
             [&](){
             auto& temp=arr_HqQzokg[TwVqYHk].as_object();
-            deserialize_struct(temp,temp_XqDyztq[gLEYTdh][TwVqYHk]);
+            deserialize_struct(temp,ppBuildRangeInfos[gLEYTdh][TwVqYHk]);
             }();
         }
         }();
         }
-        }();ppBuildRangeInfos=temp_XqDyztq;}();
+        }();
 
     PFN_vkCmdBuildAccelerationStructuresKHR call_function;
     
@@ -23749,57 +23915,57 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t infoCount;
 [&](){infoCount=static_cast<uint32_t>(value_to<int>(json["infoCount"]));}();
-VkAccelerationStructureBuildGeometryInfoKHR* pInfos;
-[&](){ VkAccelerationStructureBuildGeometryInfoKHR* temp_driNJAJ[&](){
+ VkAccelerationStructureBuildGeometryInfoKHR* pInfos;
+[&](){
             if (json["pInfos"].as_array().size()==0){
-                temp_driNJAJ=NULL;
-            return; }temp_driNJAJ=(VkAccelerationStructureBuildGeometryInfoKHR*)malloc(infoCount*sizeof(VkAccelerationStructureBuildGeometryInfoKHR));
+                pInfos=NULL;
+            return; }pInfos=(VkAccelerationStructureBuildGeometryInfoKHR*)malloc(infoCount*sizeof(VkAccelerationStructureBuildGeometryInfoKHR));
         auto& arr_pLxHocT=json["pInfos"].as_array();
         for(int iIAEWFy=0; iIAEWFy < infoCount; iIAEWFy++){
             [&](){
             auto& temp=arr_pLxHocT[iIAEWFy].as_object();
-            deserialize_struct(temp,temp_driNJAJ[iIAEWFy]);
+            deserialize_struct(temp,pInfos[iIAEWFy]);
             }();
         }
-        }();pInfos=temp_driNJAJ;}();
-VkDeviceAddress* pIndirectDeviceAddresses;
-[&](){ VkDeviceAddress* temp_BGrggsP[&](){
+        }();
+ VkDeviceAddress* pIndirectDeviceAddresses;
+[&](){
             if (json["pIndirectDeviceAddresses"].as_array().size()==0){
-                temp_BGrggsP=NULL;
-            return; }temp_BGrggsP=(VkDeviceAddress*)malloc(infoCount*sizeof(VkDeviceAddress));
+                pIndirectDeviceAddresses=NULL;
+            return; }pIndirectDeviceAddresses=(VkDeviceAddress*)malloc(infoCount*sizeof(VkDeviceAddress));
         auto& arr_qqxgmPw=json["pIndirectDeviceAddresses"].as_array();
         for(int mphFFLu=0; mphFFLu < infoCount; mphFFLu++){
-            [&](){uint64_t temp_qqxgmPw;[&](){temp_qqxgmPw=static_cast<uint64_t>(value_to<int>(arr_qqxgmPw[mphFFLu]));}();temp_BGrggsP[mphFFLu]=(VkDeviceAddress)temp_qqxgmPw;}();
+            [&](){uint64_t temp_qqxgmPw;[&](){temp_qqxgmPw=static_cast<uint64_t>(value_to<int>(arr_qqxgmPw[mphFFLu]));}();pIndirectDeviceAddresses[mphFFLu]=(VkDeviceAddress)temp_qqxgmPw;}();
         }
-        }();pIndirectDeviceAddresses=temp_BGrggsP;}();
-uint32_t* pIndirectStrides;
-[&](){ uint32_t* temp_ZsInipe[&](){
+        }();
+ uint32_t* pIndirectStrides;
+[&](){
             if (json["pIndirectStrides"].as_array().size()==0){
-                temp_ZsInipe=NULL;
-            return; }temp_ZsInipe=(uint32_t*)malloc(infoCount*sizeof(uint32_t));
+                pIndirectStrides=NULL;
+            return; }pIndirectStrides=(uint32_t*)malloc(infoCount*sizeof(uint32_t));
         auto& arr_JoqNqic=json["pIndirectStrides"].as_array();
         for(int TCKTxsQ=0; TCKTxsQ < infoCount; TCKTxsQ++){
-            [&](){temp_ZsInipe[TCKTxsQ]=static_cast<uint32_t>(value_to<int>(arr_JoqNqic[TCKTxsQ]));}();
+            [&](){pIndirectStrides[TCKTxsQ]=static_cast<uint32_t>(value_to<int>(arr_JoqNqic[TCKTxsQ]));}();
         }
-        }();pIndirectStrides=temp_ZsInipe;}();
-uint32_t* const* ppMaxPrimitiveCounts;
-[&](){ uint32_t* * temp_MQrjcVS[&](){
+        }();
+ uint32_t* * ppMaxPrimitiveCounts;
+[&](){
             if (json["ppMaxPrimitiveCounts"].as_array().size()==0){
-                temp_MQrjcVS=NULL;
-            return; }temp_MQrjcVS=(uint32_t**)malloc(1*sizeof(uint32_t*));
+                ppMaxPrimitiveCounts=NULL;
+            return; }ppMaxPrimitiveCounts=(uint32_t**)malloc(1*sizeof(uint32_t*));
         auto& arr_lnbIzaN=json["ppMaxPrimitiveCounts"].as_array();
         for(int DtQfWPT=0; DtQfWPT < 1; DtQfWPT++){
             [&](){
             if (arr_lnbIzaN[DtQfWPT].as_array().size()==0){
-                temp_MQrjcVS[DtQfWPT]=NULL;
-            return; }temp_MQrjcVS[DtQfWPT]=(uint32_t*)malloc(infoCount*sizeof(uint32_t));
+                ppMaxPrimitiveCounts[DtQfWPT]=NULL;
+            return; }ppMaxPrimitiveCounts[DtQfWPT]=(uint32_t*)malloc(infoCount*sizeof(uint32_t));
         auto& arr_RluStPH=arr_lnbIzaN[DtQfWPT].as_array();
         for(int SaLgIYu=0; SaLgIYu < infoCount; SaLgIYu++){
-            [&](){temp_MQrjcVS[DtQfWPT][SaLgIYu]=static_cast<uint32_t>(value_to<int>(arr_RluStPH[SaLgIYu]));}();
+            [&](){ppMaxPrimitiveCounts[DtQfWPT][SaLgIYu]=static_cast<uint32_t>(value_to<int>(arr_RluStPH[SaLgIYu]));}();
         }
         }();
         }
-        }();ppMaxPrimitiveCounts=temp_MQrjcVS;}();
+        }();
 
     PFN_vkCmdBuildAccelerationStructuresIndirectKHR call_function;
     
@@ -23883,40 +24049,40 @@ VkDeferredOperationKHR deferredOperation;
 [&](){deserialize_VkDeferredOperationKHR(json["deferredOperation"], deferredOperation);}();
 uint32_t infoCount;
 [&](){infoCount=static_cast<uint32_t>(value_to<int>(json["infoCount"]));}();
-VkAccelerationStructureBuildGeometryInfoKHR* pInfos;
-[&](){ VkAccelerationStructureBuildGeometryInfoKHR* temp_driNJAJ[&](){
+ VkAccelerationStructureBuildGeometryInfoKHR* pInfos;
+[&](){
             if (json["pInfos"].as_array().size()==0){
-                temp_driNJAJ=NULL;
-            return; }temp_driNJAJ=(VkAccelerationStructureBuildGeometryInfoKHR*)malloc(infoCount*sizeof(VkAccelerationStructureBuildGeometryInfoKHR));
+                pInfos=NULL;
+            return; }pInfos=(VkAccelerationStructureBuildGeometryInfoKHR*)malloc(infoCount*sizeof(VkAccelerationStructureBuildGeometryInfoKHR));
         auto& arr_pLxHocT=json["pInfos"].as_array();
         for(int iIAEWFy=0; iIAEWFy < infoCount; iIAEWFy++){
             [&](){
             auto& temp=arr_pLxHocT[iIAEWFy].as_object();
-            deserialize_struct(temp,temp_driNJAJ[iIAEWFy]);
+            deserialize_struct(temp,pInfos[iIAEWFy]);
             }();
         }
-        }();pInfos=temp_driNJAJ;}();
-VkAccelerationStructureBuildRangeInfoKHR* const* ppBuildRangeInfos;
-[&](){ VkAccelerationStructureBuildRangeInfoKHR* * temp_XqDyztq[&](){
+        }();
+ VkAccelerationStructureBuildRangeInfoKHR* * ppBuildRangeInfos;
+[&](){
             if (json["ppBuildRangeInfos"].as_array().size()==0){
-                temp_XqDyztq=NULL;
-            return; }temp_XqDyztq=(VkAccelerationStructureBuildRangeInfoKHR**)malloc(1*sizeof(VkAccelerationStructureBuildRangeInfoKHR*));
+                ppBuildRangeInfos=NULL;
+            return; }ppBuildRangeInfos=(VkAccelerationStructureBuildRangeInfoKHR**)malloc(1*sizeof(VkAccelerationStructureBuildRangeInfoKHR*));
         auto& arr_LOFGJKx=json["ppBuildRangeInfos"].as_array();
         for(int gLEYTdh=0; gLEYTdh < 1; gLEYTdh++){
             [&](){
             if (arr_LOFGJKx[gLEYTdh].as_array().size()==0){
-                temp_XqDyztq[gLEYTdh]=NULL;
-            return; }temp_XqDyztq[gLEYTdh]=(VkAccelerationStructureBuildRangeInfoKHR*)malloc(infoCount*sizeof(VkAccelerationStructureBuildRangeInfoKHR));
+                ppBuildRangeInfos[gLEYTdh]=NULL;
+            return; }ppBuildRangeInfos[gLEYTdh]=(VkAccelerationStructureBuildRangeInfoKHR*)malloc(infoCount*sizeof(VkAccelerationStructureBuildRangeInfoKHR));
         auto& arr_HqQzokg=arr_LOFGJKx[gLEYTdh].as_array();
         for(int TwVqYHk=0; TwVqYHk < infoCount; TwVqYHk++){
             [&](){
             auto& temp=arr_HqQzokg[TwVqYHk].as_object();
-            deserialize_struct(temp,temp_XqDyztq[gLEYTdh][TwVqYHk]);
+            deserialize_struct(temp,ppBuildRangeInfos[gLEYTdh][TwVqYHk]);
             }();
         }
         }();
         }
-        }();ppBuildRangeInfos=temp_XqDyztq;}();
+        }();
 
     PFN_vkBuildAccelerationStructuresKHR call_function;
     
@@ -23932,8 +24098,9 @@ VkAccelerationStructureBuildRangeInfoKHR* const* ppBuildRangeInfos;
         call_function=(PFN_vkBuildAccelerationStructuresKHR)get_device_proc_addr(parent,"vkBuildAccelerationStructuresKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, deferredOperation, infoCount, pInfos, ppBuildRangeInfos);
+result=call_function(device, deferredOperation, infoCount, pInfos, ppBuildRangeInfos);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -23982,19 +24149,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkAccelerationStructureDeviceAddressInfoKHR* pInfo;
-[&](){ VkAccelerationStructureDeviceAddressInfoKHR* temp_ijpoyhG[&](){
+ VkAccelerationStructureDeviceAddressInfoKHR* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_ijpoyhG=NULL;
-            return; }temp_ijpoyhG=(VkAccelerationStructureDeviceAddressInfoKHR*)malloc(1*sizeof(VkAccelerationStructureDeviceAddressInfoKHR));
+                pInfo=NULL;
+            return; }pInfo=(VkAccelerationStructureDeviceAddressInfoKHR*)malloc(1*sizeof(VkAccelerationStructureDeviceAddressInfoKHR));
         auto& arr_hewpWGr=json["pInfo"].as_array();
         for(int XQgcVWG=0; XQgcVWG < 1; XQgcVWG++){
             [&](){
             auto& temp=arr_hewpWGr[XQgcVWG].as_object();
-            deserialize_struct(temp,temp_ijpoyhG[XQgcVWG]);
+            deserialize_struct(temp,pInfo[XQgcVWG]);
             }();
         }
-        }();pInfo=temp_ijpoyhG;}();
+        }();
 
     PFN_vkGetAccelerationStructureDeviceAddressKHR call_function;
     
@@ -24010,8 +24177,9 @@ VkAccelerationStructureDeviceAddressInfoKHR* pInfo;
         call_function=(PFN_vkGetAccelerationStructureDeviceAddressKHR)get_device_proc_addr(parent,"vkGetAccelerationStructureDeviceAddressKHR");
     }  
     
+VkDeviceAddress  result;
 {
-auto result=call_function(device, pInfo);
+result=call_function(device, pInfo);
 }
 json.clear();
 [&](){[&](){json["result"]=result;}();}();
@@ -24038,19 +24206,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkDeferredOperationKHR* pDeferredOperation;
 [&](){
             if (json["pDeferredOperation"].as_array().size()==0){
@@ -24076,8 +24244,9 @@ VkDeferredOperationKHR* pDeferredOperation;
         call_function=(PFN_vkCreateDeferredOperationKHR)get_device_proc_addr(parent,"vkCreateDeferredOperationKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pAllocator, pDeferredOperation);
+result=call_function(device, pAllocator, pDeferredOperation);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -24115,19 +24284,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkDeferredOperationKHR operation;
 [&](){deserialize_VkDeferredOperationKHR(json["operation"], operation);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyDeferredOperationKHR call_function;
     
@@ -24189,8 +24358,9 @@ VkDeferredOperationKHR operation;
         call_function=(PFN_vkGetDeferredOperationMaxConcurrencyKHR)get_device_proc_addr(parent,"vkGetDeferredOperationMaxConcurrencyKHR");
     }  
     
+uint32_t  result;
 {
-auto result=call_function(device, operation);
+result=call_function(device, operation);
 }
 json.clear();
 [&](){json["result"]=result;}();
@@ -24223,8 +24393,9 @@ VkDeferredOperationKHR operation;
         call_function=(PFN_vkGetDeferredOperationResultKHR)get_device_proc_addr(parent,"vkGetDeferredOperationResultKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, operation);
+result=call_function(device, operation);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -24257,8 +24428,9 @@ VkDeferredOperationKHR operation;
         call_function=(PFN_vkDeferredOperationJoinKHR)get_device_proc_addr(parent,"vkDeferredOperationJoinKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, operation);
+result=call_function(device, operation);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -24274,19 +24446,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkComputePipelineCreateInfo* pCreateInfo;
-[&](){ VkComputePipelineCreateInfo* temp_mNFivMr[&](){
+ VkComputePipelineCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_mNFivMr=NULL;
-            return; }temp_mNFivMr=(VkComputePipelineCreateInfo*)malloc(1*sizeof(VkComputePipelineCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkComputePipelineCreateInfo*)malloc(1*sizeof(VkComputePipelineCreateInfo));
         auto& arr_IIYnuXe=json["pCreateInfo"].as_array();
         for(int LOABkrY=0; LOABkrY < 1; LOABkrY++){
             [&](){
             auto& temp=arr_IIYnuXe[LOABkrY].as_object();
-            deserialize_struct(temp,temp_mNFivMr[LOABkrY]);
+            deserialize_struct(temp,pCreateInfo[LOABkrY]);
             }();
         }
-        }();pCreateInfo=temp_mNFivMr;}();
+        }();
 VkMemoryRequirements2* pMemoryRequirements;
 [&](){
             if (json["pMemoryRequirements"].as_array().size()==0){
@@ -24355,19 +24527,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkPipelineIndirectDeviceAddressInfoNV* pInfo;
-[&](){ VkPipelineIndirectDeviceAddressInfoNV* temp_CAWPabX[&](){
+ VkPipelineIndirectDeviceAddressInfoNV* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_CAWPabX=NULL;
-            return; }temp_CAWPabX=(VkPipelineIndirectDeviceAddressInfoNV*)malloc(1*sizeof(VkPipelineIndirectDeviceAddressInfoNV));
+                pInfo=NULL;
+            return; }pInfo=(VkPipelineIndirectDeviceAddressInfoNV*)malloc(1*sizeof(VkPipelineIndirectDeviceAddressInfoNV));
         auto& arr_nyTOzHx=json["pInfo"].as_array();
         for(int fovHdtg=0; fovHdtg < 1; fovHdtg++){
             [&](){
             auto& temp=arr_nyTOzHx[fovHdtg].as_object();
-            deserialize_struct(temp,temp_CAWPabX[fovHdtg]);
+            deserialize_struct(temp,pInfo[fovHdtg]);
             }();
         }
-        }();pInfo=temp_CAWPabX;}();
+        }();
 
     PFN_vkGetPipelineIndirectDeviceAddressNV call_function;
     
@@ -24383,8 +24555,9 @@ VkPipelineIndirectDeviceAddressInfoNV* pInfo;
         call_function=(PFN_vkGetPipelineIndirectDeviceAddressNV)get_device_proc_addr(parent,"vkGetPipelineIndirectDeviceAddressNV");
     }  
     
+VkDeviceAddress  result;
 {
-auto result=call_function(device, pInfo);
+result=call_function(device, pInfo);
 }
 json.clear();
 [&](){[&](){json["result"]=result;}();}();
@@ -24515,19 +24688,19 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t viewportCount;
 [&](){viewportCount=static_cast<uint32_t>(value_to<int>(json["viewportCount"]));}();
-VkViewport* pViewports;
-[&](){ VkViewport* temp_NINOLjT[&](){
+ VkViewport* pViewports;
+[&](){
             if (json["pViewports"].as_array().size()==0){
-                temp_NINOLjT=NULL;
-            return; }temp_NINOLjT=(VkViewport*)malloc(viewportCount*sizeof(VkViewport));
+                pViewports=NULL;
+            return; }pViewports=(VkViewport*)malloc(viewportCount*sizeof(VkViewport));
         auto& arr_NYoDqxX=json["pViewports"].as_array();
         for(int SjlAQpy=0; SjlAQpy < viewportCount; SjlAQpy++){
             [&](){
             auto& temp=arr_NYoDqxX[SjlAQpy].as_object();
-            deserialize_struct(temp,temp_NINOLjT[SjlAQpy]);
+            deserialize_struct(temp,pViewports[SjlAQpy]);
             }();
         }
-        }();pViewports=temp_NINOLjT;}();
+        }();
 
     PFN_vkCmdSetViewportWithCount call_function;
     
@@ -24574,19 +24747,19 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t scissorCount;
 [&](){scissorCount=static_cast<uint32_t>(value_to<int>(json["scissorCount"]));}();
-VkRect2D* pScissors;
-[&](){ VkRect2D* temp_FCRcmyF[&](){
+ VkRect2D* pScissors;
+[&](){
             if (json["pScissors"].as_array().size()==0){
-                temp_FCRcmyF=NULL;
-            return; }temp_FCRcmyF=(VkRect2D*)malloc(scissorCount*sizeof(VkRect2D));
+                pScissors=NULL;
+            return; }pScissors=(VkRect2D*)malloc(scissorCount*sizeof(VkRect2D));
         auto& arr_bIRAuhj=json["pScissors"].as_array();
         for(int QukNmCZ=0; QukNmCZ < scissorCount; QukNmCZ++){
             [&](){
             auto& temp=arr_bIRAuhj[QukNmCZ].as_object();
-            deserialize_struct(temp,temp_FCRcmyF[QukNmCZ]);
+            deserialize_struct(temp,pScissors[QukNmCZ]);
             }();
         }
-        }();pScissors=temp_FCRcmyF;}();
+        }();
 
     PFN_vkCmdSetScissorWithCount call_function;
     
@@ -24678,46 +24851,46 @@ uint32_t firstBinding;
 [&](){firstBinding=static_cast<uint32_t>(value_to<int>(json["firstBinding"]));}();
 uint32_t bindingCount;
 [&](){bindingCount=static_cast<uint32_t>(value_to<int>(json["bindingCount"]));}();
-VkBuffer* pBuffers;
-[&](){ VkBuffer* temp_XooJXwK[&](){
+ VkBuffer* pBuffers;
+[&](){
             if (json["pBuffers"].as_array().size()==0){
-                temp_XooJXwK=NULL;
-            return; }temp_XooJXwK=(VkBuffer*)malloc(bindingCount*sizeof(VkBuffer));
+                pBuffers=NULL;
+            return; }pBuffers=(VkBuffer*)malloc(bindingCount*sizeof(VkBuffer));
         auto& arr_ShVTBbp=json["pBuffers"].as_array();
         for(int loSrvWd=0; loSrvWd < bindingCount; loSrvWd++){
-            [&](){deserialize_VkBuffer(arr_ShVTBbp[loSrvWd], temp_XooJXwK[loSrvWd]);}();
+            [&](){deserialize_VkBuffer(arr_ShVTBbp[loSrvWd], pBuffers[loSrvWd]);}();
         }
-        }();pBuffers=temp_XooJXwK;}();
-VkDeviceSize* pOffsets;
-[&](){ VkDeviceSize* temp_rsVsAoT[&](){
+        }();
+ VkDeviceSize* pOffsets;
+[&](){
             if (json["pOffsets"].as_array().size()==0){
-                temp_rsVsAoT=NULL;
-            return; }temp_rsVsAoT=(VkDeviceSize*)malloc(bindingCount*sizeof(VkDeviceSize));
+                pOffsets=NULL;
+            return; }pOffsets=(VkDeviceSize*)malloc(bindingCount*sizeof(VkDeviceSize));
         auto& arr_uWdiGtF=json["pOffsets"].as_array();
         for(int ELYQTNF=0; ELYQTNF < bindingCount; ELYQTNF++){
-            [&](){uint64_t temp_uWdiGtF;[&](){temp_uWdiGtF=static_cast<uint64_t>(value_to<int>(arr_uWdiGtF[ELYQTNF]));}();temp_rsVsAoT[ELYQTNF]=(VkDeviceSize)temp_uWdiGtF;}();
+            [&](){uint64_t temp_uWdiGtF;[&](){temp_uWdiGtF=static_cast<uint64_t>(value_to<int>(arr_uWdiGtF[ELYQTNF]));}();pOffsets[ELYQTNF]=(VkDeviceSize)temp_uWdiGtF;}();
         }
-        }();pOffsets=temp_rsVsAoT;}();
-VkDeviceSize* pSizes;
-[&](){ VkDeviceSize* temp_VbqhwxK[&](){
+        }();
+ VkDeviceSize* pSizes;
+[&](){
             if (json["pSizes"].as_array().size()==0){
-                temp_VbqhwxK=NULL;
-            return; }temp_VbqhwxK=(VkDeviceSize*)malloc(bindingCount*sizeof(VkDeviceSize));
+                pSizes=NULL;
+            return; }pSizes=(VkDeviceSize*)malloc(bindingCount*sizeof(VkDeviceSize));
         auto& arr_cHIDMyb=json["pSizes"].as_array();
         for(int yLUmhkZ=0; yLUmhkZ < bindingCount; yLUmhkZ++){
-            [&](){uint64_t temp_cHIDMyb;[&](){temp_cHIDMyb=static_cast<uint64_t>(value_to<int>(arr_cHIDMyb[yLUmhkZ]));}();temp_VbqhwxK[yLUmhkZ]=(VkDeviceSize)temp_cHIDMyb;}();
+            [&](){uint64_t temp_cHIDMyb;[&](){temp_cHIDMyb=static_cast<uint64_t>(value_to<int>(arr_cHIDMyb[yLUmhkZ]));}();pSizes[yLUmhkZ]=(VkDeviceSize)temp_cHIDMyb;}();
         }
-        }();pSizes=temp_VbqhwxK;}();
-VkDeviceSize* pStrides;
-[&](){ VkDeviceSize* temp_zEzqsaE[&](){
+        }();
+ VkDeviceSize* pStrides;
+[&](){
             if (json["pStrides"].as_array().size()==0){
-                temp_zEzqsaE=NULL;
-            return; }temp_zEzqsaE=(VkDeviceSize*)malloc(bindingCount*sizeof(VkDeviceSize));
+                pStrides=NULL;
+            return; }pStrides=(VkDeviceSize*)malloc(bindingCount*sizeof(VkDeviceSize));
         auto& arr_FOKmrCn=json["pStrides"].as_array();
         for(int ByEZqEy=0; ByEZqEy < bindingCount; ByEZqEy++){
-            [&](){uint64_t temp_FOKmrCn;[&](){temp_FOKmrCn=static_cast<uint64_t>(value_to<int>(arr_FOKmrCn[ByEZqEy]));}();temp_zEzqsaE[ByEZqEy]=(VkDeviceSize)temp_FOKmrCn;}();
+            [&](){uint64_t temp_FOKmrCn;[&](){temp_FOKmrCn=static_cast<uint64_t>(value_to<int>(arr_FOKmrCn[ByEZqEy]));}();pStrides[ByEZqEy]=(VkDeviceSize)temp_FOKmrCn;}();
         }
-        }();pStrides=temp_zEzqsaE;}();
+        }();
 
     PFN_vkCmdBindVertexBuffers2 call_function;
     
@@ -25311,16 +25484,16 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 VkSampleCountFlagBits samples;
 [&](){[&](){int temp_lbKgbKj;[&](){temp_lbKgbKj=static_cast<int>(value_to<int>(json["samples"]));}();samples=(VkSampleCountFlagBits)temp_lbKgbKj;}();}();
-VkSampleMask* pSampleMask;
-[&](){ VkSampleMask* temp_QmlqOpQ[&](){
+ VkSampleMask* pSampleMask;
+[&](){
             if (json["pSampleMask"].as_array().size()==0){
-                temp_QmlqOpQ=NULL;
-            return; }temp_QmlqOpQ=(VkSampleMask*)malloc((samples + 31) / 32*sizeof(VkSampleMask));
+                pSampleMask=NULL;
+            return; }pSampleMask=(VkSampleMask*)malloc((samples + 31) / 32*sizeof(VkSampleMask));
         auto& arr_FGuLlff=json["pSampleMask"].as_array();
         for(int BCMPGHn=0; BCMPGHn < (samples + 31) / 32; BCMPGHn++){
-            [&](){uint32_t temp_FGuLlff;[&](){temp_FGuLlff=static_cast<uint32_t>(value_to<int>(arr_FGuLlff[BCMPGHn]));}();temp_QmlqOpQ[BCMPGHn]=(VkSampleMask)temp_FGuLlff;}();
+            [&](){uint32_t temp_FGuLlff;[&](){temp_FGuLlff=static_cast<uint32_t>(value_to<int>(arr_FGuLlff[BCMPGHn]));}();pSampleMask[BCMPGHn]=(VkSampleMask)temp_FGuLlff;}();
         }
-        }();pSampleMask=temp_QmlqOpQ;}();
+        }();
 
     PFN_vkCmdSetSampleMaskEXT call_function;
     
@@ -25468,16 +25641,16 @@ uint32_t firstAttachment;
 [&](){firstAttachment=static_cast<uint32_t>(value_to<int>(json["firstAttachment"]));}();
 uint32_t attachmentCount;
 [&](){attachmentCount=static_cast<uint32_t>(value_to<int>(json["attachmentCount"]));}();
-VkBool32* pColorBlendEnables;
-[&](){ VkBool32* temp_FcJwDni[&](){
+ VkBool32* pColorBlendEnables;
+[&](){
             if (json["pColorBlendEnables"].as_array().size()==0){
-                temp_FcJwDni=NULL;
-            return; }temp_FcJwDni=(VkBool32*)malloc(attachmentCount*sizeof(VkBool32));
+                pColorBlendEnables=NULL;
+            return; }pColorBlendEnables=(VkBool32*)malloc(attachmentCount*sizeof(VkBool32));
         auto& arr_lHzNiUd=json["pColorBlendEnables"].as_array();
         for(int wbANAKE=0; wbANAKE < attachmentCount; wbANAKE++){
-            [&](){uint32_t temp_lHzNiUd;[&](){temp_lHzNiUd=static_cast<uint32_t>(value_to<int>(arr_lHzNiUd[wbANAKE]));}();temp_FcJwDni[wbANAKE]=(VkBool32)temp_lHzNiUd;}();
+            [&](){uint32_t temp_lHzNiUd;[&](){temp_lHzNiUd=static_cast<uint32_t>(value_to<int>(arr_lHzNiUd[wbANAKE]));}();pColorBlendEnables[wbANAKE]=(VkBool32)temp_lHzNiUd;}();
         }
-        }();pColorBlendEnables=temp_FcJwDni;}();
+        }();
 
     PFN_vkCmdSetColorBlendEnableEXT call_function;
     
@@ -25524,19 +25697,19 @@ uint32_t firstAttachment;
 [&](){firstAttachment=static_cast<uint32_t>(value_to<int>(json["firstAttachment"]));}();
 uint32_t attachmentCount;
 [&](){attachmentCount=static_cast<uint32_t>(value_to<int>(json["attachmentCount"]));}();
-VkColorBlendEquationEXT* pColorBlendEquations;
-[&](){ VkColorBlendEquationEXT* temp_yHwJIPK[&](){
+ VkColorBlendEquationEXT* pColorBlendEquations;
+[&](){
             if (json["pColorBlendEquations"].as_array().size()==0){
-                temp_yHwJIPK=NULL;
-            return; }temp_yHwJIPK=(VkColorBlendEquationEXT*)malloc(attachmentCount*sizeof(VkColorBlendEquationEXT));
+                pColorBlendEquations=NULL;
+            return; }pColorBlendEquations=(VkColorBlendEquationEXT*)malloc(attachmentCount*sizeof(VkColorBlendEquationEXT));
         auto& arr_EqkVhnu=json["pColorBlendEquations"].as_array();
         for(int fbdCMaT=0; fbdCMaT < attachmentCount; fbdCMaT++){
             [&](){
             auto& temp=arr_EqkVhnu[fbdCMaT].as_object();
-            deserialize_struct(temp,temp_yHwJIPK[fbdCMaT]);
+            deserialize_struct(temp,pColorBlendEquations[fbdCMaT]);
             }();
         }
-        }();pColorBlendEquations=temp_yHwJIPK;}();
+        }();
 
     PFN_vkCmdSetColorBlendEquationEXT call_function;
     
@@ -25586,16 +25759,16 @@ uint32_t firstAttachment;
 [&](){firstAttachment=static_cast<uint32_t>(value_to<int>(json["firstAttachment"]));}();
 uint32_t attachmentCount;
 [&](){attachmentCount=static_cast<uint32_t>(value_to<int>(json["attachmentCount"]));}();
-VkColorComponentFlags* pColorWriteMasks;
-[&](){ VkColorComponentFlags* temp_czaocVX[&](){
+ VkColorComponentFlags* pColorWriteMasks;
+[&](){
             if (json["pColorWriteMasks"].as_array().size()==0){
-                temp_czaocVX=NULL;
-            return; }temp_czaocVX=(VkColorComponentFlags*)malloc(attachmentCount*sizeof(VkColorComponentFlags));
+                pColorWriteMasks=NULL;
+            return; }pColorWriteMasks=(VkColorComponentFlags*)malloc(attachmentCount*sizeof(VkColorComponentFlags));
         auto& arr_EqZFwIM=json["pColorWriteMasks"].as_array();
         for(int ieFAddx=0; ieFAddx < attachmentCount; ieFAddx++){
-            [&](){[&](){int temp_eGfaWyY;[&](){temp_eGfaWyY=static_cast<int>(value_to<int>(arr_EqZFwIM[ieFAddx]));}();temp_czaocVX[ieFAddx]=(VkColorComponentFlags)temp_eGfaWyY;}();}();
+            [&](){[&](){int temp_eGfaWyY;[&](){temp_eGfaWyY=static_cast<int>(value_to<int>(arr_EqZFwIM[ieFAddx]));}();pColorWriteMasks[ieFAddx]=(VkColorComponentFlags)temp_eGfaWyY;}();}();
         }
-        }();pColorWriteMasks=temp_czaocVX;}();
+        }();
 
     PFN_vkCmdSetColorWriteMaskEXT call_function;
     
@@ -25812,19 +25985,19 @@ uint32_t firstAttachment;
 [&](){firstAttachment=static_cast<uint32_t>(value_to<int>(json["firstAttachment"]));}();
 uint32_t attachmentCount;
 [&](){attachmentCount=static_cast<uint32_t>(value_to<int>(json["attachmentCount"]));}();
-VkColorBlendAdvancedEXT* pColorBlendAdvanced;
-[&](){ VkColorBlendAdvancedEXT* temp_AyLStxT[&](){
+ VkColorBlendAdvancedEXT* pColorBlendAdvanced;
+[&](){
             if (json["pColorBlendAdvanced"].as_array().size()==0){
-                temp_AyLStxT=NULL;
-            return; }temp_AyLStxT=(VkColorBlendAdvancedEXT*)malloc(attachmentCount*sizeof(VkColorBlendAdvancedEXT));
+                pColorBlendAdvanced=NULL;
+            return; }pColorBlendAdvanced=(VkColorBlendAdvancedEXT*)malloc(attachmentCount*sizeof(VkColorBlendAdvancedEXT));
         auto& arr_CGYbnEQ=json["pColorBlendAdvanced"].as_array();
         for(int apDMrcx=0; apDMrcx < attachmentCount; apDMrcx++){
             [&](){
             auto& temp=arr_CGYbnEQ[apDMrcx].as_object();
-            deserialize_struct(temp,temp_AyLStxT[apDMrcx]);
+            deserialize_struct(temp,pColorBlendAdvanced[apDMrcx]);
             }();
         }
-        }();pColorBlendAdvanced=temp_AyLStxT;}();
+        }();
 
     PFN_vkCmdSetColorBlendAdvancedEXT call_function;
     
@@ -26044,19 +26217,19 @@ uint32_t firstViewport;
 [&](){firstViewport=static_cast<uint32_t>(value_to<int>(json["firstViewport"]));}();
 uint32_t viewportCount;
 [&](){viewportCount=static_cast<uint32_t>(value_to<int>(json["viewportCount"]));}();
-VkViewportSwizzleNV* pViewportSwizzles;
-[&](){ VkViewportSwizzleNV* temp_KnyDwdB[&](){
+ VkViewportSwizzleNV* pViewportSwizzles;
+[&](){
             if (json["pViewportSwizzles"].as_array().size()==0){
-                temp_KnyDwdB=NULL;
-            return; }temp_KnyDwdB=(VkViewportSwizzleNV*)malloc(viewportCount*sizeof(VkViewportSwizzleNV));
+                pViewportSwizzles=NULL;
+            return; }pViewportSwizzles=(VkViewportSwizzleNV*)malloc(viewportCount*sizeof(VkViewportSwizzleNV));
         auto& arr_ZPCbbeZ=json["pViewportSwizzles"].as_array();
         for(int dONOTlj=0; dONOTlj < viewportCount; dONOTlj++){
             [&](){
             auto& temp=arr_ZPCbbeZ[dONOTlj].as_object();
-            deserialize_struct(temp,temp_KnyDwdB[dONOTlj]);
+            deserialize_struct(temp,pViewportSwizzles[dONOTlj]);
             }();
         }
-        }();pViewportSwizzles=temp_KnyDwdB;}();
+        }();
 
     PFN_vkCmdSetViewportSwizzleNV call_function;
     
@@ -26240,16 +26413,16 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t coverageModulationTableCount;
 [&](){coverageModulationTableCount=static_cast<uint32_t>(value_to<int>(json["coverageModulationTableCount"]));}();
-float* pCoverageModulationTable;
-[&](){ float* temp_VxYyEVf[&](){
+ float* pCoverageModulationTable;
+[&](){
             if (json["pCoverageModulationTable"].as_array().size()==0){
-                temp_VxYyEVf=NULL;
-            return; }temp_VxYyEVf=(float*)malloc(coverageModulationTableCount*sizeof(float));
+                pCoverageModulationTable=NULL;
+            return; }pCoverageModulationTable=(float*)malloc(coverageModulationTableCount*sizeof(float));
         auto& arr_PUYynJq=json["pCoverageModulationTable"].as_array();
         for(int uNkPtIy=0; uNkPtIy < coverageModulationTableCount; uNkPtIy++){
-            [&](){temp_VxYyEVf[uNkPtIy]=static_cast<float>(value_to<int>(arr_PUYynJq[uNkPtIy]));}();
+            [&](){pCoverageModulationTable[uNkPtIy]=static_cast<float>(value_to<int>(arr_PUYynJq[uNkPtIy]));}();
         }
-        }();pCoverageModulationTable=temp_VxYyEVf;}();
+        }();
 
     PFN_vkCmdSetCoverageModulationTableNV call_function;
     
@@ -26393,32 +26566,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkPrivateDataSlotCreateInfo* pCreateInfo;
-[&](){ VkPrivateDataSlotCreateInfo* temp_MDKPlFj[&](){
+ VkPrivateDataSlotCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_MDKPlFj=NULL;
-            return; }temp_MDKPlFj=(VkPrivateDataSlotCreateInfo*)malloc(1*sizeof(VkPrivateDataSlotCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkPrivateDataSlotCreateInfo*)malloc(1*sizeof(VkPrivateDataSlotCreateInfo));
         auto& arr_NidbGih=json["pCreateInfo"].as_array();
         for(int ZNynneh=0; ZNynneh < 1; ZNynneh++){
             [&](){
             auto& temp=arr_NidbGih[ZNynneh].as_object();
-            deserialize_struct(temp,temp_MDKPlFj[ZNynneh]);
+            deserialize_struct(temp,pCreateInfo[ZNynneh]);
             }();
         }
-        }();pCreateInfo=temp_MDKPlFj;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkPrivateDataSlot* pPrivateDataSlot;
 [&](){
             if (json["pPrivateDataSlot"].as_array().size()==0){
@@ -26444,8 +26617,9 @@ VkPrivateDataSlot* pPrivateDataSlot;
         call_function=(PFN_vkCreatePrivateDataSlot)get_device_proc_addr(parent,"vkCreatePrivateDataSlot");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pPrivateDataSlot);
+result=call_function(device, pCreateInfo, pAllocator, pPrivateDataSlot);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -26495,19 +26669,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkPrivateDataSlot privateDataSlot;
 [&](){deserialize_VkPrivateDataSlot(json["privateDataSlot"], privateDataSlot);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyPrivateDataSlot call_function;
     
@@ -26575,8 +26749,9 @@ uint64_t data;
         call_function=(PFN_vkSetPrivateData)get_device_proc_addr(parent,"vkSetPrivateData");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, objectType, objectHandle, privateDataSlot, data);
+result=call_function(device, objectType, objectHandle, privateDataSlot, data);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -26654,19 +26829,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkCopyBufferInfo2* pCopyBufferInfo;
-[&](){ VkCopyBufferInfo2* temp_wdLFuER[&](){
+ VkCopyBufferInfo2* pCopyBufferInfo;
+[&](){
             if (json["pCopyBufferInfo"].as_array().size()==0){
-                temp_wdLFuER=NULL;
-            return; }temp_wdLFuER=(VkCopyBufferInfo2*)malloc(1*sizeof(VkCopyBufferInfo2));
+                pCopyBufferInfo=NULL;
+            return; }pCopyBufferInfo=(VkCopyBufferInfo2*)malloc(1*sizeof(VkCopyBufferInfo2));
         auto& arr_zibazFk=json["pCopyBufferInfo"].as_array();
         for(int BLWMzyy=0; BLWMzyy < 1; BLWMzyy++){
             [&](){
             auto& temp=arr_zibazFk[BLWMzyy].as_object();
-            deserialize_struct(temp,temp_wdLFuER[BLWMzyy]);
+            deserialize_struct(temp,pCopyBufferInfo[BLWMzyy]);
             }();
         }
-        }();pCopyBufferInfo=temp_wdLFuER;}();
+        }();
 
     PFN_vkCmdCopyBuffer2 call_function;
     
@@ -26710,19 +26885,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkCopyImageInfo2* pCopyImageInfo;
-[&](){ VkCopyImageInfo2* temp_raFQDKs[&](){
+ VkCopyImageInfo2* pCopyImageInfo;
+[&](){
             if (json["pCopyImageInfo"].as_array().size()==0){
-                temp_raFQDKs=NULL;
-            return; }temp_raFQDKs=(VkCopyImageInfo2*)malloc(1*sizeof(VkCopyImageInfo2));
+                pCopyImageInfo=NULL;
+            return; }pCopyImageInfo=(VkCopyImageInfo2*)malloc(1*sizeof(VkCopyImageInfo2));
         auto& arr_QunWVoT=json["pCopyImageInfo"].as_array();
         for(int aRJdnXE=0; aRJdnXE < 1; aRJdnXE++){
             [&](){
             auto& temp=arr_QunWVoT[aRJdnXE].as_object();
-            deserialize_struct(temp,temp_raFQDKs[aRJdnXE]);
+            deserialize_struct(temp,pCopyImageInfo[aRJdnXE]);
             }();
         }
-        }();pCopyImageInfo=temp_raFQDKs;}();
+        }();
 
     PFN_vkCmdCopyImage2 call_function;
     
@@ -26766,19 +26941,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkBlitImageInfo2* pBlitImageInfo;
-[&](){ VkBlitImageInfo2* temp_TfirKkB[&](){
+ VkBlitImageInfo2* pBlitImageInfo;
+[&](){
             if (json["pBlitImageInfo"].as_array().size()==0){
-                temp_TfirKkB=NULL;
-            return; }temp_TfirKkB=(VkBlitImageInfo2*)malloc(1*sizeof(VkBlitImageInfo2));
+                pBlitImageInfo=NULL;
+            return; }pBlitImageInfo=(VkBlitImageInfo2*)malloc(1*sizeof(VkBlitImageInfo2));
         auto& arr_WcZAFFY=json["pBlitImageInfo"].as_array();
         for(int ippZCip=0; ippZCip < 1; ippZCip++){
             [&](){
             auto& temp=arr_WcZAFFY[ippZCip].as_object();
-            deserialize_struct(temp,temp_TfirKkB[ippZCip]);
+            deserialize_struct(temp,pBlitImageInfo[ippZCip]);
             }();
         }
-        }();pBlitImageInfo=temp_TfirKkB;}();
+        }();
 
     PFN_vkCmdBlitImage2 call_function;
     
@@ -26822,19 +26997,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkCopyBufferToImageInfo2* pCopyBufferToImageInfo;
-[&](){ VkCopyBufferToImageInfo2* temp_BEVHFsC[&](){
+ VkCopyBufferToImageInfo2* pCopyBufferToImageInfo;
+[&](){
             if (json["pCopyBufferToImageInfo"].as_array().size()==0){
-                temp_BEVHFsC=NULL;
-            return; }temp_BEVHFsC=(VkCopyBufferToImageInfo2*)malloc(1*sizeof(VkCopyBufferToImageInfo2));
+                pCopyBufferToImageInfo=NULL;
+            return; }pCopyBufferToImageInfo=(VkCopyBufferToImageInfo2*)malloc(1*sizeof(VkCopyBufferToImageInfo2));
         auto& arr_HtvMvbo=json["pCopyBufferToImageInfo"].as_array();
         for(int tWBWvbF=0; tWBWvbF < 1; tWBWvbF++){
             [&](){
             auto& temp=arr_HtvMvbo[tWBWvbF].as_object();
-            deserialize_struct(temp,temp_BEVHFsC[tWBWvbF]);
+            deserialize_struct(temp,pCopyBufferToImageInfo[tWBWvbF]);
             }();
         }
-        }();pCopyBufferToImageInfo=temp_BEVHFsC;}();
+        }();
 
     PFN_vkCmdCopyBufferToImage2 call_function;
     
@@ -26878,19 +27053,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkCopyImageToBufferInfo2* pCopyImageToBufferInfo;
-[&](){ VkCopyImageToBufferInfo2* temp_AtGDWRu[&](){
+ VkCopyImageToBufferInfo2* pCopyImageToBufferInfo;
+[&](){
             if (json["pCopyImageToBufferInfo"].as_array().size()==0){
-                temp_AtGDWRu=NULL;
-            return; }temp_AtGDWRu=(VkCopyImageToBufferInfo2*)malloc(1*sizeof(VkCopyImageToBufferInfo2));
+                pCopyImageToBufferInfo=NULL;
+            return; }pCopyImageToBufferInfo=(VkCopyImageToBufferInfo2*)malloc(1*sizeof(VkCopyImageToBufferInfo2));
         auto& arr_NyCJVfx=json["pCopyImageToBufferInfo"].as_array();
         for(int NLyWULP=0; NLyWULP < 1; NLyWULP++){
             [&](){
             auto& temp=arr_NyCJVfx[NLyWULP].as_object();
-            deserialize_struct(temp,temp_AtGDWRu[NLyWULP]);
+            deserialize_struct(temp,pCopyImageToBufferInfo[NLyWULP]);
             }();
         }
-        }();pCopyImageToBufferInfo=temp_AtGDWRu;}();
+        }();
 
     PFN_vkCmdCopyImageToBuffer2 call_function;
     
@@ -26934,19 +27109,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkResolveImageInfo2* pResolveImageInfo;
-[&](){ VkResolveImageInfo2* temp_vwHpWWm[&](){
+ VkResolveImageInfo2* pResolveImageInfo;
+[&](){
             if (json["pResolveImageInfo"].as_array().size()==0){
-                temp_vwHpWWm=NULL;
-            return; }temp_vwHpWWm=(VkResolveImageInfo2*)malloc(1*sizeof(VkResolveImageInfo2));
+                pResolveImageInfo=NULL;
+            return; }pResolveImageInfo=(VkResolveImageInfo2*)malloc(1*sizeof(VkResolveImageInfo2));
         auto& arr_IZrxKgk=json["pResolveImageInfo"].as_array();
         for(int LpoaGzd=0; LpoaGzd < 1; LpoaGzd++){
             [&](){
             auto& temp=arr_IZrxKgk[LpoaGzd].as_object();
-            deserialize_struct(temp,temp_vwHpWWm[LpoaGzd]);
+            deserialize_struct(temp,pResolveImageInfo[LpoaGzd]);
             }();
         }
-        }();pResolveImageInfo=temp_vwHpWWm;}();
+        }();
 
     PFN_vkCmdResolveImage2 call_function;
     
@@ -26990,24 +27165,24 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkExtent2D* pFragmentSize;
-[&](){ VkExtent2D* temp_zjiDwuw[&](){
+ VkExtent2D* pFragmentSize;
+[&](){
             if (json["pFragmentSize"].as_array().size()==0){
-                temp_zjiDwuw=NULL;
-            return; }temp_zjiDwuw=(VkExtent2D*)malloc(1*sizeof(VkExtent2D));
+                pFragmentSize=NULL;
+            return; }pFragmentSize=(VkExtent2D*)malloc(1*sizeof(VkExtent2D));
         auto& arr_eIGxtNV=json["pFragmentSize"].as_array();
         for(int eByenzl=0; eByenzl < 1; eByenzl++){
             [&](){
             auto& temp=arr_eIGxtNV[eByenzl].as_object();
-            deserialize_struct(temp,temp_zjiDwuw[eByenzl]);
+            deserialize_struct(temp,pFragmentSize[eByenzl]);
             }();
         }
-        }();pFragmentSize=temp_zjiDwuw;}();
-VkFragmentShadingRateCombinerOpKHR combinerOps[2];
+        }();
+ VkFragmentShadingRateCombinerOpKHR combinerOps[2];
 [&](){
-        auto& arr_jtjRLJW=json["combinerOps"].as_array();
-        for(int uBsarms=0; uBsarms < 2; uBsarms++){
-            [&](){ VkFragmentShadingRateCombinerOpKHR temp_jtjRLJW[2][&](){[&](){int temp_QlmJXea;[&](){temp_QlmJXea=static_cast<int>(value_to<int>(arr_jtjRLJW[uBsarms]));}();temp_jtjRLJW=(VkFragmentShadingRateCombinerOpKHR)temp_QlmJXea;}();}();combinerOps[uBsarms]=temp_jtjRLJW;}();
+        auto& arr_ogoToWI=json["combinerOps"].as_array();
+        for(int uWKWXJp=0; uWKWXJp < 2; uWKWXJp++){
+            [&](){[&](){int temp_rKrWEKx;[&](){temp_rKrWEKx=static_cast<int>(value_to<int>(arr_ogoToWI[uWKWXJp]));}();combinerOps[uWKWXJp]=(VkFragmentShadingRateCombinerOpKHR)temp_rKrWEKx;}();}();
         }
         }();
 
@@ -27044,9 +27219,9 @@ json.clear();
         }
         }();
 [&](){json["combinerOps"]=boost::json::array(2);
-        auto& arr_jtjRLJW=json["combinerOps"].as_array();
+        auto& arr_foscmwP=json["combinerOps"].as_array();
         for(int uBsarms=0; uBsarms < 2; uBsarms++){
-            [&](){[&](){[&](){arr_jtjRLJW[uBsarms]=combinerOps[uBsarms];}();}();}();
+            [&](){[&](){[&](){arr_foscmwP[uBsarms]=combinerOps[uBsarms];}();}();}();
         }
         }();
 
@@ -27097,8 +27272,9 @@ VkPhysicalDeviceFragmentShadingRateKHR* pFragmentShadingRates;
         call_function=(PFN_vkGetPhysicalDeviceFragmentShadingRatesKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceFragmentShadingRatesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pFragmentShadingRateCount, pFragmentShadingRates);
+result=call_function(physicalDevice, pFragmentShadingRateCount, pFragmentShadingRates);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -27136,11 +27312,11 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 VkFragmentShadingRateNV shadingRate;
 [&](){[&](){int temp_CqLMxeN;[&](){temp_CqLMxeN=static_cast<int>(value_to<int>(json["shadingRate"]));}();shadingRate=(VkFragmentShadingRateNV)temp_CqLMxeN;}();}();
-VkFragmentShadingRateCombinerOpKHR combinerOps[2];
+ VkFragmentShadingRateCombinerOpKHR combinerOps[2];
 [&](){
-        auto& arr_jtjRLJW=json["combinerOps"].as_array();
-        for(int uBsarms=0; uBsarms < 2; uBsarms++){
-            [&](){ VkFragmentShadingRateCombinerOpKHR temp_jtjRLJW[2][&](){[&](){int temp_QlmJXea;[&](){temp_QlmJXea=static_cast<int>(value_to<int>(arr_jtjRLJW[uBsarms]));}();temp_jtjRLJW=(VkFragmentShadingRateCombinerOpKHR)temp_QlmJXea;}();}();combinerOps[uBsarms]=temp_jtjRLJW;}();
+        auto& arr_ogoToWI=json["combinerOps"].as_array();
+        for(int uWKWXJp=0; uWKWXJp < 2; uWKWXJp++){
+            [&](){[&](){int temp_rKrWEKx;[&](){temp_rKrWEKx=static_cast<int>(value_to<int>(arr_ogoToWI[uWKWXJp]));}();combinerOps[uWKWXJp]=(VkFragmentShadingRateCombinerOpKHR)temp_rKrWEKx;}();}();
         }
         }();
 
@@ -27166,9 +27342,9 @@ json.clear();
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 [&](){[&](){[&](){json["shadingRate"]=shadingRate;}();}();}();
 [&](){json["combinerOps"]=boost::json::array(2);
-        auto& arr_jtjRLJW=json["combinerOps"].as_array();
+        auto& arr_foscmwP=json["combinerOps"].as_array();
         for(int uBsarms=0; uBsarms < 2; uBsarms++){
-            [&](){[&](){[&](){arr_jtjRLJW[uBsarms]=combinerOps[uBsarms];}();}();}();
+            [&](){[&](){[&](){arr_foscmwP[uBsarms]=combinerOps[uBsarms];}();}();}();
         }
         }();
 
@@ -27183,29 +27359,29 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkAccelerationStructureBuildTypeKHR buildType;
 [&](){[&](){int temp_XouAsBI;[&](){temp_XouAsBI=static_cast<int>(value_to<int>(json["buildType"]));}();buildType=(VkAccelerationStructureBuildTypeKHR)temp_XouAsBI;}();}();
-VkAccelerationStructureBuildGeometryInfoKHR* pBuildInfo;
-[&](){ VkAccelerationStructureBuildGeometryInfoKHR* temp_BCfqWJQ[&](){
+ VkAccelerationStructureBuildGeometryInfoKHR* pBuildInfo;
+[&](){
             if (json["pBuildInfo"].as_array().size()==0){
-                temp_BCfqWJQ=NULL;
-            return; }temp_BCfqWJQ=(VkAccelerationStructureBuildGeometryInfoKHR*)malloc(1*sizeof(VkAccelerationStructureBuildGeometryInfoKHR));
+                pBuildInfo=NULL;
+            return; }pBuildInfo=(VkAccelerationStructureBuildGeometryInfoKHR*)malloc(1*sizeof(VkAccelerationStructureBuildGeometryInfoKHR));
         auto& arr_plZlnwA=json["pBuildInfo"].as_array();
         for(int PtWSBOy=0; PtWSBOy < 1; PtWSBOy++){
             [&](){
             auto& temp=arr_plZlnwA[PtWSBOy].as_object();
-            deserialize_struct(temp,temp_BCfqWJQ[PtWSBOy]);
+            deserialize_struct(temp,pBuildInfo[PtWSBOy]);
             }();
         }
-        }();pBuildInfo=temp_BCfqWJQ;}();
-uint32_t* pMaxPrimitiveCounts;
-[&](){ uint32_t* temp_uQEkKfL[&](){
+        }();
+ uint32_t* pMaxPrimitiveCounts;
+[&](){
             if (json["pMaxPrimitiveCounts"].as_array().size()==0){
-                temp_uQEkKfL=NULL;
-            return; }temp_uQEkKfL=(uint32_t*)malloc(pBuildInfo->geometryCount*sizeof(uint32_t));
+                pMaxPrimitiveCounts=NULL;
+            return; }pMaxPrimitiveCounts=(uint32_t*)malloc(pBuildInfo->geometryCount*sizeof(uint32_t));
         auto& arr_crHuORX=json["pMaxPrimitiveCounts"].as_array();
         for(int JfSxsJb=0; JfSxsJb < pBuildInfo->geometryCount; JfSxsJb++){
-            [&](){temp_uQEkKfL[JfSxsJb]=static_cast<uint32_t>(value_to<int>(arr_crHuORX[JfSxsJb]));}();
+            [&](){pMaxPrimitiveCounts[JfSxsJb]=static_cast<uint32_t>(value_to<int>(arr_crHuORX[JfSxsJb]));}();
         }
-        }();pMaxPrimitiveCounts=temp_uQEkKfL;}();
+        }();
 VkAccelerationStructureBuildSizesInfoKHR* pSizeInfo;
 [&](){
             if (json["pSizeInfo"].as_array().size()==0){
@@ -27286,34 +27462,34 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t vertexBindingDescriptionCount;
 [&](){vertexBindingDescriptionCount=static_cast<uint32_t>(value_to<int>(json["vertexBindingDescriptionCount"]));}();
-VkVertexInputBindingDescription2EXT* pVertexBindingDescriptions;
-[&](){ VkVertexInputBindingDescription2EXT* temp_mnrvCzp[&](){
+ VkVertexInputBindingDescription2EXT* pVertexBindingDescriptions;
+[&](){
             if (json["pVertexBindingDescriptions"].as_array().size()==0){
-                temp_mnrvCzp=NULL;
-            return; }temp_mnrvCzp=(VkVertexInputBindingDescription2EXT*)malloc(vertexBindingDescriptionCount*sizeof(VkVertexInputBindingDescription2EXT));
+                pVertexBindingDescriptions=NULL;
+            return; }pVertexBindingDescriptions=(VkVertexInputBindingDescription2EXT*)malloc(vertexBindingDescriptionCount*sizeof(VkVertexInputBindingDescription2EXT));
         auto& arr_ZGQrPce=json["pVertexBindingDescriptions"].as_array();
         for(int RbuAKHw=0; RbuAKHw < vertexBindingDescriptionCount; RbuAKHw++){
             [&](){
             auto& temp=arr_ZGQrPce[RbuAKHw].as_object();
-            deserialize_struct(temp,temp_mnrvCzp[RbuAKHw]);
+            deserialize_struct(temp,pVertexBindingDescriptions[RbuAKHw]);
             }();
         }
-        }();pVertexBindingDescriptions=temp_mnrvCzp;}();
+        }();
 uint32_t vertexAttributeDescriptionCount;
 [&](){vertexAttributeDescriptionCount=static_cast<uint32_t>(value_to<int>(json["vertexAttributeDescriptionCount"]));}();
-VkVertexInputAttributeDescription2EXT* pVertexAttributeDescriptions;
-[&](){ VkVertexInputAttributeDescription2EXT* temp_jfTEhSC[&](){
+ VkVertexInputAttributeDescription2EXT* pVertexAttributeDescriptions;
+[&](){
             if (json["pVertexAttributeDescriptions"].as_array().size()==0){
-                temp_jfTEhSC=NULL;
-            return; }temp_jfTEhSC=(VkVertexInputAttributeDescription2EXT*)malloc(vertexAttributeDescriptionCount*sizeof(VkVertexInputAttributeDescription2EXT));
+                pVertexAttributeDescriptions=NULL;
+            return; }pVertexAttributeDescriptions=(VkVertexInputAttributeDescription2EXT*)malloc(vertexAttributeDescriptionCount*sizeof(VkVertexInputAttributeDescription2EXT));
         auto& arr_CiNLRoW=json["pVertexAttributeDescriptions"].as_array();
         for(int OKcAyyi=0; OKcAyyi < vertexAttributeDescriptionCount; OKcAyyi++){
             [&](){
             auto& temp=arr_CiNLRoW[OKcAyyi].as_object();
-            deserialize_struct(temp,temp_jfTEhSC[OKcAyyi]);
+            deserialize_struct(temp,pVertexAttributeDescriptions[OKcAyyi]);
             }();
         }
-        }();pVertexAttributeDescriptions=temp_jfTEhSC;}();
+        }();
 
     PFN_vkCmdSetVertexInputEXT call_function;
     
@@ -27373,16 +27549,16 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t attachmentCount;
 [&](){attachmentCount=static_cast<uint32_t>(value_to<int>(json["attachmentCount"]));}();
-VkBool32* pColorWriteEnables;
-[&](){ VkBool32* temp_pvsxOXt[&](){
+ VkBool32* pColorWriteEnables;
+[&](){
             if (json["pColorWriteEnables"].as_array().size()==0){
-                temp_pvsxOXt=NULL;
-            return; }temp_pvsxOXt=(VkBool32*)malloc(attachmentCount*sizeof(VkBool32));
+                pColorWriteEnables=NULL;
+            return; }pColorWriteEnables=(VkBool32*)malloc(attachmentCount*sizeof(VkBool32));
         auto& arr_KEXhgIr=json["pColorWriteEnables"].as_array();
         for(int vEjtLXo=0; vEjtLXo < attachmentCount; vEjtLXo++){
-            [&](){uint32_t temp_KEXhgIr;[&](){temp_KEXhgIr=static_cast<uint32_t>(value_to<int>(arr_KEXhgIr[vEjtLXo]));}();temp_pvsxOXt[vEjtLXo]=(VkBool32)temp_KEXhgIr;}();
+            [&](){uint32_t temp_KEXhgIr;[&](){temp_KEXhgIr=static_cast<uint32_t>(value_to<int>(arr_KEXhgIr[vEjtLXo]));}();pColorWriteEnables[vEjtLXo]=(VkBool32)temp_KEXhgIr;}();
         }
-        }();pColorWriteEnables=temp_pvsxOXt;}();
+        }();
 
     PFN_vkCmdSetColorWriteEnableEXT call_function;
     
@@ -27426,19 +27602,19 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 VkEvent event;
 [&](){deserialize_VkEvent(json["event"], event);}();
-VkDependencyInfo* pDependencyInfo;
-[&](){ VkDependencyInfo* temp_ANnuVHA[&](){
+ VkDependencyInfo* pDependencyInfo;
+[&](){
             if (json["pDependencyInfo"].as_array().size()==0){
-                temp_ANnuVHA=NULL;
-            return; }temp_ANnuVHA=(VkDependencyInfo*)malloc(1*sizeof(VkDependencyInfo));
+                pDependencyInfo=NULL;
+            return; }pDependencyInfo=(VkDependencyInfo*)malloc(1*sizeof(VkDependencyInfo));
         auto& arr_rdDuAVo=json["pDependencyInfo"].as_array();
         for(int WSueWEw=0; WSueWEw < 1; WSueWEw++){
             [&](){
             auto& temp=arr_rdDuAVo[WSueWEw].as_object();
-            deserialize_struct(temp,temp_ANnuVHA[WSueWEw]);
+            deserialize_struct(temp,pDependencyInfo[WSueWEw]);
             }();
         }
-        }();pDependencyInfo=temp_ANnuVHA;}();
+        }();
 
     PFN_vkCmdSetEvent2 call_function;
     
@@ -27522,29 +27698,29 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t eventCount;
 [&](){eventCount=static_cast<uint32_t>(value_to<int>(json["eventCount"]));}();
-VkEvent* pEvents;
-[&](){ VkEvent* temp_DnisCCa[&](){
+ VkEvent* pEvents;
+[&](){
             if (json["pEvents"].as_array().size()==0){
-                temp_DnisCCa=NULL;
-            return; }temp_DnisCCa=(VkEvent*)malloc(eventCount*sizeof(VkEvent));
+                pEvents=NULL;
+            return; }pEvents=(VkEvent*)malloc(eventCount*sizeof(VkEvent));
         auto& arr_QYtHNne=json["pEvents"].as_array();
         for(int RuhNVwi=0; RuhNVwi < eventCount; RuhNVwi++){
-            [&](){deserialize_VkEvent(arr_QYtHNne[RuhNVwi], temp_DnisCCa[RuhNVwi]);}();
+            [&](){deserialize_VkEvent(arr_QYtHNne[RuhNVwi], pEvents[RuhNVwi]);}();
         }
-        }();pEvents=temp_DnisCCa;}();
-VkDependencyInfo* pDependencyInfos;
-[&](){ VkDependencyInfo* temp_bQpYnoe[&](){
+        }();
+ VkDependencyInfo* pDependencyInfos;
+[&](){
             if (json["pDependencyInfos"].as_array().size()==0){
-                temp_bQpYnoe=NULL;
-            return; }temp_bQpYnoe=(VkDependencyInfo*)malloc(eventCount*sizeof(VkDependencyInfo));
+                pDependencyInfos=NULL;
+            return; }pDependencyInfos=(VkDependencyInfo*)malloc(eventCount*sizeof(VkDependencyInfo));
         auto& arr_ldOSlic=json["pDependencyInfos"].as_array();
         for(int aTqXMab=0; aTqXMab < eventCount; aTqXMab++){
             [&](){
             auto& temp=arr_ldOSlic[aTqXMab].as_object();
-            deserialize_struct(temp,temp_bQpYnoe[aTqXMab]);
+            deserialize_struct(temp,pDependencyInfos[aTqXMab]);
             }();
         }
-        }();pDependencyInfos=temp_bQpYnoe;}();
+        }();
 
     PFN_vkCmdWaitEvents2 call_function;
     
@@ -27598,19 +27774,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkDependencyInfo* pDependencyInfo;
-[&](){ VkDependencyInfo* temp_ANnuVHA[&](){
+ VkDependencyInfo* pDependencyInfo;
+[&](){
             if (json["pDependencyInfo"].as_array().size()==0){
-                temp_ANnuVHA=NULL;
-            return; }temp_ANnuVHA=(VkDependencyInfo*)malloc(1*sizeof(VkDependencyInfo));
+                pDependencyInfo=NULL;
+            return; }pDependencyInfo=(VkDependencyInfo*)malloc(1*sizeof(VkDependencyInfo));
         auto& arr_rdDuAVo=json["pDependencyInfo"].as_array();
         for(int WSueWEw=0; WSueWEw < 1; WSueWEw++){
             [&](){
             auto& temp=arr_rdDuAVo[WSueWEw].as_object();
-            deserialize_struct(temp,temp_ANnuVHA[WSueWEw]);
+            deserialize_struct(temp,pDependencyInfo[WSueWEw]);
             }();
         }
-        }();pDependencyInfo=temp_ANnuVHA;}();
+        }();
 
     PFN_vkCmdPipelineBarrier2 call_function;
     
@@ -27656,19 +27832,19 @@ VkQueue queue;
 [&](){deserialize_VkQueue(json["queue"], queue);}();
 uint32_t submitCount;
 [&](){submitCount=static_cast<uint32_t>(value_to<int>(json["submitCount"]));}();
-VkSubmitInfo2* pSubmits;
-[&](){ VkSubmitInfo2* temp_zRsIHWq[&](){
+ VkSubmitInfo2* pSubmits;
+[&](){
             if (json["pSubmits"].as_array().size()==0){
-                temp_zRsIHWq=NULL;
-            return; }temp_zRsIHWq=(VkSubmitInfo2*)malloc(submitCount*sizeof(VkSubmitInfo2));
+                pSubmits=NULL;
+            return; }pSubmits=(VkSubmitInfo2*)malloc(submitCount*sizeof(VkSubmitInfo2));
         auto& arr_mzfyWou=json["pSubmits"].as_array();
         for(int ozkbIJW=0; ozkbIJW < submitCount; ozkbIJW++){
             [&](){
             auto& temp=arr_mzfyWou[ozkbIJW].as_object();
-            deserialize_struct(temp,temp_zRsIHWq[ozkbIJW]);
+            deserialize_struct(temp,pSubmits[ozkbIJW]);
             }();
         }
-        }();pSubmits=temp_zRsIHWq;}();
+        }();
 VkFence fence;
 [&](){deserialize_VkFence(json["fence"], fence);}();
 
@@ -27686,8 +27862,9 @@ VkFence fence;
         call_function=(PFN_vkQueueSubmit2)get_device_proc_addr(parent,"vkQueueSubmit2");
     }  
     
+VkResult  result;
 {
-auto result=call_function(queue, submitCount, pSubmits, fence);
+result=call_function(queue, submitCount, pSubmits, fence);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -27874,19 +28051,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkCopyMemoryToImageInfoEXT* pCopyMemoryToImageInfo;
-[&](){ VkCopyMemoryToImageInfoEXT* temp_czYuFVd[&](){
+ VkCopyMemoryToImageInfoEXT* pCopyMemoryToImageInfo;
+[&](){
             if (json["pCopyMemoryToImageInfo"].as_array().size()==0){
-                temp_czYuFVd=NULL;
-            return; }temp_czYuFVd=(VkCopyMemoryToImageInfoEXT*)malloc(1*sizeof(VkCopyMemoryToImageInfoEXT));
+                pCopyMemoryToImageInfo=NULL;
+            return; }pCopyMemoryToImageInfo=(VkCopyMemoryToImageInfoEXT*)malloc(1*sizeof(VkCopyMemoryToImageInfoEXT));
         auto& arr_uGpCetH=json["pCopyMemoryToImageInfo"].as_array();
         for(int LeBHPTF=0; LeBHPTF < 1; LeBHPTF++){
             [&](){
             auto& temp=arr_uGpCetH[LeBHPTF].as_object();
-            deserialize_struct(temp,temp_czYuFVd[LeBHPTF]);
+            deserialize_struct(temp,pCopyMemoryToImageInfo[LeBHPTF]);
             }();
         }
-        }();pCopyMemoryToImageInfo=temp_czYuFVd;}();
+        }();
 
     PFN_vkCopyMemoryToImageEXT call_function;
     
@@ -27902,8 +28079,9 @@ VkCopyMemoryToImageInfoEXT* pCopyMemoryToImageInfo;
         call_function=(PFN_vkCopyMemoryToImageEXT)get_device_proc_addr(parent,"vkCopyMemoryToImageEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCopyMemoryToImageInfo);
+result=call_function(device, pCopyMemoryToImageInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -27930,19 +28108,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkCopyImageToMemoryInfoEXT* pCopyImageToMemoryInfo;
-[&](){ VkCopyImageToMemoryInfoEXT* temp_eSmguRR[&](){
+ VkCopyImageToMemoryInfoEXT* pCopyImageToMemoryInfo;
+[&](){
             if (json["pCopyImageToMemoryInfo"].as_array().size()==0){
-                temp_eSmguRR=NULL;
-            return; }temp_eSmguRR=(VkCopyImageToMemoryInfoEXT*)malloc(1*sizeof(VkCopyImageToMemoryInfoEXT));
+                pCopyImageToMemoryInfo=NULL;
+            return; }pCopyImageToMemoryInfo=(VkCopyImageToMemoryInfoEXT*)malloc(1*sizeof(VkCopyImageToMemoryInfoEXT));
         auto& arr_JjXseiq=json["pCopyImageToMemoryInfo"].as_array();
         for(int zMfiotL=0; zMfiotL < 1; zMfiotL++){
             [&](){
             auto& temp=arr_JjXseiq[zMfiotL].as_object();
-            deserialize_struct(temp,temp_eSmguRR[zMfiotL]);
+            deserialize_struct(temp,pCopyImageToMemoryInfo[zMfiotL]);
             }();
         }
-        }();pCopyImageToMemoryInfo=temp_eSmguRR;}();
+        }();
 
     PFN_vkCopyImageToMemoryEXT call_function;
     
@@ -27958,8 +28136,9 @@ VkCopyImageToMemoryInfoEXT* pCopyImageToMemoryInfo;
         call_function=(PFN_vkCopyImageToMemoryEXT)get_device_proc_addr(parent,"vkCopyImageToMemoryEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCopyImageToMemoryInfo);
+result=call_function(device, pCopyImageToMemoryInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -27986,19 +28165,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkCopyImageToImageInfoEXT* pCopyImageToImageInfo;
-[&](){ VkCopyImageToImageInfoEXT* temp_ocaImgM[&](){
+ VkCopyImageToImageInfoEXT* pCopyImageToImageInfo;
+[&](){
             if (json["pCopyImageToImageInfo"].as_array().size()==0){
-                temp_ocaImgM=NULL;
-            return; }temp_ocaImgM=(VkCopyImageToImageInfoEXT*)malloc(1*sizeof(VkCopyImageToImageInfoEXT));
+                pCopyImageToImageInfo=NULL;
+            return; }pCopyImageToImageInfo=(VkCopyImageToImageInfoEXT*)malloc(1*sizeof(VkCopyImageToImageInfoEXT));
         auto& arr_WKQiAFF=json["pCopyImageToImageInfo"].as_array();
         for(int kaVefuU=0; kaVefuU < 1; kaVefuU++){
             [&](){
             auto& temp=arr_WKQiAFF[kaVefuU].as_object();
-            deserialize_struct(temp,temp_ocaImgM[kaVefuU]);
+            deserialize_struct(temp,pCopyImageToImageInfo[kaVefuU]);
             }();
         }
-        }();pCopyImageToImageInfo=temp_ocaImgM;}();
+        }();
 
     PFN_vkCopyImageToImageEXT call_function;
     
@@ -28014,8 +28193,9 @@ VkCopyImageToImageInfoEXT* pCopyImageToImageInfo;
         call_function=(PFN_vkCopyImageToImageEXT)get_device_proc_addr(parent,"vkCopyImageToImageEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCopyImageToImageInfo);
+result=call_function(device, pCopyImageToImageInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -28044,19 +28224,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 uint32_t transitionCount;
 [&](){transitionCount=static_cast<uint32_t>(value_to<int>(json["transitionCount"]));}();
-VkHostImageLayoutTransitionInfoEXT* pTransitions;
-[&](){ VkHostImageLayoutTransitionInfoEXT* temp_trVvZZY[&](){
+ VkHostImageLayoutTransitionInfoEXT* pTransitions;
+[&](){
             if (json["pTransitions"].as_array().size()==0){
-                temp_trVvZZY=NULL;
-            return; }temp_trVvZZY=(VkHostImageLayoutTransitionInfoEXT*)malloc(transitionCount*sizeof(VkHostImageLayoutTransitionInfoEXT));
+                pTransitions=NULL;
+            return; }pTransitions=(VkHostImageLayoutTransitionInfoEXT*)malloc(transitionCount*sizeof(VkHostImageLayoutTransitionInfoEXT));
         auto& arr_kGKdcAG=json["pTransitions"].as_array();
         for(int mCqQGEL=0; mCqQGEL < transitionCount; mCqQGEL++){
             [&](){
             auto& temp=arr_kGKdcAG[mCqQGEL].as_object();
-            deserialize_struct(temp,temp_trVvZZY[mCqQGEL]);
+            deserialize_struct(temp,pTransitions[mCqQGEL]);
             }();
         }
-        }();pTransitions=temp_trVvZZY;}();
+        }();
 
     PFN_vkTransitionImageLayoutEXT call_function;
     
@@ -28072,8 +28252,9 @@ VkHostImageLayoutTransitionInfoEXT* pTransitions;
         call_function=(PFN_vkTransitionImageLayoutEXT)get_device_proc_addr(parent,"vkTransitionImageLayoutEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, transitionCount, pTransitions);
+result=call_function(device, transitionCount, pTransitions);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -28101,19 +28282,19 @@ json.clear();
     
 VkPhysicalDevice physicalDevice;
 [&](){deserialize_VkPhysicalDevice(json["physicalDevice"], physicalDevice);}();
-VkVideoProfileInfoKHR* pVideoProfile;
-[&](){ VkVideoProfileInfoKHR* temp_jRYVPfH[&](){
+ VkVideoProfileInfoKHR* pVideoProfile;
+[&](){
             if (json["pVideoProfile"].as_array().size()==0){
-                temp_jRYVPfH=NULL;
-            return; }temp_jRYVPfH=(VkVideoProfileInfoKHR*)malloc(1*sizeof(VkVideoProfileInfoKHR));
+                pVideoProfile=NULL;
+            return; }pVideoProfile=(VkVideoProfileInfoKHR*)malloc(1*sizeof(VkVideoProfileInfoKHR));
         auto& arr_LQJyXAW=json["pVideoProfile"].as_array();
         for(int AyTOixj=0; AyTOixj < 1; AyTOixj++){
             [&](){
             auto& temp=arr_LQJyXAW[AyTOixj].as_object();
-            deserialize_struct(temp,temp_jRYVPfH[AyTOixj]);
+            deserialize_struct(temp,pVideoProfile[AyTOixj]);
             }();
         }
-        }();pVideoProfile=temp_jRYVPfH;}();
+        }();
 VkVideoCapabilitiesKHR* pCapabilities;
 [&](){
             if (json["pCapabilities"].as_array().size()==0){
@@ -28142,8 +28323,9 @@ VkVideoCapabilitiesKHR* pCapabilities;
         call_function=(PFN_vkGetPhysicalDeviceVideoCapabilitiesKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceVideoCapabilitiesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pVideoProfile, pCapabilities);
+result=call_function(physicalDevice, pVideoProfile, pCapabilities);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -28182,19 +28364,19 @@ json.clear();
     
 VkPhysicalDevice physicalDevice;
 [&](){deserialize_VkPhysicalDevice(json["physicalDevice"], physicalDevice);}();
-VkPhysicalDeviceVideoFormatInfoKHR* pVideoFormatInfo;
-[&](){ VkPhysicalDeviceVideoFormatInfoKHR* temp_HMvmjPo[&](){
+ VkPhysicalDeviceVideoFormatInfoKHR* pVideoFormatInfo;
+[&](){
             if (json["pVideoFormatInfo"].as_array().size()==0){
-                temp_HMvmjPo=NULL;
-            return; }temp_HMvmjPo=(VkPhysicalDeviceVideoFormatInfoKHR*)malloc(1*sizeof(VkPhysicalDeviceVideoFormatInfoKHR));
+                pVideoFormatInfo=NULL;
+            return; }pVideoFormatInfo=(VkPhysicalDeviceVideoFormatInfoKHR*)malloc(1*sizeof(VkPhysicalDeviceVideoFormatInfoKHR));
         auto& arr_JCeubLO=json["pVideoFormatInfo"].as_array();
         for(int aVxBrFp=0; aVxBrFp < 1; aVxBrFp++){
             [&](){
             auto& temp=arr_JCeubLO[aVxBrFp].as_object();
-            deserialize_struct(temp,temp_HMvmjPo[aVxBrFp]);
+            deserialize_struct(temp,pVideoFormatInfo[aVxBrFp]);
             }();
         }
-        }();pVideoFormatInfo=temp_HMvmjPo;}();
+        }();
 uint32_t* pVideoFormatPropertyCount;
 [&](){
             if (json["pVideoFormatPropertyCount"].as_array().size()==0){
@@ -28233,8 +28415,9 @@ VkVideoFormatPropertiesKHR* pVideoFormatProperties;
         call_function=(PFN_vkGetPhysicalDeviceVideoFormatPropertiesKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceVideoFormatPropertiesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pVideoFormatInfo, pVideoFormatPropertyCount, pVideoFormatProperties);
+result=call_function(physicalDevice, pVideoFormatInfo, pVideoFormatPropertyCount, pVideoFormatProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -28282,32 +28465,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkVideoSessionCreateInfoKHR* pCreateInfo;
-[&](){ VkVideoSessionCreateInfoKHR* temp_GSTOFkn[&](){
+ VkVideoSessionCreateInfoKHR* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_GSTOFkn=NULL;
-            return; }temp_GSTOFkn=(VkVideoSessionCreateInfoKHR*)malloc(1*sizeof(VkVideoSessionCreateInfoKHR));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkVideoSessionCreateInfoKHR*)malloc(1*sizeof(VkVideoSessionCreateInfoKHR));
         auto& arr_wPbwQCK=json["pCreateInfo"].as_array();
         for(int YSXcLgo=0; YSXcLgo < 1; YSXcLgo++){
             [&](){
             auto& temp=arr_wPbwQCK[YSXcLgo].as_object();
-            deserialize_struct(temp,temp_GSTOFkn[YSXcLgo]);
+            deserialize_struct(temp,pCreateInfo[YSXcLgo]);
             }();
         }
-        }();pCreateInfo=temp_GSTOFkn;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkVideoSessionKHR* pVideoSession;
 [&](){
             if (json["pVideoSession"].as_array().size()==0){
@@ -28333,8 +28516,9 @@ VkVideoSessionKHR* pVideoSession;
         call_function=(PFN_vkCreateVideoSessionKHR)get_device_proc_addr(parent,"vkCreateVideoSessionKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pVideoSession);
+result=call_function(device, pCreateInfo, pAllocator, pVideoSession);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -28384,19 +28568,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkVideoSessionKHR videoSession;
 [&](){deserialize_VkVideoSessionKHR(json["videoSession"], videoSession);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyVideoSessionKHR call_function;
     
@@ -28441,32 +28625,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkVideoSessionParametersCreateInfoKHR* pCreateInfo;
-[&](){ VkVideoSessionParametersCreateInfoKHR* temp_TeFAIZF[&](){
+ VkVideoSessionParametersCreateInfoKHR* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_TeFAIZF=NULL;
-            return; }temp_TeFAIZF=(VkVideoSessionParametersCreateInfoKHR*)malloc(1*sizeof(VkVideoSessionParametersCreateInfoKHR));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkVideoSessionParametersCreateInfoKHR*)malloc(1*sizeof(VkVideoSessionParametersCreateInfoKHR));
         auto& arr_orBbBzS=json["pCreateInfo"].as_array();
         for(int BFSvJhy=0; BFSvJhy < 1; BFSvJhy++){
             [&](){
             auto& temp=arr_orBbBzS[BFSvJhy].as_object();
-            deserialize_struct(temp,temp_TeFAIZF[BFSvJhy]);
+            deserialize_struct(temp,pCreateInfo[BFSvJhy]);
             }();
         }
-        }();pCreateInfo=temp_TeFAIZF;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkVideoSessionParametersKHR* pVideoSessionParameters;
 [&](){
             if (json["pVideoSessionParameters"].as_array().size()==0){
@@ -28492,8 +28676,9 @@ VkVideoSessionParametersKHR* pVideoSessionParameters;
         call_function=(PFN_vkCreateVideoSessionParametersKHR)get_device_proc_addr(parent,"vkCreateVideoSessionParametersKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pVideoSessionParameters);
+result=call_function(device, pCreateInfo, pAllocator, pVideoSessionParameters);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -28543,19 +28728,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkVideoSessionParametersKHR videoSessionParameters;
 [&](){deserialize_VkVideoSessionParametersKHR(json["videoSessionParameters"], videoSessionParameters);}();
-VkVideoSessionParametersUpdateInfoKHR* pUpdateInfo;
-[&](){ VkVideoSessionParametersUpdateInfoKHR* temp_epoZYqK[&](){
+ VkVideoSessionParametersUpdateInfoKHR* pUpdateInfo;
+[&](){
             if (json["pUpdateInfo"].as_array().size()==0){
-                temp_epoZYqK=NULL;
-            return; }temp_epoZYqK=(VkVideoSessionParametersUpdateInfoKHR*)malloc(1*sizeof(VkVideoSessionParametersUpdateInfoKHR));
+                pUpdateInfo=NULL;
+            return; }pUpdateInfo=(VkVideoSessionParametersUpdateInfoKHR*)malloc(1*sizeof(VkVideoSessionParametersUpdateInfoKHR));
         auto& arr_ErkRXpw=json["pUpdateInfo"].as_array();
         for(int wrcSXFx=0; wrcSXFx < 1; wrcSXFx++){
             [&](){
             auto& temp=arr_ErkRXpw[wrcSXFx].as_object();
-            deserialize_struct(temp,temp_epoZYqK[wrcSXFx]);
+            deserialize_struct(temp,pUpdateInfo[wrcSXFx]);
             }();
         }
-        }();pUpdateInfo=temp_epoZYqK;}();
+        }();
 
     PFN_vkUpdateVideoSessionParametersKHR call_function;
     
@@ -28571,8 +28756,9 @@ VkVideoSessionParametersUpdateInfoKHR* pUpdateInfo;
         call_function=(PFN_vkUpdateVideoSessionParametersKHR)get_device_proc_addr(parent,"vkUpdateVideoSessionParametersKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, videoSessionParameters, pUpdateInfo);
+result=call_function(device, videoSessionParameters, pUpdateInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -28602,19 +28788,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkVideoSessionParametersKHR videoSessionParameters;
 [&](){deserialize_VkVideoSessionParametersKHR(json["videoSessionParameters"], videoSessionParameters);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyVideoSessionParametersKHR call_function;
     
@@ -28699,8 +28885,9 @@ VkVideoSessionMemoryRequirementsKHR* pMemoryRequirements;
         call_function=(PFN_vkGetVideoSessionMemoryRequirementsKHR)get_device_proc_addr(parent,"vkGetVideoSessionMemoryRequirementsKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, videoSession, pMemoryRequirementsCount, pMemoryRequirements);
+result=call_function(device, videoSession, pMemoryRequirementsCount, pMemoryRequirements);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -28741,19 +28928,19 @@ VkVideoSessionKHR videoSession;
 [&](){deserialize_VkVideoSessionKHR(json["videoSession"], videoSession);}();
 uint32_t bindSessionMemoryInfoCount;
 [&](){bindSessionMemoryInfoCount=static_cast<uint32_t>(value_to<int>(json["bindSessionMemoryInfoCount"]));}();
-VkBindVideoSessionMemoryInfoKHR* pBindSessionMemoryInfos;
-[&](){ VkBindVideoSessionMemoryInfoKHR* temp_UuNkUKY[&](){
+ VkBindVideoSessionMemoryInfoKHR* pBindSessionMemoryInfos;
+[&](){
             if (json["pBindSessionMemoryInfos"].as_array().size()==0){
-                temp_UuNkUKY=NULL;
-            return; }temp_UuNkUKY=(VkBindVideoSessionMemoryInfoKHR*)malloc(bindSessionMemoryInfoCount*sizeof(VkBindVideoSessionMemoryInfoKHR));
+                pBindSessionMemoryInfos=NULL;
+            return; }pBindSessionMemoryInfos=(VkBindVideoSessionMemoryInfoKHR*)malloc(bindSessionMemoryInfoCount*sizeof(VkBindVideoSessionMemoryInfoKHR));
         auto& arr_TbzDfjI=json["pBindSessionMemoryInfos"].as_array();
         for(int XHgqGRS=0; XHgqGRS < bindSessionMemoryInfoCount; XHgqGRS++){
             [&](){
             auto& temp=arr_TbzDfjI[XHgqGRS].as_object();
-            deserialize_struct(temp,temp_UuNkUKY[XHgqGRS]);
+            deserialize_struct(temp,pBindSessionMemoryInfos[XHgqGRS]);
             }();
         }
-        }();pBindSessionMemoryInfos=temp_UuNkUKY;}();
+        }();
 
     PFN_vkBindVideoSessionMemoryKHR call_function;
     
@@ -28769,8 +28956,9 @@ VkBindVideoSessionMemoryInfoKHR* pBindSessionMemoryInfos;
         call_function=(PFN_vkBindVideoSessionMemoryKHR)get_device_proc_addr(parent,"vkBindVideoSessionMemoryKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, videoSession, bindSessionMemoryInfoCount, pBindSessionMemoryInfos);
+result=call_function(device, videoSession, bindSessionMemoryInfoCount, pBindSessionMemoryInfos);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -28799,19 +28987,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkVideoDecodeInfoKHR* pDecodeInfo;
-[&](){ VkVideoDecodeInfoKHR* temp_SieakPn[&](){
+ VkVideoDecodeInfoKHR* pDecodeInfo;
+[&](){
             if (json["pDecodeInfo"].as_array().size()==0){
-                temp_SieakPn=NULL;
-            return; }temp_SieakPn=(VkVideoDecodeInfoKHR*)malloc(1*sizeof(VkVideoDecodeInfoKHR));
+                pDecodeInfo=NULL;
+            return; }pDecodeInfo=(VkVideoDecodeInfoKHR*)malloc(1*sizeof(VkVideoDecodeInfoKHR));
         auto& arr_ewdOprb=json["pDecodeInfo"].as_array();
         for(int PPOqwvx=0; PPOqwvx < 1; PPOqwvx++){
             [&](){
             auto& temp=arr_ewdOprb[PPOqwvx].as_object();
-            deserialize_struct(temp,temp_SieakPn[PPOqwvx]);
+            deserialize_struct(temp,pDecodeInfo[PPOqwvx]);
             }();
         }
-        }();pDecodeInfo=temp_SieakPn;}();
+        }();
 
     PFN_vkCmdDecodeVideoKHR call_function;
     
@@ -28855,19 +29043,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkVideoBeginCodingInfoKHR* pBeginInfo;
-[&](){ VkVideoBeginCodingInfoKHR* temp_CpOOMpI[&](){
+ VkVideoBeginCodingInfoKHR* pBeginInfo;
+[&](){
             if (json["pBeginInfo"].as_array().size()==0){
-                temp_CpOOMpI=NULL;
-            return; }temp_CpOOMpI=(VkVideoBeginCodingInfoKHR*)malloc(1*sizeof(VkVideoBeginCodingInfoKHR));
+                pBeginInfo=NULL;
+            return; }pBeginInfo=(VkVideoBeginCodingInfoKHR*)malloc(1*sizeof(VkVideoBeginCodingInfoKHR));
         auto& arr_YgojtMV=json["pBeginInfo"].as_array();
         for(int gEGjmEh=0; gEGjmEh < 1; gEGjmEh++){
             [&](){
             auto& temp=arr_YgojtMV[gEGjmEh].as_object();
-            deserialize_struct(temp,temp_CpOOMpI[gEGjmEh]);
+            deserialize_struct(temp,pBeginInfo[gEGjmEh]);
             }();
         }
-        }();pBeginInfo=temp_CpOOMpI;}();
+        }();
 
     PFN_vkCmdBeginVideoCodingKHR call_function;
     
@@ -28911,19 +29099,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkVideoCodingControlInfoKHR* pCodingControlInfo;
-[&](){ VkVideoCodingControlInfoKHR* temp_ynOVlWW[&](){
+ VkVideoCodingControlInfoKHR* pCodingControlInfo;
+[&](){
             if (json["pCodingControlInfo"].as_array().size()==0){
-                temp_ynOVlWW=NULL;
-            return; }temp_ynOVlWW=(VkVideoCodingControlInfoKHR*)malloc(1*sizeof(VkVideoCodingControlInfoKHR));
+                pCodingControlInfo=NULL;
+            return; }pCodingControlInfo=(VkVideoCodingControlInfoKHR*)malloc(1*sizeof(VkVideoCodingControlInfoKHR));
         auto& arr_QVObPIP=json["pCodingControlInfo"].as_array();
         for(int LMgTacT=0; LMgTacT < 1; LMgTacT++){
             [&](){
             auto& temp=arr_QVObPIP[LMgTacT].as_object();
-            deserialize_struct(temp,temp_ynOVlWW[LMgTacT]);
+            deserialize_struct(temp,pCodingControlInfo[LMgTacT]);
             }();
         }
-        }();pCodingControlInfo=temp_ynOVlWW;}();
+        }();
 
     PFN_vkCmdControlVideoCodingKHR call_function;
     
@@ -28967,19 +29155,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkVideoEndCodingInfoKHR* pEndCodingInfo;
-[&](){ VkVideoEndCodingInfoKHR* temp_CTywrGu[&](){
+ VkVideoEndCodingInfoKHR* pEndCodingInfo;
+[&](){
             if (json["pEndCodingInfo"].as_array().size()==0){
-                temp_CTywrGu=NULL;
-            return; }temp_CTywrGu=(VkVideoEndCodingInfoKHR*)malloc(1*sizeof(VkVideoEndCodingInfoKHR));
+                pEndCodingInfo=NULL;
+            return; }pEndCodingInfo=(VkVideoEndCodingInfoKHR*)malloc(1*sizeof(VkVideoEndCodingInfoKHR));
         auto& arr_ErbGsyK=json["pEndCodingInfo"].as_array();
         for(int QjqRiFV=0; QjqRiFV < 1; QjqRiFV++){
             [&](){
             auto& temp=arr_ErbGsyK[QjqRiFV].as_object();
-            deserialize_struct(temp,temp_CTywrGu[QjqRiFV]);
+            deserialize_struct(temp,pEndCodingInfo[QjqRiFV]);
             }();
         }
-        }();pEndCodingInfo=temp_CTywrGu;}();
+        }();
 
     PFN_vkCmdEndVideoCodingKHR call_function;
     
@@ -29025,19 +29213,19 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t decompressRegionCount;
 [&](){decompressRegionCount=static_cast<uint32_t>(value_to<int>(json["decompressRegionCount"]));}();
-VkDecompressMemoryRegionNV* pDecompressMemoryRegions;
-[&](){ VkDecompressMemoryRegionNV* temp_LfXQByJ[&](){
+ VkDecompressMemoryRegionNV* pDecompressMemoryRegions;
+[&](){
             if (json["pDecompressMemoryRegions"].as_array().size()==0){
-                temp_LfXQByJ=NULL;
-            return; }temp_LfXQByJ=(VkDecompressMemoryRegionNV*)malloc(decompressRegionCount*sizeof(VkDecompressMemoryRegionNV));
+                pDecompressMemoryRegions=NULL;
+            return; }pDecompressMemoryRegions=(VkDecompressMemoryRegionNV*)malloc(decompressRegionCount*sizeof(VkDecompressMemoryRegionNV));
         auto& arr_VAyqSbG=json["pDecompressMemoryRegions"].as_array();
         for(int EZVrxlF=0; EZVrxlF < decompressRegionCount; EZVrxlF++){
             [&](){
             auto& temp=arr_VAyqSbG[EZVrxlF].as_object();
-            deserialize_struct(temp,temp_LfXQByJ[EZVrxlF]);
+            deserialize_struct(temp,pDecompressMemoryRegions[EZVrxlF]);
             }();
         }
-        }();pDecompressMemoryRegions=temp_LfXQByJ;}();
+        }();
 
     PFN_vkCmdDecompressMemoryNV call_function;
     
@@ -29122,32 +29310,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkCuModuleCreateInfoNVX* pCreateInfo;
-[&](){ VkCuModuleCreateInfoNVX* temp_JUpJYYI[&](){
+ VkCuModuleCreateInfoNVX* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_JUpJYYI=NULL;
-            return; }temp_JUpJYYI=(VkCuModuleCreateInfoNVX*)malloc(1*sizeof(VkCuModuleCreateInfoNVX));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkCuModuleCreateInfoNVX*)malloc(1*sizeof(VkCuModuleCreateInfoNVX));
         auto& arr_hMoVXkn=json["pCreateInfo"].as_array();
         for(int cihZnwL=0; cihZnwL < 1; cihZnwL++){
             [&](){
             auto& temp=arr_hMoVXkn[cihZnwL].as_object();
-            deserialize_struct(temp,temp_JUpJYYI[cihZnwL]);
+            deserialize_struct(temp,pCreateInfo[cihZnwL]);
             }();
         }
-        }();pCreateInfo=temp_JUpJYYI;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkCuModuleNVX* pModule;
 [&](){
             if (json["pModule"].as_array().size()==0){
@@ -29173,8 +29361,9 @@ VkCuModuleNVX* pModule;
         call_function=(PFN_vkCreateCuModuleNVX)get_device_proc_addr(parent,"vkCreateCuModuleNVX");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pModule);
+result=call_function(device, pCreateInfo, pAllocator, pModule);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -29222,32 +29411,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkCuFunctionCreateInfoNVX* pCreateInfo;
-[&](){ VkCuFunctionCreateInfoNVX* temp_LHyWZBO[&](){
+ VkCuFunctionCreateInfoNVX* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_LHyWZBO=NULL;
-            return; }temp_LHyWZBO=(VkCuFunctionCreateInfoNVX*)malloc(1*sizeof(VkCuFunctionCreateInfoNVX));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkCuFunctionCreateInfoNVX*)malloc(1*sizeof(VkCuFunctionCreateInfoNVX));
         auto& arr_gHmsOsA=json["pCreateInfo"].as_array();
         for(int EbWStVn=0; EbWStVn < 1; EbWStVn++){
             [&](){
             auto& temp=arr_gHmsOsA[EbWStVn].as_object();
-            deserialize_struct(temp,temp_LHyWZBO[EbWStVn]);
+            deserialize_struct(temp,pCreateInfo[EbWStVn]);
             }();
         }
-        }();pCreateInfo=temp_LHyWZBO;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkCuFunctionNVX* pFunction;
 [&](){
             if (json["pFunction"].as_array().size()==0){
@@ -29273,8 +29462,9 @@ VkCuFunctionNVX* pFunction;
         call_function=(PFN_vkCreateCuFunctionNVX)get_device_proc_addr(parent,"vkCreateCuFunctionNVX");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pFunction);
+result=call_function(device, pCreateInfo, pAllocator, pFunction);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -29324,19 +29514,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkCuModuleNVX module;
 [&](){deserialize_VkCuModuleNVX(json["module"], module);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyCuModuleNVX call_function;
     
@@ -29383,19 +29573,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkCuFunctionNVX function;
 [&](){deserialize_VkCuFunctionNVX(json["function"], function);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyCuFunctionNVX call_function;
     
@@ -29440,19 +29630,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkCuLaunchInfoNVX* pLaunchInfo;
-[&](){ VkCuLaunchInfoNVX* temp_mOenQMw[&](){
+ VkCuLaunchInfoNVX* pLaunchInfo;
+[&](){
             if (json["pLaunchInfo"].as_array().size()==0){
-                temp_mOenQMw=NULL;
-            return; }temp_mOenQMw=(VkCuLaunchInfoNVX*)malloc(1*sizeof(VkCuLaunchInfoNVX));
+                pLaunchInfo=NULL;
+            return; }pLaunchInfo=(VkCuLaunchInfoNVX*)malloc(1*sizeof(VkCuLaunchInfoNVX));
         auto& arr_KytmXlj=json["pLaunchInfo"].as_array();
         for(int TnDRcbg=0; TnDRcbg < 1; TnDRcbg++){
             [&](){
             auto& temp=arr_KytmXlj[TnDRcbg].as_object();
-            deserialize_struct(temp,temp_mOenQMw[TnDRcbg]);
+            deserialize_struct(temp,pLaunchInfo[TnDRcbg]);
             }();
         }
-        }();pLaunchInfo=temp_mOenQMw;}();
+        }();
 
     PFN_vkCmdCuLaunchKernelNVX call_function;
     
@@ -29605,19 +29795,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDescriptorGetInfoEXT* pDescriptorInfo;
-[&](){ VkDescriptorGetInfoEXT* temp_JaqMKvj[&](){
+ VkDescriptorGetInfoEXT* pDescriptorInfo;
+[&](){
             if (json["pDescriptorInfo"].as_array().size()==0){
-                temp_JaqMKvj=NULL;
-            return; }temp_JaqMKvj=(VkDescriptorGetInfoEXT*)malloc(1*sizeof(VkDescriptorGetInfoEXT));
+                pDescriptorInfo=NULL;
+            return; }pDescriptorInfo=(VkDescriptorGetInfoEXT*)malloc(1*sizeof(VkDescriptorGetInfoEXT));
         auto& arr_PhsrvQH=json["pDescriptorInfo"].as_array();
         for(int HBOsibB=0; HBOsibB < 1; HBOsibB++){
             [&](){
             auto& temp=arr_PhsrvQH[HBOsibB].as_object();
-            deserialize_struct(temp,temp_JaqMKvj[HBOsibB]);
+            deserialize_struct(temp,pDescriptorInfo[HBOsibB]);
             }();
         }
-        }();pDescriptorInfo=temp_JaqMKvj;}();
+        }();
 size_t dataSize;
 [&](){dataSize=static_cast<size_t>(value_to<int>(json["dataSize"]));}();
 void* pDescriptor;
@@ -29691,19 +29881,19 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t bufferCount;
 [&](){bufferCount=static_cast<uint32_t>(value_to<int>(json["bufferCount"]));}();
-VkDescriptorBufferBindingInfoEXT* pBindingInfos;
-[&](){ VkDescriptorBufferBindingInfoEXT* temp_VvhDvsB[&](){
+ VkDescriptorBufferBindingInfoEXT* pBindingInfos;
+[&](){
             if (json["pBindingInfos"].as_array().size()==0){
-                temp_VvhDvsB=NULL;
-            return; }temp_VvhDvsB=(VkDescriptorBufferBindingInfoEXT*)malloc(bufferCount*sizeof(VkDescriptorBufferBindingInfoEXT));
+                pBindingInfos=NULL;
+            return; }pBindingInfos=(VkDescriptorBufferBindingInfoEXT*)malloc(bufferCount*sizeof(VkDescriptorBufferBindingInfoEXT));
         auto& arr_xBOCrqU=json["pBindingInfos"].as_array();
         for(int VnwAoIb=0; VnwAoIb < bufferCount; VnwAoIb++){
             [&](){
             auto& temp=arr_xBOCrqU[VnwAoIb].as_object();
-            deserialize_struct(temp,temp_VvhDvsB[VnwAoIb]);
+            deserialize_struct(temp,pBindingInfos[VnwAoIb]);
             }();
         }
-        }();pBindingInfos=temp_VvhDvsB;}();
+        }();
 
     PFN_vkCmdBindDescriptorBuffersEXT call_function;
     
@@ -29756,26 +29946,26 @@ uint32_t firstSet;
 [&](){firstSet=static_cast<uint32_t>(value_to<int>(json["firstSet"]));}();
 uint32_t setCount;
 [&](){setCount=static_cast<uint32_t>(value_to<int>(json["setCount"]));}();
-uint32_t* pBufferIndices;
-[&](){ uint32_t* temp_VfkaonJ[&](){
+ uint32_t* pBufferIndices;
+[&](){
             if (json["pBufferIndices"].as_array().size()==0){
-                temp_VfkaonJ=NULL;
-            return; }temp_VfkaonJ=(uint32_t*)malloc(setCount*sizeof(uint32_t));
+                pBufferIndices=NULL;
+            return; }pBufferIndices=(uint32_t*)malloc(setCount*sizeof(uint32_t));
         auto& arr_PTuYzHc=json["pBufferIndices"].as_array();
         for(int sDNFOkx=0; sDNFOkx < setCount; sDNFOkx++){
-            [&](){temp_VfkaonJ[sDNFOkx]=static_cast<uint32_t>(value_to<int>(arr_PTuYzHc[sDNFOkx]));}();
+            [&](){pBufferIndices[sDNFOkx]=static_cast<uint32_t>(value_to<int>(arr_PTuYzHc[sDNFOkx]));}();
         }
-        }();pBufferIndices=temp_VfkaonJ;}();
-VkDeviceSize* pOffsets;
-[&](){ VkDeviceSize* temp_MZzhchn[&](){
+        }();
+ VkDeviceSize* pOffsets;
+[&](){
             if (json["pOffsets"].as_array().size()==0){
-                temp_MZzhchn=NULL;
-            return; }temp_MZzhchn=(VkDeviceSize*)malloc(setCount*sizeof(VkDeviceSize));
+                pOffsets=NULL;
+            return; }pOffsets=(VkDeviceSize*)malloc(setCount*sizeof(VkDeviceSize));
         auto& arr_uWdiGtF=json["pOffsets"].as_array();
         for(int ELYQTNF=0; ELYQTNF < setCount; ELYQTNF++){
-            [&](){uint64_t temp_uWdiGtF;[&](){temp_uWdiGtF=static_cast<uint64_t>(value_to<int>(arr_uWdiGtF[ELYQTNF]));}();temp_MZzhchn[ELYQTNF]=(VkDeviceSize)temp_uWdiGtF;}();
+            [&](){uint64_t temp_uWdiGtF;[&](){temp_uWdiGtF=static_cast<uint64_t>(value_to<int>(arr_uWdiGtF[ELYQTNF]));}();pOffsets[ELYQTNF]=(VkDeviceSize)temp_uWdiGtF;}();
         }
-        }();pOffsets=temp_MZzhchn;}();
+        }();
 
     PFN_vkCmdSetDescriptorBufferOffsetsEXT call_function;
     
@@ -29869,19 +30059,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkBufferCaptureDescriptorDataInfoEXT* pInfo;
-[&](){ VkBufferCaptureDescriptorDataInfoEXT* temp_rEgVYLu[&](){
+ VkBufferCaptureDescriptorDataInfoEXT* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_rEgVYLu=NULL;
-            return; }temp_rEgVYLu=(VkBufferCaptureDescriptorDataInfoEXT*)malloc(1*sizeof(VkBufferCaptureDescriptorDataInfoEXT));
+                pInfo=NULL;
+            return; }pInfo=(VkBufferCaptureDescriptorDataInfoEXT*)malloc(1*sizeof(VkBufferCaptureDescriptorDataInfoEXT));
         auto& arr_VqsZREG=json["pInfo"].as_array();
         for(int dxQHpNQ=0; dxQHpNQ < 1; dxQHpNQ++){
             [&](){
             auto& temp=arr_VqsZREG[dxQHpNQ].as_object();
-            deserialize_struct(temp,temp_rEgVYLu[dxQHpNQ]);
+            deserialize_struct(temp,pInfo[dxQHpNQ]);
             }();
         }
-        }();pInfo=temp_rEgVYLu;}();
+        }();
 void* pData;
 [&](){
             if (json["pData"].as_array().size()==0){
@@ -29910,8 +30100,9 @@ void* pData;
         call_function=(PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT)get_device_proc_addr(parent,"vkGetBufferOpaqueCaptureDescriptorDataEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pInfo, pData);
+result=call_function(device, pInfo, pData);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -29950,19 +30141,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkImageCaptureDescriptorDataInfoEXT* pInfo;
-[&](){ VkImageCaptureDescriptorDataInfoEXT* temp_RPYpnXY[&](){
+ VkImageCaptureDescriptorDataInfoEXT* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_RPYpnXY=NULL;
-            return; }temp_RPYpnXY=(VkImageCaptureDescriptorDataInfoEXT*)malloc(1*sizeof(VkImageCaptureDescriptorDataInfoEXT));
+                pInfo=NULL;
+            return; }pInfo=(VkImageCaptureDescriptorDataInfoEXT*)malloc(1*sizeof(VkImageCaptureDescriptorDataInfoEXT));
         auto& arr_YRCGcVr=json["pInfo"].as_array();
         for(int VOFqAJf=0; VOFqAJf < 1; VOFqAJf++){
             [&](){
             auto& temp=arr_YRCGcVr[VOFqAJf].as_object();
-            deserialize_struct(temp,temp_RPYpnXY[VOFqAJf]);
+            deserialize_struct(temp,pInfo[VOFqAJf]);
             }();
         }
-        }();pInfo=temp_RPYpnXY;}();
+        }();
 void* pData;
 [&](){
             if (json["pData"].as_array().size()==0){
@@ -29991,8 +30182,9 @@ void* pData;
         call_function=(PFN_vkGetImageOpaqueCaptureDescriptorDataEXT)get_device_proc_addr(parent,"vkGetImageOpaqueCaptureDescriptorDataEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pInfo, pData);
+result=call_function(device, pInfo, pData);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -30031,19 +30223,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkImageViewCaptureDescriptorDataInfoEXT* pInfo;
-[&](){ VkImageViewCaptureDescriptorDataInfoEXT* temp_jGAgAei[&](){
+ VkImageViewCaptureDescriptorDataInfoEXT* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_jGAgAei=NULL;
-            return; }temp_jGAgAei=(VkImageViewCaptureDescriptorDataInfoEXT*)malloc(1*sizeof(VkImageViewCaptureDescriptorDataInfoEXT));
+                pInfo=NULL;
+            return; }pInfo=(VkImageViewCaptureDescriptorDataInfoEXT*)malloc(1*sizeof(VkImageViewCaptureDescriptorDataInfoEXT));
         auto& arr_eRxFxUj=json["pInfo"].as_array();
         for(int QcuObSb=0; QcuObSb < 1; QcuObSb++){
             [&](){
             auto& temp=arr_eRxFxUj[QcuObSb].as_object();
-            deserialize_struct(temp,temp_jGAgAei[QcuObSb]);
+            deserialize_struct(temp,pInfo[QcuObSb]);
             }();
         }
-        }();pInfo=temp_jGAgAei;}();
+        }();
 void* pData;
 [&](){
             if (json["pData"].as_array().size()==0){
@@ -30072,8 +30264,9 @@ void* pData;
         call_function=(PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT)get_device_proc_addr(parent,"vkGetImageViewOpaqueCaptureDescriptorDataEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pInfo, pData);
+result=call_function(device, pInfo, pData);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -30112,19 +30305,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkSamplerCaptureDescriptorDataInfoEXT* pInfo;
-[&](){ VkSamplerCaptureDescriptorDataInfoEXT* temp_MPuBGCU[&](){
+ VkSamplerCaptureDescriptorDataInfoEXT* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_MPuBGCU=NULL;
-            return; }temp_MPuBGCU=(VkSamplerCaptureDescriptorDataInfoEXT*)malloc(1*sizeof(VkSamplerCaptureDescriptorDataInfoEXT));
+                pInfo=NULL;
+            return; }pInfo=(VkSamplerCaptureDescriptorDataInfoEXT*)malloc(1*sizeof(VkSamplerCaptureDescriptorDataInfoEXT));
         auto& arr_MRsSLnb=json["pInfo"].as_array();
         for(int VTYniUZ=0; VTYniUZ < 1; VTYniUZ++){
             [&](){
             auto& temp=arr_MRsSLnb[VTYniUZ].as_object();
-            deserialize_struct(temp,temp_MPuBGCU[VTYniUZ]);
+            deserialize_struct(temp,pInfo[VTYniUZ]);
             }();
         }
-        }();pInfo=temp_MPuBGCU;}();
+        }();
 void* pData;
 [&](){
             if (json["pData"].as_array().size()==0){
@@ -30153,8 +30346,9 @@ void* pData;
         call_function=(PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT)get_device_proc_addr(parent,"vkGetSamplerOpaqueCaptureDescriptorDataEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pInfo, pData);
+result=call_function(device, pInfo, pData);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -30193,19 +30387,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo;
-[&](){ VkAccelerationStructureCaptureDescriptorDataInfoEXT* temp_YSWfcBp[&](){
+ VkAccelerationStructureCaptureDescriptorDataInfoEXT* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_YSWfcBp=NULL;
-            return; }temp_YSWfcBp=(VkAccelerationStructureCaptureDescriptorDataInfoEXT*)malloc(1*sizeof(VkAccelerationStructureCaptureDescriptorDataInfoEXT));
+                pInfo=NULL;
+            return; }pInfo=(VkAccelerationStructureCaptureDescriptorDataInfoEXT*)malloc(1*sizeof(VkAccelerationStructureCaptureDescriptorDataInfoEXT));
         auto& arr_IpvCogf=json["pInfo"].as_array();
         for(int rufTsHO=0; rufTsHO < 1; rufTsHO++){
             [&](){
             auto& temp=arr_IpvCogf[rufTsHO].as_object();
-            deserialize_struct(temp,temp_YSWfcBp[rufTsHO]);
+            deserialize_struct(temp,pInfo[rufTsHO]);
             }();
         }
-        }();pInfo=temp_YSWfcBp;}();
+        }();
 void* pData;
 [&](){
             if (json["pData"].as_array().size()==0){
@@ -30234,8 +30428,9 @@ void* pData;
         call_function=(PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT)get_device_proc_addr(parent,"vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pInfo, pData);
+result=call_function(device, pInfo, pData);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -30330,8 +30525,9 @@ VkDisplayKHR display;
         call_function=(PFN_vkAcquireDrmDisplayEXT)get_device_proc_addr(parent,"vkAcquireDrmDisplayEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, drmFd, display);
+result=call_function(physicalDevice, drmFd, display);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -30377,8 +30573,9 @@ VkDisplayKHR* display;
         call_function=(PFN_vkGetDrmDisplayEXT)get_device_proc_addr(parent,"vkGetDrmDisplayEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, drmFd, connectorId, display);
+result=call_function(physicalDevice, drmFd, connectorId, display);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -30425,8 +30622,9 @@ uint64_t timeout;
         call_function=(PFN_vkWaitForPresentKHR)get_device_proc_addr(parent,"vkWaitForPresentKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, swapchain, presentId, timeout);
+result=call_function(device, swapchain, presentId, timeout);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -30444,19 +30642,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkRenderingInfo* pRenderingInfo;
-[&](){ VkRenderingInfo* temp_ySbRVvm[&](){
+ VkRenderingInfo* pRenderingInfo;
+[&](){
             if (json["pRenderingInfo"].as_array().size()==0){
-                temp_ySbRVvm=NULL;
-            return; }temp_ySbRVvm=(VkRenderingInfo*)malloc(1*sizeof(VkRenderingInfo));
+                pRenderingInfo=NULL;
+            return; }pRenderingInfo=(VkRenderingInfo*)malloc(1*sizeof(VkRenderingInfo));
         auto& arr_IEHUXzQ=json["pRenderingInfo"].as_array();
         for(int oIBIqTv=0; oIBIqTv < 1; oIBIqTv++){
             [&](){
             auto& temp=arr_IEHUXzQ[oIBIqTv].as_object();
-            deserialize_struct(temp,temp_ySbRVvm[oIBIqTv]);
+            deserialize_struct(temp,pRenderingInfo[oIBIqTv]);
             }();
         }
-        }();pRenderingInfo=temp_ySbRVvm;}();
+        }();
 
     PFN_vkCmdBeginRendering call_function;
     
@@ -30531,19 +30729,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDescriptorSetBindingReferenceVALVE* pBindingReference;
-[&](){ VkDescriptorSetBindingReferenceVALVE* temp_mGUsizF[&](){
+ VkDescriptorSetBindingReferenceVALVE* pBindingReference;
+[&](){
             if (json["pBindingReference"].as_array().size()==0){
-                temp_mGUsizF=NULL;
-            return; }temp_mGUsizF=(VkDescriptorSetBindingReferenceVALVE*)malloc(1*sizeof(VkDescriptorSetBindingReferenceVALVE));
+                pBindingReference=NULL;
+            return; }pBindingReference=(VkDescriptorSetBindingReferenceVALVE*)malloc(1*sizeof(VkDescriptorSetBindingReferenceVALVE));
         auto& arr_swAzjIz=json["pBindingReference"].as_array();
         for(int dYYQsmf=0; dYYQsmf < 1; dYYQsmf++){
             [&](){
             auto& temp=arr_swAzjIz[dYYQsmf].as_object();
-            deserialize_struct(temp,temp_mGUsizF[dYYQsmf]);
+            deserialize_struct(temp,pBindingReference[dYYQsmf]);
             }();
         }
-        }();pBindingReference=temp_mGUsizF;}();
+        }();
 VkDescriptorSetLayoutHostMappingInfoVALVE* pHostMapping;
 [&](){
             if (json["pHostMapping"].as_array().size()==0){
@@ -30687,32 +30885,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkMicromapCreateInfoEXT* pCreateInfo;
-[&](){ VkMicromatemp_bOYNUYKEXT* temp_bOYNUYK[&](){
+ VkMicromapCreateInfoEXT* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_bOYNUYK=NULL;
-            return; }temp_bOYNUYK=(VkMicromapCreateInfoEXT*)malloc(1*sizeof(VkMicromapCreateInfoEXT));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkMicromapCreateInfoEXT*)malloc(1*sizeof(VkMicromapCreateInfoEXT));
         auto& arr_XnWTHFD=json["pCreateInfo"].as_array();
         for(int SlvdLyP=0; SlvdLyP < 1; SlvdLyP++){
             [&](){
             auto& temp=arr_XnWTHFD[SlvdLyP].as_object();
-            deserialize_struct(temp,temp_bOYNUYK[SlvdLyP]);
+            deserialize_struct(temp,pCreateInfo[SlvdLyP]);
             }();
         }
-        }();pCreateInfo=temp_bOYNUYK;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkMicromapEXT* pMicromap;
 [&](){
             if (json["pMicromap"].as_array().size()==0){
@@ -30738,8 +30936,9 @@ VkMicromapEXT* pMicromap;
         call_function=(PFN_vkCreateMicromapEXT)get_device_proc_addr(parent,"vkCreateMicromapEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pMicromap);
+result=call_function(device, pCreateInfo, pAllocator, pMicromap);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -30789,19 +30988,19 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t infoCount;
 [&](){infoCount=static_cast<uint32_t>(value_to<int>(json["infoCount"]));}();
-VkMicromapBuildInfoEXT* pInfos;
-[&](){ VkMicromapBuildInfoEXT* temp_jEppnfV[&](){
+ VkMicromapBuildInfoEXT* pInfos;
+[&](){
             if (json["pInfos"].as_array().size()==0){
-                temp_jEppnfV=NULL;
-            return; }temp_jEppnfV=(VkMicromapBuildInfoEXT*)malloc(infoCount*sizeof(VkMicromapBuildInfoEXT));
+                pInfos=NULL;
+            return; }pInfos=(VkMicromapBuildInfoEXT*)malloc(infoCount*sizeof(VkMicromapBuildInfoEXT));
         auto& arr_pOhxygW=json["pInfos"].as_array();
         for(int UnBcPOz=0; UnBcPOz < infoCount; UnBcPOz++){
             [&](){
             auto& temp=arr_pOhxygW[UnBcPOz].as_object();
-            deserialize_struct(temp,temp_jEppnfV[UnBcPOz]);
+            deserialize_struct(temp,pInfos[UnBcPOz]);
             }();
         }
-        }();pInfos=temp_jEppnfV;}();
+        }();
 
     PFN_vkCmdBuildMicromapsEXT call_function;
     
@@ -30850,19 +31049,19 @@ VkDeferredOperationKHR deferredOperation;
 [&](){deserialize_VkDeferredOperationKHR(json["deferredOperation"], deferredOperation);}();
 uint32_t infoCount;
 [&](){infoCount=static_cast<uint32_t>(value_to<int>(json["infoCount"]));}();
-VkMicromapBuildInfoEXT* pInfos;
-[&](){ VkMicromapBuildInfoEXT* temp_jEppnfV[&](){
+ VkMicromapBuildInfoEXT* pInfos;
+[&](){
             if (json["pInfos"].as_array().size()==0){
-                temp_jEppnfV=NULL;
-            return; }temp_jEppnfV=(VkMicromapBuildInfoEXT*)malloc(infoCount*sizeof(VkMicromapBuildInfoEXT));
+                pInfos=NULL;
+            return; }pInfos=(VkMicromapBuildInfoEXT*)malloc(infoCount*sizeof(VkMicromapBuildInfoEXT));
         auto& arr_pOhxygW=json["pInfos"].as_array();
         for(int UnBcPOz=0; UnBcPOz < infoCount; UnBcPOz++){
             [&](){
             auto& temp=arr_pOhxygW[UnBcPOz].as_object();
-            deserialize_struct(temp,temp_jEppnfV[UnBcPOz]);
+            deserialize_struct(temp,pInfos[UnBcPOz]);
             }();
         }
-        }();pInfos=temp_jEppnfV;}();
+        }();
 
     PFN_vkBuildMicromapsEXT call_function;
     
@@ -30878,8 +31077,9 @@ VkMicromapBuildInfoEXT* pInfos;
         call_function=(PFN_vkBuildMicromapsEXT)get_device_proc_addr(parent,"vkBuildMicromapsEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, deferredOperation, infoCount, pInfos);
+result=call_function(device, deferredOperation, infoCount, pInfos);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -30910,19 +31110,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkMicromapEXT micromap;
 [&](){deserialize_VkMicromapEXT(json["micromap"], micromap);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyMicromapEXT call_function;
     
@@ -30967,19 +31167,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkCopyMicromapInfoEXT* pInfo;
-[&](){ VkCopyMicromatemp_vfmXVBbEXT* temp_vfmXVBb[&](){
+ VkCopyMicromapInfoEXT* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_vfmXVBb=NULL;
-            return; }temp_vfmXVBb=(VkCopyMicromapInfoEXT*)malloc(1*sizeof(VkCopyMicromapInfoEXT));
+                pInfo=NULL;
+            return; }pInfo=(VkCopyMicromapInfoEXT*)malloc(1*sizeof(VkCopyMicromapInfoEXT));
         auto& arr_JTPzqPn=json["pInfo"].as_array();
         for(int rzDjQUu=0; rzDjQUu < 1; rzDjQUu++){
             [&](){
             auto& temp=arr_JTPzqPn[rzDjQUu].as_object();
-            deserialize_struct(temp,temp_vfmXVBb[rzDjQUu]);
+            deserialize_struct(temp,pInfo[rzDjQUu]);
             }();
         }
-        }();pInfo=temp_vfmXVBb;}();
+        }();
 
     PFN_vkCmdCopyMicromapEXT call_function;
     
@@ -31025,19 +31225,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkDeferredOperationKHR deferredOperation;
 [&](){deserialize_VkDeferredOperationKHR(json["deferredOperation"], deferredOperation);}();
-VkCopyMicromapInfoEXT* pInfo;
-[&](){ VkCopyMicromatemp_vfmXVBbEXT* temp_vfmXVBb[&](){
+ VkCopyMicromapInfoEXT* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_vfmXVBb=NULL;
-            return; }temp_vfmXVBb=(VkCopyMicromapInfoEXT*)malloc(1*sizeof(VkCopyMicromapInfoEXT));
+                pInfo=NULL;
+            return; }pInfo=(VkCopyMicromapInfoEXT*)malloc(1*sizeof(VkCopyMicromapInfoEXT));
         auto& arr_JTPzqPn=json["pInfo"].as_array();
         for(int rzDjQUu=0; rzDjQUu < 1; rzDjQUu++){
             [&](){
             auto& temp=arr_JTPzqPn[rzDjQUu].as_object();
-            deserialize_struct(temp,temp_vfmXVBb[rzDjQUu]);
+            deserialize_struct(temp,pInfo[rzDjQUu]);
             }();
         }
-        }();pInfo=temp_vfmXVBb;}();
+        }();
 
     PFN_vkCopyMicromapEXT call_function;
     
@@ -31053,8 +31253,9 @@ VkCopyMicromapInfoEXT* pInfo;
         call_function=(PFN_vkCopyMicromapEXT)get_device_proc_addr(parent,"vkCopyMicromapEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, deferredOperation, pInfo);
+result=call_function(device, deferredOperation, pInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -31082,19 +31283,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkCopyMicromapToMemoryInfoEXT* pInfo;
-[&](){ VkCopyMicromapToMemoryInfoEXT* temp_mwWgsLI[&](){
+ VkCopyMicromapToMemoryInfoEXT* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_mwWgsLI=NULL;
-            return; }temp_mwWgsLI=(VkCopyMicromapToMemoryInfoEXT*)malloc(1*sizeof(VkCopyMicromapToMemoryInfoEXT));
+                pInfo=NULL;
+            return; }pInfo=(VkCopyMicromapToMemoryInfoEXT*)malloc(1*sizeof(VkCopyMicromapToMemoryInfoEXT));
         auto& arr_yvWkCxr=json["pInfo"].as_array();
         for(int LolGOkG=0; LolGOkG < 1; LolGOkG++){
             [&](){
             auto& temp=arr_yvWkCxr[LolGOkG].as_object();
-            deserialize_struct(temp,temp_mwWgsLI[LolGOkG]);
+            deserialize_struct(temp,pInfo[LolGOkG]);
             }();
         }
-        }();pInfo=temp_mwWgsLI;}();
+        }();
 
     PFN_vkCmdCopyMicromapToMemoryEXT call_function;
     
@@ -31140,19 +31341,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkDeferredOperationKHR deferredOperation;
 [&](){deserialize_VkDeferredOperationKHR(json["deferredOperation"], deferredOperation);}();
-VkCopyMicromapToMemoryInfoEXT* pInfo;
-[&](){ VkCopyMicromapToMemoryInfoEXT* temp_mwWgsLI[&](){
+ VkCopyMicromapToMemoryInfoEXT* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_mwWgsLI=NULL;
-            return; }temp_mwWgsLI=(VkCopyMicromapToMemoryInfoEXT*)malloc(1*sizeof(VkCopyMicromapToMemoryInfoEXT));
+                pInfo=NULL;
+            return; }pInfo=(VkCopyMicromapToMemoryInfoEXT*)malloc(1*sizeof(VkCopyMicromapToMemoryInfoEXT));
         auto& arr_yvWkCxr=json["pInfo"].as_array();
         for(int LolGOkG=0; LolGOkG < 1; LolGOkG++){
             [&](){
             auto& temp=arr_yvWkCxr[LolGOkG].as_object();
-            deserialize_struct(temp,temp_mwWgsLI[LolGOkG]);
+            deserialize_struct(temp,pInfo[LolGOkG]);
             }();
         }
-        }();pInfo=temp_mwWgsLI;}();
+        }();
 
     PFN_vkCopyMicromapToMemoryEXT call_function;
     
@@ -31168,8 +31369,9 @@ VkCopyMicromapToMemoryInfoEXT* pInfo;
         call_function=(PFN_vkCopyMicromapToMemoryEXT)get_device_proc_addr(parent,"vkCopyMicromapToMemoryEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, deferredOperation, pInfo);
+result=call_function(device, deferredOperation, pInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -31197,19 +31399,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkCopyMemoryToMicromapInfoEXT* pInfo;
-[&](){ VkCopyMemoryToMicromatemp_AHZCCojEXT* temp_AHZCCoj[&](){
+ VkCopyMemoryToMicromapInfoEXT* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_AHZCCoj=NULL;
-            return; }temp_AHZCCoj=(VkCopyMemoryToMicromapInfoEXT*)malloc(1*sizeof(VkCopyMemoryToMicromapInfoEXT));
+                pInfo=NULL;
+            return; }pInfo=(VkCopyMemoryToMicromapInfoEXT*)malloc(1*sizeof(VkCopyMemoryToMicromapInfoEXT));
         auto& arr_JkoWJSQ=json["pInfo"].as_array();
         for(int HyJmoQR=0; HyJmoQR < 1; HyJmoQR++){
             [&](){
             auto& temp=arr_JkoWJSQ[HyJmoQR].as_object();
-            deserialize_struct(temp,temp_AHZCCoj[HyJmoQR]);
+            deserialize_struct(temp,pInfo[HyJmoQR]);
             }();
         }
-        }();pInfo=temp_AHZCCoj;}();
+        }();
 
     PFN_vkCmdCopyMemoryToMicromapEXT call_function;
     
@@ -31255,19 +31457,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkDeferredOperationKHR deferredOperation;
 [&](){deserialize_VkDeferredOperationKHR(json["deferredOperation"], deferredOperation);}();
-VkCopyMemoryToMicromapInfoEXT* pInfo;
-[&](){ VkCopyMemoryToMicromatemp_AHZCCojEXT* temp_AHZCCoj[&](){
+ VkCopyMemoryToMicromapInfoEXT* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_AHZCCoj=NULL;
-            return; }temp_AHZCCoj=(VkCopyMemoryToMicromapInfoEXT*)malloc(1*sizeof(VkCopyMemoryToMicromapInfoEXT));
+                pInfo=NULL;
+            return; }pInfo=(VkCopyMemoryToMicromapInfoEXT*)malloc(1*sizeof(VkCopyMemoryToMicromapInfoEXT));
         auto& arr_JkoWJSQ=json["pInfo"].as_array();
         for(int HyJmoQR=0; HyJmoQR < 1; HyJmoQR++){
             [&](){
             auto& temp=arr_JkoWJSQ[HyJmoQR].as_object();
-            deserialize_struct(temp,temp_AHZCCoj[HyJmoQR]);
+            deserialize_struct(temp,pInfo[HyJmoQR]);
             }();
         }
-        }();pInfo=temp_AHZCCoj;}();
+        }();
 
     PFN_vkCopyMemoryToMicromapEXT call_function;
     
@@ -31283,8 +31485,9 @@ VkCopyMemoryToMicromapInfoEXT* pInfo;
         call_function=(PFN_vkCopyMemoryToMicromapEXT)get_device_proc_addr(parent,"vkCopyMemoryToMicromapEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, deferredOperation, pInfo);
+result=call_function(device, deferredOperation, pInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -31314,16 +31517,16 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t micromapCount;
 [&](){micromapCount=static_cast<uint32_t>(value_to<int>(json["micromapCount"]));}();
-VkMicromapEXT* pMicromaps;
-[&](){ VkMicromapEXT* temp_DooGQPs[&](){
+ VkMicromapEXT* pMicromaps;
+[&](){
             if (json["pMicromaps"].as_array().size()==0){
-                temp_DooGQPs=NULL;
-            return; }temp_DooGQPs=(VkMicromapEXT*)malloc(micromapCount*sizeof(VkMicromapEXT));
+                pMicromaps=NULL;
+            return; }pMicromaps=(VkMicromapEXT*)malloc(micromapCount*sizeof(VkMicromapEXT));
         auto& arr_gjzjRBu=json["pMicromaps"].as_array();
         for(int XuxNkjt=0; XuxNkjt < micromapCount; XuxNkjt++){
-            [&](){deserialize_VkMicromapEXT(arr_gjzjRBu[XuxNkjt], temp_DooGQPs[XuxNkjt]);}();
+            [&](){deserialize_VkMicromapEXT(arr_gjzjRBu[XuxNkjt], pMicromaps[XuxNkjt]);}();
         }
-        }();pMicromaps=temp_DooGQPs;}();
+        }();
 VkQueryType queryType;
 [&](){[&](){int temp_VdJSktT;[&](){temp_VdJSktT=static_cast<int>(value_to<int>(json["queryType"]));}();queryType=(VkQueryType)temp_VdJSktT;}();}();
 VkQueryPool queryPool;
@@ -31376,16 +31579,16 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 uint32_t micromapCount;
 [&](){micromapCount=static_cast<uint32_t>(value_to<int>(json["micromapCount"]));}();
-VkMicromapEXT* pMicromaps;
-[&](){ VkMicromapEXT* temp_DooGQPs[&](){
+ VkMicromapEXT* pMicromaps;
+[&](){
             if (json["pMicromaps"].as_array().size()==0){
-                temp_DooGQPs=NULL;
-            return; }temp_DooGQPs=(VkMicromapEXT*)malloc(micromapCount*sizeof(VkMicromapEXT));
+                pMicromaps=NULL;
+            return; }pMicromaps=(VkMicromapEXT*)malloc(micromapCount*sizeof(VkMicromapEXT));
         auto& arr_gjzjRBu=json["pMicromaps"].as_array();
         for(int XuxNkjt=0; XuxNkjt < micromapCount; XuxNkjt++){
-            [&](){deserialize_VkMicromapEXT(arr_gjzjRBu[XuxNkjt], temp_DooGQPs[XuxNkjt]);}();
+            [&](){deserialize_VkMicromapEXT(arr_gjzjRBu[XuxNkjt], pMicromaps[XuxNkjt]);}();
         }
-        }();pMicromaps=temp_DooGQPs;}();
+        }();
 VkQueryType queryType;
 [&](){[&](){int temp_VdJSktT;[&](){temp_VdJSktT=static_cast<int>(value_to<int>(json["queryType"]));}();queryType=(VkQueryType)temp_VdJSktT;}();}();
 size_t dataSize;
@@ -31420,8 +31623,9 @@ size_t stride;
         call_function=(PFN_vkWriteMicromapsPropertiesEXT)get_device_proc_addr(parent,"vkWriteMicromapsPropertiesEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, micromapCount, pMicromaps, queryType, dataSize, pData, stride);
+result=call_function(device, micromapCount, pMicromaps, queryType, dataSize, pData, stride);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -31461,19 +31665,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkMicromapVersionInfoEXT* pVersionInfo;
-[&](){ VkMicromatemp_YXAaWJMEXT* temp_YXAaWJM[&](){
+ VkMicromapVersionInfoEXT* pVersionInfo;
+[&](){
             if (json["pVersionInfo"].as_array().size()==0){
-                temp_YXAaWJM=NULL;
-            return; }temp_YXAaWJM=(VkMicromapVersionInfoEXT*)malloc(1*sizeof(VkMicromapVersionInfoEXT));
+                pVersionInfo=NULL;
+            return; }pVersionInfo=(VkMicromapVersionInfoEXT*)malloc(1*sizeof(VkMicromapVersionInfoEXT));
         auto& arr_FlJdkUQ=json["pVersionInfo"].as_array();
         for(int GMLSjyq=0; GMLSjyq < 1; GMLSjyq++){
             [&](){
             auto& temp=arr_FlJdkUQ[GMLSjyq].as_object();
-            deserialize_struct(temp,temp_YXAaWJM[GMLSjyq]);
+            deserialize_struct(temp,pVersionInfo[GMLSjyq]);
             }();
         }
-        }();pVersionInfo=temp_YXAaWJM;}();
+        }();
 VkAccelerationStructureCompatibilityKHR* pCompatibility;
 [&](){
             if (json["pCompatibility"].as_array().size()==0){
@@ -31538,19 +31742,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkAccelerationStructureBuildTypeKHR buildType;
 [&](){[&](){int temp_XouAsBI;[&](){temp_XouAsBI=static_cast<int>(value_to<int>(json["buildType"]));}();buildType=(VkAccelerationStructureBuildTypeKHR)temp_XouAsBI;}();}();
-VkMicromapBuildInfoEXT* pBuildInfo;
-[&](){ VkMicromatemp_SkrWSNxEXT* temp_SkrWSNx[&](){
+ VkMicromapBuildInfoEXT* pBuildInfo;
+[&](){
             if (json["pBuildInfo"].as_array().size()==0){
-                temp_SkrWSNx=NULL;
-            return; }temp_SkrWSNx=(VkMicromapBuildInfoEXT*)malloc(1*sizeof(VkMicromapBuildInfoEXT));
+                pBuildInfo=NULL;
+            return; }pBuildInfo=(VkMicromapBuildInfoEXT*)malloc(1*sizeof(VkMicromapBuildInfoEXT));
         auto& arr_oNQjwLj=json["pBuildInfo"].as_array();
         for(int ALWsyDT=0; ALWsyDT < 1; ALWsyDT++){
             [&](){
             auto& temp=arr_oNQjwLj[ALWsyDT].as_object();
-            deserialize_struct(temp,temp_SkrWSNx[ALWsyDT]);
+            deserialize_struct(temp,pBuildInfo[ALWsyDT]);
             }();
         }
-        }();pBuildInfo=temp_SkrWSNx;}();
+        }();
 VkMicromapBuildSizesInfoEXT* pSizeInfo;
 [&](){
             if (json["pSizeInfo"].as_array().size()==0){
@@ -31679,19 +31883,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkShaderModuleCreateInfo* pCreateInfo;
-[&](){ VkShaderModuleCreateInfo* temp_VfXsFIV[&](){
+ VkShaderModuleCreateInfo* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_VfXsFIV=NULL;
-            return; }temp_VfXsFIV=(VkShaderModuleCreateInfo*)malloc(1*sizeof(VkShaderModuleCreateInfo));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkShaderModuleCreateInfo*)malloc(1*sizeof(VkShaderModuleCreateInfo));
         auto& arr_GtIQgds=json["pCreateInfo"].as_array();
         for(int PbmosKP=0; PbmosKP < 1; PbmosKP++){
             [&](){
             auto& temp=arr_GtIQgds[PbmosKP].as_object();
-            deserialize_struct(temp,temp_VfXsFIV[PbmosKP]);
+            deserialize_struct(temp,pCreateInfo[PbmosKP]);
             }();
         }
-        }();pCreateInfo=temp_VfXsFIV;}();
+        }();
 VkShaderModuleIdentifierEXT* pIdentifier;
 [&](){
             if (json["pIdentifier"].as_array().size()==0){
@@ -31762,19 +31966,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkImage image;
 [&](){deserialize_VkImage(json["image"], image);}();
-VkImageSubresource2KHR* pSubresource;
-[&](){ VkImageSubresource2KHR* temp_vxrcXgU[&](){
+ VkImageSubresource2KHR* pSubresource;
+[&](){
             if (json["pSubresource"].as_array().size()==0){
-                temp_vxrcXgU=NULL;
-            return; }temp_vxrcXgU=(VkImageSubresource2KHR*)malloc(1*sizeof(VkImageSubresource2KHR));
+                pSubresource=NULL;
+            return; }pSubresource=(VkImageSubresource2KHR*)malloc(1*sizeof(VkImageSubresource2KHR));
         auto& arr_oUQSxrb=json["pSubresource"].as_array();
         for(int HhQHZaA=0; HhQHZaA < 1; HhQHZaA++){
             [&](){
             auto& temp=arr_oUQSxrb[HhQHZaA].as_object();
-            deserialize_struct(temp,temp_vxrcXgU[HhQHZaA]);
+            deserialize_struct(temp,pSubresource[HhQHZaA]);
             }();
         }
-        }();pSubresource=temp_vxrcXgU;}();
+        }();
 VkSubresourceLayout2KHR* pLayout;
 [&](){
             if (json["pLayout"].as_array().size()==0){
@@ -31844,19 +32048,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkPipelineInfoEXT* pPipelineInfo;
-[&](){ VkPipelineInfoEXT* temp_YQbjUzB[&](){
+ VkPipelineInfoEXT* pPipelineInfo;
+[&](){
             if (json["pPipelineInfo"].as_array().size()==0){
-                temp_YQbjUzB=NULL;
-            return; }temp_YQbjUzB=(VkPipelineInfoEXT*)malloc(1*sizeof(VkPipelineInfoEXT));
+                pPipelineInfo=NULL;
+            return; }pPipelineInfo=(VkPipelineInfoEXT*)malloc(1*sizeof(VkPipelineInfoEXT));
         auto& arr_PhjfoeL=json["pPipelineInfo"].as_array();
         for(int tiAojvv=0; tiAojvv < 1; tiAojvv++){
             [&](){
             auto& temp=arr_PhjfoeL[tiAojvv].as_object();
-            deserialize_struct(temp,temp_YQbjUzB[tiAojvv]);
+            deserialize_struct(temp,pPipelineInfo[tiAojvv]);
             }();
         }
-        }();pPipelineInfo=temp_YQbjUzB;}();
+        }();
 VkBaseOutStructure* pPipelineProperties;
 [&](){
             if (json["pPipelineProperties"].as_array().size()==0){
@@ -31885,8 +32089,9 @@ VkBaseOutStructure* pPipelineProperties;
         call_function=(PFN_vkGetPipelinePropertiesEXT)get_device_proc_addr(parent,"vkGetPipelinePropertiesEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pPipelineInfo, pPipelineProperties);
+result=call_function(device, pPipelineInfo, pPipelineProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -31965,8 +32170,9 @@ VkTilePropertiesQCOM* pProperties;
         call_function=(PFN_vkGetFramebufferTilePropertiesQCOM)get_device_proc_addr(parent,"vkGetFramebufferTilePropertiesQCOM");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, framebuffer, pPropertiesCount, pProperties);
+result=call_function(device, framebuffer, pPropertiesCount, pProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -32003,19 +32209,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkRenderingInfo* pRenderingInfo;
-[&](){ VkRenderingInfo* temp_ySbRVvm[&](){
+ VkRenderingInfo* pRenderingInfo;
+[&](){
             if (json["pRenderingInfo"].as_array().size()==0){
-                temp_ySbRVvm=NULL;
-            return; }temp_ySbRVvm=(VkRenderingInfo*)malloc(1*sizeof(VkRenderingInfo));
+                pRenderingInfo=NULL;
+            return; }pRenderingInfo=(VkRenderingInfo*)malloc(1*sizeof(VkRenderingInfo));
         auto& arr_IEHUXzQ=json["pRenderingInfo"].as_array();
         for(int oIBIqTv=0; oIBIqTv < 1; oIBIqTv++){
             [&](){
             auto& temp=arr_IEHUXzQ[oIBIqTv].as_object();
-            deserialize_struct(temp,temp_ySbRVvm[oIBIqTv]);
+            deserialize_struct(temp,pRenderingInfo[oIBIqTv]);
             }();
         }
-        }();pRenderingInfo=temp_ySbRVvm;}();
+        }();
 VkTilePropertiesQCOM* pProperties;
 [&](){
             if (json["pProperties"].as_array().size()==0){
@@ -32044,8 +32250,9 @@ VkTilePropertiesQCOM* pProperties;
         call_function=(PFN_vkGetDynamicRenderingTilePropertiesQCOM)get_device_proc_addr(parent,"vkGetDynamicRenderingTilePropertiesQCOM");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pRenderingInfo, pProperties);
+result=call_function(device, pRenderingInfo, pProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -32084,19 +32291,19 @@ json.clear();
     
 VkPhysicalDevice physicalDevice;
 [&](){deserialize_VkPhysicalDevice(json["physicalDevice"], physicalDevice);}();
-VkOpticalFlowImageFormatInfoNV* pOpticalFlowImageFormatInfo;
-[&](){ VkOpticalFlowImageFormatInfoNV* temp_TVgrGQC[&](){
+ VkOpticalFlowImageFormatInfoNV* pOpticalFlowImageFormatInfo;
+[&](){
             if (json["pOpticalFlowImageFormatInfo"].as_array().size()==0){
-                temp_TVgrGQC=NULL;
-            return; }temp_TVgrGQC=(VkOpticalFlowImageFormatInfoNV*)malloc(1*sizeof(VkOpticalFlowImageFormatInfoNV));
+                pOpticalFlowImageFormatInfo=NULL;
+            return; }pOpticalFlowImageFormatInfo=(VkOpticalFlowImageFormatInfoNV*)malloc(1*sizeof(VkOpticalFlowImageFormatInfoNV));
         auto& arr_bHRLrfx=json["pOpticalFlowImageFormatInfo"].as_array();
         for(int oBdVYyf=0; oBdVYyf < 1; oBdVYyf++){
             [&](){
             auto& temp=arr_bHRLrfx[oBdVYyf].as_object();
-            deserialize_struct(temp,temp_TVgrGQC[oBdVYyf]);
+            deserialize_struct(temp,pOpticalFlowImageFormatInfo[oBdVYyf]);
             }();
         }
-        }();pOpticalFlowImageFormatInfo=temp_TVgrGQC;}();
+        }();
 uint32_t* pFormatCount;
 [&](){
             if (json["pFormatCount"].as_array().size()==0){
@@ -32135,8 +32342,9 @@ VkOpticalFlowImageFormatPropertiesNV* pImageFormatProperties;
         call_function=(PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV)get_device_proc_addr(parent,"vkGetPhysicalDeviceOpticalFlowImageFormatsNV");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pOpticalFlowImageFormatInfo, pFormatCount, pImageFormatProperties);
+result=call_function(physicalDevice, pOpticalFlowImageFormatInfo, pFormatCount, pImageFormatProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -32184,32 +32392,32 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkOpticalFlowSessionCreateInfoNV* pCreateInfo;
-[&](){ VkOpticalFlowSessionCreateInfoNV* temp_VWtegVz[&](){
+ VkOpticalFlowSessionCreateInfoNV* pCreateInfo;
+[&](){
             if (json["pCreateInfo"].as_array().size()==0){
-                temp_VWtegVz=NULL;
-            return; }temp_VWtegVz=(VkOpticalFlowSessionCreateInfoNV*)malloc(1*sizeof(VkOpticalFlowSessionCreateInfoNV));
+                pCreateInfo=NULL;
+            return; }pCreateInfo=(VkOpticalFlowSessionCreateInfoNV*)malloc(1*sizeof(VkOpticalFlowSessionCreateInfoNV));
         auto& arr_sIplIPh=json["pCreateInfo"].as_array();
         for(int OLjhukd=0; OLjhukd < 1; OLjhukd++){
             [&](){
             auto& temp=arr_sIplIPh[OLjhukd].as_object();
-            deserialize_struct(temp,temp_VWtegVz[OLjhukd]);
+            deserialize_struct(temp,pCreateInfo[OLjhukd]);
             }();
         }
-        }();pCreateInfo=temp_VWtegVz;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkOpticalFlowSessionNV* pSession;
 [&](){
             if (json["pSession"].as_array().size()==0){
@@ -32235,8 +32443,9 @@ VkOpticalFlowSessionNV* pSession;
         call_function=(PFN_vkCreateOpticalFlowSessionNV)get_device_proc_addr(parent,"vkCreateOpticalFlowSessionNV");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pCreateInfo, pAllocator, pSession);
+result=call_function(device, pCreateInfo, pAllocator, pSession);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -32286,19 +32495,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkOpticalFlowSessionNV session;
 [&](){deserialize_VkOpticalFlowSessionNV(json["session"], session);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyOpticalFlowSessionNV call_function;
     
@@ -32366,8 +32575,9 @@ VkImageLayout layout;
         call_function=(PFN_vkBindOpticalFlowSessionImageNV)get_device_proc_addr(parent,"vkBindOpticalFlowSessionImageNV");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, session, bindingPoint, view, layout);
+result=call_function(device, session, bindingPoint, view, layout);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -32388,19 +32598,19 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 VkOpticalFlowSessionNV session;
 [&](){deserialize_VkOpticalFlowSessionNV(json["session"], session);}();
-VkOpticalFlowExecuteInfoNV* pExecuteInfo;
-[&](){ VkOpticalFlowExecuteInfoNV* temp_nGtFNDj[&](){
+ VkOpticalFlowExecuteInfoNV* pExecuteInfo;
+[&](){
             if (json["pExecuteInfo"].as_array().size()==0){
-                temp_nGtFNDj=NULL;
-            return; }temp_nGtFNDj=(VkOpticalFlowExecuteInfoNV*)malloc(1*sizeof(VkOpticalFlowExecuteInfoNV));
+                pExecuteInfo=NULL;
+            return; }pExecuteInfo=(VkOpticalFlowExecuteInfoNV*)malloc(1*sizeof(VkOpticalFlowExecuteInfoNV));
         auto& arr_tbUOmHi=json["pExecuteInfo"].as_array();
         for(int HcarBbt=0; HcarBbt < 1; HcarBbt++){
             [&](){
             auto& temp=arr_tbUOmHi[HcarBbt].as_object();
-            deserialize_struct(temp,temp_nGtFNDj[HcarBbt]);
+            deserialize_struct(temp,pExecuteInfo[HcarBbt]);
             }();
         }
-        }();pExecuteInfo=temp_nGtFNDj;}();
+        }();
 
     PFN_vkCmdOpticalFlowExecuteNV call_function;
     
@@ -32486,8 +32696,9 @@ VkDeviceFaultInfoEXT* pFaultInfo;
         call_function=(PFN_vkGetDeviceFaultInfoEXT)get_device_proc_addr(parent,"vkGetDeviceFaultInfoEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pFaultCounts, pFaultInfo);
+result=call_function(device, pFaultCounts, pFaultInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -32526,19 +32737,19 @@ json.clear();
     
 VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
-VkDepthBiasInfoEXT* pDepthBiasInfo;
-[&](){ VkDepthBiasInfoEXT* temp_WDAjpjc[&](){
+ VkDepthBiasInfoEXT* pDepthBiasInfo;
+[&](){
             if (json["pDepthBiasInfo"].as_array().size()==0){
-                temp_WDAjpjc=NULL;
-            return; }temp_WDAjpjc=(VkDepthBiasInfoEXT*)malloc(1*sizeof(VkDepthBiasInfoEXT));
+                pDepthBiasInfo=NULL;
+            return; }pDepthBiasInfo=(VkDepthBiasInfoEXT*)malloc(1*sizeof(VkDepthBiasInfoEXT));
         auto& arr_DfdCGqY=json["pDepthBiasInfo"].as_array();
         for(int xSRWdSz=0; xSRWdSz < 1; xSRWdSz++){
             [&](){
             auto& temp=arr_DfdCGqY[xSRWdSz].as_object();
-            deserialize_struct(temp,temp_WDAjpjc[xSRWdSz]);
+            deserialize_struct(temp,pDepthBiasInfo[xSRWdSz]);
             }();
         }
-        }();pDepthBiasInfo=temp_WDAjpjc;}();
+        }();
 
     PFN_vkCmdSetDepthBias2EXT call_function;
     
@@ -32582,19 +32793,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkReleaseSwapchainImagesInfoEXT* pReleaseInfo;
-[&](){ VkReleaseSwapchainImagesInfoEXT* temp_AsTZPVa[&](){
+ VkReleaseSwapchainImagesInfoEXT* pReleaseInfo;
+[&](){
             if (json["pReleaseInfo"].as_array().size()==0){
-                temp_AsTZPVa=NULL;
-            return; }temp_AsTZPVa=(VkReleaseSwapchainImagesInfoEXT*)malloc(1*sizeof(VkReleaseSwapchainImagesInfoEXT));
+                pReleaseInfo=NULL;
+            return; }pReleaseInfo=(VkReleaseSwapchainImagesInfoEXT*)malloc(1*sizeof(VkReleaseSwapchainImagesInfoEXT));
         auto& arr_jqKJdwU=json["pReleaseInfo"].as_array();
         for(int fqZXHcz=0; fqZXHcz < 1; fqZXHcz++){
             [&](){
             auto& temp=arr_jqKJdwU[fqZXHcz].as_object();
-            deserialize_struct(temp,temp_AsTZPVa[fqZXHcz]);
+            deserialize_struct(temp,pReleaseInfo[fqZXHcz]);
             }();
         }
-        }();pReleaseInfo=temp_AsTZPVa;}();
+        }();
 
     PFN_vkReleaseSwapchainImagesEXT call_function;
     
@@ -32610,8 +32821,9 @@ VkReleaseSwapchainImagesInfoEXT* pReleaseInfo;
         call_function=(PFN_vkReleaseSwapchainImagesEXT)get_device_proc_addr(parent,"vkReleaseSwapchainImagesEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pReleaseInfo);
+result=call_function(device, pReleaseInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -32638,19 +32850,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkDeviceImageSubresourceInfoKHR* pInfo;
-[&](){ VkDeviceImageSubresourceInfoKHR* temp_jRKIxst[&](){
+ VkDeviceImageSubresourceInfoKHR* pInfo;
+[&](){
             if (json["pInfo"].as_array().size()==0){
-                temp_jRKIxst=NULL;
-            return; }temp_jRKIxst=(VkDeviceImageSubresourceInfoKHR*)malloc(1*sizeof(VkDeviceImageSubresourceInfoKHR));
+                pInfo=NULL;
+            return; }pInfo=(VkDeviceImageSubresourceInfoKHR*)malloc(1*sizeof(VkDeviceImageSubresourceInfoKHR));
         auto& arr_TDGjppd=json["pInfo"].as_array();
         for(int irOmazS=0; irOmazS < 1; irOmazS++){
             [&](){
             auto& temp=arr_TDGjppd[irOmazS].as_object();
-            deserialize_struct(temp,temp_jRKIxst[irOmazS]);
+            deserialize_struct(temp,pInfo[irOmazS]);
             }();
         }
-        }();pInfo=temp_jRKIxst;}();
+        }();
 VkSubresourceLayout2KHR* pLayout;
 [&](){
             if (json["pLayout"].as_array().size()==0){
@@ -32719,19 +32931,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkMemoryMapInfoKHR* pMemoryMapInfo;
-[&](){ VkMemoryMapInfoKHR* temp_rEewDht[&](){
+ VkMemoryMapInfoKHR* pMemoryMapInfo;
+[&](){
             if (json["pMemoryMapInfo"].as_array().size()==0){
-                temp_rEewDht=NULL;
-            return; }temp_rEewDht=(VkMemoryMapInfoKHR*)malloc(1*sizeof(VkMemoryMapInfoKHR));
+                pMemoryMapInfo=NULL;
+            return; }pMemoryMapInfo=(VkMemoryMapInfoKHR*)malloc(1*sizeof(VkMemoryMapInfoKHR));
         auto& arr_RTzyDuY=json["pMemoryMapInfo"].as_array();
         for(int cnbdFzc=0; cnbdFzc < 1; cnbdFzc++){
             [&](){
             auto& temp=arr_RTzyDuY[cnbdFzc].as_object();
-            deserialize_struct(temp,temp_rEewDht[cnbdFzc]);
+            deserialize_struct(temp,pMemoryMapInfo[cnbdFzc]);
             }();
         }
-        }();pMemoryMapInfo=temp_rEewDht;}();
+        }();
 void** ppData;
 [&](){
             if (json["ppData"].as_array().size()==0){
@@ -32768,8 +32980,9 @@ void** ppData;
         call_function=(PFN_vkMapMemory2KHR)get_device_proc_addr(parent,"vkMapMemory2KHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pMemoryMapInfo, ppData);
+result=call_function(device, pMemoryMapInfo, ppData);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -32827,19 +33040,19 @@ json.clear();
     
 VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
-VkMemoryUnmapInfoKHR* pMemoryUnmapInfo;
-[&](){ VkMemoryUnmapInfoKHR* temp_ZjXXkAF[&](){
+ VkMemoryUnmapInfoKHR* pMemoryUnmapInfo;
+[&](){
             if (json["pMemoryUnmapInfo"].as_array().size()==0){
-                temp_ZjXXkAF=NULL;
-            return; }temp_ZjXXkAF=(VkMemoryUnmapInfoKHR*)malloc(1*sizeof(VkMemoryUnmapInfoKHR));
+                pMemoryUnmapInfo=NULL;
+            return; }pMemoryUnmapInfo=(VkMemoryUnmapInfoKHR*)malloc(1*sizeof(VkMemoryUnmapInfoKHR));
         auto& arr_bpXegaD=json["pMemoryUnmapInfo"].as_array();
         for(int cntXsPf=0; cntXsPf < 1; cntXsPf++){
             [&](){
             auto& temp=arr_bpXegaD[cntXsPf].as_object();
-            deserialize_struct(temp,temp_ZjXXkAF[cntXsPf]);
+            deserialize_struct(temp,pMemoryUnmapInfo[cntXsPf]);
             }();
         }
-        }();pMemoryUnmapInfo=temp_ZjXXkAF;}();
+        }();
 
     PFN_vkUnmapMemory2KHR call_function;
     
@@ -32855,8 +33068,9 @@ VkMemoryUnmapInfoKHR* pMemoryUnmapInfo;
         call_function=(PFN_vkUnmapMemory2KHR)get_device_proc_addr(parent,"vkUnmapMemory2KHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, pMemoryUnmapInfo);
+result=call_function(device, pMemoryUnmapInfo);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -32885,32 +33099,32 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 uint32_t createInfoCount;
 [&](){createInfoCount=static_cast<uint32_t>(value_to<int>(json["createInfoCount"]));}();
-VkShaderCreateInfoEXT* pCreateInfos;
-[&](){ VkShaderCreateInfoEXT* temp_USOpaUP[&](){
+ VkShaderCreateInfoEXT* pCreateInfos;
+[&](){
             if (json["pCreateInfos"].as_array().size()==0){
-                temp_USOpaUP=NULL;
-            return; }temp_USOpaUP=(VkShaderCreateInfoEXT*)malloc(createInfoCount*sizeof(VkShaderCreateInfoEXT));
+                pCreateInfos=NULL;
+            return; }pCreateInfos=(VkShaderCreateInfoEXT*)malloc(createInfoCount*sizeof(VkShaderCreateInfoEXT));
         auto& arr_aNFxtFM=json["pCreateInfos"].as_array();
         for(int IEFkbzS=0; IEFkbzS < createInfoCount; IEFkbzS++){
             [&](){
             auto& temp=arr_aNFxtFM[IEFkbzS].as_object();
-            deserialize_struct(temp,temp_USOpaUP[IEFkbzS]);
+            deserialize_struct(temp,pCreateInfos[IEFkbzS]);
             }();
         }
-        }();pCreateInfos=temp_USOpaUP;}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+        }();
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 VkShaderEXT* pShaders;
 [&](){
             if (json["pShaders"].as_array().size()==0){
@@ -32936,8 +33150,9 @@ VkShaderEXT* pShaders;
         call_function=(PFN_vkCreateShadersEXT)get_device_proc_addr(parent,"vkCreateShadersEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, createInfoCount, pCreateInfos, pAllocator, pShaders);
+result=call_function(device, createInfoCount, pCreateInfos, pAllocator, pShaders);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -32988,19 +33203,19 @@ VkDevice device;
 [&](){deserialize_VkDevice(json["device"], device);}();
 VkShaderEXT shader;
 [&](){deserialize_VkShaderEXT(json["shader"], shader);}();
-VkAllocationCallbacks* pAllocator;
-[&](){ VkAllocationCallbacks* temp_bdXXnmE[&](){
+ VkAllocationCallbacks* pAllocator;
+[&](){
             if (json["pAllocator"].as_array().size()==0){
-                temp_bdXXnmE=NULL;
-            return; }temp_bdXXnmE=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
+                pAllocator=NULL;
+            return; }pAllocator=(VkAllocationCallbacks*)malloc(1*sizeof(VkAllocationCallbacks));
         auto& arr_Zyucmmb=json["pAllocator"].as_array();
         for(int YRPmyai=0; YRPmyai < 1; YRPmyai++){
             [&](){
             auto& temp=arr_Zyucmmb[YRPmyai].as_object();
-            deserialize_struct(temp,temp_bdXXnmE[YRPmyai]);
+            deserialize_struct(temp,pAllocator[YRPmyai]);
             }();
         }
-        }();pAllocator=temp_bdXXnmE;}();
+        }();
 
     PFN_vkDestroyShaderEXT call_function;
     
@@ -33085,8 +33300,9 @@ void* pData;
         call_function=(PFN_vkGetShaderBinaryDataEXT)get_device_proc_addr(parent,"vkGetShaderBinaryDataEXT");
     }  
     
+VkResult  result;
 {
-auto result=call_function(device, shader, pDataSize, pData);
+result=call_function(device, shader, pDataSize, pData);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -33125,26 +33341,26 @@ VkCommandBuffer commandBuffer;
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 uint32_t stageCount;
 [&](){stageCount=static_cast<uint32_t>(value_to<int>(json["stageCount"]));}();
-VkShaderStageFlagBits* pStages;
-[&](){ VkShaderStageFlagBits* temp_yBowAmc[&](){
+ VkShaderStageFlagBits* pStages;
+[&](){
             if (json["pStages"].as_array().size()==0){
-                temp_yBowAmc=NULL;
-            return; }temp_yBowAmc=(VkShaderStageFlagBits*)malloc(stageCount*sizeof(VkShaderStageFlagBits));
+                pStages=NULL;
+            return; }pStages=(VkShaderStageFlagBits*)malloc(stageCount*sizeof(VkShaderStageFlagBits));
         auto& arr_qbDLWnb=json["pStages"].as_array();
         for(int FzJYCiP=0; FzJYCiP < stageCount; FzJYCiP++){
-            [&](){[&](){int temp_IwfnGxi;[&](){temp_IwfnGxi=static_cast<int>(value_to<int>(arr_qbDLWnb[FzJYCiP]));}();temp_yBowAmc[FzJYCiP]=(VkShaderStageFlagBits)temp_IwfnGxi;}();}();
+            [&](){[&](){int temp_IwfnGxi;[&](){temp_IwfnGxi=static_cast<int>(value_to<int>(arr_qbDLWnb[FzJYCiP]));}();pStages[FzJYCiP]=(VkShaderStageFlagBits)temp_IwfnGxi;}();}();
         }
-        }();pStages=temp_yBowAmc;}();
-VkShaderEXT* pShaders;
-[&](){ VkShaderEXT* temp_kcLPriN[&](){
+        }();
+ VkShaderEXT* pShaders;
+[&](){
             if (json["pShaders"].as_array().size()==0){
-                temp_kcLPriN=NULL;
-            return; }temp_kcLPriN=(VkShaderEXT*)malloc(stageCount*sizeof(VkShaderEXT));
+                pShaders=NULL;
+            return; }pShaders=(VkShaderEXT*)malloc(stageCount*sizeof(VkShaderEXT));
         auto& arr_lXkCGqI=json["pShaders"].as_array();
         for(int DXMUrFp=0; DXMUrFp < stageCount; DXMUrFp++){
-            [&](){deserialize_VkShaderEXT(arr_lXkCGqI[DXMUrFp], temp_kcLPriN[DXMUrFp]);}();
+            [&](){deserialize_VkShaderEXT(arr_lXkCGqI[DXMUrFp], pShaders[DXMUrFp]);}();
         }
-        }();pShaders=temp_kcLPriN;}();
+        }();
 
     PFN_vkCmdBindShadersEXT call_function;
     
@@ -33233,8 +33449,9 @@ VkCooperativeMatrixPropertiesKHR* pProperties;
         call_function=(PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR)get_device_proc_addr(parent,"vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR");
     }  
     
+VkResult  result;
 {
-auto result=call_function(physicalDevice, pPropertyCount, pProperties);
+result=call_function(physicalDevice, pPropertyCount, pProperties);
 }
 json.clear();
 [&](){[&](){[&](){json["result"]=result;}();}();}();
@@ -33268,3034 +33485,2629 @@ json.clear();
 void handle_command(boost::json::object json){
 //Will only be called by the server
 
-switch (value_to<Command>(json["enum"])){
+switch (static_cast<StreamType>(value_to<int>(json["enum"]))){
 
 
         case (VKCREATEINSTANCE):
-            handle_command(json);
+            handle_vkCreateInstance(json);
             return;
     
 
         case (VKDESTROYINSTANCE):
-            handle_command(json);
+            handle_vkDestroyInstance(json);
             return;
     
 
         case (VKENUMERATEPHYSICALDEVICES):
-            handle_command(json);
+            handle_vkEnumeratePhysicalDevices(json);
             return;
     
 
         case (VKGETDEVICEPROCADDR):
-            handle_command(json);
+            handle_vkGetDeviceProcAddr(json);
             return;
     
 
         case (VKGETINSTANCEPROCADDR):
-            handle_command(json);
+            handle_vkGetInstanceProcAddr(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEPROPERTIES):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceProperties(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceQueueFamilyProperties(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEMEMORYPROPERTIES):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceMemoryProperties(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEFEATURES):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceFeatures(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEFORMATPROPERTIES):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceFormatProperties(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceImageFormatProperties(json);
             return;
     
 
         case (VKCREATEDEVICE):
-            handle_command(json);
+            handle_vkCreateDevice(json);
             return;
     
 
         case (VKDESTROYDEVICE):
-            handle_command(json);
+            handle_vkDestroyDevice(json);
             return;
     
 
         case (VKENUMERATEINSTANCEVERSION):
-            handle_command(json);
+            handle_vkEnumerateInstanceVersion(json);
             return;
     
 
         case (VKENUMERATEINSTANCELAYERPROPERTIES):
-            handle_command(json);
+            handle_vkEnumerateInstanceLayerProperties(json);
             return;
     
 
         case (VKENUMERATEINSTANCEEXTENSIONPROPERTIES):
-            handle_command(json);
+            handle_vkEnumerateInstanceExtensionProperties(json);
             return;
     
 
         case (VKENUMERATEDEVICELAYERPROPERTIES):
-            handle_command(json);
+            handle_vkEnumerateDeviceLayerProperties(json);
             return;
     
 
         case (VKENUMERATEDEVICEEXTENSIONPROPERTIES):
-            handle_command(json);
+            handle_vkEnumerateDeviceExtensionProperties(json);
             return;
     
 
         case (VKGETDEVICEQUEUE):
-            handle_command(json);
+            handle_vkGetDeviceQueue(json);
             return;
     
 
         case (VKQUEUESUBMIT):
-            handle_command(json);
+            handle_vkQueueSubmit(json);
             return;
     
 
         case (VKQUEUEWAITIDLE):
-            handle_command(json);
+            handle_vkQueueWaitIdle(json);
             return;
     
 
         case (VKDEVICEWAITIDLE):
-            handle_command(json);
+            handle_vkDeviceWaitIdle(json);
             return;
     
 
         case (VKALLOCATEMEMORY):
-            handle_command(json);
+            handle_vkAllocateMemory(json);
             return;
     
 
         case (VKFREEMEMORY):
-            handle_command(json);
+            handle_vkFreeMemory(json);
             return;
     
 
         case (VKMAPMEMORY):
-            handle_command(json);
+            handle_vkMapMemory(json);
             return;
     
 
         case (VKUNMAPMEMORY):
-            handle_command(json);
+            handle_vkUnmapMemory(json);
             return;
     
 
         case (VKFLUSHMAPPEDMEMORYRANGES):
-            handle_command(json);
+            handle_vkFlushMappedMemoryRanges(json);
             return;
     
 
         case (VKINVALIDATEMAPPEDMEMORYRANGES):
-            handle_command(json);
+            handle_vkInvalidateMappedMemoryRanges(json);
             return;
     
 
         case (VKGETDEVICEMEMORYCOMMITMENT):
-            handle_command(json);
+            handle_vkGetDeviceMemoryCommitment(json);
             return;
     
 
         case (VKGETBUFFERMEMORYREQUIREMENTS):
-            handle_command(json);
+            handle_vkGetBufferMemoryRequirements(json);
             return;
     
 
         case (VKBINDBUFFERMEMORY):
-            handle_command(json);
+            handle_vkBindBufferMemory(json);
             return;
     
 
         case (VKGETIMAGEMEMORYREQUIREMENTS):
-            handle_command(json);
+            handle_vkGetImageMemoryRequirements(json);
             return;
     
 
         case (VKBINDIMAGEMEMORY):
-            handle_command(json);
+            handle_vkBindImageMemory(json);
             return;
     
 
         case (VKGETIMAGESPARSEMEMORYREQUIREMENTS):
-            handle_command(json);
+            handle_vkGetImageSparseMemoryRequirements(json);
             return;
     
 
         case (VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceSparseImageFormatProperties(json);
             return;
     
 
         case (VKQUEUEBINDSPARSE):
-            handle_command(json);
+            handle_vkQueueBindSparse(json);
             return;
     
 
         case (VKCREATEFENCE):
-            handle_command(json);
+            handle_vkCreateFence(json);
             return;
     
 
         case (VKDESTROYFENCE):
-            handle_command(json);
+            handle_vkDestroyFence(json);
             return;
     
 
         case (VKRESETFENCES):
-            handle_command(json);
+            handle_vkResetFences(json);
             return;
     
 
         case (VKGETFENCESTATUS):
-            handle_command(json);
+            handle_vkGetFenceStatus(json);
             return;
     
 
         case (VKWAITFORFENCES):
-            handle_command(json);
+            handle_vkWaitForFences(json);
             return;
     
 
         case (VKCREATESEMAPHORE):
-            handle_command(json);
+            handle_vkCreateSemaphore(json);
             return;
     
 
         case (VKDESTROYSEMAPHORE):
-            handle_command(json);
+            handle_vkDestroySemaphore(json);
             return;
     
 
         case (VKCREATEEVENT):
-            handle_command(json);
+            handle_vkCreateEvent(json);
             return;
     
 
         case (VKDESTROYEVENT):
-            handle_command(json);
+            handle_vkDestroyEvent(json);
             return;
     
 
         case (VKGETEVENTSTATUS):
-            handle_command(json);
+            handle_vkGetEventStatus(json);
             return;
     
 
         case (VKSETEVENT):
-            handle_command(json);
+            handle_vkSetEvent(json);
             return;
     
 
         case (VKRESETEVENT):
-            handle_command(json);
+            handle_vkResetEvent(json);
             return;
     
 
         case (VKCREATEQUERYPOOL):
-            handle_command(json);
+            handle_vkCreateQueryPool(json);
             return;
     
 
         case (VKDESTROYQUERYPOOL):
-            handle_command(json);
+            handle_vkDestroyQueryPool(json);
             return;
     
 
         case (VKGETQUERYPOOLRESULTS):
-            handle_command(json);
+            handle_vkGetQueryPoolResults(json);
             return;
     
 
         case (VKRESETQUERYPOOL):
-            handle_command(json);
-            return;
-    
-
-        case (VKRESETQUERYPOOL):
-            handle_command(json);
+            handle_vkResetQueryPool(json);
             return;
     
 
         case (VKCREATEBUFFER):
-            handle_command(json);
+            handle_vkCreateBuffer(json);
             return;
     
 
         case (VKDESTROYBUFFER):
-            handle_command(json);
+            handle_vkDestroyBuffer(json);
             return;
     
 
         case (VKCREATEBUFFERVIEW):
-            handle_command(json);
+            handle_vkCreateBufferView(json);
             return;
     
 
         case (VKDESTROYBUFFERVIEW):
-            handle_command(json);
+            handle_vkDestroyBufferView(json);
             return;
     
 
         case (VKCREATEIMAGE):
-            handle_command(json);
+            handle_vkCreateImage(json);
             return;
     
 
         case (VKDESTROYIMAGE):
-            handle_command(json);
+            handle_vkDestroyImage(json);
             return;
     
 
         case (VKGETIMAGESUBRESOURCELAYOUT):
-            handle_command(json);
+            handle_vkGetImageSubresourceLayout(json);
             return;
     
 
         case (VKCREATEIMAGEVIEW):
-            handle_command(json);
+            handle_vkCreateImageView(json);
             return;
     
 
         case (VKDESTROYIMAGEVIEW):
-            handle_command(json);
+            handle_vkDestroyImageView(json);
             return;
     
 
         case (VKCREATESHADERMODULE):
-            handle_command(json);
+            handle_vkCreateShaderModule(json);
             return;
     
 
         case (VKDESTROYSHADERMODULE):
-            handle_command(json);
+            handle_vkDestroyShaderModule(json);
             return;
     
 
         case (VKCREATEPIPELINECACHE):
-            handle_command(json);
+            handle_vkCreatePipelineCache(json);
             return;
     
 
         case (VKDESTROYPIPELINECACHE):
-            handle_command(json);
+            handle_vkDestroyPipelineCache(json);
             return;
     
 
         case (VKGETPIPELINECACHEDATA):
-            handle_command(json);
+            handle_vkGetPipelineCacheData(json);
             return;
     
 
         case (VKMERGEPIPELINECACHES):
-            handle_command(json);
+            handle_vkMergePipelineCaches(json);
             return;
     
 
         case (VKCREATEGRAPHICSPIPELINES):
-            handle_command(json);
+            handle_vkCreateGraphicsPipelines(json);
             return;
     
 
         case (VKCREATECOMPUTEPIPELINES):
-            handle_command(json);
+            handle_vkCreateComputePipelines(json);
             return;
     
 
         case (VKGETDEVICESUBPASSSHADINGMAXWORKGROUPSIZEHUAWEI):
-            handle_command(json);
+            handle_vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI(json);
             return;
     
 
         case (VKDESTROYPIPELINE):
-            handle_command(json);
+            handle_vkDestroyPipeline(json);
             return;
     
 
         case (VKCREATEPIPELINELAYOUT):
-            handle_command(json);
+            handle_vkCreatePipelineLayout(json);
             return;
     
 
         case (VKDESTROYPIPELINELAYOUT):
-            handle_command(json);
+            handle_vkDestroyPipelineLayout(json);
             return;
     
 
         case (VKCREATESAMPLER):
-            handle_command(json);
+            handle_vkCreateSampler(json);
             return;
     
 
         case (VKDESTROYSAMPLER):
-            handle_command(json);
+            handle_vkDestroySampler(json);
             return;
     
 
         case (VKCREATEDESCRIPTORSETLAYOUT):
-            handle_command(json);
+            handle_vkCreateDescriptorSetLayout(json);
             return;
     
 
         case (VKDESTROYDESCRIPTORSETLAYOUT):
-            handle_command(json);
+            handle_vkDestroyDescriptorSetLayout(json);
             return;
     
 
         case (VKCREATEDESCRIPTORPOOL):
-            handle_command(json);
+            handle_vkCreateDescriptorPool(json);
             return;
     
 
         case (VKDESTROYDESCRIPTORPOOL):
-            handle_command(json);
+            handle_vkDestroyDescriptorPool(json);
             return;
     
 
         case (VKRESETDESCRIPTORPOOL):
-            handle_command(json);
+            handle_vkResetDescriptorPool(json);
             return;
     
 
         case (VKALLOCATEDESCRIPTORSETS):
-            handle_command(json);
+            handle_vkAllocateDescriptorSets(json);
             return;
     
 
         case (VKFREEDESCRIPTORSETS):
-            handle_command(json);
+            handle_vkFreeDescriptorSets(json);
             return;
     
 
         case (VKUPDATEDESCRIPTORSETS):
-            handle_command(json);
+            handle_vkUpdateDescriptorSets(json);
             return;
     
 
         case (VKCREATEFRAMEBUFFER):
-            handle_command(json);
+            handle_vkCreateFramebuffer(json);
             return;
     
 
         case (VKDESTROYFRAMEBUFFER):
-            handle_command(json);
+            handle_vkDestroyFramebuffer(json);
             return;
     
 
         case (VKCREATERENDERPASS):
-            handle_command(json);
+            handle_vkCreateRenderPass(json);
             return;
     
 
         case (VKDESTROYRENDERPASS):
-            handle_command(json);
+            handle_vkDestroyRenderPass(json);
             return;
     
 
         case (VKGETRENDERAREAGRANULARITY):
-            handle_command(json);
+            handle_vkGetRenderAreaGranularity(json);
             return;
     
 
         case (VKGETRENDERINGAREAGRANULARITYKHR):
-            handle_command(json);
+            handle_vkGetRenderingAreaGranularityKHR(json);
             return;
     
 
         case (VKCREATECOMMANDPOOL):
-            handle_command(json);
+            handle_vkCreateCommandPool(json);
             return;
     
 
         case (VKDESTROYCOMMANDPOOL):
-            handle_command(json);
+            handle_vkDestroyCommandPool(json);
             return;
     
 
         case (VKRESETCOMMANDPOOL):
-            handle_command(json);
+            handle_vkResetCommandPool(json);
             return;
     
 
         case (VKALLOCATECOMMANDBUFFERS):
-            handle_command(json);
+            handle_vkAllocateCommandBuffers(json);
             return;
     
 
         case (VKFREECOMMANDBUFFERS):
-            handle_command(json);
+            handle_vkFreeCommandBuffers(json);
             return;
     
 
         case (VKBEGINCOMMANDBUFFER):
-            handle_command(json);
+            handle_vkBeginCommandBuffer(json);
             return;
     
 
         case (VKENDCOMMANDBUFFER):
-            handle_command(json);
+            handle_vkEndCommandBuffer(json);
             return;
     
 
         case (VKRESETCOMMANDBUFFER):
-            handle_command(json);
+            handle_vkResetCommandBuffer(json);
             return;
     
 
         case (VKCMDBINDPIPELINE):
-            handle_command(json);
+            handle_vkCmdBindPipeline(json);
             return;
     
 
         case (VKCMDSETATTACHMENTFEEDBACKLOOPENABLEEXT):
-            handle_command(json);
+            handle_vkCmdSetAttachmentFeedbackLoopEnableEXT(json);
             return;
     
 
         case (VKCMDSETVIEWPORT):
-            handle_command(json);
+            handle_vkCmdSetViewport(json);
             return;
     
 
         case (VKCMDSETSCISSOR):
-            handle_command(json);
+            handle_vkCmdSetScissor(json);
             return;
     
 
         case (VKCMDSETLINEWIDTH):
-            handle_command(json);
+            handle_vkCmdSetLineWidth(json);
             return;
     
 
         case (VKCMDSETDEPTHBIAS):
-            handle_command(json);
+            handle_vkCmdSetDepthBias(json);
             return;
     
 
         case (VKCMDSETBLENDCONSTANTS):
-            handle_command(json);
+            handle_vkCmdSetBlendConstants(json);
             return;
     
 
         case (VKCMDSETDEPTHBOUNDS):
-            handle_command(json);
+            handle_vkCmdSetDepthBounds(json);
             return;
     
 
         case (VKCMDSETSTENCILCOMPAREMASK):
-            handle_command(json);
+            handle_vkCmdSetStencilCompareMask(json);
             return;
     
 
         case (VKCMDSETSTENCILWRITEMASK):
-            handle_command(json);
+            handle_vkCmdSetStencilWriteMask(json);
             return;
     
 
         case (VKCMDSETSTENCILREFERENCE):
-            handle_command(json);
+            handle_vkCmdSetStencilReference(json);
             return;
     
 
         case (VKCMDBINDDESCRIPTORSETS):
-            handle_command(json);
+            handle_vkCmdBindDescriptorSets(json);
             return;
     
 
         case (VKCMDBINDINDEXBUFFER):
-            handle_command(json);
+            handle_vkCmdBindIndexBuffer(json);
             return;
     
 
         case (VKCMDBINDVERTEXBUFFERS):
-            handle_command(json);
+            handle_vkCmdBindVertexBuffers(json);
             return;
     
 
         case (VKCMDDRAW):
-            handle_command(json);
+            handle_vkCmdDraw(json);
             return;
     
 
         case (VKCMDDRAWINDEXED):
-            handle_command(json);
+            handle_vkCmdDrawIndexed(json);
             return;
     
 
         case (VKCMDDRAWMULTIEXT):
-            handle_command(json);
+            handle_vkCmdDrawMultiEXT(json);
             return;
     
 
         case (VKCMDDRAWMULTIINDEXEDEXT):
-            handle_command(json);
+            handle_vkCmdDrawMultiIndexedEXT(json);
             return;
     
 
         case (VKCMDDRAWINDIRECT):
-            handle_command(json);
+            handle_vkCmdDrawIndirect(json);
             return;
     
 
         case (VKCMDDRAWINDEXEDINDIRECT):
-            handle_command(json);
+            handle_vkCmdDrawIndexedIndirect(json);
             return;
     
 
         case (VKCMDDISPATCH):
-            handle_command(json);
+            handle_vkCmdDispatch(json);
             return;
     
 
         case (VKCMDDISPATCHINDIRECT):
-            handle_command(json);
+            handle_vkCmdDispatchIndirect(json);
             return;
     
 
         case (VKCMDSUBPASSSHADINGHUAWEI):
-            handle_command(json);
+            handle_vkCmdSubpassShadingHUAWEI(json);
             return;
     
 
         case (VKCMDDRAWCLUSTERHUAWEI):
-            handle_command(json);
+            handle_vkCmdDrawClusterHUAWEI(json);
             return;
     
 
         case (VKCMDDRAWCLUSTERINDIRECTHUAWEI):
-            handle_command(json);
+            handle_vkCmdDrawClusterIndirectHUAWEI(json);
             return;
     
 
         case (VKCMDUPDATEPIPELINEINDIRECTBUFFERNV):
-            handle_command(json);
+            handle_vkCmdUpdatePipelineIndirectBufferNV(json);
             return;
     
 
         case (VKCMDCOPYBUFFER):
-            handle_command(json);
+            handle_vkCmdCopyBuffer(json);
             return;
     
 
         case (VKCMDCOPYIMAGE):
-            handle_command(json);
+            handle_vkCmdCopyImage(json);
             return;
     
 
         case (VKCMDBLITIMAGE):
-            handle_command(json);
+            handle_vkCmdBlitImage(json);
             return;
     
 
         case (VKCMDCOPYBUFFERTOIMAGE):
-            handle_command(json);
+            handle_vkCmdCopyBufferToImage(json);
             return;
     
 
         case (VKCMDCOPYIMAGETOBUFFER):
-            handle_command(json);
+            handle_vkCmdCopyImageToBuffer(json);
             return;
     
 
         case (VKCMDCOPYMEMORYINDIRECTNV):
-            handle_command(json);
+            handle_vkCmdCopyMemoryIndirectNV(json);
             return;
     
 
         case (VKCMDCOPYMEMORYTOIMAGEINDIRECTNV):
-            handle_command(json);
+            handle_vkCmdCopyMemoryToImageIndirectNV(json);
             return;
     
 
         case (VKCMDUPDATEBUFFER):
-            handle_command(json);
+            handle_vkCmdUpdateBuffer(json);
             return;
     
 
         case (VKCMDFILLBUFFER):
-            handle_command(json);
+            handle_vkCmdFillBuffer(json);
             return;
     
 
         case (VKCMDCLEARCOLORIMAGE):
-            handle_command(json);
+            handle_vkCmdClearColorImage(json);
             return;
     
 
         case (VKCMDCLEARDEPTHSTENCILIMAGE):
-            handle_command(json);
+            handle_vkCmdClearDepthStencilImage(json);
             return;
     
 
         case (VKCMDCLEARATTACHMENTS):
-            handle_command(json);
+            handle_vkCmdClearAttachments(json);
             return;
     
 
         case (VKCMDRESOLVEIMAGE):
-            handle_command(json);
+            handle_vkCmdResolveImage(json);
             return;
     
 
         case (VKCMDSETEVENT):
-            handle_command(json);
+            handle_vkCmdSetEvent(json);
             return;
     
 
         case (VKCMDRESETEVENT):
-            handle_command(json);
+            handle_vkCmdResetEvent(json);
             return;
     
 
         case (VKCMDWAITEVENTS):
-            handle_command(json);
+            handle_vkCmdWaitEvents(json);
             return;
     
 
         case (VKCMDPIPELINEBARRIER):
-            handle_command(json);
+            handle_vkCmdPipelineBarrier(json);
             return;
     
 
         case (VKCMDBEGINQUERY):
-            handle_command(json);
+            handle_vkCmdBeginQuery(json);
             return;
     
 
         case (VKCMDENDQUERY):
-            handle_command(json);
+            handle_vkCmdEndQuery(json);
             return;
     
 
         case (VKCMDBEGINCONDITIONALRENDERINGEXT):
-            handle_command(json);
+            handle_vkCmdBeginConditionalRenderingEXT(json);
             return;
     
 
         case (VKCMDENDCONDITIONALRENDERINGEXT):
-            handle_command(json);
+            handle_vkCmdEndConditionalRenderingEXT(json);
             return;
     
 
         case (VKCMDRESETQUERYPOOL):
-            handle_command(json);
+            handle_vkCmdResetQueryPool(json);
             return;
     
 
         case (VKCMDWRITETIMESTAMP):
-            handle_command(json);
+            handle_vkCmdWriteTimestamp(json);
             return;
     
 
         case (VKCMDCOPYQUERYPOOLRESULTS):
-            handle_command(json);
+            handle_vkCmdCopyQueryPoolResults(json);
             return;
     
 
         case (VKCMDPUSHCONSTANTS):
-            handle_command(json);
+            handle_vkCmdPushConstants(json);
             return;
     
 
         case (VKCMDBEGINRENDERPASS):
-            handle_command(json);
+            handle_vkCmdBeginRenderPass(json);
             return;
     
 
         case (VKCMDNEXTSUBPASS):
-            handle_command(json);
+            handle_vkCmdNextSubpass(json);
             return;
     
 
         case (VKCMDENDRENDERPASS):
-            handle_command(json);
+            handle_vkCmdEndRenderPass(json);
             return;
     
 
         case (VKCMDEXECUTECOMMANDS):
-            handle_command(json);
+            handle_vkCmdExecuteCommands(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEDISPLAYPROPERTIESKHR):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceDisplayPropertiesKHR(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIESKHR):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceDisplayPlanePropertiesKHR(json);
             return;
     
 
         case (VKGETDISPLAYPLANESUPPORTEDDISPLAYSKHR):
-            handle_command(json);
+            handle_vkGetDisplayPlaneSupportedDisplaysKHR(json);
             return;
     
 
         case (VKGETDISPLAYMODEPROPERTIESKHR):
-            handle_command(json);
+            handle_vkGetDisplayModePropertiesKHR(json);
             return;
     
 
         case (VKCREATEDISPLAYMODEKHR):
-            handle_command(json);
+            handle_vkCreateDisplayModeKHR(json);
             return;
     
 
         case (VKGETDISPLAYPLANECAPABILITIESKHR):
-            handle_command(json);
+            handle_vkGetDisplayPlaneCapabilitiesKHR(json);
             return;
     
 
         case (VKCREATEDISPLAYPLANESURFACEKHR):
-            handle_command(json);
+            handle_vkCreateDisplayPlaneSurfaceKHR(json);
             return;
     
 
         case (VKCREATESHAREDSWAPCHAINSKHR):
-            handle_command(json);
+            handle_vkCreateSharedSwapchainsKHR(json);
             return;
     
 
         case (VKDESTROYSURFACEKHR):
-            handle_command(json);
+            handle_vkDestroySurfaceKHR(json);
             return;
     
 
         case (VKGETPHYSICALDEVICESURFACESUPPORTKHR):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceSurfaceSupportKHR(json);
             return;
     
 
         case (VKGETPHYSICALDEVICESURFACECAPABILITIESKHR):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceSurfaceCapabilitiesKHR(json);
             return;
     
 
         case (VKGETPHYSICALDEVICESURFACEFORMATSKHR):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceSurfaceFormatsKHR(json);
             return;
     
 
         case (VKGETPHYSICALDEVICESURFACEPRESENTMODESKHR):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceSurfacePresentModesKHR(json);
             return;
     
 
         case (VKCREATESWAPCHAINKHR):
-            handle_command(json);
+            handle_vkCreateSwapchainKHR(json);
             return;
     
 
         case (VKDESTROYSWAPCHAINKHR):
-            handle_command(json);
+            handle_vkDestroySwapchainKHR(json);
             return;
     
 
         case (VKGETSWAPCHAINIMAGESKHR):
-            handle_command(json);
+            handle_vkGetSwapchainImagesKHR(json);
             return;
     
 
         case (VKACQUIRENEXTIMAGEKHR):
-            handle_command(json);
+            handle_vkAcquireNextImageKHR(json);
             return;
     
 
         case (VKQUEUEPRESENTKHR):
-            handle_command(json);
+            handle_vkQueuePresentKHR(json);
             return;
     
 
         case (VKCREATEXLIBSURFACEKHR):
-            handle_command(json);
+            handle_vkCreateXlibSurfaceKHR(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEXLIBPRESENTATIONSUPPORTKHR):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceXlibPresentationSupportKHR(json);
             return;
     
 
         case (VKCREATEXCBSURFACEKHR):
-            handle_command(json);
+            handle_vkCreateXcbSurfaceKHR(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEXCBPRESENTATIONSUPPORTKHR):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceXcbPresentationSupportKHR(json);
             return;
     
 
         case (VKCREATEDEBUGREPORTCALLBACKEXT):
-            handle_command(json);
+            handle_vkCreateDebugReportCallbackEXT(json);
             return;
     
 
         case (VKDESTROYDEBUGREPORTCALLBACKEXT):
-            handle_command(json);
+            handle_vkDestroyDebugReportCallbackEXT(json);
             return;
     
 
         case (VKDEBUGREPORTMESSAGEEXT):
-            handle_command(json);
+            handle_vkDebugReportMessageEXT(json);
             return;
     
 
         case (VKDEBUGMARKERSETOBJECTNAMEEXT):
-            handle_command(json);
+            handle_vkDebugMarkerSetObjectNameEXT(json);
             return;
     
 
         case (VKDEBUGMARKERSETOBJECTTAGEXT):
-            handle_command(json);
+            handle_vkDebugMarkerSetObjectTagEXT(json);
             return;
     
 
         case (VKCMDDEBUGMARKERBEGINEXT):
-            handle_command(json);
+            handle_vkCmdDebugMarkerBeginEXT(json);
             return;
     
 
         case (VKCMDDEBUGMARKERENDEXT):
-            handle_command(json);
+            handle_vkCmdDebugMarkerEndEXT(json);
             return;
     
 
         case (VKCMDDEBUGMARKERINSERTEXT):
-            handle_command(json);
+            handle_vkCmdDebugMarkerInsertEXT(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEEXTERNALIMAGEFORMATPROPERTIESNV):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceExternalImageFormatPropertiesNV(json);
             return;
     
 
         case (VKCMDEXECUTEGENERATEDCOMMANDSNV):
-            handle_command(json);
+            handle_vkCmdExecuteGeneratedCommandsNV(json);
             return;
     
 
         case (VKCMDPREPROCESSGENERATEDCOMMANDSNV):
-            handle_command(json);
+            handle_vkCmdPreprocessGeneratedCommandsNV(json);
             return;
     
 
         case (VKCMDBINDPIPELINESHADERGROUPNV):
-            handle_command(json);
+            handle_vkCmdBindPipelineShaderGroupNV(json);
             return;
     
 
         case (VKGETGENERATEDCOMMANDSMEMORYREQUIREMENTSNV):
-            handle_command(json);
+            handle_vkGetGeneratedCommandsMemoryRequirementsNV(json);
             return;
     
 
         case (VKCREATEINDIRECTCOMMANDSLAYOUTNV):
-            handle_command(json);
+            handle_vkCreateIndirectCommandsLayoutNV(json);
             return;
     
 
         case (VKDESTROYINDIRECTCOMMANDSLAYOUTNV):
-            handle_command(json);
+            handle_vkDestroyIndirectCommandsLayoutNV(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEFEATURES2):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETPHYSICALDEVICEFEATURES2):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceFeatures2(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEPROPERTIES2):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETPHYSICALDEVICEPROPERTIES2):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceProperties2(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEFORMATPROPERTIES2):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETPHYSICALDEVICEFORMATPROPERTIES2):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceFormatProperties2(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES2):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES2):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceImageFormatProperties2(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES2):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES2):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceQueueFamilyProperties2(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEMEMORYPROPERTIES2):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETPHYSICALDEVICEMEMORYPROPERTIES2):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceMemoryProperties2(json);
             return;
     
 
         case (VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES2):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES2):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceSparseImageFormatProperties2(json);
             return;
     
 
         case (VKCMDPUSHDESCRIPTORSETKHR):
-            handle_command(json);
+            handle_vkCmdPushDescriptorSetKHR(json);
             return;
     
 
         case (VKTRIMCOMMANDPOOL):
-            handle_command(json);
-            return;
-    
-
-        case (VKTRIMCOMMANDPOOL):
-            handle_command(json);
+            handle_vkTrimCommandPool(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEEXTERNALBUFFERPROPERTIES):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETPHYSICALDEVICEEXTERNALBUFFERPROPERTIES):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceExternalBufferProperties(json);
             return;
     
 
         case (VKGETMEMORYFDKHR):
-            handle_command(json);
+            handle_vkGetMemoryFdKHR(json);
             return;
     
 
         case (VKGETMEMORYFDPROPERTIESKHR):
-            handle_command(json);
+            handle_vkGetMemoryFdPropertiesKHR(json);
             return;
     
 
         case (VKGETMEMORYREMOTEADDRESSNV):
-            handle_command(json);
+            handle_vkGetMemoryRemoteAddressNV(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEEXTERNALSEMAPHOREPROPERTIES):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETPHYSICALDEVICEEXTERNALSEMAPHOREPROPERTIES):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceExternalSemaphoreProperties(json);
             return;
     
 
         case (VKGETSEMAPHOREFDKHR):
-            handle_command(json);
+            handle_vkGetSemaphoreFdKHR(json);
             return;
     
 
         case (VKIMPORTSEMAPHOREFDKHR):
-            handle_command(json);
+            handle_vkImportSemaphoreFdKHR(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEEXTERNALFENCEPROPERTIES):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETPHYSICALDEVICEEXTERNALFENCEPROPERTIES):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceExternalFenceProperties(json);
             return;
     
 
         case (VKGETFENCEFDKHR):
-            handle_command(json);
+            handle_vkGetFenceFdKHR(json);
             return;
     
 
         case (VKIMPORTFENCEFDKHR):
-            handle_command(json);
+            handle_vkImportFenceFdKHR(json);
             return;
     
 
         case (VKRELEASEDISPLAYEXT):
-            handle_command(json);
+            handle_vkReleaseDisplayEXT(json);
             return;
     
 
         case (VKDISPLAYPOWERCONTROLEXT):
-            handle_command(json);
+            handle_vkDisplayPowerControlEXT(json);
             return;
     
 
         case (VKREGISTERDEVICEEVENTEXT):
-            handle_command(json);
+            handle_vkRegisterDeviceEventEXT(json);
             return;
     
 
         case (VKREGISTERDISPLAYEVENTEXT):
-            handle_command(json);
+            handle_vkRegisterDisplayEventEXT(json);
             return;
     
 
         case (VKGETSWAPCHAINCOUNTEREXT):
-            handle_command(json);
+            handle_vkGetSwapchainCounterEXT(json);
             return;
     
 
         case (VKGETPHYSICALDEVICESURFACECAPABILITIES2EXT):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceSurfaceCapabilities2EXT(json);
             return;
     
 
         case (VKENUMERATEPHYSICALDEVICEGROUPS):
-            handle_command(json);
-            return;
-    
-
-        case (VKENUMERATEPHYSICALDEVICEGROUPS):
-            handle_command(json);
+            handle_vkEnumeratePhysicalDeviceGroups(json);
             return;
     
 
         case (VKGETDEVICEGROUPPEERMEMORYFEATURES):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETDEVICEGROUPPEERMEMORYFEATURES):
-            handle_command(json);
+            handle_vkGetDeviceGroupPeerMemoryFeatures(json);
             return;
     
 
         case (VKBINDBUFFERMEMORY2):
-            handle_command(json);
-            return;
-    
-
-        case (VKBINDBUFFERMEMORY2):
-            handle_command(json);
+            handle_vkBindBufferMemory2(json);
             return;
     
 
         case (VKBINDIMAGEMEMORY2):
-            handle_command(json);
-            return;
-    
-
-        case (VKBINDIMAGEMEMORY2):
-            handle_command(json);
+            handle_vkBindImageMemory2(json);
             return;
     
 
         case (VKCMDSETDEVICEMASK):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDSETDEVICEMASK):
-            handle_command(json);
+            handle_vkCmdSetDeviceMask(json);
             return;
     
 
         case (VKGETDEVICEGROUPPRESENTCAPABILITIESKHR):
-            handle_command(json);
+            handle_vkGetDeviceGroupPresentCapabilitiesKHR(json);
             return;
     
 
         case (VKGETDEVICEGROUPSURFACEPRESENTMODESKHR):
-            handle_command(json);
+            handle_vkGetDeviceGroupSurfacePresentModesKHR(json);
             return;
     
 
         case (VKACQUIRENEXTIMAGE2KHR):
-            handle_command(json);
+            handle_vkAcquireNextImage2KHR(json);
             return;
     
 
         case (VKCMDDISPATCHBASE):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDDISPATCHBASE):
-            handle_command(json);
+            handle_vkCmdDispatchBase(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEPRESENTRECTANGLESKHR):
-            handle_command(json);
+            handle_vkGetPhysicalDevicePresentRectanglesKHR(json);
             return;
     
 
         case (VKCREATEDESCRIPTORUPDATETEMPLATE):
-            handle_command(json);
-            return;
-    
-
-        case (VKCREATEDESCRIPTORUPDATETEMPLATE):
-            handle_command(json);
+            handle_vkCreateDescriptorUpdateTemplate(json);
             return;
     
 
         case (VKDESTROYDESCRIPTORUPDATETEMPLATE):
-            handle_command(json);
-            return;
-    
-
-        case (VKDESTROYDESCRIPTORUPDATETEMPLATE):
-            handle_command(json);
+            handle_vkDestroyDescriptorUpdateTemplate(json);
             return;
     
 
         case (VKUPDATEDESCRIPTORSETWITHTEMPLATE):
-            handle_command(json);
-            return;
-    
-
-        case (VKUPDATEDESCRIPTORSETWITHTEMPLATE):
-            handle_command(json);
+            handle_vkUpdateDescriptorSetWithTemplate(json);
             return;
     
 
         case (VKCMDPUSHDESCRIPTORSETWITHTEMPLATEKHR):
-            handle_command(json);
+            handle_vkCmdPushDescriptorSetWithTemplateKHR(json);
             return;
     
 
         case (VKSETHDRMETADATAEXT):
-            handle_command(json);
+            handle_vkSetHdrMetadataEXT(json);
             return;
     
 
         case (VKGETSWAPCHAINSTATUSKHR):
-            handle_command(json);
+            handle_vkGetSwapchainStatusKHR(json);
             return;
     
 
         case (VKGETREFRESHCYCLEDURATIONGOOGLE):
-            handle_command(json);
+            handle_vkGetRefreshCycleDurationGOOGLE(json);
             return;
     
 
         case (VKGETPASTPRESENTATIONTIMINGGOOGLE):
-            handle_command(json);
+            handle_vkGetPastPresentationTimingGOOGLE(json);
             return;
     
 
         case (VKCMDSETVIEWPORTWSCALINGNV):
-            handle_command(json);
+            handle_vkCmdSetViewportWScalingNV(json);
             return;
     
 
         case (VKCMDSETDISCARDRECTANGLEEXT):
-            handle_command(json);
+            handle_vkCmdSetDiscardRectangleEXT(json);
             return;
     
 
         case (VKCMDSETDISCARDRECTANGLEENABLEEXT):
-            handle_command(json);
+            handle_vkCmdSetDiscardRectangleEnableEXT(json);
             return;
     
 
         case (VKCMDSETDISCARDRECTANGLEMODEEXT):
-            handle_command(json);
+            handle_vkCmdSetDiscardRectangleModeEXT(json);
             return;
     
 
         case (VKCMDSETSAMPLELOCATIONSEXT):
-            handle_command(json);
+            handle_vkCmdSetSampleLocationsEXT(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEMULTISAMPLEPROPERTIESEXT):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceMultisamplePropertiesEXT(json);
             return;
     
 
         case (VKGETPHYSICALDEVICESURFACECAPABILITIES2KHR):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceSurfaceCapabilities2KHR(json);
             return;
     
 
         case (VKGETPHYSICALDEVICESURFACEFORMATS2KHR):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceSurfaceFormats2KHR(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEDISPLAYPROPERTIES2KHR):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceDisplayProperties2KHR(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIES2KHR):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceDisplayPlaneProperties2KHR(json);
             return;
     
 
         case (VKGETDISPLAYMODEPROPERTIES2KHR):
-            handle_command(json);
+            handle_vkGetDisplayModeProperties2KHR(json);
             return;
     
 
         case (VKGETDISPLAYPLANECAPABILITIES2KHR):
-            handle_command(json);
+            handle_vkGetDisplayPlaneCapabilities2KHR(json);
             return;
     
 
         case (VKGETBUFFERMEMORYREQUIREMENTS2):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETBUFFERMEMORYREQUIREMENTS2):
-            handle_command(json);
+            handle_vkGetBufferMemoryRequirements2(json);
             return;
     
 
         case (VKGETIMAGEMEMORYREQUIREMENTS2):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETIMAGEMEMORYREQUIREMENTS2):
-            handle_command(json);
+            handle_vkGetImageMemoryRequirements2(json);
             return;
     
 
         case (VKGETIMAGESPARSEMEMORYREQUIREMENTS2):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETIMAGESPARSEMEMORYREQUIREMENTS2):
-            handle_command(json);
+            handle_vkGetImageSparseMemoryRequirements2(json);
             return;
     
 
         case (VKGETDEVICEBUFFERMEMORYREQUIREMENTS):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETDEVICEBUFFERMEMORYREQUIREMENTS):
-            handle_command(json);
+            handle_vkGetDeviceBufferMemoryRequirements(json);
             return;
     
 
         case (VKGETDEVICEIMAGEMEMORYREQUIREMENTS):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETDEVICEIMAGEMEMORYREQUIREMENTS):
-            handle_command(json);
+            handle_vkGetDeviceImageMemoryRequirements(json);
             return;
     
 
         case (VKGETDEVICEIMAGESPARSEMEMORYREQUIREMENTS):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETDEVICEIMAGESPARSEMEMORYREQUIREMENTS):
-            handle_command(json);
+            handle_vkGetDeviceImageSparseMemoryRequirements(json);
             return;
     
 
         case (VKCREATESAMPLERYCBCRCONVERSION):
-            handle_command(json);
-            return;
-    
-
-        case (VKCREATESAMPLERYCBCRCONVERSION):
-            handle_command(json);
+            handle_vkCreateSamplerYcbcrConversion(json);
             return;
     
 
         case (VKDESTROYSAMPLERYCBCRCONVERSION):
-            handle_command(json);
-            return;
-    
-
-        case (VKDESTROYSAMPLERYCBCRCONVERSION):
-            handle_command(json);
+            handle_vkDestroySamplerYcbcrConversion(json);
             return;
     
 
         case (VKGETDEVICEQUEUE2):
-            handle_command(json);
+            handle_vkGetDeviceQueue2(json);
             return;
     
 
         case (VKCREATEVALIDATIONCACHEEXT):
-            handle_command(json);
+            handle_vkCreateValidationCacheEXT(json);
             return;
     
 
         case (VKDESTROYVALIDATIONCACHEEXT):
-            handle_command(json);
+            handle_vkDestroyValidationCacheEXT(json);
             return;
     
 
         case (VKGETVALIDATIONCACHEDATAEXT):
-            handle_command(json);
+            handle_vkGetValidationCacheDataEXT(json);
             return;
     
 
         case (VKMERGEVALIDATIONCACHESEXT):
-            handle_command(json);
+            handle_vkMergeValidationCachesEXT(json);
             return;
     
 
         case (VKGETDESCRIPTORSETLAYOUTSUPPORT):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETDESCRIPTORSETLAYOUTSUPPORT):
-            handle_command(json);
+            handle_vkGetDescriptorSetLayoutSupport(json);
             return;
     
 
         case (VKGETSHADERINFOAMD):
-            handle_command(json);
+            handle_vkGetShaderInfoAMD(json);
             return;
     
 
         case (VKSETLOCALDIMMINGAMD):
-            handle_command(json);
+            handle_vkSetLocalDimmingAMD(json);
             return;
     
 
         case (VKGETPHYSICALDEVICECALIBRATEABLETIMEDOMAINSEXT):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceCalibrateableTimeDomainsEXT(json);
             return;
     
 
         case (VKGETCALIBRATEDTIMESTAMPSEXT):
-            handle_command(json);
+            handle_vkGetCalibratedTimestampsEXT(json);
             return;
     
 
         case (VKSETDEBUGUTILSOBJECTNAMEEXT):
-            handle_command(json);
+            handle_vkSetDebugUtilsObjectNameEXT(json);
             return;
     
 
         case (VKSETDEBUGUTILSOBJECTTAGEXT):
-            handle_command(json);
+            handle_vkSetDebugUtilsObjectTagEXT(json);
             return;
     
 
         case (VKQUEUEBEGINDEBUGUTILSLABELEXT):
-            handle_command(json);
+            handle_vkQueueBeginDebugUtilsLabelEXT(json);
             return;
     
 
         case (VKQUEUEENDDEBUGUTILSLABELEXT):
-            handle_command(json);
+            handle_vkQueueEndDebugUtilsLabelEXT(json);
             return;
     
 
         case (VKQUEUEINSERTDEBUGUTILSLABELEXT):
-            handle_command(json);
+            handle_vkQueueInsertDebugUtilsLabelEXT(json);
             return;
     
 
         case (VKCMDBEGINDEBUGUTILSLABELEXT):
-            handle_command(json);
+            handle_vkCmdBeginDebugUtilsLabelEXT(json);
             return;
     
 
         case (VKCMDENDDEBUGUTILSLABELEXT):
-            handle_command(json);
+            handle_vkCmdEndDebugUtilsLabelEXT(json);
             return;
     
 
         case (VKCMDINSERTDEBUGUTILSLABELEXT):
-            handle_command(json);
+            handle_vkCmdInsertDebugUtilsLabelEXT(json);
             return;
     
 
         case (VKCREATEDEBUGUTILSMESSENGEREXT):
-            handle_command(json);
+            handle_vkCreateDebugUtilsMessengerEXT(json);
             return;
     
 
         case (VKDESTROYDEBUGUTILSMESSENGEREXT):
-            handle_command(json);
+            handle_vkDestroyDebugUtilsMessengerEXT(json);
             return;
     
 
         case (VKSUBMITDEBUGUTILSMESSAGEEXT):
-            handle_command(json);
+            handle_vkSubmitDebugUtilsMessageEXT(json);
             return;
     
 
         case (VKGETMEMORYHOSTPOINTERPROPERTIESEXT):
-            handle_command(json);
+            handle_vkGetMemoryHostPointerPropertiesEXT(json);
             return;
     
 
         case (VKCMDWRITEBUFFERMARKERAMD):
-            handle_command(json);
+            handle_vkCmdWriteBufferMarkerAMD(json);
             return;
     
 
         case (VKCREATERENDERPASS2):
-            handle_command(json);
-            return;
-    
-
-        case (VKCREATERENDERPASS2):
-            handle_command(json);
+            handle_vkCreateRenderPass2(json);
             return;
     
 
         case (VKCMDBEGINRENDERPASS2):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDBEGINRENDERPASS2):
-            handle_command(json);
+            handle_vkCmdBeginRenderPass2(json);
             return;
     
 
         case (VKCMDNEXTSUBPASS2):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDNEXTSUBPASS2):
-            handle_command(json);
+            handle_vkCmdNextSubpass2(json);
             return;
     
 
         case (VKCMDENDRENDERPASS2):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDENDRENDERPASS2):
-            handle_command(json);
+            handle_vkCmdEndRenderPass2(json);
             return;
     
 
         case (VKGETSEMAPHORECOUNTERVALUE):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETSEMAPHORECOUNTERVALUE):
-            handle_command(json);
+            handle_vkGetSemaphoreCounterValue(json);
             return;
     
 
         case (VKWAITSEMAPHORES):
-            handle_command(json);
-            return;
-    
-
-        case (VKWAITSEMAPHORES):
-            handle_command(json);
+            handle_vkWaitSemaphores(json);
             return;
     
 
         case (VKSIGNALSEMAPHORE):
-            handle_command(json);
-            return;
-    
-
-        case (VKSIGNALSEMAPHORE):
-            handle_command(json);
+            handle_vkSignalSemaphore(json);
             return;
     
 
         case (VKCMDDRAWINDIRECTCOUNT):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDDRAWINDIRECTCOUNT):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDDRAWINDIRECTCOUNT):
-            handle_command(json);
+            handle_vkCmdDrawIndirectCount(json);
             return;
     
 
         case (VKCMDDRAWINDEXEDINDIRECTCOUNT):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDDRAWINDEXEDINDIRECTCOUNT):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDDRAWINDEXEDINDIRECTCOUNT):
-            handle_command(json);
+            handle_vkCmdDrawIndexedIndirectCount(json);
             return;
     
 
         case (VKCMDSETCHECKPOINTNV):
-            handle_command(json);
+            handle_vkCmdSetCheckpointNV(json);
             return;
     
 
         case (VKGETQUEUECHECKPOINTDATANV):
-            handle_command(json);
+            handle_vkGetQueueCheckpointDataNV(json);
             return;
     
 
         case (VKCMDBINDTRANSFORMFEEDBACKBUFFERSEXT):
-            handle_command(json);
+            handle_vkCmdBindTransformFeedbackBuffersEXT(json);
             return;
     
 
         case (VKCMDBEGINTRANSFORMFEEDBACKEXT):
-            handle_command(json);
+            handle_vkCmdBeginTransformFeedbackEXT(json);
             return;
     
 
         case (VKCMDENDTRANSFORMFEEDBACKEXT):
-            handle_command(json);
+            handle_vkCmdEndTransformFeedbackEXT(json);
             return;
     
 
         case (VKCMDBEGINQUERYINDEXEDEXT):
-            handle_command(json);
+            handle_vkCmdBeginQueryIndexedEXT(json);
             return;
     
 
         case (VKCMDENDQUERYINDEXEDEXT):
-            handle_command(json);
+            handle_vkCmdEndQueryIndexedEXT(json);
             return;
     
 
         case (VKCMDDRAWINDIRECTBYTECOUNTEXT):
-            handle_command(json);
+            handle_vkCmdDrawIndirectByteCountEXT(json);
             return;
     
 
         case (VKCMDSETEXCLUSIVESCISSORNV):
-            handle_command(json);
+            handle_vkCmdSetExclusiveScissorNV(json);
             return;
     
 
         case (VKCMDSETEXCLUSIVESCISSORENABLENV):
-            handle_command(json);
+            handle_vkCmdSetExclusiveScissorEnableNV(json);
             return;
     
 
         case (VKCMDBINDSHADINGRATEIMAGENV):
-            handle_command(json);
+            handle_vkCmdBindShadingRateImageNV(json);
             return;
     
 
         case (VKCMDSETVIEWPORTSHADINGRATEPALETTENV):
-            handle_command(json);
+            handle_vkCmdSetViewportShadingRatePaletteNV(json);
             return;
     
 
         case (VKCMDSETCOARSESAMPLEORDERNV):
-            handle_command(json);
+            handle_vkCmdSetCoarseSampleOrderNV(json);
             return;
     
 
         case (VKCMDDRAWMESHTASKSNV):
-            handle_command(json);
+            handle_vkCmdDrawMeshTasksNV(json);
             return;
     
 
         case (VKCMDDRAWMESHTASKSINDIRECTNV):
-            handle_command(json);
+            handle_vkCmdDrawMeshTasksIndirectNV(json);
             return;
     
 
         case (VKCMDDRAWMESHTASKSINDIRECTCOUNTNV):
-            handle_command(json);
+            handle_vkCmdDrawMeshTasksIndirectCountNV(json);
             return;
     
 
         case (VKCMDDRAWMESHTASKSEXT):
-            handle_command(json);
+            handle_vkCmdDrawMeshTasksEXT(json);
             return;
     
 
         case (VKCMDDRAWMESHTASKSINDIRECTEXT):
-            handle_command(json);
+            handle_vkCmdDrawMeshTasksIndirectEXT(json);
             return;
     
 
         case (VKCMDDRAWMESHTASKSINDIRECTCOUNTEXT):
-            handle_command(json);
+            handle_vkCmdDrawMeshTasksIndirectCountEXT(json);
             return;
     
 
         case (VKCOMPILEDEFERREDNV):
-            handle_command(json);
+            handle_vkCompileDeferredNV(json);
             return;
     
 
         case (VKCREATEACCELERATIONSTRUCTURENV):
-            handle_command(json);
+            handle_vkCreateAccelerationStructureNV(json);
             return;
     
 
         case (VKCMDBINDINVOCATIONMASKHUAWEI):
-            handle_command(json);
+            handle_vkCmdBindInvocationMaskHUAWEI(json);
             return;
     
 
         case (VKDESTROYACCELERATIONSTRUCTUREKHR):
-            handle_command(json);
+            handle_vkDestroyAccelerationStructureKHR(json);
             return;
     
 
         case (VKDESTROYACCELERATIONSTRUCTURENV):
-            handle_command(json);
+            handle_vkDestroyAccelerationStructureNV(json);
             return;
     
 
         case (VKGETACCELERATIONSTRUCTUREMEMORYREQUIREMENTSNV):
-            handle_command(json);
+            handle_vkGetAccelerationStructureMemoryRequirementsNV(json);
             return;
     
 
         case (VKBINDACCELERATIONSTRUCTUREMEMORYNV):
-            handle_command(json);
+            handle_vkBindAccelerationStructureMemoryNV(json);
             return;
     
 
         case (VKCMDCOPYACCELERATIONSTRUCTURENV):
-            handle_command(json);
+            handle_vkCmdCopyAccelerationStructureNV(json);
             return;
     
 
         case (VKCMDCOPYACCELERATIONSTRUCTUREKHR):
-            handle_command(json);
+            handle_vkCmdCopyAccelerationStructureKHR(json);
             return;
     
 
         case (VKCOPYACCELERATIONSTRUCTUREKHR):
-            handle_command(json);
+            handle_vkCopyAccelerationStructureKHR(json);
             return;
     
 
         case (VKCMDCOPYACCELERATIONSTRUCTURETOMEMORYKHR):
-            handle_command(json);
+            handle_vkCmdCopyAccelerationStructureToMemoryKHR(json);
             return;
     
 
         case (VKCOPYACCELERATIONSTRUCTURETOMEMORYKHR):
-            handle_command(json);
+            handle_vkCopyAccelerationStructureToMemoryKHR(json);
             return;
     
 
         case (VKCMDCOPYMEMORYTOACCELERATIONSTRUCTUREKHR):
-            handle_command(json);
+            handle_vkCmdCopyMemoryToAccelerationStructureKHR(json);
             return;
     
 
         case (VKCOPYMEMORYTOACCELERATIONSTRUCTUREKHR):
-            handle_command(json);
+            handle_vkCopyMemoryToAccelerationStructureKHR(json);
             return;
     
 
         case (VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESKHR):
-            handle_command(json);
+            handle_vkCmdWriteAccelerationStructuresPropertiesKHR(json);
             return;
     
 
         case (VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESNV):
-            handle_command(json);
+            handle_vkCmdWriteAccelerationStructuresPropertiesNV(json);
             return;
     
 
         case (VKCMDBUILDACCELERATIONSTRUCTURENV):
-            handle_command(json);
+            handle_vkCmdBuildAccelerationStructureNV(json);
             return;
     
 
         case (VKWRITEACCELERATIONSTRUCTURESPROPERTIESKHR):
-            handle_command(json);
+            handle_vkWriteAccelerationStructuresPropertiesKHR(json);
             return;
     
 
         case (VKCMDTRACERAYSKHR):
-            handle_command(json);
+            handle_vkCmdTraceRaysKHR(json);
             return;
     
 
         case (VKCMDTRACERAYSNV):
-            handle_command(json);
+            handle_vkCmdTraceRaysNV(json);
             return;
     
 
         case (VKGETRAYTRACINGSHADERGROUPHANDLESKHR):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETRAYTRACINGSHADERGROUPHANDLESKHR):
-            handle_command(json);
+            handle_vkGetRayTracingShaderGroupHandlesKHR(json);
             return;
     
 
         case (VKGETRAYTRACINGCAPTUREREPLAYSHADERGROUPHANDLESKHR):
-            handle_command(json);
+            handle_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR(json);
             return;
     
 
         case (VKGETACCELERATIONSTRUCTUREHANDLENV):
-            handle_command(json);
+            handle_vkGetAccelerationStructureHandleNV(json);
             return;
     
 
         case (VKCREATERAYTRACINGPIPELINESNV):
-            handle_command(json);
+            handle_vkCreateRayTracingPipelinesNV(json);
             return;
     
 
         case (VKCREATERAYTRACINGPIPELINESKHR):
-            handle_command(json);
+            handle_vkCreateRayTracingPipelinesKHR(json);
             return;
     
 
         case (VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESNV):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV(json);
             return;
     
 
         case (VKCMDTRACERAYSINDIRECTKHR):
-            handle_command(json);
+            handle_vkCmdTraceRaysIndirectKHR(json);
             return;
     
 
         case (VKCMDTRACERAYSINDIRECT2KHR):
-            handle_command(json);
+            handle_vkCmdTraceRaysIndirect2KHR(json);
             return;
     
 
         case (VKGETDEVICEACCELERATIONSTRUCTURECOMPATIBILITYKHR):
-            handle_command(json);
+            handle_vkGetDeviceAccelerationStructureCompatibilityKHR(json);
             return;
     
 
         case (VKGETRAYTRACINGSHADERGROUPSTACKSIZEKHR):
-            handle_command(json);
+            handle_vkGetRayTracingShaderGroupStackSizeKHR(json);
             return;
     
 
         case (VKCMDSETRAYTRACINGPIPELINESTACKSIZEKHR):
-            handle_command(json);
+            handle_vkCmdSetRayTracingPipelineStackSizeKHR(json);
             return;
     
 
         case (VKGETIMAGEVIEWHANDLENVX):
-            handle_command(json);
+            handle_vkGetImageViewHandleNVX(json);
             return;
     
 
         case (VKGETIMAGEVIEWADDRESSNVX):
-            handle_command(json);
+            handle_vkGetImageViewAddressNVX(json);
             return;
     
 
         case (VKENUMERATEPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYCOUNTERSKHR):
-            handle_command(json);
+            handle_vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYPASSESKHR):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR(json);
             return;
     
 
         case (VKACQUIREPROFILINGLOCKKHR):
-            handle_command(json);
+            handle_vkAcquireProfilingLockKHR(json);
             return;
     
 
         case (VKRELEASEPROFILINGLOCKKHR):
-            handle_command(json);
+            handle_vkReleaseProfilingLockKHR(json);
             return;
     
 
         case (VKGETIMAGEDRMFORMATMODIFIERPROPERTIESEXT):
-            handle_command(json);
+            handle_vkGetImageDrmFormatModifierPropertiesEXT(json);
             return;
     
 
         case (VKGETBUFFEROPAQUECAPTUREADDRESS):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETBUFFEROPAQUECAPTUREADDRESS):
-            handle_command(json);
+            handle_vkGetBufferOpaqueCaptureAddress(json);
             return;
     
 
         case (VKGETBUFFERDEVICEADDRESS):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETBUFFERDEVICEADDRESS):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETBUFFERDEVICEADDRESS):
-            handle_command(json);
+            handle_vkGetBufferDeviceAddress(json);
             return;
     
 
         case (VKCREATEHEADLESSSURFACEEXT):
-            handle_command(json);
+            handle_vkCreateHeadlessSurfaceEXT(json);
             return;
     
 
         case (VKGETPHYSICALDEVICESUPPORTEDFRAMEBUFFERMIXEDSAMPLESCOMBINATIONSNV):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV(json);
             return;
     
 
         case (VKINITIALIZEPERFORMANCEAPIINTEL):
-            handle_command(json);
+            handle_vkInitializePerformanceApiINTEL(json);
             return;
     
 
         case (VKUNINITIALIZEPERFORMANCEAPIINTEL):
-            handle_command(json);
+            handle_vkUninitializePerformanceApiINTEL(json);
             return;
     
 
         case (VKCMDSETPERFORMANCEMARKERINTEL):
-            handle_command(json);
+            handle_vkCmdSetPerformanceMarkerINTEL(json);
             return;
     
 
         case (VKCMDSETPERFORMANCESTREAMMARKERINTEL):
-            handle_command(json);
+            handle_vkCmdSetPerformanceStreamMarkerINTEL(json);
             return;
     
 
         case (VKCMDSETPERFORMANCEOVERRIDEINTEL):
-            handle_command(json);
+            handle_vkCmdSetPerformanceOverrideINTEL(json);
             return;
     
 
         case (VKACQUIREPERFORMANCECONFIGURATIONINTEL):
-            handle_command(json);
+            handle_vkAcquirePerformanceConfigurationINTEL(json);
             return;
     
 
         case (VKRELEASEPERFORMANCECONFIGURATIONINTEL):
-            handle_command(json);
+            handle_vkReleasePerformanceConfigurationINTEL(json);
             return;
     
 
         case (VKQUEUESETPERFORMANCECONFIGURATIONINTEL):
-            handle_command(json);
+            handle_vkQueueSetPerformanceConfigurationINTEL(json);
             return;
     
 
         case (VKGETPERFORMANCEPARAMETERINTEL):
-            handle_command(json);
+            handle_vkGetPerformanceParameterINTEL(json);
             return;
     
 
         case (VKGETDEVICEMEMORYOPAQUECAPTUREADDRESS):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETDEVICEMEMORYOPAQUECAPTUREADDRESS):
-            handle_command(json);
+            handle_vkGetDeviceMemoryOpaqueCaptureAddress(json);
             return;
     
 
         case (VKGETPIPELINEEXECUTABLEPROPERTIESKHR):
-            handle_command(json);
+            handle_vkGetPipelineExecutablePropertiesKHR(json);
             return;
     
 
         case (VKGETPIPELINEEXECUTABLESTATISTICSKHR):
-            handle_command(json);
+            handle_vkGetPipelineExecutableStatisticsKHR(json);
             return;
     
 
         case (VKGETPIPELINEEXECUTABLEINTERNALREPRESENTATIONSKHR):
-            handle_command(json);
+            handle_vkGetPipelineExecutableInternalRepresentationsKHR(json);
             return;
     
 
         case (VKCMDSETLINESTIPPLEEXT):
-            handle_command(json);
+            handle_vkCmdSetLineStippleEXT(json);
             return;
     
 
         case (VKGETPHYSICALDEVICETOOLPROPERTIES):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETPHYSICALDEVICETOOLPROPERTIES):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceToolProperties(json);
             return;
     
 
         case (VKCREATEACCELERATIONSTRUCTUREKHR):
-            handle_command(json);
+            handle_vkCreateAccelerationStructureKHR(json);
             return;
     
 
         case (VKCMDBUILDACCELERATIONSTRUCTURESKHR):
-            handle_command(json);
+            handle_vkCmdBuildAccelerationStructuresKHR(json);
             return;
     
 
         case (VKCMDBUILDACCELERATIONSTRUCTURESINDIRECTKHR):
-            handle_command(json);
+            handle_vkCmdBuildAccelerationStructuresIndirectKHR(json);
             return;
     
 
         case (VKBUILDACCELERATIONSTRUCTURESKHR):
-            handle_command(json);
+            handle_vkBuildAccelerationStructuresKHR(json);
             return;
     
 
         case (VKGETACCELERATIONSTRUCTUREDEVICEADDRESSKHR):
-            handle_command(json);
+            handle_vkGetAccelerationStructureDeviceAddressKHR(json);
             return;
     
 
         case (VKCREATEDEFERREDOPERATIONKHR):
-            handle_command(json);
+            handle_vkCreateDeferredOperationKHR(json);
             return;
     
 
         case (VKDESTROYDEFERREDOPERATIONKHR):
-            handle_command(json);
+            handle_vkDestroyDeferredOperationKHR(json);
             return;
     
 
         case (VKGETDEFERREDOPERATIONMAXCONCURRENCYKHR):
-            handle_command(json);
+            handle_vkGetDeferredOperationMaxConcurrencyKHR(json);
             return;
     
 
         case (VKGETDEFERREDOPERATIONRESULTKHR):
-            handle_command(json);
+            handle_vkGetDeferredOperationResultKHR(json);
             return;
     
 
         case (VKDEFERREDOPERATIONJOINKHR):
-            handle_command(json);
+            handle_vkDeferredOperationJoinKHR(json);
             return;
     
 
         case (VKGETPIPELINEINDIRECTMEMORYREQUIREMENTSNV):
-            handle_command(json);
+            handle_vkGetPipelineIndirectMemoryRequirementsNV(json);
             return;
     
 
         case (VKGETPIPELINEINDIRECTDEVICEADDRESSNV):
-            handle_command(json);
+            handle_vkGetPipelineIndirectDeviceAddressNV(json);
             return;
     
 
         case (VKCMDSETCULLMODE):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDSETCULLMODE):
-            handle_command(json);
+            handle_vkCmdSetCullMode(json);
             return;
     
 
         case (VKCMDSETFRONTFACE):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDSETFRONTFACE):
-            handle_command(json);
+            handle_vkCmdSetFrontFace(json);
             return;
     
 
         case (VKCMDSETPRIMITIVETOPOLOGY):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDSETPRIMITIVETOPOLOGY):
-            handle_command(json);
+            handle_vkCmdSetPrimitiveTopology(json);
             return;
     
 
         case (VKCMDSETVIEWPORTWITHCOUNT):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDSETVIEWPORTWITHCOUNT):
-            handle_command(json);
+            handle_vkCmdSetViewportWithCount(json);
             return;
     
 
         case (VKCMDSETSCISSORWITHCOUNT):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDSETSCISSORWITHCOUNT):
-            handle_command(json);
+            handle_vkCmdSetScissorWithCount(json);
             return;
     
 
         case (VKCMDBINDINDEXBUFFER2KHR):
-            handle_command(json);
+            handle_vkCmdBindIndexBuffer2KHR(json);
             return;
     
 
         case (VKCMDBINDVERTEXBUFFERS2):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDBINDVERTEXBUFFERS2):
-            handle_command(json);
+            handle_vkCmdBindVertexBuffers2(json);
             return;
     
 
         case (VKCMDSETDEPTHTESTENABLE):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDSETDEPTHTESTENABLE):
-            handle_command(json);
+            handle_vkCmdSetDepthTestEnable(json);
             return;
     
 
         case (VKCMDSETDEPTHWRITEENABLE):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDSETDEPTHWRITEENABLE):
-            handle_command(json);
+            handle_vkCmdSetDepthWriteEnable(json);
             return;
     
 
         case (VKCMDSETDEPTHCOMPAREOP):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDSETDEPTHCOMPAREOP):
-            handle_command(json);
+            handle_vkCmdSetDepthCompareOp(json);
             return;
     
 
         case (VKCMDSETDEPTHBOUNDSTESTENABLE):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDSETDEPTHBOUNDSTESTENABLE):
-            handle_command(json);
+            handle_vkCmdSetDepthBoundsTestEnable(json);
             return;
     
 
         case (VKCMDSETSTENCILTESTENABLE):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDSETSTENCILTESTENABLE):
-            handle_command(json);
+            handle_vkCmdSetStencilTestEnable(json);
             return;
     
 
         case (VKCMDSETSTENCILOP):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDSETSTENCILOP):
-            handle_command(json);
+            handle_vkCmdSetStencilOp(json);
             return;
     
 
         case (VKCMDSETPATCHCONTROLPOINTSEXT):
-            handle_command(json);
+            handle_vkCmdSetPatchControlPointsEXT(json);
             return;
     
 
         case (VKCMDSETRASTERIZERDISCARDENABLE):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDSETRASTERIZERDISCARDENABLE):
-            handle_command(json);
+            handle_vkCmdSetRasterizerDiscardEnable(json);
             return;
     
 
         case (VKCMDSETDEPTHBIASENABLE):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDSETDEPTHBIASENABLE):
-            handle_command(json);
+            handle_vkCmdSetDepthBiasEnable(json);
             return;
     
 
         case (VKCMDSETLOGICOPEXT):
-            handle_command(json);
+            handle_vkCmdSetLogicOpEXT(json);
             return;
     
 
         case (VKCMDSETPRIMITIVERESTARTENABLE):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDSETPRIMITIVERESTARTENABLE):
-            handle_command(json);
+            handle_vkCmdSetPrimitiveRestartEnable(json);
             return;
     
 
         case (VKCMDSETTESSELLATIONDOMAINORIGINEXT):
-            handle_command(json);
+            handle_vkCmdSetTessellationDomainOriginEXT(json);
             return;
     
 
         case (VKCMDSETDEPTHCLAMPENABLEEXT):
-            handle_command(json);
+            handle_vkCmdSetDepthClampEnableEXT(json);
             return;
     
 
         case (VKCMDSETPOLYGONMODEEXT):
-            handle_command(json);
+            handle_vkCmdSetPolygonModeEXT(json);
             return;
     
 
         case (VKCMDSETRASTERIZATIONSAMPLESEXT):
-            handle_command(json);
+            handle_vkCmdSetRasterizationSamplesEXT(json);
             return;
     
 
         case (VKCMDSETSAMPLEMASKEXT):
-            handle_command(json);
+            handle_vkCmdSetSampleMaskEXT(json);
             return;
     
 
         case (VKCMDSETALPHATOCOVERAGEENABLEEXT):
-            handle_command(json);
+            handle_vkCmdSetAlphaToCoverageEnableEXT(json);
             return;
     
 
         case (VKCMDSETALPHATOONEENABLEEXT):
-            handle_command(json);
+            handle_vkCmdSetAlphaToOneEnableEXT(json);
             return;
     
 
         case (VKCMDSETLOGICOPENABLEEXT):
-            handle_command(json);
+            handle_vkCmdSetLogicOpEnableEXT(json);
             return;
     
 
         case (VKCMDSETCOLORBLENDENABLEEXT):
-            handle_command(json);
+            handle_vkCmdSetColorBlendEnableEXT(json);
             return;
     
 
         case (VKCMDSETCOLORBLENDEQUATIONEXT):
-            handle_command(json);
+            handle_vkCmdSetColorBlendEquationEXT(json);
             return;
     
 
         case (VKCMDSETCOLORWRITEMASKEXT):
-            handle_command(json);
+            handle_vkCmdSetColorWriteMaskEXT(json);
             return;
     
 
         case (VKCMDSETRASTERIZATIONSTREAMEXT):
-            handle_command(json);
+            handle_vkCmdSetRasterizationStreamEXT(json);
             return;
     
 
         case (VKCMDSETCONSERVATIVERASTERIZATIONMODEEXT):
-            handle_command(json);
+            handle_vkCmdSetConservativeRasterizationModeEXT(json);
             return;
     
 
         case (VKCMDSETEXTRAPRIMITIVEOVERESTIMATIONSIZEEXT):
-            handle_command(json);
+            handle_vkCmdSetExtraPrimitiveOverestimationSizeEXT(json);
             return;
     
 
         case (VKCMDSETDEPTHCLIPENABLEEXT):
-            handle_command(json);
+            handle_vkCmdSetDepthClipEnableEXT(json);
             return;
     
 
         case (VKCMDSETSAMPLELOCATIONSENABLEEXT):
-            handle_command(json);
+            handle_vkCmdSetSampleLocationsEnableEXT(json);
             return;
     
 
         case (VKCMDSETCOLORBLENDADVANCEDEXT):
-            handle_command(json);
+            handle_vkCmdSetColorBlendAdvancedEXT(json);
             return;
     
 
         case (VKCMDSETPROVOKINGVERTEXMODEEXT):
-            handle_command(json);
+            handle_vkCmdSetProvokingVertexModeEXT(json);
             return;
     
 
         case (VKCMDSETLINERASTERIZATIONMODEEXT):
-            handle_command(json);
+            handle_vkCmdSetLineRasterizationModeEXT(json);
             return;
     
 
         case (VKCMDSETLINESTIPPLEENABLEEXT):
-            handle_command(json);
+            handle_vkCmdSetLineStippleEnableEXT(json);
             return;
     
 
         case (VKCMDSETDEPTHCLIPNEGATIVEONETOONEEXT):
-            handle_command(json);
+            handle_vkCmdSetDepthClipNegativeOneToOneEXT(json);
             return;
     
 
         case (VKCMDSETVIEWPORTWSCALINGENABLENV):
-            handle_command(json);
+            handle_vkCmdSetViewportWScalingEnableNV(json);
             return;
     
 
         case (VKCMDSETVIEWPORTSWIZZLENV):
-            handle_command(json);
+            handle_vkCmdSetViewportSwizzleNV(json);
             return;
     
 
         case (VKCMDSETCOVERAGETOCOLORENABLENV):
-            handle_command(json);
+            handle_vkCmdSetCoverageToColorEnableNV(json);
             return;
     
 
         case (VKCMDSETCOVERAGETOCOLORLOCATIONNV):
-            handle_command(json);
+            handle_vkCmdSetCoverageToColorLocationNV(json);
             return;
     
 
         case (VKCMDSETCOVERAGEMODULATIONMODENV):
-            handle_command(json);
+            handle_vkCmdSetCoverageModulationModeNV(json);
             return;
     
 
         case (VKCMDSETCOVERAGEMODULATIONTABLEENABLENV):
-            handle_command(json);
+            handle_vkCmdSetCoverageModulationTableEnableNV(json);
             return;
     
 
         case (VKCMDSETCOVERAGEMODULATIONTABLENV):
-            handle_command(json);
+            handle_vkCmdSetCoverageModulationTableNV(json);
             return;
     
 
         case (VKCMDSETSHADINGRATEIMAGEENABLENV):
-            handle_command(json);
+            handle_vkCmdSetShadingRateImageEnableNV(json);
             return;
     
 
         case (VKCMDSETCOVERAGEREDUCTIONMODENV):
-            handle_command(json);
+            handle_vkCmdSetCoverageReductionModeNV(json);
             return;
     
 
         case (VKCMDSETREPRESENTATIVEFRAGMENTTESTENABLENV):
-            handle_command(json);
+            handle_vkCmdSetRepresentativeFragmentTestEnableNV(json);
             return;
     
 
         case (VKCREATEPRIVATEDATASLOT):
-            handle_command(json);
-            return;
-    
-
-        case (VKCREATEPRIVATEDATASLOT):
-            handle_command(json);
+            handle_vkCreatePrivateDataSlot(json);
             return;
     
 
         case (VKDESTROYPRIVATEDATASLOT):
-            handle_command(json);
-            return;
-    
-
-        case (VKDESTROYPRIVATEDATASLOT):
-            handle_command(json);
+            handle_vkDestroyPrivateDataSlot(json);
             return;
     
 
         case (VKSETPRIVATEDATA):
-            handle_command(json);
-            return;
-    
-
-        case (VKSETPRIVATEDATA):
-            handle_command(json);
+            handle_vkSetPrivateData(json);
             return;
     
 
         case (VKGETPRIVATEDATA):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETPRIVATEDATA):
-            handle_command(json);
+            handle_vkGetPrivateData(json);
             return;
     
 
         case (VKCMDCOPYBUFFER2):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDCOPYBUFFER2):
-            handle_command(json);
+            handle_vkCmdCopyBuffer2(json);
             return;
     
 
         case (VKCMDCOPYIMAGE2):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDCOPYIMAGE2):
-            handle_command(json);
+            handle_vkCmdCopyImage2(json);
             return;
     
 
         case (VKCMDBLITIMAGE2):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDBLITIMAGE2):
-            handle_command(json);
+            handle_vkCmdBlitImage2(json);
             return;
     
 
         case (VKCMDCOPYBUFFERTOIMAGE2):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDCOPYBUFFERTOIMAGE2):
-            handle_command(json);
+            handle_vkCmdCopyBufferToImage2(json);
             return;
     
 
         case (VKCMDCOPYIMAGETOBUFFER2):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDCOPYIMAGETOBUFFER2):
-            handle_command(json);
+            handle_vkCmdCopyImageToBuffer2(json);
             return;
     
 
         case (VKCMDRESOLVEIMAGE2):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDRESOLVEIMAGE2):
-            handle_command(json);
+            handle_vkCmdResolveImage2(json);
             return;
     
 
         case (VKCMDSETFRAGMENTSHADINGRATEKHR):
-            handle_command(json);
+            handle_vkCmdSetFragmentShadingRateKHR(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEFRAGMENTSHADINGRATESKHR):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceFragmentShadingRatesKHR(json);
             return;
     
 
         case (VKCMDSETFRAGMENTSHADINGRATEENUMNV):
-            handle_command(json);
+            handle_vkCmdSetFragmentShadingRateEnumNV(json);
             return;
     
 
         case (VKGETACCELERATIONSTRUCTUREBUILDSIZESKHR):
-            handle_command(json);
+            handle_vkGetAccelerationStructureBuildSizesKHR(json);
             return;
     
 
         case (VKCMDSETVERTEXINPUTEXT):
-            handle_command(json);
+            handle_vkCmdSetVertexInputEXT(json);
             return;
     
 
         case (VKCMDSETCOLORWRITEENABLEEXT):
-            handle_command(json);
+            handle_vkCmdSetColorWriteEnableEXT(json);
             return;
     
 
         case (VKCMDSETEVENT2):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDSETEVENT2):
-            handle_command(json);
+            handle_vkCmdSetEvent2(json);
             return;
     
 
         case (VKCMDRESETEVENT2):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDRESETEVENT2):
-            handle_command(json);
+            handle_vkCmdResetEvent2(json);
             return;
     
 
         case (VKCMDWAITEVENTS2):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDWAITEVENTS2):
-            handle_command(json);
+            handle_vkCmdWaitEvents2(json);
             return;
     
 
         case (VKCMDPIPELINEBARRIER2):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDPIPELINEBARRIER2):
-            handle_command(json);
+            handle_vkCmdPipelineBarrier2(json);
             return;
     
 
         case (VKQUEUESUBMIT2):
-            handle_command(json);
-            return;
-    
-
-        case (VKQUEUESUBMIT2):
-            handle_command(json);
+            handle_vkQueueSubmit2(json);
             return;
     
 
         case (VKCMDWRITETIMESTAMP2):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDWRITETIMESTAMP2):
-            handle_command(json);
+            handle_vkCmdWriteTimestamp2(json);
             return;
     
 
         case (VKCMDWRITEBUFFERMARKER2AMD):
-            handle_command(json);
+            handle_vkCmdWriteBufferMarker2AMD(json);
             return;
     
 
         case (VKGETQUEUECHECKPOINTDATA2NV):
-            handle_command(json);
+            handle_vkGetQueueCheckpointData2NV(json);
             return;
     
 
         case (VKCOPYMEMORYTOIMAGEEXT):
-            handle_command(json);
+            handle_vkCopyMemoryToImageEXT(json);
             return;
     
 
         case (VKCOPYIMAGETOMEMORYEXT):
-            handle_command(json);
+            handle_vkCopyImageToMemoryEXT(json);
             return;
     
 
         case (VKCOPYIMAGETOIMAGEEXT):
-            handle_command(json);
+            handle_vkCopyImageToImageEXT(json);
             return;
     
 
         case (VKTRANSITIONIMAGELAYOUTEXT):
-            handle_command(json);
+            handle_vkTransitionImageLayoutEXT(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEVIDEOCAPABILITIESKHR):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceVideoCapabilitiesKHR(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEVIDEOFORMATPROPERTIESKHR):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceVideoFormatPropertiesKHR(json);
             return;
     
 
         case (VKCREATEVIDEOSESSIONKHR):
-            handle_command(json);
+            handle_vkCreateVideoSessionKHR(json);
             return;
     
 
         case (VKDESTROYVIDEOSESSIONKHR):
-            handle_command(json);
+            handle_vkDestroyVideoSessionKHR(json);
             return;
     
 
         case (VKCREATEVIDEOSESSIONPARAMETERSKHR):
-            handle_command(json);
+            handle_vkCreateVideoSessionParametersKHR(json);
             return;
     
 
         case (VKUPDATEVIDEOSESSIONPARAMETERSKHR):
-            handle_command(json);
+            handle_vkUpdateVideoSessionParametersKHR(json);
             return;
     
 
         case (VKDESTROYVIDEOSESSIONPARAMETERSKHR):
-            handle_command(json);
+            handle_vkDestroyVideoSessionParametersKHR(json);
             return;
     
 
         case (VKGETVIDEOSESSIONMEMORYREQUIREMENTSKHR):
-            handle_command(json);
+            handle_vkGetVideoSessionMemoryRequirementsKHR(json);
             return;
     
 
         case (VKBINDVIDEOSESSIONMEMORYKHR):
-            handle_command(json);
+            handle_vkBindVideoSessionMemoryKHR(json);
             return;
     
 
         case (VKCMDDECODEVIDEOKHR):
-            handle_command(json);
+            handle_vkCmdDecodeVideoKHR(json);
             return;
     
 
         case (VKCMDBEGINVIDEOCODINGKHR):
-            handle_command(json);
+            handle_vkCmdBeginVideoCodingKHR(json);
             return;
     
 
         case (VKCMDCONTROLVIDEOCODINGKHR):
-            handle_command(json);
+            handle_vkCmdControlVideoCodingKHR(json);
             return;
     
 
         case (VKCMDENDVIDEOCODINGKHR):
-            handle_command(json);
+            handle_vkCmdEndVideoCodingKHR(json);
             return;
     
 
         case (VKCMDDECOMPRESSMEMORYNV):
-            handle_command(json);
+            handle_vkCmdDecompressMemoryNV(json);
             return;
     
 
         case (VKCMDDECOMPRESSMEMORYINDIRECTCOUNTNV):
-            handle_command(json);
+            handle_vkCmdDecompressMemoryIndirectCountNV(json);
             return;
     
 
         case (VKCREATECUMODULENVX):
-            handle_command(json);
+            handle_vkCreateCuModuleNVX(json);
             return;
     
 
         case (VKCREATECUFUNCTIONNVX):
-            handle_command(json);
+            handle_vkCreateCuFunctionNVX(json);
             return;
     
 
         case (VKDESTROYCUMODULENVX):
-            handle_command(json);
+            handle_vkDestroyCuModuleNVX(json);
             return;
     
 
         case (VKDESTROYCUFUNCTIONNVX):
-            handle_command(json);
+            handle_vkDestroyCuFunctionNVX(json);
             return;
     
 
         case (VKCMDCULAUNCHKERNELNVX):
-            handle_command(json);
+            handle_vkCmdCuLaunchKernelNVX(json);
             return;
     
 
         case (VKGETDESCRIPTORSETLAYOUTSIZEEXT):
-            handle_command(json);
+            handle_vkGetDescriptorSetLayoutSizeEXT(json);
             return;
     
 
         case (VKGETDESCRIPTORSETLAYOUTBINDINGOFFSETEXT):
-            handle_command(json);
+            handle_vkGetDescriptorSetLayoutBindingOffsetEXT(json);
             return;
     
 
         case (VKGETDESCRIPTOREXT):
-            handle_command(json);
+            handle_vkGetDescriptorEXT(json);
             return;
     
 
         case (VKCMDBINDDESCRIPTORBUFFERSEXT):
-            handle_command(json);
+            handle_vkCmdBindDescriptorBuffersEXT(json);
             return;
     
 
         case (VKCMDSETDESCRIPTORBUFFEROFFSETSEXT):
-            handle_command(json);
+            handle_vkCmdSetDescriptorBufferOffsetsEXT(json);
             return;
     
 
         case (VKCMDBINDDESCRIPTORBUFFEREMBEDDEDSAMPLERSEXT):
-            handle_command(json);
+            handle_vkCmdBindDescriptorBufferEmbeddedSamplersEXT(json);
             return;
     
 
         case (VKGETBUFFEROPAQUECAPTUREDESCRIPTORDATAEXT):
-            handle_command(json);
+            handle_vkGetBufferOpaqueCaptureDescriptorDataEXT(json);
             return;
     
 
         case (VKGETIMAGEOPAQUECAPTUREDESCRIPTORDATAEXT):
-            handle_command(json);
+            handle_vkGetImageOpaqueCaptureDescriptorDataEXT(json);
             return;
     
 
         case (VKGETIMAGEVIEWOPAQUECAPTUREDESCRIPTORDATAEXT):
-            handle_command(json);
+            handle_vkGetImageViewOpaqueCaptureDescriptorDataEXT(json);
             return;
     
 
         case (VKGETSAMPLEROPAQUECAPTUREDESCRIPTORDATAEXT):
-            handle_command(json);
+            handle_vkGetSamplerOpaqueCaptureDescriptorDataEXT(json);
             return;
     
 
         case (VKGETACCELERATIONSTRUCTUREOPAQUECAPTUREDESCRIPTORDATAEXT):
-            handle_command(json);
+            handle_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT(json);
             return;
     
 
         case (VKSETDEVICEMEMORYPRIORITYEXT):
-            handle_command(json);
+            handle_vkSetDeviceMemoryPriorityEXT(json);
             return;
     
 
         case (VKACQUIREDRMDISPLAYEXT):
-            handle_command(json);
+            handle_vkAcquireDrmDisplayEXT(json);
             return;
     
 
         case (VKGETDRMDISPLAYEXT):
-            handle_command(json);
+            handle_vkGetDrmDisplayEXT(json);
             return;
     
 
         case (VKWAITFORPRESENTKHR):
-            handle_command(json);
+            handle_vkWaitForPresentKHR(json);
             return;
     
 
         case (VKCMDBEGINRENDERING):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDBEGINRENDERING):
-            handle_command(json);
+            handle_vkCmdBeginRendering(json);
             return;
     
 
         case (VKCMDENDRENDERING):
-            handle_command(json);
-            return;
-    
-
-        case (VKCMDENDRENDERING):
-            handle_command(json);
+            handle_vkCmdEndRendering(json);
             return;
     
 
         case (VKGETDESCRIPTORSETLAYOUTHOSTMAPPINGINFOVALVE):
-            handle_command(json);
+            handle_vkGetDescriptorSetLayoutHostMappingInfoVALVE(json);
             return;
     
 
         case (VKGETDESCRIPTORSETHOSTMAPPINGVALVE):
-            handle_command(json);
+            handle_vkGetDescriptorSetHostMappingVALVE(json);
             return;
     
 
         case (VKCREATEMICROMAPEXT):
-            handle_command(json);
+            handle_vkCreateMicromapEXT(json);
             return;
     
 
         case (VKCMDBUILDMICROMAPSEXT):
-            handle_command(json);
+            handle_vkCmdBuildMicromapsEXT(json);
             return;
     
 
         case (VKBUILDMICROMAPSEXT):
-            handle_command(json);
+            handle_vkBuildMicromapsEXT(json);
             return;
     
 
         case (VKDESTROYMICROMAPEXT):
-            handle_command(json);
+            handle_vkDestroyMicromapEXT(json);
             return;
     
 
         case (VKCMDCOPYMICROMAPEXT):
-            handle_command(json);
+            handle_vkCmdCopyMicromapEXT(json);
             return;
     
 
         case (VKCOPYMICROMAPEXT):
-            handle_command(json);
+            handle_vkCopyMicromapEXT(json);
             return;
     
 
         case (VKCMDCOPYMICROMAPTOMEMORYEXT):
-            handle_command(json);
+            handle_vkCmdCopyMicromapToMemoryEXT(json);
             return;
     
 
         case (VKCOPYMICROMAPTOMEMORYEXT):
-            handle_command(json);
+            handle_vkCopyMicromapToMemoryEXT(json);
             return;
     
 
         case (VKCMDCOPYMEMORYTOMICROMAPEXT):
-            handle_command(json);
+            handle_vkCmdCopyMemoryToMicromapEXT(json);
             return;
     
 
         case (VKCOPYMEMORYTOMICROMAPEXT):
-            handle_command(json);
+            handle_vkCopyMemoryToMicromapEXT(json);
             return;
     
 
         case (VKCMDWRITEMICROMAPSPROPERTIESEXT):
-            handle_command(json);
+            handle_vkCmdWriteMicromapsPropertiesEXT(json);
             return;
     
 
         case (VKWRITEMICROMAPSPROPERTIESEXT):
-            handle_command(json);
+            handle_vkWriteMicromapsPropertiesEXT(json);
             return;
     
 
         case (VKGETDEVICEMICROMAPCOMPATIBILITYEXT):
-            handle_command(json);
+            handle_vkGetDeviceMicromapCompatibilityEXT(json);
             return;
     
 
         case (VKGETMICROMAPBUILDSIZESEXT):
-            handle_command(json);
+            handle_vkGetMicromapBuildSizesEXT(json);
             return;
     
 
         case (VKGETSHADERMODULEIDENTIFIEREXT):
-            handle_command(json);
+            handle_vkGetShaderModuleIdentifierEXT(json);
             return;
     
 
         case (VKGETSHADERMODULECREATEINFOIDENTIFIEREXT):
-            handle_command(json);
+            handle_vkGetShaderModuleCreateInfoIdentifierEXT(json);
             return;
     
 
         case (VKGETIMAGESUBRESOURCELAYOUT2KHR):
-            handle_command(json);
-            return;
-    
-
-        case (VKGETIMAGESUBRESOURCELAYOUT2KHR):
-            handle_command(json);
+            handle_vkGetImageSubresourceLayout2KHR(json);
             return;
     
 
         case (VKGETPIPELINEPROPERTIESEXT):
-            handle_command(json);
+            handle_vkGetPipelinePropertiesEXT(json);
             return;
     
 
         case (VKGETFRAMEBUFFERTILEPROPERTIESQCOM):
-            handle_command(json);
+            handle_vkGetFramebufferTilePropertiesQCOM(json);
             return;
     
 
         case (VKGETDYNAMICRENDERINGTILEPROPERTIESQCOM):
-            handle_command(json);
+            handle_vkGetDynamicRenderingTilePropertiesQCOM(json);
             return;
     
 
         case (VKGETPHYSICALDEVICEOPTICALFLOWIMAGEFORMATSNV):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceOpticalFlowImageFormatsNV(json);
             return;
     
 
         case (VKCREATEOPTICALFLOWSESSIONNV):
-            handle_command(json);
+            handle_vkCreateOpticalFlowSessionNV(json);
             return;
     
 
         case (VKDESTROYOPTICALFLOWSESSIONNV):
-            handle_command(json);
+            handle_vkDestroyOpticalFlowSessionNV(json);
             return;
     
 
         case (VKBINDOPTICALFLOWSESSIONIMAGENV):
-            handle_command(json);
+            handle_vkBindOpticalFlowSessionImageNV(json);
             return;
     
 
         case (VKCMDOPTICALFLOWEXECUTENV):
-            handle_command(json);
+            handle_vkCmdOpticalFlowExecuteNV(json);
             return;
     
 
         case (VKGETDEVICEFAULTINFOEXT):
-            handle_command(json);
+            handle_vkGetDeviceFaultInfoEXT(json);
             return;
     
 
         case (VKCMDSETDEPTHBIAS2EXT):
-            handle_command(json);
+            handle_vkCmdSetDepthBias2EXT(json);
             return;
     
 
         case (VKRELEASESWAPCHAINIMAGESEXT):
-            handle_command(json);
+            handle_vkReleaseSwapchainImagesEXT(json);
             return;
     
 
         case (VKGETDEVICEIMAGESUBRESOURCELAYOUTKHR):
-            handle_command(json);
+            handle_vkGetDeviceImageSubresourceLayoutKHR(json);
             return;
     
 
         case (VKMAPMEMORY2KHR):
-            handle_command(json);
+            handle_vkMapMemory2KHR(json);
             return;
     
 
         case (VKUNMAPMEMORY2KHR):
-            handle_command(json);
+            handle_vkUnmapMemory2KHR(json);
             return;
     
 
         case (VKCREATESHADERSEXT):
-            handle_command(json);
+            handle_vkCreateShadersEXT(json);
             return;
     
 
         case (VKDESTROYSHADEREXT):
-            handle_command(json);
+            handle_vkDestroyShaderEXT(json);
             return;
     
 
         case (VKGETSHADERBINARYDATAEXT):
-            handle_command(json);
+            handle_vkGetShaderBinaryDataEXT(json);
             return;
     
 
         case (VKCMDBINDSHADERSEXT):
-            handle_command(json);
+            handle_vkCmdBindShadersEXT(json);
             return;
     
 
         case (VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESKHR):
-            handle_command(json);
+            handle_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR(json);
             return;
     
-}
+}}
 #else
 
 typedef struct {
@@ -55915,9 +55727,9 @@ debug_printf("Executing vkCmdSetBlendConstants\n");
 {
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 [&](){json["blendConstants"]=boost::json::array(4);
-        auto& arr_SsKZRbG=json["blendConstants"].as_array();
+        auto& arr_HTjCZtj=json["blendConstants"].as_array();
         for(int lLRJClr=0; lLRJClr < 4; lLRJClr++){
-            [&](){arr_SsKZRbG[lLRJClr]=blendConstants[lLRJClr];}();
+            [&](){arr_HTjCZtj[lLRJClr]=blendConstants[lLRJClr];}();
         }
         }();
 }
@@ -55978,7 +55790,7 @@ debug_printf("Executing vkCmdSetBlendConstants\n");
 break;}}
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 [&](){
-        auto& arr_SsKZRbG=json["blendConstants"].as_array();
+        auto& arr_HTjCZtj=json["blendConstants"].as_array();
         for(int lLRJClr=0; lLRJClr < 4; lLRJClr++){
             
         }
@@ -89081,9 +88893,9 @@ debug_printf("Executing vkCmdSetFragmentShadingRateKHR\n");
         }
         }();
 [&](){json["combinerOps"]=boost::json::array(2);
-        auto& arr_jtjRLJW=json["combinerOps"].as_array();
+        auto& arr_foscmwP=json["combinerOps"].as_array();
         for(int uBsarms=0; uBsarms < 2; uBsarms++){
-            [&](){[&](){[&](){arr_jtjRLJW[uBsarms]=combinerOps[uBsarms];}();}();}();
+            [&](){[&](){[&](){arr_foscmwP[uBsarms]=combinerOps[uBsarms];}();}();}();
         }
         }();
 }
@@ -89145,7 +88957,7 @@ break;}}
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 
 [&](){
-        auto& arr_jtjRLJW=json["combinerOps"].as_array();
+        auto& arr_foscmwP=json["combinerOps"].as_array();
         for(int uBsarms=0; uBsarms < 2; uBsarms++){
             
         }
@@ -89299,9 +89111,9 @@ debug_printf("Executing vkCmdSetFragmentShadingRateEnumNV\n");
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 [&](){[&](){[&](){json["shadingRate"]=shadingRate;}();}();}();
 [&](){json["combinerOps"]=boost::json::array(2);
-        auto& arr_jtjRLJW=json["combinerOps"].as_array();
+        auto& arr_foscmwP=json["combinerOps"].as_array();
         for(int uBsarms=0; uBsarms < 2; uBsarms++){
-            [&](){[&](){[&](){arr_jtjRLJW[uBsarms]=combinerOps[uBsarms];}();}();}();
+            [&](){[&](){[&](){arr_foscmwP[uBsarms]=combinerOps[uBsarms];}();}();}();
         }
         }();
 }
@@ -89363,7 +89175,7 @@ break;}}
 [&](){deserialize_VkCommandBuffer(json["commandBuffer"], commandBuffer);}();
 [&](){[&](){int temp_CqLMxeN;[&](){temp_CqLMxeN=static_cast<int>(value_to<int>(json["shadingRate"]));}();shadingRate=(VkFragmentShadingRateNV)temp_CqLMxeN;}();}();
 [&](){
-        auto& arr_jtjRLJW=json["combinerOps"].as_array();
+        auto& arr_foscmwP=json["combinerOps"].as_array();
         for(int uBsarms=0; uBsarms < 2; uBsarms++){
             
         }

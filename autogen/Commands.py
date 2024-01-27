@@ -85,7 +85,12 @@ for name, command in parsed.items():
     """)
 
     for param in command["params"]:
-        write(param["header"].replace("const ","",1)+";")
+        param=copy.deepcopy(param) #Since we're initializing the variables, we have the priviledge of making everything non-const
+        
+        param["header"]=param["header"].replace("const","")
+        param["const"]=False
+        
+        write(param["header"]+";")
         write(convert(param["name"],f"""json["{param["name"]}"]""",param,serialize=False,initialize=True))
 
     write(f"""
@@ -108,7 +113,8 @@ for name, command in parsed.items():
     call_arguments=", ".join([param["name"] for param in command["params"]])
     
     if not is_void(command):
-        return_prefix="auto result=" 
+        write(re.match(r"(.*?)"+re.escape(name),command["header"]).group(1)+" result;")
+        return_prefix="result=" 
     else:
         return_prefix=""
     
@@ -217,24 +223,23 @@ write("""
 void handle_command(boost::json::object json){
 //Will only be called by the server
 
-switch (value_to<Command>(json["enum"])){
+switch (static_cast<StreamType>(value_to<int>(json["enum"]))){
 """)
 
 for name, command in parsed.items():
     if command["kind"]!="command":
         continue
     
-    type=name
     if "alias" in command:
-        type=command["alias"]
+        continue
         
     write(f"""
-        case ({type.upper()}):
-            handle_command(json);
+        case ({name.upper()}):
+            handle_{name}(json);
             return;
     """)
 
-write("}")
+write("}}")
 
 write("void handle_command(boost::json::object);", header=True)
 
