@@ -152,7 +152,7 @@ void writeToConn(boost::json::object& json){
     
     curr->serializer.reset(&json);
     
-    std::size_t bytes_serialized=0; //Also serves to point to the first non-empty space in data_buf
+    std::size_t bytes_serialized=0; //Also serves to point to the first empty space in data_buf
     auto size_buf=asio::buffer(curr->size_buf, 4);
     
     while(true){
