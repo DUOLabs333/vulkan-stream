@@ -10,7 +10,7 @@ write("""
 #include <shared_mutex>
 #include <future>
 #include "vk_enum_string_helper.h"
-
+#include <set>
 #include <vulkan/vulkan.h>
 
 #include <Serialization.hpp>
@@ -589,11 +589,8 @@ for name, command in parsed.items():
         write("registerDeviceMemory(*pMemory, pAllocateInfo->allocationSize);")
     
     if name=="vkGetPhysicalDeviceSurfaceCapabilitiesKHR":
-        write(r"""
-        debug_printf("[INFO]: Current extent: %d, %d\n", pSurfaceCapabilities->currentExtent.width, pSurfaceCapabilities->currentExtent.height);
-        debug_printf("[INFO]: Min extent: %d, %d\n", pSurfaceCapabilities->minImageExtent.width, pSurfaceCapabilities->minImageExtent.height);
-        debug_printf("[INFO]: Max extent: %d, %d\n", pSurfaceCapabilities->maxImageExtent.width, pSurfaceCapabilities->maxImageExtent.height);
-        """)
+        write("pSurfaceCapabilities->currentExtent=VkExtent2D{0xFFFFFFFF,0xFFFFFFFF};")
+        
     write(registerDeviceMemoryMap(name, """value_to<uintptr_t>(json["mem"])"""))
     
     if name=="vkDeviceWaitIdle":

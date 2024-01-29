@@ -1,12 +1,12 @@
 
 #include <debug.hpp>
 #include <boost/json.hpp>
-#include <ThreadStruct.hpp>
+
 #include <stdexcept>
 #include <shared_mutex>
 #include <future>
 #include "vk_enum_string_helper.h"
-
+#include <set>
 #include <vulkan/vulkan.h>
 
 #include <Serialization.hpp>
@@ -69045,11 +69045,7 @@ VkResult result;
                 temp_ItXtZre=static_cast<int>(json["result"].as_double());
             }
             }();result=(VkResult)temp_ItXtZre;}();}();
-
-        debug_printf("[INFO]: Current extent: %d, %d\n", pSurfaceCapabilities->currentExtent.width, pSurfaceCapabilities->currentExtent.height);
-        debug_printf("[INFO]: Min extent: %d, %d\n", pSurfaceCapabilities->minImageExtent.width, pSurfaceCapabilities->minImageExtent.height);
-        debug_printf("[INFO]: Max extent: %d, %d\n", pSurfaceCapabilities->maxImageExtent.width, pSurfaceCapabilities->maxImageExtent.height);
-        
+pSurfaceCapabilities->currentExtent=VkExtent2D{0xFFFFFFFF,0xFFFFFFFF};
 
 debug_printf("Ending vkGetPhysicalDeviceSurfaceCapabilitiesKHR...\n");
 debug_printf("Return value of vkGetPhysicalDeviceSurfaceCapabilitiesKHR is: %s...\n",string_VkResult(result));

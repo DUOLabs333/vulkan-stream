@@ -107,10 +107,10 @@ boost::json::object readFromConn(){
 }
 
 void writeToConn(boost::json::object& json){
-    data["uuid"]=uuid;
+    json["uuid"]=uuid;
     
     asio::error_code ec;
-    asio::write(*(currStruct()->conn), asio::buffer(boost::json::serialize(data,boost::json::serialize_options{.allow_infinity_and_nan=true})+"\n"), ec);
+    asio::write(*(currStruct()->conn), asio::buffer(boost::json::serialize(json,boost::json::serialize_options{.allow_infinity_and_nan=true})+"\n"), ec);
     
     if (ec){
         throw RWError(ec);
