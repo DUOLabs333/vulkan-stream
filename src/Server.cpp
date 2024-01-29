@@ -126,7 +126,7 @@ boost::json::object readFromConn(){
     //if (size==0){ //All of the bytes have been read
     if(curr->parser.done()){
         auto json=curr->parser.release().as_object();
-        printf("Type to recieve: %d\n", value_to<int>(json["stream_type"]));
+        debug_printf("Type to recieve: %d\n", value_to<int>(json["stream_type"]));
         return json;
     }else{
         continue;
@@ -140,7 +140,7 @@ void writeToConn(boost::json::object& json){
     auto curr=currStruct();
     asio::error_code ec;
     
-    printf("Type to send: %d\n", value_to<int>(json["stream_type"]));
+    debug_printf("Type to send: %d\n", value_to<int>(json["stream_type"]));
     /*
     std::size_t size = 0;
     auto size_buf=(uint8_t*)malloc(4*sizeof(uint8_t)); //Buffer to hold the size to transfer

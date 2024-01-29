@@ -162,7 +162,7 @@ void handle_sync_init(boost::json::object& json){
     auto starts=sync.starts;
     auto lengths=sync.lengths;
     auto hashes=sync.hashes;
-    //After serialize and deserialize, clear
+    //After serialize and deserialize, clear json
     
     sync.starts.clear();
     sync.lengths.clear();
@@ -248,10 +248,10 @@ void SyncOne(uintptr_t devicememory, void* mem, size_t length){
         sync.starts[i]=offset;
         sync.lengths[i]=d+1;
         sync.hashes[i]=HashMem(mem,offset,d+1);
-        offset+=d+1;
+        offset+=(d+1);
     }
     
-    for (int i=0; i<(parts-remainder); i++){
+    for (int i=remainder; i<parts; i++){
         sync.starts[i]=offset;
         sync.lengths[i]=d;
         sync.hashes[i]=HashMem(mem,offset,d);
