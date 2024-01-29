@@ -172,7 +172,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEINSTANCE;
+        json["stream_type"]=VKCREATEINSTANCE;
         writeToConn(json);
     }
 
@@ -229,7 +229,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYINSTANCE;
+        json["stream_type"]=VKDESTROYINSTANCE;
         writeToConn(json);
     }
 
@@ -308,7 +308,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKENUMERATEPHYSICALDEVICES;
+        json["stream_type"]=VKENUMERATEPHYSICALDEVICES;
         writeToConn(json);
     }
 
@@ -368,7 +368,7 @@ json["result"]=(uintptr_t)result;
         }();
 
 
-        json["type"]=VKGETDEVICEPROCADDR;
+        json["stream_type"]=VKGETDEVICEPROCADDR;
         writeToConn(json);
     }
 
@@ -429,7 +429,7 @@ json["result"]=(uintptr_t)result;
         }();
 
 
-        json["type"]=VKGETINSTANCEPROCADDR;
+        json["stream_type"]=VKGETINSTANCEPROCADDR;
         writeToConn(json);
     }
 
@@ -486,7 +486,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEPROPERTIES;
+        json["stream_type"]=VKGETPHYSICALDEVICEPROPERTIES;
         writeToConn(json);
     }
 
@@ -570,7 +570,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES;
+        json["stream_type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES;
         writeToConn(json);
     }
 
@@ -627,7 +627,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEMEMORYPROPERTIES;
+        json["stream_type"]=VKGETPHYSICALDEVICEMEMORYPROPERTIES;
         writeToConn(json);
     }
 
@@ -684,7 +684,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEFEATURES;
+        json["stream_type"]=VKGETPHYSICALDEVICEFEATURES;
         writeToConn(json);
     }
 
@@ -752,7 +752,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEFORMATPROPERTIES;
+        json["stream_type"]=VKGETPHYSICALDEVICEFORMATPROPERTIES;
         writeToConn(json);
     }
 
@@ -865,7 +865,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES;
+        json["stream_type"]=VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES;
         writeToConn(json);
     }
 
@@ -998,7 +998,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEDEVICE;
+        json["stream_type"]=VKCREATEDEVICE;
         writeToConn(json);
     }
 
@@ -1055,7 +1055,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYDEVICE;
+        json["stream_type"]=VKDESTROYDEVICE;
         writeToConn(json);
     }
 
@@ -1112,7 +1112,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKENUMERATEINSTANCEVERSION;
+        json["stream_type"]=VKENUMERATEINSTANCEVERSION;
         writeToConn(json);
     }
 
@@ -1194,7 +1194,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKENUMERATEINSTANCELAYERPROPERTIES;
+        json["stream_type"]=VKENUMERATEINSTANCELAYERPROPERTIES;
         writeToConn(json);
     }
 
@@ -1303,7 +1303,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKENUMERATEINSTANCEEXTENSIONPROPERTIES;
+        json["stream_type"]=VKENUMERATEINSTANCEEXTENSIONPROPERTIES;
         writeToConn(json);
     }
 
@@ -1388,7 +1388,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKENUMERATEDEVICELAYERPROPERTIES;
+        json["stream_type"]=VKENUMERATEDEVICELAYERPROPERTIES;
         writeToConn(json);
     }
 
@@ -1500,7 +1500,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKENUMERATEDEVICEEXTENSIONPROPERTIES;
+        json["stream_type"]=VKENUMERATEDEVICEEXTENSIONPROPERTIES;
         writeToConn(json);
     }
 
@@ -1573,7 +1573,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDEVICEQUEUE;
+        json["stream_type"]=VKGETDEVICEQUEUE;
         writeToConn(json);
     }
 
@@ -1645,7 +1645,7 @@ json.clear();
 [&](){serialize_VkFence(json["fence"],fence);}();
 
 
-        json["type"]=VKQUEUESUBMIT;
+        json["stream_type"]=VKQUEUESUBMIT;
         writeToConn(json);
     }
 
@@ -1678,7 +1678,7 @@ json.clear();
 [&](){serialize_VkQueue(json["queue"],queue);}();
 
 
-        json["type"]=VKQUEUEWAITIDLE;
+        json["stream_type"]=VKQUEUEWAITIDLE;
         writeToConn(json);
     }
 
@@ -1711,7 +1711,7 @@ json.clear();
 [&](){serialize_VkDevice(json["device"],device);}();
 
 
-        json["type"]=VKDEVICEWAITIDLE;
+        json["stream_type"]=VKDEVICEWAITIDLE;
         writeToConn(json);
     }
 
@@ -1813,7 +1813,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKALLOCATEMEMORY;
+        json["stream_type"]=VKALLOCATEMEMORY;
         writeToConn(json);
     }
 
@@ -1873,7 +1873,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKFREEMEMORY;
+        json["stream_type"]=VKFREEMEMORY;
         writeToConn(json);
     }
 
@@ -1918,31 +1918,31 @@ void** ppData;
 [&](){
             if (json["ppData"].as_array().size()==0){
                 ppData=NULL;
-            return; }char** temp_uIlkBcE;[&](){
-            if (json["ppData"].as_array().size()==0){
-                temp_uIlkBcE=NULL;
-            return; }temp_uIlkBcE=(char**)malloc(1*sizeof(char*));
-        auto& arr_fqDGqGm=json["ppData"].as_array();
-        for(int ubOHFxi=0; ubOHFxi < 1; ubOHFxi++){
+            return; }ppData=(void**)malloc(1*sizeof(void*));
+        auto& arr_syvZTtN=json["ppData"].as_array();
+        for(int weOJAdg=0; weOJAdg < 1; weOJAdg++){
             [&](){
-            if (arr_fqDGqGm[ubOHFxi].as_array().size()==0){
-                temp_uIlkBcE[ubOHFxi]=NULL;
-            return; }temp_uIlkBcE[ubOHFxi]=(char*)malloc(size*sizeof(char));
-        auto& arr_vLfeDBZ=arr_fqDGqGm[ubOHFxi].as_array();
+            if (arr_syvZTtN[weOJAdg].as_array().size()==0){
+                ppData[weOJAdg]=NULL;
+            return; }char* temp_syvZTtN;[&](){
+            if (arr_syvZTtN[weOJAdg].as_array().size()==0){
+                temp_syvZTtN=NULL;
+            return; }temp_syvZTtN=(char*)malloc(size*sizeof(char));
+        auto& arr_vLfeDBZ=arr_syvZTtN[weOJAdg].as_array();
         for(int jYdchEs=0; jYdchEs < size; jYdchEs++){
             [&](){
             if (arr_vLfeDBZ[jYdchEs].is_uint64()){
-                temp_uIlkBcE[ubOHFxi][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_uint64());
+                temp_syvZTtN[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_uint64());
             }else if (arr_vLfeDBZ[jYdchEs].is_int64()){
-                temp_uIlkBcE[ubOHFxi][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_int64());
+                temp_syvZTtN[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_int64());
             }else{
-                temp_uIlkBcE[ubOHFxi][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_double());
+                temp_syvZTtN[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_double());
             }
             }();
         }
-        }();
+        }();ppData[weOJAdg]=temp_syvZTtN;}();
         }
-        }();ppData=(void**)(temp_uIlkBcE);}();
+        }();
 
     PFN_vkMapMemory call_function;
     
@@ -1972,23 +1972,23 @@ json.clear();
 [&](){
             if (ppData==NULL){
                 json["ppData"]=boost::json::array();
-            return; }[&](){
-            if (((char**)(ppData))==NULL){
-                json["ppData"]=boost::json::array();
             return; }json["ppData"]=boost::json::array(1);
-        auto& arr_fqDGqGm=json["ppData"].as_array();
-        for(int ubOHFxi=0; ubOHFxi < 1; ubOHFxi++){
+        auto& arr_syvZTtN=json["ppData"].as_array();
+        for(int weOJAdg=0; weOJAdg < 1; weOJAdg++){
             [&](){
-            if (((char**)(ppData))[ubOHFxi]==NULL){
-                arr_fqDGqGm[ubOHFxi]=boost::json::array();
-            return; }arr_fqDGqGm[ubOHFxi]=boost::json::array(size);
-        auto& arr_vLfeDBZ=arr_fqDGqGm[ubOHFxi].as_array();
+            if (ppData[weOJAdg]==NULL){
+                arr_syvZTtN[weOJAdg]=boost::json::array();
+            return; }[&](){
+            if (((char*)(ppData[weOJAdg]))==NULL){
+                arr_syvZTtN[weOJAdg]=boost::json::array();
+            return; }arr_syvZTtN[weOJAdg]=boost::json::array(size);
+        auto& arr_vLfeDBZ=arr_syvZTtN[weOJAdg].as_array();
         for(int jYdchEs=0; jYdchEs < size; jYdchEs++){
-            [&](){arr_vLfeDBZ[jYdchEs]=((char**)(ppData))[ubOHFxi][jYdchEs];}();
-        }
-        }();
+            [&](){arr_vLfeDBZ[jYdchEs]=((char*)(ppData[weOJAdg]))[jYdchEs];}();
         }
         }();}();
+        }
+        }();
 
         boost::json::value server_memory_json;
         serialize_VkDeviceMemory(server_memory_json, memory);
@@ -2002,7 +2002,7 @@ json.clear();
         #endif
         
 
-        json["type"]=VKMAPMEMORY;
+        json["stream_type"]=VKMAPMEMORY;
         writeToConn(json);
     }
 
@@ -2037,7 +2037,7 @@ json.clear();
 [&](){serialize_VkDeviceMemory(json["memory"],memory);}();
 
 
-        json["type"]=VKUNMAPMEMORY;
+        json["stream_type"]=VKUNMAPMEMORY;
         writeToConn(json);
     }
 
@@ -2106,7 +2106,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKFLUSHMAPPEDMEMORYRANGES;
+        json["stream_type"]=VKFLUSHMAPPEDMEMORYRANGES;
         writeToConn(json);
     }
 
@@ -2175,7 +2175,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKINVALIDATEMAPPEDMEMORYRANGES;
+        json["stream_type"]=VKINVALIDATEMAPPEDMEMORYRANGES;
         writeToConn(json);
     }
 
@@ -2237,7 +2237,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDEVICEMEMORYCOMMITMENT;
+        json["stream_type"]=VKGETDEVICEMEMORYCOMMITMENT;
         writeToConn(json);
     }
 
@@ -2297,7 +2297,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETBUFFERMEMORYREQUIREMENTS;
+        json["stream_type"]=VKGETBUFFERMEMORYREQUIREMENTS;
         writeToConn(json);
     }
 
@@ -2347,7 +2347,7 @@ json.clear();
 [&](){[&](){json["memoryOffset"]=memoryOffset;}();}();
 
 
-        json["type"]=VKBINDBUFFERMEMORY;
+        json["stream_type"]=VKBINDBUFFERMEMORY;
         writeToConn(json);
     }
 
@@ -2407,7 +2407,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETIMAGEMEMORYREQUIREMENTS;
+        json["stream_type"]=VKGETIMAGEMEMORYREQUIREMENTS;
         writeToConn(json);
     }
 
@@ -2457,7 +2457,7 @@ json.clear();
 [&](){[&](){json["memoryOffset"]=memoryOffset;}();}();
 
 
-        json["type"]=VKBINDIMAGEMEMORY;
+        json["stream_type"]=VKBINDIMAGEMEMORY;
         writeToConn(json);
     }
 
@@ -2544,7 +2544,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETIMAGESPARSEMEMORYREQUIREMENTS;
+        json["stream_type"]=VKGETIMAGESPARSEMEMORYREQUIREMENTS;
         writeToConn(json);
     }
 
@@ -2683,7 +2683,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES;
+        json["stream_type"]=VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES;
         writeToConn(json);
     }
 
@@ -2755,7 +2755,7 @@ json.clear();
 [&](){serialize_VkFence(json["fence"],fence);}();
 
 
-        json["type"]=VKQUEUEBINDSPARSE;
+        json["stream_type"]=VKQUEUEBINDSPARSE;
         writeToConn(json);
     }
 
@@ -2857,7 +2857,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEFENCE;
+        json["stream_type"]=VKCREATEFENCE;
         writeToConn(json);
     }
 
@@ -2917,7 +2917,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYFENCE;
+        json["stream_type"]=VKDESTROYFENCE;
         writeToConn(json);
     }
 
@@ -2980,7 +2980,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKRESETFENCES;
+        json["stream_type"]=VKRESETFENCES;
         writeToConn(json);
     }
 
@@ -3016,7 +3016,7 @@ json.clear();
 [&](){serialize_VkFence(json["fence"],fence);}();
 
 
-        json["type"]=VKGETFENCESTATUS;
+        json["stream_type"]=VKGETFENCESTATUS;
         writeToConn(json);
     }
 
@@ -3106,7 +3106,7 @@ json.clear();
             
 
 
-        json["type"]=VKWAITFORFENCES;
+        json["stream_type"]=VKWAITFORFENCES;
         writeToConn(json);
     }
 
@@ -3208,7 +3208,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATESEMAPHORE;
+        json["stream_type"]=VKCREATESEMAPHORE;
         writeToConn(json);
     }
 
@@ -3268,7 +3268,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYSEMAPHORE;
+        json["stream_type"]=VKDESTROYSEMAPHORE;
         writeToConn(json);
     }
 
@@ -3370,7 +3370,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEEVENT;
+        json["stream_type"]=VKCREATEEVENT;
         writeToConn(json);
     }
 
@@ -3430,7 +3430,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYEVENT;
+        json["stream_type"]=VKDESTROYEVENT;
         writeToConn(json);
     }
 
@@ -3466,7 +3466,7 @@ json.clear();
 [&](){serialize_VkEvent(json["event"],event);}();
 
 
-        json["type"]=VKGETEVENTSTATUS;
+        json["stream_type"]=VKGETEVENTSTATUS;
         writeToConn(json);
     }
 
@@ -3502,7 +3502,7 @@ json.clear();
 [&](){serialize_VkEvent(json["event"],event);}();
 
 
-        json["type"]=VKSETEVENT;
+        json["stream_type"]=VKSETEVENT;
         writeToConn(json);
     }
 
@@ -3538,7 +3538,7 @@ json.clear();
 [&](){serialize_VkEvent(json["event"],event);}();
 
 
-        json["type"]=VKRESETEVENT;
+        json["stream_type"]=VKRESETEVENT;
         writeToConn(json);
     }
 
@@ -3640,7 +3640,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEQUERYPOOL;
+        json["stream_type"]=VKCREATEQUERYPOOL;
         writeToConn(json);
     }
 
@@ -3700,7 +3700,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYQUERYPOOL;
+        json["stream_type"]=VKDESTROYQUERYPOOL;
         writeToConn(json);
     }
 
@@ -3761,7 +3761,7 @@ void* pData;
             }
             }();
         }
-        }();pData=(void*)(temp_hrhAtyM);}();
+        }();pData=temp_hrhAtyM;}();
 VkDeviceSize stride;
 [&](){uint64_t temp_fLSTSIg;[&](){
             if (json["stride"].is_uint64()){
@@ -3824,7 +3824,7 @@ json.clear();
 [&](){[&](){[&](){json["flags"]=flags;}();}();}();
 
 
-        json["type"]=VKGETQUERYPOOLRESULTS;
+        json["stream_type"]=VKGETQUERYPOOLRESULTS;
         writeToConn(json);
     }
 
@@ -3881,7 +3881,7 @@ json.clear();
 [&](){json["queryCount"]=queryCount;}();
 
 
-        json["type"]=VKRESETQUERYPOOL;
+        json["stream_type"]=VKRESETQUERYPOOL;
         writeToConn(json);
     }
 
@@ -3983,7 +3983,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEBUFFER;
+        json["stream_type"]=VKCREATEBUFFER;
         writeToConn(json);
     }
 
@@ -4043,7 +4043,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYBUFFER;
+        json["stream_type"]=VKDESTROYBUFFER;
         writeToConn(json);
     }
 
@@ -4145,7 +4145,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEBUFFERVIEW;
+        json["stream_type"]=VKCREATEBUFFERVIEW;
         writeToConn(json);
     }
 
@@ -4205,7 +4205,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYBUFFERVIEW;
+        json["stream_type"]=VKDESTROYBUFFERVIEW;
         writeToConn(json);
     }
 
@@ -4307,7 +4307,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEIMAGE;
+        json["stream_type"]=VKCREATEIMAGE;
         writeToConn(json);
     }
 
@@ -4367,7 +4367,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYIMAGE;
+        json["stream_type"]=VKDESTROYIMAGE;
         writeToConn(json);
     }
 
@@ -4452,7 +4452,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETIMAGESUBRESOURCELAYOUT;
+        json["stream_type"]=VKGETIMAGESUBRESOURCELAYOUT;
         writeToConn(json);
     }
 
@@ -4554,7 +4554,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEIMAGEVIEW;
+        json["stream_type"]=VKCREATEIMAGEVIEW;
         writeToConn(json);
     }
 
@@ -4614,7 +4614,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYIMAGEVIEW;
+        json["stream_type"]=VKDESTROYIMAGEVIEW;
         writeToConn(json);
     }
 
@@ -4716,7 +4716,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATESHADERMODULE;
+        json["stream_type"]=VKCREATESHADERMODULE;
         writeToConn(json);
     }
 
@@ -4776,7 +4776,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYSHADERMODULE;
+        json["stream_type"]=VKDESTROYSHADERMODULE;
         writeToConn(json);
     }
 
@@ -4878,7 +4878,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEPIPELINECACHE;
+        json["stream_type"]=VKCREATEPIPELINECACHE;
         writeToConn(json);
     }
 
@@ -4938,7 +4938,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYPIPELINECACHE;
+        json["stream_type"]=VKDESTROYPIPELINECACHE;
         writeToConn(json);
     }
 
@@ -4987,7 +4987,7 @@ void* pData;
             }
             }();
         }
-        }();pData=(void*)(temp_ZtBEjVJ);}();
+        }();pData=temp_ZtBEjVJ;}();
 
     PFN_vkGetPipelineCacheData call_function;
     
@@ -5034,7 +5034,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKGETPIPELINECACHEDATA;
+        json["stream_type"]=VKGETPIPELINECACHEDATA;
         writeToConn(json);
     }
 
@@ -5100,7 +5100,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKMERGEPIPELINECACHES;
+        json["stream_type"]=VKMERGEPIPELINECACHES;
         writeToConn(json);
     }
 
@@ -5216,7 +5216,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEGRAPHICSPIPELINES;
+        json["stream_type"]=VKCREATEGRAPHICSPIPELINES;
         writeToConn(json);
     }
 
@@ -5332,7 +5332,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATECOMPUTEPIPELINES;
+        json["stream_type"]=VKCREATECOMPUTEPIPELINES;
         writeToConn(json);
     }
 
@@ -5393,7 +5393,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDEVICESUBPASSSHADINGMAXWORKGROUPSIZEHUAWEI;
+        json["stream_type"]=VKGETDEVICESUBPASSSHADINGMAXWORKGROUPSIZEHUAWEI;
         writeToConn(json);
     }
 
@@ -5453,7 +5453,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYPIPELINE;
+        json["stream_type"]=VKDESTROYPIPELINE;
         writeToConn(json);
     }
 
@@ -5555,7 +5555,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEPIPELINELAYOUT;
+        json["stream_type"]=VKCREATEPIPELINELAYOUT;
         writeToConn(json);
     }
 
@@ -5615,7 +5615,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYPIPELINELAYOUT;
+        json["stream_type"]=VKDESTROYPIPELINELAYOUT;
         writeToConn(json);
     }
 
@@ -5717,7 +5717,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATESAMPLER;
+        json["stream_type"]=VKCREATESAMPLER;
         writeToConn(json);
     }
 
@@ -5777,7 +5777,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYSAMPLER;
+        json["stream_type"]=VKDESTROYSAMPLER;
         writeToConn(json);
     }
 
@@ -5879,7 +5879,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEDESCRIPTORSETLAYOUT;
+        json["stream_type"]=VKCREATEDESCRIPTORSETLAYOUT;
         writeToConn(json);
     }
 
@@ -5939,7 +5939,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYDESCRIPTORSETLAYOUT;
+        json["stream_type"]=VKDESTROYDESCRIPTORSETLAYOUT;
         writeToConn(json);
     }
 
@@ -6041,7 +6041,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEDESCRIPTORPOOL;
+        json["stream_type"]=VKCREATEDESCRIPTORPOOL;
         writeToConn(json);
     }
 
@@ -6101,7 +6101,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYDESCRIPTORPOOL;
+        json["stream_type"]=VKDESTROYDESCRIPTORPOOL;
         writeToConn(json);
     }
 
@@ -6148,7 +6148,7 @@ json.clear();
 [&](){[&](){[&](){json["flags"]=flags;}();}();}();
 
 
-        json["type"]=VKRESETDESCRIPTORPOOL;
+        json["stream_type"]=VKRESETDESCRIPTORPOOL;
         writeToConn(json);
     }
 
@@ -6225,7 +6225,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKALLOCATEDESCRIPTORSETS;
+        json["stream_type"]=VKALLOCATEDESCRIPTORSETS;
         writeToConn(json);
     }
 
@@ -6291,7 +6291,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKFREEDESCRIPTORSETS;
+        json["stream_type"]=VKFREEDESCRIPTORSETS;
         writeToConn(json);
     }
 
@@ -6395,7 +6395,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKUPDATEDESCRIPTORSETS;
+        json["stream_type"]=VKUPDATEDESCRIPTORSETS;
         writeToConn(json);
     }
 
@@ -6497,7 +6497,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEFRAMEBUFFER;
+        json["stream_type"]=VKCREATEFRAMEBUFFER;
         writeToConn(json);
     }
 
@@ -6557,7 +6557,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYFRAMEBUFFER;
+        json["stream_type"]=VKDESTROYFRAMEBUFFER;
         writeToConn(json);
     }
 
@@ -6659,7 +6659,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATERENDERPASS;
+        json["stream_type"]=VKCREATERENDERPASS;
         writeToConn(json);
     }
 
@@ -6719,7 +6719,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYRENDERPASS;
+        json["stream_type"]=VKDESTROYRENDERPASS;
         writeToConn(json);
     }
 
@@ -6779,7 +6779,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETRENDERAREAGRANULARITY;
+        json["stream_type"]=VKGETRENDERAREAGRANULARITY;
         writeToConn(json);
     }
 
@@ -6861,7 +6861,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETRENDERINGAREAGRANULARITYKHR;
+        json["stream_type"]=VKGETRENDERINGAREAGRANULARITYKHR;
         writeToConn(json);
     }
 
@@ -6963,7 +6963,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATECOMMANDPOOL;
+        json["stream_type"]=VKCREATECOMMANDPOOL;
         writeToConn(json);
     }
 
@@ -7023,7 +7023,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYCOMMANDPOOL;
+        json["stream_type"]=VKDESTROYCOMMANDPOOL;
         writeToConn(json);
     }
 
@@ -7070,7 +7070,7 @@ json.clear();
 [&](){[&](){[&](){json["flags"]=flags;}();}();}();
 
 
-        json["type"]=VKRESETCOMMANDPOOL;
+        json["stream_type"]=VKRESETCOMMANDPOOL;
         writeToConn(json);
     }
 
@@ -7147,7 +7147,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKALLOCATECOMMANDBUFFERS;
+        json["stream_type"]=VKALLOCATECOMMANDBUFFERS;
         writeToConn(json);
     }
 
@@ -7212,7 +7212,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKFREECOMMANDBUFFERS;
+        json["stream_type"]=VKFREECOMMANDBUFFERS;
         writeToConn(json);
     }
 
@@ -7270,7 +7270,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKBEGINCOMMANDBUFFER;
+        json["stream_type"]=VKBEGINCOMMANDBUFFER;
         writeToConn(json);
     }
 
@@ -7303,7 +7303,7 @@ json.clear();
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 
 
-        json["type"]=VKENDCOMMANDBUFFER;
+        json["stream_type"]=VKENDCOMMANDBUFFER;
         writeToConn(json);
     }
 
@@ -7347,7 +7347,7 @@ json.clear();
 [&](){[&](){[&](){json["flags"]=flags;}();}();}();
 
 
-        json["type"]=VKRESETCOMMANDBUFFER;
+        json["stream_type"]=VKRESETCOMMANDBUFFER;
         writeToConn(json);
     }
 
@@ -7393,7 +7393,7 @@ json.clear();
 [&](){serialize_VkPipeline(json["pipeline"],pipeline);}();
 
 
-        json["type"]=VKCMDBINDPIPELINE;
+        json["stream_type"]=VKCMDBINDPIPELINE;
         writeToConn(json);
     }
 
@@ -7436,7 +7436,7 @@ json.clear();
 [&](){[&](){[&](){json["aspectMask"]=aspectMask;}();}();}();
 
 
-        json["type"]=VKCMDSETATTACHMENTFEEDBACKLOOPENABLEEXT;
+        json["stream_type"]=VKCMDSETATTACHMENTFEEDBACKLOOPENABLEEXT;
         writeToConn(json);
     }
 
@@ -7515,7 +7515,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETVIEWPORT;
+        json["stream_type"]=VKCMDSETVIEWPORT;
         writeToConn(json);
     }
 
@@ -7594,7 +7594,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETSCISSOR;
+        json["stream_type"]=VKCMDSETSCISSOR;
         writeToConn(json);
     }
 
@@ -7637,7 +7637,7 @@ json.clear();
 [&](){json["lineWidth"]=lineWidth;}();
 
 
-        json["type"]=VKCMDSETLINEWIDTH;
+        json["stream_type"]=VKCMDSETLINEWIDTH;
         writeToConn(json);
     }
 
@@ -7702,7 +7702,7 @@ json.clear();
 [&](){json["depthBiasSlopeFactor"]=depthBiasSlopeFactor;}();
 
 
-        json["type"]=VKCMDSETDEPTHBIAS;
+        json["stream_type"]=VKCMDSETDEPTHBIAS;
         writeToConn(json);
     }
 
@@ -7755,7 +7755,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETBLENDCONSTANTS;
+        json["stream_type"]=VKCMDSETBLENDCONSTANTS;
         writeToConn(json);
     }
 
@@ -7809,7 +7809,7 @@ json.clear();
 [&](){json["maxDepthBounds"]=maxDepthBounds;}();
 
 
-        json["type"]=VKCMDSETDEPTHBOUNDS;
+        json["stream_type"]=VKCMDSETDEPTHBOUNDS;
         writeToConn(json);
     }
 
@@ -7863,7 +7863,7 @@ json.clear();
 [&](){json["compareMask"]=compareMask;}();
 
 
-        json["type"]=VKCMDSETSTENCILCOMPAREMASK;
+        json["stream_type"]=VKCMDSETSTENCILCOMPAREMASK;
         writeToConn(json);
     }
 
@@ -7917,7 +7917,7 @@ json.clear();
 [&](){json["writeMask"]=writeMask;}();
 
 
-        json["type"]=VKCMDSETSTENCILWRITEMASK;
+        json["stream_type"]=VKCMDSETSTENCILWRITEMASK;
         writeToConn(json);
     }
 
@@ -7971,7 +7971,7 @@ json.clear();
 [&](){json["reference"]=reference;}();
 
 
-        json["type"]=VKCMDSETSTENCILREFERENCE;
+        json["stream_type"]=VKCMDSETSTENCILREFERENCE;
         writeToConn(json);
     }
 
@@ -8096,7 +8096,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDBINDDESCRIPTORSETS;
+        json["stream_type"]=VKCMDBINDDESCRIPTORSETS;
         writeToConn(json);
     }
 
@@ -8153,7 +8153,7 @@ json.clear();
 [&](){[&](){[&](){json["indexType"]=indexType;}();}();}();
 
 
-        json["type"]=VKCMDBINDINDEXBUFFER;
+        json["stream_type"]=VKCMDBINDINDEXBUFFER;
         writeToConn(json);
     }
 
@@ -8253,7 +8253,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDBINDVERTEXBUFFERS;
+        json["stream_type"]=VKCMDBINDVERTEXBUFFERS;
         writeToConn(json);
     }
 
@@ -8329,7 +8329,7 @@ json.clear();
 [&](){json["firstInstance"]=firstInstance;}();
 
 
-        json["type"]=VKCMDDRAW;
+        json["stream_type"]=VKCMDDRAW;
         writeToConn(json);
     }
 
@@ -8416,7 +8416,7 @@ json.clear();
 [&](){json["firstInstance"]=firstInstance;}();
 
 
-        json["type"]=VKCMDDRAWINDEXED;
+        json["stream_type"]=VKCMDDRAWINDEXED;
         writeToConn(json);
     }
 
@@ -8517,7 +8517,7 @@ json.clear();
 [&](){json["stride"]=stride;}();
 
 
-        json["type"]=VKCMDDRAWMULTIEXT;
+        json["stream_type"]=VKCMDDRAWMULTIEXT;
         writeToConn(json);
     }
 
@@ -8645,7 +8645,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDDRAWMULTIINDEXEDEXT;
+        json["stream_type"]=VKCMDDRAWMULTIINDEXEDEXT;
         writeToConn(json);
     }
 
@@ -8713,7 +8713,7 @@ json.clear();
 [&](){json["stride"]=stride;}();
 
 
-        json["type"]=VKCMDDRAWINDIRECT;
+        json["stream_type"]=VKCMDDRAWINDIRECT;
         writeToConn(json);
     }
 
@@ -8781,7 +8781,7 @@ json.clear();
 [&](){json["stride"]=stride;}();
 
 
-        json["type"]=VKCMDDRAWINDEXEDINDIRECT;
+        json["stream_type"]=VKCMDDRAWINDEXEDINDIRECT;
         writeToConn(json);
     }
 
@@ -8846,7 +8846,7 @@ json.clear();
 [&](){json["groupCountZ"]=groupCountZ;}();
 
 
-        json["type"]=VKCMDDISPATCH;
+        json["stream_type"]=VKCMDDISPATCH;
         writeToConn(json);
     }
 
@@ -8892,7 +8892,7 @@ json.clear();
 [&](){[&](){json["offset"]=offset;}();}();
 
 
-        json["type"]=VKCMDDISPATCHINDIRECT;
+        json["stream_type"]=VKCMDDISPATCHINDIRECT;
         writeToConn(json);
     }
 
@@ -8924,7 +8924,7 @@ json.clear();
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 
 
-        json["type"]=VKCMDSUBPASSSHADINGHUAWEI;
+        json["stream_type"]=VKCMDSUBPASSSHADINGHUAWEI;
         writeToConn(json);
     }
 
@@ -8989,7 +8989,7 @@ json.clear();
 [&](){json["groupCountZ"]=groupCountZ;}();
 
 
-        json["type"]=VKCMDDRAWCLUSTERHUAWEI;
+        json["stream_type"]=VKCMDDRAWCLUSTERHUAWEI;
         writeToConn(json);
     }
 
@@ -9035,7 +9035,7 @@ json.clear();
 [&](){[&](){json["offset"]=offset;}();}();
 
 
-        json["type"]=VKCMDDRAWCLUSTERINDIRECTHUAWEI;
+        json["stream_type"]=VKCMDDRAWCLUSTERINDIRECTHUAWEI;
         writeToConn(json);
     }
 
@@ -9081,7 +9081,7 @@ json.clear();
 [&](){serialize_VkPipeline(json["pipeline"],pipeline);}();
 
 
-        json["type"]=VKCMDUPDATEPIPELINEINDIRECTBUFFERNV;
+        json["stream_type"]=VKCMDUPDATEPIPELINEINDIRECTBUFFERNV;
         writeToConn(json);
     }
 
@@ -9155,7 +9155,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCOPYBUFFER;
+        json["stream_type"]=VKCMDCOPYBUFFER;
         writeToConn(json);
     }
 
@@ -9251,7 +9251,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCOPYIMAGE;
+        json["stream_type"]=VKCMDCOPYIMAGE;
         writeToConn(json);
     }
 
@@ -9358,7 +9358,7 @@ json.clear();
 [&](){[&](){[&](){json["filter"]=filter;}();}();}();
 
 
-        json["type"]=VKCMDBLITIMAGE;
+        json["stream_type"]=VKCMDBLITIMAGE;
         writeToConn(json);
     }
 
@@ -9443,7 +9443,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCOPYBUFFERTOIMAGE;
+        json["stream_type"]=VKCMDCOPYBUFFERTOIMAGE;
         writeToConn(json);
     }
 
@@ -9528,7 +9528,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCOPYIMAGETOBUFFER;
+        json["stream_type"]=VKCMDCOPYIMAGETOBUFFER;
         writeToConn(json);
     }
 
@@ -9593,7 +9593,7 @@ json.clear();
 [&](){json["stride"]=stride;}();
 
 
-        json["type"]=VKCMDCOPYMEMORYINDIRECTNV;
+        json["stream_type"]=VKCMDCOPYMEMORYINDIRECTNV;
         writeToConn(json);
     }
 
@@ -9697,7 +9697,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCOPYMEMORYTOIMAGEINDIRECTNV;
+        json["stream_type"]=VKCMDCOPYMEMORYTOIMAGEINDIRECTNV;
         writeToConn(json);
     }
 
@@ -9748,7 +9748,7 @@ VkDeviceSize dataSize;
             }
             }();
         }
-        }();pData=(void*)(temp_eeRffBc);}();
+        }();pData=temp_eeRffBc;}();
 
     PFN_vkCmdUpdateBuffer call_function;
     
@@ -9787,7 +9787,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKCMDUPDATEBUFFER;
+        json["stream_type"]=VKCMDUPDATEBUFFER;
         writeToConn(json);
     }
 
@@ -9855,7 +9855,7 @@ json.clear();
 [&](){json["data"]=data;}();
 
 
-        json["type"]=VKCMDFILLBUFFER;
+        json["stream_type"]=VKCMDFILLBUFFER;
         writeToConn(json);
     }
 
@@ -9962,7 +9962,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCLEARCOLORIMAGE;
+        json["stream_type"]=VKCMDCLEARCOLORIMAGE;
         writeToConn(json);
     }
 
@@ -10069,7 +10069,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCLEARDEPTHSTENCILIMAGE;
+        json["stream_type"]=VKCMDCLEARDEPTHSTENCILIMAGE;
         writeToConn(json);
     }
 
@@ -10173,7 +10173,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCLEARATTACHMENTS;
+        json["stream_type"]=VKCMDCLEARATTACHMENTS;
         writeToConn(json);
     }
 
@@ -10269,7 +10269,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDRESOLVEIMAGE;
+        json["stream_type"]=VKCMDRESOLVEIMAGE;
         writeToConn(json);
     }
 
@@ -10315,7 +10315,7 @@ json.clear();
 [&](){[&](){[&](){json["stageMask"]=stageMask;}();}();}();
 
 
-        json["type"]=VKCMDSETEVENT;
+        json["stream_type"]=VKCMDSETEVENT;
         writeToConn(json);
     }
 
@@ -10361,7 +10361,7 @@ json.clear();
 [&](){[&](){[&](){json["stageMask"]=stageMask;}();}();}();
 
 
-        json["type"]=VKCMDRESETEVENT;
+        json["stream_type"]=VKCMDRESETEVENT;
         writeToConn(json);
     }
 
@@ -10553,7 +10553,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDWAITEVENTS;
+        json["stream_type"]=VKCMDWAITEVENTS;
         writeToConn(json);
     }
 
@@ -10726,7 +10726,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDPIPELINEBARRIER;
+        json["stream_type"]=VKCMDPIPELINEBARRIER;
         writeToConn(json);
     }
 
@@ -10783,7 +10783,7 @@ json.clear();
 [&](){[&](){[&](){json["flags"]=flags;}();}();}();
 
 
-        json["type"]=VKCMDBEGINQUERY;
+        json["stream_type"]=VKCMDBEGINQUERY;
         writeToConn(json);
     }
 
@@ -10829,7 +10829,7 @@ json.clear();
 [&](){json["query"]=query;}();
 
 
-        json["type"]=VKCMDENDQUERY;
+        json["stream_type"]=VKCMDENDQUERY;
         writeToConn(json);
     }
 
@@ -10886,7 +10886,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDBEGINCONDITIONALRENDERINGEXT;
+        json["stream_type"]=VKCMDBEGINCONDITIONALRENDERINGEXT;
         writeToConn(json);
     }
 
@@ -10918,7 +10918,7 @@ json.clear();
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 
 
-        json["type"]=VKCMDENDCONDITIONALRENDERINGEXT;
+        json["stream_type"]=VKCMDENDCONDITIONALRENDERINGEXT;
         writeToConn(json);
     }
 
@@ -10975,7 +10975,7 @@ json.clear();
 [&](){json["queryCount"]=queryCount;}();
 
 
-        json["type"]=VKCMDRESETQUERYPOOL;
+        json["stream_type"]=VKCMDRESETQUERYPOOL;
         writeToConn(json);
     }
 
@@ -11032,7 +11032,7 @@ json.clear();
 [&](){json["query"]=query;}();
 
 
-        json["type"]=VKCMDWRITETIMESTAMP;
+        json["stream_type"]=VKCMDWRITETIMESTAMP;
         writeToConn(json);
     }
 
@@ -11125,7 +11125,7 @@ json.clear();
 [&](){[&](){[&](){json["flags"]=flags;}();}();}();
 
 
-        json["type"]=VKCMDCOPYQUERYPOOLRESULTS;
+        json["stream_type"]=VKCMDCOPYQUERYPOOLRESULTS;
         writeToConn(json);
     }
 
@@ -11186,7 +11186,7 @@ uint32_t size;
             }
             }();
         }
-        }();pValues=(void*)(temp_JvCgRni);}();
+        }();pValues=temp_JvCgRni;}();
 
     PFN_vkCmdPushConstants call_function;
     
@@ -11226,7 +11226,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKCMDPUSHCONSTANTS;
+        json["stream_type"]=VKCMDPUSHCONSTANTS;
         writeToConn(json);
     }
 
@@ -11294,7 +11294,7 @@ json.clear();
 [&](){[&](){[&](){json["contents"]=contents;}();}();}();
 
 
-        json["type"]=VKCMDBEGINRENDERPASS;
+        json["stream_type"]=VKCMDBEGINRENDERPASS;
         writeToConn(json);
     }
 
@@ -11337,7 +11337,7 @@ json.clear();
 [&](){[&](){[&](){json["contents"]=contents;}();}();}();
 
 
-        json["type"]=VKCMDNEXTSUBPASS;
+        json["stream_type"]=VKCMDNEXTSUBPASS;
         writeToConn(json);
     }
 
@@ -11369,7 +11369,7 @@ json.clear();
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 
 
-        json["type"]=VKCMDENDRENDERPASS;
+        json["stream_type"]=VKCMDENDRENDERPASS;
         writeToConn(json);
     }
 
@@ -11431,7 +11431,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDEXECUTECOMMANDS;
+        json["stream_type"]=VKCMDEXECUTECOMMANDS;
         writeToConn(json);
     }
 
@@ -11516,7 +11516,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEDISPLAYPROPERTIESKHR;
+        json["stream_type"]=VKGETPHYSICALDEVICEDISPLAYPROPERTIESKHR;
         writeToConn(json);
     }
 
@@ -11601,7 +11601,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIESKHR;
+        json["stream_type"]=VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIESKHR;
         writeToConn(json);
     }
 
@@ -11691,7 +11691,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDISPLAYPLANESUPPORTEDDISPLAYSKHR;
+        json["stream_type"]=VKGETDISPLAYPLANESUPPORTEDDISPLAYSKHR;
         writeToConn(json);
     }
 
@@ -11779,7 +11779,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDISPLAYMODEPROPERTIESKHR;
+        json["stream_type"]=VKGETDISPLAYMODEPROPERTIESKHR;
         writeToConn(json);
     }
 
@@ -11884,7 +11884,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEDISPLAYMODEKHR;
+        json["stream_type"]=VKCREATEDISPLAYMODEKHR;
         writeToConn(json);
     }
 
@@ -11956,7 +11956,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDISPLAYPLANECAPABILITIESKHR;
+        json["stream_type"]=VKGETDISPLAYPLANECAPABILITIESKHR;
         writeToConn(json);
     }
 
@@ -12058,7 +12058,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEDISPLAYPLANESURFACEKHR;
+        json["stream_type"]=VKCREATEDISPLAYPLANESURFACEKHR;
         writeToConn(json);
     }
 
@@ -12171,7 +12171,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATESHAREDSWAPCHAINSKHR;
+        json["stream_type"]=VKCREATESHAREDSWAPCHAINSKHR;
         writeToConn(json);
     }
 
@@ -12231,7 +12231,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYSURFACEKHR;
+        json["stream_type"]=VKDESTROYSURFACEKHR;
         writeToConn(json);
     }
 
@@ -12305,7 +12305,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICESURFACESUPPORTKHR;
+        json["stream_type"]=VKGETPHYSICALDEVICESURFACESUPPORTKHR;
         writeToConn(json);
     }
 
@@ -12366,7 +12366,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICESURFACECAPABILITIESKHR;
+        json["stream_type"]=VKGETPHYSICALDEVICESURFACECAPABILITIESKHR;
         writeToConn(json);
     }
 
@@ -12454,7 +12454,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICESURFACEFORMATSKHR;
+        json["stream_type"]=VKGETPHYSICALDEVICESURFACEFORMATSKHR;
         writeToConn(json);
     }
 
@@ -12544,7 +12544,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICESURFACEPRESENTMODESKHR;
+        json["stream_type"]=VKGETPHYSICALDEVICESURFACEPRESENTMODESKHR;
         writeToConn(json);
     }
 
@@ -12646,7 +12646,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATESWAPCHAINKHR;
+        json["stream_type"]=VKCREATESWAPCHAINKHR;
         writeToConn(json);
     }
 
@@ -12706,7 +12706,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYSWAPCHAINKHR;
+        json["stream_type"]=VKDESTROYSWAPCHAINKHR;
         writeToConn(json);
     }
 
@@ -12788,7 +12788,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETSWAPCHAINIMAGESKHR;
+        json["stream_type"]=VKGETSWAPCHAINIMAGESKHR;
         writeToConn(json);
     }
 
@@ -12868,7 +12868,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKACQUIRENEXTIMAGEKHR;
+        json["stream_type"]=VKACQUIRENEXTIMAGEKHR;
         writeToConn(json);
     }
 
@@ -12926,7 +12926,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKQUEUEPRESENTKHR;
+        json["stream_type"]=VKQUEUEPRESENTKHR;
         writeToConn(json);
     }
 
@@ -13028,7 +13028,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEXLIBSURFACEKHR;
+        json["stream_type"]=VKCREATEXLIBSURFACEKHR;
         writeToConn(json);
     }
 
@@ -13084,7 +13084,7 @@ json.clear();
 [&](){json["visualID"]=(uintptr_t)visualID;}();
 
 
-        json["type"]=VKGETPHYSICALDEVICEXLIBPRESENTATIONSUPPORTKHR;
+        json["stream_type"]=VKGETPHYSICALDEVICEXLIBPRESENTATIONSUPPORTKHR;
         writeToConn(json);
     }
 
@@ -13186,7 +13186,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEXCBSURFACEKHR;
+        json["stream_type"]=VKCREATEXCBSURFACEKHR;
         writeToConn(json);
     }
 
@@ -13242,7 +13242,7 @@ json.clear();
 [&](){json["visual_id"]=(uintptr_t)visual_id;}();
 
 
-        json["type"]=VKGETPHYSICALDEVICEXCBPRESENTATIONSUPPORTKHR;
+        json["stream_type"]=VKGETPHYSICALDEVICEXCBPRESENTATIONSUPPORTKHR;
         writeToConn(json);
     }
 
@@ -13344,7 +13344,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEDEBUGREPORTCALLBACKEXT;
+        json["stream_type"]=VKCREATEDEBUGREPORTCALLBACKEXT;
         writeToConn(json);
     }
 
@@ -13404,7 +13404,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYDEBUGREPORTCALLBACKEXT;
+        json["stream_type"]=VKDESTROYDEBUGREPORTCALLBACKEXT;
         writeToConn(json);
     }
 
@@ -13545,7 +13545,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDEBUGREPORTMESSAGEEXT;
+        json["stream_type"]=VKDEBUGREPORTMESSAGEEXT;
         writeToConn(json);
     }
 
@@ -13603,7 +13603,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDEBUGMARKERSETOBJECTNAMEEXT;
+        json["stream_type"]=VKDEBUGMARKERSETOBJECTNAMEEXT;
         writeToConn(json);
     }
 
@@ -13661,7 +13661,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDEBUGMARKERSETOBJECTTAGEXT;
+        json["stream_type"]=VKDEBUGMARKERSETOBJECTTAGEXT;
         writeToConn(json);
     }
 
@@ -13718,7 +13718,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDDEBUGMARKERBEGINEXT;
+        json["stream_type"]=VKCMDDEBUGMARKERBEGINEXT;
         writeToConn(json);
     }
 
@@ -13750,7 +13750,7 @@ json.clear();
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 
 
-        json["type"]=VKCMDDEBUGMARKERENDEXT;
+        json["stream_type"]=VKCMDDEBUGMARKERENDEXT;
         writeToConn(json);
     }
 
@@ -13807,7 +13807,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDDEBUGMARKERINSERTEXT;
+        json["stream_type"]=VKCMDDEBUGMARKERINSERTEXT;
         writeToConn(json);
     }
 
@@ -13931,7 +13931,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEEXTERNALIMAGEFORMATPROPERTIESNV;
+        json["stream_type"]=VKGETPHYSICALDEVICEEXTERNALIMAGEFORMATPROPERTIESNV;
         writeToConn(json);
     }
 
@@ -13999,7 +13999,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDEXECUTEGENERATEDCOMMANDSNV;
+        json["stream_type"]=VKCMDEXECUTEGENERATEDCOMMANDSNV;
         writeToConn(json);
     }
 
@@ -14056,7 +14056,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDPREPROCESSGENERATEDCOMMANDSNV;
+        json["stream_type"]=VKCMDPREPROCESSGENERATEDCOMMANDSNV;
         writeToConn(json);
     }
 
@@ -14113,7 +14113,7 @@ json.clear();
 [&](){json["groupIndex"]=groupIndex;}();
 
 
-        json["type"]=VKCMDBINDPIPELINESHADERGROUPNV;
+        json["stream_type"]=VKCMDBINDPIPELINESHADERGROUPNV;
         writeToConn(json);
     }
 
@@ -14195,7 +14195,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETGENERATEDCOMMANDSMEMORYREQUIREMENTSNV;
+        json["stream_type"]=VKGETGENERATEDCOMMANDSMEMORYREQUIREMENTSNV;
         writeToConn(json);
     }
 
@@ -14297,7 +14297,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEINDIRECTCOMMANDSLAYOUTNV;
+        json["stream_type"]=VKCREATEINDIRECTCOMMANDSLAYOUTNV;
         writeToConn(json);
     }
 
@@ -14357,7 +14357,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYINDIRECTCOMMANDSLAYOUTNV;
+        json["stream_type"]=VKDESTROYINDIRECTCOMMANDSLAYOUTNV;
         writeToConn(json);
     }
 
@@ -14414,7 +14414,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEFEATURES2;
+        json["stream_type"]=VKGETPHYSICALDEVICEFEATURES2;
         writeToConn(json);
     }
 
@@ -14471,7 +14471,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEPROPERTIES2;
+        json["stream_type"]=VKGETPHYSICALDEVICEPROPERTIES2;
         writeToConn(json);
     }
 
@@ -14539,7 +14539,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEFORMATPROPERTIES2;
+        json["stream_type"]=VKGETPHYSICALDEVICEFORMATPROPERTIES2;
         writeToConn(json);
     }
 
@@ -14622,7 +14622,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES2;
+        json["stream_type"]=VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES2;
         writeToConn(json);
     }
 
@@ -14706,7 +14706,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES2;
+        json["stream_type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES2;
         writeToConn(json);
     }
 
@@ -14763,7 +14763,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEMEMORYPROPERTIES2;
+        json["stream_type"]=VKGETPHYSICALDEVICEMEMORYPROPERTIES2;
         writeToConn(json);
     }
 
@@ -14872,7 +14872,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES2;
+        json["stream_type"]=VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES2;
         writeToConn(json);
     }
 
@@ -14965,7 +14965,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDPUSHDESCRIPTORSETKHR;
+        json["stream_type"]=VKCMDPUSHDESCRIPTORSETKHR;
         writeToConn(json);
     }
 
@@ -15011,7 +15011,7 @@ json.clear();
 [&](){[&](){[&](){json["flags"]=flags;}();}();}();
 
 
-        json["type"]=VKTRIMCOMMANDPOOL;
+        json["stream_type"]=VKTRIMCOMMANDPOOL;
         writeToConn(json);
     }
 
@@ -15093,7 +15093,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEEXTERNALBUFFERPROPERTIES;
+        json["stream_type"]=VKGETPHYSICALDEVICEEXTERNALBUFFERPROPERTIES;
         writeToConn(json);
     }
 
@@ -15178,7 +15178,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETMEMORYFDKHR;
+        json["stream_type"]=VKGETMEMORYFDKHR;
         writeToConn(json);
     }
 
@@ -15258,7 +15258,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETMEMORYFDPROPERTIESKHR;
+        json["stream_type"]=VKGETMEMORYFDPROPERTIESKHR;
         writeToConn(json);
     }
 
@@ -15306,7 +15306,7 @@ VkRemoteAddressNV* pAddress;
             }
             }();
         }
-        }();temp_LTIxmQF=(void*)(temp_KKuuYCW);}();pAddress[LIvckbR]=(VkRemoteAddressNV)temp_LTIxmQF;}();
+        }();temp_LTIxmQF=temp_KKuuYCW;}();pAddress[LIvckbR]=(VkRemoteAddressNV)temp_LTIxmQF;}();
         }
         }();
 
@@ -15365,7 +15365,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETMEMORYREMOTEADDRESSNV;
+        json["stream_type"]=VKGETMEMORYREMOTEADDRESSNV;
         writeToConn(json);
     }
 
@@ -15447,7 +15447,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEEXTERNALSEMAPHOREPROPERTIES;
+        json["stream_type"]=VKGETPHYSICALDEVICEEXTERNALSEMAPHOREPROPERTIES;
         writeToConn(json);
     }
 
@@ -15532,7 +15532,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETSEMAPHOREFDKHR;
+        json["stream_type"]=VKGETSEMAPHOREFDKHR;
         writeToConn(json);
     }
 
@@ -15590,7 +15590,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKIMPORTSEMAPHOREFDKHR;
+        json["stream_type"]=VKIMPORTSEMAPHOREFDKHR;
         writeToConn(json);
     }
 
@@ -15672,7 +15672,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEEXTERNALFENCEPROPERTIES;
+        json["stream_type"]=VKGETPHYSICALDEVICEEXTERNALFENCEPROPERTIES;
         writeToConn(json);
     }
 
@@ -15757,7 +15757,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETFENCEFDKHR;
+        json["stream_type"]=VKGETFENCEFDKHR;
         writeToConn(json);
     }
 
@@ -15815,7 +15815,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKIMPORTFENCEFDKHR;
+        json["stream_type"]=VKIMPORTFENCEFDKHR;
         writeToConn(json);
     }
 
@@ -15851,7 +15851,7 @@ json.clear();
 [&](){serialize_VkDisplayKHR(json["display"],display);}();
 
 
-        json["type"]=VKRELEASEDISPLAYEXT;
+        json["stream_type"]=VKRELEASEDISPLAYEXT;
         writeToConn(json);
     }
 
@@ -15912,7 +15912,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDISPLAYPOWERCONTROLEXT;
+        json["stream_type"]=VKDISPLAYPOWERCONTROLEXT;
         writeToConn(json);
     }
 
@@ -16014,7 +16014,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKREGISTERDEVICEEVENTEXT;
+        json["stream_type"]=VKREGISTERDEVICEEVENTEXT;
         writeToConn(json);
     }
 
@@ -16119,7 +16119,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKREGISTERDISPLAYEVENTEXT;
+        json["stream_type"]=VKREGISTERDISPLAYEVENTEXT;
         writeToConn(json);
     }
 
@@ -16193,7 +16193,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETSWAPCHAINCOUNTEREXT;
+        json["stream_type"]=VKGETSWAPCHAINCOUNTEREXT;
         writeToConn(json);
     }
 
@@ -16254,7 +16254,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICESURFACECAPABILITIES2EXT;
+        json["stream_type"]=VKGETPHYSICALDEVICESURFACECAPABILITIES2EXT;
         writeToConn(json);
     }
 
@@ -16339,7 +16339,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKENUMERATEPHYSICALDEVICEGROUPS;
+        json["stream_type"]=VKENUMERATEPHYSICALDEVICEGROUPS;
         writeToConn(json);
     }
 
@@ -16431,7 +16431,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDEVICEGROUPPEERMEMORYFEATURES;
+        json["stream_type"]=VKGETDEVICEGROUPPEERMEMORYFEATURES;
         writeToConn(json);
     }
 
@@ -16500,7 +16500,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKBINDBUFFERMEMORY2;
+        json["stream_type"]=VKBINDBUFFERMEMORY2;
         writeToConn(json);
     }
 
@@ -16569,7 +16569,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKBINDIMAGEMEMORY2;
+        json["stream_type"]=VKBINDIMAGEMEMORY2;
         writeToConn(json);
     }
 
@@ -16612,7 +16612,7 @@ json.clear();
 [&](){json["deviceMask"]=deviceMask;}();
 
 
-        json["type"]=VKCMDSETDEVICEMASK;
+        json["stream_type"]=VKCMDSETDEVICEMASK;
         writeToConn(json);
     }
 
@@ -16670,7 +16670,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDEVICEGROUPPRESENTCAPABILITIESKHR;
+        json["stream_type"]=VKGETDEVICEGROUPPRESENTCAPABILITIESKHR;
         writeToConn(json);
     }
 
@@ -16733,7 +16733,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDEVICEGROUPSURFACEPRESENTMODESKHR;
+        json["stream_type"]=VKGETDEVICEGROUPSURFACEPRESENTMODESKHR;
         writeToConn(json);
     }
 
@@ -16818,7 +16818,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKACQUIRENEXTIMAGE2KHR;
+        json["stream_type"]=VKACQUIRENEXTIMAGE2KHR;
         writeToConn(json);
     }
 
@@ -16916,7 +16916,7 @@ json.clear();
 [&](){json["groupCountZ"]=groupCountZ;}();
 
 
-        json["type"]=VKCMDDISPATCHBASE;
+        json["stream_type"]=VKCMDDISPATCHBASE;
         writeToConn(json);
     }
 
@@ -17004,7 +17004,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEPRESENTRECTANGLESKHR;
+        json["stream_type"]=VKGETPHYSICALDEVICEPRESENTRECTANGLESKHR;
         writeToConn(json);
     }
 
@@ -17106,7 +17106,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEDESCRIPTORUPDATETEMPLATE;
+        json["stream_type"]=VKCREATEDESCRIPTORUPDATETEMPLATE;
         writeToConn(json);
     }
 
@@ -17166,7 +17166,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYDESCRIPTORUPDATETEMPLATE;
+        json["stream_type"]=VKDESTROYDESCRIPTORUPDATETEMPLATE;
         writeToConn(json);
     }
 
@@ -17199,7 +17199,7 @@ VkDescriptorUpdateTemplate descriptorUpdateTemplate;
             }
             }();
         }
-        }();pData=(void*)(temp_cNzVPDf);}();
+        }();pData=temp_cNzVPDf;}();
 
     PFN_vkUpdateDescriptorSetWithTemplate call_function;
     
@@ -17237,7 +17237,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKUPDATEDESCRIPTORSETWITHTEMPLATE;
+        json["stream_type"]=VKUPDATEDESCRIPTORSETWITHTEMPLATE;
         writeToConn(json);
     }
 
@@ -17280,7 +17280,7 @@ uint32_t set;
             }
             }();
         }
-        }();pData=(void*)(temp_cNzVPDf);}();
+        }();pData=temp_cNzVPDf;}();
 
     PFN_vkCmdPushDescriptorSetWithTemplateKHR call_function;
     
@@ -17319,7 +17319,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKCMDPUSHDESCRIPTORSETWITHTEMPLATEKHR;
+        json["stream_type"]=VKCMDPUSHDESCRIPTORSETWITHTEMPLATEKHR;
         writeToConn(json);
     }
 
@@ -17406,7 +17406,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKSETHDRMETADATAEXT;
+        json["stream_type"]=VKSETHDRMETADATAEXT;
         writeToConn(json);
     }
 
@@ -17442,7 +17442,7 @@ json.clear();
 [&](){serialize_VkSwapchainKHR(json["swapchain"],swapchain);}();
 
 
-        json["type"]=VKGETSWAPCHAINSTATUSKHR;
+        json["stream_type"]=VKGETSWAPCHAINSTATUSKHR;
         writeToConn(json);
     }
 
@@ -17503,7 +17503,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETREFRESHCYCLEDURATIONGOOGLE;
+        json["stream_type"]=VKGETREFRESHCYCLEDURATIONGOOGLE;
         writeToConn(json);
     }
 
@@ -17591,7 +17591,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPASTPRESENTATIONTIMINGGOOGLE;
+        json["stream_type"]=VKGETPASTPRESENTATIONTIMINGGOOGLE;
         writeToConn(json);
     }
 
@@ -17670,7 +17670,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETVIEWPORTWSCALINGNV;
+        json["stream_type"]=VKCMDSETVIEWPORTWSCALINGNV;
         writeToConn(json);
     }
 
@@ -17749,7 +17749,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETDISCARDRECTANGLEEXT;
+        json["stream_type"]=VKCMDSETDISCARDRECTANGLEEXT;
         writeToConn(json);
     }
 
@@ -17792,7 +17792,7 @@ json.clear();
 [&](){[&](){json["discardRectangleEnable"]=discardRectangleEnable;}();}();
 
 
-        json["type"]=VKCMDSETDISCARDRECTANGLEENABLEEXT;
+        json["stream_type"]=VKCMDSETDISCARDRECTANGLEENABLEEXT;
         writeToConn(json);
     }
 
@@ -17835,7 +17835,7 @@ json.clear();
 [&](){[&](){[&](){json["discardRectangleMode"]=discardRectangleMode;}();}();}();
 
 
-        json["type"]=VKCMDSETDISCARDRECTANGLEMODEEXT;
+        json["stream_type"]=VKCMDSETDISCARDRECTANGLEMODEEXT;
         writeToConn(json);
     }
 
@@ -17892,7 +17892,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETSAMPLELOCATIONSEXT;
+        json["stream_type"]=VKCMDSETSAMPLELOCATIONSEXT;
         writeToConn(json);
     }
 
@@ -17960,7 +17960,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEMULTISAMPLEPROPERTIESEXT;
+        json["stream_type"]=VKGETPHYSICALDEVICEMULTISAMPLEPROPERTIESEXT;
         writeToConn(json);
     }
 
@@ -18043,7 +18043,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICESURFACECAPABILITIES2KHR;
+        json["stream_type"]=VKGETPHYSICALDEVICESURFACECAPABILITIES2KHR;
         writeToConn(json);
     }
 
@@ -18153,7 +18153,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICESURFACEFORMATS2KHR;
+        json["stream_type"]=VKGETPHYSICALDEVICESURFACEFORMATS2KHR;
         writeToConn(json);
     }
 
@@ -18238,7 +18238,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEDISPLAYPROPERTIES2KHR;
+        json["stream_type"]=VKGETPHYSICALDEVICEDISPLAYPROPERTIES2KHR;
         writeToConn(json);
     }
 
@@ -18323,7 +18323,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIES2KHR;
+        json["stream_type"]=VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIES2KHR;
         writeToConn(json);
     }
 
@@ -18411,7 +18411,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDISPLAYMODEPROPERTIES2KHR;
+        json["stream_type"]=VKGETDISPLAYMODEPROPERTIES2KHR;
         writeToConn(json);
     }
 
@@ -18494,7 +18494,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDISPLAYPLANECAPABILITIES2KHR;
+        json["stream_type"]=VKGETDISPLAYPLANECAPABILITIES2KHR;
         writeToConn(json);
     }
 
@@ -18576,7 +18576,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETBUFFERMEMORYREQUIREMENTS2;
+        json["stream_type"]=VKGETBUFFERMEMORYREQUIREMENTS2;
         writeToConn(json);
     }
 
@@ -18658,7 +18658,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETIMAGEMEMORYREQUIREMENTS2;
+        json["stream_type"]=VKGETIMAGEMEMORYREQUIREMENTS2;
         writeToConn(json);
     }
 
@@ -18767,7 +18767,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETIMAGESPARSEMEMORYREQUIREMENTS2;
+        json["stream_type"]=VKGETIMAGESPARSEMEMORYREQUIREMENTS2;
         writeToConn(json);
     }
 
@@ -18849,7 +18849,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDEVICEBUFFERMEMORYREQUIREMENTS;
+        json["stream_type"]=VKGETDEVICEBUFFERMEMORYREQUIREMENTS;
         writeToConn(json);
     }
 
@@ -18931,7 +18931,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDEVICEIMAGEMEMORYREQUIREMENTS;
+        json["stream_type"]=VKGETDEVICEIMAGEMEMORYREQUIREMENTS;
         writeToConn(json);
     }
 
@@ -19040,7 +19040,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDEVICEIMAGESPARSEMEMORYREQUIREMENTS;
+        json["stream_type"]=VKGETDEVICEIMAGESPARSEMEMORYREQUIREMENTS;
         writeToConn(json);
     }
 
@@ -19142,7 +19142,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATESAMPLERYCBCRCONVERSION;
+        json["stream_type"]=VKCREATESAMPLERYCBCRCONVERSION;
         writeToConn(json);
     }
 
@@ -19202,7 +19202,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYSAMPLERYCBCRCONVERSION;
+        json["stream_type"]=VKDESTROYSAMPLERYCBCRCONVERSION;
         writeToConn(json);
     }
 
@@ -19278,7 +19278,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDEVICEQUEUE2;
+        json["stream_type"]=VKGETDEVICEQUEUE2;
         writeToConn(json);
     }
 
@@ -19380,7 +19380,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEVALIDATIONCACHEEXT;
+        json["stream_type"]=VKCREATEVALIDATIONCACHEEXT;
         writeToConn(json);
     }
 
@@ -19440,7 +19440,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYVALIDATIONCACHEEXT;
+        json["stream_type"]=VKDESTROYVALIDATIONCACHEEXT;
         writeToConn(json);
     }
 
@@ -19489,7 +19489,7 @@ void* pData;
             }
             }();
         }
-        }();pData=(void*)(temp_ZtBEjVJ);}();
+        }();pData=temp_ZtBEjVJ;}();
 
     PFN_vkGetValidationCacheDataEXT call_function;
     
@@ -19536,7 +19536,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKGETVALIDATIONCACHEDATAEXT;
+        json["stream_type"]=VKGETVALIDATIONCACHEDATAEXT;
         writeToConn(json);
     }
 
@@ -19602,7 +19602,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKMERGEVALIDATIONCACHESEXT;
+        json["stream_type"]=VKMERGEVALIDATIONCACHESEXT;
         writeToConn(json);
     }
 
@@ -19684,7 +19684,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDESCRIPTORSETLAYOUTSUPPORT;
+        json["stream_type"]=VKGETDESCRIPTORSETLAYOUTSUPPORT;
         writeToConn(json);
     }
 
@@ -19753,7 +19753,7 @@ void* pInfo;
             }
             }();
         }
-        }();pInfo=(void*)(temp_ziBtDwK);}();
+        }();pInfo=temp_ziBtDwK;}();
 
     PFN_vkGetShaderInfoAMD call_function;
     
@@ -19802,7 +19802,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKGETSHADERINFOAMD;
+        json["stream_type"]=VKGETSHADERINFOAMD;
         writeToConn(json);
     }
 
@@ -19848,7 +19848,7 @@ json.clear();
 [&](){[&](){json["localDimmingEnable"]=localDimmingEnable;}();}();
 
 
-        json["type"]=VKSETLOCALDIMMINGAMD;
+        json["stream_type"]=VKSETLOCALDIMMINGAMD;
         writeToConn(json);
     }
 
@@ -19935,7 +19935,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICECALIBRATEABLETIMEDOMAINSEXT;
+        json["stream_type"]=VKGETPHYSICALDEVICECALIBRATEABLETIMEDOMAINSEXT;
         writeToConn(json);
     }
 
@@ -20058,7 +20058,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETCALIBRATEDTIMESTAMPSEXT;
+        json["stream_type"]=VKGETCALIBRATEDTIMESTAMPSEXT;
         writeToConn(json);
     }
 
@@ -20116,7 +20116,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKSETDEBUGUTILSOBJECTNAMEEXT;
+        json["stream_type"]=VKSETDEBUGUTILSOBJECTNAMEEXT;
         writeToConn(json);
     }
 
@@ -20174,7 +20174,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKSETDEBUGUTILSOBJECTTAGEXT;
+        json["stream_type"]=VKSETDEBUGUTILSOBJECTTAGEXT;
         writeToConn(json);
     }
 
@@ -20231,7 +20231,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKQUEUEBEGINDEBUGUTILSLABELEXT;
+        json["stream_type"]=VKQUEUEBEGINDEBUGUTILSLABELEXT;
         writeToConn(json);
     }
 
@@ -20263,7 +20263,7 @@ json.clear();
 [&](){serialize_VkQueue(json["queue"],queue);}();
 
 
-        json["type"]=VKQUEUEENDDEBUGUTILSLABELEXT;
+        json["stream_type"]=VKQUEUEENDDEBUGUTILSLABELEXT;
         writeToConn(json);
     }
 
@@ -20320,7 +20320,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKQUEUEINSERTDEBUGUTILSLABELEXT;
+        json["stream_type"]=VKQUEUEINSERTDEBUGUTILSLABELEXT;
         writeToConn(json);
     }
 
@@ -20377,7 +20377,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDBEGINDEBUGUTILSLABELEXT;
+        json["stream_type"]=VKCMDBEGINDEBUGUTILSLABELEXT;
         writeToConn(json);
     }
 
@@ -20409,7 +20409,7 @@ json.clear();
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 
 
-        json["type"]=VKCMDENDDEBUGUTILSLABELEXT;
+        json["stream_type"]=VKCMDENDDEBUGUTILSLABELEXT;
         writeToConn(json);
     }
 
@@ -20466,7 +20466,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDINSERTDEBUGUTILSLABELEXT;
+        json["stream_type"]=VKCMDINSERTDEBUGUTILSLABELEXT;
         writeToConn(json);
     }
 
@@ -20568,7 +20568,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEDEBUGUTILSMESSENGEREXT;
+        json["stream_type"]=VKCREATEDEBUGUTILSMESSENGEREXT;
         writeToConn(json);
     }
 
@@ -20628,7 +20628,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYDEBUGUTILSMESSENGEREXT;
+        json["stream_type"]=VKDESTROYDEBUGUTILSMESSENGEREXT;
         writeToConn(json);
     }
 
@@ -20707,7 +20707,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKSUBMITDEBUGUTILSMESSAGEEXT;
+        json["stream_type"]=VKSUBMITDEBUGUTILSMESSAGEEXT;
         writeToConn(json);
     }
 
@@ -20746,7 +20746,7 @@ VkExternalMemoryHandleTypeFlagBits handleType;
             }
             }();
         }
-        }();pHostPointer=(void*)(temp_EiZqusU);}();
+        }();pHostPointer=temp_EiZqusU;}();
 VkMemoryHostPointerPropertiesEXT* pMemoryHostPointerProperties;
 [&](){
             if (json["pMemoryHostPointerProperties"].as_array().size()==0){
@@ -20809,7 +20809,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETMEMORYHOSTPOINTERPROPERTIESEXT;
+        json["stream_type"]=VKGETMEMORYHOSTPOINTERPROPERTIESEXT;
         writeToConn(json);
     }
 
@@ -20877,7 +20877,7 @@ json.clear();
 [&](){json["marker"]=marker;}();
 
 
-        json["type"]=VKCMDWRITEBUFFERMARKERAMD;
+        json["stream_type"]=VKCMDWRITEBUFFERMARKERAMD;
         writeToConn(json);
     }
 
@@ -20979,7 +20979,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATERENDERPASS2;
+        json["stream_type"]=VKCREATERENDERPASS2;
         writeToConn(json);
     }
 
@@ -21061,7 +21061,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDBEGINRENDERPASS2;
+        json["stream_type"]=VKCMDBEGINRENDERPASS2;
         writeToConn(json);
     }
 
@@ -21143,7 +21143,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDNEXTSUBPASS2;
+        json["stream_type"]=VKCMDNEXTSUBPASS2;
         writeToConn(json);
     }
 
@@ -21200,7 +21200,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDENDRENDERPASS2;
+        json["stream_type"]=VKCMDENDRENDERPASS2;
         writeToConn(json);
     }
 
@@ -21263,7 +21263,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETSEMAPHORECOUNTERVALUE;
+        json["stream_type"]=VKGETSEMAPHORECOUNTERVALUE;
         writeToConn(json);
     }
 
@@ -21332,7 +21332,7 @@ json.clear();
 [&](){json["timeout"]=timeout;}();
 
 
-        json["type"]=VKWAITSEMAPHORES;
+        json["stream_type"]=VKWAITSEMAPHORES;
         writeToConn(json);
     }
 
@@ -21390,7 +21390,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKSIGNALSEMAPHORE;
+        json["stream_type"]=VKSIGNALSEMAPHORE;
         writeToConn(json);
     }
 
@@ -21472,7 +21472,7 @@ json.clear();
 [&](){json["stride"]=stride;}();
 
 
-        json["type"]=VKCMDDRAWINDIRECTCOUNT;
+        json["stream_type"]=VKCMDDRAWINDIRECTCOUNT;
         writeToConn(json);
     }
 
@@ -21554,7 +21554,7 @@ json.clear();
 [&](){json["stride"]=stride;}();
 
 
-        json["type"]=VKCMDDRAWINDEXEDINDIRECTCOUNT;
+        json["stream_type"]=VKCMDDRAWINDEXEDINDIRECTCOUNT;
         writeToConn(json);
     }
 
@@ -21583,7 +21583,7 @@ VkCommandBuffer commandBuffer;
             }
             }();
         }
-        }();pCheckpointMarker=(void*)(temp_AspjKUC);}();
+        }();pCheckpointMarker=temp_AspjKUC;}();
 
     PFN_vkCmdSetCheckpointNV call_function;
     
@@ -21619,7 +21619,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKCMDSETCHECKPOINTNV;
+        json["stream_type"]=VKCMDSETCHECKPOINTNV;
         writeToConn(json);
     }
 
@@ -21703,7 +21703,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETQUEUECHECKPOINTDATANV;
+        json["stream_type"]=VKGETQUEUECHECKPOINTDATANV;
         writeToConn(json);
     }
 
@@ -21830,7 +21830,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDBINDTRANSFORMFEEDBACKBUFFERSEXT;
+        json["stream_type"]=VKCMDBINDTRANSFORMFEEDBACKBUFFERSEXT;
         writeToConn(json);
     }
 
@@ -21930,7 +21930,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDBEGINTRANSFORMFEEDBACKEXT;
+        json["stream_type"]=VKCMDBEGINTRANSFORMFEEDBACKEXT;
         writeToConn(json);
     }
 
@@ -22030,7 +22030,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDENDTRANSFORMFEEDBACKEXT;
+        json["stream_type"]=VKCMDENDTRANSFORMFEEDBACKEXT;
         writeToConn(json);
     }
 
@@ -22098,7 +22098,7 @@ json.clear();
 [&](){json["index"]=index;}();
 
 
-        json["type"]=VKCMDBEGINQUERYINDEXEDEXT;
+        json["stream_type"]=VKCMDBEGINQUERYINDEXEDEXT;
         writeToConn(json);
     }
 
@@ -22155,7 +22155,7 @@ json.clear();
 [&](){json["index"]=index;}();
 
 
-        json["type"]=VKCMDENDQUERYINDEXEDEXT;
+        json["stream_type"]=VKCMDENDQUERYINDEXEDEXT;
         writeToConn(json);
     }
 
@@ -22245,7 +22245,7 @@ json.clear();
 [&](){json["vertexStride"]=vertexStride;}();
 
 
-        json["type"]=VKCMDDRAWINDIRECTBYTECOUNTEXT;
+        json["stream_type"]=VKCMDDRAWINDIRECTBYTECOUNTEXT;
         writeToConn(json);
     }
 
@@ -22324,7 +22324,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETEXCLUSIVESCISSORNV;
+        json["stream_type"]=VKCMDSETEXCLUSIVESCISSORNV;
         writeToConn(json);
     }
 
@@ -22405,7 +22405,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETEXCLUSIVESCISSORENABLENV;
+        json["stream_type"]=VKCMDSETEXCLUSIVESCISSORENABLENV;
         writeToConn(json);
     }
 
@@ -22451,7 +22451,7 @@ json.clear();
 [&](){[&](){[&](){json["imageLayout"]=imageLayout;}();}();}();
 
 
-        json["type"]=VKCMDBINDSHADINGRATEIMAGENV;
+        json["stream_type"]=VKCMDBINDSHADINGRATEIMAGENV;
         writeToConn(json);
     }
 
@@ -22530,7 +22530,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETVIEWPORTSHADINGRATEPALETTENV;
+        json["stream_type"]=VKCMDSETVIEWPORTSHADINGRATEPALETTENV;
         writeToConn(json);
     }
 
@@ -22609,7 +22609,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETCOARSESAMPLEORDERNV;
+        json["stream_type"]=VKCMDSETCOARSESAMPLEORDERNV;
         writeToConn(json);
     }
 
@@ -22663,7 +22663,7 @@ json.clear();
 [&](){json["firstTask"]=firstTask;}();
 
 
-        json["type"]=VKCMDDRAWMESHTASKSNV;
+        json["stream_type"]=VKCMDDRAWMESHTASKSNV;
         writeToConn(json);
     }
 
@@ -22731,7 +22731,7 @@ json.clear();
 [&](){json["stride"]=stride;}();
 
 
-        json["type"]=VKCMDDRAWMESHTASKSINDIRECTNV;
+        json["stream_type"]=VKCMDDRAWMESHTASKSINDIRECTNV;
         writeToConn(json);
     }
 
@@ -22813,7 +22813,7 @@ json.clear();
 [&](){json["stride"]=stride;}();
 
 
-        json["type"]=VKCMDDRAWMESHTASKSINDIRECTCOUNTNV;
+        json["stream_type"]=VKCMDDRAWMESHTASKSINDIRECTCOUNTNV;
         writeToConn(json);
     }
 
@@ -22878,7 +22878,7 @@ json.clear();
 [&](){json["groupCountZ"]=groupCountZ;}();
 
 
-        json["type"]=VKCMDDRAWMESHTASKSEXT;
+        json["stream_type"]=VKCMDDRAWMESHTASKSEXT;
         writeToConn(json);
     }
 
@@ -22946,7 +22946,7 @@ json.clear();
 [&](){json["stride"]=stride;}();
 
 
-        json["type"]=VKCMDDRAWMESHTASKSINDIRECTEXT;
+        json["stream_type"]=VKCMDDRAWMESHTASKSINDIRECTEXT;
         writeToConn(json);
     }
 
@@ -23028,7 +23028,7 @@ json.clear();
 [&](){json["stride"]=stride;}();
 
 
-        json["type"]=VKCMDDRAWMESHTASKSINDIRECTCOUNTEXT;
+        json["stream_type"]=VKCMDDRAWMESHTASKSINDIRECTCOUNTEXT;
         writeToConn(json);
     }
 
@@ -23075,7 +23075,7 @@ json.clear();
 [&](){json["shader"]=shader;}();
 
 
-        json["type"]=VKCOMPILEDEFERREDNV;
+        json["stream_type"]=VKCOMPILEDEFERREDNV;
         writeToConn(json);
     }
 
@@ -23177,7 +23177,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEACCELERATIONSTRUCTURENV;
+        json["stream_type"]=VKCREATEACCELERATIONSTRUCTURENV;
         writeToConn(json);
     }
 
@@ -23223,7 +23223,7 @@ json.clear();
 [&](){[&](){[&](){json["imageLayout"]=imageLayout;}();}();}();
 
 
-        json["type"]=VKCMDBINDINVOCATIONMASKHUAWEI;
+        json["stream_type"]=VKCMDBINDINVOCATIONMASKHUAWEI;
         writeToConn(json);
     }
 
@@ -23283,7 +23283,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYACCELERATIONSTRUCTUREKHR;
+        json["stream_type"]=VKDESTROYACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
     }
 
@@ -23343,7 +23343,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYACCELERATIONSTRUCTURENV;
+        json["stream_type"]=VKDESTROYACCELERATIONSTRUCTURENV;
         writeToConn(json);
     }
 
@@ -23425,7 +23425,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETACCELERATIONSTRUCTUREMEMORYREQUIREMENTSNV;
+        json["stream_type"]=VKGETACCELERATIONSTRUCTUREMEMORYREQUIREMENTSNV;
         writeToConn(json);
     }
 
@@ -23494,7 +23494,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKBINDACCELERATIONSTRUCTUREMEMORYNV;
+        json["stream_type"]=VKBINDACCELERATIONSTRUCTUREMEMORYNV;
         writeToConn(json);
     }
 
@@ -23543,7 +23543,7 @@ json.clear();
 [&](){[&](){[&](){json["mode"]=mode;}();}();}();
 
 
-        json["type"]=VKCMDCOPYACCELERATIONSTRUCTURENV;
+        json["stream_type"]=VKCMDCOPYACCELERATIONSTRUCTURENV;
         writeToConn(json);
     }
 
@@ -23600,7 +23600,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCOPYACCELERATIONSTRUCTUREKHR;
+        json["stream_type"]=VKCMDCOPYACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
     }
 
@@ -23661,7 +23661,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCOPYACCELERATIONSTRUCTUREKHR;
+        json["stream_type"]=VKCOPYACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
     }
 
@@ -23718,7 +23718,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCOPYACCELERATIONSTRUCTURETOMEMORYKHR;
+        json["stream_type"]=VKCMDCOPYACCELERATIONSTRUCTURETOMEMORYKHR;
         writeToConn(json);
     }
 
@@ -23779,7 +23779,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCOPYACCELERATIONSTRUCTURETOMEMORYKHR;
+        json["stream_type"]=VKCOPYACCELERATIONSTRUCTURETOMEMORYKHR;
         writeToConn(json);
     }
 
@@ -23836,7 +23836,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCOPYMEMORYTOACCELERATIONSTRUCTUREKHR;
+        json["stream_type"]=VKCMDCOPYMEMORYTOACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
     }
 
@@ -23897,7 +23897,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCOPYMEMORYTOACCELERATIONSTRUCTUREKHR;
+        json["stream_type"]=VKCOPYMEMORYTOACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
     }
 
@@ -23984,7 +23984,7 @@ json.clear();
 [&](){json["firstQuery"]=firstQuery;}();
 
 
-        json["type"]=VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESKHR;
+        json["stream_type"]=VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESKHR;
         writeToConn(json);
     }
 
@@ -24071,7 +24071,7 @@ json.clear();
 [&](){json["firstQuery"]=firstQuery;}();
 
 
-        json["type"]=VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESNV;
+        json["stream_type"]=VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESNV;
         writeToConn(json);
     }
 
@@ -24173,7 +24173,7 @@ json.clear();
 [&](){[&](){json["scratchOffset"]=scratchOffset;}();}();
 
 
-        json["type"]=VKCMDBUILDACCELERATIONSTRUCTURENV;
+        json["stream_type"]=VKCMDBUILDACCELERATIONSTRUCTURENV;
         writeToConn(json);
     }
 
@@ -24242,7 +24242,7 @@ void* pData;
             }
             }();
         }
-        }();pData=(void*)(temp_hrhAtyM);}();
+        }();pData=temp_hrhAtyM;}();
 size_t stride;
 [&](){
             if (json["stride"].is_uint64()){
@@ -24302,7 +24302,7 @@ json.clear();
 [&](){json["stride"]=stride;}();
 
 
-        json["type"]=VKWRITEACCELERATIONSTRUCTURESPROPERTIESKHR;
+        json["stream_type"]=VKWRITEACCELERATIONSTRUCTURESPROPERTIESKHR;
         writeToConn(json);
     }
 
@@ -24467,7 +24467,7 @@ json.clear();
 [&](){json["depth"]=depth;}();
 
 
-        json["type"]=VKCMDTRACERAYSKHR;
+        json["stream_type"]=VKCMDTRACERAYSKHR;
         writeToConn(json);
     }
 
@@ -24621,7 +24621,7 @@ json.clear();
 [&](){json["depth"]=depth;}();
 
 
-        json["type"]=VKCMDTRACERAYSNV;
+        json["stream_type"]=VKCMDTRACERAYSNV;
         writeToConn(json);
     }
 
@@ -24682,7 +24682,7 @@ void* pData;
             }
             }();
         }
-        }();pData=(void*)(temp_hrhAtyM);}();
+        }();pData=temp_hrhAtyM;}();
 
     PFN_vkGetRayTracingShaderGroupHandlesKHR call_function;
     
@@ -24723,7 +24723,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKGETRAYTRACINGSHADERGROUPHANDLESKHR;
+        json["stream_type"]=VKGETRAYTRACINGSHADERGROUPHANDLESKHR;
         writeToConn(json);
     }
 
@@ -24784,7 +24784,7 @@ void* pData;
             }
             }();
         }
-        }();pData=(void*)(temp_hrhAtyM);}();
+        }();pData=temp_hrhAtyM;}();
 
     PFN_vkGetRayTracingCaptureReplayShaderGroupHandlesKHR call_function;
     
@@ -24825,7 +24825,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKGETRAYTRACINGCAPTUREREPLAYSHADERGROUPHANDLESKHR;
+        json["stream_type"]=VKGETRAYTRACINGCAPTUREREPLAYSHADERGROUPHANDLESKHR;
         writeToConn(json);
     }
 
@@ -24866,7 +24866,7 @@ void* pData;
             }
             }();
         }
-        }();pData=(void*)(temp_hrhAtyM);}();
+        }();pData=temp_hrhAtyM;}();
 
     PFN_vkGetAccelerationStructureHandleNV call_function;
     
@@ -24905,7 +24905,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKGETACCELERATIONSTRUCTUREHANDLENV;
+        json["stream_type"]=VKGETACCELERATIONSTRUCTUREHANDLENV;
         writeToConn(json);
     }
 
@@ -25021,7 +25021,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATERAYTRACINGPIPELINESNV;
+        json["stream_type"]=VKCREATERAYTRACINGPIPELINESNV;
         writeToConn(json);
     }
 
@@ -25140,7 +25140,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATERAYTRACINGPIPELINESKHR;
+        json["stream_type"]=VKCREATERAYTRACINGPIPELINESKHR;
         writeToConn(json);
     }
 
@@ -25225,7 +25225,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESNV;
+        json["stream_type"]=VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESNV;
         writeToConn(json);
     }
 
@@ -25368,7 +25368,7 @@ json.clear();
 [&](){[&](){json["indirectDeviceAddress"]=indirectDeviceAddress;}();}();
 
 
-        json["type"]=VKCMDTRACERAYSINDIRECTKHR;
+        json["stream_type"]=VKCMDTRACERAYSINDIRECTKHR;
         writeToConn(json);
     }
 
@@ -25411,7 +25411,7 @@ json.clear();
 [&](){[&](){json["indirectDeviceAddress"]=indirectDeviceAddress;}();}();
 
 
-        json["type"]=VKCMDTRACERAYSINDIRECT2KHR;
+        json["stream_type"]=VKCMDTRACERAYSINDIRECT2KHR;
         writeToConn(json);
     }
 
@@ -25495,7 +25495,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDEVICEACCELERATIONSTRUCTURECOMPATIBILITYKHR;
+        json["stream_type"]=VKGETDEVICEACCELERATIONSTRUCTURECOMPATIBILITYKHR;
         writeToConn(json);
     }
 
@@ -25553,7 +25553,7 @@ json.clear();
 [&](){[&](){[&](){json["groupShader"]=groupShader;}();}();}();
 
 
-        json["type"]=VKGETRAYTRACINGSHADERGROUPSTACKSIZEKHR;
+        json["stream_type"]=VKGETRAYTRACINGSHADERGROUPSTACKSIZEKHR;
         writeToConn(json);
     }
 
@@ -25596,7 +25596,7 @@ json.clear();
 [&](){json["pipelineStackSize"]=pipelineStackSize;}();
 
 
-        json["type"]=VKCMDSETRAYTRACINGPIPELINESTACKSIZEKHR;
+        json["stream_type"]=VKCMDSETRAYTRACINGPIPELINESTACKSIZEKHR;
         writeToConn(json);
     }
 
@@ -25654,7 +25654,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETIMAGEVIEWHANDLENVX;
+        json["stream_type"]=VKGETIMAGEVIEWHANDLENVX;
         writeToConn(json);
     }
 
@@ -25715,7 +25715,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETIMAGEVIEWADDRESSNVX;
+        json["stream_type"]=VKGETIMAGEVIEWADDRESSNVX;
         writeToConn(json);
     }
 
@@ -25836,7 +25836,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKENUMERATEPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYCOUNTERSKHR;
+        json["stream_type"]=VKENUMERATEPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYCOUNTERSKHR;
         writeToConn(json);
     }
 
@@ -25920,7 +25920,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYPASSESKHR;
+        json["stream_type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYPASSESKHR;
         writeToConn(json);
     }
 
@@ -25978,7 +25978,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKACQUIREPROFILINGLOCKKHR;
+        json["stream_type"]=VKACQUIREPROFILINGLOCKKHR;
         writeToConn(json);
     }
 
@@ -26010,7 +26010,7 @@ json.clear();
 [&](){serialize_VkDevice(json["device"],device);}();
 
 
-        json["type"]=VKRELEASEPROFILINGLOCKKHR;
+        json["stream_type"]=VKRELEASEPROFILINGLOCKKHR;
         writeToConn(json);
     }
 
@@ -26071,7 +26071,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETIMAGEDRMFORMATMODIFIERPROPERTIESEXT;
+        json["stream_type"]=VKGETIMAGEDRMFORMATMODIFIERPROPERTIESEXT;
         writeToConn(json);
     }
 
@@ -26129,7 +26129,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETBUFFEROPAQUECAPTUREADDRESS;
+        json["stream_type"]=VKGETBUFFEROPAQUECAPTUREADDRESS;
         writeToConn(json);
     }
 
@@ -26187,7 +26187,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETBUFFERDEVICEADDRESS;
+        json["stream_type"]=VKGETBUFFERDEVICEADDRESS;
         writeToConn(json);
     }
 
@@ -26289,7 +26289,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEHEADLESSSURFACEEXT;
+        json["stream_type"]=VKCREATEHEADLESSSURFACEEXT;
         writeToConn(json);
     }
 
@@ -26374,7 +26374,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICESUPPORTEDFRAMEBUFFERMIXEDSAMPLESCOMBINATIONSNV;
+        json["stream_type"]=VKGETPHYSICALDEVICESUPPORTEDFRAMEBUFFERMIXEDSAMPLESCOMBINATIONSNV;
         writeToConn(json);
     }
 
@@ -26432,7 +26432,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKINITIALIZEPERFORMANCEAPIINTEL;
+        json["stream_type"]=VKINITIALIZEPERFORMANCEAPIINTEL;
         writeToConn(json);
     }
 
@@ -26464,7 +26464,7 @@ json.clear();
 [&](){serialize_VkDevice(json["device"],device);}();
 
 
-        json["type"]=VKUNINITIALIZEPERFORMANCEAPIINTEL;
+        json["stream_type"]=VKUNINITIALIZEPERFORMANCEAPIINTEL;
         writeToConn(json);
     }
 
@@ -26522,7 +26522,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETPERFORMANCEMARKERINTEL;
+        json["stream_type"]=VKCMDSETPERFORMANCEMARKERINTEL;
         writeToConn(json);
     }
 
@@ -26580,7 +26580,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETPERFORMANCESTREAMMARKERINTEL;
+        json["stream_type"]=VKCMDSETPERFORMANCESTREAMMARKERINTEL;
         writeToConn(json);
     }
 
@@ -26638,7 +26638,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETPERFORMANCEOVERRIDEINTEL;
+        json["stream_type"]=VKCMDSETPERFORMANCEOVERRIDEINTEL;
         writeToConn(json);
     }
 
@@ -26715,7 +26715,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKACQUIREPERFORMANCECONFIGURATIONINTEL;
+        json["stream_type"]=VKACQUIREPERFORMANCECONFIGURATIONINTEL;
         writeToConn(json);
     }
 
@@ -26751,7 +26751,7 @@ json.clear();
 [&](){serialize_VkPerformanceConfigurationINTEL(json["configuration"],configuration);}();
 
 
-        json["type"]=VKRELEASEPERFORMANCECONFIGURATIONINTEL;
+        json["stream_type"]=VKRELEASEPERFORMANCECONFIGURATIONINTEL;
         writeToConn(json);
     }
 
@@ -26787,7 +26787,7 @@ json.clear();
 [&](){serialize_VkPerformanceConfigurationINTEL(json["configuration"],configuration);}();
 
 
-        json["type"]=VKQUEUESETPERFORMANCECONFIGURATIONINTEL;
+        json["stream_type"]=VKQUEUESETPERFORMANCECONFIGURATIONINTEL;
         writeToConn(json);
     }
 
@@ -26856,7 +26856,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPERFORMANCEPARAMETERINTEL;
+        json["stream_type"]=VKGETPERFORMANCEPARAMETERINTEL;
         writeToConn(json);
     }
 
@@ -26914,7 +26914,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDEVICEMEMORYOPAQUECAPTUREADDRESS;
+        json["stream_type"]=VKGETDEVICEMEMORYOPAQUECAPTUREADDRESS;
         writeToConn(json);
     }
 
@@ -27024,7 +27024,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPIPELINEEXECUTABLEPROPERTIESKHR;
+        json["stream_type"]=VKGETPIPELINEEXECUTABLEPROPERTIESKHR;
         writeToConn(json);
     }
 
@@ -27134,7 +27134,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPIPELINEEXECUTABLESTATISTICSKHR;
+        json["stream_type"]=VKGETPIPELINEEXECUTABLESTATISTICSKHR;
         writeToConn(json);
     }
 
@@ -27244,7 +27244,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPIPELINEEXECUTABLEINTERNALREPRESENTATIONSKHR;
+        json["stream_type"]=VKGETPIPELINEEXECUTABLEINTERNALREPRESENTATIONSKHR;
         writeToConn(json);
     }
 
@@ -27298,7 +27298,7 @@ json.clear();
 [&](){json["lineStipplePattern"]=lineStipplePattern;}();
 
 
-        json["type"]=VKCMDSETLINESTIPPLEEXT;
+        json["stream_type"]=VKCMDSETLINESTIPPLEEXT;
         writeToConn(json);
     }
 
@@ -27383,7 +27383,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICETOOLPROPERTIES;
+        json["stream_type"]=VKGETPHYSICALDEVICETOOLPROPERTIES;
         writeToConn(json);
     }
 
@@ -27485,7 +27485,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEACCELERATIONSTRUCTUREKHR;
+        json["stream_type"]=VKCREATEACCELERATIONSTRUCTUREKHR;
         writeToConn(json);
     }
 
@@ -27594,7 +27594,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDBUILDACCELERATIONSTRUCTURESKHR;
+        json["stream_type"]=VKCMDBUILDACCELERATIONSTRUCTURESKHR;
         writeToConn(json);
     }
 
@@ -27759,7 +27759,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDBUILDACCELERATIONSTRUCTURESINDIRECTKHR;
+        json["stream_type"]=VKCMDBUILDACCELERATIONSTRUCTURESINDIRECTKHR;
         writeToConn(json);
     }
 
@@ -27872,7 +27872,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKBUILDACCELERATIONSTRUCTURESKHR;
+        json["stream_type"]=VKBUILDACCELERATIONSTRUCTURESKHR;
         writeToConn(json);
     }
 
@@ -27930,7 +27930,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETACCELERATIONSTRUCTUREDEVICEADDRESSKHR;
+        json["stream_type"]=VKGETACCELERATIONSTRUCTUREDEVICEADDRESSKHR;
         writeToConn(json);
     }
 
@@ -28007,7 +28007,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEDEFERREDOPERATIONKHR;
+        json["stream_type"]=VKCREATEDEFERREDOPERATIONKHR;
         writeToConn(json);
     }
 
@@ -28067,7 +28067,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYDEFERREDOPERATIONKHR;
+        json["stream_type"]=VKDESTROYDEFERREDOPERATIONKHR;
         writeToConn(json);
     }
 
@@ -28103,7 +28103,7 @@ json.clear();
 [&](){serialize_VkDeferredOperationKHR(json["operation"],operation);}();
 
 
-        json["type"]=VKGETDEFERREDOPERATIONMAXCONCURRENCYKHR;
+        json["stream_type"]=VKGETDEFERREDOPERATIONMAXCONCURRENCYKHR;
         writeToConn(json);
     }
 
@@ -28139,7 +28139,7 @@ json.clear();
 [&](){serialize_VkDeferredOperationKHR(json["operation"],operation);}();
 
 
-        json["type"]=VKGETDEFERREDOPERATIONRESULTKHR;
+        json["stream_type"]=VKGETDEFERREDOPERATIONRESULTKHR;
         writeToConn(json);
     }
 
@@ -28175,7 +28175,7 @@ json.clear();
 [&](){serialize_VkDeferredOperationKHR(json["operation"],operation);}();
 
 
-        json["type"]=VKDEFERREDOPERATIONJOINKHR;
+        json["stream_type"]=VKDEFERREDOPERATIONJOINKHR;
         writeToConn(json);
     }
 
@@ -28257,7 +28257,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPIPELINEINDIRECTMEMORYREQUIREMENTSNV;
+        json["stream_type"]=VKGETPIPELINEINDIRECTMEMORYREQUIREMENTSNV;
         writeToConn(json);
     }
 
@@ -28315,7 +28315,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPIPELINEINDIRECTDEVICEADDRESSNV;
+        json["stream_type"]=VKGETPIPELINEINDIRECTDEVICEADDRESSNV;
         writeToConn(json);
     }
 
@@ -28358,7 +28358,7 @@ json.clear();
 [&](){[&](){[&](){json["cullMode"]=cullMode;}();}();}();
 
 
-        json["type"]=VKCMDSETCULLMODE;
+        json["stream_type"]=VKCMDSETCULLMODE;
         writeToConn(json);
     }
 
@@ -28401,7 +28401,7 @@ json.clear();
 [&](){[&](){[&](){json["frontFace"]=frontFace;}();}();}();
 
 
-        json["type"]=VKCMDSETFRONTFACE;
+        json["stream_type"]=VKCMDSETFRONTFACE;
         writeToConn(json);
     }
 
@@ -28444,7 +28444,7 @@ json.clear();
 [&](){[&](){[&](){json["primitiveTopology"]=primitiveTopology;}();}();}();
 
 
-        json["type"]=VKCMDSETPRIMITIVETOPOLOGY;
+        json["stream_type"]=VKCMDSETPRIMITIVETOPOLOGY;
         writeToConn(json);
     }
 
@@ -28512,7 +28512,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETVIEWPORTWITHCOUNT;
+        json["stream_type"]=VKCMDSETVIEWPORTWITHCOUNT;
         writeToConn(json);
     }
 
@@ -28580,7 +28580,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETSCISSORWITHCOUNT;
+        json["stream_type"]=VKCMDSETSCISSORWITHCOUNT;
         writeToConn(json);
     }
 
@@ -28648,7 +28648,7 @@ json.clear();
 [&](){[&](){[&](){json["indexType"]=indexType;}();}();}();
 
 
-        json["type"]=VKCMDBINDINDEXBUFFER2KHR;
+        json["stream_type"]=VKCMDBINDINDEXBUFFER2KHR;
         writeToConn(json);
     }
 
@@ -28802,7 +28802,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDBINDVERTEXBUFFERS2;
+        json["stream_type"]=VKCMDBINDVERTEXBUFFERS2;
         writeToConn(json);
     }
 
@@ -28845,7 +28845,7 @@ json.clear();
 [&](){[&](){json["depthTestEnable"]=depthTestEnable;}();}();
 
 
-        json["type"]=VKCMDSETDEPTHTESTENABLE;
+        json["stream_type"]=VKCMDSETDEPTHTESTENABLE;
         writeToConn(json);
     }
 
@@ -28888,7 +28888,7 @@ json.clear();
 [&](){[&](){json["depthWriteEnable"]=depthWriteEnable;}();}();
 
 
-        json["type"]=VKCMDSETDEPTHWRITEENABLE;
+        json["stream_type"]=VKCMDSETDEPTHWRITEENABLE;
         writeToConn(json);
     }
 
@@ -28931,7 +28931,7 @@ json.clear();
 [&](){[&](){[&](){json["depthCompareOp"]=depthCompareOp;}();}();}();
 
 
-        json["type"]=VKCMDSETDEPTHCOMPAREOP;
+        json["stream_type"]=VKCMDSETDEPTHCOMPAREOP;
         writeToConn(json);
     }
 
@@ -28974,7 +28974,7 @@ json.clear();
 [&](){[&](){json["depthBoundsTestEnable"]=depthBoundsTestEnable;}();}();
 
 
-        json["type"]=VKCMDSETDEPTHBOUNDSTESTENABLE;
+        json["stream_type"]=VKCMDSETDEPTHBOUNDSTESTENABLE;
         writeToConn(json);
     }
 
@@ -29017,7 +29017,7 @@ json.clear();
 [&](){[&](){json["stencilTestEnable"]=stencilTestEnable;}();}();
 
 
-        json["type"]=VKCMDSETSTENCILTESTENABLE;
+        json["stream_type"]=VKCMDSETSTENCILTESTENABLE;
         writeToConn(json);
     }
 
@@ -29104,7 +29104,7 @@ json.clear();
 [&](){[&](){[&](){json["compareOp"]=compareOp;}();}();}();
 
 
-        json["type"]=VKCMDSETSTENCILOP;
+        json["stream_type"]=VKCMDSETSTENCILOP;
         writeToConn(json);
     }
 
@@ -29147,7 +29147,7 @@ json.clear();
 [&](){json["patchControlPoints"]=patchControlPoints;}();
 
 
-        json["type"]=VKCMDSETPATCHCONTROLPOINTSEXT;
+        json["stream_type"]=VKCMDSETPATCHCONTROLPOINTSEXT;
         writeToConn(json);
     }
 
@@ -29190,7 +29190,7 @@ json.clear();
 [&](){[&](){json["rasterizerDiscardEnable"]=rasterizerDiscardEnable;}();}();
 
 
-        json["type"]=VKCMDSETRASTERIZERDISCARDENABLE;
+        json["stream_type"]=VKCMDSETRASTERIZERDISCARDENABLE;
         writeToConn(json);
     }
 
@@ -29233,7 +29233,7 @@ json.clear();
 [&](){[&](){json["depthBiasEnable"]=depthBiasEnable;}();}();
 
 
-        json["type"]=VKCMDSETDEPTHBIASENABLE;
+        json["stream_type"]=VKCMDSETDEPTHBIASENABLE;
         writeToConn(json);
     }
 
@@ -29276,7 +29276,7 @@ json.clear();
 [&](){[&](){[&](){json["logicOp"]=logicOp;}();}();}();
 
 
-        json["type"]=VKCMDSETLOGICOPEXT;
+        json["stream_type"]=VKCMDSETLOGICOPEXT;
         writeToConn(json);
     }
 
@@ -29319,7 +29319,7 @@ json.clear();
 [&](){[&](){json["primitiveRestartEnable"]=primitiveRestartEnable;}();}();
 
 
-        json["type"]=VKCMDSETPRIMITIVERESTARTENABLE;
+        json["stream_type"]=VKCMDSETPRIMITIVERESTARTENABLE;
         writeToConn(json);
     }
 
@@ -29362,7 +29362,7 @@ json.clear();
 [&](){[&](){[&](){json["domainOrigin"]=domainOrigin;}();}();}();
 
 
-        json["type"]=VKCMDSETTESSELLATIONDOMAINORIGINEXT;
+        json["stream_type"]=VKCMDSETTESSELLATIONDOMAINORIGINEXT;
         writeToConn(json);
     }
 
@@ -29405,7 +29405,7 @@ json.clear();
 [&](){[&](){json["depthClampEnable"]=depthClampEnable;}();}();
 
 
-        json["type"]=VKCMDSETDEPTHCLAMPENABLEEXT;
+        json["stream_type"]=VKCMDSETDEPTHCLAMPENABLEEXT;
         writeToConn(json);
     }
 
@@ -29448,7 +29448,7 @@ json.clear();
 [&](){[&](){[&](){json["polygonMode"]=polygonMode;}();}();}();
 
 
-        json["type"]=VKCMDSETPOLYGONMODEEXT;
+        json["stream_type"]=VKCMDSETPOLYGONMODEEXT;
         writeToConn(json);
     }
 
@@ -29491,7 +29491,7 @@ json.clear();
 [&](){[&](){[&](){json["rasterizationSamples"]=rasterizationSamples;}();}();}();
 
 
-        json["type"]=VKCMDSETRASTERIZATIONSAMPLESEXT;
+        json["stream_type"]=VKCMDSETRASTERIZATIONSAMPLESEXT;
         writeToConn(json);
     }
 
@@ -29561,7 +29561,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETSAMPLEMASKEXT;
+        json["stream_type"]=VKCMDSETSAMPLEMASKEXT;
         writeToConn(json);
     }
 
@@ -29604,7 +29604,7 @@ json.clear();
 [&](){[&](){json["alphaToCoverageEnable"]=alphaToCoverageEnable;}();}();
 
 
-        json["type"]=VKCMDSETALPHATOCOVERAGEENABLEEXT;
+        json["stream_type"]=VKCMDSETALPHATOCOVERAGEENABLEEXT;
         writeToConn(json);
     }
 
@@ -29647,7 +29647,7 @@ json.clear();
 [&](){[&](){json["alphaToOneEnable"]=alphaToOneEnable;}();}();
 
 
-        json["type"]=VKCMDSETALPHATOONEENABLEEXT;
+        json["stream_type"]=VKCMDSETALPHATOONEENABLEEXT;
         writeToConn(json);
     }
 
@@ -29690,7 +29690,7 @@ json.clear();
 [&](){[&](){json["logicOpEnable"]=logicOpEnable;}();}();
 
 
-        json["type"]=VKCMDSETLOGICOPENABLEEXT;
+        json["stream_type"]=VKCMDSETLOGICOPENABLEEXT;
         writeToConn(json);
     }
 
@@ -29771,7 +29771,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETCOLORBLENDENABLEEXT;
+        json["stream_type"]=VKCMDSETCOLORBLENDENABLEEXT;
         writeToConn(json);
     }
 
@@ -29850,7 +29850,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETCOLORBLENDEQUATIONEXT;
+        json["stream_type"]=VKCMDSETCOLORBLENDEQUATIONEXT;
         writeToConn(json);
     }
 
@@ -29931,7 +29931,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETCOLORWRITEMASKEXT;
+        json["stream_type"]=VKCMDSETCOLORWRITEMASKEXT;
         writeToConn(json);
     }
 
@@ -29974,7 +29974,7 @@ json.clear();
 [&](){json["rasterizationStream"]=rasterizationStream;}();
 
 
-        json["type"]=VKCMDSETRASTERIZATIONSTREAMEXT;
+        json["stream_type"]=VKCMDSETRASTERIZATIONSTREAMEXT;
         writeToConn(json);
     }
 
@@ -30017,7 +30017,7 @@ json.clear();
 [&](){[&](){[&](){json["conservativeRasterizationMode"]=conservativeRasterizationMode;}();}();}();
 
 
-        json["type"]=VKCMDSETCONSERVATIVERASTERIZATIONMODEEXT;
+        json["stream_type"]=VKCMDSETCONSERVATIVERASTERIZATIONMODEEXT;
         writeToConn(json);
     }
 
@@ -30060,7 +30060,7 @@ json.clear();
 [&](){json["extraPrimitiveOverestimationSize"]=extraPrimitiveOverestimationSize;}();
 
 
-        json["type"]=VKCMDSETEXTRAPRIMITIVEOVERESTIMATIONSIZEEXT;
+        json["stream_type"]=VKCMDSETEXTRAPRIMITIVEOVERESTIMATIONSIZEEXT;
         writeToConn(json);
     }
 
@@ -30103,7 +30103,7 @@ json.clear();
 [&](){[&](){json["depthClipEnable"]=depthClipEnable;}();}();
 
 
-        json["type"]=VKCMDSETDEPTHCLIPENABLEEXT;
+        json["stream_type"]=VKCMDSETDEPTHCLIPENABLEEXT;
         writeToConn(json);
     }
 
@@ -30146,7 +30146,7 @@ json.clear();
 [&](){[&](){json["sampleLocationsEnable"]=sampleLocationsEnable;}();}();
 
 
-        json["type"]=VKCMDSETSAMPLELOCATIONSENABLEEXT;
+        json["stream_type"]=VKCMDSETSAMPLELOCATIONSENABLEEXT;
         writeToConn(json);
     }
 
@@ -30225,7 +30225,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETCOLORBLENDADVANCEDEXT;
+        json["stream_type"]=VKCMDSETCOLORBLENDADVANCEDEXT;
         writeToConn(json);
     }
 
@@ -30268,7 +30268,7 @@ json.clear();
 [&](){[&](){[&](){json["provokingVertexMode"]=provokingVertexMode;}();}();}();
 
 
-        json["type"]=VKCMDSETPROVOKINGVERTEXMODEEXT;
+        json["stream_type"]=VKCMDSETPROVOKINGVERTEXMODEEXT;
         writeToConn(json);
     }
 
@@ -30311,7 +30311,7 @@ json.clear();
 [&](){[&](){[&](){json["lineRasterizationMode"]=lineRasterizationMode;}();}();}();
 
 
-        json["type"]=VKCMDSETLINERASTERIZATIONMODEEXT;
+        json["stream_type"]=VKCMDSETLINERASTERIZATIONMODEEXT;
         writeToConn(json);
     }
 
@@ -30354,7 +30354,7 @@ json.clear();
 [&](){[&](){json["stippledLineEnable"]=stippledLineEnable;}();}();
 
 
-        json["type"]=VKCMDSETLINESTIPPLEENABLEEXT;
+        json["stream_type"]=VKCMDSETLINESTIPPLEENABLEEXT;
         writeToConn(json);
     }
 
@@ -30397,7 +30397,7 @@ json.clear();
 [&](){[&](){json["negativeOneToOne"]=negativeOneToOne;}();}();
 
 
-        json["type"]=VKCMDSETDEPTHCLIPNEGATIVEONETOONEEXT;
+        json["stream_type"]=VKCMDSETDEPTHCLIPNEGATIVEONETOONEEXT;
         writeToConn(json);
     }
 
@@ -30440,7 +30440,7 @@ json.clear();
 [&](){[&](){json["viewportWScalingEnable"]=viewportWScalingEnable;}();}();
 
 
-        json["type"]=VKCMDSETVIEWPORTWSCALINGENABLENV;
+        json["stream_type"]=VKCMDSETVIEWPORTWSCALINGENABLENV;
         writeToConn(json);
     }
 
@@ -30519,7 +30519,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETVIEWPORTSWIZZLENV;
+        json["stream_type"]=VKCMDSETVIEWPORTSWIZZLENV;
         writeToConn(json);
     }
 
@@ -30562,7 +30562,7 @@ json.clear();
 [&](){[&](){json["coverageToColorEnable"]=coverageToColorEnable;}();}();
 
 
-        json["type"]=VKCMDSETCOVERAGETOCOLORENABLENV;
+        json["stream_type"]=VKCMDSETCOVERAGETOCOLORENABLENV;
         writeToConn(json);
     }
 
@@ -30605,7 +30605,7 @@ json.clear();
 [&](){json["coverageToColorLocation"]=coverageToColorLocation;}();
 
 
-        json["type"]=VKCMDSETCOVERAGETOCOLORLOCATIONNV;
+        json["stream_type"]=VKCMDSETCOVERAGETOCOLORLOCATIONNV;
         writeToConn(json);
     }
 
@@ -30648,7 +30648,7 @@ json.clear();
 [&](){[&](){[&](){json["coverageModulationMode"]=coverageModulationMode;}();}();}();
 
 
-        json["type"]=VKCMDSETCOVERAGEMODULATIONMODENV;
+        json["stream_type"]=VKCMDSETCOVERAGEMODULATIONMODENV;
         writeToConn(json);
     }
 
@@ -30691,7 +30691,7 @@ json.clear();
 [&](){[&](){json["coverageModulationTableEnable"]=coverageModulationTableEnable;}();}();
 
 
-        json["type"]=VKCMDSETCOVERAGEMODULATIONTABLEENABLENV;
+        json["stream_type"]=VKCMDSETCOVERAGEMODULATIONTABLEENABLENV;
         writeToConn(json);
     }
 
@@ -30761,7 +30761,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETCOVERAGEMODULATIONTABLENV;
+        json["stream_type"]=VKCMDSETCOVERAGEMODULATIONTABLENV;
         writeToConn(json);
     }
 
@@ -30804,7 +30804,7 @@ json.clear();
 [&](){[&](){json["shadingRateImageEnable"]=shadingRateImageEnable;}();}();
 
 
-        json["type"]=VKCMDSETSHADINGRATEIMAGEENABLENV;
+        json["stream_type"]=VKCMDSETSHADINGRATEIMAGEENABLENV;
         writeToConn(json);
     }
 
@@ -30847,7 +30847,7 @@ json.clear();
 [&](){[&](){[&](){json["coverageReductionMode"]=coverageReductionMode;}();}();}();
 
 
-        json["type"]=VKCMDSETCOVERAGEREDUCTIONMODENV;
+        json["stream_type"]=VKCMDSETCOVERAGEREDUCTIONMODENV;
         writeToConn(json);
     }
 
@@ -30890,7 +30890,7 @@ json.clear();
 [&](){[&](){json["representativeFragmentTestEnable"]=representativeFragmentTestEnable;}();}();
 
 
-        json["type"]=VKCMDSETREPRESENTATIVEFRAGMENTTESTENABLENV;
+        json["stream_type"]=VKCMDSETREPRESENTATIVEFRAGMENTTESTENABLENV;
         writeToConn(json);
     }
 
@@ -30992,7 +30992,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEPRIVATEDATASLOT;
+        json["stream_type"]=VKCREATEPRIVATEDATASLOT;
         writeToConn(json);
     }
 
@@ -31052,7 +31052,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYPRIVATEDATASLOT;
+        json["stream_type"]=VKDESTROYPRIVATEDATASLOT;
         writeToConn(json);
     }
 
@@ -31121,7 +31121,7 @@ json.clear();
 [&](){json["data"]=data;}();
 
 
-        json["type"]=VKSETPRIVATEDATA;
+        json["stream_type"]=VKSETPRIVATEDATA;
         writeToConn(json);
     }
 
@@ -31205,7 +31205,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPRIVATEDATA;
+        json["stream_type"]=VKGETPRIVATEDATA;
         writeToConn(json);
     }
 
@@ -31262,7 +31262,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCOPYBUFFER2;
+        json["stream_type"]=VKCMDCOPYBUFFER2;
         writeToConn(json);
     }
 
@@ -31319,7 +31319,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCOPYIMAGE2;
+        json["stream_type"]=VKCMDCOPYIMAGE2;
         writeToConn(json);
     }
 
@@ -31376,7 +31376,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDBLITIMAGE2;
+        json["stream_type"]=VKCMDBLITIMAGE2;
         writeToConn(json);
     }
 
@@ -31433,7 +31433,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCOPYBUFFERTOIMAGE2;
+        json["stream_type"]=VKCMDCOPYBUFFERTOIMAGE2;
         writeToConn(json);
     }
 
@@ -31490,7 +31490,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCOPYIMAGETOBUFFER2;
+        json["stream_type"]=VKCMDCOPYIMAGETOBUFFER2;
         writeToConn(json);
     }
 
@@ -31547,7 +31547,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDRESOLVEIMAGE2;
+        json["stream_type"]=VKCMDRESOLVEIMAGE2;
         writeToConn(json);
     }
 
@@ -31625,7 +31625,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETFRAGMENTSHADINGRATEKHR;
+        json["stream_type"]=VKCMDSETFRAGMENTSHADINGRATEKHR;
         writeToConn(json);
     }
 
@@ -31710,7 +31710,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEFRAGMENTSHADINGRATESKHR;
+        json["stream_type"]=VKGETPHYSICALDEVICEFRAGMENTSHADINGRATESKHR;
         writeToConn(json);
     }
 
@@ -31774,7 +31774,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETFRAGMENTSHADINGRATEENUMNV;
+        json["stream_type"]=VKCMDSETFRAGMENTSHADINGRATEENUMNV;
         writeToConn(json);
     }
 
@@ -31894,7 +31894,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETACCELERATIONSTRUCTUREBUILDSIZESKHR;
+        json["stream_type"]=VKGETACCELERATIONSTRUCTUREBUILDSIZESKHR;
         writeToConn(json);
     }
 
@@ -31998,7 +31998,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETVERTEXINPUTEXT;
+        json["stream_type"]=VKCMDSETVERTEXINPUTEXT;
         writeToConn(json);
     }
 
@@ -32068,7 +32068,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETCOLORWRITEENABLEEXT;
+        json["stream_type"]=VKCMDSETCOLORWRITEENABLEEXT;
         writeToConn(json);
     }
 
@@ -32128,7 +32128,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETEVENT2;
+        json["stream_type"]=VKCMDSETEVENT2;
         writeToConn(json);
     }
 
@@ -32174,7 +32174,7 @@ json.clear();
 [&](){[&](){[&](){json["stageMask"]=stageMask;}();}();}();
 
 
-        json["type"]=VKCMDRESETEVENT2;
+        json["stream_type"]=VKCMDRESETEVENT2;
         writeToConn(json);
     }
 
@@ -32261,7 +32261,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDWAITEVENTS2;
+        json["stream_type"]=VKCMDWAITEVENTS2;
         writeToConn(json);
     }
 
@@ -32318,7 +32318,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDPIPELINEBARRIER2;
+        json["stream_type"]=VKCMDPIPELINEBARRIER2;
         writeToConn(json);
     }
 
@@ -32390,7 +32390,7 @@ json.clear();
 [&](){serialize_VkFence(json["fence"],fence);}();
 
 
-        json["type"]=VKQUEUESUBMIT2;
+        json["stream_type"]=VKQUEUESUBMIT2;
         writeToConn(json);
     }
 
@@ -32447,7 +32447,7 @@ json.clear();
 [&](){json["query"]=query;}();
 
 
-        json["type"]=VKCMDWRITETIMESTAMP2;
+        json["stream_type"]=VKCMDWRITETIMESTAMP2;
         writeToConn(json);
     }
 
@@ -32515,7 +32515,7 @@ json.clear();
 [&](){json["marker"]=marker;}();
 
 
-        json["type"]=VKCMDWRITEBUFFERMARKER2AMD;
+        json["stream_type"]=VKCMDWRITEBUFFERMARKER2AMD;
         writeToConn(json);
     }
 
@@ -32599,7 +32599,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETQUEUECHECKPOINTDATA2NV;
+        json["stream_type"]=VKGETQUEUECHECKPOINTDATA2NV;
         writeToConn(json);
     }
 
@@ -32657,7 +32657,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCOPYMEMORYTOIMAGEEXT;
+        json["stream_type"]=VKCOPYMEMORYTOIMAGEEXT;
         writeToConn(json);
     }
 
@@ -32715,7 +32715,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCOPYIMAGETOMEMORYEXT;
+        json["stream_type"]=VKCOPYIMAGETOMEMORYEXT;
         writeToConn(json);
     }
 
@@ -32773,7 +32773,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCOPYIMAGETOIMAGEEXT;
+        json["stream_type"]=VKCOPYIMAGETOIMAGEEXT;
         writeToConn(json);
     }
 
@@ -32842,7 +32842,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKTRANSITIONIMAGELAYOUTEXT;
+        json["stream_type"]=VKTRANSITIONIMAGELAYOUTEXT;
         writeToConn(json);
     }
 
@@ -32925,7 +32925,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEVIDEOCAPABILITIESKHR;
+        json["stream_type"]=VKGETPHYSICALDEVICEVIDEOCAPABILITIESKHR;
         writeToConn(json);
     }
 
@@ -33035,7 +33035,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEVIDEOFORMATPROPERTIESKHR;
+        json["stream_type"]=VKGETPHYSICALDEVICEVIDEOFORMATPROPERTIESKHR;
         writeToConn(json);
     }
 
@@ -33137,7 +33137,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEVIDEOSESSIONKHR;
+        json["stream_type"]=VKCREATEVIDEOSESSIONKHR;
         writeToConn(json);
     }
 
@@ -33197,7 +33197,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYVIDEOSESSIONKHR;
+        json["stream_type"]=VKDESTROYVIDEOSESSIONKHR;
         writeToConn(json);
     }
 
@@ -33299,7 +33299,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEVIDEOSESSIONPARAMETERSKHR;
+        json["stream_type"]=VKCREATEVIDEOSESSIONPARAMETERSKHR;
         writeToConn(json);
     }
 
@@ -33360,7 +33360,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKUPDATEVIDEOSESSIONPARAMETERSKHR;
+        json["stream_type"]=VKUPDATEVIDEOSESSIONPARAMETERSKHR;
         writeToConn(json);
     }
 
@@ -33420,7 +33420,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYVIDEOSESSIONPARAMETERSKHR;
+        json["stream_type"]=VKDESTROYVIDEOSESSIONPARAMETERSKHR;
         writeToConn(json);
     }
 
@@ -33508,7 +33508,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETVIDEOSESSIONMEMORYREQUIREMENTSKHR;
+        json["stream_type"]=VKGETVIDEOSESSIONMEMORYREQUIREMENTSKHR;
         writeToConn(json);
     }
 
@@ -33580,7 +33580,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKBINDVIDEOSESSIONMEMORYKHR;
+        json["stream_type"]=VKBINDVIDEOSESSIONMEMORYKHR;
         writeToConn(json);
     }
 
@@ -33637,7 +33637,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDDECODEVIDEOKHR;
+        json["stream_type"]=VKCMDDECODEVIDEOKHR;
         writeToConn(json);
     }
 
@@ -33694,7 +33694,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDBEGINVIDEOCODINGKHR;
+        json["stream_type"]=VKCMDBEGINVIDEOCODINGKHR;
         writeToConn(json);
     }
 
@@ -33751,7 +33751,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCONTROLVIDEOCODINGKHR;
+        json["stream_type"]=VKCMDCONTROLVIDEOCODINGKHR;
         writeToConn(json);
     }
 
@@ -33808,7 +33808,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDENDVIDEOCODINGKHR;
+        json["stream_type"]=VKCMDENDVIDEOCODINGKHR;
         writeToConn(json);
     }
 
@@ -33876,7 +33876,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDDECOMPRESSMEMORYNV;
+        json["stream_type"]=VKCMDDECOMPRESSMEMORYNV;
         writeToConn(json);
     }
 
@@ -33941,7 +33941,7 @@ json.clear();
 [&](){json["stride"]=stride;}();
 
 
-        json["type"]=VKCMDDECOMPRESSMEMORYINDIRECTCOUNTNV;
+        json["stream_type"]=VKCMDDECOMPRESSMEMORYINDIRECTCOUNTNV;
         writeToConn(json);
     }
 
@@ -34043,7 +34043,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATECUMODULENVX;
+        json["stream_type"]=VKCREATECUMODULENVX;
         writeToConn(json);
     }
 
@@ -34145,7 +34145,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATECUFUNCTIONNVX;
+        json["stream_type"]=VKCREATECUFUNCTIONNVX;
         writeToConn(json);
     }
 
@@ -34205,7 +34205,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYCUMODULENVX;
+        json["stream_type"]=VKDESTROYCUMODULENVX;
         writeToConn(json);
     }
 
@@ -34265,7 +34265,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYCUFUNCTIONNVX;
+        json["stream_type"]=VKDESTROYCUFUNCTIONNVX;
         writeToConn(json);
     }
 
@@ -34322,7 +34322,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCULAUNCHKERNELNVX;
+        json["stream_type"]=VKCMDCULAUNCHKERNELNVX;
         writeToConn(json);
     }
 
@@ -34384,7 +34384,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDESCRIPTORSETLAYOUTSIZEEXT;
+        json["stream_type"]=VKGETDESCRIPTORSETLAYOUTSIZEEXT;
         writeToConn(json);
     }
 
@@ -34457,7 +34457,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDESCRIPTORSETLAYOUTBINDINGOFFSETEXT;
+        json["stream_type"]=VKGETDESCRIPTORSETLAYOUTBINDINGOFFSETEXT;
         writeToConn(json);
     }
 
@@ -34509,7 +34509,7 @@ void* pDescriptor;
             }
             }();
         }
-        }();pDescriptor=(void*)(temp_mEHYUhJ);}();
+        }();pDescriptor=temp_mEHYUhJ;}();
 
     PFN_vkGetDescriptorEXT call_function;
     
@@ -34558,7 +34558,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKGETDESCRIPTOREXT;
+        json["stream_type"]=VKGETDESCRIPTOREXT;
         writeToConn(json);
     }
 
@@ -34626,7 +34626,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDBINDDESCRIPTORBUFFERSEXT;
+        json["stream_type"]=VKCMDBINDDESCRIPTORBUFFERSEXT;
         writeToConn(json);
     }
 
@@ -34748,7 +34748,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETDESCRIPTORBUFFEROFFSETSEXT;
+        json["stream_type"]=VKCMDSETDESCRIPTORBUFFEROFFSETSEXT;
         writeToConn(json);
     }
 
@@ -34805,7 +34805,7 @@ json.clear();
 [&](){json["set"]=set;}();
 
 
-        json["type"]=VKCMDBINDDESCRIPTORBUFFEREMBEDDEDSAMPLERSEXT;
+        json["stream_type"]=VKCMDBINDDESCRIPTORBUFFEREMBEDDEDSAMPLERSEXT;
         writeToConn(json);
     }
 
@@ -34847,7 +34847,7 @@ void* pData;
             }
             }();
         }
-        }();pData=(void*)(temp_lBHICWs);}();
+        }();pData=temp_lBHICWs;}();
 
     PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT call_function;
     
@@ -34896,7 +34896,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKGETBUFFEROPAQUECAPTUREDESCRIPTORDATAEXT;
+        json["stream_type"]=VKGETBUFFEROPAQUECAPTUREDESCRIPTORDATAEXT;
         writeToConn(json);
     }
 
@@ -34938,7 +34938,7 @@ void* pData;
             }
             }();
         }
-        }();pData=(void*)(temp_lBHICWs);}();
+        }();pData=temp_lBHICWs;}();
 
     PFN_vkGetImageOpaqueCaptureDescriptorDataEXT call_function;
     
@@ -34987,7 +34987,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKGETIMAGEOPAQUECAPTUREDESCRIPTORDATAEXT;
+        json["stream_type"]=VKGETIMAGEOPAQUECAPTUREDESCRIPTORDATAEXT;
         writeToConn(json);
     }
 
@@ -35029,7 +35029,7 @@ void* pData;
             }
             }();
         }
-        }();pData=(void*)(temp_lBHICWs);}();
+        }();pData=temp_lBHICWs;}();
 
     PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT call_function;
     
@@ -35078,7 +35078,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKGETIMAGEVIEWOPAQUECAPTUREDESCRIPTORDATAEXT;
+        json["stream_type"]=VKGETIMAGEVIEWOPAQUECAPTUREDESCRIPTORDATAEXT;
         writeToConn(json);
     }
 
@@ -35120,7 +35120,7 @@ void* pData;
             }
             }();
         }
-        }();pData=(void*)(temp_lBHICWs);}();
+        }();pData=temp_lBHICWs;}();
 
     PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT call_function;
     
@@ -35169,7 +35169,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKGETSAMPLEROPAQUECAPTUREDESCRIPTORDATAEXT;
+        json["stream_type"]=VKGETSAMPLEROPAQUECAPTUREDESCRIPTORDATAEXT;
         writeToConn(json);
     }
 
@@ -35211,7 +35211,7 @@ void* pData;
             }
             }();
         }
-        }();pData=(void*)(temp_lBHICWs);}();
+        }();pData=temp_lBHICWs;}();
 
     PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT call_function;
     
@@ -35260,7 +35260,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKGETACCELERATIONSTRUCTUREOPAQUECAPTUREDESCRIPTORDATAEXT;
+        json["stream_type"]=VKGETACCELERATIONSTRUCTUREOPAQUECAPTUREDESCRIPTORDATAEXT;
         writeToConn(json);
     }
 
@@ -35306,7 +35306,7 @@ json.clear();
 [&](){json["priority"]=priority;}();
 
 
-        json["type"]=VKSETDEVICEMEMORYPRIORITYEXT;
+        json["stream_type"]=VKSETDEVICEMEMORYPRIORITYEXT;
         writeToConn(json);
     }
 
@@ -35353,7 +35353,7 @@ json.clear();
 [&](){serialize_VkDisplayKHR(json["display"],display);}();
 
 
-        json["type"]=VKACQUIREDRMDISPLAYEXT;
+        json["stream_type"]=VKACQUIREDRMDISPLAYEXT;
         writeToConn(json);
     }
 
@@ -35427,7 +35427,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDRMDISPLAYEXT;
+        json["stream_type"]=VKGETDRMDISPLAYEXT;
         writeToConn(json);
     }
 
@@ -35485,7 +35485,7 @@ json.clear();
 [&](){json["timeout"]=timeout;}();
 
 
-        json["type"]=VKWAITFORPRESENTKHR;
+        json["stream_type"]=VKWAITFORPRESENTKHR;
         writeToConn(json);
     }
 
@@ -35542,7 +35542,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDBEGINRENDERING;
+        json["stream_type"]=VKCMDBEGINRENDERING;
         writeToConn(json);
     }
 
@@ -35574,7 +35574,7 @@ json.clear();
 [&](){serialize_VkCommandBuffer(json["commandBuffer"],commandBuffer);}();
 
 
-        json["type"]=VKCMDENDRENDERING;
+        json["stream_type"]=VKCMDENDRENDERING;
         writeToConn(json);
     }
 
@@ -35656,7 +35656,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDESCRIPTORSETLAYOUTHOSTMAPPINGINFOVALVE;
+        json["stream_type"]=VKGETDESCRIPTORSETLAYOUTHOSTMAPPINGINFOVALVE;
         writeToConn(json);
     }
 
@@ -35671,31 +35671,31 @@ void** ppData;
 [&](){
             if (json["ppData"].as_array().size()==0){
                 ppData=NULL;
-            return; }char** temp_yAgCoXW;[&](){
-            if (json["ppData"].as_array().size()==0){
-                temp_yAgCoXW=NULL;
-            return; }temp_yAgCoXW=(char**)malloc(1*sizeof(char*));
-        auto& arr_pmLdDKk=json["ppData"].as_array();
-        for(int PwQMWls=0; PwQMWls < 1; PwQMWls++){
+            return; }ppData=(void**)malloc(1*sizeof(void*));
+        auto& arr_JgRLJSK=json["ppData"].as_array();
+        for(int NsRFkBj=0; NsRFkBj < 1; NsRFkBj++){
             [&](){
-            if (arr_pmLdDKk[PwQMWls].as_array().size()==0){
-                temp_yAgCoXW[PwQMWls]=NULL;
-            return; }temp_yAgCoXW[PwQMWls]=(char*)malloc(arr_pmLdDKk[PwQMWls].as_array().size()*sizeof(char));
-        auto& arr_vLfeDBZ=arr_pmLdDKk[PwQMWls].as_array();
-        for(int jYdchEs=0; jYdchEs < arr_pmLdDKk[PwQMWls].as_array().size(); jYdchEs++){
+            if (arr_JgRLJSK[NsRFkBj].as_array().size()==0){
+                ppData[NsRFkBj]=NULL;
+            return; }char* temp_JgRLJSK;[&](){
+            if (arr_JgRLJSK[NsRFkBj].as_array().size()==0){
+                temp_JgRLJSK=NULL;
+            return; }temp_JgRLJSK=(char*)malloc(arr_JgRLJSK[NsRFkBj].as_array().size()*sizeof(char));
+        auto& arr_vLfeDBZ=arr_JgRLJSK[NsRFkBj].as_array();
+        for(int jYdchEs=0; jYdchEs < arr_JgRLJSK[NsRFkBj].as_array().size(); jYdchEs++){
             [&](){
             if (arr_vLfeDBZ[jYdchEs].is_uint64()){
-                temp_yAgCoXW[PwQMWls][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_uint64());
+                temp_JgRLJSK[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_uint64());
             }else if (arr_vLfeDBZ[jYdchEs].is_int64()){
-                temp_yAgCoXW[PwQMWls][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_int64());
+                temp_JgRLJSK[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_int64());
             }else{
-                temp_yAgCoXW[PwQMWls][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_double());
+                temp_JgRLJSK[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_double());
             }
             }();
         }
-        }();
+        }();ppData[NsRFkBj]=temp_JgRLJSK;}();
         }
-        }();ppData=(void**)(temp_yAgCoXW);}();
+        }();
 
     PFN_vkGetDescriptorSetHostMappingVALVE call_function;
     
@@ -35721,26 +35721,26 @@ json.clear();
 [&](){
             if (ppData==NULL){
                 json["ppData"]=boost::json::array();
-            return; }[&](){
-            if (((char**)(ppData))==NULL){
-                json["ppData"]=boost::json::array();
             return; }json["ppData"]=boost::json::array(1);
-        auto& arr_pmLdDKk=json["ppData"].as_array();
-        for(int PwQMWls=0; PwQMWls < 1; PwQMWls++){
+        auto& arr_JgRLJSK=json["ppData"].as_array();
+        for(int NsRFkBj=0; NsRFkBj < 1; NsRFkBj++){
             [&](){
-            if (((char**)(ppData))[PwQMWls]==NULL){
-                arr_pmLdDKk[PwQMWls]=boost::json::array();
-            return; }arr_pmLdDKk[PwQMWls]=boost::json::array(strlen(((char**)(ppData))[PwQMWls])+1);
-        auto& arr_vLfeDBZ=arr_pmLdDKk[PwQMWls].as_array();
-        for(int jYdchEs=0; jYdchEs < strlen(((char**)(ppData))[PwQMWls])+1; jYdchEs++){
-            [&](){arr_vLfeDBZ[jYdchEs]=((char**)(ppData))[PwQMWls][jYdchEs];}();
-        }
-        }();
+            if (ppData[NsRFkBj]==NULL){
+                arr_JgRLJSK[NsRFkBj]=boost::json::array();
+            return; }[&](){
+            if (((char*)(ppData[NsRFkBj]))==NULL){
+                arr_JgRLJSK[NsRFkBj]=boost::json::array();
+            return; }arr_JgRLJSK[NsRFkBj]=boost::json::array(strlen(((char*)(ppData[NsRFkBj])))+1);
+        auto& arr_vLfeDBZ=arr_JgRLJSK[NsRFkBj].as_array();
+        for(int jYdchEs=0; jYdchEs < strlen(((char*)(ppData[NsRFkBj])))+1; jYdchEs++){
+            [&](){arr_vLfeDBZ[jYdchEs]=((char*)(ppData[NsRFkBj]))[jYdchEs];}();
         }
         }();}();
+        }
+        }();
 
 
-        json["type"]=VKGETDESCRIPTORSETHOSTMAPPINGVALVE;
+        json["stream_type"]=VKGETDESCRIPTORSETHOSTMAPPINGVALVE;
         writeToConn(json);
     }
 
@@ -35842,7 +35842,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEMICROMAPEXT;
+        json["stream_type"]=VKCREATEMICROMAPEXT;
         writeToConn(json);
     }
 
@@ -35910,7 +35910,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDBUILDMICROMAPSEXT;
+        json["stream_type"]=VKCMDBUILDMICROMAPSEXT;
         writeToConn(json);
     }
 
@@ -35982,7 +35982,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKBUILDMICROMAPSEXT;
+        json["stream_type"]=VKBUILDMICROMAPSEXT;
         writeToConn(json);
     }
 
@@ -36042,7 +36042,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYMICROMAPEXT;
+        json["stream_type"]=VKDESTROYMICROMAPEXT;
         writeToConn(json);
     }
 
@@ -36099,7 +36099,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCOPYMICROMAPEXT;
+        json["stream_type"]=VKCMDCOPYMICROMAPEXT;
         writeToConn(json);
     }
 
@@ -36160,7 +36160,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCOPYMICROMAPEXT;
+        json["stream_type"]=VKCOPYMICROMAPEXT;
         writeToConn(json);
     }
 
@@ -36217,7 +36217,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCOPYMICROMAPTOMEMORYEXT;
+        json["stream_type"]=VKCMDCOPYMICROMAPTOMEMORYEXT;
         writeToConn(json);
     }
 
@@ -36278,7 +36278,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCOPYMICROMAPTOMEMORYEXT;
+        json["stream_type"]=VKCOPYMICROMAPTOMEMORYEXT;
         writeToConn(json);
     }
 
@@ -36335,7 +36335,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDCOPYMEMORYTOMICROMAPEXT;
+        json["stream_type"]=VKCMDCOPYMEMORYTOMICROMAPEXT;
         writeToConn(json);
     }
 
@@ -36396,7 +36396,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCOPYMEMORYTOMICROMAPEXT;
+        json["stream_type"]=VKCOPYMEMORYTOMICROMAPEXT;
         writeToConn(json);
     }
 
@@ -36483,7 +36483,7 @@ json.clear();
 [&](){json["firstQuery"]=firstQuery;}();
 
 
-        json["type"]=VKCMDWRITEMICROMAPSPROPERTIESEXT;
+        json["stream_type"]=VKCMDWRITEMICROMAPSPROPERTIESEXT;
         writeToConn(json);
     }
 
@@ -36552,7 +36552,7 @@ void* pData;
             }
             }();
         }
-        }();pData=(void*)(temp_hrhAtyM);}();
+        }();pData=temp_hrhAtyM;}();
 size_t stride;
 [&](){
             if (json["stride"].is_uint64()){
@@ -36612,7 +36612,7 @@ json.clear();
 [&](){json["stride"]=stride;}();
 
 
-        json["type"]=VKWRITEMICROMAPSPROPERTIESEXT;
+        json["stream_type"]=VKWRITEMICROMAPSPROPERTIESEXT;
         writeToConn(json);
     }
 
@@ -36696,7 +36696,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDEVICEMICROMAPCOMPATIBILITYEXT;
+        json["stream_type"]=VKGETDEVICEMICROMAPCOMPATIBILITYEXT;
         writeToConn(json);
     }
 
@@ -36789,7 +36789,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETMICROMAPBUILDSIZESEXT;
+        json["stream_type"]=VKGETMICROMAPBUILDSIZESEXT;
         writeToConn(json);
     }
 
@@ -36849,7 +36849,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETSHADERMODULEIDENTIFIEREXT;
+        json["stream_type"]=VKGETSHADERMODULEIDENTIFIEREXT;
         writeToConn(json);
     }
 
@@ -36931,7 +36931,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETSHADERMODULECREATEINFOIDENTIFIEREXT;
+        json["stream_type"]=VKGETSHADERMODULECREATEINFOIDENTIFIEREXT;
         writeToConn(json);
     }
 
@@ -37016,7 +37016,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETIMAGESUBRESOURCELAYOUT2KHR;
+        json["stream_type"]=VKGETIMAGESUBRESOURCELAYOUT2KHR;
         writeToConn(json);
     }
 
@@ -37099,7 +37099,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPIPELINEPROPERTIESEXT;
+        json["stream_type"]=VKGETPIPELINEPROPERTIESEXT;
         writeToConn(json);
     }
 
@@ -37187,7 +37187,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETFRAMEBUFFERTILEPROPERTIESQCOM;
+        json["stream_type"]=VKGETFRAMEBUFFERTILEPROPERTIESQCOM;
         writeToConn(json);
     }
 
@@ -37270,7 +37270,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDYNAMICRENDERINGTILEPROPERTIESQCOM;
+        json["stream_type"]=VKGETDYNAMICRENDERINGTILEPROPERTIESQCOM;
         writeToConn(json);
     }
 
@@ -37380,7 +37380,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICEOPTICALFLOWIMAGEFORMATSNV;
+        json["stream_type"]=VKGETPHYSICALDEVICEOPTICALFLOWIMAGEFORMATSNV;
         writeToConn(json);
     }
 
@@ -37482,7 +37482,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATEOPTICALFLOWSESSIONNV;
+        json["stream_type"]=VKCREATEOPTICALFLOWSESSIONNV;
         writeToConn(json);
     }
 
@@ -37542,7 +37542,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYOPTICALFLOWSESSIONNV;
+        json["stream_type"]=VKDESTROYOPTICALFLOWSESSIONNV;
         writeToConn(json);
     }
 
@@ -37603,7 +37603,7 @@ json.clear();
 [&](){[&](){[&](){json["layout"]=layout;}();}();}();
 
 
-        json["type"]=VKBINDOPTICALFLOWSESSIONIMAGENV;
+        json["stream_type"]=VKBINDOPTICALFLOWSESSIONIMAGENV;
         writeToConn(json);
     }
 
@@ -37663,7 +37663,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDOPTICALFLOWEXECUTENV;
+        json["stream_type"]=VKCMDOPTICALFLOWEXECUTENV;
         writeToConn(json);
     }
 
@@ -37746,7 +37746,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDEVICEFAULTINFOEXT;
+        json["stream_type"]=VKGETDEVICEFAULTINFOEXT;
         writeToConn(json);
     }
 
@@ -37803,7 +37803,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDSETDEPTHBIAS2EXT;
+        json["stream_type"]=VKCMDSETDEPTHBIAS2EXT;
         writeToConn(json);
     }
 
@@ -37861,7 +37861,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKRELEASESWAPCHAINIMAGESEXT;
+        json["stream_type"]=VKRELEASESWAPCHAINIMAGESEXT;
         writeToConn(json);
     }
 
@@ -37943,7 +37943,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETDEVICEIMAGESUBRESOURCELAYOUTKHR;
+        json["stream_type"]=VKGETDEVICEIMAGESUBRESOURCELAYOUTKHR;
         writeToConn(json);
     }
 
@@ -37969,31 +37969,31 @@ void** ppData;
 [&](){
             if (json["ppData"].as_array().size()==0){
                 ppData=NULL;
-            return; }char** temp_yAgCoXW;[&](){
-            if (json["ppData"].as_array().size()==0){
-                temp_yAgCoXW=NULL;
-            return; }temp_yAgCoXW=(char**)malloc(1*sizeof(char*));
-        auto& arr_pmLdDKk=json["ppData"].as_array();
-        for(int PwQMWls=0; PwQMWls < 1; PwQMWls++){
+            return; }ppData=(void**)malloc(1*sizeof(void*));
+        auto& arr_JgRLJSK=json["ppData"].as_array();
+        for(int NsRFkBj=0; NsRFkBj < 1; NsRFkBj++){
             [&](){
-            if (arr_pmLdDKk[PwQMWls].as_array().size()==0){
-                temp_yAgCoXW[PwQMWls]=NULL;
-            return; }temp_yAgCoXW[PwQMWls]=(char*)malloc(arr_pmLdDKk[PwQMWls].as_array().size()*sizeof(char));
-        auto& arr_vLfeDBZ=arr_pmLdDKk[PwQMWls].as_array();
-        for(int jYdchEs=0; jYdchEs < arr_pmLdDKk[PwQMWls].as_array().size(); jYdchEs++){
+            if (arr_JgRLJSK[NsRFkBj].as_array().size()==0){
+                ppData[NsRFkBj]=NULL;
+            return; }char* temp_JgRLJSK;[&](){
+            if (arr_JgRLJSK[NsRFkBj].as_array().size()==0){
+                temp_JgRLJSK=NULL;
+            return; }temp_JgRLJSK=(char*)malloc(arr_JgRLJSK[NsRFkBj].as_array().size()*sizeof(char));
+        auto& arr_vLfeDBZ=arr_JgRLJSK[NsRFkBj].as_array();
+        for(int jYdchEs=0; jYdchEs < arr_JgRLJSK[NsRFkBj].as_array().size(); jYdchEs++){
             [&](){
             if (arr_vLfeDBZ[jYdchEs].is_uint64()){
-                temp_yAgCoXW[PwQMWls][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_uint64());
+                temp_JgRLJSK[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_uint64());
             }else if (arr_vLfeDBZ[jYdchEs].is_int64()){
-                temp_yAgCoXW[PwQMWls][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_int64());
+                temp_JgRLJSK[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_int64());
             }else{
-                temp_yAgCoXW[PwQMWls][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_double());
+                temp_JgRLJSK[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_double());
             }
             }();
         }
-        }();
+        }();ppData[NsRFkBj]=temp_JgRLJSK;}();
         }
-        }();ppData=(void**)(temp_yAgCoXW);}();
+        }();
 
     PFN_vkMapMemory2KHR call_function;
     
@@ -38031,23 +38031,23 @@ json.clear();
 [&](){
             if (ppData==NULL){
                 json["ppData"]=boost::json::array();
-            return; }[&](){
-            if (((char**)(ppData))==NULL){
-                json["ppData"]=boost::json::array();
             return; }json["ppData"]=boost::json::array(1);
-        auto& arr_pmLdDKk=json["ppData"].as_array();
-        for(int PwQMWls=0; PwQMWls < 1; PwQMWls++){
+        auto& arr_JgRLJSK=json["ppData"].as_array();
+        for(int NsRFkBj=0; NsRFkBj < 1; NsRFkBj++){
             [&](){
-            if (((char**)(ppData))[PwQMWls]==NULL){
-                arr_pmLdDKk[PwQMWls]=boost::json::array();
-            return; }arr_pmLdDKk[PwQMWls]=boost::json::array(strlen(((char**)(ppData))[PwQMWls])+1);
-        auto& arr_vLfeDBZ=arr_pmLdDKk[PwQMWls].as_array();
-        for(int jYdchEs=0; jYdchEs < strlen(((char**)(ppData))[PwQMWls])+1; jYdchEs++){
-            [&](){arr_vLfeDBZ[jYdchEs]=((char**)(ppData))[PwQMWls][jYdchEs];}();
-        }
-        }();
+            if (ppData[NsRFkBj]==NULL){
+                arr_JgRLJSK[NsRFkBj]=boost::json::array();
+            return; }[&](){
+            if (((char*)(ppData[NsRFkBj]))==NULL){
+                arr_JgRLJSK[NsRFkBj]=boost::json::array();
+            return; }arr_JgRLJSK[NsRFkBj]=boost::json::array(strlen(((char*)(ppData[NsRFkBj])))+1);
+        auto& arr_vLfeDBZ=arr_JgRLJSK[NsRFkBj].as_array();
+        for(int jYdchEs=0; jYdchEs < strlen(((char*)(ppData[NsRFkBj])))+1; jYdchEs++){
+            [&](){arr_vLfeDBZ[jYdchEs]=((char*)(ppData[NsRFkBj]))[jYdchEs];}();
         }
         }();}();
+        }
+        }();
 
         boost::json::value server_memory_json;
         serialize_VkDeviceMemory(server_memory_json, pMemoryMapInfo->memory);
@@ -38061,7 +38061,7 @@ json.clear();
         #endif
         
 
-        json["type"]=VKMAPMEMORY2KHR;
+        json["stream_type"]=VKMAPMEMORY2KHR;
         writeToConn(json);
     }
 
@@ -38119,7 +38119,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKUNMAPMEMORY2KHR;
+        json["stream_type"]=VKUNMAPMEMORY2KHR;
         writeToConn(json);
     }
 
@@ -38232,7 +38232,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCREATESHADERSEXT;
+        json["stream_type"]=VKCREATESHADERSEXT;
         writeToConn(json);
     }
 
@@ -38292,7 +38292,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKDESTROYSHADEREXT;
+        json["stream_type"]=VKDESTROYSHADEREXT;
         writeToConn(json);
     }
 
@@ -38341,7 +38341,7 @@ void* pData;
             }
             }();
         }
-        }();pData=(void*)(temp_ZtBEjVJ);}();
+        }();pData=temp_ZtBEjVJ;}();
 
     PFN_vkGetShaderBinaryDataEXT call_function;
     
@@ -38388,7 +38388,7 @@ json.clear();
         }();}();
 
 
-        json["type"]=VKGETSHADERBINARYDATAEXT;
+        json["stream_type"]=VKGETSHADERBINARYDATAEXT;
         writeToConn(json);
     }
 
@@ -38477,7 +38477,7 @@ json.clear();
         }();
 
 
-        json["type"]=VKCMDBINDSHADERSEXT;
+        json["stream_type"]=VKCMDBINDSHADERSEXT;
         writeToConn(json);
     }
 
@@ -38562,14 +38562,14 @@ json.clear();
         }();
 
 
-        json["type"]=VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESKHR;
+        json["stream_type"]=VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESKHR;
         writeToConn(json);
     }
 
 void handle_command(boost::json::object json){
 //Will only be called by the server
 
-switch (static_cast<StreamType>(value_to<int>(json["type"]))){
+switch (static_cast<StreamType>(value_to<int>(json["stream_type"]))){
 
 
         case (VKCREATEINSTANCE):
@@ -41218,7 +41218,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateInstance( const VkInstan
 debug_printf("Executing vkCreateInstance\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEINSTANCE;
+    json["stream_type"]=VKCREATEINSTANCE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -41266,7 +41266,7 @@ parent_json["instance"]=(uintptr_t)NULL;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -41346,7 +41346,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyInstance( VkInstance instan
 debug_printf("Executing vkDestroyInstance\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYINSTANCE;
+    json["stream_type"]=VKDESTROYINSTANCE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -41382,7 +41382,7 @@ debug_printf("Executing vkDestroyInstance\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -41440,7 +41440,7 @@ __attribute__((visibility ("hidden"))) VkResult vkEnumeratePhysicalDevices( VkIn
 debug_printf("Executing vkEnumeratePhysicalDevices\n");
 
     boost::json::object json;
-    json["type"]=VKENUMERATEPHYSICALDEVICES;
+    json["stream_type"]=VKENUMERATEPHYSICALDEVICES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -41482,7 +41482,7 @@ debug_printf("Executing vkEnumeratePhysicalDevices\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -41584,7 +41584,7 @@ __attribute__((visibility ("hidden"))) PFN_vkVoidFunction vkGetDeviceProcAddr( V
 debug_printf("Executing vkGetDeviceProcAddr\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEVICEPROCADDR;
+    json["stream_type"]=VKGETDEVICEPROCADDR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -41617,7 +41617,7 @@ debug_printf("Executing vkGetDeviceProcAddr\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -45936,7 +45936,7 @@ __attribute__((visibility ("hidden"))) PFN_vkVoidFunction vkGetInstanceProcAddr(
 debug_printf("Executing vkGetInstanceProcAddr\n");
 
     boost::json::object json;
-    json["type"]=VKGETINSTANCEPROCADDR;
+    json["stream_type"]=VKGETINSTANCEPROCADDR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -45969,7 +45969,7 @@ debug_printf("Executing vkGetInstanceProcAddr\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -50288,7 +50288,7 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceProperties( VkPhy
 debug_printf("Executing vkGetPhysicalDeviceProperties\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEPROPERTIES;
+    json["stream_type"]=VKGETPHYSICALDEVICEPROPERTIES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -50324,7 +50324,7 @@ debug_printf("Executing vkGetPhysicalDeviceProperties\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -50393,7 +50393,7 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceQueueFamilyProper
 debug_printf("Executing vkGetPhysicalDeviceQueueFamilyProperties\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES;
+    json["stream_type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -50438,7 +50438,7 @@ debug_printf("Executing vkGetPhysicalDeviceQueueFamilyProperties\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -50524,7 +50524,7 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceMemoryProperties(
 debug_printf("Executing vkGetPhysicalDeviceMemoryProperties\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEMEMORYPROPERTIES;
+    json["stream_type"]=VKGETPHYSICALDEVICEMEMORYPROPERTIES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -50560,7 +50560,7 @@ debug_printf("Executing vkGetPhysicalDeviceMemoryProperties\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -50629,7 +50629,7 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceFeatures( VkPhysi
 debug_printf("Executing vkGetPhysicalDeviceFeatures\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEFEATURES;
+    json["stream_type"]=VKGETPHYSICALDEVICEFEATURES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -50665,7 +50665,7 @@ debug_printf("Executing vkGetPhysicalDeviceFeatures\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -50734,7 +50734,7 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceFormatProperties(
 debug_printf("Executing vkGetPhysicalDeviceFormatProperties\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEFORMATPROPERTIES;
+    json["stream_type"]=VKGETPHYSICALDEVICEFORMATPROPERTIES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -50771,7 +50771,7 @@ debug_printf("Executing vkGetPhysicalDeviceFormatProperties\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -50849,7 +50849,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceImageFormatPr
 debug_printf("Executing vkGetPhysicalDeviceImageFormatProperties\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES;
+    json["stream_type"]=VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -50890,7 +50890,7 @@ debug_printf("Executing vkGetPhysicalDeviceImageFormatProperties\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -51016,7 +51016,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDevice( VkPhysicalDevice
 debug_printf("Executing vkCreateDevice\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEDEVICE;
+    json["stream_type"]=VKCREATEDEVICE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -51073,7 +51073,7 @@ debug_printf("Executing vkCreateDevice\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -51155,7 +51155,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyDevice( VkDevice device, co
 debug_printf("Executing vkDestroyDevice\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYDEVICE;
+    json["stream_type"]=VKDESTROYDEVICE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -51191,7 +51191,7 @@ debug_printf("Executing vkDestroyDevice\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -51249,7 +51249,7 @@ __attribute__((visibility ("hidden"))) VkResult vkEnumerateInstanceVersion( uint
 debug_printf("Executing vkEnumerateInstanceVersion\n");
 
     boost::json::object json;
-    json["type"]=VKENUMERATEINSTANCEVERSION;
+    json["stream_type"]=VKENUMERATEINSTANCEVERSION;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -51273,7 +51273,7 @@ parent_json["instance"]=(uintptr_t)NULL;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -51358,7 +51358,7 @@ __attribute__((visibility ("hidden"))) VkResult vkEnumerateInstanceLayerProperti
 debug_printf("Executing vkEnumerateInstanceLayerProperties\n");
 
     boost::json::object json;
-    json["type"]=VKENUMERATEINSTANCELAYERPROPERTIES;
+    json["stream_type"]=VKENUMERATEINSTANCELAYERPROPERTIES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -51394,7 +51394,7 @@ parent_json["instance"]=(uintptr_t)NULL;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -51491,7 +51491,7 @@ __attribute__((visibility ("hidden"))) VkResult vkEnumerateInstanceExtensionProp
 debug_printf("Executing vkEnumerateInstanceExtensionProperties\n");
 
     boost::json::object json;
-    json["type"]=VKENUMERATEINSTANCEEXTENSIONPROPERTIES;
+    json["stream_type"]=VKENUMERATEINSTANCEEXTENSIONPROPERTIES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -51549,7 +51549,7 @@ parent_json["instance"]=(uintptr_t)NULL;
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -51679,7 +51679,7 @@ __attribute__((visibility ("hidden"))) VkResult vkEnumerateDeviceLayerProperties
 debug_printf("Executing vkEnumerateDeviceLayerProperties\n");
 
     boost::json::object json;
-    json["type"]=VKENUMERATEDEVICELAYERPROPERTIES;
+    json["stream_type"]=VKENUMERATEDEVICELAYERPROPERTIES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -51724,7 +51724,7 @@ debug_printf("Executing vkEnumerateDeviceLayerProperties\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -51822,7 +51822,7 @@ __attribute__((visibility ("hidden"))) VkResult vkEnumerateDeviceExtensionProper
 debug_printf("Executing vkEnumerateDeviceExtensionProperties\n");
 
     boost::json::object json;
-    json["type"]=VKENUMERATEDEVICEEXTENSIONPROPERTIES;
+    json["stream_type"]=VKENUMERATEDEVICEEXTENSIONPROPERTIES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -51876,7 +51876,7 @@ debug_printf("Executing vkEnumerateDeviceExtensionProperties\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -51975,7 +51975,7 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceQueue( VkDevice device, u
 debug_printf("Executing vkGetDeviceQueue\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEVICEQUEUE;
+    json["stream_type"]=VKGETDEVICEQUEUE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -52010,7 +52010,7 @@ debug_printf("Executing vkGetDeviceQueue\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -52102,7 +52102,7 @@ debug_printf("Executing vkQueueSubmit\n");
 MemoryMapLock.lock_shared();
 
     boost::json::object json;
-    json["type"]=VKQUEUESUBMIT;
+    json["stream_type"]=VKQUEUESUBMIT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -52141,7 +52141,7 @@ SyncAll();
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -52222,7 +52222,7 @@ __attribute__((visibility ("hidden"))) VkResult vkQueueWaitIdle( VkQueue queue )
 debug_printf("Executing vkQueueWaitIdle\n");
 
     boost::json::object json;
-    json["type"]=VKQUEUEWAITIDLE;
+    json["stream_type"]=VKQUEUEWAITIDLE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -52246,7 +52246,7 @@ debug_printf("Executing vkQueueWaitIdle\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -52315,7 +52315,7 @@ __attribute__((visibility ("hidden"))) VkResult vkDeviceWaitIdle( VkDevice devic
 debug_printf("Executing vkDeviceWaitIdle\n");
 
     boost::json::object json;
-    json["type"]=VKDEVICEWAITIDLE;
+    json["stream_type"]=VKDEVICEWAITIDLE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -52339,7 +52339,7 @@ debug_printf("Executing vkDeviceWaitIdle\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -52409,7 +52409,7 @@ __attribute__((visibility ("hidden"))) VkResult vkAllocateMemory( VkDevice devic
 debug_printf("Executing vkAllocateMemory\n");
 
     boost::json::object json;
-    json["type"]=VKALLOCATEMEMORY;
+    json["stream_type"]=VKALLOCATEMEMORY;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -52466,7 +52466,7 @@ debug_printf("Executing vkAllocateMemory\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -52547,7 +52547,7 @@ __attribute__((visibility ("hidden"))) void vkFreeMemory( VkDevice device, VkDev
 debug_printf("Executing vkFreeMemory\n");
 
     boost::json::object json;
-    json["type"]=VKFREEMEMORY;
+    json["stream_type"]=VKFREEMEMORY;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -52585,7 +52585,7 @@ vkUnmapMemory(device,memory);
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -52645,7 +52645,7 @@ debug_printf("Executing vkMapMemory\n");
 MemoryMapLock.lock();
 
     boost::json::object json;
-    json["type"]=VKMAPMEMORY;
+    json["stream_type"]=VKMAPMEMORY;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -52674,23 +52674,23 @@ MemoryMapLock.lock();
 [&](){
             if (ppData==NULL){
                 json["ppData"]=boost::json::array();
-            return; }[&](){
-            if (((char**)(ppData))==NULL){
-                json["ppData"]=boost::json::array();
             return; }json["ppData"]=boost::json::array(1);
-        auto& arr_fqDGqGm=json["ppData"].as_array();
-        for(int ubOHFxi=0; ubOHFxi < 1; ubOHFxi++){
+        auto& arr_syvZTtN=json["ppData"].as_array();
+        for(int weOJAdg=0; weOJAdg < 1; weOJAdg++){
             [&](){
-            if (((char**)(ppData))[ubOHFxi]==NULL){
-                arr_fqDGqGm[ubOHFxi]=boost::json::array();
-            return; }arr_fqDGqGm[ubOHFxi]=boost::json::array(size);
-        auto& arr_vLfeDBZ=arr_fqDGqGm[ubOHFxi].as_array();
+            if (ppData[weOJAdg]==NULL){
+                arr_syvZTtN[weOJAdg]=boost::json::array();
+            return; }[&](){
+            if (((char*)(ppData[weOJAdg]))==NULL){
+                arr_syvZTtN[weOJAdg]=boost::json::array();
+            return; }arr_syvZTtN[weOJAdg]=boost::json::array(size);
+        auto& arr_vLfeDBZ=arr_syvZTtN[weOJAdg].as_array();
         for(int jYdchEs=0; jYdchEs < size; jYdchEs++){
-            [&](){arr_vLfeDBZ[jYdchEs]=((char**)(ppData))[ubOHFxi][jYdchEs];}();
-        }
-        }();
+            [&](){arr_vLfeDBZ[jYdchEs]=((char*)(ppData[weOJAdg]))[jYdchEs];}();
         }
         }();}();
+        }
+        }();
 }
 
 
@@ -52699,7 +52699,7 @@ MemoryMapLock.lock();
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -52779,31 +52779,31 @@ MemoryMapLock.lock();
 [&](){
             if (json["ppData"].as_array().size()==0){
                 ppData=NULL;
-            return; }char** temp_uIlkBcE;[&](){
-            if (json["ppData"].as_array().size()==0){
-                temp_uIlkBcE=NULL;
-            return; }temp_uIlkBcE=(char**)malloc(1*sizeof(char*));
-        auto& arr_fqDGqGm=json["ppData"].as_array();
-        for(int ubOHFxi=0; ubOHFxi < 1; ubOHFxi++){
+            return; }
+        auto& arr_syvZTtN=json["ppData"].as_array();
+        for(int weOJAdg=0; weOJAdg < 1; weOJAdg++){
             [&](){
-            if (arr_fqDGqGm[ubOHFxi].as_array().size()==0){
-                temp_uIlkBcE[ubOHFxi]=NULL;
-            return; }temp_uIlkBcE[ubOHFxi]=(char*)malloc(size*sizeof(char));
-        auto& arr_vLfeDBZ=arr_fqDGqGm[ubOHFxi].as_array();
+            if (arr_syvZTtN[weOJAdg].as_array().size()==0){
+                ppData[weOJAdg]=NULL;
+            return; }char* temp_syvZTtN;[&](){
+            if (arr_syvZTtN[weOJAdg].as_array().size()==0){
+                temp_syvZTtN=NULL;
+            return; }temp_syvZTtN=(char*)malloc(size*sizeof(char));
+        auto& arr_vLfeDBZ=arr_syvZTtN[weOJAdg].as_array();
         for(int jYdchEs=0; jYdchEs < size; jYdchEs++){
             [&](){
             if (arr_vLfeDBZ[jYdchEs].is_uint64()){
-                temp_uIlkBcE[ubOHFxi][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_uint64());
+                temp_syvZTtN[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_uint64());
             }else if (arr_vLfeDBZ[jYdchEs].is_int64()){
-                temp_uIlkBcE[ubOHFxi][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_int64());
+                temp_syvZTtN[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_int64());
             }else{
-                temp_uIlkBcE[ubOHFxi][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_double());
+                temp_syvZTtN[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_double());
             }
             }();
         }
-        }();
+        }();ppData[weOJAdg]=temp_syvZTtN;}();
         }
-        }();ppData=(void**)(temp_uIlkBcE);}();
+        }();
 VkResult result;
 [&](){[&](){int temp_wvjjzvw;[&](){
             if (json["result"].is_uint64()){
@@ -52837,7 +52837,7 @@ debug_printf("Executing vkUnmapMemory\n");
 MemoryMapLock.lock();
 
     boost::json::object json;
-    json["type"]=VKUNMAPMEMORY;
+    json["stream_type"]=VKUNMAPMEMORY;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -52862,7 +52862,7 @@ deregisterDeviceMemoryMap(memory);
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -52921,7 +52921,7 @@ __attribute__((visibility ("hidden"))) VkResult vkFlushMappedMemoryRanges( VkDev
 debug_printf("Executing vkFlushMappedMemoryRanges\n");
 
     boost::json::object json;
-    json["type"]=VKFLUSHMAPPEDMEMORYRANGES;
+    json["stream_type"]=VKFLUSHMAPPEDMEMORYRANGES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -52958,7 +52958,7 @@ debug_printf("Executing vkFlushMappedMemoryRanges\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -53037,7 +53037,7 @@ __attribute__((visibility ("hidden"))) VkResult vkInvalidateMappedMemoryRanges( 
 debug_printf("Executing vkInvalidateMappedMemoryRanges\n");
 
     boost::json::object json;
-    json["type"]=VKINVALIDATEMAPPEDMEMORYRANGES;
+    json["stream_type"]=VKINVALIDATEMAPPEDMEMORYRANGES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -53074,7 +53074,7 @@ debug_printf("Executing vkInvalidateMappedMemoryRanges\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -53153,7 +53153,7 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceMemoryCommitment( VkDevic
 debug_printf("Executing vkGetDeviceMemoryCommitment\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEVICEMEMORYCOMMITMENT;
+    json["stream_type"]=VKGETDEVICEMEMORYCOMMITMENT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -53187,7 +53187,7 @@ debug_printf("Executing vkGetDeviceMemoryCommitment\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -53262,7 +53262,7 @@ __attribute__((visibility ("hidden"))) void vkGetBufferMemoryRequirements( VkDev
 debug_printf("Executing vkGetBufferMemoryRequirements\n");
 
     boost::json::object json;
-    json["type"]=VKGETBUFFERMEMORYREQUIREMENTS;
+    json["stream_type"]=VKGETBUFFERMEMORYREQUIREMENTS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -53299,7 +53299,7 @@ debug_printf("Executing vkGetBufferMemoryRequirements\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -53369,7 +53369,7 @@ __attribute__((visibility ("hidden"))) VkResult vkBindBufferMemory( VkDevice dev
 debug_printf("Executing vkBindBufferMemory\n");
 
     boost::json::object json;
-    json["type"]=VKBINDBUFFERMEMORY;
+    json["stream_type"]=VKBINDBUFFERMEMORY;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -53396,7 +53396,7 @@ debug_printf("Executing vkBindBufferMemory\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -53476,7 +53476,7 @@ __attribute__((visibility ("hidden"))) void vkGetImageMemoryRequirements( VkDevi
 debug_printf("Executing vkGetImageMemoryRequirements\n");
 
     boost::json::object json;
-    json["type"]=VKGETIMAGEMEMORYREQUIREMENTS;
+    json["stream_type"]=VKGETIMAGEMEMORYREQUIREMENTS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -53513,7 +53513,7 @@ debug_printf("Executing vkGetImageMemoryRequirements\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -53583,7 +53583,7 @@ __attribute__((visibility ("hidden"))) VkResult vkBindImageMemory( VkDevice devi
 debug_printf("Executing vkBindImageMemory\n");
 
     boost::json::object json;
-    json["type"]=VKBINDIMAGEMEMORY;
+    json["stream_type"]=VKBINDIMAGEMEMORY;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -53610,7 +53610,7 @@ debug_printf("Executing vkBindImageMemory\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -53690,7 +53690,7 @@ __attribute__((visibility ("hidden"))) void vkGetImageSparseMemoryRequirements( 
 debug_printf("Executing vkGetImageSparseMemoryRequirements\n");
 
     boost::json::object json;
-    json["type"]=VKGETIMAGESPARSEMEMORYREQUIREMENTS;
+    json["stream_type"]=VKGETIMAGESPARSEMEMORYREQUIREMENTS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -53736,7 +53736,7 @@ debug_printf("Executing vkGetImageSparseMemoryRequirements\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -53823,7 +53823,7 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceSparseImageFormat
 debug_printf("Executing vkGetPhysicalDeviceSparseImageFormatProperties\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES;
+    json["stream_type"]=VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -53873,7 +53873,7 @@ debug_printf("Executing vkGetPhysicalDeviceSparseImageFormatProperties\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -54004,7 +54004,7 @@ __attribute__((visibility ("hidden"))) VkResult vkQueueBindSparse( VkQueue queue
 debug_printf("Executing vkQueueBindSparse\n");
 
     boost::json::object json;
-    json["type"]=VKQUEUEBINDSPARSE;
+    json["stream_type"]=VKQUEUEBINDSPARSE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -54042,7 +54042,7 @@ debug_printf("Executing vkQueueBindSparse\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -54122,7 +54122,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateFence( VkDevice device, 
 debug_printf("Executing vkCreateFence\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEFENCE;
+    json["stream_type"]=VKCREATEFENCE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -54179,7 +54179,7 @@ debug_printf("Executing vkCreateFence\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -54266,7 +54266,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyFence( VkDevice device, VkF
 debug_printf("Executing vkDestroyFence\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYFENCE;
+    json["stream_type"]=VKDESTROYFENCE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -54303,7 +54303,7 @@ debug_printf("Executing vkDestroyFence\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -54362,7 +54362,7 @@ __attribute__((visibility ("hidden"))) VkResult vkResetFences( VkDevice device, 
 debug_printf("Executing vkResetFences\n");
 
     boost::json::object json;
-    json["type"]=VKRESETFENCES;
+    json["stream_type"]=VKRESETFENCES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -54396,7 +54396,7 @@ debug_printf("Executing vkResetFences\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -54475,7 +54475,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetFenceStatus( VkDevice devic
 debug_printf("Executing vkGetFenceStatus\n");
 
     boost::json::object json;
-    json["type"]=VKGETFENCESTATUS;
+    json["stream_type"]=VKGETFENCESTATUS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -54500,7 +54500,7 @@ debug_printf("Executing vkGetFenceStatus\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -54571,7 +54571,7 @@ debug_printf("Executing vkWaitForFences\n");
 MemoryMapLock.lock_shared();
 
     boost::json::object json;
-    json["type"]=VKWAITFORFENCES;
+    json["stream_type"]=VKWAITFORFENCES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -54607,7 +54607,7 @@ MemoryMapLock.lock_shared();
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -54705,7 +54705,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateSemaphore( VkDevice devi
 debug_printf("Executing vkCreateSemaphore\n");
 
     boost::json::object json;
-    json["type"]=VKCREATESEMAPHORE;
+    json["stream_type"]=VKCREATESEMAPHORE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -54762,7 +54762,7 @@ debug_printf("Executing vkCreateSemaphore\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -54849,7 +54849,7 @@ __attribute__((visibility ("hidden"))) void vkDestroySemaphore( VkDevice device,
 debug_printf("Executing vkDestroySemaphore\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYSEMAPHORE;
+    json["stream_type"]=VKDESTROYSEMAPHORE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -54886,7 +54886,7 @@ debug_printf("Executing vkDestroySemaphore\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -54945,7 +54945,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateEvent( VkDevice device, 
 debug_printf("Executing vkCreateEvent\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEEVENT;
+    json["stream_type"]=VKCREATEEVENT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -55002,7 +55002,7 @@ debug_printf("Executing vkCreateEvent\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55089,7 +55089,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyEvent( VkDevice device, VkE
 debug_printf("Executing vkDestroyEvent\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYEVENT;
+    json["stream_type"]=VKDESTROYEVENT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -55126,7 +55126,7 @@ debug_printf("Executing vkDestroyEvent\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55185,7 +55185,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetEventStatus( VkDevice devic
 debug_printf("Executing vkGetEventStatus\n");
 
     boost::json::object json;
-    json["type"]=VKGETEVENTSTATUS;
+    json["stream_type"]=VKGETEVENTSTATUS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -55210,7 +55210,7 @@ debug_printf("Executing vkGetEventStatus\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55280,7 +55280,7 @@ __attribute__((visibility ("hidden"))) VkResult vkSetEvent( VkDevice device, VkE
 debug_printf("Executing vkSetEvent\n");
 
     boost::json::object json;
-    json["type"]=VKSETEVENT;
+    json["stream_type"]=VKSETEVENT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -55305,7 +55305,7 @@ debug_printf("Executing vkSetEvent\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55375,7 +55375,7 @@ __attribute__((visibility ("hidden"))) VkResult vkResetEvent( VkDevice device, V
 debug_printf("Executing vkResetEvent\n");
 
     boost::json::object json;
-    json["type"]=VKRESETEVENT;
+    json["stream_type"]=VKRESETEVENT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -55400,7 +55400,7 @@ debug_printf("Executing vkResetEvent\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55470,7 +55470,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateQueryPool( VkDevice devi
 debug_printf("Executing vkCreateQueryPool\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEQUERYPOOL;
+    json["stream_type"]=VKCREATEQUERYPOOL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -55527,7 +55527,7 @@ debug_printf("Executing vkCreateQueryPool\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55614,7 +55614,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyQueryPool( VkDevice device,
 debug_printf("Executing vkDestroyQueryPool\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYQUERYPOOL;
+    json["stream_type"]=VKDESTROYQUERYPOOL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -55651,7 +55651,7 @@ debug_printf("Executing vkDestroyQueryPool\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55710,7 +55710,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetQueryPoolResults( VkDevice 
 debug_printf("Executing vkGetQueryPoolResults\n");
 
     boost::json::object json;
-    json["type"]=VKGETQUERYPOOLRESULTS;
+    json["stream_type"]=VKGETQUERYPOOLRESULTS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -55752,7 +55752,7 @@ debug_printf("Executing vkGetQueryPoolResults\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55848,7 +55848,7 @@ debug_printf("Executing vkGetQueryPoolResults\n");
             }
             }();
         }
-        }();pData=(void*)(temp_hrhAtyM);}();
+        }();pData=temp_hrhAtyM;}();
 [&](){uint64_t temp_fLSTSIg;[&](){
             if (json["stride"].is_uint64()){
                 temp_fLSTSIg=static_cast<uint64_t>(json["stride"].as_uint64());
@@ -55887,7 +55887,7 @@ __attribute__((visibility ("hidden"))) void vkResetQueryPool( VkDevice device, V
 debug_printf("Executing vkResetQueryPool\n");
 
     boost::json::object json;
-    json["type"]=VKRESETQUERYPOOL;
+    json["stream_type"]=VKRESETQUERYPOOL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -55914,7 +55914,7 @@ debug_printf("Executing vkResetQueryPool\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -55993,7 +55993,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateBuffer( VkDevice device,
 debug_printf("Executing vkCreateBuffer\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEBUFFER;
+    json["stream_type"]=VKCREATEBUFFER;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -56050,7 +56050,7 @@ debug_printf("Executing vkCreateBuffer\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -56137,7 +56137,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyBuffer( VkDevice device, Vk
 debug_printf("Executing vkDestroyBuffer\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYBUFFER;
+    json["stream_type"]=VKDESTROYBUFFER;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -56174,7 +56174,7 @@ debug_printf("Executing vkDestroyBuffer\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -56233,7 +56233,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateBufferView( VkDevice dev
 debug_printf("Executing vkCreateBufferView\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEBUFFERVIEW;
+    json["stream_type"]=VKCREATEBUFFERVIEW;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -56290,7 +56290,7 @@ debug_printf("Executing vkCreateBufferView\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -56377,7 +56377,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyBufferView( VkDevice device
 debug_printf("Executing vkDestroyBufferView\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYBUFFERVIEW;
+    json["stream_type"]=VKDESTROYBUFFERVIEW;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -56414,7 +56414,7 @@ debug_printf("Executing vkDestroyBufferView\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -56473,7 +56473,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateImage( VkDevice device, 
 debug_printf("Executing vkCreateImage\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEIMAGE;
+    json["stream_type"]=VKCREATEIMAGE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -56530,7 +56530,7 @@ debug_printf("Executing vkCreateImage\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -56617,7 +56617,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyImage( VkDevice device, VkI
 debug_printf("Executing vkDestroyImage\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYIMAGE;
+    json["stream_type"]=VKDESTROYIMAGE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -56654,7 +56654,7 @@ debug_printf("Executing vkDestroyImage\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -56713,7 +56713,7 @@ __attribute__((visibility ("hidden"))) void vkGetImageSubresourceLayout( VkDevic
 debug_printf("Executing vkGetImageSubresourceLayout\n");
 
     boost::json::object json;
-    json["type"]=VKGETIMAGESUBRESOURCELAYOUT;
+    json["stream_type"]=VKGETIMAGESUBRESOURCELAYOUT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -56762,7 +56762,7 @@ debug_printf("Executing vkGetImageSubresourceLayout\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -56833,7 +56833,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateImageView( VkDevice devi
 debug_printf("Executing vkCreateImageView\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEIMAGEVIEW;
+    json["stream_type"]=VKCREATEIMAGEVIEW;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -56890,7 +56890,7 @@ debug_printf("Executing vkCreateImageView\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -56977,7 +56977,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyImageView( VkDevice device,
 debug_printf("Executing vkDestroyImageView\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYIMAGEVIEW;
+    json["stream_type"]=VKDESTROYIMAGEVIEW;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -57014,7 +57014,7 @@ debug_printf("Executing vkDestroyImageView\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -57073,7 +57073,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateShaderModule( VkDevice d
 debug_printf("Executing vkCreateShaderModule\n");
 
     boost::json::object json;
-    json["type"]=VKCREATESHADERMODULE;
+    json["stream_type"]=VKCREATESHADERMODULE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -57130,7 +57130,7 @@ debug_printf("Executing vkCreateShaderModule\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -57217,7 +57217,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyShaderModule( VkDevice devi
 debug_printf("Executing vkDestroyShaderModule\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYSHADERMODULE;
+    json["stream_type"]=VKDESTROYSHADERMODULE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -57254,7 +57254,7 @@ debug_printf("Executing vkDestroyShaderModule\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -57313,7 +57313,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreatePipelineCache( VkDevice 
 debug_printf("Executing vkCreatePipelineCache\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEPIPELINECACHE;
+    json["stream_type"]=VKCREATEPIPELINECACHE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -57370,7 +57370,7 @@ debug_printf("Executing vkCreatePipelineCache\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -57457,7 +57457,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyPipelineCache( VkDevice dev
 debug_printf("Executing vkDestroyPipelineCache\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYPIPELINECACHE;
+    json["stream_type"]=VKDESTROYPIPELINECACHE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -57494,7 +57494,7 @@ debug_printf("Executing vkDestroyPipelineCache\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -57553,7 +57553,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPipelineCacheData( VkDevice
 debug_printf("Executing vkGetPipelineCacheData\n");
 
     boost::json::object json;
-    json["type"]=VKGETPIPELINECACHEDATA;
+    json["stream_type"]=VKGETPIPELINECACHEDATA;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -57599,7 +57599,7 @@ debug_printf("Executing vkGetPipelineCacheData\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -57685,7 +57685,7 @@ debug_printf("Executing vkGetPipelineCacheData\n");
             }
             }();
         }
-        }();pData=(void*)(temp_ZtBEjVJ);}();
+        }();pData=temp_ZtBEjVJ;}();
 VkResult result;
 [&](){[&](){int temp_jTTriaB;[&](){
             if (json["result"].is_uint64()){
@@ -57706,7 +57706,7 @@ __attribute__((visibility ("hidden"))) VkResult vkMergePipelineCaches( VkDevice 
 debug_printf("Executing vkMergePipelineCaches\n");
 
     boost::json::object json;
-    json["type"]=VKMERGEPIPELINECACHES;
+    json["stream_type"]=VKMERGEPIPELINECACHES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -57741,7 +57741,7 @@ debug_printf("Executing vkMergePipelineCaches\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -57821,7 +57821,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateGraphicsPipelines( VkDev
 debug_printf("Executing vkCreateGraphicsPipelines\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEGRAPHICSPIPELINES;
+    json["stream_type"]=VKCREATEGRAPHICSPIPELINES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -57880,7 +57880,7 @@ debug_printf("Executing vkCreateGraphicsPipelines\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -57977,7 +57977,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateComputePipelines( VkDevi
 debug_printf("Executing vkCreateComputePipelines\n");
 
     boost::json::object json;
-    json["type"]=VKCREATECOMPUTEPIPELINES;
+    json["stream_type"]=VKCREATECOMPUTEPIPELINES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -58036,7 +58036,7 @@ debug_printf("Executing vkCreateComputePipelines\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -58133,7 +58133,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDeviceSubpassShadingMaxWork
 debug_printf("Executing vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEVICESUBPASSSHADINGMAXWORKGROUPSIZEHUAWEI;
+    json["stream_type"]=VKGETDEVICESUBPASSSHADINGMAXWORKGROUPSIZEHUAWEI;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -58170,7 +58170,7 @@ debug_printf("Executing vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -58252,7 +58252,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyPipeline( VkDevice device, 
 debug_printf("Executing vkDestroyPipeline\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYPIPELINE;
+    json["stream_type"]=VKDESTROYPIPELINE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -58289,7 +58289,7 @@ debug_printf("Executing vkDestroyPipeline\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -58348,7 +58348,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreatePipelineLayout( VkDevice
 debug_printf("Executing vkCreatePipelineLayout\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEPIPELINELAYOUT;
+    json["stream_type"]=VKCREATEPIPELINELAYOUT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -58405,7 +58405,7 @@ debug_printf("Executing vkCreatePipelineLayout\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -58492,7 +58492,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyPipelineLayout( VkDevice de
 debug_printf("Executing vkDestroyPipelineLayout\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYPIPELINELAYOUT;
+    json["stream_type"]=VKDESTROYPIPELINELAYOUT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -58529,7 +58529,7 @@ debug_printf("Executing vkDestroyPipelineLayout\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -58588,7 +58588,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateSampler( VkDevice device
 debug_printf("Executing vkCreateSampler\n");
 
     boost::json::object json;
-    json["type"]=VKCREATESAMPLER;
+    json["stream_type"]=VKCREATESAMPLER;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -58645,7 +58645,7 @@ debug_printf("Executing vkCreateSampler\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -58732,7 +58732,7 @@ __attribute__((visibility ("hidden"))) void vkDestroySampler( VkDevice device, V
 debug_printf("Executing vkDestroySampler\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYSAMPLER;
+    json["stream_type"]=VKDESTROYSAMPLER;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -58769,7 +58769,7 @@ debug_printf("Executing vkDestroySampler\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -58828,7 +58828,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDescriptorSetLayout( VkD
 debug_printf("Executing vkCreateDescriptorSetLayout\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEDESCRIPTORSETLAYOUT;
+    json["stream_type"]=VKCREATEDESCRIPTORSETLAYOUT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -58885,7 +58885,7 @@ debug_printf("Executing vkCreateDescriptorSetLayout\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -58972,7 +58972,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyDescriptorSetLayout( VkDevi
 debug_printf("Executing vkDestroyDescriptorSetLayout\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYDESCRIPTORSETLAYOUT;
+    json["stream_type"]=VKDESTROYDESCRIPTORSETLAYOUT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -59009,7 +59009,7 @@ debug_printf("Executing vkDestroyDescriptorSetLayout\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -59068,7 +59068,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDescriptorPool( VkDevice
 debug_printf("Executing vkCreateDescriptorPool\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEDESCRIPTORPOOL;
+    json["stream_type"]=VKCREATEDESCRIPTORPOOL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -59125,7 +59125,7 @@ debug_printf("Executing vkCreateDescriptorPool\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -59212,7 +59212,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyDescriptorPool( VkDevice de
 debug_printf("Executing vkDestroyDescriptorPool\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYDESCRIPTORPOOL;
+    json["stream_type"]=VKDESTROYDESCRIPTORPOOL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -59249,7 +59249,7 @@ debug_printf("Executing vkDestroyDescriptorPool\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -59308,7 +59308,7 @@ __attribute__((visibility ("hidden"))) VkResult vkResetDescriptorPool( VkDevice 
 debug_printf("Executing vkResetDescriptorPool\n");
 
     boost::json::object json;
-    json["type"]=VKRESETDESCRIPTORPOOL;
+    json["stream_type"]=VKRESETDESCRIPTORPOOL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -59334,7 +59334,7 @@ debug_printf("Executing vkResetDescriptorPool\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -59413,7 +59413,7 @@ __attribute__((visibility ("hidden"))) VkResult vkAllocateDescriptorSets( VkDevi
 debug_printf("Executing vkAllocateDescriptorSets\n");
 
     boost::json::object json;
-    json["type"]=VKALLOCATEDESCRIPTORSETS;
+    json["stream_type"]=VKALLOCATEDESCRIPTORSETS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -59458,7 +59458,7 @@ debug_printf("Executing vkAllocateDescriptorSets\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -59544,7 +59544,7 @@ __attribute__((visibility ("hidden"))) VkResult vkFreeDescriptorSets( VkDevice d
 debug_printf("Executing vkFreeDescriptorSets\n");
 
     boost::json::object json;
-    json["type"]=VKFREEDESCRIPTORSETS;
+    json["stream_type"]=VKFREEDESCRIPTORSETS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -59579,7 +59579,7 @@ debug_printf("Executing vkFreeDescriptorSets\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -59659,7 +59659,7 @@ __attribute__((visibility ("hidden"))) void vkUpdateDescriptorSets( VkDevice dev
 debug_printf("Executing vkUpdateDescriptorSets\n");
 
     boost::json::object json;
-    json["type"]=VKUPDATEDESCRIPTORSETS;
+    json["stream_type"]=VKUPDATEDESCRIPTORSETS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -59709,7 +59709,7 @@ debug_printf("Executing vkUpdateDescriptorSets\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -59786,7 +59786,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateFramebuffer( VkDevice de
 debug_printf("Executing vkCreateFramebuffer\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEFRAMEBUFFER;
+    json["stream_type"]=VKCREATEFRAMEBUFFER;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -59843,7 +59843,7 @@ debug_printf("Executing vkCreateFramebuffer\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -59930,7 +59930,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyFramebuffer( VkDevice devic
 debug_printf("Executing vkDestroyFramebuffer\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYFRAMEBUFFER;
+    json["stream_type"]=VKDESTROYFRAMEBUFFER;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -59967,7 +59967,7 @@ debug_printf("Executing vkDestroyFramebuffer\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60026,7 +60026,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateRenderPass( VkDevice dev
 debug_printf("Executing vkCreateRenderPass\n");
 
     boost::json::object json;
-    json["type"]=VKCREATERENDERPASS;
+    json["stream_type"]=VKCREATERENDERPASS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -60083,7 +60083,7 @@ debug_printf("Executing vkCreateRenderPass\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60170,7 +60170,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyRenderPass( VkDevice device
 debug_printf("Executing vkDestroyRenderPass\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYRENDERPASS;
+    json["stream_type"]=VKDESTROYRENDERPASS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -60207,7 +60207,7 @@ debug_printf("Executing vkDestroyRenderPass\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60266,7 +60266,7 @@ __attribute__((visibility ("hidden"))) void vkGetRenderAreaGranularity( VkDevice
 debug_printf("Executing vkGetRenderAreaGranularity\n");
 
     boost::json::object json;
-    json["type"]=VKGETRENDERAREAGRANULARITY;
+    json["stream_type"]=VKGETRENDERAREAGRANULARITY;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -60303,7 +60303,7 @@ debug_printf("Executing vkGetRenderAreaGranularity\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60373,7 +60373,7 @@ __attribute__((visibility ("hidden"))) void vkGetRenderingAreaGranularityKHR( Vk
 debug_printf("Executing vkGetRenderingAreaGranularityKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETRENDERINGAREAGRANULARITYKHR;
+    json["stream_type"]=VKGETRENDERINGAREAGRANULARITYKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -60421,7 +60421,7 @@ debug_printf("Executing vkGetRenderingAreaGranularityKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60491,7 +60491,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateCommandPool( VkDevice de
 debug_printf("Executing vkCreateCommandPool\n");
 
     boost::json::object json;
-    json["type"]=VKCREATECOMMANDPOOL;
+    json["stream_type"]=VKCREATECOMMANDPOOL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -60548,7 +60548,7 @@ debug_printf("Executing vkCreateCommandPool\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60635,7 +60635,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyCommandPool( VkDevice devic
 debug_printf("Executing vkDestroyCommandPool\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYCOMMANDPOOL;
+    json["stream_type"]=VKDESTROYCOMMANDPOOL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -60672,7 +60672,7 @@ debug_printf("Executing vkDestroyCommandPool\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60731,7 +60731,7 @@ __attribute__((visibility ("hidden"))) VkResult vkResetCommandPool( VkDevice dev
 debug_printf("Executing vkResetCommandPool\n");
 
     boost::json::object json;
-    json["type"]=VKRESETCOMMANDPOOL;
+    json["stream_type"]=VKRESETCOMMANDPOOL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -60757,7 +60757,7 @@ debug_printf("Executing vkResetCommandPool\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60836,7 +60836,7 @@ __attribute__((visibility ("hidden"))) VkResult vkAllocateCommandBuffers( VkDevi
 debug_printf("Executing vkAllocateCommandBuffers\n");
 
     boost::json::object json;
-    json["type"]=VKALLOCATECOMMANDBUFFERS;
+    json["stream_type"]=VKALLOCATECOMMANDBUFFERS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -60881,7 +60881,7 @@ debug_printf("Executing vkAllocateCommandBuffers\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -60967,7 +60967,7 @@ __attribute__((visibility ("hidden"))) void vkFreeCommandBuffers( VkDevice devic
 debug_printf("Executing vkFreeCommandBuffers\n");
 
     boost::json::object json;
-    json["type"]=VKFREECOMMANDBUFFERS;
+    json["stream_type"]=VKFREECOMMANDBUFFERS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -61002,7 +61002,7 @@ debug_printf("Executing vkFreeCommandBuffers\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61070,7 +61070,7 @@ __attribute__((visibility ("hidden"))) VkResult vkBeginCommandBuffer( VkCommandB
 debug_printf("Executing vkBeginCommandBuffer\n");
 
     boost::json::object json;
-    json["type"]=VKBEGINCOMMANDBUFFER;
+    json["stream_type"]=VKBEGINCOMMANDBUFFER;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -61106,7 +61106,7 @@ debug_printf("Executing vkBeginCommandBuffer\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61176,7 +61176,7 @@ __attribute__((visibility ("hidden"))) VkResult vkEndCommandBuffer( VkCommandBuf
 debug_printf("Executing vkEndCommandBuffer\n");
 
     boost::json::object json;
-    json["type"]=VKENDCOMMANDBUFFER;
+    json["stream_type"]=VKENDCOMMANDBUFFER;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -61200,7 +61200,7 @@ debug_printf("Executing vkEndCommandBuffer\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61269,7 +61269,7 @@ __attribute__((visibility ("hidden"))) VkResult vkResetCommandBuffer( VkCommandB
 debug_printf("Executing vkResetCommandBuffer\n");
 
     boost::json::object json;
-    json["type"]=VKRESETCOMMANDBUFFER;
+    json["stream_type"]=VKRESETCOMMANDBUFFER;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -61294,7 +61294,7 @@ debug_printf("Executing vkResetCommandBuffer\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61372,7 +61372,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBindPipeline( VkCommandBuffer c
 debug_printf("Executing vkCmdBindPipeline\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBINDPIPELINE;
+    json["stream_type"]=VKCMDBINDPIPELINE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -61398,7 +61398,7 @@ debug_printf("Executing vkCmdBindPipeline\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61465,7 +61465,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetAttachmentFeedbackLoopEnable
 debug_printf("Executing vkCmdSetAttachmentFeedbackLoopEnableEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETATTACHMENTFEEDBACKLOOPENABLEEXT;
+    json["stream_type"]=VKCMDSETATTACHMENTFEEDBACKLOOPENABLEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -61490,7 +61490,7 @@ debug_printf("Executing vkCmdSetAttachmentFeedbackLoopEnableEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61556,7 +61556,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetViewport( VkCommandBuffer co
 debug_printf("Executing vkCmdSetViewport\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETVIEWPORT;
+    json["stream_type"]=VKCMDSETVIEWPORT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -61594,7 +61594,7 @@ debug_printf("Executing vkCmdSetViewport\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61670,7 +61670,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetScissor( VkCommandBuffer com
 debug_printf("Executing vkCmdSetScissor\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETSCISSOR;
+    json["stream_type"]=VKCMDSETSCISSOR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -61708,7 +61708,7 @@ debug_printf("Executing vkCmdSetScissor\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61784,7 +61784,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetLineWidth( VkCommandBuffer c
 debug_printf("Executing vkCmdSetLineWidth\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETLINEWIDTH;
+    json["stream_type"]=VKCMDSETLINEWIDTH;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -61809,7 +61809,7 @@ debug_printf("Executing vkCmdSetLineWidth\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61875,7 +61875,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthBias( VkCommandBuffer c
 debug_printf("Executing vkCmdSetDepthBias\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETDEPTHBIAS;
+    json["stream_type"]=VKCMDSETDEPTHBIAS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -61902,7 +61902,7 @@ debug_printf("Executing vkCmdSetDepthBias\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -61986,7 +61986,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetBlendConstants( VkCommandBuf
 debug_printf("Executing vkCmdSetBlendConstants\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETBLENDCONSTANTS;
+    json["stream_type"]=VKCMDSETBLENDCONSTANTS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -62016,7 +62016,7 @@ debug_printf("Executing vkCmdSetBlendConstants\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62079,7 +62079,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthBounds( VkCommandBuffer
 debug_printf("Executing vkCmdSetDepthBounds\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETDEPTHBOUNDS;
+    json["stream_type"]=VKCMDSETDEPTHBOUNDS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -62105,7 +62105,7 @@ debug_printf("Executing vkCmdSetDepthBounds\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62180,7 +62180,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetStencilCompareMask( VkComman
 debug_printf("Executing vkCmdSetStencilCompareMask\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETSTENCILCOMPAREMASK;
+    json["stream_type"]=VKCMDSETSTENCILCOMPAREMASK;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -62206,7 +62206,7 @@ debug_printf("Executing vkCmdSetStencilCompareMask\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62281,7 +62281,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetStencilWriteMask( VkCommandB
 debug_printf("Executing vkCmdSetStencilWriteMask\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETSTENCILWRITEMASK;
+    json["stream_type"]=VKCMDSETSTENCILWRITEMASK;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -62307,7 +62307,7 @@ debug_printf("Executing vkCmdSetStencilWriteMask\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62382,7 +62382,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetStencilReference( VkCommandB
 debug_printf("Executing vkCmdSetStencilReference\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETSTENCILREFERENCE;
+    json["stream_type"]=VKCMDSETSTENCILREFERENCE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -62408,7 +62408,7 @@ debug_printf("Executing vkCmdSetStencilReference\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62483,7 +62483,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBindDescriptorSets( VkCommandBu
 debug_printf("Executing vkCmdBindDescriptorSets\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBINDDESCRIPTORSETS;
+    json["stream_type"]=VKCMDBINDDESCRIPTORSETS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -62530,7 +62530,7 @@ debug_printf("Executing vkCmdBindDescriptorSets\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62626,7 +62626,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBindIndexBuffer( VkCommandBuffe
 debug_printf("Executing vkCmdBindIndexBuffer\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBINDINDEXBUFFER;
+    json["stream_type"]=VKCMDBINDINDEXBUFFER;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -62653,7 +62653,7 @@ debug_printf("Executing vkCmdBindIndexBuffer\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62729,7 +62729,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBindVertexBuffers( VkCommandBuf
 debug_printf("Executing vkCmdBindVertexBuffers\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBINDVERTEXBUFFERS;
+    json["stream_type"]=VKCMDBINDVERTEXBUFFERS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -62773,7 +62773,7 @@ debug_printf("Executing vkCmdBindVertexBuffers\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62850,7 +62850,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDraw( VkCommandBuffer commandBu
 debug_printf("Executing vkCmdDraw\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDRAW;
+    json["stream_type"]=VKCMDDRAW;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -62878,7 +62878,7 @@ debug_printf("Executing vkCmdDraw\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -62971,7 +62971,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawIndexed( VkCommandBuffer co
 debug_printf("Executing vkCmdDrawIndexed\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDRAWINDEXED;
+    json["stream_type"]=VKCMDDRAWINDEXED;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -63000,7 +63000,7 @@ debug_printf("Executing vkCmdDrawIndexed\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -63102,7 +63102,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawMultiEXT( VkCommandBuffer c
 debug_printf("Executing vkCmdDrawMultiEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDRAWMULTIEXT;
+    json["stream_type"]=VKCMDDRAWMULTIEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -63142,7 +63142,7 @@ debug_printf("Executing vkCmdDrawMultiEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -63236,7 +63236,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawMultiIndexedEXT( VkCommandB
 debug_printf("Executing vkCmdDrawMultiIndexedEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDRAWMULTIINDEXEDEXT;
+    json["stream_type"]=VKCMDDRAWMULTIINDEXEDEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -63285,7 +63285,7 @@ debug_printf("Executing vkCmdDrawMultiIndexedEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -63380,7 +63380,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawIndirect( VkCommandBuffer c
 debug_printf("Executing vkCmdDrawIndirect\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDRAWINDIRECT;
+    json["stream_type"]=VKCMDDRAWINDIRECT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -63408,7 +63408,7 @@ debug_printf("Executing vkCmdDrawIndirect\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -63493,7 +63493,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawIndexedIndirect( VkCommandB
 debug_printf("Executing vkCmdDrawIndexedIndirect\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDRAWINDEXEDINDIRECT;
+    json["stream_type"]=VKCMDDRAWINDEXEDINDIRECT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -63521,7 +63521,7 @@ debug_printf("Executing vkCmdDrawIndexedIndirect\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -63606,7 +63606,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDispatch( VkCommandBuffer comma
 debug_printf("Executing vkCmdDispatch\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDISPATCH;
+    json["stream_type"]=VKCMDDISPATCH;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -63633,7 +63633,7 @@ debug_printf("Executing vkCmdDispatch\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -63717,7 +63717,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDispatchIndirect( VkCommandBuff
 debug_printf("Executing vkCmdDispatchIndirect\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDISPATCHINDIRECT;
+    json["stream_type"]=VKCMDDISPATCHINDIRECT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -63743,7 +63743,7 @@ debug_printf("Executing vkCmdDispatchIndirect\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -63810,7 +63810,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSubpassShadingHUAWEI( VkCommand
 debug_printf("Executing vkCmdSubpassShadingHUAWEI\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSUBPASSSHADINGHUAWEI;
+    json["stream_type"]=VKCMDSUBPASSSHADINGHUAWEI;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -63834,7 +63834,7 @@ debug_printf("Executing vkCmdSubpassShadingHUAWEI\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -63891,7 +63891,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawClusterHUAWEI( VkCommandBuf
 debug_printf("Executing vkCmdDrawClusterHUAWEI\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDRAWCLUSTERHUAWEI;
+    json["stream_type"]=VKCMDDRAWCLUSTERHUAWEI;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -63918,7 +63918,7 @@ debug_printf("Executing vkCmdDrawClusterHUAWEI\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -64002,7 +64002,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawClusterIndirectHUAWEI( VkCo
 debug_printf("Executing vkCmdDrawClusterIndirectHUAWEI\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDRAWCLUSTERINDIRECTHUAWEI;
+    json["stream_type"]=VKCMDDRAWCLUSTERINDIRECTHUAWEI;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -64028,7 +64028,7 @@ debug_printf("Executing vkCmdDrawClusterIndirectHUAWEI\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -64095,7 +64095,7 @@ __attribute__((visibility ("hidden"))) void vkCmdUpdatePipelineIndirectBufferNV(
 debug_printf("Executing vkCmdUpdatePipelineIndirectBufferNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDUPDATEPIPELINEINDIRECTBUFFERNV;
+    json["stream_type"]=VKCMDUPDATEPIPELINEINDIRECTBUFFERNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -64121,7 +64121,7 @@ debug_printf("Executing vkCmdUpdatePipelineIndirectBufferNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -64188,7 +64188,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyBuffer( VkCommandBuffer com
 debug_printf("Executing vkCmdCopyBuffer\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYBUFFER;
+    json["stream_type"]=VKCMDCOPYBUFFER;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -64227,7 +64227,7 @@ debug_printf("Executing vkCmdCopyBuffer\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -64296,7 +64296,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyImage( VkCommandBuffer comm
 debug_printf("Executing vkCmdCopyImage\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYIMAGE;
+    json["stream_type"]=VKCMDCOPYIMAGE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -64337,7 +64337,7 @@ debug_printf("Executing vkCmdCopyImage\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -64424,7 +64424,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBlitImage( VkCommandBuffer comm
 debug_printf("Executing vkCmdBlitImage\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBLITIMAGE;
+    json["stream_type"]=VKCMDBLITIMAGE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -64466,7 +64466,7 @@ debug_printf("Executing vkCmdBlitImage\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -64562,7 +64562,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyBufferToImage( VkCommandBuf
 debug_printf("Executing vkCmdCopyBufferToImage\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYBUFFERTOIMAGE;
+    json["stream_type"]=VKCMDCOPYBUFFERTOIMAGE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -64602,7 +64602,7 @@ debug_printf("Executing vkCmdCopyBufferToImage\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -64680,7 +64680,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyImageToBuffer( VkCommandBuf
 debug_printf("Executing vkCmdCopyImageToBuffer\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYIMAGETOBUFFER;
+    json["stream_type"]=VKCMDCOPYIMAGETOBUFFER;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -64720,7 +64720,7 @@ debug_printf("Executing vkCmdCopyImageToBuffer\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -64798,7 +64798,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyMemoryIndirectNV( VkCommand
 debug_printf("Executing vkCmdCopyMemoryIndirectNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYMEMORYINDIRECTNV;
+    json["stream_type"]=VKCMDCOPYMEMORYINDIRECTNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -64825,7 +64825,7 @@ debug_printf("Executing vkCmdCopyMemoryIndirectNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -64909,7 +64909,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyMemoryToImageIndirectNV( Vk
 debug_printf("Executing vkCmdCopyMemoryToImageIndirectNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYMEMORYTOIMAGEINDIRECTNV;
+    json["stream_type"]=VKCMDCOPYMEMORYTOIMAGEINDIRECTNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -64950,7 +64950,7 @@ debug_printf("Executing vkCmdCopyMemoryToImageIndirectNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65045,7 +65045,7 @@ __attribute__((visibility ("hidden"))) void vkCmdUpdateBuffer( VkCommandBuffer c
 debug_printf("Executing vkCmdUpdateBuffer\n");
 
     boost::json::object json;
-    json["type"]=VKCMDUPDATEBUFFER;
+    json["stream_type"]=VKCMDUPDATEBUFFER;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -65084,7 +65084,7 @@ debug_printf("Executing vkCmdUpdateBuffer\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65161,7 +65161,7 @@ __attribute__((visibility ("hidden"))) void vkCmdFillBuffer( VkCommandBuffer com
 debug_printf("Executing vkCmdFillBuffer\n");
 
     boost::json::object json;
-    json["type"]=VKCMDFILLBUFFER;
+    json["stream_type"]=VKCMDFILLBUFFER;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -65189,7 +65189,7 @@ debug_printf("Executing vkCmdFillBuffer\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65274,7 +65274,7 @@ __attribute__((visibility ("hidden"))) void vkCmdClearColorImage( VkCommandBuffe
 debug_printf("Executing vkCmdClearColorImage\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCLEARCOLORIMAGE;
+    json["stream_type"]=VKCMDCLEARCOLORIMAGE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -65325,7 +65325,7 @@ debug_printf("Executing vkCmdClearColorImage\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65403,7 +65403,7 @@ __attribute__((visibility ("hidden"))) void vkCmdClearDepthStencilImage( VkComma
 debug_printf("Executing vkCmdClearDepthStencilImage\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCLEARDEPTHSTENCILIMAGE;
+    json["stream_type"]=VKCMDCLEARDEPTHSTENCILIMAGE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -65454,7 +65454,7 @@ debug_printf("Executing vkCmdClearDepthStencilImage\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65532,7 +65532,7 @@ __attribute__((visibility ("hidden"))) void vkCmdClearAttachments( VkCommandBuff
 debug_printf("Executing vkCmdClearAttachments\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCLEARATTACHMENTS;
+    json["stream_type"]=VKCMDCLEARATTACHMENTS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -65582,7 +65582,7 @@ debug_printf("Executing vkCmdClearAttachments\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65659,7 +65659,7 @@ __attribute__((visibility ("hidden"))) void vkCmdResolveImage( VkCommandBuffer c
 debug_printf("Executing vkCmdResolveImage\n");
 
     boost::json::object json;
-    json["type"]=VKCMDRESOLVEIMAGE;
+    json["stream_type"]=VKCMDRESOLVEIMAGE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -65700,7 +65700,7 @@ debug_printf("Executing vkCmdResolveImage\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65787,7 +65787,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetEvent( VkCommandBuffer comma
 debug_printf("Executing vkCmdSetEvent\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETEVENT;
+    json["stream_type"]=VKCMDSETEVENT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -65813,7 +65813,7 @@ debug_printf("Executing vkCmdSetEvent\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65880,7 +65880,7 @@ __attribute__((visibility ("hidden"))) void vkCmdResetEvent( VkCommandBuffer com
 debug_printf("Executing vkCmdResetEvent\n");
 
     boost::json::object json;
-    json["type"]=VKCMDRESETEVENT;
+    json["stream_type"]=VKCMDRESETEVENT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -65906,7 +65906,7 @@ debug_printf("Executing vkCmdResetEvent\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -65973,7 +65973,7 @@ __attribute__((visibility ("hidden"))) void vkCmdWaitEvents( VkCommandBuffer com
 debug_printf("Executing vkCmdWaitEvents\n");
 
     boost::json::object json;
-    json["type"]=VKCMDWAITEVENTS;
+    json["stream_type"]=VKCMDWAITEVENTS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -66048,7 +66048,7 @@ debug_printf("Executing vkCmdWaitEvents\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -66163,7 +66163,7 @@ __attribute__((visibility ("hidden"))) void vkCmdPipelineBarrier( VkCommandBuffe
 debug_printf("Executing vkCmdPipelineBarrier\n");
 
     boost::json::object json;
-    json["type"]=VKCMDPIPELINEBARRIER;
+    json["stream_type"]=VKCMDPIPELINEBARRIER;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -66229,7 +66229,7 @@ debug_printf("Executing vkCmdPipelineBarrier\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -66343,7 +66343,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginQuery( VkCommandBuffer com
 debug_printf("Executing vkCmdBeginQuery\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBEGINQUERY;
+    json["stream_type"]=VKCMDBEGINQUERY;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -66370,7 +66370,7 @@ debug_printf("Executing vkCmdBeginQuery\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -66446,7 +66446,7 @@ __attribute__((visibility ("hidden"))) void vkCmdEndQuery( VkCommandBuffer comma
 debug_printf("Executing vkCmdEndQuery\n");
 
     boost::json::object json;
-    json["type"]=VKCMDENDQUERY;
+    json["stream_type"]=VKCMDENDQUERY;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -66472,7 +66472,7 @@ debug_printf("Executing vkCmdEndQuery\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -66539,7 +66539,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginConditionalRenderingEXT( V
 debug_printf("Executing vkCmdBeginConditionalRenderingEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBEGINCONDITIONALRENDERINGEXT;
+    json["stream_type"]=VKCMDBEGINCONDITIONALRENDERINGEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -66575,7 +66575,7 @@ debug_printf("Executing vkCmdBeginConditionalRenderingEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -66633,7 +66633,7 @@ __attribute__((visibility ("hidden"))) void vkCmdEndConditionalRenderingEXT( VkC
 debug_printf("Executing vkCmdEndConditionalRenderingEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDENDCONDITIONALRENDERINGEXT;
+    json["stream_type"]=VKCMDENDCONDITIONALRENDERINGEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -66657,7 +66657,7 @@ debug_printf("Executing vkCmdEndConditionalRenderingEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -66714,7 +66714,7 @@ __attribute__((visibility ("hidden"))) void vkCmdResetQueryPool( VkCommandBuffer
 debug_printf("Executing vkCmdResetQueryPool\n");
 
     boost::json::object json;
-    json["type"]=VKCMDRESETQUERYPOOL;
+    json["stream_type"]=VKCMDRESETQUERYPOOL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -66741,7 +66741,7 @@ debug_printf("Executing vkCmdResetQueryPool\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -66817,7 +66817,7 @@ __attribute__((visibility ("hidden"))) void vkCmdWriteTimestamp( VkCommandBuffer
 debug_printf("Executing vkCmdWriteTimestamp\n");
 
     boost::json::object json;
-    json["type"]=VKCMDWRITETIMESTAMP;
+    json["stream_type"]=VKCMDWRITETIMESTAMP;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -66844,7 +66844,7 @@ debug_printf("Executing vkCmdWriteTimestamp\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -66920,7 +66920,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyQueryPoolResults( VkCommand
 debug_printf("Executing vkCmdCopyQueryPoolResults\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYQUERYPOOLRESULTS;
+    json["stream_type"]=VKCMDCOPYQUERYPOOLRESULTS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -66951,7 +66951,7 @@ debug_printf("Executing vkCmdCopyQueryPoolResults\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -67055,7 +67055,7 @@ __attribute__((visibility ("hidden"))) void vkCmdPushConstants( VkCommandBuffer 
 debug_printf("Executing vkCmdPushConstants\n");
 
     boost::json::object json;
-    json["type"]=VKCMDPUSHCONSTANTS;
+    json["stream_type"]=VKCMDPUSHCONSTANTS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -67095,7 +67095,7 @@ debug_printf("Executing vkCmdPushConstants\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -67181,7 +67181,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginRenderPass( VkCommandBuffe
 debug_printf("Executing vkCmdBeginRenderPass\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBEGINRENDERPASS;
+    json["stream_type"]=VKCMDBEGINRENDERPASS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -67218,7 +67218,7 @@ debug_printf("Executing vkCmdBeginRenderPass\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -67285,7 +67285,7 @@ __attribute__((visibility ("hidden"))) void vkCmdNextSubpass( VkCommandBuffer co
 debug_printf("Executing vkCmdNextSubpass\n");
 
     boost::json::object json;
-    json["type"]=VKCMDNEXTSUBPASS;
+    json["stream_type"]=VKCMDNEXTSUBPASS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -67310,7 +67310,7 @@ debug_printf("Executing vkCmdNextSubpass\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -67376,7 +67376,7 @@ __attribute__((visibility ("hidden"))) void vkCmdEndRenderPass( VkCommandBuffer 
 debug_printf("Executing vkCmdEndRenderPass\n");
 
     boost::json::object json;
-    json["type"]=VKCMDENDRENDERPASS;
+    json["stream_type"]=VKCMDENDRENDERPASS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -67400,7 +67400,7 @@ debug_printf("Executing vkCmdEndRenderPass\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -67457,7 +67457,7 @@ __attribute__((visibility ("hidden"))) void vkCmdExecuteCommands( VkCommandBuffe
 debug_printf("Executing vkCmdExecuteCommands\n");
 
     boost::json::object json;
-    json["type"]=VKCMDEXECUTECOMMANDS;
+    json["stream_type"]=VKCMDEXECUTECOMMANDS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -67491,7 +67491,7 @@ debug_printf("Executing vkCmdExecuteCommands\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -67558,7 +67558,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceDisplayProper
 debug_printf("Executing vkGetPhysicalDeviceDisplayPropertiesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEDISPLAYPROPERTIESKHR;
+    json["stream_type"]=VKGETPHYSICALDEVICEDISPLAYPROPERTIESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -67603,7 +67603,7 @@ debug_printf("Executing vkGetPhysicalDeviceDisplayPropertiesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -67701,7 +67701,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceDisplayPlaneP
 debug_printf("Executing vkGetPhysicalDeviceDisplayPlanePropertiesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIESKHR;
+    json["stream_type"]=VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -67746,7 +67746,7 @@ debug_printf("Executing vkGetPhysicalDeviceDisplayPlanePropertiesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -67844,7 +67844,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDisplayPlaneSupportedDispla
 debug_printf("Executing vkGetDisplayPlaneSupportedDisplaysKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETDISPLAYPLANESUPPORTEDDISPLAYSKHR;
+    json["stream_type"]=VKGETDISPLAYPLANESUPPORTEDDISPLAYSKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -67887,7 +67887,7 @@ debug_printf("Executing vkGetDisplayPlaneSupportedDisplaysKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -67991,7 +67991,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDisplayModePropertiesKHR( V
 debug_printf("Executing vkGetDisplayModePropertiesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETDISPLAYMODEPROPERTIESKHR;
+    json["stream_type"]=VKGETDISPLAYMODEPROPERTIESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -68037,7 +68037,7 @@ debug_printf("Executing vkGetDisplayModePropertiesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -68136,7 +68136,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDisplayModeKHR( VkPhysic
 debug_printf("Executing vkCreateDisplayModeKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEDISPLAYMODEKHR;
+    json["stream_type"]=VKCREATEDISPLAYMODEKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -68194,7 +68194,7 @@ debug_printf("Executing vkCreateDisplayModeKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -68282,7 +68282,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDisplayPlaneCapabilitiesKHR
 debug_printf("Executing vkGetDisplayPlaneCapabilitiesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETDISPLAYPLANECAPABILITIESKHR;
+    json["stream_type"]=VKGETDISPLAYPLANECAPABILITIESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -68320,7 +68320,7 @@ debug_printf("Executing vkGetDisplayPlaneCapabilitiesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -68411,7 +68411,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDisplayPlaneSurfaceKHR( 
 debug_printf("Executing vkCreateDisplayPlaneSurfaceKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEDISPLAYPLANESURFACEKHR;
+    json["stream_type"]=VKCREATEDISPLAYPLANESURFACEKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -68468,7 +68468,7 @@ debug_printf("Executing vkCreateDisplayPlaneSurfaceKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -68555,7 +68555,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateSharedSwapchainsKHR( VkD
 debug_printf("Executing vkCreateSharedSwapchainsKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCREATESHAREDSWAPCHAINSKHR;
+    json["stream_type"]=VKCREATESHAREDSWAPCHAINSKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -68613,7 +68613,7 @@ debug_printf("Executing vkCreateSharedSwapchainsKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -68709,7 +68709,7 @@ __attribute__((visibility ("hidden"))) void vkDestroySurfaceKHR( VkInstance inst
 debug_printf("Executing vkDestroySurfaceKHR\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYSURFACEKHR;
+    json["stream_type"]=VKDESTROYSURFACEKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -68746,7 +68746,7 @@ debug_printf("Executing vkDestroySurfaceKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -68805,7 +68805,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceSurfaceSuppor
 debug_printf("Executing vkGetPhysicalDeviceSurfaceSupportKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICESURFACESUPPORTKHR;
+    json["stream_type"]=VKGETPHYSICALDEVICESURFACESUPPORTKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -68840,7 +68840,7 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceSupportKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -68936,7 +68936,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceSurfaceCapabi
 debug_printf("Executing vkGetPhysicalDeviceSurfaceCapabilitiesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICESURFACECAPABILITIESKHR;
+    json["stream_type"]=VKGETPHYSICALDEVICESURFACECAPABILITIESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -68973,7 +68973,7 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceCapabilitiesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -69060,7 +69060,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceSurfaceFormat
 debug_printf("Executing vkGetPhysicalDeviceSurfaceFormatsKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICESURFACEFORMATSKHR;
+    json["stream_type"]=VKGETPHYSICALDEVICESURFACEFORMATSKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -69106,7 +69106,7 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceFormatsKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -69205,7 +69205,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceSurfacePresen
 debug_printf("Executing vkGetPhysicalDeviceSurfacePresentModesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICESURFACEPRESENTMODESKHR;
+    json["stream_type"]=VKGETPHYSICALDEVICESURFACEPRESENTMODESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -69248,7 +69248,7 @@ debug_printf("Executing vkGetPhysicalDeviceSurfacePresentModesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -69352,7 +69352,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateSwapchainKHR( VkDevice d
 debug_printf("Executing vkCreateSwapchainKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCREATESWAPCHAINKHR;
+    json["stream_type"]=VKCREATESWAPCHAINKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -69416,7 +69416,7 @@ debug_printf("Executing vkCreateSwapchainKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -69504,7 +69504,7 @@ __attribute__((visibility ("hidden"))) void vkDestroySwapchainKHR( VkDevice devi
 debug_printf("Executing vkDestroySwapchainKHR\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYSWAPCHAINKHR;
+    json["stream_type"]=VKDESTROYSWAPCHAINKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -69541,7 +69541,7 @@ debug_printf("Executing vkDestroySwapchainKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -69600,7 +69600,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetSwapchainImagesKHR( VkDevic
 debug_printf("Executing vkGetSwapchainImagesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETSWAPCHAINIMAGESKHR;
+    json["stream_type"]=VKGETSWAPCHAINIMAGESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -69643,7 +69643,7 @@ debug_printf("Executing vkGetSwapchainImagesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -69739,7 +69739,7 @@ __attribute__((visibility ("hidden"))) VkResult vkAcquireNextImageKHR( VkDevice 
 debug_printf("Executing vkAcquireNextImageKHR\n");
 
     boost::json::object json;
-    json["type"]=VKACQUIRENEXTIMAGEKHR;
+    json["stream_type"]=VKACQUIRENEXTIMAGEKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -69776,7 +69776,7 @@ debug_printf("Executing vkAcquireNextImageKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -69874,7 +69874,7 @@ __attribute__((visibility ("hidden"))) VkResult vkQueuePresentKHR( VkQueue queue
 debug_printf("Executing vkQueuePresentKHR\n");
 
     boost::json::object json;
-    json["type"]=VKQUEUEPRESENTKHR;
+    json["stream_type"]=VKQUEUEPRESENTKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -69960,7 +69960,7 @@ debug_printf("Executing vkQueuePresentKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70046,7 +70046,7 @@ __attribute__((visibility ("hidden"))) VkBool32 vkGetPhysicalDeviceXlibPresentat
 debug_printf("Executing vkGetPhysicalDeviceXlibPresentationSupportKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEXLIBPRESENTATIONSUPPORTKHR;
+    json["stream_type"]=VKGETPHYSICALDEVICEXLIBPRESENTATIONSUPPORTKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -70076,7 +70076,7 @@ debug_printf("Executing vkGetPhysicalDeviceXlibPresentationSupportKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70174,7 +70174,7 @@ __attribute__((visibility ("hidden"))) VkBool32 vkGetPhysicalDeviceXcbPresentati
 debug_printf("Executing vkGetPhysicalDeviceXcbPresentationSupportKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEXCBPRESENTATIONSUPPORTKHR;
+    json["stream_type"]=VKGETPHYSICALDEVICEXCBPRESENTATIONSUPPORTKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -70204,7 +70204,7 @@ debug_printf("Executing vkGetPhysicalDeviceXcbPresentationSupportKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70286,7 +70286,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDebugReportCallbackEXT( 
 debug_printf("Executing vkCreateDebugReportCallbackEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEDEBUGREPORTCALLBACKEXT;
+    json["stream_type"]=VKCREATEDEBUGREPORTCALLBACKEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -70343,7 +70343,7 @@ debug_printf("Executing vkCreateDebugReportCallbackEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70430,7 +70430,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyDebugReportCallbackEXT( VkI
 debug_printf("Executing vkDestroyDebugReportCallbackEXT\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYDEBUGREPORTCALLBACKEXT;
+    json["stream_type"]=VKDESTROYDEBUGREPORTCALLBACKEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -70467,7 +70467,7 @@ debug_printf("Executing vkDestroyDebugReportCallbackEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70526,7 +70526,7 @@ __attribute__((visibility ("hidden"))) void vkDebugReportMessageEXT( VkInstance 
 debug_printf("Executing vkDebugReportMessageEXT\n");
 
     boost::json::object json;
-    json["type"]=VKDEBUGREPORTMESSAGEEXT;
+    json["stream_type"]=VKDEBUGREPORTMESSAGEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -70573,7 +70573,7 @@ debug_printf("Executing vkDebugReportMessageEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70677,7 +70677,7 @@ __attribute__((visibility ("hidden"))) VkResult vkDebugMarkerSetObjectNameEXT( V
 debug_printf("Executing vkDebugMarkerSetObjectNameEXT\n");
 
     boost::json::object json;
-    json["type"]=VKDEBUGMARKERSETOBJECTNAMEEXT;
+    json["stream_type"]=VKDEBUGMARKERSETOBJECTNAMEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -70713,7 +70713,7 @@ debug_printf("Executing vkDebugMarkerSetObjectNameEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70783,7 +70783,7 @@ __attribute__((visibility ("hidden"))) VkResult vkDebugMarkerSetObjectTagEXT( Vk
 debug_printf("Executing vkDebugMarkerSetObjectTagEXT\n");
 
     boost::json::object json;
-    json["type"]=VKDEBUGMARKERSETOBJECTTAGEXT;
+    json["stream_type"]=VKDEBUGMARKERSETOBJECTTAGEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -70819,7 +70819,7 @@ debug_printf("Executing vkDebugMarkerSetObjectTagEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70889,7 +70889,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDebugMarkerBeginEXT( VkCommandB
 debug_printf("Executing vkCmdDebugMarkerBeginEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDEBUGMARKERBEGINEXT;
+    json["stream_type"]=VKCMDDEBUGMARKERBEGINEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -70925,7 +70925,7 @@ debug_printf("Executing vkCmdDebugMarkerBeginEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -70983,7 +70983,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDebugMarkerEndEXT( VkCommandBuf
 debug_printf("Executing vkCmdDebugMarkerEndEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDEBUGMARKERENDEXT;
+    json["stream_type"]=VKCMDDEBUGMARKERENDEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -71007,7 +71007,7 @@ debug_printf("Executing vkCmdDebugMarkerEndEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -71064,7 +71064,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDebugMarkerInsertEXT( VkCommand
 debug_printf("Executing vkCmdDebugMarkerInsertEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDEBUGMARKERINSERTEXT;
+    json["stream_type"]=VKCMDDEBUGMARKERINSERTEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -71100,7 +71100,7 @@ debug_printf("Executing vkCmdDebugMarkerInsertEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -71158,7 +71158,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceExternalImage
 debug_printf("Executing vkGetPhysicalDeviceExternalImageFormatPropertiesNV\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEEXTERNALIMAGEFORMATPROPERTIESNV;
+    json["stream_type"]=VKGETPHYSICALDEVICEEXTERNALIMAGEFORMATPROPERTIESNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -71200,7 +71200,7 @@ debug_printf("Executing vkGetPhysicalDeviceExternalImageFormatPropertiesNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -71335,7 +71335,7 @@ __attribute__((visibility ("hidden"))) void vkCmdExecuteGeneratedCommandsNV( VkC
 debug_printf("Executing vkCmdExecuteGeneratedCommandsNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDEXECUTEGENERATEDCOMMANDSNV;
+    json["stream_type"]=VKCMDEXECUTEGENERATEDCOMMANDSNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -71372,7 +71372,7 @@ debug_printf("Executing vkCmdExecuteGeneratedCommandsNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -71439,7 +71439,7 @@ __attribute__((visibility ("hidden"))) void vkCmdPreprocessGeneratedCommandsNV( 
 debug_printf("Executing vkCmdPreprocessGeneratedCommandsNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDPREPROCESSGENERATEDCOMMANDSNV;
+    json["stream_type"]=VKCMDPREPROCESSGENERATEDCOMMANDSNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -71475,7 +71475,7 @@ debug_printf("Executing vkCmdPreprocessGeneratedCommandsNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -71533,7 +71533,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBindPipelineShaderGroupNV( VkCo
 debug_printf("Executing vkCmdBindPipelineShaderGroupNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBINDPIPELINESHADERGROUPNV;
+    json["stream_type"]=VKCMDBINDPIPELINESHADERGROUPNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -71560,7 +71560,7 @@ debug_printf("Executing vkCmdBindPipelineShaderGroupNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -71636,7 +71636,7 @@ __attribute__((visibility ("hidden"))) void vkGetGeneratedCommandsMemoryRequirem
 debug_printf("Executing vkGetGeneratedCommandsMemoryRequirementsNV\n");
 
     boost::json::object json;
-    json["type"]=VKGETGENERATEDCOMMANDSMEMORYREQUIREMENTSNV;
+    json["stream_type"]=VKGETGENERATEDCOMMANDSMEMORYREQUIREMENTSNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -71684,7 +71684,7 @@ debug_printf("Executing vkGetGeneratedCommandsMemoryRequirementsNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -71754,7 +71754,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateIndirectCommandsLayoutNV
 debug_printf("Executing vkCreateIndirectCommandsLayoutNV\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEINDIRECTCOMMANDSLAYOUTNV;
+    json["stream_type"]=VKCREATEINDIRECTCOMMANDSLAYOUTNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -71811,7 +71811,7 @@ debug_printf("Executing vkCreateIndirectCommandsLayoutNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -71898,7 +71898,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyIndirectCommandsLayoutNV( V
 debug_printf("Executing vkDestroyIndirectCommandsLayoutNV\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYINDIRECTCOMMANDSLAYOUTNV;
+    json["stream_type"]=VKDESTROYINDIRECTCOMMANDSLAYOUTNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -71935,7 +71935,7 @@ debug_printf("Executing vkDestroyIndirectCommandsLayoutNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -71994,7 +71994,7 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceFeatures2( VkPhys
 debug_printf("Executing vkGetPhysicalDeviceFeatures2\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEFEATURES2;
+    json["stream_type"]=VKGETPHYSICALDEVICEFEATURES2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -72030,7 +72030,7 @@ debug_printf("Executing vkGetPhysicalDeviceFeatures2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -72102,7 +72102,7 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceProperties2( VkPh
 debug_printf("Executing vkGetPhysicalDeviceProperties2\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEPROPERTIES2;
+    json["stream_type"]=VKGETPHYSICALDEVICEPROPERTIES2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -72138,7 +72138,7 @@ debug_printf("Executing vkGetPhysicalDeviceProperties2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -72210,7 +72210,7 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceFormatProperties2
 debug_printf("Executing vkGetPhysicalDeviceFormatProperties2\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEFORMATPROPERTIES2;
+    json["stream_type"]=VKGETPHYSICALDEVICEFORMATPROPERTIES2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -72247,7 +72247,7 @@ debug_printf("Executing vkGetPhysicalDeviceFormatProperties2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -72328,7 +72328,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceImageFormatPr
 debug_printf("Executing vkGetPhysicalDeviceImageFormatProperties2\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES2;
+    json["stream_type"]=VKGETPHYSICALDEVICEIMAGEFORMATPROPERTIES2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -72376,7 +72376,7 @@ debug_printf("Executing vkGetPhysicalDeviceImageFormatProperties2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -72461,7 +72461,7 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceQueueFamilyProper
 debug_printf("Executing vkGetPhysicalDeviceQueueFamilyProperties2\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES2;
+    json["stream_type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPROPERTIES2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -72506,7 +72506,7 @@ debug_printf("Executing vkGetPhysicalDeviceQueueFamilyProperties2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -72595,7 +72595,7 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceMemoryProperties2
 debug_printf("Executing vkGetPhysicalDeviceMemoryProperties2\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEMEMORYPROPERTIES2;
+    json["stream_type"]=VKGETPHYSICALDEVICEMEMORYPROPERTIES2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -72631,7 +72631,7 @@ debug_printf("Executing vkGetPhysicalDeviceMemoryProperties2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -72703,7 +72703,7 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceSparseImageFormat
 debug_printf("Executing vkGetPhysicalDeviceSparseImageFormatProperties2\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES2;
+    json["stream_type"]=VKGETPHYSICALDEVICESPARSEIMAGEFORMATPROPERTIES2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -72760,7 +72760,7 @@ debug_printf("Executing vkGetPhysicalDeviceSparseImageFormatProperties2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -72850,7 +72850,7 @@ __attribute__((visibility ("hidden"))) void vkCmdPushDescriptorSetKHR( VkCommand
 debug_printf("Executing vkCmdPushDescriptorSetKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDPUSHDESCRIPTORSETKHR;
+    json["stream_type"]=VKCMDPUSHDESCRIPTORSETKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -72890,7 +72890,7 @@ debug_printf("Executing vkCmdPushDescriptorSetKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -72976,7 +72976,7 @@ __attribute__((visibility ("hidden"))) void vkTrimCommandPool( VkDevice device, 
 debug_printf("Executing vkTrimCommandPool\n");
 
     boost::json::object json;
-    json["type"]=VKTRIMCOMMANDPOOL;
+    json["stream_type"]=VKTRIMCOMMANDPOOL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -73002,7 +73002,7 @@ debug_printf("Executing vkTrimCommandPool\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -73072,7 +73072,7 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceExternalBufferPro
 debug_printf("Executing vkGetPhysicalDeviceExternalBufferProperties\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEEXTERNALBUFFERPROPERTIES;
+    json["stream_type"]=VKGETPHYSICALDEVICEEXTERNALBUFFERPROPERTIES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -73120,7 +73120,7 @@ debug_printf("Executing vkGetPhysicalDeviceExternalBufferProperties\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -73193,7 +73193,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetMemoryFdKHR( VkDevice devic
 debug_printf("Executing vkGetMemoryFdKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETMEMORYFDKHR;
+    json["stream_type"]=VKGETMEMORYFDKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -73238,7 +73238,7 @@ debug_printf("Executing vkGetMemoryFdKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -73325,7 +73325,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetMemoryFdPropertiesKHR( VkDe
 debug_printf("Executing vkGetMemoryFdPropertiesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETMEMORYFDPROPERTIESKHR;
+    json["stream_type"]=VKGETMEMORYFDPROPERTIESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -73363,7 +73363,7 @@ debug_printf("Executing vkGetMemoryFdPropertiesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -73462,7 +73462,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetMemoryRemoteAddressNV( VkDe
 debug_printf("Executing vkGetMemoryRemoteAddressNV\n");
 
     boost::json::object json;
-    json["type"]=VKGETMEMORYREMOTEADDRESSNV;
+    json["stream_type"]=VKGETMEMORYREMOTEADDRESSNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -73518,7 +73518,7 @@ debug_printf("Executing vkGetMemoryRemoteAddressNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -73593,7 +73593,7 @@ debug_printf("Executing vkGetMemoryRemoteAddressNV\n");
             }
             }();
         }
-        }();temp_LTIxmQF=(void*)(temp_KKuuYCW);}();pAddress[LIvckbR]=(VkRemoteAddressNV)temp_LTIxmQF;}();
+        }();temp_LTIxmQF=temp_KKuuYCW;}();pAddress[LIvckbR]=(VkRemoteAddressNV)temp_LTIxmQF;}();
         }
         }();
 VkResult result;
@@ -73616,7 +73616,7 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceExternalSemaphore
 debug_printf("Executing vkGetPhysicalDeviceExternalSemaphoreProperties\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEEXTERNALSEMAPHOREPROPERTIES;
+    json["stream_type"]=VKGETPHYSICALDEVICEEXTERNALSEMAPHOREPROPERTIES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -73664,7 +73664,7 @@ debug_printf("Executing vkGetPhysicalDeviceExternalSemaphoreProperties\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -73737,7 +73737,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetSemaphoreFdKHR( VkDevice de
 debug_printf("Executing vkGetSemaphoreFdKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETSEMAPHOREFDKHR;
+    json["stream_type"]=VKGETSEMAPHOREFDKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -73782,7 +73782,7 @@ debug_printf("Executing vkGetSemaphoreFdKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -73869,7 +73869,7 @@ __attribute__((visibility ("hidden"))) VkResult vkImportSemaphoreFdKHR( VkDevice
 debug_printf("Executing vkImportSemaphoreFdKHR\n");
 
     boost::json::object json;
-    json["type"]=VKIMPORTSEMAPHOREFDKHR;
+    json["stream_type"]=VKIMPORTSEMAPHOREFDKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -73905,7 +73905,7 @@ debug_printf("Executing vkImportSemaphoreFdKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -73975,7 +73975,7 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceExternalFenceProp
 debug_printf("Executing vkGetPhysicalDeviceExternalFenceProperties\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEEXTERNALFENCEPROPERTIES;
+    json["stream_type"]=VKGETPHYSICALDEVICEEXTERNALFENCEPROPERTIES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -74023,7 +74023,7 @@ debug_printf("Executing vkGetPhysicalDeviceExternalFenceProperties\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -74096,7 +74096,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetFenceFdKHR( VkDevice device
 debug_printf("Executing vkGetFenceFdKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETFENCEFDKHR;
+    json["stream_type"]=VKGETFENCEFDKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -74141,7 +74141,7 @@ debug_printf("Executing vkGetFenceFdKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -74228,7 +74228,7 @@ __attribute__((visibility ("hidden"))) VkResult vkImportFenceFdKHR( VkDevice dev
 debug_printf("Executing vkImportFenceFdKHR\n");
 
     boost::json::object json;
-    json["type"]=VKIMPORTFENCEFDKHR;
+    json["stream_type"]=VKIMPORTFENCEFDKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -74264,7 +74264,7 @@ debug_printf("Executing vkImportFenceFdKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -74334,7 +74334,7 @@ __attribute__((visibility ("hidden"))) VkResult vkReleaseDisplayEXT( VkPhysicalD
 debug_printf("Executing vkReleaseDisplayEXT\n");
 
     boost::json::object json;
-    json["type"]=VKRELEASEDISPLAYEXT;
+    json["stream_type"]=VKRELEASEDISPLAYEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -74359,7 +74359,7 @@ debug_printf("Executing vkReleaseDisplayEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -74429,7 +74429,7 @@ __attribute__((visibility ("hidden"))) VkResult vkDisplayPowerControlEXT( VkDevi
 debug_printf("Executing vkDisplayPowerControlEXT\n");
 
     boost::json::object json;
-    json["type"]=VKDISPLAYPOWERCONTROLEXT;
+    json["stream_type"]=VKDISPLAYPOWERCONTROLEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -74466,7 +74466,7 @@ debug_printf("Executing vkDisplayPowerControlEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -74537,7 +74537,7 @@ __attribute__((visibility ("hidden"))) VkResult vkRegisterDeviceEventEXT( VkDevi
 debug_printf("Executing vkRegisterDeviceEventEXT\n");
 
     boost::json::object json;
-    json["type"]=VKREGISTERDEVICEEVENTEXT;
+    json["stream_type"]=VKREGISTERDEVICEEVENTEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -74594,7 +74594,7 @@ debug_printf("Executing vkRegisterDeviceEventEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -74674,7 +74674,7 @@ __attribute__((visibility ("hidden"))) VkResult vkRegisterDisplayEventEXT( VkDev
 debug_printf("Executing vkRegisterDisplayEventEXT\n");
 
     boost::json::object json;
-    json["type"]=VKREGISTERDISPLAYEVENTEXT;
+    json["stream_type"]=VKREGISTERDISPLAYEVENTEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -74732,7 +74732,7 @@ debug_printf("Executing vkRegisterDisplayEventEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -74813,7 +74813,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetSwapchainCounterEXT( VkDevi
 debug_printf("Executing vkGetSwapchainCounterEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETSWAPCHAINCOUNTEREXT;
+    json["stream_type"]=VKGETSWAPCHAINCOUNTEREXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -74848,7 +74848,7 @@ debug_printf("Executing vkGetSwapchainCounterEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -74944,7 +74944,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceSurfaceCapabi
 debug_printf("Executing vkGetPhysicalDeviceSurfaceCapabilities2EXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICESURFACECAPABILITIES2EXT;
+    json["stream_type"]=VKGETPHYSICALDEVICESURFACECAPABILITIES2EXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -74981,7 +74981,7 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceCapabilities2EXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -75063,7 +75063,7 @@ __attribute__((visibility ("hidden"))) VkResult vkEnumeratePhysicalDeviceGroups(
 debug_printf("Executing vkEnumeratePhysicalDeviceGroups\n");
 
     boost::json::object json;
-    json["type"]=VKENUMERATEPHYSICALDEVICEGROUPS;
+    json["stream_type"]=VKENUMERATEPHYSICALDEVICEGROUPS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -75108,7 +75108,7 @@ debug_printf("Executing vkEnumeratePhysicalDeviceGroups\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -75209,7 +75209,7 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceGroupPeerMemoryFeatures( 
 debug_printf("Executing vkGetDeviceGroupPeerMemoryFeatures\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEVICEGROUPPEERMEMORYFEATURES;
+    json["stream_type"]=VKGETDEVICEGROUPPEERMEMORYFEATURES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -75245,7 +75245,7 @@ debug_printf("Executing vkGetDeviceGroupPeerMemoryFeatures\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -75349,7 +75349,7 @@ __attribute__((visibility ("hidden"))) VkResult vkBindBufferMemory2( VkDevice de
 debug_printf("Executing vkBindBufferMemory2\n");
 
     boost::json::object json;
-    json["type"]=VKBINDBUFFERMEMORY2;
+    json["stream_type"]=VKBINDBUFFERMEMORY2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -75386,7 +75386,7 @@ debug_printf("Executing vkBindBufferMemory2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -75468,7 +75468,7 @@ __attribute__((visibility ("hidden"))) VkResult vkBindImageMemory2( VkDevice dev
 debug_printf("Executing vkBindImageMemory2\n");
 
     boost::json::object json;
-    json["type"]=VKBINDIMAGEMEMORY2;
+    json["stream_type"]=VKBINDIMAGEMEMORY2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -75505,7 +75505,7 @@ debug_printf("Executing vkBindImageMemory2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -75587,7 +75587,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDeviceMask( VkCommandBuffer 
 debug_printf("Executing vkCmdSetDeviceMask\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETDEVICEMASK;
+    json["stream_type"]=VKCMDSETDEVICEMASK;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -75612,7 +75612,7 @@ debug_printf("Executing vkCmdSetDeviceMask\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -75681,7 +75681,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDeviceGroupPresentCapabilit
 debug_printf("Executing vkGetDeviceGroupPresentCapabilitiesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEVICEGROUPPRESENTCAPABILITIESKHR;
+    json["stream_type"]=VKGETDEVICEGROUPPRESENTCAPABILITIESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -75717,7 +75717,7 @@ debug_printf("Executing vkGetDeviceGroupPresentCapabilitiesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -75798,7 +75798,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDeviceGroupSurfacePresentMo
 debug_printf("Executing vkGetDeviceGroupSurfacePresentModesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEVICEGROUPSURFACEPRESENTMODESKHR;
+    json["stream_type"]=VKGETDEVICEGROUPSURFACEPRESENTMODESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -75832,7 +75832,7 @@ debug_printf("Executing vkGetDeviceGroupSurfacePresentModesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -75919,7 +75919,7 @@ __attribute__((visibility ("hidden"))) VkResult vkAcquireNextImage2KHR( VkDevice
 debug_printf("Executing vkAcquireNextImage2KHR\n");
 
     boost::json::object json;
-    json["type"]=VKACQUIRENEXTIMAGE2KHR;
+    json["stream_type"]=VKACQUIRENEXTIMAGE2KHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -75964,7 +75964,7 @@ debug_printf("Executing vkAcquireNextImage2KHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -76051,7 +76051,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDispatchBase( VkCommandBuffer c
 debug_printf("Executing vkCmdDispatchBase\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDISPATCHBASE;
+    json["stream_type"]=VKCMDDISPATCHBASE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -76081,7 +76081,7 @@ debug_printf("Executing vkCmdDispatchBase\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -76195,7 +76195,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDevicePresentRectan
 debug_printf("Executing vkGetPhysicalDevicePresentRectanglesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEPRESENTRECTANGLESKHR;
+    json["stream_type"]=VKGETPHYSICALDEVICEPRESENTRECTANGLESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -76241,7 +76241,7 @@ debug_printf("Executing vkGetPhysicalDevicePresentRectanglesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -76340,7 +76340,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDescriptorUpdateTemplate
 debug_printf("Executing vkCreateDescriptorUpdateTemplate\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEDESCRIPTORUPDATETEMPLATE;
+    json["stream_type"]=VKCREATEDESCRIPTORUPDATETEMPLATE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -76397,7 +76397,7 @@ debug_printf("Executing vkCreateDescriptorUpdateTemplate\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -76487,7 +76487,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyDescriptorUpdateTemplate( V
 debug_printf("Executing vkDestroyDescriptorUpdateTemplate\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYDESCRIPTORUPDATETEMPLATE;
+    json["stream_type"]=VKDESTROYDESCRIPTORUPDATETEMPLATE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -76524,7 +76524,7 @@ debug_printf("Executing vkDestroyDescriptorUpdateTemplate\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -76586,7 +76586,7 @@ __attribute__((visibility ("hidden"))) void vkUpdateDescriptorSetWithTemplate( V
 debug_printf("Executing vkUpdateDescriptorSetWithTemplate\n");
 
     boost::json::object json;
-    json["type"]=VKUPDATEDESCRIPTORSETWITHTEMPLATE;
+    json["stream_type"]=VKUPDATEDESCRIPTORSETWITHTEMPLATE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -76624,7 +76624,7 @@ debug_printf("Executing vkUpdateDescriptorSetWithTemplate\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -76687,7 +76687,7 @@ __attribute__((visibility ("hidden"))) void vkCmdPushDescriptorSetWithTemplateKH
 debug_printf("Executing vkCmdPushDescriptorSetWithTemplateKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDPUSHDESCRIPTORSETWITHTEMPLATEKHR;
+    json["stream_type"]=VKCMDPUSHDESCRIPTORSETWITHTEMPLATEKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -76726,7 +76726,7 @@ debug_printf("Executing vkCmdPushDescriptorSetWithTemplateKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -76795,7 +76795,7 @@ __attribute__((visibility ("hidden"))) void vkSetHdrMetadataEXT( VkDevice device
 debug_printf("Executing vkSetHdrMetadataEXT\n");
 
     boost::json::object json;
-    json["type"]=VKSETHDRMETADATAEXT;
+    json["stream_type"]=VKSETHDRMETADATAEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -76841,7 +76841,7 @@ debug_printf("Executing vkSetHdrMetadataEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -76909,7 +76909,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetSwapchainStatusKHR( VkDevic
 debug_printf("Executing vkGetSwapchainStatusKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETSWAPCHAINSTATUSKHR;
+    json["stream_type"]=VKGETSWAPCHAINSTATUSKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -76934,7 +76934,7 @@ debug_printf("Executing vkGetSwapchainStatusKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -77004,7 +77004,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetRefreshCycleDurationGOOGLE(
 debug_printf("Executing vkGetRefreshCycleDurationGOOGLE\n");
 
     boost::json::object json;
-    json["type"]=VKGETREFRESHCYCLEDURATIONGOOGLE;
+    json["stream_type"]=VKGETREFRESHCYCLEDURATIONGOOGLE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -77041,7 +77041,7 @@ debug_printf("Executing vkGetRefreshCycleDurationGOOGLE\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -77123,7 +77123,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPastPresentationTimingGOOGL
 debug_printf("Executing vkGetPastPresentationTimingGOOGLE\n");
 
     boost::json::object json;
-    json["type"]=VKGETPASTPRESENTATIONTIMINGGOOGLE;
+    json["stream_type"]=VKGETPASTPRESENTATIONTIMINGGOOGLE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -77169,7 +77169,7 @@ debug_printf("Executing vkGetPastPresentationTimingGOOGLE\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -77268,7 +77268,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetViewportWScalingNV( VkComman
 debug_printf("Executing vkCmdSetViewportWScalingNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETVIEWPORTWSCALINGNV;
+    json["stream_type"]=VKCMDSETVIEWPORTWSCALINGNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -77306,7 +77306,7 @@ debug_printf("Executing vkCmdSetViewportWScalingNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -77382,7 +77382,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDiscardRectangleEXT( VkComma
 debug_printf("Executing vkCmdSetDiscardRectangleEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETDISCARDRECTANGLEEXT;
+    json["stream_type"]=VKCMDSETDISCARDRECTANGLEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -77420,7 +77420,7 @@ debug_printf("Executing vkCmdSetDiscardRectangleEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -77496,7 +77496,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDiscardRectangleEnableEXT( V
 debug_printf("Executing vkCmdSetDiscardRectangleEnableEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETDISCARDRECTANGLEENABLEEXT;
+    json["stream_type"]=VKCMDSETDISCARDRECTANGLEENABLEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -77521,7 +77521,7 @@ debug_printf("Executing vkCmdSetDiscardRectangleEnableEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -77587,7 +77587,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDiscardRectangleModeEXT( VkC
 debug_printf("Executing vkCmdSetDiscardRectangleModeEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETDISCARDRECTANGLEMODEEXT;
+    json["stream_type"]=VKCMDSETDISCARDRECTANGLEMODEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -77612,7 +77612,7 @@ debug_printf("Executing vkCmdSetDiscardRectangleModeEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -77678,7 +77678,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetSampleLocationsEXT( VkComman
 debug_printf("Executing vkCmdSetSampleLocationsEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETSAMPLELOCATIONSEXT;
+    json["stream_type"]=VKCMDSETSAMPLELOCATIONSEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -77714,7 +77714,7 @@ debug_printf("Executing vkCmdSetSampleLocationsEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -77772,7 +77772,7 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceMultisampleProper
 debug_printf("Executing vkGetPhysicalDeviceMultisamplePropertiesEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEMULTISAMPLEPROPERTIESEXT;
+    json["stream_type"]=VKGETPHYSICALDEVICEMULTISAMPLEPROPERTIESEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -77809,7 +77809,7 @@ debug_printf("Executing vkGetPhysicalDeviceMultisamplePropertiesEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -77887,7 +77887,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceSurfaceCapabi
 debug_printf("Executing vkGetPhysicalDeviceSurfaceCapabilities2KHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICESURFACECAPABILITIES2KHR;
+    json["stream_type"]=VKGETPHYSICALDEVICESURFACECAPABILITIES2KHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -77935,7 +77935,7 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceCapabilities2KHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -78017,7 +78017,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceSurfaceFormat
 debug_printf("Executing vkGetPhysicalDeviceSurfaceFormats2KHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICESURFACEFORMATS2KHR;
+    json["stream_type"]=VKGETPHYSICALDEVICESURFACEFORMATS2KHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -78074,7 +78074,7 @@ debug_printf("Executing vkGetPhysicalDeviceSurfaceFormats2KHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -78173,7 +78173,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceDisplayProper
 debug_printf("Executing vkGetPhysicalDeviceDisplayProperties2KHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEDISPLAYPROPERTIES2KHR;
+    json["stream_type"]=VKGETPHYSICALDEVICEDISPLAYPROPERTIES2KHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -78218,7 +78218,7 @@ debug_printf("Executing vkGetPhysicalDeviceDisplayProperties2KHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -78316,7 +78316,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceDisplayPlaneP
 debug_printf("Executing vkGetPhysicalDeviceDisplayPlaneProperties2KHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIES2KHR;
+    json["stream_type"]=VKGETPHYSICALDEVICEDISPLAYPLANEPROPERTIES2KHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -78361,7 +78361,7 @@ debug_printf("Executing vkGetPhysicalDeviceDisplayPlaneProperties2KHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -78459,7 +78459,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDisplayModeProperties2KHR( 
 debug_printf("Executing vkGetDisplayModeProperties2KHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETDISPLAYMODEPROPERTIES2KHR;
+    json["stream_type"]=VKGETDISPLAYMODEPROPERTIES2KHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -78505,7 +78505,7 @@ debug_printf("Executing vkGetDisplayModeProperties2KHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -78604,7 +78604,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDisplayPlaneCapabilities2KH
 debug_printf("Executing vkGetDisplayPlaneCapabilities2KHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETDISPLAYPLANECAPABILITIES2KHR;
+    json["stream_type"]=VKGETDISPLAYPLANECAPABILITIES2KHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -78652,7 +78652,7 @@ debug_printf("Executing vkGetDisplayPlaneCapabilities2KHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -78734,7 +78734,7 @@ __attribute__((visibility ("hidden"))) void vkGetBufferMemoryRequirements2( VkDe
 debug_printf("Executing vkGetBufferMemoryRequirements2\n");
 
     boost::json::object json;
-    json["type"]=VKGETBUFFERMEMORYREQUIREMENTS2;
+    json["stream_type"]=VKGETBUFFERMEMORYREQUIREMENTS2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -78782,7 +78782,7 @@ debug_printf("Executing vkGetBufferMemoryRequirements2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -78855,7 +78855,7 @@ __attribute__((visibility ("hidden"))) void vkGetImageMemoryRequirements2( VkDev
 debug_printf("Executing vkGetImageMemoryRequirements2\n");
 
     boost::json::object json;
-    json["type"]=VKGETIMAGEMEMORYREQUIREMENTS2;
+    json["stream_type"]=VKGETIMAGEMEMORYREQUIREMENTS2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -78903,7 +78903,7 @@ debug_printf("Executing vkGetImageMemoryRequirements2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -78976,7 +78976,7 @@ __attribute__((visibility ("hidden"))) void vkGetImageSparseMemoryRequirements2(
 debug_printf("Executing vkGetImageSparseMemoryRequirements2\n");
 
     boost::json::object json;
-    json["type"]=VKGETIMAGESPARSEMEMORYREQUIREMENTS2;
+    json["stream_type"]=VKGETIMAGESPARSEMEMORYREQUIREMENTS2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -79033,7 +79033,7 @@ debug_printf("Executing vkGetImageSparseMemoryRequirements2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -79123,7 +79123,7 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceBufferMemoryRequirements(
 debug_printf("Executing vkGetDeviceBufferMemoryRequirements\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEVICEBUFFERMEMORYREQUIREMENTS;
+    json["stream_type"]=VKGETDEVICEBUFFERMEMORYREQUIREMENTS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -79171,7 +79171,7 @@ debug_printf("Executing vkGetDeviceBufferMemoryRequirements\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -79244,7 +79244,7 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceImageMemoryRequirements( 
 debug_printf("Executing vkGetDeviceImageMemoryRequirements\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEVICEIMAGEMEMORYREQUIREMENTS;
+    json["stream_type"]=VKGETDEVICEIMAGEMEMORYREQUIREMENTS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -79292,7 +79292,7 @@ debug_printf("Executing vkGetDeviceImageMemoryRequirements\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -79365,7 +79365,7 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceImageSparseMemoryRequirem
 debug_printf("Executing vkGetDeviceImageSparseMemoryRequirements\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEVICEIMAGESPARSEMEMORYREQUIREMENTS;
+    json["stream_type"]=VKGETDEVICEIMAGESPARSEMEMORYREQUIREMENTS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -79422,7 +79422,7 @@ debug_printf("Executing vkGetDeviceImageSparseMemoryRequirements\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -79512,7 +79512,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateSamplerYcbcrConversion( 
 debug_printf("Executing vkCreateSamplerYcbcrConversion\n");
 
     boost::json::object json;
-    json["type"]=VKCREATESAMPLERYCBCRCONVERSION;
+    json["stream_type"]=VKCREATESAMPLERYCBCRCONVERSION;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -79569,7 +79569,7 @@ debug_printf("Executing vkCreateSamplerYcbcrConversion\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -79659,7 +79659,7 @@ __attribute__((visibility ("hidden"))) void vkDestroySamplerYcbcrConversion( VkD
 debug_printf("Executing vkDestroySamplerYcbcrConversion\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYSAMPLERYCBCRCONVERSION;
+    json["stream_type"]=VKDESTROYSAMPLERYCBCRCONVERSION;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -79696,7 +79696,7 @@ debug_printf("Executing vkDestroySamplerYcbcrConversion\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -79758,7 +79758,7 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceQueue2( VkDevice device, 
 debug_printf("Executing vkGetDeviceQueue2\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEVICEQUEUE2;
+    json["stream_type"]=VKGETDEVICEQUEUE2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -79803,7 +79803,7 @@ debug_printf("Executing vkGetDeviceQueue2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -79870,7 +79870,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateValidationCacheEXT( VkDe
 debug_printf("Executing vkCreateValidationCacheEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEVALIDATIONCACHEEXT;
+    json["stream_type"]=VKCREATEVALIDATIONCACHEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -79927,7 +79927,7 @@ debug_printf("Executing vkCreateValidationCacheEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -80014,7 +80014,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyValidationCacheEXT( VkDevic
 debug_printf("Executing vkDestroyValidationCacheEXT\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYVALIDATIONCACHEEXT;
+    json["stream_type"]=VKDESTROYVALIDATIONCACHEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -80051,7 +80051,7 @@ debug_printf("Executing vkDestroyValidationCacheEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -80110,7 +80110,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetValidationCacheDataEXT( VkD
 debug_printf("Executing vkGetValidationCacheDataEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETVALIDATIONCACHEDATAEXT;
+    json["stream_type"]=VKGETVALIDATIONCACHEDATAEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -80156,7 +80156,7 @@ debug_printf("Executing vkGetValidationCacheDataEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -80242,7 +80242,7 @@ debug_printf("Executing vkGetValidationCacheDataEXT\n");
             }
             }();
         }
-        }();pData=(void*)(temp_ZtBEjVJ);}();
+        }();pData=temp_ZtBEjVJ;}();
 VkResult result;
 [&](){[&](){int temp_qUleAuZ;[&](){
             if (json["result"].is_uint64()){
@@ -80263,7 +80263,7 @@ __attribute__((visibility ("hidden"))) VkResult vkMergeValidationCachesEXT( VkDe
 debug_printf("Executing vkMergeValidationCachesEXT\n");
 
     boost::json::object json;
-    json["type"]=VKMERGEVALIDATIONCACHESEXT;
+    json["stream_type"]=VKMERGEVALIDATIONCACHESEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -80298,7 +80298,7 @@ debug_printf("Executing vkMergeValidationCachesEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -80378,7 +80378,7 @@ __attribute__((visibility ("hidden"))) void vkGetDescriptorSetLayoutSupport( VkD
 debug_printf("Executing vkGetDescriptorSetLayoutSupport\n");
 
     boost::json::object json;
-    json["type"]=VKGETDESCRIPTORSETLAYOUTSUPPORT;
+    json["stream_type"]=VKGETDESCRIPTORSETLAYOUTSUPPORT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -80426,7 +80426,7 @@ debug_printf("Executing vkGetDescriptorSetLayoutSupport\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -80499,7 +80499,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetShaderInfoAMD( VkDevice dev
 debug_printf("Executing vkGetShaderInfoAMD\n");
 
     boost::json::object json;
-    json["type"]=VKGETSHADERINFOAMD;
+    json["stream_type"]=VKGETSHADERINFOAMD;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -80547,7 +80547,7 @@ debug_printf("Executing vkGetShaderInfoAMD\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -80651,7 +80651,7 @@ debug_printf("Executing vkGetShaderInfoAMD\n");
             }
             }();
         }
-        }();pInfo=(void*)(temp_ziBtDwK);}();
+        }();pInfo=temp_ziBtDwK;}();
 VkResult result;
 [&](){[&](){int temp_SeHBHly;[&](){
             if (json["result"].is_uint64()){
@@ -80672,7 +80672,7 @@ __attribute__((visibility ("hidden"))) void vkSetLocalDimmingAMD( VkDevice devic
 debug_printf("Executing vkSetLocalDimmingAMD\n");
 
     boost::json::object json;
-    json["type"]=VKSETLOCALDIMMINGAMD;
+    json["stream_type"]=VKSETLOCALDIMMINGAMD;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -80698,7 +80698,7 @@ debug_printf("Executing vkSetLocalDimmingAMD\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -80765,7 +80765,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceCalibrateable
 debug_printf("Executing vkGetPhysicalDeviceCalibrateableTimeDomainsEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICECALIBRATEABLETIMEDOMAINSEXT;
+    json["stream_type"]=VKGETPHYSICALDEVICECALIBRATEABLETIMEDOMAINSEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -80807,7 +80807,7 @@ debug_printf("Executing vkGetPhysicalDeviceCalibrateableTimeDomainsEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -80910,7 +80910,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetCalibratedTimestampsEXT( Vk
 debug_printf("Executing vkGetCalibratedTimestampsEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETCALIBRATEDTIMESTAMPSEXT;
+    json["stream_type"]=VKGETCALIBRATEDTIMESTAMPSEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -80965,7 +80965,7 @@ debug_printf("Executing vkGetCalibratedTimestampsEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81078,7 +81078,7 @@ __attribute__((visibility ("hidden"))) VkResult vkSetDebugUtilsObjectNameEXT( Vk
 debug_printf("Executing vkSetDebugUtilsObjectNameEXT\n");
 
     boost::json::object json;
-    json["type"]=VKSETDEBUGUTILSOBJECTNAMEEXT;
+    json["stream_type"]=VKSETDEBUGUTILSOBJECTNAMEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -81114,7 +81114,7 @@ debug_printf("Executing vkSetDebugUtilsObjectNameEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81184,7 +81184,7 @@ __attribute__((visibility ("hidden"))) VkResult vkSetDebugUtilsObjectTagEXT( VkD
 debug_printf("Executing vkSetDebugUtilsObjectTagEXT\n");
 
     boost::json::object json;
-    json["type"]=VKSETDEBUGUTILSOBJECTTAGEXT;
+    json["stream_type"]=VKSETDEBUGUTILSOBJECTTAGEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -81220,7 +81220,7 @@ debug_printf("Executing vkSetDebugUtilsObjectTagEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81290,7 +81290,7 @@ __attribute__((visibility ("hidden"))) void vkQueueBeginDebugUtilsLabelEXT( VkQu
 debug_printf("Executing vkQueueBeginDebugUtilsLabelEXT\n");
 
     boost::json::object json;
-    json["type"]=VKQUEUEBEGINDEBUGUTILSLABELEXT;
+    json["stream_type"]=VKQUEUEBEGINDEBUGUTILSLABELEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -81326,7 +81326,7 @@ debug_printf("Executing vkQueueBeginDebugUtilsLabelEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81384,7 +81384,7 @@ __attribute__((visibility ("hidden"))) void vkQueueEndDebugUtilsLabelEXT( VkQueu
 debug_printf("Executing vkQueueEndDebugUtilsLabelEXT\n");
 
     boost::json::object json;
-    json["type"]=VKQUEUEENDDEBUGUTILSLABELEXT;
+    json["stream_type"]=VKQUEUEENDDEBUGUTILSLABELEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -81408,7 +81408,7 @@ debug_printf("Executing vkQueueEndDebugUtilsLabelEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81465,7 +81465,7 @@ __attribute__((visibility ("hidden"))) void vkQueueInsertDebugUtilsLabelEXT( VkQ
 debug_printf("Executing vkQueueInsertDebugUtilsLabelEXT\n");
 
     boost::json::object json;
-    json["type"]=VKQUEUEINSERTDEBUGUTILSLABELEXT;
+    json["stream_type"]=VKQUEUEINSERTDEBUGUTILSLABELEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -81501,7 +81501,7 @@ debug_printf("Executing vkQueueInsertDebugUtilsLabelEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81559,7 +81559,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginDebugUtilsLabelEXT( VkComm
 debug_printf("Executing vkCmdBeginDebugUtilsLabelEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBEGINDEBUGUTILSLABELEXT;
+    json["stream_type"]=VKCMDBEGINDEBUGUTILSLABELEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -81595,7 +81595,7 @@ debug_printf("Executing vkCmdBeginDebugUtilsLabelEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81653,7 +81653,7 @@ __attribute__((visibility ("hidden"))) void vkCmdEndDebugUtilsLabelEXT( VkComman
 debug_printf("Executing vkCmdEndDebugUtilsLabelEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDENDDEBUGUTILSLABELEXT;
+    json["stream_type"]=VKCMDENDDEBUGUTILSLABELEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -81677,7 +81677,7 @@ debug_printf("Executing vkCmdEndDebugUtilsLabelEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81734,7 +81734,7 @@ __attribute__((visibility ("hidden"))) void vkCmdInsertDebugUtilsLabelEXT( VkCom
 debug_printf("Executing vkCmdInsertDebugUtilsLabelEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDINSERTDEBUGUTILSLABELEXT;
+    json["stream_type"]=VKCMDINSERTDEBUGUTILSLABELEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -81770,7 +81770,7 @@ debug_printf("Executing vkCmdInsertDebugUtilsLabelEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81828,7 +81828,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDebugUtilsMessengerEXT( 
 debug_printf("Executing vkCreateDebugUtilsMessengerEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEDEBUGUTILSMESSENGEREXT;
+    json["stream_type"]=VKCREATEDEBUGUTILSMESSENGEREXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -81885,7 +81885,7 @@ debug_printf("Executing vkCreateDebugUtilsMessengerEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -81972,7 +81972,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyDebugUtilsMessengerEXT( VkI
 debug_printf("Executing vkDestroyDebugUtilsMessengerEXT\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYDEBUGUTILSMESSENGEREXT;
+    json["stream_type"]=VKDESTROYDEBUGUTILSMESSENGEREXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -82009,7 +82009,7 @@ debug_printf("Executing vkDestroyDebugUtilsMessengerEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -82068,7 +82068,7 @@ __attribute__((visibility ("hidden"))) void vkSubmitDebugUtilsMessageEXT( VkInst
 debug_printf("Executing vkSubmitDebugUtilsMessageEXT\n");
 
     boost::json::object json;
-    json["type"]=VKSUBMITDEBUGUTILSMESSAGEEXT;
+    json["stream_type"]=VKSUBMITDEBUGUTILSMESSAGEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -82106,7 +82106,7 @@ debug_printf("Executing vkSubmitDebugUtilsMessageEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -82182,7 +82182,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetMemoryHostPointerProperties
 debug_printf("Executing vkGetMemoryHostPointerPropertiesEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETMEMORYHOSTPOINTERPROPERTIESEXT;
+    json["stream_type"]=VKGETMEMORYHOSTPOINTERPROPERTIESEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -82231,7 +82231,7 @@ debug_printf("Executing vkGetMemoryHostPointerPropertiesEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -82322,7 +82322,7 @@ __attribute__((visibility ("hidden"))) void vkCmdWriteBufferMarkerAMD( VkCommand
 debug_printf("Executing vkCmdWriteBufferMarkerAMD\n");
 
     boost::json::object json;
-    json["type"]=VKCMDWRITEBUFFERMARKERAMD;
+    json["stream_type"]=VKCMDWRITEBUFFERMARKERAMD;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -82350,7 +82350,7 @@ debug_printf("Executing vkCmdWriteBufferMarkerAMD\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -82435,7 +82435,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateRenderPass2( VkDevice de
 debug_printf("Executing vkCreateRenderPass2\n");
 
     boost::json::object json;
-    json["type"]=VKCREATERENDERPASS2;
+    json["stream_type"]=VKCREATERENDERPASS2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -82492,7 +82492,7 @@ debug_printf("Executing vkCreateRenderPass2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -82582,7 +82582,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginRenderPass2( VkCommandBuff
 debug_printf("Executing vkCmdBeginRenderPass2\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBEGINRENDERPASS2;
+    json["stream_type"]=VKCMDBEGINRENDERPASS2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -82630,7 +82630,7 @@ debug_printf("Executing vkCmdBeginRenderPass2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -82692,7 +82692,7 @@ __attribute__((visibility ("hidden"))) void vkCmdNextSubpass2( VkCommandBuffer c
 debug_printf("Executing vkCmdNextSubpass2\n");
 
     boost::json::object json;
-    json["type"]=VKCMDNEXTSUBPASS2;
+    json["stream_type"]=VKCMDNEXTSUBPASS2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -82740,7 +82740,7 @@ debug_printf("Executing vkCmdNextSubpass2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -82802,7 +82802,7 @@ __attribute__((visibility ("hidden"))) void vkCmdEndRenderPass2( VkCommandBuffer
 debug_printf("Executing vkCmdEndRenderPass2\n");
 
     boost::json::object json;
-    json["type"]=VKCMDENDRENDERPASS2;
+    json["stream_type"]=VKCMDENDRENDERPASS2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -82838,7 +82838,7 @@ debug_printf("Executing vkCmdEndRenderPass2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -82899,7 +82899,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetSemaphoreCounterValue( VkDe
 debug_printf("Executing vkGetSemaphoreCounterValue\n");
 
     boost::json::object json;
-    json["type"]=VKGETSEMAPHORECOUNTERVALUE;
+    json["stream_type"]=VKGETSEMAPHORECOUNTERVALUE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -82933,7 +82933,7 @@ debug_printf("Executing vkGetSemaphoreCounterValue\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83023,7 +83023,7 @@ __attribute__((visibility ("hidden"))) VkResult vkWaitSemaphores( VkDevice devic
 debug_printf("Executing vkWaitSemaphores\n");
 
     boost::json::object json;
-    json["type"]=VKWAITSEMAPHORES;
+    json["stream_type"]=VKWAITSEMAPHORES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -83060,7 +83060,7 @@ debug_printf("Executing vkWaitSemaphores\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83142,7 +83142,7 @@ __attribute__((visibility ("hidden"))) VkResult vkSignalSemaphore( VkDevice devi
 debug_printf("Executing vkSignalSemaphore\n");
 
     boost::json::object json;
-    json["type"]=VKSIGNALSEMAPHORE;
+    json["stream_type"]=VKSIGNALSEMAPHORE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -83178,7 +83178,7 @@ debug_printf("Executing vkSignalSemaphore\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83251,7 +83251,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawIndirectCount( VkCommandBuf
 debug_printf("Executing vkCmdDrawIndirectCount\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDRAWINDIRECTCOUNT;
+    json["stream_type"]=VKCMDDRAWINDIRECTCOUNT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -83281,7 +83281,7 @@ debug_printf("Executing vkCmdDrawIndirectCount\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83382,7 +83382,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawIndexedIndirectCount( VkCom
 debug_printf("Executing vkCmdDrawIndexedIndirectCount\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDRAWINDEXEDINDIRECTCOUNT;
+    json["stream_type"]=VKCMDDRAWINDEXEDINDIRECTCOUNT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -83412,7 +83412,7 @@ debug_printf("Executing vkCmdDrawIndexedIndirectCount\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83513,7 +83513,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCheckpointNV( VkCommandBuffe
 debug_printf("Executing vkCmdSetCheckpointNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETCHECKPOINTNV;
+    json["stream_type"]=VKCMDSETCHECKPOINTNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -83549,7 +83549,7 @@ debug_printf("Executing vkCmdSetCheckpointNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83607,7 +83607,7 @@ __attribute__((visibility ("hidden"))) void vkGetQueueCheckpointDataNV( VkQueue 
 debug_printf("Executing vkGetQueueCheckpointDataNV\n");
 
     boost::json::object json;
-    json["type"]=VKGETQUEUECHECKPOINTDATANV;
+    json["stream_type"]=VKGETQUEUECHECKPOINTDATANV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -83652,7 +83652,7 @@ debug_printf("Executing vkGetQueueCheckpointDataNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83738,7 +83738,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBindTransformFeedbackBuffersEXT
 debug_printf("Executing vkCmdBindTransformFeedbackBuffersEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBINDTRANSFORMFEEDBACKBUFFERSEXT;
+    json["stream_type"]=VKCMDBINDTRANSFORMFEEDBACKBUFFERSEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -83791,7 +83791,7 @@ debug_printf("Executing vkCmdBindTransformFeedbackBuffersEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83869,7 +83869,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginTransformFeedbackEXT( VkCo
 debug_printf("Executing vkCmdBeginTransformFeedbackEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBEGINTRANSFORMFEEDBACKEXT;
+    json["stream_type"]=VKCMDBEGINTRANSFORMFEEDBACKEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -83913,7 +83913,7 @@ debug_printf("Executing vkCmdBeginTransformFeedbackEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -83990,7 +83990,7 @@ __attribute__((visibility ("hidden"))) void vkCmdEndTransformFeedbackEXT( VkComm
 debug_printf("Executing vkCmdEndTransformFeedbackEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDENDTRANSFORMFEEDBACKEXT;
+    json["stream_type"]=VKCMDENDTRANSFORMFEEDBACKEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -84034,7 +84034,7 @@ debug_printf("Executing vkCmdEndTransformFeedbackEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -84111,7 +84111,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginQueryIndexedEXT( VkCommand
 debug_printf("Executing vkCmdBeginQueryIndexedEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBEGINQUERYINDEXEDEXT;
+    json["stream_type"]=VKCMDBEGINQUERYINDEXEDEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -84139,7 +84139,7 @@ debug_printf("Executing vkCmdBeginQueryIndexedEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -84224,7 +84224,7 @@ __attribute__((visibility ("hidden"))) void vkCmdEndQueryIndexedEXT( VkCommandBu
 debug_printf("Executing vkCmdEndQueryIndexedEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDENDQUERYINDEXEDEXT;
+    json["stream_type"]=VKCMDENDQUERYINDEXEDEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -84251,7 +84251,7 @@ debug_printf("Executing vkCmdEndQueryIndexedEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -84327,7 +84327,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawIndirectByteCountEXT( VkCom
 debug_printf("Executing vkCmdDrawIndirectByteCountEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDRAWINDIRECTBYTECOUNTEXT;
+    json["stream_type"]=VKCMDDRAWINDIRECTBYTECOUNTEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -84357,7 +84357,7 @@ debug_printf("Executing vkCmdDrawIndirectByteCountEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -84460,7 +84460,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetExclusiveScissorNV( VkComman
 debug_printf("Executing vkCmdSetExclusiveScissorNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETEXCLUSIVESCISSORNV;
+    json["stream_type"]=VKCMDSETEXCLUSIVESCISSORNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -84498,7 +84498,7 @@ debug_printf("Executing vkCmdSetExclusiveScissorNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -84574,7 +84574,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetExclusiveScissorEnableNV( Vk
 debug_printf("Executing vkCmdSetExclusiveScissorEnableNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETEXCLUSIVESCISSORENABLENV;
+    json["stream_type"]=VKCMDSETEXCLUSIVESCISSORENABLENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -84609,7 +84609,7 @@ debug_printf("Executing vkCmdSetExclusiveScissorEnableNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -84685,7 +84685,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBindShadingRateImageNV( VkComma
 debug_printf("Executing vkCmdBindShadingRateImageNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBINDSHADINGRATEIMAGENV;
+    json["stream_type"]=VKCMDBINDSHADINGRATEIMAGENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -84711,7 +84711,7 @@ debug_printf("Executing vkCmdBindShadingRateImageNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -84778,7 +84778,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetViewportShadingRatePaletteNV
 debug_printf("Executing vkCmdSetViewportShadingRatePaletteNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETVIEWPORTSHADINGRATEPALETTENV;
+    json["stream_type"]=VKCMDSETVIEWPORTSHADINGRATEPALETTENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -84816,7 +84816,7 @@ debug_printf("Executing vkCmdSetViewportShadingRatePaletteNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -84892,7 +84892,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCoarseSampleOrderNV( VkComma
 debug_printf("Executing vkCmdSetCoarseSampleOrderNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETCOARSESAMPLEORDERNV;
+    json["stream_type"]=VKCMDSETCOARSESAMPLEORDERNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -84930,7 +84930,7 @@ debug_printf("Executing vkCmdSetCoarseSampleOrderNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85006,7 +85006,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawMeshTasksNV( VkCommandBuffe
 debug_printf("Executing vkCmdDrawMeshTasksNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDRAWMESHTASKSNV;
+    json["stream_type"]=VKCMDDRAWMESHTASKSNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -85032,7 +85032,7 @@ debug_printf("Executing vkCmdDrawMeshTasksNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85107,7 +85107,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawMeshTasksIndirectNV( VkComm
 debug_printf("Executing vkCmdDrawMeshTasksIndirectNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDRAWMESHTASKSINDIRECTNV;
+    json["stream_type"]=VKCMDDRAWMESHTASKSINDIRECTNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -85135,7 +85135,7 @@ debug_printf("Executing vkCmdDrawMeshTasksIndirectNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85220,7 +85220,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawMeshTasksIndirectCountNV( V
 debug_printf("Executing vkCmdDrawMeshTasksIndirectCountNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDRAWMESHTASKSINDIRECTCOUNTNV;
+    json["stream_type"]=VKCMDDRAWMESHTASKSINDIRECTCOUNTNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -85250,7 +85250,7 @@ debug_printf("Executing vkCmdDrawMeshTasksIndirectCountNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85345,7 +85345,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawMeshTasksEXT( VkCommandBuff
 debug_printf("Executing vkCmdDrawMeshTasksEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDRAWMESHTASKSEXT;
+    json["stream_type"]=VKCMDDRAWMESHTASKSEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -85372,7 +85372,7 @@ debug_printf("Executing vkCmdDrawMeshTasksEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85456,7 +85456,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawMeshTasksIndirectEXT( VkCom
 debug_printf("Executing vkCmdDrawMeshTasksIndirectEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDRAWMESHTASKSINDIRECTEXT;
+    json["stream_type"]=VKCMDDRAWMESHTASKSINDIRECTEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -85484,7 +85484,7 @@ debug_printf("Executing vkCmdDrawMeshTasksIndirectEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85569,7 +85569,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDrawMeshTasksIndirectCountEXT( 
 debug_printf("Executing vkCmdDrawMeshTasksIndirectCountEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDRAWMESHTASKSINDIRECTCOUNTEXT;
+    json["stream_type"]=VKCMDDRAWMESHTASKSINDIRECTCOUNTEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -85599,7 +85599,7 @@ debug_printf("Executing vkCmdDrawMeshTasksIndirectCountEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85694,7 +85694,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCompileDeferredNV( VkDevice de
 debug_printf("Executing vkCompileDeferredNV\n");
 
     boost::json::object json;
-    json["type"]=VKCOMPILEDEFERREDNV;
+    json["stream_type"]=VKCOMPILEDEFERREDNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -85720,7 +85720,7 @@ debug_printf("Executing vkCompileDeferredNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85799,7 +85799,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateAccelerationStructureNV(
 debug_printf("Executing vkCreateAccelerationStructureNV\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEACCELERATIONSTRUCTURENV;
+    json["stream_type"]=VKCREATEACCELERATIONSTRUCTURENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -85856,7 +85856,7 @@ debug_printf("Executing vkCreateAccelerationStructureNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -85943,7 +85943,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBindInvocationMaskHUAWEI( VkCom
 debug_printf("Executing vkCmdBindInvocationMaskHUAWEI\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBINDINVOCATIONMASKHUAWEI;
+    json["stream_type"]=VKCMDBINDINVOCATIONMASKHUAWEI;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -85969,7 +85969,7 @@ debug_printf("Executing vkCmdBindInvocationMaskHUAWEI\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -86036,7 +86036,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyAccelerationStructureKHR( V
 debug_printf("Executing vkDestroyAccelerationStructureKHR\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYACCELERATIONSTRUCTUREKHR;
+    json["stream_type"]=VKDESTROYACCELERATIONSTRUCTUREKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -86073,7 +86073,7 @@ debug_printf("Executing vkDestroyAccelerationStructureKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -86132,7 +86132,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyAccelerationStructureNV( Vk
 debug_printf("Executing vkDestroyAccelerationStructureNV\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYACCELERATIONSTRUCTURENV;
+    json["stream_type"]=VKDESTROYACCELERATIONSTRUCTURENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -86169,7 +86169,7 @@ debug_printf("Executing vkDestroyAccelerationStructureNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -86228,7 +86228,7 @@ __attribute__((visibility ("hidden"))) void vkGetAccelerationStructureMemoryRequ
 debug_printf("Executing vkGetAccelerationStructureMemoryRequirementsNV\n");
 
     boost::json::object json;
-    json["type"]=VKGETACCELERATIONSTRUCTUREMEMORYREQUIREMENTSNV;
+    json["stream_type"]=VKGETACCELERATIONSTRUCTUREMEMORYREQUIREMENTSNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -86276,7 +86276,7 @@ debug_printf("Executing vkGetAccelerationStructureMemoryRequirementsNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -86346,7 +86346,7 @@ __attribute__((visibility ("hidden"))) VkResult vkBindAccelerationStructureMemor
 debug_printf("Executing vkBindAccelerationStructureMemoryNV\n");
 
     boost::json::object json;
-    json["type"]=VKBINDACCELERATIONSTRUCTUREMEMORYNV;
+    json["stream_type"]=VKBINDACCELERATIONSTRUCTUREMEMORYNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -86383,7 +86383,7 @@ debug_printf("Executing vkBindAccelerationStructureMemoryNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -86462,7 +86462,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyAccelerationStructureNV( Vk
 debug_printf("Executing vkCmdCopyAccelerationStructureNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYACCELERATIONSTRUCTURENV;
+    json["stream_type"]=VKCMDCOPYACCELERATIONSTRUCTURENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -86489,7 +86489,7 @@ debug_printf("Executing vkCmdCopyAccelerationStructureNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -86557,7 +86557,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyAccelerationStructureKHR( V
 debug_printf("Executing vkCmdCopyAccelerationStructureKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYACCELERATIONSTRUCTUREKHR;
+    json["stream_type"]=VKCMDCOPYACCELERATIONSTRUCTUREKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -86593,7 +86593,7 @@ debug_printf("Executing vkCmdCopyAccelerationStructureKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -86651,7 +86651,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyAccelerationStructureKHR( 
 debug_printf("Executing vkCopyAccelerationStructureKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCOPYACCELERATIONSTRUCTUREKHR;
+    json["stream_type"]=VKCOPYACCELERATIONSTRUCTUREKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -86688,7 +86688,7 @@ debug_printf("Executing vkCopyAccelerationStructureKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -86759,7 +86759,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyAccelerationStructureToMemo
 debug_printf("Executing vkCmdCopyAccelerationStructureToMemoryKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYACCELERATIONSTRUCTURETOMEMORYKHR;
+    json["stream_type"]=VKCMDCOPYACCELERATIONSTRUCTURETOMEMORYKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -86795,7 +86795,7 @@ debug_printf("Executing vkCmdCopyAccelerationStructureToMemoryKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -86853,7 +86853,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyAccelerationStructureToMem
 debug_printf("Executing vkCopyAccelerationStructureToMemoryKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCOPYACCELERATIONSTRUCTURETOMEMORYKHR;
+    json["stream_type"]=VKCOPYACCELERATIONSTRUCTURETOMEMORYKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -86890,7 +86890,7 @@ debug_printf("Executing vkCopyAccelerationStructureToMemoryKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -86961,7 +86961,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyMemoryToAccelerationStructu
 debug_printf("Executing vkCmdCopyMemoryToAccelerationStructureKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYMEMORYTOACCELERATIONSTRUCTUREKHR;
+    json["stream_type"]=VKCMDCOPYMEMORYTOACCELERATIONSTRUCTUREKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -86997,7 +86997,7 @@ debug_printf("Executing vkCmdCopyMemoryToAccelerationStructureKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -87055,7 +87055,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyMemoryToAccelerationStruct
 debug_printf("Executing vkCopyMemoryToAccelerationStructureKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCOPYMEMORYTOACCELERATIONSTRUCTUREKHR;
+    json["stream_type"]=VKCOPYMEMORYTOACCELERATIONSTRUCTUREKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -87092,7 +87092,7 @@ debug_printf("Executing vkCopyMemoryToAccelerationStructureKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -87163,7 +87163,7 @@ __attribute__((visibility ("hidden"))) void vkCmdWriteAccelerationStructuresProp
 debug_printf("Executing vkCmdWriteAccelerationStructuresPropertiesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESKHR;
+    json["stream_type"]=VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -87200,7 +87200,7 @@ debug_printf("Executing vkCmdWriteAccelerationStructuresPropertiesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -87286,7 +87286,7 @@ __attribute__((visibility ("hidden"))) void vkCmdWriteAccelerationStructuresProp
 debug_printf("Executing vkCmdWriteAccelerationStructuresPropertiesNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESNV;
+    json["stream_type"]=VKCMDWRITEACCELERATIONSTRUCTURESPROPERTIESNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -87323,7 +87323,7 @@ debug_printf("Executing vkCmdWriteAccelerationStructuresPropertiesNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -87409,7 +87409,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBuildAccelerationStructureNV( V
 debug_printf("Executing vkCmdBuildAccelerationStructureNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBUILDACCELERATIONSTRUCTURENV;
+    json["stream_type"]=VKCMDBUILDACCELERATIONSTRUCTURENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -87452,7 +87452,7 @@ debug_printf("Executing vkCmdBuildAccelerationStructureNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -87541,7 +87541,7 @@ __attribute__((visibility ("hidden"))) VkResult vkWriteAccelerationStructuresPro
 debug_printf("Executing vkWriteAccelerationStructuresPropertiesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKWRITEACCELERATIONSTRUCTURESPROPERTIESKHR;
+    json["stream_type"]=VKWRITEACCELERATIONSTRUCTURESPROPERTIESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -87590,7 +87590,7 @@ debug_printf("Executing vkWriteAccelerationStructuresPropertiesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -87686,7 +87686,7 @@ debug_printf("Executing vkWriteAccelerationStructuresPropertiesKHR\n");
             }
             }();
         }
-        }();pData=(void*)(temp_hrhAtyM);}();
+        }();pData=temp_hrhAtyM;}();
 [&](){
             if (json["stride"].is_uint64()){
                 stride=static_cast<size_t>(json["stride"].as_uint64());
@@ -87716,7 +87716,7 @@ __attribute__((visibility ("hidden"))) void vkCmdTraceRaysKHR( VkCommandBuffer c
 debug_printf("Executing vkCmdTraceRaysKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDTRACERAYSKHR;
+    json["stream_type"]=VKCMDTRACERAYSKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -87791,7 +87791,7 @@ debug_printf("Executing vkCmdTraceRaysKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -87879,7 +87879,7 @@ __attribute__((visibility ("hidden"))) void vkCmdTraceRaysNV( VkCommandBuffer co
 debug_printf("Executing vkCmdTraceRaysNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDTRACERAYSNV;
+    json["stream_type"]=VKCMDTRACERAYSNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -87917,7 +87917,7 @@ debug_printf("Executing vkCmdTraceRaysNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -88068,7 +88068,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetRayTracingShaderGroupHandle
 debug_printf("Executing vkGetRayTracingShaderGroupHandlesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETRAYTRACINGSHADERGROUPHANDLESKHR;
+    json["stream_type"]=VKGETRAYTRACINGSHADERGROUPHANDLESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -88108,7 +88108,7 @@ debug_printf("Executing vkGetRayTracingShaderGroupHandlesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -88204,7 +88204,7 @@ debug_printf("Executing vkGetRayTracingShaderGroupHandlesKHR\n");
             }
             }();
         }
-        }();pData=(void*)(temp_hrhAtyM);}();
+        }();pData=temp_hrhAtyM;}();
 VkResult result;
 [&](){[&](){int temp_KLLRitp;[&](){
             if (json["result"].is_uint64()){
@@ -88228,7 +88228,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetRayTracingCaptureReplayShad
 debug_printf("Executing vkGetRayTracingCaptureReplayShaderGroupHandlesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETRAYTRACINGCAPTUREREPLAYSHADERGROUPHANDLESKHR;
+    json["stream_type"]=VKGETRAYTRACINGCAPTUREREPLAYSHADERGROUPHANDLESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -88268,7 +88268,7 @@ debug_printf("Executing vkGetRayTracingCaptureReplayShaderGroupHandlesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -88364,7 +88364,7 @@ debug_printf("Executing vkGetRayTracingCaptureReplayShaderGroupHandlesKHR\n");
             }
             }();
         }
-        }();pData=(void*)(temp_hrhAtyM);}();
+        }();pData=temp_hrhAtyM;}();
 VkResult result;
 [&](){[&](){int temp_eyQTZEO;[&](){
             if (json["result"].is_uint64()){
@@ -88385,7 +88385,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetAccelerationStructureHandle
 debug_printf("Executing vkGetAccelerationStructureHandleNV\n");
 
     boost::json::object json;
-    json["type"]=VKGETACCELERATIONSTRUCTUREHANDLENV;
+    json["stream_type"]=VKGETACCELERATIONSTRUCTUREHANDLENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -88423,7 +88423,7 @@ debug_printf("Executing vkGetAccelerationStructureHandleNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -88501,7 +88501,7 @@ debug_printf("Executing vkGetAccelerationStructureHandleNV\n");
             }
             }();
         }
-        }();pData=(void*)(temp_hrhAtyM);}();
+        }();pData=temp_hrhAtyM;}();
 VkResult result;
 [&](){[&](){int temp_BimoMvo;[&](){
             if (json["result"].is_uint64()){
@@ -88522,7 +88522,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateRayTracingPipelinesNV( V
 debug_printf("Executing vkCreateRayTracingPipelinesNV\n");
 
     boost::json::object json;
-    json["type"]=VKCREATERAYTRACINGPIPELINESNV;
+    json["stream_type"]=VKCREATERAYTRACINGPIPELINESNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -88581,7 +88581,7 @@ debug_printf("Executing vkCreateRayTracingPipelinesNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -88678,7 +88678,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateRayTracingPipelinesKHR( 
 debug_printf("Executing vkCreateRayTracingPipelinesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCREATERAYTRACINGPIPELINESKHR;
+    json["stream_type"]=VKCREATERAYTRACINGPIPELINESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -88738,7 +88738,7 @@ debug_printf("Executing vkCreateRayTracingPipelinesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -88836,7 +88836,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceCooperativeMa
 debug_printf("Executing vkGetPhysicalDeviceCooperativeMatrixPropertiesNV\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESNV;
+    json["stream_type"]=VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -88881,7 +88881,7 @@ debug_printf("Executing vkGetPhysicalDeviceCooperativeMatrixPropertiesNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -88979,7 +88979,7 @@ __attribute__((visibility ("hidden"))) void vkCmdTraceRaysIndirectKHR( VkCommand
 debug_printf("Executing vkCmdTraceRaysIndirectKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDTRACERAYSINDIRECTKHR;
+    json["stream_type"]=VKCMDTRACERAYSINDIRECTKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -89052,7 +89052,7 @@ debug_printf("Executing vkCmdTraceRaysIndirectKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -89122,7 +89122,7 @@ __attribute__((visibility ("hidden"))) void vkCmdTraceRaysIndirect2KHR( VkComman
 debug_printf("Executing vkCmdTraceRaysIndirect2KHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDTRACERAYSINDIRECT2KHR;
+    json["stream_type"]=VKCMDTRACERAYSINDIRECT2KHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -89147,7 +89147,7 @@ debug_printf("Executing vkCmdTraceRaysIndirect2KHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -89213,7 +89213,7 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceAccelerationStructureComp
 debug_printf("Executing vkGetDeviceAccelerationStructureCompatibilityKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEVICEACCELERATIONSTRUCTURECOMPATIBILITYKHR;
+    json["stream_type"]=VKGETDEVICEACCELERATIONSTRUCTURECOMPATIBILITYKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -89258,7 +89258,7 @@ debug_printf("Executing vkGetDeviceAccelerationStructureCompatibilityKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -89333,7 +89333,7 @@ __attribute__((visibility ("hidden"))) VkDeviceSize vkGetRayTracingShaderGroupSt
 debug_printf("Executing vkGetRayTracingShaderGroupStackSizeKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETRAYTRACINGSHADERGROUPSTACKSIZEKHR;
+    json["stream_type"]=VKGETRAYTRACINGSHADERGROUPSTACKSIZEKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -89360,7 +89360,7 @@ debug_printf("Executing vkGetRayTracingShaderGroupStackSizeKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -89447,7 +89447,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetRayTracingPipelineStackSizeK
 debug_printf("Executing vkCmdSetRayTracingPipelineStackSizeKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETRAYTRACINGPIPELINESTACKSIZEKHR;
+    json["stream_type"]=VKCMDSETRAYTRACINGPIPELINESTACKSIZEKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -89472,7 +89472,7 @@ debug_printf("Executing vkCmdSetRayTracingPipelineStackSizeKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -89538,7 +89538,7 @@ __attribute__((visibility ("hidden"))) uint32_t vkGetImageViewHandleNVX( VkDevic
 debug_printf("Executing vkGetImageViewHandleNVX\n");
 
     boost::json::object json;
-    json["type"]=VKGETIMAGEVIEWHANDLENVX;
+    json["stream_type"]=VKGETIMAGEVIEWHANDLENVX;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -89574,7 +89574,7 @@ debug_printf("Executing vkGetImageViewHandleNVX\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -89643,7 +89643,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetImageViewAddressNVX( VkDevi
 debug_printf("Executing vkGetImageViewAddressNVX\n");
 
     boost::json::object json;
-    json["type"]=VKGETIMAGEVIEWADDRESSNVX;
+    json["stream_type"]=VKGETIMAGEVIEWADDRESSNVX;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -89680,7 +89680,7 @@ debug_printf("Executing vkGetImageViewAddressNVX\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -89762,7 +89762,7 @@ __attribute__((visibility ("hidden"))) VkResult vkEnumeratePhysicalDeviceQueueFa
 debug_printf("Executing vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR\n");
 
     boost::json::object json;
-    json["type"]=VKENUMERATEPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYCOUNTERSKHR;
+    json["stream_type"]=VKENUMERATEPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYCOUNTERSKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -89820,7 +89820,7 @@ debug_printf("Executing vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCoun
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -89939,7 +89939,7 @@ __attribute__((visibility ("hidden"))) void vkGetPhysicalDeviceQueueFamilyPerfor
 debug_printf("Executing vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYPASSESKHR;
+    json["stream_type"]=VKGETPHYSICALDEVICEQUEUEFAMILYPERFORMANCEQUERYPASSESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -89984,7 +89984,7 @@ debug_printf("Executing vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR\
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -90059,7 +90059,7 @@ __attribute__((visibility ("hidden"))) VkResult vkAcquireProfilingLockKHR( VkDev
 debug_printf("Executing vkAcquireProfilingLockKHR\n");
 
     boost::json::object json;
-    json["type"]=VKACQUIREPROFILINGLOCKKHR;
+    json["stream_type"]=VKACQUIREPROFILINGLOCKKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -90095,7 +90095,7 @@ debug_printf("Executing vkAcquireProfilingLockKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -90165,7 +90165,7 @@ __attribute__((visibility ("hidden"))) void vkReleaseProfilingLockKHR( VkDevice 
 debug_printf("Executing vkReleaseProfilingLockKHR\n");
 
     boost::json::object json;
-    json["type"]=VKRELEASEPROFILINGLOCKKHR;
+    json["stream_type"]=VKRELEASEPROFILINGLOCKKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -90189,7 +90189,7 @@ debug_printf("Executing vkReleaseProfilingLockKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -90246,7 +90246,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetImageDrmFormatModifierPrope
 debug_printf("Executing vkGetImageDrmFormatModifierPropertiesEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETIMAGEDRMFORMATMODIFIERPROPERTIESEXT;
+    json["stream_type"]=VKGETIMAGEDRMFORMATMODIFIERPROPERTIESEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -90283,7 +90283,7 @@ debug_printf("Executing vkGetImageDrmFormatModifierPropertiesEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -90365,7 +90365,7 @@ __attribute__((visibility ("hidden"))) uint64_t vkGetBufferOpaqueCaptureAddress(
 debug_printf("Executing vkGetBufferOpaqueCaptureAddress\n");
 
     boost::json::object json;
-    json["type"]=VKGETBUFFEROPAQUECAPTUREADDRESS;
+    json["stream_type"]=VKGETBUFFEROPAQUECAPTUREADDRESS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -90401,7 +90401,7 @@ debug_printf("Executing vkGetBufferOpaqueCaptureAddress\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -90473,7 +90473,7 @@ __attribute__((visibility ("hidden"))) VkDeviceAddress vkGetBufferDeviceAddress(
 debug_printf("Executing vkGetBufferDeviceAddress\n");
 
     boost::json::object json;
-    json["type"]=VKGETBUFFERDEVICEADDRESS;
+    json["stream_type"]=VKGETBUFFERDEVICEADDRESS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -90509,7 +90509,7 @@ debug_printf("Executing vkGetBufferDeviceAddress\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -90584,7 +90584,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateHeadlessSurfaceEXT( VkIn
 debug_printf("Executing vkCreateHeadlessSurfaceEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEHEADLESSSURFACEEXT;
+    json["stream_type"]=VKCREATEHEADLESSSURFACEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -90641,7 +90641,7 @@ debug_printf("Executing vkCreateHeadlessSurfaceEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -90728,7 +90728,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceSupportedFram
 debug_printf("Executing vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICESUPPORTEDFRAMEBUFFERMIXEDSAMPLESCOMBINATIONSNV;
+    json["stream_type"]=VKGETPHYSICALDEVICESUPPORTEDFRAMEBUFFERMIXEDSAMPLESCOMBINATIONSNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -90773,7 +90773,7 @@ debug_printf("Executing vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombi
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -90871,7 +90871,7 @@ __attribute__((visibility ("hidden"))) VkResult vkInitializePerformanceApiINTEL(
 debug_printf("Executing vkInitializePerformanceApiINTEL\n");
 
     boost::json::object json;
-    json["type"]=VKINITIALIZEPERFORMANCEAPIINTEL;
+    json["stream_type"]=VKINITIALIZEPERFORMANCEAPIINTEL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -90907,7 +90907,7 @@ debug_printf("Executing vkInitializePerformanceApiINTEL\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -90977,7 +90977,7 @@ __attribute__((visibility ("hidden"))) void vkUninitializePerformanceApiINTEL( V
 debug_printf("Executing vkUninitializePerformanceApiINTEL\n");
 
     boost::json::object json;
-    json["type"]=VKUNINITIALIZEPERFORMANCEAPIINTEL;
+    json["stream_type"]=VKUNINITIALIZEPERFORMANCEAPIINTEL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -91001,7 +91001,7 @@ debug_printf("Executing vkUninitializePerformanceApiINTEL\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -91058,7 +91058,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCmdSetPerformanceMarkerINTEL( 
 debug_printf("Executing vkCmdSetPerformanceMarkerINTEL\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETPERFORMANCEMARKERINTEL;
+    json["stream_type"]=VKCMDSETPERFORMANCEMARKERINTEL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -91094,7 +91094,7 @@ debug_printf("Executing vkCmdSetPerformanceMarkerINTEL\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -91164,7 +91164,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCmdSetPerformanceStreamMarkerI
 debug_printf("Executing vkCmdSetPerformanceStreamMarkerINTEL\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETPERFORMANCESTREAMMARKERINTEL;
+    json["stream_type"]=VKCMDSETPERFORMANCESTREAMMARKERINTEL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -91200,7 +91200,7 @@ debug_printf("Executing vkCmdSetPerformanceStreamMarkerINTEL\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -91270,7 +91270,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCmdSetPerformanceOverrideINTEL
 debug_printf("Executing vkCmdSetPerformanceOverrideINTEL\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETPERFORMANCEOVERRIDEINTEL;
+    json["stream_type"]=VKCMDSETPERFORMANCEOVERRIDEINTEL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -91306,7 +91306,7 @@ debug_printf("Executing vkCmdSetPerformanceOverrideINTEL\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -91376,7 +91376,7 @@ __attribute__((visibility ("hidden"))) VkResult vkAcquirePerformanceConfiguratio
 debug_printf("Executing vkAcquirePerformanceConfigurationINTEL\n");
 
     boost::json::object json;
-    json["type"]=VKACQUIREPERFORMANCECONFIGURATIONINTEL;
+    json["stream_type"]=VKACQUIREPERFORMANCECONFIGURATIONINTEL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -91421,7 +91421,7 @@ debug_printf("Executing vkAcquirePerformanceConfigurationINTEL\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -91500,7 +91500,7 @@ __attribute__((visibility ("hidden"))) VkResult vkReleasePerformanceConfiguratio
 debug_printf("Executing vkReleasePerformanceConfigurationINTEL\n");
 
     boost::json::object json;
-    json["type"]=VKRELEASEPERFORMANCECONFIGURATIONINTEL;
+    json["stream_type"]=VKRELEASEPERFORMANCECONFIGURATIONINTEL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -91525,7 +91525,7 @@ debug_printf("Executing vkReleasePerformanceConfigurationINTEL\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -91595,7 +91595,7 @@ __attribute__((visibility ("hidden"))) VkResult vkQueueSetPerformanceConfigurati
 debug_printf("Executing vkQueueSetPerformanceConfigurationINTEL\n");
 
     boost::json::object json;
-    json["type"]=VKQUEUESETPERFORMANCECONFIGURATIONINTEL;
+    json["stream_type"]=VKQUEUESETPERFORMANCECONFIGURATIONINTEL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -91620,7 +91620,7 @@ debug_printf("Executing vkQueueSetPerformanceConfigurationINTEL\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -91690,7 +91690,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPerformanceParameterINTEL( 
 debug_printf("Executing vkGetPerformanceParameterINTEL\n");
 
     boost::json::object json;
-    json["type"]=VKGETPERFORMANCEPARAMETERINTEL;
+    json["stream_type"]=VKGETPERFORMANCEPARAMETERINTEL;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -91727,7 +91727,7 @@ debug_printf("Executing vkGetPerformanceParameterINTEL\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -91817,7 +91817,7 @@ __attribute__((visibility ("hidden"))) uint64_t vkGetDeviceMemoryOpaqueCaptureAd
 debug_printf("Executing vkGetDeviceMemoryOpaqueCaptureAddress\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEVICEMEMORYOPAQUECAPTUREADDRESS;
+    json["stream_type"]=VKGETDEVICEMEMORYOPAQUECAPTUREADDRESS;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -91853,7 +91853,7 @@ debug_printf("Executing vkGetDeviceMemoryOpaqueCaptureAddress\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -91925,7 +91925,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPipelineExecutablePropertie
 debug_printf("Executing vkGetPipelineExecutablePropertiesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPIPELINEEXECUTABLEPROPERTIESKHR;
+    json["stream_type"]=VKGETPIPELINEEXECUTABLEPROPERTIESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -91982,7 +91982,7 @@ debug_printf("Executing vkGetPipelineExecutablePropertiesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -92081,7 +92081,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPipelineExecutableStatistic
 debug_printf("Executing vkGetPipelineExecutableStatisticsKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPIPELINEEXECUTABLESTATISTICSKHR;
+    json["stream_type"]=VKGETPIPELINEEXECUTABLESTATISTICSKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -92138,7 +92138,7 @@ debug_printf("Executing vkGetPipelineExecutableStatisticsKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -92237,7 +92237,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPipelineExecutableInternalR
 debug_printf("Executing vkGetPipelineExecutableInternalRepresentationsKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPIPELINEEXECUTABLEINTERNALREPRESENTATIONSKHR;
+    json["stream_type"]=VKGETPIPELINEEXECUTABLEINTERNALREPRESENTATIONSKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -92294,7 +92294,7 @@ debug_printf("Executing vkGetPipelineExecutableInternalRepresentationsKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -92393,7 +92393,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetLineStippleEXT( VkCommandBuf
 debug_printf("Executing vkCmdSetLineStippleEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETLINESTIPPLEEXT;
+    json["stream_type"]=VKCMDSETLINESTIPPLEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -92419,7 +92419,7 @@ debug_printf("Executing vkCmdSetLineStippleEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -92494,7 +92494,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceToolPropertie
 debug_printf("Executing vkGetPhysicalDeviceToolProperties\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICETOOLPROPERTIES;
+    json["stream_type"]=VKGETPHYSICALDEVICETOOLPROPERTIES;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -92539,7 +92539,7 @@ debug_printf("Executing vkGetPhysicalDeviceToolProperties\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -92640,7 +92640,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateAccelerationStructureKHR
 debug_printf("Executing vkCreateAccelerationStructureKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEACCELERATIONSTRUCTUREKHR;
+    json["stream_type"]=VKCREATEACCELERATIONSTRUCTUREKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -92697,7 +92697,7 @@ debug_printf("Executing vkCreateAccelerationStructureKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -92784,7 +92784,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBuildAccelerationStructuresKHR(
 debug_printf("Executing vkCmdBuildAccelerationStructuresKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBUILDACCELERATIONSTRUCTURESKHR;
+    json["stream_type"]=VKCMDBUILDACCELERATIONSTRUCTURESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -92841,7 +92841,7 @@ debug_printf("Executing vkCmdBuildAccelerationStructuresKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -92909,7 +92909,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBuildAccelerationStructuresIndi
 debug_printf("Executing vkCmdBuildAccelerationStructuresIndirectKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBUILDACCELERATIONSTRUCTURESINDIRECTKHR;
+    json["stream_type"]=VKCMDBUILDACCELERATIONSTRUCTURESINDIRECTKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -92981,7 +92981,7 @@ debug_printf("Executing vkCmdBuildAccelerationStructuresIndirectKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93051,7 +93051,7 @@ __attribute__((visibility ("hidden"))) VkResult vkBuildAccelerationStructuresKHR
 debug_printf("Executing vkBuildAccelerationStructuresKHR\n");
 
     boost::json::object json;
-    json["type"]=VKBUILDACCELERATIONSTRUCTURESKHR;
+    json["stream_type"]=VKBUILDACCELERATIONSTRUCTURESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -93109,7 +93109,7 @@ debug_printf("Executing vkBuildAccelerationStructuresKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93190,7 +93190,7 @@ __attribute__((visibility ("hidden"))) VkDeviceAddress vkGetAccelerationStructur
 debug_printf("Executing vkGetAccelerationStructureDeviceAddressKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETACCELERATIONSTRUCTUREDEVICEADDRESSKHR;
+    json["stream_type"]=VKGETACCELERATIONSTRUCTUREDEVICEADDRESSKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -93226,7 +93226,7 @@ debug_printf("Executing vkGetAccelerationStructureDeviceAddressKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93295,7 +93295,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateDeferredOperationKHR( Vk
 debug_printf("Executing vkCreateDeferredOperationKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEDEFERREDOPERATIONKHR;
+    json["stream_type"]=VKCREATEDEFERREDOPERATIONKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -93340,7 +93340,7 @@ debug_printf("Executing vkCreateDeferredOperationKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93426,7 +93426,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyDeferredOperationKHR( VkDev
 debug_printf("Executing vkDestroyDeferredOperationKHR\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYDEFERREDOPERATIONKHR;
+    json["stream_type"]=VKDESTROYDEFERREDOPERATIONKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -93463,7 +93463,7 @@ debug_printf("Executing vkDestroyDeferredOperationKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93522,7 +93522,7 @@ __attribute__((visibility ("hidden"))) uint32_t vkGetDeferredOperationMaxConcurr
 debug_printf("Executing vkGetDeferredOperationMaxConcurrencyKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEFERREDOPERATIONMAXCONCURRENCYKHR;
+    json["stream_type"]=VKGETDEFERREDOPERATIONMAXCONCURRENCYKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -93547,7 +93547,7 @@ debug_printf("Executing vkGetDeferredOperationMaxConcurrencyKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93616,7 +93616,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDeferredOperationResultKHR(
 debug_printf("Executing vkGetDeferredOperationResultKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEFERREDOPERATIONRESULTKHR;
+    json["stream_type"]=VKGETDEFERREDOPERATIONRESULTKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -93641,7 +93641,7 @@ debug_printf("Executing vkGetDeferredOperationResultKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93711,7 +93711,7 @@ __attribute__((visibility ("hidden"))) VkResult vkDeferredOperationJoinKHR( VkDe
 debug_printf("Executing vkDeferredOperationJoinKHR\n");
 
     boost::json::object json;
-    json["type"]=VKDEFERREDOPERATIONJOINKHR;
+    json["stream_type"]=VKDEFERREDOPERATIONJOINKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -93736,7 +93736,7 @@ debug_printf("Executing vkDeferredOperationJoinKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93806,7 +93806,7 @@ __attribute__((visibility ("hidden"))) void vkGetPipelineIndirectMemoryRequireme
 debug_printf("Executing vkGetPipelineIndirectMemoryRequirementsNV\n");
 
     boost::json::object json;
-    json["type"]=VKGETPIPELINEINDIRECTMEMORYREQUIREMENTSNV;
+    json["stream_type"]=VKGETPIPELINEINDIRECTMEMORYREQUIREMENTSNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -93854,7 +93854,7 @@ debug_printf("Executing vkGetPipelineIndirectMemoryRequirementsNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -93924,7 +93924,7 @@ __attribute__((visibility ("hidden"))) VkDeviceAddress vkGetPipelineIndirectDevi
 debug_printf("Executing vkGetPipelineIndirectDeviceAddressNV\n");
 
     boost::json::object json;
-    json["type"]=VKGETPIPELINEINDIRECTDEVICEADDRESSNV;
+    json["stream_type"]=VKGETPIPELINEINDIRECTDEVICEADDRESSNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -93960,7 +93960,7 @@ debug_printf("Executing vkGetPipelineIndirectDeviceAddressNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94029,7 +94029,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCullMode( VkCommandBuffer co
 debug_printf("Executing vkCmdSetCullMode\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETCULLMODE;
+    json["stream_type"]=VKCMDSETCULLMODE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -94054,7 +94054,7 @@ debug_printf("Executing vkCmdSetCullMode\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94123,7 +94123,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetFrontFace( VkCommandBuffer c
 debug_printf("Executing vkCmdSetFrontFace\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETFRONTFACE;
+    json["stream_type"]=VKCMDSETFRONTFACE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -94148,7 +94148,7 @@ debug_printf("Executing vkCmdSetFrontFace\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94217,7 +94217,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetPrimitiveTopology( VkCommand
 debug_printf("Executing vkCmdSetPrimitiveTopology\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETPRIMITIVETOPOLOGY;
+    json["stream_type"]=VKCMDSETPRIMITIVETOPOLOGY;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -94242,7 +94242,7 @@ debug_printf("Executing vkCmdSetPrimitiveTopology\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94311,7 +94311,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetViewportWithCount( VkCommand
 debug_printf("Executing vkCmdSetViewportWithCount\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETVIEWPORTWITHCOUNT;
+    json["stream_type"]=VKCMDSETVIEWPORTWITHCOUNT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -94348,7 +94348,7 @@ debug_printf("Executing vkCmdSetViewportWithCount\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94418,7 +94418,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetScissorWithCount( VkCommandB
 debug_printf("Executing vkCmdSetScissorWithCount\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETSCISSORWITHCOUNT;
+    json["stream_type"]=VKCMDSETSCISSORWITHCOUNT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -94455,7 +94455,7 @@ debug_printf("Executing vkCmdSetScissorWithCount\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94525,7 +94525,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBindIndexBuffer2KHR( VkCommandB
 debug_printf("Executing vkCmdBindIndexBuffer2KHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBINDINDEXBUFFER2KHR;
+    json["stream_type"]=VKCMDBINDINDEXBUFFER2KHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -94553,7 +94553,7 @@ debug_printf("Executing vkCmdBindIndexBuffer2KHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94638,7 +94638,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBindVertexBuffers2( VkCommandBu
 debug_printf("Executing vkCmdBindVertexBuffers2\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBINDVERTEXBUFFERS2;
+    json["stream_type"]=VKCMDBINDVERTEXBUFFERS2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -94700,7 +94700,7 @@ debug_printf("Executing vkCmdBindVertexBuffers2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94782,7 +94782,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthTestEnable( VkCommandBu
 debug_printf("Executing vkCmdSetDepthTestEnable\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETDEPTHTESTENABLE;
+    json["stream_type"]=VKCMDSETDEPTHTESTENABLE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -94807,7 +94807,7 @@ debug_printf("Executing vkCmdSetDepthTestEnable\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94876,7 +94876,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthWriteEnable( VkCommandB
 debug_printf("Executing vkCmdSetDepthWriteEnable\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETDEPTHWRITEENABLE;
+    json["stream_type"]=VKCMDSETDEPTHWRITEENABLE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -94901,7 +94901,7 @@ debug_printf("Executing vkCmdSetDepthWriteEnable\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -94970,7 +94970,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthCompareOp( VkCommandBuf
 debug_printf("Executing vkCmdSetDepthCompareOp\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETDEPTHCOMPAREOP;
+    json["stream_type"]=VKCMDSETDEPTHCOMPAREOP;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -94995,7 +94995,7 @@ debug_printf("Executing vkCmdSetDepthCompareOp\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95064,7 +95064,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthBoundsTestEnable( VkCom
 debug_printf("Executing vkCmdSetDepthBoundsTestEnable\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETDEPTHBOUNDSTESTENABLE;
+    json["stream_type"]=VKCMDSETDEPTHBOUNDSTESTENABLE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -95089,7 +95089,7 @@ debug_printf("Executing vkCmdSetDepthBoundsTestEnable\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95158,7 +95158,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetStencilTestEnable( VkCommand
 debug_printf("Executing vkCmdSetStencilTestEnable\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETSTENCILTESTENABLE;
+    json["stream_type"]=VKCMDSETSTENCILTESTENABLE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -95183,7 +95183,7 @@ debug_printf("Executing vkCmdSetStencilTestEnable\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95252,7 +95252,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetStencilOp( VkCommandBuffer c
 debug_printf("Executing vkCmdSetStencilOp\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETSTENCILOP;
+    json["stream_type"]=VKCMDSETSTENCILOP;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -95281,7 +95281,7 @@ debug_printf("Executing vkCmdSetStencilOp\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95386,7 +95386,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetPatchControlPointsEXT( VkCom
 debug_printf("Executing vkCmdSetPatchControlPointsEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETPATCHCONTROLPOINTSEXT;
+    json["stream_type"]=VKCMDSETPATCHCONTROLPOINTSEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -95411,7 +95411,7 @@ debug_printf("Executing vkCmdSetPatchControlPointsEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95477,7 +95477,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetRasterizerDiscardEnable( VkC
 debug_printf("Executing vkCmdSetRasterizerDiscardEnable\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETRASTERIZERDISCARDENABLE;
+    json["stream_type"]=VKCMDSETRASTERIZERDISCARDENABLE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -95502,7 +95502,7 @@ debug_printf("Executing vkCmdSetRasterizerDiscardEnable\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95571,7 +95571,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthBiasEnable( VkCommandBu
 debug_printf("Executing vkCmdSetDepthBiasEnable\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETDEPTHBIASENABLE;
+    json["stream_type"]=VKCMDSETDEPTHBIASENABLE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -95596,7 +95596,7 @@ debug_printf("Executing vkCmdSetDepthBiasEnable\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95665,7 +95665,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetLogicOpEXT( VkCommandBuffer 
 debug_printf("Executing vkCmdSetLogicOpEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETLOGICOPEXT;
+    json["stream_type"]=VKCMDSETLOGICOPEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -95690,7 +95690,7 @@ debug_printf("Executing vkCmdSetLogicOpEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95756,7 +95756,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetPrimitiveRestartEnable( VkCo
 debug_printf("Executing vkCmdSetPrimitiveRestartEnable\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETPRIMITIVERESTARTENABLE;
+    json["stream_type"]=VKCMDSETPRIMITIVERESTARTENABLE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -95781,7 +95781,7 @@ debug_printf("Executing vkCmdSetPrimitiveRestartEnable\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95850,7 +95850,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetTessellationDomainOriginEXT(
 debug_printf("Executing vkCmdSetTessellationDomainOriginEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETTESSELLATIONDOMAINORIGINEXT;
+    json["stream_type"]=VKCMDSETTESSELLATIONDOMAINORIGINEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -95875,7 +95875,7 @@ debug_printf("Executing vkCmdSetTessellationDomainOriginEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -95941,7 +95941,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthClampEnableEXT( VkComma
 debug_printf("Executing vkCmdSetDepthClampEnableEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETDEPTHCLAMPENABLEEXT;
+    json["stream_type"]=VKCMDSETDEPTHCLAMPENABLEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -95966,7 +95966,7 @@ debug_printf("Executing vkCmdSetDepthClampEnableEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96032,7 +96032,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetPolygonModeEXT( VkCommandBuf
 debug_printf("Executing vkCmdSetPolygonModeEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETPOLYGONMODEEXT;
+    json["stream_type"]=VKCMDSETPOLYGONMODEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -96057,7 +96057,7 @@ debug_printf("Executing vkCmdSetPolygonModeEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96123,7 +96123,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetRasterizationSamplesEXT( VkC
 debug_printf("Executing vkCmdSetRasterizationSamplesEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETRASTERIZATIONSAMPLESEXT;
+    json["stream_type"]=VKCMDSETRASTERIZATIONSAMPLESEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -96148,7 +96148,7 @@ debug_printf("Executing vkCmdSetRasterizationSamplesEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96214,7 +96214,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetSampleMaskEXT( VkCommandBuff
 debug_printf("Executing vkCmdSetSampleMaskEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETSAMPLEMASKEXT;
+    json["stream_type"]=VKCMDSETSAMPLEMASKEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -96248,7 +96248,7 @@ debug_printf("Executing vkCmdSetSampleMaskEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96315,7 +96315,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetAlphaToCoverageEnableEXT( Vk
 debug_printf("Executing vkCmdSetAlphaToCoverageEnableEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETALPHATOCOVERAGEENABLEEXT;
+    json["stream_type"]=VKCMDSETALPHATOCOVERAGEENABLEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -96340,7 +96340,7 @@ debug_printf("Executing vkCmdSetAlphaToCoverageEnableEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96406,7 +96406,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetAlphaToOneEnableEXT( VkComma
 debug_printf("Executing vkCmdSetAlphaToOneEnableEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETALPHATOONEENABLEEXT;
+    json["stream_type"]=VKCMDSETALPHATOONEENABLEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -96431,7 +96431,7 @@ debug_printf("Executing vkCmdSetAlphaToOneEnableEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96497,7 +96497,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetLogicOpEnableEXT( VkCommandB
 debug_printf("Executing vkCmdSetLogicOpEnableEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETLOGICOPENABLEEXT;
+    json["stream_type"]=VKCMDSETLOGICOPENABLEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -96522,7 +96522,7 @@ debug_printf("Executing vkCmdSetLogicOpEnableEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96588,7 +96588,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetColorBlendEnableEXT( VkComma
 debug_printf("Executing vkCmdSetColorBlendEnableEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETCOLORBLENDENABLEEXT;
+    json["stream_type"]=VKCMDSETCOLORBLENDENABLEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -96623,7 +96623,7 @@ debug_printf("Executing vkCmdSetColorBlendEnableEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96699,7 +96699,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetColorBlendEquationEXT( VkCom
 debug_printf("Executing vkCmdSetColorBlendEquationEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETCOLORBLENDEQUATIONEXT;
+    json["stream_type"]=VKCMDSETCOLORBLENDEQUATIONEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -96737,7 +96737,7 @@ debug_printf("Executing vkCmdSetColorBlendEquationEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96813,7 +96813,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetColorWriteMaskEXT( VkCommand
 debug_printf("Executing vkCmdSetColorWriteMaskEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETCOLORWRITEMASKEXT;
+    json["stream_type"]=VKCMDSETCOLORWRITEMASKEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -96848,7 +96848,7 @@ debug_printf("Executing vkCmdSetColorWriteMaskEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -96924,7 +96924,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetRasterizationStreamEXT( VkCo
 debug_printf("Executing vkCmdSetRasterizationStreamEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETRASTERIZATIONSTREAMEXT;
+    json["stream_type"]=VKCMDSETRASTERIZATIONSTREAMEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -96949,7 +96949,7 @@ debug_printf("Executing vkCmdSetRasterizationStreamEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97015,7 +97015,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetConservativeRasterizationMod
 debug_printf("Executing vkCmdSetConservativeRasterizationModeEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETCONSERVATIVERASTERIZATIONMODEEXT;
+    json["stream_type"]=VKCMDSETCONSERVATIVERASTERIZATIONMODEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -97040,7 +97040,7 @@ debug_printf("Executing vkCmdSetConservativeRasterizationModeEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97106,7 +97106,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetExtraPrimitiveOverestimation
 debug_printf("Executing vkCmdSetExtraPrimitiveOverestimationSizeEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETEXTRAPRIMITIVEOVERESTIMATIONSIZEEXT;
+    json["stream_type"]=VKCMDSETEXTRAPRIMITIVEOVERESTIMATIONSIZEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -97131,7 +97131,7 @@ debug_printf("Executing vkCmdSetExtraPrimitiveOverestimationSizeEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97197,7 +97197,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthClipEnableEXT( VkComman
 debug_printf("Executing vkCmdSetDepthClipEnableEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETDEPTHCLIPENABLEEXT;
+    json["stream_type"]=VKCMDSETDEPTHCLIPENABLEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -97222,7 +97222,7 @@ debug_printf("Executing vkCmdSetDepthClipEnableEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97288,7 +97288,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetSampleLocationsEnableEXT( Vk
 debug_printf("Executing vkCmdSetSampleLocationsEnableEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETSAMPLELOCATIONSENABLEEXT;
+    json["stream_type"]=VKCMDSETSAMPLELOCATIONSENABLEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -97313,7 +97313,7 @@ debug_printf("Executing vkCmdSetSampleLocationsEnableEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97379,7 +97379,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetColorBlendAdvancedEXT( VkCom
 debug_printf("Executing vkCmdSetColorBlendAdvancedEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETCOLORBLENDADVANCEDEXT;
+    json["stream_type"]=VKCMDSETCOLORBLENDADVANCEDEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -97417,7 +97417,7 @@ debug_printf("Executing vkCmdSetColorBlendAdvancedEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97493,7 +97493,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetProvokingVertexModeEXT( VkCo
 debug_printf("Executing vkCmdSetProvokingVertexModeEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETPROVOKINGVERTEXMODEEXT;
+    json["stream_type"]=VKCMDSETPROVOKINGVERTEXMODEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -97518,7 +97518,7 @@ debug_printf("Executing vkCmdSetProvokingVertexModeEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97584,7 +97584,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetLineRasterizationModeEXT( Vk
 debug_printf("Executing vkCmdSetLineRasterizationModeEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETLINERASTERIZATIONMODEEXT;
+    json["stream_type"]=VKCMDSETLINERASTERIZATIONMODEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -97609,7 +97609,7 @@ debug_printf("Executing vkCmdSetLineRasterizationModeEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97675,7 +97675,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetLineStippleEnableEXT( VkComm
 debug_printf("Executing vkCmdSetLineStippleEnableEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETLINESTIPPLEENABLEEXT;
+    json["stream_type"]=VKCMDSETLINESTIPPLEENABLEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -97700,7 +97700,7 @@ debug_printf("Executing vkCmdSetLineStippleEnableEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97766,7 +97766,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthClipNegativeOneToOneEXT
 debug_printf("Executing vkCmdSetDepthClipNegativeOneToOneEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETDEPTHCLIPNEGATIVEONETOONEEXT;
+    json["stream_type"]=VKCMDSETDEPTHCLIPNEGATIVEONETOONEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -97791,7 +97791,7 @@ debug_printf("Executing vkCmdSetDepthClipNegativeOneToOneEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97857,7 +97857,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetViewportWScalingEnableNV( Vk
 debug_printf("Executing vkCmdSetViewportWScalingEnableNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETVIEWPORTWSCALINGENABLENV;
+    json["stream_type"]=VKCMDSETVIEWPORTWSCALINGENABLENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -97882,7 +97882,7 @@ debug_printf("Executing vkCmdSetViewportWScalingEnableNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -97948,7 +97948,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetViewportSwizzleNV( VkCommand
 debug_printf("Executing vkCmdSetViewportSwizzleNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETVIEWPORTSWIZZLENV;
+    json["stream_type"]=VKCMDSETVIEWPORTSWIZZLENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -97986,7 +97986,7 @@ debug_printf("Executing vkCmdSetViewportSwizzleNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98062,7 +98062,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCoverageToColorEnableNV( VkC
 debug_printf("Executing vkCmdSetCoverageToColorEnableNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETCOVERAGETOCOLORENABLENV;
+    json["stream_type"]=VKCMDSETCOVERAGETOCOLORENABLENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -98087,7 +98087,7 @@ debug_printf("Executing vkCmdSetCoverageToColorEnableNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98153,7 +98153,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCoverageToColorLocationNV( V
 debug_printf("Executing vkCmdSetCoverageToColorLocationNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETCOVERAGETOCOLORLOCATIONNV;
+    json["stream_type"]=VKCMDSETCOVERAGETOCOLORLOCATIONNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -98178,7 +98178,7 @@ debug_printf("Executing vkCmdSetCoverageToColorLocationNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98244,7 +98244,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCoverageModulationModeNV( Vk
 debug_printf("Executing vkCmdSetCoverageModulationModeNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETCOVERAGEMODULATIONMODENV;
+    json["stream_type"]=VKCMDSETCOVERAGEMODULATIONMODENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -98269,7 +98269,7 @@ debug_printf("Executing vkCmdSetCoverageModulationModeNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98335,7 +98335,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCoverageModulationTableEnabl
 debug_printf("Executing vkCmdSetCoverageModulationTableEnableNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETCOVERAGEMODULATIONTABLEENABLENV;
+    json["stream_type"]=VKCMDSETCOVERAGEMODULATIONTABLEENABLENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -98360,7 +98360,7 @@ debug_printf("Executing vkCmdSetCoverageModulationTableEnableNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98426,7 +98426,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCoverageModulationTableNV( V
 debug_printf("Executing vkCmdSetCoverageModulationTableNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETCOVERAGEMODULATIONTABLENV;
+    json["stream_type"]=VKCMDSETCOVERAGEMODULATIONTABLENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -98460,7 +98460,7 @@ debug_printf("Executing vkCmdSetCoverageModulationTableNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98527,7 +98527,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetShadingRateImageEnableNV( Vk
 debug_printf("Executing vkCmdSetShadingRateImageEnableNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETSHADINGRATEIMAGEENABLENV;
+    json["stream_type"]=VKCMDSETSHADINGRATEIMAGEENABLENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -98552,7 +98552,7 @@ debug_printf("Executing vkCmdSetShadingRateImageEnableNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98618,7 +98618,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetCoverageReductionModeNV( VkC
 debug_printf("Executing vkCmdSetCoverageReductionModeNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETCOVERAGEREDUCTIONMODENV;
+    json["stream_type"]=VKCMDSETCOVERAGEREDUCTIONMODENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -98643,7 +98643,7 @@ debug_printf("Executing vkCmdSetCoverageReductionModeNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98709,7 +98709,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetRepresentativeFragmentTestEn
 debug_printf("Executing vkCmdSetRepresentativeFragmentTestEnableNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETREPRESENTATIVEFRAGMENTTESTENABLENV;
+    json["stream_type"]=VKCMDSETREPRESENTATIVEFRAGMENTTESTENABLENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -98734,7 +98734,7 @@ debug_printf("Executing vkCmdSetRepresentativeFragmentTestEnableNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98800,7 +98800,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreatePrivateDataSlot( VkDevic
 debug_printf("Executing vkCreatePrivateDataSlot\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEPRIVATEDATASLOT;
+    json["stream_type"]=VKCREATEPRIVATEDATASLOT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -98857,7 +98857,7 @@ debug_printf("Executing vkCreatePrivateDataSlot\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -98947,7 +98947,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyPrivateDataSlot( VkDevice d
 debug_printf("Executing vkDestroyPrivateDataSlot\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYPRIVATEDATASLOT;
+    json["stream_type"]=VKDESTROYPRIVATEDATASLOT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -98984,7 +98984,7 @@ debug_printf("Executing vkDestroyPrivateDataSlot\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99046,7 +99046,7 @@ __attribute__((visibility ("hidden"))) VkResult vkSetPrivateData( VkDevice devic
 debug_printf("Executing vkSetPrivateData\n");
 
     boost::json::object json;
-    json["type"]=VKSETPRIVATEDATA;
+    json["stream_type"]=VKSETPRIVATEDATA;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -99074,7 +99074,7 @@ debug_printf("Executing vkSetPrivateData\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99174,7 +99174,7 @@ __attribute__((visibility ("hidden"))) void vkGetPrivateData( VkDevice device, V
 debug_printf("Executing vkGetPrivateData\n");
 
     boost::json::object json;
-    json["type"]=VKGETPRIVATEDATA;
+    json["stream_type"]=VKGETPRIVATEDATA;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -99210,7 +99210,7 @@ debug_printf("Executing vkGetPrivateData\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99306,7 +99306,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyBuffer2( VkCommandBuffer co
 debug_printf("Executing vkCmdCopyBuffer2\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYBUFFER2;
+    json["stream_type"]=VKCMDCOPYBUFFER2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -99342,7 +99342,7 @@ debug_printf("Executing vkCmdCopyBuffer2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99403,7 +99403,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyImage2( VkCommandBuffer com
 debug_printf("Executing vkCmdCopyImage2\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYIMAGE2;
+    json["stream_type"]=VKCMDCOPYIMAGE2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -99439,7 +99439,7 @@ debug_printf("Executing vkCmdCopyImage2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99500,7 +99500,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBlitImage2( VkCommandBuffer com
 debug_printf("Executing vkCmdBlitImage2\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBLITIMAGE2;
+    json["stream_type"]=VKCMDBLITIMAGE2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -99536,7 +99536,7 @@ debug_printf("Executing vkCmdBlitImage2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99597,7 +99597,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyBufferToImage2( VkCommandBu
 debug_printf("Executing vkCmdCopyBufferToImage2\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYBUFFERTOIMAGE2;
+    json["stream_type"]=VKCMDCOPYBUFFERTOIMAGE2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -99633,7 +99633,7 @@ debug_printf("Executing vkCmdCopyBufferToImage2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99694,7 +99694,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyImageToBuffer2( VkCommandBu
 debug_printf("Executing vkCmdCopyImageToBuffer2\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYIMAGETOBUFFER2;
+    json["stream_type"]=VKCMDCOPYIMAGETOBUFFER2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -99730,7 +99730,7 @@ debug_printf("Executing vkCmdCopyImageToBuffer2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99791,7 +99791,7 @@ __attribute__((visibility ("hidden"))) void vkCmdResolveImage2( VkCommandBuffer 
 debug_printf("Executing vkCmdResolveImage2\n");
 
     boost::json::object json;
-    json["type"]=VKCMDRESOLVEIMAGE2;
+    json["stream_type"]=VKCMDRESOLVEIMAGE2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -99827,7 +99827,7 @@ debug_printf("Executing vkCmdResolveImage2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99888,7 +99888,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetFragmentShadingRateKHR( VkCo
 debug_printf("Executing vkCmdSetFragmentShadingRateKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETFRAGMENTSHADINGRATEKHR;
+    json["stream_type"]=VKCMDSETFRAGMENTSHADINGRATEKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -99930,7 +99930,7 @@ debug_printf("Executing vkCmdSetFragmentShadingRateKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -99994,7 +99994,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceFragmentShadi
 debug_printf("Executing vkGetPhysicalDeviceFragmentShadingRatesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEFRAGMENTSHADINGRATESKHR;
+    json["stream_type"]=VKGETPHYSICALDEVICEFRAGMENTSHADINGRATESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -100039,7 +100039,7 @@ debug_printf("Executing vkGetPhysicalDeviceFragmentShadingRatesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -100137,7 +100137,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetFragmentShadingRateEnumNV( V
 debug_printf("Executing vkCmdSetFragmentShadingRateEnumNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETFRAGMENTSHADINGRATEENUMNV;
+    json["stream_type"]=VKCMDSETFRAGMENTSHADINGRATEENUMNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -100168,7 +100168,7 @@ debug_printf("Executing vkCmdSetFragmentShadingRateEnumNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -100240,7 +100240,7 @@ __attribute__((visibility ("hidden"))) void vkGetAccelerationStructureBuildSizes
 debug_printf("Executing vkGetAccelerationStructureBuildSizesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETACCELERATIONSTRUCTUREBUILDSIZESKHR;
+    json["stream_type"]=VKGETACCELERATIONSTRUCTUREBUILDSIZESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -100298,7 +100298,7 @@ debug_printf("Executing vkGetAccelerationStructureBuildSizesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -100378,7 +100378,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetVertexInputEXT( VkCommandBuf
 debug_printf("Executing vkCmdSetVertexInputEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETVERTEXINPUTEXT;
+    json["stream_type"]=VKCMDSETVERTEXINPUTEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -100428,7 +100428,7 @@ debug_printf("Executing vkCmdSetVertexInputEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -100505,7 +100505,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetColorWriteEnableEXT( VkComma
 debug_printf("Executing vkCmdSetColorWriteEnableEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETCOLORWRITEENABLEEXT;
+    json["stream_type"]=VKCMDSETCOLORWRITEENABLEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -100539,7 +100539,7 @@ debug_printf("Executing vkCmdSetColorWriteEnableEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -100606,7 +100606,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetEvent2( VkCommandBuffer comm
 debug_printf("Executing vkCmdSetEvent2\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETEVENT2;
+    json["stream_type"]=VKCMDSETEVENT2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -100643,7 +100643,7 @@ debug_printf("Executing vkCmdSetEvent2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -100705,7 +100705,7 @@ __attribute__((visibility ("hidden"))) void vkCmdResetEvent2( VkCommandBuffer co
 debug_printf("Executing vkCmdResetEvent2\n");
 
     boost::json::object json;
-    json["type"]=VKCMDRESETEVENT2;
+    json["stream_type"]=VKCMDRESETEVENT2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -100731,7 +100731,7 @@ debug_printf("Executing vkCmdResetEvent2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -100801,7 +100801,7 @@ __attribute__((visibility ("hidden"))) void vkCmdWaitEvents2( VkCommandBuffer co
 debug_printf("Executing vkCmdWaitEvents2\n");
 
     boost::json::object json;
-    json["type"]=VKCMDWAITEVENTS2;
+    json["stream_type"]=VKCMDWAITEVENTS2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -100847,7 +100847,7 @@ debug_printf("Executing vkCmdWaitEvents2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -100918,7 +100918,7 @@ __attribute__((visibility ("hidden"))) void vkCmdPipelineBarrier2( VkCommandBuff
 debug_printf("Executing vkCmdPipelineBarrier2\n");
 
     boost::json::object json;
-    json["type"]=VKCMDPIPELINEBARRIER2;
+    json["stream_type"]=VKCMDPIPELINEBARRIER2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -100954,7 +100954,7 @@ debug_printf("Executing vkCmdPipelineBarrier2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101015,7 +101015,7 @@ __attribute__((visibility ("hidden"))) VkResult vkQueueSubmit2( VkQueue queue, u
 debug_printf("Executing vkQueueSubmit2\n");
 
     boost::json::object json;
-    json["type"]=VKQUEUESUBMIT2;
+    json["stream_type"]=VKQUEUESUBMIT2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -101053,7 +101053,7 @@ debug_printf("Executing vkQueueSubmit2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101136,7 +101136,7 @@ __attribute__((visibility ("hidden"))) void vkCmdWriteTimestamp2( VkCommandBuffe
 debug_printf("Executing vkCmdWriteTimestamp2\n");
 
     boost::json::object json;
-    json["type"]=VKCMDWRITETIMESTAMP2;
+    json["stream_type"]=VKCMDWRITETIMESTAMP2;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -101163,7 +101163,7 @@ debug_printf("Executing vkCmdWriteTimestamp2\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101242,7 +101242,7 @@ __attribute__((visibility ("hidden"))) void vkCmdWriteBufferMarker2AMD( VkComman
 debug_printf("Executing vkCmdWriteBufferMarker2AMD\n");
 
     boost::json::object json;
-    json["type"]=VKCMDWRITEBUFFERMARKER2AMD;
+    json["stream_type"]=VKCMDWRITEBUFFERMARKER2AMD;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -101270,7 +101270,7 @@ debug_printf("Executing vkCmdWriteBufferMarker2AMD\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101355,7 +101355,7 @@ __attribute__((visibility ("hidden"))) void vkGetQueueCheckpointData2NV( VkQueue
 debug_printf("Executing vkGetQueueCheckpointData2NV\n");
 
     boost::json::object json;
-    json["type"]=VKGETQUEUECHECKPOINTDATA2NV;
+    json["stream_type"]=VKGETQUEUECHECKPOINTDATA2NV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -101400,7 +101400,7 @@ debug_printf("Executing vkGetQueueCheckpointData2NV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101486,7 +101486,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyMemoryToImageEXT( VkDevice
 debug_printf("Executing vkCopyMemoryToImageEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCOPYMEMORYTOIMAGEEXT;
+    json["stream_type"]=VKCOPYMEMORYTOIMAGEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -101522,7 +101522,7 @@ debug_printf("Executing vkCopyMemoryToImageEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101592,7 +101592,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyImageToMemoryEXT( VkDevice
 debug_printf("Executing vkCopyImageToMemoryEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCOPYIMAGETOMEMORYEXT;
+    json["stream_type"]=VKCOPYIMAGETOMEMORYEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -101628,7 +101628,7 @@ debug_printf("Executing vkCopyImageToMemoryEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101698,7 +101698,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyImageToImageEXT( VkDevice 
 debug_printf("Executing vkCopyImageToImageEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCOPYIMAGETOIMAGEEXT;
+    json["stream_type"]=VKCOPYIMAGETOIMAGEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -101734,7 +101734,7 @@ debug_printf("Executing vkCopyImageToImageEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101804,7 +101804,7 @@ __attribute__((visibility ("hidden"))) VkResult vkTransitionImageLayoutEXT( VkDe
 debug_printf("Executing vkTransitionImageLayoutEXT\n");
 
     boost::json::object json;
-    json["type"]=VKTRANSITIONIMAGELAYOUTEXT;
+    json["stream_type"]=VKTRANSITIONIMAGELAYOUTEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -101841,7 +101841,7 @@ debug_printf("Executing vkTransitionImageLayoutEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -101920,7 +101920,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceVideoCapabili
 debug_printf("Executing vkGetPhysicalDeviceVideoCapabilitiesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEVIDEOCAPABILITIESKHR;
+    json["stream_type"]=VKGETPHYSICALDEVICEVIDEOCAPABILITIESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -101968,7 +101968,7 @@ debug_printf("Executing vkGetPhysicalDeviceVideoCapabilitiesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -102050,7 +102050,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceVideoFormatPr
 debug_printf("Executing vkGetPhysicalDeviceVideoFormatPropertiesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEVIDEOFORMATPROPERTIESKHR;
+    json["stream_type"]=VKGETPHYSICALDEVICEVIDEOFORMATPROPERTIESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -102107,7 +102107,7 @@ debug_printf("Executing vkGetPhysicalDeviceVideoFormatPropertiesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -102206,7 +102206,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateVideoSessionKHR( VkDevic
 debug_printf("Executing vkCreateVideoSessionKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEVIDEOSESSIONKHR;
+    json["stream_type"]=VKCREATEVIDEOSESSIONKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -102263,7 +102263,7 @@ debug_printf("Executing vkCreateVideoSessionKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -102350,7 +102350,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyVideoSessionKHR( VkDevice d
 debug_printf("Executing vkDestroyVideoSessionKHR\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYVIDEOSESSIONKHR;
+    json["stream_type"]=VKDESTROYVIDEOSESSIONKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -102387,7 +102387,7 @@ debug_printf("Executing vkDestroyVideoSessionKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -102446,7 +102446,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateVideoSessionParametersKH
 debug_printf("Executing vkCreateVideoSessionParametersKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEVIDEOSESSIONPARAMETERSKHR;
+    json["stream_type"]=VKCREATEVIDEOSESSIONPARAMETERSKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -102503,7 +102503,7 @@ debug_printf("Executing vkCreateVideoSessionParametersKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -102590,7 +102590,7 @@ __attribute__((visibility ("hidden"))) VkResult vkUpdateVideoSessionParametersKH
 debug_printf("Executing vkUpdateVideoSessionParametersKHR\n");
 
     boost::json::object json;
-    json["type"]=VKUPDATEVIDEOSESSIONPARAMETERSKHR;
+    json["stream_type"]=VKUPDATEVIDEOSESSIONPARAMETERSKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -102627,7 +102627,7 @@ debug_printf("Executing vkUpdateVideoSessionParametersKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -102698,7 +102698,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyVideoSessionParametersKHR( 
 debug_printf("Executing vkDestroyVideoSessionParametersKHR\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYVIDEOSESSIONPARAMETERSKHR;
+    json["stream_type"]=VKDESTROYVIDEOSESSIONPARAMETERSKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -102735,7 +102735,7 @@ debug_printf("Executing vkDestroyVideoSessionParametersKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -102794,7 +102794,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetVideoSessionMemoryRequireme
 debug_printf("Executing vkGetVideoSessionMemoryRequirementsKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETVIDEOSESSIONMEMORYREQUIREMENTSKHR;
+    json["stream_type"]=VKGETVIDEOSESSIONMEMORYREQUIREMENTSKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -102840,7 +102840,7 @@ debug_printf("Executing vkGetVideoSessionMemoryRequirementsKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -102939,7 +102939,7 @@ __attribute__((visibility ("hidden"))) VkResult vkBindVideoSessionMemoryKHR( VkD
 debug_printf("Executing vkBindVideoSessionMemoryKHR\n");
 
     boost::json::object json;
-    json["type"]=VKBINDVIDEOSESSIONMEMORYKHR;
+    json["stream_type"]=VKBINDVIDEOSESSIONMEMORYKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -102977,7 +102977,7 @@ debug_printf("Executing vkBindVideoSessionMemoryKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -103057,7 +103057,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDecodeVideoKHR( VkCommandBuffer
 debug_printf("Executing vkCmdDecodeVideoKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDECODEVIDEOKHR;
+    json["stream_type"]=VKCMDDECODEVIDEOKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -103093,7 +103093,7 @@ debug_printf("Executing vkCmdDecodeVideoKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -103151,7 +103151,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginVideoCodingKHR( VkCommandB
 debug_printf("Executing vkCmdBeginVideoCodingKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBEGINVIDEOCODINGKHR;
+    json["stream_type"]=VKCMDBEGINVIDEOCODINGKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -103187,7 +103187,7 @@ debug_printf("Executing vkCmdBeginVideoCodingKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -103245,7 +103245,7 @@ __attribute__((visibility ("hidden"))) void vkCmdControlVideoCodingKHR( VkComman
 debug_printf("Executing vkCmdControlVideoCodingKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCONTROLVIDEOCODINGKHR;
+    json["stream_type"]=VKCMDCONTROLVIDEOCODINGKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -103281,7 +103281,7 @@ debug_printf("Executing vkCmdControlVideoCodingKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -103339,7 +103339,7 @@ __attribute__((visibility ("hidden"))) void vkCmdEndVideoCodingKHR( VkCommandBuf
 debug_printf("Executing vkCmdEndVideoCodingKHR\n");
 
     boost::json::object json;
-    json["type"]=VKCMDENDVIDEOCODINGKHR;
+    json["stream_type"]=VKCMDENDVIDEOCODINGKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -103375,7 +103375,7 @@ debug_printf("Executing vkCmdEndVideoCodingKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -103433,7 +103433,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDecompressMemoryNV( VkCommandBu
 debug_printf("Executing vkCmdDecompressMemoryNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDECOMPRESSMEMORYNV;
+    json["stream_type"]=VKCMDDECOMPRESSMEMORYNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -103470,7 +103470,7 @@ debug_printf("Executing vkCmdDecompressMemoryNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -103537,7 +103537,7 @@ __attribute__((visibility ("hidden"))) void vkCmdDecompressMemoryIndirectCountNV
 debug_printf("Executing vkCmdDecompressMemoryIndirectCountNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDDECOMPRESSMEMORYINDIRECTCOUNTNV;
+    json["stream_type"]=VKCMDDECOMPRESSMEMORYINDIRECTCOUNTNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -103564,7 +103564,7 @@ debug_printf("Executing vkCmdDecompressMemoryIndirectCountNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -103648,7 +103648,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateCuModuleNVX( VkDevice de
 debug_printf("Executing vkCreateCuModuleNVX\n");
 
     boost::json::object json;
-    json["type"]=VKCREATECUMODULENVX;
+    json["stream_type"]=VKCREATECUMODULENVX;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -103705,7 +103705,7 @@ debug_printf("Executing vkCreateCuModuleNVX\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -103792,7 +103792,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateCuFunctionNVX( VkDevice 
 debug_printf("Executing vkCreateCuFunctionNVX\n");
 
     boost::json::object json;
-    json["type"]=VKCREATECUFUNCTIONNVX;
+    json["stream_type"]=VKCREATECUFUNCTIONNVX;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -103849,7 +103849,7 @@ debug_printf("Executing vkCreateCuFunctionNVX\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -103936,7 +103936,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyCuModuleNVX( VkDevice devic
 debug_printf("Executing vkDestroyCuModuleNVX\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYCUMODULENVX;
+    json["stream_type"]=VKDESTROYCUMODULENVX;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -103973,7 +103973,7 @@ debug_printf("Executing vkDestroyCuModuleNVX\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104032,7 +104032,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyCuFunctionNVX( VkDevice dev
 debug_printf("Executing vkDestroyCuFunctionNVX\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYCUFUNCTIONNVX;
+    json["stream_type"]=VKDESTROYCUFUNCTIONNVX;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -104069,7 +104069,7 @@ debug_printf("Executing vkDestroyCuFunctionNVX\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104128,7 +104128,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCuLaunchKernelNVX( VkCommandBuf
 debug_printf("Executing vkCmdCuLaunchKernelNVX\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCULAUNCHKERNELNVX;
+    json["stream_type"]=VKCMDCULAUNCHKERNELNVX;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -104164,7 +104164,7 @@ debug_printf("Executing vkCmdCuLaunchKernelNVX\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104222,7 +104222,7 @@ __attribute__((visibility ("hidden"))) void vkGetDescriptorSetLayoutSizeEXT( VkD
 debug_printf("Executing vkGetDescriptorSetLayoutSizeEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETDESCRIPTORSETLAYOUTSIZEEXT;
+    json["stream_type"]=VKGETDESCRIPTORSETLAYOUTSIZEEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -104256,7 +104256,7 @@ debug_printf("Executing vkGetDescriptorSetLayoutSizeEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104331,7 +104331,7 @@ __attribute__((visibility ("hidden"))) void vkGetDescriptorSetLayoutBindingOffse
 debug_printf("Executing vkGetDescriptorSetLayoutBindingOffsetEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETDESCRIPTORSETLAYOUTBINDINGOFFSETEXT;
+    json["stream_type"]=VKGETDESCRIPTORSETLAYOUTBINDINGOFFSETEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -104366,7 +104366,7 @@ debug_printf("Executing vkGetDescriptorSetLayoutBindingOffsetEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104450,7 +104450,7 @@ __attribute__((visibility ("hidden"))) void vkGetDescriptorEXT( VkDevice device,
 debug_printf("Executing vkGetDescriptorEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETDESCRIPTOREXT;
+    json["stream_type"]=VKGETDESCRIPTOREXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -104499,7 +104499,7 @@ debug_printf("Executing vkGetDescriptorEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104577,7 +104577,7 @@ debug_printf("Executing vkGetDescriptorEXT\n");
             }
             }();
         }
-        }();pDescriptor=(void*)(temp_mEHYUhJ);}();
+        }();pDescriptor=temp_mEHYUhJ;}();
 
 debug_printf("Ending vkGetDescriptorEXT...\n");
 }
@@ -104586,7 +104586,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBindDescriptorBuffersEXT( VkCom
 debug_printf("Executing vkCmdBindDescriptorBuffersEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBINDDESCRIPTORBUFFERSEXT;
+    json["stream_type"]=VKCMDBINDDESCRIPTORBUFFERSEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -104623,7 +104623,7 @@ debug_printf("Executing vkCmdBindDescriptorBuffersEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104690,7 +104690,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDescriptorBufferOffsetsEXT( 
 debug_printf("Executing vkCmdSetDescriptorBufferOffsetsEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETDESCRIPTORBUFFEROFFSETSEXT;
+    json["stream_type"]=VKCMDSETDESCRIPTORBUFFEROFFSETSEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -104736,7 +104736,7 @@ debug_printf("Executing vkCmdSetDescriptorBufferOffsetsEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104823,7 +104823,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBindDescriptorBufferEmbeddedSam
 debug_printf("Executing vkCmdBindDescriptorBufferEmbeddedSamplersEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBINDDESCRIPTORBUFFEREMBEDDEDSAMPLERSEXT;
+    json["stream_type"]=VKCMDBINDDESCRIPTORBUFFEREMBEDDEDSAMPLERSEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -104850,7 +104850,7 @@ debug_printf("Executing vkCmdBindDescriptorBufferEmbeddedSamplersEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -104926,7 +104926,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetBufferOpaqueCaptureDescript
 debug_printf("Executing vkGetBufferOpaqueCaptureDescriptorDataEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETBUFFEROPAQUECAPTUREDESCRIPTORDATAEXT;
+    json["stream_type"]=VKGETBUFFEROPAQUECAPTUREDESCRIPTORDATAEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -104974,7 +104974,7 @@ debug_printf("Executing vkGetBufferOpaqueCaptureDescriptorDataEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -105043,7 +105043,7 @@ debug_printf("Executing vkGetBufferOpaqueCaptureDescriptorDataEXT\n");
             }
             }();
         }
-        }();pData=(void*)(temp_lBHICWs);}();
+        }();pData=temp_lBHICWs;}();
 VkResult result;
 [&](){[&](){int temp_BreRMSA;[&](){
             if (json["result"].is_uint64()){
@@ -105064,7 +105064,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetImageOpaqueCaptureDescripto
 debug_printf("Executing vkGetImageOpaqueCaptureDescriptorDataEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETIMAGEOPAQUECAPTUREDESCRIPTORDATAEXT;
+    json["stream_type"]=VKGETIMAGEOPAQUECAPTUREDESCRIPTORDATAEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -105112,7 +105112,7 @@ debug_printf("Executing vkGetImageOpaqueCaptureDescriptorDataEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -105181,7 +105181,7 @@ debug_printf("Executing vkGetImageOpaqueCaptureDescriptorDataEXT\n");
             }
             }();
         }
-        }();pData=(void*)(temp_lBHICWs);}();
+        }();pData=temp_lBHICWs;}();
 VkResult result;
 [&](){[&](){int temp_PrnsDXW;[&](){
             if (json["result"].is_uint64()){
@@ -105202,7 +105202,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetImageViewOpaqueCaptureDescr
 debug_printf("Executing vkGetImageViewOpaqueCaptureDescriptorDataEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETIMAGEVIEWOPAQUECAPTUREDESCRIPTORDATAEXT;
+    json["stream_type"]=VKGETIMAGEVIEWOPAQUECAPTUREDESCRIPTORDATAEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -105250,7 +105250,7 @@ debug_printf("Executing vkGetImageViewOpaqueCaptureDescriptorDataEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -105319,7 +105319,7 @@ debug_printf("Executing vkGetImageViewOpaqueCaptureDescriptorDataEXT\n");
             }
             }();
         }
-        }();pData=(void*)(temp_lBHICWs);}();
+        }();pData=temp_lBHICWs;}();
 VkResult result;
 [&](){[&](){int temp_UkGTadX;[&](){
             if (json["result"].is_uint64()){
@@ -105340,7 +105340,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetSamplerOpaqueCaptureDescrip
 debug_printf("Executing vkGetSamplerOpaqueCaptureDescriptorDataEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETSAMPLEROPAQUECAPTUREDESCRIPTORDATAEXT;
+    json["stream_type"]=VKGETSAMPLEROPAQUECAPTUREDESCRIPTORDATAEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -105388,7 +105388,7 @@ debug_printf("Executing vkGetSamplerOpaqueCaptureDescriptorDataEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -105457,7 +105457,7 @@ debug_printf("Executing vkGetSamplerOpaqueCaptureDescriptorDataEXT\n");
             }
             }();
         }
-        }();pData=(void*)(temp_lBHICWs);}();
+        }();pData=temp_lBHICWs;}();
 VkResult result;
 [&](){[&](){int temp_qhwUZoX;[&](){
             if (json["result"].is_uint64()){
@@ -105478,7 +105478,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetAccelerationStructureOpaque
 debug_printf("Executing vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETACCELERATIONSTRUCTUREOPAQUECAPTUREDESCRIPTORDATAEXT;
+    json["stream_type"]=VKGETACCELERATIONSTRUCTUREOPAQUECAPTUREDESCRIPTORDATAEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -105526,7 +105526,7 @@ debug_printf("Executing vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -105595,7 +105595,7 @@ debug_printf("Executing vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT
             }
             }();
         }
-        }();pData=(void*)(temp_lBHICWs);}();
+        }();pData=temp_lBHICWs;}();
 VkResult result;
 [&](){[&](){int temp_EdBxllU;[&](){
             if (json["result"].is_uint64()){
@@ -105616,7 +105616,7 @@ __attribute__((visibility ("hidden"))) void vkSetDeviceMemoryPriorityEXT( VkDevi
 debug_printf("Executing vkSetDeviceMemoryPriorityEXT\n");
 
     boost::json::object json;
-    json["type"]=VKSETDEVICEMEMORYPRIORITYEXT;
+    json["stream_type"]=VKSETDEVICEMEMORYPRIORITYEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -105642,7 +105642,7 @@ debug_printf("Executing vkSetDeviceMemoryPriorityEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -105709,7 +105709,7 @@ __attribute__((visibility ("hidden"))) VkResult vkAcquireDrmDisplayEXT( VkPhysic
 debug_printf("Executing vkAcquireDrmDisplayEXT\n");
 
     boost::json::object json;
-    json["type"]=VKACQUIREDRMDISPLAYEXT;
+    json["stream_type"]=VKACQUIREDRMDISPLAYEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -105735,7 +105735,7 @@ debug_printf("Executing vkAcquireDrmDisplayEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -105814,7 +105814,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDrmDisplayEXT( VkPhysicalDe
 debug_printf("Executing vkGetDrmDisplayEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETDRMDISPLAYEXT;
+    json["stream_type"]=VKGETDRMDISPLAYEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -105849,7 +105849,7 @@ debug_printf("Executing vkGetDrmDisplayEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -105945,7 +105945,7 @@ __attribute__((visibility ("hidden"))) VkResult vkWaitForPresentKHR( VkDevice de
 debug_printf("Executing vkWaitForPresentKHR\n");
 
     boost::json::object json;
-    json["type"]=VKWAITFORPRESENTKHR;
+    json["stream_type"]=VKWAITFORPRESENTKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -105972,7 +105972,7 @@ debug_printf("Executing vkWaitForPresentKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -106060,7 +106060,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBeginRendering( VkCommandBuffer
 debug_printf("Executing vkCmdBeginRendering\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBEGINRENDERING;
+    json["stream_type"]=VKCMDBEGINRENDERING;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -106096,7 +106096,7 @@ debug_printf("Executing vkCmdBeginRendering\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -106157,7 +106157,7 @@ __attribute__((visibility ("hidden"))) void vkCmdEndRendering( VkCommandBuffer c
 debug_printf("Executing vkCmdEndRendering\n");
 
     boost::json::object json;
-    json["type"]=VKCMDENDRENDERING;
+    json["stream_type"]=VKCMDENDRENDERING;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -106181,7 +106181,7 @@ debug_printf("Executing vkCmdEndRendering\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -106241,7 +106241,7 @@ __attribute__((visibility ("hidden"))) void vkGetDescriptorSetLayoutHostMappingI
 debug_printf("Executing vkGetDescriptorSetLayoutHostMappingInfoVALVE\n");
 
     boost::json::object json;
-    json["type"]=VKGETDESCRIPTORSETLAYOUTHOSTMAPPINGINFOVALVE;
+    json["stream_type"]=VKGETDESCRIPTORSETLAYOUTHOSTMAPPINGINFOVALVE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -106289,7 +106289,7 @@ debug_printf("Executing vkGetDescriptorSetLayoutHostMappingInfoVALVE\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -106359,7 +106359,7 @@ __attribute__((visibility ("hidden"))) void vkGetDescriptorSetHostMappingVALVE( 
 debug_printf("Executing vkGetDescriptorSetHostMappingVALVE\n");
 
     boost::json::object json;
-    json["type"]=VKGETDESCRIPTORSETHOSTMAPPINGVALVE;
+    json["stream_type"]=VKGETDESCRIPTORSETHOSTMAPPINGVALVE;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -106379,23 +106379,23 @@ debug_printf("Executing vkGetDescriptorSetHostMappingVALVE\n");
 [&](){
             if (ppData==NULL){
                 json["ppData"]=boost::json::array();
-            return; }[&](){
-            if (((char**)(ppData))==NULL){
-                json["ppData"]=boost::json::array();
             return; }json["ppData"]=boost::json::array(1);
-        auto& arr_pmLdDKk=json["ppData"].as_array();
-        for(int PwQMWls=0; PwQMWls < 1; PwQMWls++){
+        auto& arr_JgRLJSK=json["ppData"].as_array();
+        for(int NsRFkBj=0; NsRFkBj < 1; NsRFkBj++){
             [&](){
-            if (((char**)(ppData))[PwQMWls]==NULL){
-                arr_pmLdDKk[PwQMWls]=boost::json::array();
-            return; }arr_pmLdDKk[PwQMWls]=boost::json::array(strlen(((char**)(ppData))[PwQMWls])+1);
-        auto& arr_vLfeDBZ=arr_pmLdDKk[PwQMWls].as_array();
-        for(int jYdchEs=0; jYdchEs < strlen(((char**)(ppData))[PwQMWls])+1; jYdchEs++){
-            [&](){arr_vLfeDBZ[jYdchEs]=((char**)(ppData))[PwQMWls][jYdchEs];}();
-        }
-        }();
+            if (ppData[NsRFkBj]==NULL){
+                arr_JgRLJSK[NsRFkBj]=boost::json::array();
+            return; }[&](){
+            if (((char*)(ppData[NsRFkBj]))==NULL){
+                arr_JgRLJSK[NsRFkBj]=boost::json::array();
+            return; }arr_JgRLJSK[NsRFkBj]=boost::json::array(strlen(((char*)(ppData[NsRFkBj])))+1);
+        auto& arr_vLfeDBZ=arr_JgRLJSK[NsRFkBj].as_array();
+        for(int jYdchEs=0; jYdchEs < strlen(((char*)(ppData[NsRFkBj])))+1; jYdchEs++){
+            [&](){arr_vLfeDBZ[jYdchEs]=((char*)(ppData[NsRFkBj]))[jYdchEs];}();
         }
         }();}();
+        }
+        }();
 }
 
 
@@ -106404,7 +106404,7 @@ debug_printf("Executing vkGetDescriptorSetHostMappingVALVE\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -106457,31 +106457,31 @@ debug_printf("Executing vkGetDescriptorSetHostMappingVALVE\n");
 [&](){
             if (json["ppData"].as_array().size()==0){
                 ppData=NULL;
-            return; }char** temp_yAgCoXW;[&](){
-            if (json["ppData"].as_array().size()==0){
-                temp_yAgCoXW=NULL;
-            return; }temp_yAgCoXW=(char**)malloc(1*sizeof(char*));
-        auto& arr_pmLdDKk=json["ppData"].as_array();
-        for(int PwQMWls=0; PwQMWls < 1; PwQMWls++){
+            return; }
+        auto& arr_JgRLJSK=json["ppData"].as_array();
+        for(int NsRFkBj=0; NsRFkBj < 1; NsRFkBj++){
             [&](){
-            if (arr_pmLdDKk[PwQMWls].as_array().size()==0){
-                temp_yAgCoXW[PwQMWls]=NULL;
-            return; }temp_yAgCoXW[PwQMWls]=(char*)malloc(arr_pmLdDKk[PwQMWls].as_array().size()*sizeof(char));
-        auto& arr_vLfeDBZ=arr_pmLdDKk[PwQMWls].as_array();
-        for(int jYdchEs=0; jYdchEs < arr_pmLdDKk[PwQMWls].as_array().size(); jYdchEs++){
+            if (arr_JgRLJSK[NsRFkBj].as_array().size()==0){
+                ppData[NsRFkBj]=NULL;
+            return; }char* temp_JgRLJSK;[&](){
+            if (arr_JgRLJSK[NsRFkBj].as_array().size()==0){
+                temp_JgRLJSK=NULL;
+            return; }temp_JgRLJSK=(char*)malloc(arr_JgRLJSK[NsRFkBj].as_array().size()*sizeof(char));
+        auto& arr_vLfeDBZ=arr_JgRLJSK[NsRFkBj].as_array();
+        for(int jYdchEs=0; jYdchEs < arr_JgRLJSK[NsRFkBj].as_array().size(); jYdchEs++){
             [&](){
             if (arr_vLfeDBZ[jYdchEs].is_uint64()){
-                temp_yAgCoXW[PwQMWls][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_uint64());
+                temp_JgRLJSK[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_uint64());
             }else if (arr_vLfeDBZ[jYdchEs].is_int64()){
-                temp_yAgCoXW[PwQMWls][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_int64());
+                temp_JgRLJSK[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_int64());
             }else{
-                temp_yAgCoXW[PwQMWls][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_double());
+                temp_JgRLJSK[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_double());
             }
             }();
         }
-        }();
+        }();ppData[NsRFkBj]=temp_JgRLJSK;}();
         }
-        }();ppData=(void**)(temp_yAgCoXW);}();
+        }();
 
 debug_printf("Ending vkGetDescriptorSetHostMappingVALVE...\n");
 }
@@ -106490,7 +106490,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateMicromapEXT( VkDevice de
 debug_printf("Executing vkCreateMicromapEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEMICROMAPEXT;
+    json["stream_type"]=VKCREATEMICROMAPEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -106547,7 +106547,7 @@ debug_printf("Executing vkCreateMicromapEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -106634,7 +106634,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBuildMicromapsEXT( VkCommandBuf
 debug_printf("Executing vkCmdBuildMicromapsEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBUILDMICROMAPSEXT;
+    json["stream_type"]=VKCMDBUILDMICROMAPSEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -106671,7 +106671,7 @@ debug_printf("Executing vkCmdBuildMicromapsEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -106738,7 +106738,7 @@ __attribute__((visibility ("hidden"))) VkResult vkBuildMicromapsEXT( VkDevice de
 debug_printf("Executing vkBuildMicromapsEXT\n");
 
     boost::json::object json;
-    json["type"]=VKBUILDMICROMAPSEXT;
+    json["stream_type"]=VKBUILDMICROMAPSEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -106776,7 +106776,7 @@ debug_printf("Executing vkBuildMicromapsEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -106856,7 +106856,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyMicromapEXT( VkDevice devic
 debug_printf("Executing vkDestroyMicromapEXT\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYMICROMAPEXT;
+    json["stream_type"]=VKDESTROYMICROMAPEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -106893,7 +106893,7 @@ debug_printf("Executing vkDestroyMicromapEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -106952,7 +106952,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyMicromapEXT( VkCommandBuffe
 debug_printf("Executing vkCmdCopyMicromapEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYMICROMAPEXT;
+    json["stream_type"]=VKCMDCOPYMICROMAPEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -106988,7 +106988,7 @@ debug_printf("Executing vkCmdCopyMicromapEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -107046,7 +107046,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyMicromapEXT( VkDevice devi
 debug_printf("Executing vkCopyMicromapEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCOPYMICROMAPEXT;
+    json["stream_type"]=VKCOPYMICROMAPEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -107083,7 +107083,7 @@ debug_printf("Executing vkCopyMicromapEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -107154,7 +107154,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyMicromapToMemoryEXT( VkComm
 debug_printf("Executing vkCmdCopyMicromapToMemoryEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYMICROMAPTOMEMORYEXT;
+    json["stream_type"]=VKCMDCOPYMICROMAPTOMEMORYEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -107190,7 +107190,7 @@ debug_printf("Executing vkCmdCopyMicromapToMemoryEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -107248,7 +107248,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyMicromapToMemoryEXT( VkDev
 debug_printf("Executing vkCopyMicromapToMemoryEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCOPYMICROMAPTOMEMORYEXT;
+    json["stream_type"]=VKCOPYMICROMAPTOMEMORYEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -107285,7 +107285,7 @@ debug_printf("Executing vkCopyMicromapToMemoryEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -107356,7 +107356,7 @@ __attribute__((visibility ("hidden"))) void vkCmdCopyMemoryToMicromapEXT( VkComm
 debug_printf("Executing vkCmdCopyMemoryToMicromapEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDCOPYMEMORYTOMICROMAPEXT;
+    json["stream_type"]=VKCMDCOPYMEMORYTOMICROMAPEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -107392,7 +107392,7 @@ debug_printf("Executing vkCmdCopyMemoryToMicromapEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -107450,7 +107450,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCopyMemoryToMicromapEXT( VkDev
 debug_printf("Executing vkCopyMemoryToMicromapEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCOPYMEMORYTOMICROMAPEXT;
+    json["stream_type"]=VKCOPYMEMORYTOMICROMAPEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -107487,7 +107487,7 @@ debug_printf("Executing vkCopyMemoryToMicromapEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -107558,7 +107558,7 @@ __attribute__((visibility ("hidden"))) void vkCmdWriteMicromapsPropertiesEXT( Vk
 debug_printf("Executing vkCmdWriteMicromapsPropertiesEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDWRITEMICROMAPSPROPERTIESEXT;
+    json["stream_type"]=VKCMDWRITEMICROMAPSPROPERTIESEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -107595,7 +107595,7 @@ debug_printf("Executing vkCmdWriteMicromapsPropertiesEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -107681,7 +107681,7 @@ __attribute__((visibility ("hidden"))) VkResult vkWriteMicromapsPropertiesEXT( V
 debug_printf("Executing vkWriteMicromapsPropertiesEXT\n");
 
     boost::json::object json;
-    json["type"]=VKWRITEMICROMAPSPROPERTIESEXT;
+    json["stream_type"]=VKWRITEMICROMAPSPROPERTIESEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -107730,7 +107730,7 @@ debug_printf("Executing vkWriteMicromapsPropertiesEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -107826,7 +107826,7 @@ debug_printf("Executing vkWriteMicromapsPropertiesEXT\n");
             }
             }();
         }
-        }();pData=(void*)(temp_hrhAtyM);}();
+        }();pData=temp_hrhAtyM;}();
 [&](){
             if (json["stride"].is_uint64()){
                 stride=static_cast<size_t>(json["stride"].as_uint64());
@@ -107856,7 +107856,7 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceMicromapCompatibilityEXT(
 debug_printf("Executing vkGetDeviceMicromapCompatibilityEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEVICEMICROMAPCOMPATIBILITYEXT;
+    json["stream_type"]=VKGETDEVICEMICROMAPCOMPATIBILITYEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -107901,7 +107901,7 @@ debug_printf("Executing vkGetDeviceMicromapCompatibilityEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -107976,7 +107976,7 @@ __attribute__((visibility ("hidden"))) void vkGetMicromapBuildSizesEXT( VkDevice
 debug_printf("Executing vkGetMicromapBuildSizesEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETMICROMAPBUILDSIZESEXT;
+    json["stream_type"]=VKGETMICROMAPBUILDSIZESEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -108025,7 +108025,7 @@ debug_printf("Executing vkGetMicromapBuildSizesEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -108104,7 +108104,7 @@ __attribute__((visibility ("hidden"))) void vkGetShaderModuleIdentifierEXT( VkDe
 debug_printf("Executing vkGetShaderModuleIdentifierEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETSHADERMODULEIDENTIFIEREXT;
+    json["stream_type"]=VKGETSHADERMODULEIDENTIFIEREXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -108141,7 +108141,7 @@ debug_printf("Executing vkGetShaderModuleIdentifierEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -108211,7 +108211,7 @@ __attribute__((visibility ("hidden"))) void vkGetShaderModuleCreateInfoIdentifie
 debug_printf("Executing vkGetShaderModuleCreateInfoIdentifierEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETSHADERMODULECREATEINFOIDENTIFIEREXT;
+    json["stream_type"]=VKGETSHADERMODULECREATEINFOIDENTIFIEREXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -108259,7 +108259,7 @@ debug_printf("Executing vkGetShaderModuleCreateInfoIdentifierEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -108329,7 +108329,7 @@ __attribute__((visibility ("hidden"))) void vkGetImageSubresourceLayout2KHR( VkD
 debug_printf("Executing vkGetImageSubresourceLayout2KHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETIMAGESUBRESOURCELAYOUT2KHR;
+    json["stream_type"]=VKGETIMAGESUBRESOURCELAYOUT2KHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -108378,7 +108378,7 @@ debug_printf("Executing vkGetImageSubresourceLayout2KHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -108452,7 +108452,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPipelinePropertiesEXT( VkDe
 debug_printf("Executing vkGetPipelinePropertiesEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETPIPELINEPROPERTIESEXT;
+    json["stream_type"]=VKGETPIPELINEPROPERTIESEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -108500,7 +108500,7 @@ debug_printf("Executing vkGetPipelinePropertiesEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -108582,7 +108582,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetFramebufferTilePropertiesQC
 debug_printf("Executing vkGetFramebufferTilePropertiesQCOM\n");
 
     boost::json::object json;
-    json["type"]=VKGETFRAMEBUFFERTILEPROPERTIESQCOM;
+    json["stream_type"]=VKGETFRAMEBUFFERTILEPROPERTIESQCOM;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -108628,7 +108628,7 @@ debug_printf("Executing vkGetFramebufferTilePropertiesQCOM\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -108727,7 +108727,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDynamicRenderingTilePropert
 debug_printf("Executing vkGetDynamicRenderingTilePropertiesQCOM\n");
 
     boost::json::object json;
-    json["type"]=VKGETDYNAMICRENDERINGTILEPROPERTIESQCOM;
+    json["stream_type"]=VKGETDYNAMICRENDERINGTILEPROPERTIESQCOM;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -108775,7 +108775,7 @@ debug_printf("Executing vkGetDynamicRenderingTilePropertiesQCOM\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -108857,7 +108857,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceOpticalFlowIm
 debug_printf("Executing vkGetPhysicalDeviceOpticalFlowImageFormatsNV\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICEOPTICALFLOWIMAGEFORMATSNV;
+    json["stream_type"]=VKGETPHYSICALDEVICEOPTICALFLOWIMAGEFORMATSNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -108914,7 +108914,7 @@ debug_printf("Executing vkGetPhysicalDeviceOpticalFlowImageFormatsNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -109013,7 +109013,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateOpticalFlowSessionNV( Vk
 debug_printf("Executing vkCreateOpticalFlowSessionNV\n");
 
     boost::json::object json;
-    json["type"]=VKCREATEOPTICALFLOWSESSIONNV;
+    json["stream_type"]=VKCREATEOPTICALFLOWSESSIONNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -109070,7 +109070,7 @@ debug_printf("Executing vkCreateOpticalFlowSessionNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -109157,7 +109157,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyOpticalFlowSessionNV( VkDev
 debug_printf("Executing vkDestroyOpticalFlowSessionNV\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYOPTICALFLOWSESSIONNV;
+    json["stream_type"]=VKDESTROYOPTICALFLOWSESSIONNV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -109194,7 +109194,7 @@ debug_printf("Executing vkDestroyOpticalFlowSessionNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -109253,7 +109253,7 @@ __attribute__((visibility ("hidden"))) VkResult vkBindOpticalFlowSessionImageNV(
 debug_printf("Executing vkBindOpticalFlowSessionImageNV\n");
 
     boost::json::object json;
-    json["type"]=VKBINDOPTICALFLOWSESSIONIMAGENV;
+    json["stream_type"]=VKBINDOPTICALFLOWSESSIONIMAGENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -109281,7 +109281,7 @@ debug_printf("Executing vkBindOpticalFlowSessionImageNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -109370,7 +109370,7 @@ __attribute__((visibility ("hidden"))) void vkCmdOpticalFlowExecuteNV( VkCommand
 debug_printf("Executing vkCmdOpticalFlowExecuteNV\n");
 
     boost::json::object json;
-    json["type"]=VKCMDOPTICALFLOWEXECUTENV;
+    json["stream_type"]=VKCMDOPTICALFLOWEXECUTENV;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -109407,7 +109407,7 @@ debug_printf("Executing vkCmdOpticalFlowExecuteNV\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -109466,7 +109466,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetDeviceFaultInfoEXT( VkDevic
 debug_printf("Executing vkGetDeviceFaultInfoEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEVICEFAULTINFOEXT;
+    json["stream_type"]=VKGETDEVICEFAULTINFOEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -109514,7 +109514,7 @@ debug_printf("Executing vkGetDeviceFaultInfoEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -109607,7 +109607,7 @@ __attribute__((visibility ("hidden"))) void vkCmdSetDepthBias2EXT( VkCommandBuff
 debug_printf("Executing vkCmdSetDepthBias2EXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDSETDEPTHBIAS2EXT;
+    json["stream_type"]=VKCMDSETDEPTHBIAS2EXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -109643,7 +109643,7 @@ debug_printf("Executing vkCmdSetDepthBias2EXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -109701,7 +109701,7 @@ __attribute__((visibility ("hidden"))) VkResult vkReleaseSwapchainImagesEXT( VkD
 debug_printf("Executing vkReleaseSwapchainImagesEXT\n");
 
     boost::json::object json;
-    json["type"]=VKRELEASESWAPCHAINIMAGESEXT;
+    json["stream_type"]=VKRELEASESWAPCHAINIMAGESEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -109737,7 +109737,7 @@ debug_printf("Executing vkReleaseSwapchainImagesEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -109807,7 +109807,7 @@ __attribute__((visibility ("hidden"))) void vkGetDeviceImageSubresourceLayoutKHR
 debug_printf("Executing vkGetDeviceImageSubresourceLayoutKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETDEVICEIMAGESUBRESOURCELAYOUTKHR;
+    json["stream_type"]=VKGETDEVICEIMAGESUBRESOURCELAYOUTKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -109855,7 +109855,7 @@ debug_printf("Executing vkGetDeviceImageSubresourceLayoutKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -109926,7 +109926,7 @@ debug_printf("Executing vkMapMemory2KHR\n");
 MemoryMapLock.lock();
 
     boost::json::object json;
-    json["type"]=VKMAPMEMORY2KHR;
+    json["stream_type"]=VKMAPMEMORY2KHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -109965,23 +109965,23 @@ MemoryMapLock.lock();
 [&](){
             if (ppData==NULL){
                 json["ppData"]=boost::json::array();
-            return; }[&](){
-            if (((char**)(ppData))==NULL){
-                json["ppData"]=boost::json::array();
             return; }json["ppData"]=boost::json::array(1);
-        auto& arr_pmLdDKk=json["ppData"].as_array();
-        for(int PwQMWls=0; PwQMWls < 1; PwQMWls++){
+        auto& arr_JgRLJSK=json["ppData"].as_array();
+        for(int NsRFkBj=0; NsRFkBj < 1; NsRFkBj++){
             [&](){
-            if (((char**)(ppData))[PwQMWls]==NULL){
-                arr_pmLdDKk[PwQMWls]=boost::json::array();
-            return; }arr_pmLdDKk[PwQMWls]=boost::json::array(strlen(((char**)(ppData))[PwQMWls])+1);
-        auto& arr_vLfeDBZ=arr_pmLdDKk[PwQMWls].as_array();
-        for(int jYdchEs=0; jYdchEs < strlen(((char**)(ppData))[PwQMWls])+1; jYdchEs++){
-            [&](){arr_vLfeDBZ[jYdchEs]=((char**)(ppData))[PwQMWls][jYdchEs];}();
-        }
-        }();
+            if (ppData[NsRFkBj]==NULL){
+                arr_JgRLJSK[NsRFkBj]=boost::json::array();
+            return; }[&](){
+            if (((char*)(ppData[NsRFkBj]))==NULL){
+                arr_JgRLJSK[NsRFkBj]=boost::json::array();
+            return; }arr_JgRLJSK[NsRFkBj]=boost::json::array(strlen(((char*)(ppData[NsRFkBj])))+1);
+        auto& arr_vLfeDBZ=arr_JgRLJSK[NsRFkBj].as_array();
+        for(int jYdchEs=0; jYdchEs < strlen(((char*)(ppData[NsRFkBj])))+1; jYdchEs++){
+            [&](){arr_vLfeDBZ[jYdchEs]=((char*)(ppData[NsRFkBj]))[jYdchEs];}();
         }
         }();}();
+        }
+        }();
 }
 
 
@@ -109990,7 +109990,7 @@ MemoryMapLock.lock();
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -110043,31 +110043,31 @@ MemoryMapLock.lock();
 [&](){
             if (json["ppData"].as_array().size()==0){
                 ppData=NULL;
-            return; }char** temp_yAgCoXW;[&](){
-            if (json["ppData"].as_array().size()==0){
-                temp_yAgCoXW=NULL;
-            return; }temp_yAgCoXW=(char**)malloc(1*sizeof(char*));
-        auto& arr_pmLdDKk=json["ppData"].as_array();
-        for(int PwQMWls=0; PwQMWls < 1; PwQMWls++){
+            return; }
+        auto& arr_JgRLJSK=json["ppData"].as_array();
+        for(int NsRFkBj=0; NsRFkBj < 1; NsRFkBj++){
             [&](){
-            if (arr_pmLdDKk[PwQMWls].as_array().size()==0){
-                temp_yAgCoXW[PwQMWls]=NULL;
-            return; }temp_yAgCoXW[PwQMWls]=(char*)malloc(arr_pmLdDKk[PwQMWls].as_array().size()*sizeof(char));
-        auto& arr_vLfeDBZ=arr_pmLdDKk[PwQMWls].as_array();
-        for(int jYdchEs=0; jYdchEs < arr_pmLdDKk[PwQMWls].as_array().size(); jYdchEs++){
+            if (arr_JgRLJSK[NsRFkBj].as_array().size()==0){
+                ppData[NsRFkBj]=NULL;
+            return; }char* temp_JgRLJSK;[&](){
+            if (arr_JgRLJSK[NsRFkBj].as_array().size()==0){
+                temp_JgRLJSK=NULL;
+            return; }temp_JgRLJSK=(char*)malloc(arr_JgRLJSK[NsRFkBj].as_array().size()*sizeof(char));
+        auto& arr_vLfeDBZ=arr_JgRLJSK[NsRFkBj].as_array();
+        for(int jYdchEs=0; jYdchEs < arr_JgRLJSK[NsRFkBj].as_array().size(); jYdchEs++){
             [&](){
             if (arr_vLfeDBZ[jYdchEs].is_uint64()){
-                temp_yAgCoXW[PwQMWls][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_uint64());
+                temp_JgRLJSK[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_uint64());
             }else if (arr_vLfeDBZ[jYdchEs].is_int64()){
-                temp_yAgCoXW[PwQMWls][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_int64());
+                temp_JgRLJSK[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_int64());
             }else{
-                temp_yAgCoXW[PwQMWls][jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_double());
+                temp_JgRLJSK[jYdchEs]=static_cast<char>(arr_vLfeDBZ[jYdchEs].as_double());
             }
             }();
         }
-        }();
+        }();ppData[NsRFkBj]=temp_JgRLJSK;}();
         }
-        }();ppData=(void**)(temp_yAgCoXW);}();
+        }();
 VkResult result;
 [&](){[&](){int temp_ISWBnyX;[&](){
             if (json["result"].is_uint64()){
@@ -110101,7 +110101,7 @@ debug_printf("Executing vkUnmapMemory2KHR\n");
 MemoryMapLock.lock();
 
     boost::json::object json;
-    json["type"]=VKUNMAPMEMORY2KHR;
+    json["stream_type"]=VKUNMAPMEMORY2KHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -110137,7 +110137,7 @@ deregisterDeviceMemoryMap(pMemoryUnmapInfo->memory);
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -110208,7 +110208,7 @@ __attribute__((visibility ("hidden"))) VkResult vkCreateShadersEXT( VkDevice dev
 debug_printf("Executing vkCreateShadersEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCREATESHADERSEXT;
+    json["stream_type"]=VKCREATESHADERSEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -110266,7 +110266,7 @@ debug_printf("Executing vkCreateShadersEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -110362,7 +110362,7 @@ __attribute__((visibility ("hidden"))) void vkDestroyShaderEXT( VkDevice device,
 debug_printf("Executing vkDestroyShaderEXT\n");
 
     boost::json::object json;
-    json["type"]=VKDESTROYSHADEREXT;
+    json["stream_type"]=VKDESTROYSHADEREXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -110399,7 +110399,7 @@ debug_printf("Executing vkDestroyShaderEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -110458,7 +110458,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetShaderBinaryDataEXT( VkDevi
 debug_printf("Executing vkGetShaderBinaryDataEXT\n");
 
     boost::json::object json;
-    json["type"]=VKGETSHADERBINARYDATAEXT;
+    json["stream_type"]=VKGETSHADERBINARYDATAEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -110504,7 +110504,7 @@ debug_printf("Executing vkGetShaderBinaryDataEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -110590,7 +110590,7 @@ debug_printf("Executing vkGetShaderBinaryDataEXT\n");
             }
             }();
         }
-        }();pData=(void*)(temp_ZtBEjVJ);}();
+        }();pData=temp_ZtBEjVJ;}();
 VkResult result;
 [&](){[&](){int temp_zXjNUAM;[&](){
             if (json["result"].is_uint64()){
@@ -110611,7 +110611,7 @@ __attribute__((visibility ("hidden"))) void vkCmdBindShadersEXT( VkCommandBuffer
 debug_printf("Executing vkCmdBindShadersEXT\n");
 
     boost::json::object json;
-    json["type"]=VKCMDBINDSHADERSEXT;
+    json["stream_type"]=VKCMDBINDSHADERSEXT;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -110654,7 +110654,7 @@ debug_printf("Executing vkCmdBindShadersEXT\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;
@@ -110722,7 +110722,7 @@ __attribute__((visibility ("hidden"))) VkResult vkGetPhysicalDeviceCooperativeMa
 debug_printf("Executing vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR\n");
 
     boost::json::object json;
-    json["type"]=VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESKHR;
+    json["stream_type"]=VKGETPHYSICALDEVICECOOPERATIVEMATRIXPROPERTIESKHR;
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -110767,7 +110767,7 @@ debug_printf("Executing vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR\n");
         while(true){
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){
                 case (SYNC):
                     handle_sync_init(json);
                     continue;

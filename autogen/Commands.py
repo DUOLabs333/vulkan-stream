@@ -216,7 +216,7 @@ for name, command in parsed.items():
     write(registerDeviceMemoryMap(name,"(uintptr_t)(*ppData)"))
        
     write(f"""
-        json["type"]={name.upper()};
+        json["stream_type"]={name.upper()};
         writeToConn(json);
     }}""")
 
@@ -224,7 +224,7 @@ write("""
 void handle_command(boost::json::object json){
 //Will only be called by the server
 
-switch (static_cast<StreamType>(value_to<int>(json["type"]))){
+switch (static_cast<StreamType>(value_to<int>(json["stream_type"]))){
 """)
 
 for name, command in parsed.items():
@@ -325,7 +325,7 @@ for name, command in parsed.items():
     
     write(f"""
     boost::json::object json;
-    json["type"]={name.upper()};
+    json["stream_type"]={name.upper()};
     
     auto& parent_json=json["parent"].emplace_object();
     parent_json.clear();
@@ -458,7 +458,7 @@ for name, command in parsed.items():
         while(true){{
             json=readFromConn();
             
-            switch(static_cast<StreamType>(value_to<int>(json["type"]))){{
+            switch(static_cast<StreamType>(value_to<int>(json["stream_type"]))){{
                 case (SYNC):
                     handle_sync_init(json);
                     continue;

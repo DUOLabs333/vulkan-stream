@@ -107,24 +107,23 @@ def convert(variable, value, info, serialize, initialize=False):
             """
         result +="return; }"
         
-    if (type=="void" and num_indirection>=1):
+    if (type=="void" and num_indirection==1):
         info["type"]="char"
         
         if "header" in info:
             info["header"]=info["header"].replace("void","char",1)
             
-        char_cast="char"+("*"*num_indirection)
         if serialize:
-            variable=f"(({char_cast})({variable}))"
+            variable=f"((char*)({variable}))"
         else:
             variable=temp_variable
-            result+=f"{char_cast} {temp_variable};"
+            result+=f"char* {temp_variable};"
             initialize=True
             
         result+=convert(*args())
         
         if deserialize:
-            result+=f"{old_variable}=({char_cast.replace('char','void')})({temp_variable});"
+            result+=f"{old_variable}={temp_variable};"
     
     elif (kind=="external_handle" and num_indirection<=1):
             if serialize:

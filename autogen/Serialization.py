@@ -56,7 +56,7 @@ void serialize_Sync(boost::json::object& json, Sync& sync){
     json["starts"]=boost::json::value_from(sync.starts);
     json["buffers"]=boost::json::value_from(sync.buffers);
     
-    json["type"]=static_cast<int>(SYNC);
+    json["stream_type"]=static_cast<int>(SYNC);
 }
 
 void deserialize_Sync(boost::json::object& json, Sync& sync){
@@ -334,7 +334,7 @@ for name,funcpointer in parsed.items():
         //Will only be called by the server
         
         boost::json::object json;
-        json["type"]={name.upper()};
+        json["stream_type"]={name.upper()};
         """)
         
         for param in funcpointer["params"]:
