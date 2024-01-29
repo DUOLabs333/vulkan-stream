@@ -102,7 +102,7 @@ def convert(variable, value, info, serialize, initialize=False):
             """
         else:
             result+=f"""
-            if ({value}.as_array().size()==0){{
+            if ({value}.get_array().size()==0){{
                 {variable}=NULL;
             """
         result +="return; }"
@@ -141,7 +141,7 @@ def convert(variable, value, info, serialize, initialize=False):
             if serialize:
                 size=f"strlen({variable})+1"
             else:
-                size=f"""{value}.as_array().size()"""
+                size=f"""{value}.get_array().size()"""
                 
         if deserialize and num_indirection>0: #Dynamic array, so each element of char** would be char*
             if initialize:
@@ -158,7 +158,7 @@ def convert(variable, value, info, serialize, initialize=False):
         if serialize:
             result+=f"{value}=boost::json::array({size});"
         
-        arr=f"{value}.as_array()"
+        arr=f"{value}.get_array()"
         arr_json=f"arr_{random_string(info)}"
         
         variable+=f"[{temp_iterator}]"
@@ -190,7 +190,7 @@ def convert(variable, value, info, serialize, initialize=False):
                 result+="\n#ifndef CLIENT"
                 
             result+=f"""
-            auto& temp={value}.as_object();
+            auto& temp={value}.get_object();
             deserialize_{kind}(temp,{variable});
             """
             if kind=="funcpointer":
@@ -202,11 +202,11 @@ def convert(variable, value, info, serialize, initialize=False):
         else:
             result+=f"""
             if ({value}.is_uint64()){{
-                {variable}=static_cast<{type}>({value}.as_uint64());
+                {variable}=static_cast<{type}>({value}.get_uint64());
             }}else if ({value}.is_int64()){{
-                {variable}=static_cast<{type}>({value}.as_int64());
+                {variable}=static_cast<{type}>({value}.get_int64());
             }}else{{
-                {variable}=static_cast<{type}>({value}.as_double());
+                {variable}=static_cast<{type}>({value}.get_double());
             }}
             """
     elif kind=="handle":

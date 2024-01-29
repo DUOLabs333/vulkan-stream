@@ -96,7 +96,7 @@ for name, command in parsed.items():
     write(f"""
     PFN_{name} call_function;
     
-    auto parent_json=json["parent"].as_object();
+    auto parent_json=json["parent"].get_object();
     if(parent_json.contains("instance")){{
         VkInstance parent;
         deserialize_VkInstance(parent_json["instance"],parent);

@@ -101,7 +101,7 @@ boost::json::object readFromConn(){
     
     std::getline(*(curr->is),line);
     
-    boost::json::object json=boost::json::parse(line,{}, {.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).as_object();
+    boost::json::object json=boost::json::parse(line,{}, {.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).get_object();
     
     return json;
 }
