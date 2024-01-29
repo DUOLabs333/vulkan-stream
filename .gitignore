@@ -3,5 +3,6 @@ external/*
 *.so
 *.a
 *.o
+*.pyc
 Sync.json
 parsed.json
