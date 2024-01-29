@@ -6,7 +6,7 @@ write(f"""
 #include <boost/json/src.hpp>
 #include <boost/json.hpp>
 
-#include <ThreadStruct.hpp>
+//#include <ThreadStruct.hpp>
 
 #include <Serialization.hpp>
 #include <Server.hpp>
@@ -85,17 +85,12 @@ for member in pUserData_members:
     write(f"uintptr_t {member};")
 write("} pUserData_struct;")
 
-write("""
-void serialize_pNext(boost::json::object& json, const void* member){
-    if (member==NULL){
-        json.erase("sType");
-        return;
-    }
-    
-    auto chain=((VkBaseInStructure*)member);
-    switch(chain->sType){
-""")
+#Return Null if not found
 
+write("""
+PFN_vkVoidFunction handle_pNext(VkStructureType sType, bool serialize){
+switch (sType){
+""")
 for name, struct in parsed.items():
     if is_not_struct(name, struct):
         continue
@@ -105,14 +100,43 @@ for name, struct in parsed.items():
     write(f"""
     case {struct["sType"]}:
         {{
-        return serialize_struct(json, (({name}*)(member))[0]);
+        if (serialize){{
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{{
+                return serialize_struct(json, (({name}*)(member))[0]);
+            }});
+        }}else{{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{{
+                auto result= new {name};
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            }});
+        }}
+        
         }}
     """)
     
 write("""
 default:
-    return serialize_pNext(json, (void*)(chain->pNext)); //Ignore invalid sTypes
+    return NULL;
 }
+}
+""")
+write("""
+void serialize_pNext(boost::json::object& json, const void* member){
+    if (member==NULL){
+        json.erase("sType");
+        return;
+    }
+    
+    auto chain=((VkBaseInStructure*)member);
+    
+    auto serialize_function=(void(*)(boost::json::object&, const void*))(handle_pNext(chain->sType,true));
+    if (serialize_function==NULL){
+        return serialize_pNext(json, (void*)(chain->pNext)); //Ignore invalid sTypes
+    }else{
+        return serialize_function(json, member);
+    }
 }
 """)
 
@@ -123,25 +147,12 @@ void deserialize_pNext(boost::json::object& json, void*& member ){
         return;
     }
     
-    switch (value_to<int>(json["sType"])){
-""")
+    auto deserialize_function=(void(*)(boost::json::object&, void*&))(handle_pNext(static_cast<VkStructureType>(value_to<int>(json["sType"])),false));
+    
+    return deserialize_function(json, member);
 
-for name,struct in parsed.items():
-    if is_not_struct(name, struct):
-        continue
-    if struct.get("sType","")=="":
-        continue
-        
-    write(f"""
-    case {struct["sType"]}:
-        {{
-        auto result= new {name};
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }}
-    """)
-write("}}")
+}
+""")
 
 
 write("std::map<VkStructureType, size_t> structure_type_to_size={")

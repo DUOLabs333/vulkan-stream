@@ -145,7 +145,7 @@ for item in vk.findall("./types/type"):
         result["type"]=result["type"].replace("*","")
         result["relation"]="return"
         
-        if name=="PFN_vkAllocationFunction":
+        if name in ["PFN_vkAllocationFunction","PFN_vkReallocationFunction"]:
             result["length"]=["size"]
         else:
             result["length"]=[]

@@ -2,7 +2,7 @@
 #include <boost/json/src.hpp>
 #include <boost/json.hpp>
 
-#include <ThreadStruct.hpp>
+//#include <ThreadStruct.hpp>
 
 #include <Serialization.hpp>
 #include <Server.hpp>
@@ -34,18 +34,12808 @@ void deserialize_Sync(boost::json::object& json, Sync& sync){
 typedef struct {
     void* pUserData;
 
-uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
-uintptr_t PFN_vkFreeFunction;
-uintptr_t PFN_vkFaultCallbackFunction;
 uintptr_t PFN_vkAllocationFunction;
+uintptr_t PFN_vkReallocationFunction;
+uintptr_t PFN_vkFreeFunction;
+uintptr_t PFN_vkInternalAllocationNotification;
 uintptr_t PFN_vkInternalFreeNotification;
-uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
-uintptr_t PFN_vkVoidFunction;
+uintptr_t PFN_vkFaultCallbackFunction;
+uintptr_t PFN_vkGetInstanceProcAddrLUNARG;
 uintptr_t PFN_vkDebugReportCallbackEXT;
 uintptr_t PFN_vkDeviceMemoryReportCallbackEXT;
-uintptr_t PFN_vkInternalAllocationNotification;
-uintptr_t PFN_vkReallocationFunction;
+uintptr_t PFN_vkDebugUtilsMessengerCallbackEXT;
+uintptr_t PFN_vkVoidFunction;
 } pUserData_struct;
+
+PFN_vkVoidFunction handle_pNext(VkStructureType sType, bool serialize){
+switch (sType){
+
+
+    case VK_STRUCTURE_TYPE_APPLICATION_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkApplicationInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkApplicationInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceQueueCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceQueueCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkInstanceCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkInstanceCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMemoryAllocateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMemoryAllocateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMappedMemoryRange*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMappedMemoryRange;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkWriteDescriptorSet*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkWriteDescriptorSet;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCopyDescriptorSet*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCopyDescriptorSet;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BUFFER_USAGE_FLAGS_2_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBufferUsageFlags2CreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBufferUsageFlags2CreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBufferCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBufferCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BUFFER_VIEW_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBufferViewCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBufferViewCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MEMORY_BARRIER:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMemoryBarrier*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMemoryBarrier;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBufferMemoryBarrier*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBufferMemoryBarrier;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageMemoryBarrier*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageMemoryBarrier;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageViewCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageViewCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BIND_SPARSE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBindSparseInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBindSparseInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkShaderModuleCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkShaderModuleCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDescriptorSetLayoutCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDescriptorSetLayoutCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDescriptorPoolCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDescriptorPoolCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDescriptorSetAllocateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDescriptorSetAllocateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineShaderStageCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineShaderStageCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkComputePipelineCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkComputePipelineCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_INDIRECT_BUFFER_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkComputePipelineIndirectBufferInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkComputePipelineIndirectBufferInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_CREATE_FLAGS_2_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineCreateFlags2CreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineCreateFlags2CreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineVertexInputStateCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineVertexInputStateCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineInputAssemblyStateCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineInputAssemblyStateCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineTessellationStateCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineTessellationStateCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineViewportStateCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineViewportStateCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineRasterizationStateCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineRasterizationStateCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineMultisampleStateCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineMultisampleStateCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineColorBlendStateCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineColorBlendStateCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineDynamicStateCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineDynamicStateCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineDepthStencilStateCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineDepthStencilStateCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkGraphicsPipelineCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkGraphicsPipelineCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineCacheCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineCacheCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineLayoutCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineLayoutCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSamplerCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSamplerCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCommandPoolCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCommandPoolCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCommandBufferAllocateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCommandBufferAllocateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCommandBufferInheritanceInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCommandBufferInheritanceInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCommandBufferBeginInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCommandBufferBeginInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRenderPassBeginInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRenderPassBeginInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRenderPassCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRenderPassCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_EVENT_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkEventCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkEventCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_FENCE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkFenceCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkFenceCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSemaphoreCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSemaphoreCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkQueryPoolCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkQueryPoolCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkFramebufferCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkFramebufferCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SUBMIT_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSubmitInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSubmitInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDisplayModeCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDisplayModeCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDisplaySurfaceCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDisplaySurfaceCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDisplayPresentInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDisplayPresentInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkXlibSurfaceCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkXlibSurfaceCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_XCB_SURFACE_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkXcbSurfaceCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkXcbSurfaceCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSwapchainCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSwapchainCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PRESENT_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPresentInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPresentInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDebugReportCallbackCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDebugReportCallbackCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkValidationFlagsEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkValidationFlagsEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VALIDATION_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkValidationFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkValidationFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineRasterizationStateRasterizationOrderAMD*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineRasterizationStateRasterizationOrderAMD;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDebugMarkerObjectNameInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDebugMarkerObjectNameInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDebugMarkerObjectTagInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDebugMarkerObjectTagInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDebugMarkerMarkerInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDebugMarkerMarkerInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDedicatedAllocationImageCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDedicatedAllocationImageCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDedicatedAllocationBufferCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDedicatedAllocationBufferCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDedicatedAllocationMemoryAllocateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDedicatedAllocationMemoryAllocateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkExternalMemoryImageCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkExternalMemoryImageCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkExportMemoryAllocateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkExportMemoryAllocateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_COMPUTE_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_PRIVATE_DATA_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDevicePrivateDataCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDevicePrivateDataCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PRIVATE_DATA_SLOT_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPrivateDataSlotCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPrivateDataSlotCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIVATE_DATA_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePrivateDataFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePrivateDataFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_PROPERTIES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTI_DRAW_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMultiDrawPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMultiDrawPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_GRAPHICS_SHADER_GROUP_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkGraphicsShaderGroupCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkGraphicsShaderGroupCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_SHADER_GROUPS_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkGraphicsPipelineShaderGroupsCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkGraphicsPipelineShaderGroupsCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_TOKEN_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkIndirectCommandsLayoutTokenNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkIndirectCommandsLayoutTokenNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkIndirectCommandsLayoutCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkIndirectCommandsLayoutCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_GENERATED_COMMANDS_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkGeneratedCommandsInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkGeneratedCommandsInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_GENERATED_COMMANDS_MEMORY_REQUIREMENTS_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkGeneratedCommandsMemoryRequirementsInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkGeneratedCommandsMemoryRequirementsInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_INDIRECT_DEVICE_ADDRESS_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineIndirectDeviceAddressInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineIndirectDeviceAddressInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFeatures2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFeatures2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceProperties2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceProperties2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkFormatProperties2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkFormatProperties2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageFormatProperties2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageFormatProperties2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceImageFormatInfo2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceImageFormatInfo2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_PROPERTIES_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkQueueFamilyProperties2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkQueueFamilyProperties2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PROPERTIES_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMemoryProperties2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMemoryProperties2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SPARSE_IMAGE_FORMAT_PROPERTIES_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSparseImageFormatProperties2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSparseImageFormatProperties2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SPARSE_IMAGE_FORMAT_INFO_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceSparseImageFormatInfo2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceSparseImageFormatInfo2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePushDescriptorPropertiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePushDescriptorPropertiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DRIVER_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDriverProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDriverProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPresentRegionsKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPresentRegionsKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VARIABLE_POINTERS_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceVariablePointersFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceVariablePointersFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceExternalImageFormatInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceExternalImageFormatInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_EXTERNAL_IMAGE_FORMAT_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkExternalImageFormatProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkExternalImageFormatProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceExternalBufferInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceExternalBufferInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_EXTERNAL_BUFFER_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkExternalBufferProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkExternalBufferProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceIDProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceIDProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkExternalMemoryImageCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkExternalMemoryImageCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkExternalMemoryBufferCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkExternalMemoryBufferCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkExportMemoryAllocateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkExportMemoryAllocateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMPORT_MEMORY_FD_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImportMemoryFdInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImportMemoryFdInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MEMORY_FD_PROPERTIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMemoryFdPropertiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMemoryFdPropertiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MEMORY_GET_FD_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMemoryGetFdInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMemoryGetFdInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceExternalSemaphoreInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceExternalSemaphoreInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_EXTERNAL_SEMAPHORE_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkExternalSemaphoreProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkExternalSemaphoreProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkExportSemaphoreCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkExportSemaphoreCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_FD_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImportSemaphoreFdInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImportSemaphoreFdInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SEMAPHORE_GET_FD_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSemaphoreGetFdInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSemaphoreGetFdInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FENCE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceExternalFenceInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceExternalFenceInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_EXTERNAL_FENCE_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkExternalFenceProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkExternalFenceProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_EXPORT_FENCE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkExportFenceCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkExportFenceCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMPORT_FENCE_FD_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImportFenceFdInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImportFenceFdInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_FENCE_GET_FD_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkFenceGetFdInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkFenceGetFdInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMultiviewFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMultiviewFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMultiviewProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMultiviewProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRenderPassMultiviewCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRenderPassMultiviewCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSurfaceCapabilities2EXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSurfaceCapabilities2EXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DISPLAY_POWER_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDisplayPowerInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDisplayPowerInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_EVENT_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceEventInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceEventInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DISPLAY_EVENT_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDisplayEventInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDisplayEventInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SWAPCHAIN_COUNTER_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSwapchainCounterCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSwapchainCounterCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GROUP_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceGroupProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceGroupProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_FLAGS_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMemoryAllocateFlagsInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMemoryAllocateFlagsInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBindBufferMemoryInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBindBufferMemoryInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_DEVICE_GROUP_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBindBufferMemoryDeviceGroupInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBindBufferMemoryDeviceGroupInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBindImageMemoryInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBindImageMemoryInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_DEVICE_GROUP_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBindImageMemoryDeviceGroupInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBindImageMemoryDeviceGroupInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_GROUP_RENDER_PASS_BEGIN_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceGroupRenderPassBeginInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceGroupRenderPassBeginInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_GROUP_COMMAND_BUFFER_BEGIN_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceGroupCommandBufferBeginInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceGroupCommandBufferBeginInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_GROUP_SUBMIT_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceGroupSubmitInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceGroupSubmitInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_GROUP_BIND_SPARSE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceGroupBindSparseInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceGroupBindSparseInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_CAPABILITIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceGroupPresentCapabilitiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceGroupPresentCapabilitiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageSwapchainCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageSwapchainCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBindImageMemorySwapchainInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBindImageMemorySwapchainInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACQUIRE_NEXT_IMAGE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAcquireNextImageInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAcquireNextImageInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceGroupPresentInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceGroupPresentInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceGroupDeviceCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceGroupDeviceCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceGroupSwapchainCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceGroupSwapchainCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDescriptorUpdateTemplateCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDescriptorUpdateTemplateCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_ID_FEATURES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePresentIdFeaturesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePresentIdFeaturesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PRESENT_ID_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPresentIdKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPresentIdKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_WAIT_FEATURES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePresentWaitFeaturesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePresentWaitFeaturesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_HDR_METADATA_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkHdrMetadataEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkHdrMetadataEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DISPLAY_NATIVE_HDR_SURFACE_CAPABILITIES_AMD:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDisplayNativeHdrSurfaceCapabilitiesAMD*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDisplayNativeHdrSurfaceCapabilitiesAMD;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SWAPCHAIN_DISPLAY_NATIVE_HDR_CREATE_INFO_AMD:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSwapchainDisplayNativeHdrCreateInfoAMD*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSwapchainDisplayNativeHdrCreateInfoAMD;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPresentTimesInfoGOOGLE*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPresentTimesInfoGOOGLE;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineViewportWScalingStateCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineViewportWScalingStateCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineViewportSwizzleStateCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineViewportSwizzleStateCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDiscardRectanglePropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDiscardRectanglePropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineDiscardRectangleStateCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineDiscardRectangleStateCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_ATTRIBUTES_PROPERTIES_NVX:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RENDER_PASS_INPUT_ATTACHMENT_ASPECT_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRenderPassInputAttachmentAspectCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRenderPassInputAttachmentAspectCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SURFACE_INFO_2_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceSurfaceInfo2KHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceSurfaceInfo2KHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSurfaceCapabilities2KHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSurfaceCapabilities2KHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SURFACE_FORMAT_2_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSurfaceFormat2KHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSurfaceFormat2KHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DISPLAY_PROPERTIES_2_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDisplayProperties2KHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDisplayProperties2KHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DISPLAY_PLANE_PROPERTIES_2_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDisplayPlaneProperties2KHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDisplayPlaneProperties2KHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DISPLAY_MODE_PROPERTIES_2_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDisplayModeProperties2KHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDisplayModeProperties2KHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DISPLAY_PLANE_INFO_2_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDisplayPlaneInfo2KHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDisplayPlaneInfo2KHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DISPLAY_PLANE_CAPABILITIES_2_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDisplayPlaneCapabilities2KHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDisplayPlaneCapabilities2KHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SHARED_PRESENT_SURFACE_CAPABILITIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSharedPresentSurfaceCapabilitiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSharedPresentSurfaceCapabilitiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_16BIT_STORAGE_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevice16BitStorageFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevice16BitStorageFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceSubgroupProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceSubgroupProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_EXTENDED_TYPES_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BUFFER_MEMORY_REQUIREMENTS_INFO_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBufferMemoryRequirementsInfo2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBufferMemoryRequirementsInfo2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_BUFFER_MEMORY_REQUIREMENTS:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceBufferMemoryRequirements*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceBufferMemoryRequirements;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_MEMORY_REQUIREMENTS_INFO_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageMemoryRequirementsInfo2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageMemoryRequirementsInfo2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_SPARSE_MEMORY_REQUIREMENTS_INFO_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageSparseMemoryRequirementsInfo2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageSparseMemoryRequirementsInfo2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_IMAGE_MEMORY_REQUIREMENTS:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceImageMemoryRequirements*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceImageMemoryRequirements;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MEMORY_REQUIREMENTS_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMemoryRequirements2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMemoryRequirements2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SPARSE_IMAGE_MEMORY_REQUIREMENTS_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSparseImageMemoryRequirements2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSparseImageMemoryRequirements2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_POINT_CLIPPING_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePointClippingProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePointClippingProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MEMORY_DEDICATED_REQUIREMENTS:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMemoryDedicatedRequirements*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMemoryDedicatedRequirements;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMemoryDedicatedAllocateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMemoryDedicatedAllocateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_VIEW_USAGE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageViewUsageCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageViewUsageCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_VIEW_SLICED_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageViewSlicedCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageViewSlicedCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_DOMAIN_ORIGIN_STATE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineTessellationDomainOriginStateCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineTessellationDomainOriginStateCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSamplerYcbcrConversionInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSamplerYcbcrConversionInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSamplerYcbcrConversionCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSamplerYcbcrConversionCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BIND_IMAGE_PLANE_MEMORY_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBindImagePlaneMemoryInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBindImagePlaneMemoryInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_PLANE_MEMORY_REQUIREMENTS_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImagePlaneMemoryRequirementsInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImagePlaneMemoryRequirementsInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_YCBCR_CONVERSION_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceSamplerYcbcrConversionFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceSamplerYcbcrConversionFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_IMAGE_FORMAT_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSamplerYcbcrConversionImageFormatProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSamplerYcbcrConversionImageFormatProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_TEXTURE_LOD_GATHER_FORMAT_PROPERTIES_AMD:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkTextureLODGatherFormatPropertiesAMD*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkTextureLODGatherFormatPropertiesAMD;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_CONDITIONAL_RENDERING_BEGIN_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkConditionalRenderingBeginInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkConditionalRenderingBeginInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PROTECTED_SUBMIT_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkProtectedSubmitInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkProtectedSubmitInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROTECTED_MEMORY_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceProtectedMemoryFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceProtectedMemoryFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROTECTED_MEMORY_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceProtectedMemoryProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceProtectedMemoryProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_QUEUE_INFO_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceQueueInfo2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceQueueInfo2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineCoverageToColorStateCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineCoverageToColorStateCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceSamplerFilterMinmaxProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceSamplerFilterMinmaxProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SAMPLE_LOCATIONS_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSampleLocationsInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSampleLocationsInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RENDER_PASS_SAMPLE_LOCATIONS_BEGIN_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRenderPassSampleLocationsBeginInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRenderPassSampleLocationsBeginInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_SAMPLE_LOCATIONS_STATE_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineSampleLocationsStateCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineSampleLocationsStateCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLE_LOCATIONS_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceSampleLocationsPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceSampleLocationsPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MULTISAMPLE_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMultisamplePropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMultisamplePropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SAMPLER_REDUCTION_MODE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSamplerReductionModeCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSamplerReductionModeCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTI_DRAW_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMultiDrawFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMultiDrawFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_ADVANCED_STATE_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineColorBlendAdvancedStateCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineColorBlendAdvancedStateCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceInlineUniformBlockFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceInlineUniformBlockFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceInlineUniformBlockProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceInlineUniformBlockProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_INLINE_UNIFORM_BLOCK:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkWriteDescriptorSetInlineUniformBlock*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkWriteDescriptorSetInlineUniformBlock;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_INLINE_UNIFORM_BLOCK_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDescriptorPoolInlineUniformBlockCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDescriptorPoolInlineUniformBlockCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_MODULATION_STATE_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineCoverageModulationStateCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineCoverageModulationStateCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_FORMAT_LIST_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageFormatListCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageFormatListCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VALIDATION_CACHE_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkValidationCacheCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkValidationCacheCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SHADER_MODULE_VALIDATION_CACHE_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkShaderModuleValidationCacheCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkShaderModuleValidationCacheCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_3_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMaintenance3Properties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMaintenance3Properties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_4_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMaintenance4Features*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMaintenance4Features;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_4_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMaintenance4Properties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMaintenance4Properties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_5_FEATURES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMaintenance5FeaturesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMaintenance5FeaturesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_5_PROPERTIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMaintenance5PropertiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMaintenance5PropertiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RENDERING_AREA_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRenderingAreaInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRenderingAreaInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_SUPPORT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDescriptorSetLayoutSupport*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDescriptorSetLayoutSupport;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_DRAW_PARAMETERS_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderDrawParametersFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderDrawParametersFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FLOAT16_INT8_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderFloat16Int8Features*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderFloat16Int8Features;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FLOAT_CONTROLS_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFloatControlsProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFloatControlsProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_QUERY_RESET_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceHostQueryResetFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceHostQueryResetFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceQueueGlobalPriorityCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceQueueGlobalPriorityCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkQueueFamilyGlobalPriorityPropertiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkQueueFamilyGlobalPriorityPropertiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEBUG_UTILS_OBJECT_NAME_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDebugUtilsObjectNameInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDebugUtilsObjectNameInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEBUG_UTILS_OBJECT_TAG_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDebugUtilsObjectTagInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDebugUtilsObjectTagInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEBUG_UTILS_LABEL_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDebugUtilsLabelEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDebugUtilsLabelEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDebugUtilsMessengerCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDebugUtilsMessengerCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CALLBACK_DATA_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDebugUtilsMessengerCallbackDataEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDebugUtilsMessengerCallbackDataEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_MEMORY_REPORT_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDeviceMemoryReportFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDeviceMemoryReportFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_DEVICE_MEMORY_REPORT_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceDeviceMemoryReportCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceDeviceMemoryReportCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_MEMORY_REPORT_CALLBACK_DATA_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceMemoryReportCallbackDataEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceMemoryReportCallbackDataEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMPORT_MEMORY_HOST_POINTER_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImportMemoryHostPointerInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImportMemoryHostPointerInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MEMORY_HOST_POINTER_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMemoryHostPointerPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMemoryHostPointerPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_HOST_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceExternalMemoryHostPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceExternalMemoryHostPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CONSERVATIVE_RASTERIZATION_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceConservativeRasterizationPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceConservativeRasterizationPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_CALIBRATED_TIMESTAMP_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCalibratedTimestampInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCalibratedTimestampInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_AMD:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderCorePropertiesAMD*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderCorePropertiesAMD;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_2_AMD:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderCoreProperties2AMD*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderCoreProperties2AMD;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_CONSERVATIVE_STATE_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineRasterizationConservativeStateCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineRasterizationConservativeStateCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDescriptorIndexingFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDescriptorIndexingFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDescriptorIndexingProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDescriptorIndexingProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDescriptorSetLayoutBindingFlagsCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDescriptorSetLayoutBindingFlagsCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_ALLOCATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDescriptorSetVariableDescriptorCountAllocateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDescriptorSetVariableDescriptorCountAllocateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_LAYOUT_SUPPORT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDescriptorSetVariableDescriptorCountLayoutSupport*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDescriptorSetVariableDescriptorCountLayoutSupport;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAttachmentDescription2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAttachmentDescription2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ATTACHMENT_REFERENCE_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAttachmentReference2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAttachmentReference2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SUBPASS_DESCRIPTION_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSubpassDescription2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSubpassDescription2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SUBPASS_DEPENDENCY_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSubpassDependency2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSubpassDependency2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRenderPassCreateInfo2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRenderPassCreateInfo2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SUBPASS_BEGIN_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSubpassBeginInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSubpassBeginInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SUBPASS_END_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSubpassEndInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSubpassEndInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceTimelineSemaphoreFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceTimelineSemaphoreFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceTimelineSemaphoreProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceTimelineSemaphoreProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SEMAPHORE_TYPE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSemaphoreTypeCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSemaphoreTypeCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_TIMELINE_SEMAPHORE_SUBMIT_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkTimelineSemaphoreSubmitInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkTimelineSemaphoreSubmitInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SEMAPHORE_WAIT_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSemaphoreWaitInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSemaphoreWaitInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SEMAPHORE_SIGNAL_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSemaphoreSignalInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSemaphoreSignalInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineVertexInputDivisorStateCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineVertexInputDivisorStateCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PCI_BUS_INFO_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePCIBusInfoPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePCIBusInfoPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_CONDITIONAL_RENDERING_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCommandBufferInheritanceConditionalRenderingInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCommandBufferInheritanceConditionalRenderingInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_8BIT_STORAGE_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevice8BitStorageFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevice8BitStorageFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CONDITIONAL_RENDERING_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceConditionalRenderingFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceConditionalRenderingFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_MEMORY_MODEL_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceVulkanMemoryModelFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceVulkanMemoryModelFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_INT64_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderAtomicInt64Features*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderAtomicInt64Features;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderAtomicFloatFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderAtomicFloatFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_2_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_CHECKPOINT_PROPERTIES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkQueueFamilyCheckpointPropertiesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkQueueFamilyCheckpointPropertiesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_CHECKPOINT_DATA_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCheckpointDataNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCheckpointDataNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_STENCIL_RESOLVE_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDepthStencilResolveProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDepthStencilResolveProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SUBPASS_DESCRIPTION_DEPTH_STENCIL_RESOLVE:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSubpassDescriptionDepthStencilResolve*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSubpassDescriptionDepthStencilResolve;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_VIEW_ASTC_DECODE_MODE_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageViewASTCDecodeModeEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageViewASTCDecodeModeEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ASTC_DECODE_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceASTCDecodeFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceASTCDecodeFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceTransformFeedbackFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceTransformFeedbackFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceTransformFeedbackPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceTransformFeedbackPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_STREAM_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineRasterizationStateStreamCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineRasterizationStateStreamCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_REPRESENTATIVE_FRAGMENT_TEST_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_REPRESENTATIVE_FRAGMENT_TEST_STATE_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineRepresentativeFragmentTestStateCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineRepresentativeFragmentTestStateCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXCLUSIVE_SCISSOR_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceExclusiveScissorFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceExclusiveScissorFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_EXCLUSIVE_SCISSOR_STATE_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineViewportExclusiveScissorStateCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineViewportExclusiveScissorStateCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CORNER_SAMPLED_IMAGE_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceCornerSampledImageFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceCornerSampledImageFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceComputeShaderDerivativesFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceComputeShaderDerivativesFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_IMAGE_FOOTPRINT_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderImageFootprintFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderImageFootprintFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEDICATED_ALLOCATION_IMAGE_ALIASING_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceCopyMemoryIndirectFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceCopyMemoryIndirectFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_PROPERTIES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceCopyMemoryIndirectPropertiesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceCopyMemoryIndirectPropertiesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMemoryDecompressionFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMemoryDecompressionFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_PROPERTIES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMemoryDecompressionPropertiesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMemoryDecompressionPropertiesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SHADING_RATE_IMAGE_STATE_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineViewportShadingRateImageStateCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineViewportShadingRateImageStateCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADING_RATE_IMAGE_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShadingRateImageFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShadingRateImageFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADING_RATE_IMAGE_PROPERTIES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShadingRateImagePropertiesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShadingRateImagePropertiesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INVOCATION_MASK_FEATURES_HUAWEI:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceInvocationMaskFeaturesHUAWEI*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceInvocationMaskFeaturesHUAWEI;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_COARSE_SAMPLE_ORDER_STATE_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineViewportCoarseSampleOrderStateCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineViewportCoarseSampleOrderStateCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMeshShaderFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMeshShaderFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMeshShaderPropertiesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMeshShaderPropertiesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMeshShaderFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMeshShaderFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMeshShaderPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMeshShaderPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RAY_TRACING_SHADER_GROUP_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRayTracingShaderGroupCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRayTracingShaderGroupCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RAY_TRACING_SHADER_GROUP_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRayTracingShaderGroupCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRayTracingShaderGroupCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRayTracingPipelineCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRayTracingPipelineCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRayTracingPipelineCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRayTracingPipelineCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_GEOMETRY_TRIANGLES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkGeometryTrianglesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkGeometryTrianglesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_GEOMETRY_AABB_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkGeometryAABBNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkGeometryAABBNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_GEOMETRY_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkGeometryNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkGeometryNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAccelerationStructureInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAccelerationStructureInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAccelerationStructureCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAccelerationStructureCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BIND_ACCELERATION_STRUCTURE_MEMORY_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBindAccelerationStructureMemoryInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBindAccelerationStructureMemoryInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_ACCELERATION_STRUCTURE_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkWriteDescriptorSetAccelerationStructureKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkWriteDescriptorSetAccelerationStructureKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_ACCELERATION_STRUCTURE_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkWriteDescriptorSetAccelerationStructureNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkWriteDescriptorSetAccelerationStructureNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAccelerationStructureMemoryRequirementsInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAccelerationStructureMemoryRequirementsInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_FEATURES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceAccelerationStructureFeaturesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceAccelerationStructureFeaturesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_FEATURES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceRayTracingPipelineFeaturesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceRayTracingPipelineFeaturesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_QUERY_FEATURES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceRayQueryFeaturesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceRayQueryFeaturesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_PROPERTIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceAccelerationStructurePropertiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceAccelerationStructurePropertiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_PROPERTIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceRayTracingPipelinePropertiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceRayTracingPipelinePropertiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PROPERTIES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceRayTracingPropertiesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceRayTracingPropertiesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_MAINTENANCE_1_FEATURES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DRM_FORMAT_MODIFIER_PROPERTIES_LIST_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDrmFormatModifierPropertiesListEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDrmFormatModifierPropertiesListEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_DRM_FORMAT_MODIFIER_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceImageDrmFormatModifierInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceImageDrmFormatModifierInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_LIST_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageDrmFormatModifierListCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageDrmFormatModifierListCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_EXPLICIT_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageDrmFormatModifierExplicitCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageDrmFormatModifierExplicitCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageDrmFormatModifierPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageDrmFormatModifierPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_STENCIL_USAGE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageStencilUsageCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageStencilUsageCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_MEMORY_OVERALLOCATION_CREATE_INFO_AMD:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceMemoryOverallocationCreateInfoAMD*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceMemoryOverallocationCreateInfoAMD;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFragmentDensityMapFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFragmentDensityMapFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFragmentDensityMap2FeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFragmentDensityMap2FeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_FEATURES_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFragmentDensityMapPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFragmentDensityMapPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFragmentDensityMap2PropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFragmentDensityMap2PropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_PROPERTIES_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RENDER_PASS_FRAGMENT_DENSITY_MAP_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRenderPassFragmentDensityMapCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRenderPassFragmentDensityMapCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SUBPASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSubpassFragmentDensityMapOffsetEndInfoQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSubpassFragmentDensityMapOffsetEndInfoQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SCALAR_BLOCK_LAYOUT_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceScalarBlockLayoutFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceScalarBlockLayoutFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SURFACE_PROTECTED_CAPABILITIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSurfaceProtectedCapabilitiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSurfaceProtectedCapabilitiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_UNIFORM_BUFFER_STANDARD_LAYOUT_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceUniformBufferStandardLayoutFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceUniformBufferStandardLayoutFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLIP_ENABLE_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDepthClipEnableFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDepthClipEnableFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_DEPTH_CLIP_STATE_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineRasterizationDepthClipStateCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineRasterizationDepthClipStateCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_BUDGET_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMemoryBudgetPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMemoryBudgetPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PRIORITY_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMemoryPriorityFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMemoryPriorityFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MEMORY_PRIORITY_ALLOCATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMemoryPriorityAllocateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMemoryPriorityAllocateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PAGEABLE_DEVICE_LOCAL_MEMORY_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceBufferDeviceAddressFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceBufferDeviceAddressFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceBufferDeviceAddressFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceBufferDeviceAddressFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BUFFER_DEVICE_ADDRESS_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBufferDeviceAddressInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBufferDeviceAddressInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BUFFER_OPAQUE_CAPTURE_ADDRESS_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBufferOpaqueCaptureAddressCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBufferOpaqueCaptureAddressCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BUFFER_DEVICE_ADDRESS_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBufferDeviceAddressCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBufferDeviceAddressCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_VIEW_IMAGE_FORMAT_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceImageViewImageFormatInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceImageViewImageFormatInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_FILTER_CUBIC_IMAGE_VIEW_IMAGE_FORMAT_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkFilterCubicImageViewImageFormatPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkFilterCubicImageViewImageFormatPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGELESS_FRAMEBUFFER_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceImagelessFramebufferFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceImagelessFramebufferFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_FRAMEBUFFER_ATTACHMENTS_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkFramebufferAttachmentsCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkFramebufferAttachmentsCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_FRAMEBUFFER_ATTACHMENT_IMAGE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkFramebufferAttachmentImageInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkFramebufferAttachmentImageInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RENDER_PASS_ATTACHMENT_BEGIN_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRenderPassAttachmentBeginInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRenderPassAttachmentBeginInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_HDR_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceTextureCompressionASTCHDRFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceTextureCompressionASTCHDRFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceCooperativeMatrixFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceCooperativeMatrixFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceCooperativeMatrixPropertiesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceCooperativeMatrixPropertiesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCooperativeMatrixPropertiesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCooperativeMatrixPropertiesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_IMAGE_ARRAYS_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceYcbcrImageArraysFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceYcbcrImageArraysFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_VIEW_HANDLE_INFO_NVX:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageViewHandleInfoNVX*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageViewHandleInfoNVX;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_VIEW_ADDRESS_PROPERTIES_NVX:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageViewAddressPropertiesNVX*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageViewAddressPropertiesNVX;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_CREATION_FEEDBACK_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineCreationFeedbackCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineCreationFeedbackCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_BARRIER_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePresentBarrierFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePresentBarrierFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_PRESENT_BARRIER_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSurfaceCapabilitiesPresentBarrierNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSurfaceCapabilitiesPresentBarrierNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_BARRIER_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSwapchainPresentBarrierCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSwapchainPresentBarrierCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_QUERY_FEATURES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePerformanceQueryFeaturesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePerformanceQueryFeaturesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_QUERY_PROPERTIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePerformanceQueryPropertiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePerformanceQueryPropertiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPerformanceCounterKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPerformanceCounterKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_DESCRIPTION_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPerformanceCounterDescriptionKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPerformanceCounterDescriptionKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_QUERY_POOL_PERFORMANCE_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkQueryPoolPerformanceCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkQueryPoolPerformanceCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACQUIRE_PROFILING_LOCK_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAcquireProfilingLockInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAcquireProfilingLockInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PERFORMANCE_QUERY_SUBMIT_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPerformanceQuerySubmitInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPerformanceQuerySubmitInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_HEADLESS_SURFACE_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkHeadlessSurfaceCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkHeadlessSurfaceCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COVERAGE_REDUCTION_MODE_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceCoverageReductionModeFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceCoverageReductionModeFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_REDUCTION_STATE_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineCoverageReductionStateCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineCoverageReductionStateCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_FRAMEBUFFER_MIXED_SAMPLES_COMBINATION_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkFramebufferMixedSamplesCombinationNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkFramebufferMixedSamplesCombinationNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_FUNCTIONS_2_FEATURES_INTEL:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_INITIALIZE_PERFORMANCE_API_INFO_INTEL:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkInitializePerformanceApiInfoINTEL*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkInitializePerformanceApiInfoINTEL;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_QUERY_POOL_PERFORMANCE_QUERY_CREATE_INFO_INTEL:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkQueryPoolPerformanceQueryCreateInfoINTEL*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkQueryPoolPerformanceQueryCreateInfoINTEL;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PERFORMANCE_MARKER_INFO_INTEL:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPerformanceMarkerInfoINTEL*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPerformanceMarkerInfoINTEL;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PERFORMANCE_STREAM_MARKER_INFO_INTEL:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPerformanceStreamMarkerInfoINTEL*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPerformanceStreamMarkerInfoINTEL;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PERFORMANCE_OVERRIDE_INFO_INTEL:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPerformanceOverrideInfoINTEL*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPerformanceOverrideInfoINTEL;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PERFORMANCE_CONFIGURATION_ACQUIRE_INFO_INTEL:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPerformanceConfigurationAcquireInfoINTEL*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPerformanceConfigurationAcquireInfoINTEL;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CLOCK_FEATURES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderClockFeaturesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderClockFeaturesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceIndexTypeUint8FeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceIndexTypeUint8FeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SM_BUILTINS_PROPERTIES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderSMBuiltinsPropertiesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderSMBuiltinsPropertiesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SM_BUILTINS_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderSMBuiltinsFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderSMBuiltinsFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_INTERLOCK_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SEPARATE_DEPTH_STENCIL_LAYOUTS_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ATTACHMENT_REFERENCE_STENCIL_LAYOUT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAttachmentReferenceStencilLayout*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAttachmentReferenceStencilLayout;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVE_TOPOLOGY_LIST_RESTART_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_STENCIL_LAYOUT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAttachmentDescriptionStencilLayout*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAttachmentDescriptionStencilLayout;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_EXECUTABLE_PROPERTIES_FEATURES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_PROPERTIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineExecutablePropertiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineExecutablePropertiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineExecutableInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineExecutableInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_STATISTIC_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineExecutableStatisticKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineExecutableStatisticKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_INTERNAL_REPRESENTATION_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineExecutableInternalRepresentationKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineExecutableInternalRepresentationKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_DEMOTE_TO_HELPER_INVOCATION_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceTexelBufferAlignmentProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceTexelBufferAlignmentProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceSubgroupSizeControlFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceSubgroupSizeControlFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceSubgroupSizeControlProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceSubgroupSizeControlProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineShaderStageRequiredSubgroupSizeCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineShaderStageRequiredSubgroupSizeCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SUBPASS_SHADING_PIPELINE_CREATE_INFO_HUAWEI:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSubpassShadingPipelineCreateInfoHUAWEI*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSubpassShadingPipelineCreateInfoHUAWEI;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_PROPERTIES_HUAWEI:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceSubpassShadingPropertiesHUAWEI*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceSubpassShadingPropertiesHUAWEI;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_PROPERTIES_HUAWEI:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MEMORY_OPAQUE_CAPTURE_ADDRESS_ALLOCATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMemoryOpaqueCaptureAddressAllocateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMemoryOpaqueCaptureAddressAllocateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_MEMORY_OPAQUE_CAPTURE_ADDRESS_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceMemoryOpaqueCaptureAddressInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceMemoryOpaqueCaptureAddressInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceLineRasterizationFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceLineRasterizationFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceLineRasterizationPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceLineRasterizationPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineRasterizationLineStateCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineRasterizationLineStateCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_CREATION_CACHE_CONTROL_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePipelineCreationCacheControlFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePipelineCreationCacheControlFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceVulkan11Features*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceVulkan11Features;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceVulkan11Properties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceVulkan11Properties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceVulkan12Features*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceVulkan12Features;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceVulkan12Properties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceVulkan12Properties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceVulkan13Features*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceVulkan13Features;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceVulkan13Properties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceVulkan13Properties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_COMPILER_CONTROL_CREATE_INFO_AMD:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineCompilerControlCreateInfoAMD*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineCompilerControlCreateInfoAMD;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COHERENT_MEMORY_FEATURES_AMD:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceCoherentMemoryFeaturesAMD*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceCoherentMemoryFeaturesAMD;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TOOL_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceToolProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceToolProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SAMPLER_CUSTOM_BORDER_COLOR_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSamplerCustomBorderColorCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSamplerCustomBorderColorCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceCustomBorderColorPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceCustomBorderColorPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceCustomBorderColorFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceCustomBorderColorFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SAMPLER_BORDER_COLOR_COMPONENT_MAPPING_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSamplerBorderColorComponentMappingCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSamplerBorderColorComponentMappingCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BORDER_COLOR_SWIZZLE_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceBorderColorSwizzleFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceBorderColorSwizzleFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_TRIANGLES_DATA_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAccelerationStructureGeometryTrianglesDataKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAccelerationStructureGeometryTrianglesDataKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_AABBS_DATA_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAccelerationStructureGeometryAabbsDataKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAccelerationStructureGeometryAabbsDataKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_INSTANCES_DATA_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAccelerationStructureGeometryInstancesDataKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAccelerationStructureGeometryInstancesDataKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAccelerationStructureGeometryKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAccelerationStructureGeometryKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_BUILD_GEOMETRY_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAccelerationStructureBuildGeometryInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAccelerationStructureBuildGeometryInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAccelerationStructureCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAccelerationStructureCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_DEVICE_ADDRESS_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAccelerationStructureDeviceAddressInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAccelerationStructureDeviceAddressInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_VERSION_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAccelerationStructureVersionInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAccelerationStructureVersionInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COPY_ACCELERATION_STRUCTURE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCopyAccelerationStructureInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCopyAccelerationStructureInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COPY_ACCELERATION_STRUCTURE_TO_MEMORY_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCopyAccelerationStructureToMemoryInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCopyAccelerationStructureToMemoryInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COPY_MEMORY_TO_ACCELERATION_STRUCTURE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCopyMemoryToAccelerationStructureInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCopyMemoryToAccelerationStructureInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_INTERFACE_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRayTracingPipelineInterfaceCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRayTracingPipelineInterfaceCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_LIBRARY_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineLibraryCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineLibraryCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceExtendedDynamicStateFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceExtendedDynamicStateFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_2_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceExtendedDynamicState2FeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceExtendedDynamicState2FeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceExtendedDynamicState3FeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceExtendedDynamicState3FeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceExtendedDynamicState3PropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceExtendedDynamicState3PropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RENDER_PASS_TRANSFORM_BEGIN_INFO_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRenderPassTransformBeginInfoQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRenderPassTransformBeginInfoQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COPY_COMMAND_TRANSFORM_INFO_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCopyCommandTransformInfoQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCopyCommandTransformInfoQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_RENDER_PASS_TRANSFORM_INFO_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCommandBufferInheritanceRenderPassTransformInfoQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCommandBufferInheritanceRenderPassTransformInfoQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DIAGNOSTICS_CONFIG_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDiagnosticsConfigFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDiagnosticsConfigFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_DIAGNOSTICS_CONFIG_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceDiagnosticsConfigCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceDiagnosticsConfigCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ZERO_INITIALIZE_WORKGROUP_MEMORY_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_FEATURES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceRobustness2FeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceRobustness2FeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceRobustness2PropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceRobustness2PropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_ROBUSTNESS_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceImageRobustnessFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceImageRobustnessFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_FEATURES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_4444_FORMATS_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevice4444FormatsFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevice4444FormatsFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_FEATURES_HUAWEI:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceSubpassShadingFeaturesHUAWEI*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceSubpassShadingFeaturesHUAWEI;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_FEATURES_HUAWEI:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BUFFER_COPY_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBufferCopy2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBufferCopy2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_COPY_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageCopy2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageCopy2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_BLIT_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageBlit2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageBlit2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BUFFER_IMAGE_COPY_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBufferImageCopy2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBufferImageCopy2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_RESOLVE_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageResolve2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageResolve2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COPY_BUFFER_INFO_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCopyBufferInfo2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCopyBufferInfo2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COPY_IMAGE_INFO_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCopyImageInfo2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCopyImageInfo2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BLIT_IMAGE_INFO_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBlitImageInfo2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBlitImageInfo2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COPY_BUFFER_TO_IMAGE_INFO_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCopyBufferToImageInfo2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCopyBufferToImageInfo2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COPY_IMAGE_TO_BUFFER_INFO_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCopyImageToBufferInfo2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCopyImageToBufferInfo2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RESOLVE_IMAGE_INFO_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkResolveImageInfo2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkResolveImageInfo2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_IMAGE_ATOMIC_INT64_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkFragmentShadingRateAttachmentInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkFragmentShadingRateAttachmentInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_SHADING_RATE_STATE_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineFragmentShadingRateStateCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineFragmentShadingRateStateCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_FEATURES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFragmentShadingRateFeaturesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFragmentShadingRateFeaturesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_PROPERTIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFragmentShadingRatePropertiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFragmentShadingRatePropertiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFragmentShadingRateKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFragmentShadingRateKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TERMINATE_INVOCATION_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderTerminateInvocationFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderTerminateInvocationFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_PROPERTIES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_SHADING_RATE_ENUM_STATE_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineFragmentShadingRateEnumStateCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineFragmentShadingRateEnumStateCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_BUILD_SIZES_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAccelerationStructureBuildSizesInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAccelerationStructureBuildSizesInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_2D_VIEW_OF_3D_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceImage2DViewOf3DFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceImage2DViewOf3DFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_SLICED_VIEW_OF_3D_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MUTABLE_DESCRIPTOR_TYPE_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MUTABLE_DESCRIPTOR_TYPE_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMutableDescriptorTypeCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMutableDescriptorTypeCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLIP_CONTROL_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDepthClipControlFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDepthClipControlFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_DEPTH_CLIP_CONTROL_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineViewportDepthClipControlCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineViewportDepthClipControlCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_INPUT_DYNAMIC_STATE_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_RDMA_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceExternalMemoryRDMAFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceExternalMemoryRDMAFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VERTEX_INPUT_BINDING_DESCRIPTION_2_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVertexInputBindingDescription2EXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVertexInputBindingDescription2EXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VERTEX_INPUT_ATTRIBUTE_DESCRIPTION_2_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVertexInputAttributeDescription2EXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVertexInputAttributeDescription2EXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COLOR_WRITE_ENABLE_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceColorWriteEnableFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceColorWriteEnableFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_COLOR_WRITE_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineColorWriteCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineColorWriteCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MEMORY_BARRIER_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMemoryBarrier2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMemoryBarrier2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageMemoryBarrier2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageMemoryBarrier2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBufferMemoryBarrier2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBufferMemoryBarrier2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEPENDENCY_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDependencyInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDependencyInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SEMAPHORE_SUBMIT_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSemaphoreSubmitInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSemaphoreSubmitInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_SUBMIT_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCommandBufferSubmitInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCommandBufferSubmitInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SUBMIT_INFO_2:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSubmitInfo2*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSubmitInfo2;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_CHECKPOINT_PROPERTIES_2_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkQueueFamilyCheckpointProperties2NV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkQueueFamilyCheckpointProperties2NV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_CHECKPOINT_DATA_2_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCheckpointData2NV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCheckpointData2NV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SYNCHRONIZATION_2_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceSynchronization2Features*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceSynchronization2Features;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_IMAGE_COPY_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceHostImageCopyFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceHostImageCopyFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_IMAGE_COPY_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceHostImageCopyPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceHostImageCopyPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MEMORY_TO_IMAGE_COPY_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMemoryToImageCopyEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMemoryToImageCopyEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_TO_MEMORY_COPY_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageToMemoryCopyEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageToMemoryCopyEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COPY_MEMORY_TO_IMAGE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCopyMemoryToImageInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCopyMemoryToImageInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COPY_IMAGE_TO_MEMORY_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCopyImageToMemoryInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCopyImageToMemoryInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COPY_IMAGE_TO_IMAGE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCopyImageToImageInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCopyImageToImageInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_HOST_IMAGE_LAYOUT_TRANSITION_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkHostImageLayoutTransitionInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkHostImageLayoutTransitionInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SUBRESOURCE_HOST_MEMCPY_SIZE_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSubresourceHostMemcpySizeEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSubresourceHostMemcpySizeEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_HOST_IMAGE_COPY_DEVICE_PERFORMANCE_QUERY_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkHostImageCopyDevicePerformanceQueryEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkHostImageCopyDevicePerformanceQueryEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVES_GENERATED_QUERY_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LEGACY_DITHERING_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceLegacyDitheringFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceLegacyDitheringFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SUBPASS_RESOLVE_PERFORMANCE_QUERY_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSubpassResolvePerformanceQueryEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSubpassResolvePerformanceQueryEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMultisampledRenderToSingleSampledInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMultisampledRenderToSingleSampledInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_PROTECTED_ACCESS_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePipelineProtectedAccessFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePipelineProtectedAccessFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_VIDEO_PROPERTIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkQueueFamilyVideoPropertiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkQueueFamilyVideoPropertiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_QUERY_RESULT_STATUS_PROPERTIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkQueueFamilyQueryResultStatusPropertiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkQueueFamilyQueryResultStatusPropertiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_PROFILE_LIST_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoProfileListInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoProfileListInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_FORMAT_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceVideoFormatInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceVideoFormatInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_FORMAT_PROPERTIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoFormatPropertiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoFormatPropertiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_PROFILE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoProfileInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoProfileInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_CAPABILITIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoCapabilitiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoCapabilitiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_SESSION_MEMORY_REQUIREMENTS_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoSessionMemoryRequirementsKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoSessionMemoryRequirementsKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BIND_VIDEO_SESSION_MEMORY_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBindVideoSessionMemoryInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBindVideoSessionMemoryInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_PICTURE_RESOURCE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoPictureResourceInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoPictureResourceInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_REFERENCE_SLOT_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoReferenceSlotInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoReferenceSlotInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_DECODE_CAPABILITIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoDecodeCapabilitiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoDecodeCapabilitiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_DECODE_USAGE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoDecodeUsageInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoDecodeUsageInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_DECODE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoDecodeInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoDecodeInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_PROFILE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoDecodeH264ProfileInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoDecodeH264ProfileInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_CAPABILITIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoDecodeH264CapabilitiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoDecodeH264CapabilitiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_SESSION_PARAMETERS_ADD_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoDecodeH264SessionParametersAddInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoDecodeH264SessionParametersAddInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_SESSION_PARAMETERS_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoDecodeH264SessionParametersCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoDecodeH264SessionParametersCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_PICTURE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoDecodeH264PictureInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoDecodeH264PictureInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_DPB_SLOT_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoDecodeH264DpbSlotInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoDecodeH264DpbSlotInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_PROFILE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoDecodeH265ProfileInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoDecodeH265ProfileInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_CAPABILITIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoDecodeH265CapabilitiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoDecodeH265CapabilitiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_SESSION_PARAMETERS_ADD_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoDecodeH265SessionParametersAddInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoDecodeH265SessionParametersAddInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_SESSION_PARAMETERS_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoDecodeH265SessionParametersCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoDecodeH265SessionParametersCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_PICTURE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoDecodeH265PictureInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoDecodeH265PictureInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_DPB_SLOT_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoDecodeH265DpbSlotInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoDecodeH265DpbSlotInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_SESSION_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoSessionCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoSessionCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_SESSION_PARAMETERS_CREATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoSessionParametersCreateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoSessionParametersCreateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_SESSION_PARAMETERS_UPDATE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoSessionParametersUpdateInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoSessionParametersUpdateInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_BEGIN_CODING_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoBeginCodingInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoBeginCodingInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_END_CODING_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoEndCodingInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoEndCodingInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_VIDEO_CODING_CONTROL_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkVideoCodingControlInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkVideoCodingControlInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INHERITED_VIEWPORT_SCISSOR_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceInheritedViewportScissorFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceInheritedViewportScissorFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_VIEWPORT_SCISSOR_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCommandBufferInheritanceViewportScissorInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCommandBufferInheritanceViewportScissorInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_2_PLANE_444_FORMATS_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROVOKING_VERTEX_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceProvokingVertexFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceProvokingVertexFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROVOKING_VERTEX_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceProvokingVertexPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceProvokingVertexPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_PROVOKING_VERTEX_STATE_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineRasterizationProvokingVertexStateCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineRasterizationProvokingVertexStateCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_CU_MODULE_CREATE_INFO_NVX:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCuModuleCreateInfoNVX*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCuModuleCreateInfoNVX;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_CU_FUNCTION_CREATE_INFO_NVX:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCuFunctionCreateInfoNVX*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCuFunctionCreateInfoNVX;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_CU_LAUNCH_INFO_NVX:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCuLaunchInfoNVX*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCuLaunchInfoNVX;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDescriptorBufferFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDescriptorBufferFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDescriptorBufferPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDescriptorBufferPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_DENSITY_MAP_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DESCRIPTOR_ADDRESS_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDescriptorAddressInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDescriptorAddressInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DESCRIPTOR_BUFFER_BINDING_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDescriptorBufferBindingInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDescriptorBufferBindingInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DESCRIPTOR_BUFFER_BINDING_PUSH_DESCRIPTOR_BUFFER_HANDLE_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDescriptorBufferBindingPushDescriptorBufferHandleEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDescriptorBufferBindingPushDescriptorBufferHandleEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DESCRIPTOR_GET_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDescriptorGetInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDescriptorGetInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BUFFER_CAPTURE_DESCRIPTOR_DATA_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBufferCaptureDescriptorDataInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBufferCaptureDescriptorDataInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_CAPTURE_DESCRIPTOR_DATA_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageCaptureDescriptorDataInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageCaptureDescriptorDataInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_VIEW_CAPTURE_DESCRIPTOR_DATA_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageViewCaptureDescriptorDataInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageViewCaptureDescriptorDataInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SAMPLER_CAPTURE_DESCRIPTOR_DATA_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSamplerCaptureDescriptorDataInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSamplerCaptureDescriptorDataInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CAPTURE_DESCRIPTOR_DATA_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAccelerationStructureCaptureDescriptorDataInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAccelerationStructureCaptureDescriptorDataInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_OPAQUE_CAPTURE_DESCRIPTOR_DATA_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkOpaqueCaptureDescriptorDataCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkOpaqueCaptureDescriptorDataCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderIntegerDotProductFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderIntegerDotProductFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_PROPERTIES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderIntegerDotProductProperties*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderIntegerDotProductProperties;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DRM_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDrmPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDrmPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_FEATURES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_PROPERTIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_MOTION_BLUR_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceRayTracingMotionBlurFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceRayTracingMotionBlurFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_MOTION_TRIANGLES_DATA_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAccelerationStructureGeometryMotionTrianglesDataNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAccelerationStructureGeometryMotionTrianglesDataNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_MOTION_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAccelerationStructureMotionInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAccelerationStructureMotionInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MEMORY_GET_REMOTE_ADDRESS_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMemoryGetRemoteAddressInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMemoryGetRemoteAddressInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RGBA10X6_FORMATS_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_3:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkFormatProperties3*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkFormatProperties3;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DRM_FORMAT_MODIFIER_PROPERTIES_LIST_2_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDrmFormatModifierPropertiesList2EXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDrmFormatModifierPropertiesList2EXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_RENDERING_CREATE_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineRenderingCreateInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineRenderingCreateInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RENDERING_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRenderingInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRenderingInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRenderingAttachmentInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRenderingAttachmentInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRenderingFragmentShadingRateAttachmentInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRenderingFragmentShadingRateAttachmentInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRenderingFragmentDensityMapAttachmentInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRenderingFragmentDensityMapAttachmentInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_FEATURES:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDynamicRenderingFeatures*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDynamicRenderingFeatures;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_RENDERING_INFO:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCommandBufferInheritanceRenderingInfo*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCommandBufferInheritanceRenderingInfo;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ATTACHMENT_SAMPLE_COUNT_INFO_AMD:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAttachmentSampleCountInfoAMD*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAttachmentSampleCountInfoAMD;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MULTIVIEW_PER_VIEW_ATTRIBUTES_INFO_NVX:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMultiviewPerViewAttributesInfoNVX*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMultiviewPerViewAttributesInfoNVX;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_VIEW_MIN_LOD_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceImageViewMinLodFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceImageViewMinLodFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_VIEW_MIN_LOD_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageViewMinLodCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageViewMinLodCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINEAR_COLOR_ATTACHMENT_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceLinearColorAttachmentFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceLinearColorAttachmentFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_LIBRARY_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkGraphicsPipelineLibraryCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkGraphicsPipelineLibraryCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_SET_HOST_MAPPING_FEATURES_VALVE:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_BINDING_REFERENCE_VALVE:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDescriptorSetBindingReferenceVALVE*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDescriptorSetBindingReferenceVALVE;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_HOST_MAPPING_INFO_VALVE:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDescriptorSetLayoutHostMappingInfoVALVE*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDescriptorSetLayoutHostMappingInfoVALVE;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_MODULE_IDENTIFIER_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineShaderStageModuleIdentifierCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineShaderStageModuleIdentifierCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SHADER_MODULE_IDENTIFIER_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkShaderModuleIdentifierEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkShaderModuleIdentifierEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_COMPRESSION_CONTROL_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageCompressionControlEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageCompressionControlEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceImageCompressionControlFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceImageCompressionControlFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_COMPRESSION_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageCompressionPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageCompressionPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_SUBRESOURCE_2_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageSubresource2KHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageSubresource2KHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SUBRESOURCE_LAYOUT_2_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSubresourceLayout2KHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSubresourceLayout2KHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RENDER_PASS_CREATION_CONTROL_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRenderPassCreationControlEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRenderPassCreationControlEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RENDER_PASS_CREATION_FEEDBACK_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRenderPassCreationFeedbackCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRenderPassCreationFeedbackCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RENDER_PASS_SUBPASS_FEEDBACK_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkRenderPassSubpassFeedbackCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkRenderPassSubpassFeedbackCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_MERGE_FEEDBACK_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MICROMAP_BUILD_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMicromapBuildInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMicromapBuildInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MICROMAP_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMicromapCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMicromapCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MICROMAP_VERSION_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMicromapVersionInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMicromapVersionInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COPY_MICROMAP_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCopyMicromapInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCopyMicromapInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COPY_MICROMAP_TO_MEMORY_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCopyMicromapToMemoryInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCopyMicromapToMemoryInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COPY_MEMORY_TO_MICROMAP_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCopyMemoryToMicromapInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCopyMemoryToMicromapInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MICROMAP_BUILD_SIZES_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMicromapBuildSizesInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMicromapBuildSizesInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceOpacityMicromapFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceOpacityMicromapFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceOpacityMicromapPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceOpacityMicromapPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAccelerationStructureTrianglesOpacityMicromapEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAccelerationStructureTrianglesOpacityMicromapEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_PROPERTIES_IDENTIFIER_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelinePropertiesIdentifierEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelinePropertiesIdentifierEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_PROPERTIES_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePipelinePropertiesFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePipelinePropertiesFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_FEATURES_AMD:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_ACQUIRE_UNMODIFIED_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkExternalMemoryAcquireUnmodifiedEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkExternalMemoryAcquireUnmodifiedEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_NON_SEAMLESS_CUBE_MAP_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePipelineRobustnessFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePipelineRobustnessFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PIPELINE_ROBUSTNESS_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPipelineRobustnessCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPipelineRobustnessCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePipelineRobustnessPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePipelineRobustnessPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_IMAGE_VIEW_SAMPLE_WEIGHT_CREATE_INFO_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkImageViewSampleWeightCreateInfoQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkImageViewSampleWeightCreateInfoQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_FEATURES_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceImageProcessingFeaturesQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceImageProcessingFeaturesQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_PROPERTIES_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceImageProcessingPropertiesQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceImageProcessingPropertiesQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_PROPERTIES_FEATURES_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceTilePropertiesFeaturesQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceTilePropertiesFeaturesQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_TILE_PROPERTIES_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkTilePropertiesQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkTilePropertiesQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_AMIGO_PROFILING_FEATURES_SEC:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceAmigoProfilingFeaturesSEC*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceAmigoProfilingFeaturesSEC;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_AMIGO_PROFILING_SUBMIT_INFO_SEC:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkAmigoProfilingSubmitInfoSEC*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkAmigoProfilingSubmitInfoSEC;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_LAYOUT_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLAMP_ZERO_ONE_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDepthClampZeroOneFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDepthClampZeroOneFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ADDRESS_BINDING_REPORT_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceAddressBindingReportFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceAddressBindingReportFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_ADDRESS_BINDING_CALLBACK_DATA_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceAddressBindingCallbackDataEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceAddressBindingCallbackDataEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPTICAL_FLOW_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceOpticalFlowFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceOpticalFlowFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPTICAL_FLOW_PROPERTIES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceOpticalFlowPropertiesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceOpticalFlowPropertiesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_OPTICAL_FLOW_IMAGE_FORMAT_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkOpticalFlowImageFormatInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkOpticalFlowImageFormatInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_OPTICAL_FLOW_IMAGE_FORMAT_PROPERTIES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkOpticalFlowImageFormatPropertiesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkOpticalFlowImageFormatPropertiesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_OPTICAL_FLOW_SESSION_CREATE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkOpticalFlowSessionCreateInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkOpticalFlowSessionCreateInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_OPTICAL_FLOW_SESSION_CREATE_PRIVATE_DATA_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkOpticalFlowSessionCreatePrivateDataInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkOpticalFlowSessionCreatePrivateDataInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_OPTICAL_FLOW_EXECUTE_INFO_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkOpticalFlowExecuteInfoNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkOpticalFlowExecuteInfoNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FAULT_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFaultFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFaultFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_FAULT_COUNTS_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceFaultCountsEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceFaultCountsEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_FAULT_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceFaultInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceFaultInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEPTH_BIAS_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDepthBiasInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDepthBiasInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEPTH_BIAS_REPRESENTATION_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDepthBiasRepresentationInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDepthBiasRepresentationInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_PROPERTIES_ARM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_FEATURES_ARM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_FRAME_BOUNDARY_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkFrameBoundaryEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkFrameBoundaryEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAME_BOUNDARY_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceFrameBoundaryFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceFrameBoundaryFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSurfacePresentModeEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSurfacePresentModeEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SURFACE_PRESENT_SCALING_CAPABILITIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSurfacePresentScalingCapabilitiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSurfacePresentScalingCapabilitiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_COMPATIBILITY_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSurfacePresentModeCompatibilityEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSurfacePresentModeCompatibilityEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SWAPCHAIN_MAINTENANCE_1_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSwapchainPresentFenceInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSwapchainPresentFenceInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODES_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSwapchainPresentModesCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSwapchainPresentModesCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSwapchainPresentModeInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSwapchainPresentModeInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_SCALING_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSwapchainPresentScalingCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSwapchainPresentScalingCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_RELEASE_SWAPCHAIN_IMAGES_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkReleaseSwapchainImagesInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkReleaseSwapchainImagesInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_BIAS_CONTROL_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDepthBiasControlFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDepthBiasControlFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DIRECT_DRIVER_LOADING_INFO_LUNARG:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDirectDriverLoadingInfoLUNARG*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDirectDriverLoadingInfoLUNARG;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DIRECT_DRIVER_LOADING_LIST_LUNARG:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDirectDriverLoadingListLUNARG*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDirectDriverLoadingListLUNARG;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_POSITION_FETCH_FEATURES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_DEVICE_IMAGE_SUBRESOURCE_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkDeviceImageSubresourceInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkDeviceImageSubresourceInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_ARM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderCorePropertiesARM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderCorePropertiesARM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_RENDER_AREAS_FEATURES_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MULTIVIEW_PER_VIEW_RENDER_AREAS_RENDER_PASS_BEGIN_INFO_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_QUERY_LOW_LATENCY_SUPPORT_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkQueryLowLatencySupportNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkQueryLowLatencySupportNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MEMORY_MAP_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMemoryMapInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMemoryMapInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_MEMORY_UNMAP_INFO_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkMemoryUnmapInfoKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkMemoryUnmapInfoKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderObjectFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderObjectFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderObjectPropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderObjectPropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SHADER_CREATE_INFO_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkShaderCreateInfoEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkShaderCreateInfoEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TILE_IMAGE_FEATURES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderTileImageFeaturesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderTileImageFeaturesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TILE_IMAGE_PROPERTIES_EXT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceShaderTileImagePropertiesEXT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceShaderTileImagePropertiesEXT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceCooperativeMatrixFeaturesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceCooperativeMatrixFeaturesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkCooperativeMatrixPropertiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkCooperativeMatrixPropertiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES_KHR:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceCooperativeMatrixPropertiesKHR*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceCooperativeMatrixPropertiesKHR;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUBIC_CLAMP_FEATURES_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceCubicClampFeaturesQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceCubicClampFeaturesQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_DEGAMMA_FEATURES_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceYcbcrDegammaFeaturesQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceYcbcrDegammaFeaturesQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_YCBCR_DEGAMMA_CREATE_INFO_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUBIC_WEIGHTS_FEATURES_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceCubicWeightsFeaturesQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceCubicWeightsFeaturesQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SAMPLER_CUBIC_WEIGHTS_CREATE_INFO_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSamplerCubicWeightsCreateInfoQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSamplerCubicWeightsCreateInfoQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_BLIT_IMAGE_CUBIC_WEIGHTS_INFO_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkBlitImageCubicWeightsInfoQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkBlitImageCubicWeightsInfoQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_2_FEATURES_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceImageProcessing2FeaturesQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceImageProcessing2FeaturesQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_2_PROPERTIES_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceImageProcessing2PropertiesQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceImageProcessing2PropertiesQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_SAMPLER_BLOCK_MATCH_WINDOW_CREATE_INFO_QCOM:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkSamplerBlockMatchWindowCreateInfoQCOM*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkSamplerBlockMatchWindowCreateInfoQCOM;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_POOL_OVERALLOCATION_FEATURES_NV:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_DRIVER_PROPERTIES_MSFT:
+        {
+        if (serialize){
+            return (PFN_vkVoidFunction)(+[](boost::json::object& json, const void* member) -> void{
+                return serialize_struct(json, ((VkPhysicalDeviceLayeredDriverPropertiesMSFT*)(member))[0]);
+            });
+        }else{
+              return (PFN_vkVoidFunction)(+[](boost::json::object& json, void*& member) -> void{
+                auto result= new VkPhysicalDeviceLayeredDriverPropertiesMSFT;
+                deserialize_struct(json, result[0]);
+                member=result;
+                return;
+            });
+        }
+        
+        }
+    
+
+default:
+    return NULL;
+}
+}
+
 
 void serialize_pNext(boost::json::object& json, const void* member){
     if (member==NULL){
@@ -54,4272 +12844,13 @@ void serialize_pNext(boost::json::object& json, const void* member){
     }
     
     auto chain=((VkBaseInStructure*)member);
-    switch(chain->sType){
-
-
-    case VK_STRUCTURE_TYPE_APPLICATION_INFO:
-        {
-        return serialize_struct(json, ((VkApplicationInfo*)(member))[0]);
-        }
     
-
-    case VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkDeviceQueueCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkDeviceCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkInstanceCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO:
-        {
-        return serialize_struct(json, ((VkMemoryAllocateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE:
-        {
-        return serialize_struct(json, ((VkMappedMemoryRange*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET:
-        {
-        return serialize_struct(json, ((VkWriteDescriptorSet*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET:
-        {
-        return serialize_struct(json, ((VkCopyDescriptorSet*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_USAGE_FLAGS_2_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkBufferUsageFlags2CreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkBufferCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_VIEW_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkBufferViewCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_BARRIER:
-        {
-        return serialize_struct(json, ((VkMemoryBarrier*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER:
-        {
-        return serialize_struct(json, ((VkBufferMemoryBarrier*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER:
-        {
-        return serialize_struct(json, ((VkImageMemoryBarrier*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkImageCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkImageViewCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_SPARSE_INFO:
-        {
-        return serialize_struct(json, ((VkBindSparseInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkShaderModuleCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkDescriptorSetLayoutCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkDescriptorPoolCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO:
-        {
-        return serialize_struct(json, ((VkDescriptorSetAllocateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkPipelineShaderStageCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkComputePipelineCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_INDIRECT_BUFFER_INFO_NV:
-        {
-        return serialize_struct(json, ((VkComputePipelineIndirectBufferInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_CREATE_FLAGS_2_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkPipelineCreateFlags2CreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkPipelineVertexInputStateCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkPipelineInputAssemblyStateCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkPipelineTessellationStateCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkPipelineViewportStateCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkPipelineRasterizationStateCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkPipelineMultisampleStateCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkPipelineColorBlendStateCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkPipelineDynamicStateCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkPipelineDepthStencilStateCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkGraphicsPipelineCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkPipelineCacheCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkPipelineLayoutCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkSamplerCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkCommandPoolCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO:
-        {
-        return serialize_struct(json, ((VkCommandBufferAllocateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO:
-        {
-        return serialize_struct(json, ((VkCommandBufferInheritanceInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO:
-        {
-        return serialize_struct(json, ((VkCommandBufferBeginInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO:
-        {
-        return serialize_struct(json, ((VkRenderPassBeginInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkRenderPassCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EVENT_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkEventCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FENCE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkFenceCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkSemaphoreCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkQueryPoolCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkFramebufferCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBMIT_INFO:
-        {
-        return serialize_struct(json, ((VkSubmitInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkDisplayModeCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkDisplaySurfaceCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkDisplayPresentInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkXlibSurfaceCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_XCB_SURFACE_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkXcbSurfaceCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkSwapchainCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PRESENT_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkPresentInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkDebugReportCallbackCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT:
-        {
-        return serialize_struct(json, ((VkValidationFlagsEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VALIDATION_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkValidationFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD:
-        {
-        return serialize_struct(json, ((VkPipelineRasterizationStateRasterizationOrderAMD*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkDebugMarkerObjectNameInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkDebugMarkerObjectTagInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkDebugMarkerMarkerInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkDedicatedAllocationImageCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkDedicatedAllocationBufferCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkDedicatedAllocationMemoryAllocateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkExternalMemoryImageCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkExportMemoryAllocateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_COMPUTE_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_PRIVATE_DATA_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkDevicePrivateDataCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PRIVATE_DATA_SLOT_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkPrivateDataSlotCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIVATE_DATA_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePrivateDataFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_PROPERTIES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTI_DRAW_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMultiDrawPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GRAPHICS_SHADER_GROUP_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkGraphicsShaderGroupCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_SHADER_GROUPS_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkGraphicsPipelineShaderGroupsCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_TOKEN_NV:
-        {
-        return serialize_struct(json, ((VkIndirectCommandsLayoutTokenNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkIndirectCommandsLayoutCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GENERATED_COMMANDS_INFO_NV:
-        {
-        return serialize_struct(json, ((VkGeneratedCommandsInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GENERATED_COMMANDS_MEMORY_REQUIREMENTS_INFO_NV:
-        {
-        return serialize_struct(json, ((VkGeneratedCommandsMemoryRequirementsInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_INDIRECT_DEVICE_ADDRESS_INFO_NV:
-        {
-        return serialize_struct(json, ((VkPipelineIndirectDeviceAddressInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFeatures2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceProperties2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_2:
-        {
-        return serialize_struct(json, ((VkFormatProperties2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2:
-        {
-        return serialize_struct(json, ((VkImageFormatProperties2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceImageFormatInfo2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_PROPERTIES_2:
-        {
-        return serialize_struct(json, ((VkQueueFamilyProperties2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PROPERTIES_2:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMemoryProperties2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SPARSE_IMAGE_FORMAT_PROPERTIES_2:
-        {
-        return serialize_struct(json, ((VkSparseImageFormatProperties2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SPARSE_IMAGE_FORMAT_INFO_2:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceSparseImageFormatInfo2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePushDescriptorPropertiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DRIVER_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDriverProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR:
-        {
-        return serialize_struct(json, ((VkPresentRegionsKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VARIABLE_POINTERS_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceVariablePointersFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceExternalImageFormatInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXTERNAL_IMAGE_FORMAT_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkExternalImageFormatProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceExternalBufferInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXTERNAL_BUFFER_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkExternalBufferProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceIDProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkExternalMemoryImageCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkExternalMemoryBufferCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO:
-        {
-        return serialize_struct(json, ((VkExportMemoryAllocateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMPORT_MEMORY_FD_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkImportMemoryFdInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_FD_PROPERTIES_KHR:
-        {
-        return serialize_struct(json, ((VkMemoryFdPropertiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_GET_FD_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkMemoryGetFdInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceExternalSemaphoreInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXTERNAL_SEMAPHORE_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkExternalSemaphoreProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkExportSemaphoreCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_FD_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkImportSemaphoreFdInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SEMAPHORE_GET_FD_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkSemaphoreGetFdInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FENCE_INFO:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceExternalFenceInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXTERNAL_FENCE_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkExternalFenceProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXPORT_FENCE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkExportFenceCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMPORT_FENCE_FD_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkImportFenceFdInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FENCE_GET_FD_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkFenceGetFdInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMultiviewFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMultiviewProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkRenderPassMultiviewCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_EXT:
-        {
-        return serialize_struct(json, ((VkSurfaceCapabilities2EXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_POWER_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkDisplayPowerInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_EVENT_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkDeviceEventInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_EVENT_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkDisplayEventInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SWAPCHAIN_COUNTER_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkSwapchainCounterCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GROUP_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceGroupProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_FLAGS_INFO:
-        {
-        return serialize_struct(json, ((VkMemoryAllocateFlagsInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_INFO:
-        {
-        return serialize_struct(json, ((VkBindBufferMemoryInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_DEVICE_GROUP_INFO:
-        {
-        return serialize_struct(json, ((VkBindBufferMemoryDeviceGroupInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_INFO:
-        {
-        return serialize_struct(json, ((VkBindImageMemoryInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_DEVICE_GROUP_INFO:
-        {
-        return serialize_struct(json, ((VkBindImageMemoryDeviceGroupInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_GROUP_RENDER_PASS_BEGIN_INFO:
-        {
-        return serialize_struct(json, ((VkDeviceGroupRenderPassBeginInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_GROUP_COMMAND_BUFFER_BEGIN_INFO:
-        {
-        return serialize_struct(json, ((VkDeviceGroupCommandBufferBeginInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_GROUP_SUBMIT_INFO:
-        {
-        return serialize_struct(json, ((VkDeviceGroupSubmitInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_GROUP_BIND_SPARSE_INFO:
-        {
-        return serialize_struct(json, ((VkDeviceGroupBindSparseInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_CAPABILITIES_KHR:
-        {
-        return serialize_struct(json, ((VkDeviceGroupPresentCapabilitiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkImageSwapchainCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkBindImageMemorySwapchainInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACQUIRE_NEXT_IMAGE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkAcquireNextImageInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkDeviceGroupPresentInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkDeviceGroupDeviceCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkDeviceGroupSwapchainCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkDescriptorUpdateTemplateCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_ID_FEATURES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePresentIdFeaturesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PRESENT_ID_KHR:
-        {
-        return serialize_struct(json, ((VkPresentIdKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_WAIT_FEATURES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePresentWaitFeaturesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_HDR_METADATA_EXT:
-        {
-        return serialize_struct(json, ((VkHdrMetadataEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_NATIVE_HDR_SURFACE_CAPABILITIES_AMD:
-        {
-        return serialize_struct(json, ((VkDisplayNativeHdrSurfaceCapabilitiesAMD*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SWAPCHAIN_DISPLAY_NATIVE_HDR_CREATE_INFO_AMD:
-        {
-        return serialize_struct(json, ((VkSwapchainDisplayNativeHdrCreateInfoAMD*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE:
-        {
-        return serialize_struct(json, ((VkPresentTimesInfoGOOGLE*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkPipelineViewportWScalingStateCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkPipelineViewportSwizzleStateCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDiscardRectanglePropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkPipelineDiscardRectangleStateCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_ATTRIBUTES_PROPERTIES_NVX:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_INPUT_ATTACHMENT_ASPECT_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkRenderPassInputAttachmentAspectCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SURFACE_INFO_2_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceSurfaceInfo2KHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_KHR:
-        {
-        return serialize_struct(json, ((VkSurfaceCapabilities2KHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SURFACE_FORMAT_2_KHR:
-        {
-        return serialize_struct(json, ((VkSurfaceFormat2KHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_PROPERTIES_2_KHR:
-        {
-        return serialize_struct(json, ((VkDisplayProperties2KHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_PLANE_PROPERTIES_2_KHR:
-        {
-        return serialize_struct(json, ((VkDisplayPlaneProperties2KHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_MODE_PROPERTIES_2_KHR:
-        {
-        return serialize_struct(json, ((VkDisplayModeProperties2KHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_PLANE_INFO_2_KHR:
-        {
-        return serialize_struct(json, ((VkDisplayPlaneInfo2KHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_PLANE_CAPABILITIES_2_KHR:
-        {
-        return serialize_struct(json, ((VkDisplayPlaneCapabilities2KHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SHARED_PRESENT_SURFACE_CAPABILITIES_KHR:
-        {
-        return serialize_struct(json, ((VkSharedPresentSurfaceCapabilitiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_16BIT_STORAGE_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDevice16BitStorageFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceSubgroupProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_EXTENDED_TYPES_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_MEMORY_REQUIREMENTS_INFO_2:
-        {
-        return serialize_struct(json, ((VkBufferMemoryRequirementsInfo2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_BUFFER_MEMORY_REQUIREMENTS:
-        {
-        return serialize_struct(json, ((VkDeviceBufferMemoryRequirements*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_MEMORY_REQUIREMENTS_INFO_2:
-        {
-        return serialize_struct(json, ((VkImageMemoryRequirementsInfo2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_SPARSE_MEMORY_REQUIREMENTS_INFO_2:
-        {
-        return serialize_struct(json, ((VkImageSparseMemoryRequirementsInfo2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_IMAGE_MEMORY_REQUIREMENTS:
-        {
-        return serialize_struct(json, ((VkDeviceImageMemoryRequirements*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_REQUIREMENTS_2:
-        {
-        return serialize_struct(json, ((VkMemoryRequirements2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SPARSE_IMAGE_MEMORY_REQUIREMENTS_2:
-        {
-        return serialize_struct(json, ((VkSparseImageMemoryRequirements2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_POINT_CLIPPING_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePointClippingProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_DEDICATED_REQUIREMENTS:
-        {
-        return serialize_struct(json, ((VkMemoryDedicatedRequirements*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO:
-        {
-        return serialize_struct(json, ((VkMemoryDedicatedAllocateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_USAGE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkImageViewUsageCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_SLICED_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkImageViewSlicedCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_DOMAIN_ORIGIN_STATE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkPipelineTessellationDomainOriginStateCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_INFO:
-        {
-        return serialize_struct(json, ((VkSamplerYcbcrConversionInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkSamplerYcbcrConversionCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_IMAGE_PLANE_MEMORY_INFO:
-        {
-        return serialize_struct(json, ((VkBindImagePlaneMemoryInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_PLANE_MEMORY_REQUIREMENTS_INFO:
-        {
-        return serialize_struct(json, ((VkImagePlaneMemoryRequirementsInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_YCBCR_CONVERSION_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceSamplerYcbcrConversionFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_IMAGE_FORMAT_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkSamplerYcbcrConversionImageFormatProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_TEXTURE_LOD_GATHER_FORMAT_PROPERTIES_AMD:
-        {
-        return serialize_struct(json, ((VkTextureLODGatherFormatPropertiesAMD*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_CONDITIONAL_RENDERING_BEGIN_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkConditionalRenderingBeginInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PROTECTED_SUBMIT_INFO:
-        {
-        return serialize_struct(json, ((VkProtectedSubmitInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROTECTED_MEMORY_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceProtectedMemoryFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROTECTED_MEMORY_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceProtectedMemoryProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_QUEUE_INFO_2:
-        {
-        return serialize_struct(json, ((VkDeviceQueueInfo2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkPipelineCoverageToColorStateCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceSamplerFilterMinmaxProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLE_LOCATIONS_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkSampleLocationsInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_SAMPLE_LOCATIONS_BEGIN_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkRenderPassSampleLocationsBeginInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_SAMPLE_LOCATIONS_STATE_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkPipelineSampleLocationsStateCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLE_LOCATIONS_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceSampleLocationsPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MULTISAMPLE_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkMultisamplePropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_REDUCTION_MODE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkSamplerReductionModeCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTI_DRAW_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMultiDrawFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_ADVANCED_STATE_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkPipelineColorBlendAdvancedStateCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceInlineUniformBlockFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceInlineUniformBlockProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_INLINE_UNIFORM_BLOCK:
-        {
-        return serialize_struct(json, ((VkWriteDescriptorSetInlineUniformBlock*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_INLINE_UNIFORM_BLOCK_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkDescriptorPoolInlineUniformBlockCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_MODULATION_STATE_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkPipelineCoverageModulationStateCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_FORMAT_LIST_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkImageFormatListCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VALIDATION_CACHE_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkValidationCacheCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SHADER_MODULE_VALIDATION_CACHE_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkShaderModuleValidationCacheCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_3_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMaintenance3Properties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_4_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMaintenance4Features*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_4_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMaintenance4Properties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_5_FEATURES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMaintenance5FeaturesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_5_PROPERTIES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMaintenance5PropertiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDERING_AREA_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkRenderingAreaInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_SUPPORT:
-        {
-        return serialize_struct(json, ((VkDescriptorSetLayoutSupport*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_DRAW_PARAMETERS_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderDrawParametersFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FLOAT16_INT8_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderFloat16Int8Features*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FLOAT_CONTROLS_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFloatControlsProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_QUERY_RESET_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceHostQueryResetFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkDeviceQueueGlobalPriorityCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES_KHR:
-        {
-        return serialize_struct(json, ((VkQueueFamilyGlobalPriorityPropertiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_UTILS_OBJECT_NAME_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkDebugUtilsObjectNameInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_UTILS_OBJECT_TAG_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkDebugUtilsObjectTagInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_UTILS_LABEL_EXT:
-        {
-        return serialize_struct(json, ((VkDebugUtilsLabelEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkDebugUtilsMessengerCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CALLBACK_DATA_EXT:
-        {
-        return serialize_struct(json, ((VkDebugUtilsMessengerCallbackDataEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_MEMORY_REPORT_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDeviceMemoryReportFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_DEVICE_MEMORY_REPORT_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkDeviceDeviceMemoryReportCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_MEMORY_REPORT_CALLBACK_DATA_EXT:
-        {
-        return serialize_struct(json, ((VkDeviceMemoryReportCallbackDataEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMPORT_MEMORY_HOST_POINTER_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkImportMemoryHostPointerInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_HOST_POINTER_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkMemoryHostPointerPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_HOST_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceExternalMemoryHostPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CONSERVATIVE_RASTERIZATION_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceConservativeRasterizationPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_CALIBRATED_TIMESTAMP_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkCalibratedTimestampInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_AMD:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderCorePropertiesAMD*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_2_AMD:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderCoreProperties2AMD*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_CONSERVATIVE_STATE_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkPipelineRasterizationConservativeStateCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDescriptorIndexingFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDescriptorIndexingProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkDescriptorSetLayoutBindingFlagsCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_ALLOCATE_INFO:
-        {
-        return serialize_struct(json, ((VkDescriptorSetVariableDescriptorCountAllocateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_LAYOUT_SUPPORT:
-        {
-        return serialize_struct(json, ((VkDescriptorSetVariableDescriptorCountLayoutSupport*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_2:
-        {
-        return serialize_struct(json, ((VkAttachmentDescription2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ATTACHMENT_REFERENCE_2:
-        {
-        return serialize_struct(json, ((VkAttachmentReference2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBPASS_DESCRIPTION_2:
-        {
-        return serialize_struct(json, ((VkSubpassDescription2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBPASS_DEPENDENCY_2:
-        {
-        return serialize_struct(json, ((VkSubpassDependency2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO_2:
-        {
-        return serialize_struct(json, ((VkRenderPassCreateInfo2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBPASS_BEGIN_INFO:
-        {
-        return serialize_struct(json, ((VkSubpassBeginInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBPASS_END_INFO:
-        {
-        return serialize_struct(json, ((VkSubpassEndInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceTimelineSemaphoreFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceTimelineSemaphoreProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SEMAPHORE_TYPE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkSemaphoreTypeCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_TIMELINE_SEMAPHORE_SUBMIT_INFO:
-        {
-        return serialize_struct(json, ((VkTimelineSemaphoreSubmitInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SEMAPHORE_WAIT_INFO:
-        {
-        return serialize_struct(json, ((VkSemaphoreWaitInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SEMAPHORE_SIGNAL_INFO:
-        {
-        return serialize_struct(json, ((VkSemaphoreSignalInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkPipelineVertexInputDivisorStateCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PCI_BUS_INFO_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePCIBusInfoPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_CONDITIONAL_RENDERING_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkCommandBufferInheritanceConditionalRenderingInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_8BIT_STORAGE_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDevice8BitStorageFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CONDITIONAL_RENDERING_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceConditionalRenderingFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_MEMORY_MODEL_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceVulkanMemoryModelFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_INT64_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderAtomicInt64Features*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderAtomicFloatFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_2_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_CHECKPOINT_PROPERTIES_NV:
-        {
-        return serialize_struct(json, ((VkQueueFamilyCheckpointPropertiesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_CHECKPOINT_DATA_NV:
-        {
-        return serialize_struct(json, ((VkCheckpointDataNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_STENCIL_RESOLVE_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDepthStencilResolveProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBPASS_DESCRIPTION_DEPTH_STENCIL_RESOLVE:
-        {
-        return serialize_struct(json, ((VkSubpassDescriptionDepthStencilResolve*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_ASTC_DECODE_MODE_EXT:
-        {
-        return serialize_struct(json, ((VkImageViewASTCDecodeModeEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ASTC_DECODE_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceASTCDecodeFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceTransformFeedbackFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceTransformFeedbackPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_STREAM_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkPipelineRasterizationStateStreamCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_REPRESENTATIVE_FRAGMENT_TEST_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_REPRESENTATIVE_FRAGMENT_TEST_STATE_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkPipelineRepresentativeFragmentTestStateCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXCLUSIVE_SCISSOR_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceExclusiveScissorFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_EXCLUSIVE_SCISSOR_STATE_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkPipelineViewportExclusiveScissorStateCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CORNER_SAMPLED_IMAGE_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceCornerSampledImageFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceComputeShaderDerivativesFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_IMAGE_FOOTPRINT_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderImageFootprintFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEDICATED_ALLOCATION_IMAGE_ALIASING_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceCopyMemoryIndirectFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_PROPERTIES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceCopyMemoryIndirectPropertiesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMemoryDecompressionFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_PROPERTIES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMemoryDecompressionPropertiesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SHADING_RATE_IMAGE_STATE_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkPipelineViewportShadingRateImageStateCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADING_RATE_IMAGE_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShadingRateImageFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADING_RATE_IMAGE_PROPERTIES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShadingRateImagePropertiesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INVOCATION_MASK_FEATURES_HUAWEI:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceInvocationMaskFeaturesHUAWEI*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_COARSE_SAMPLE_ORDER_STATE_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkPipelineViewportCoarseSampleOrderStateCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMeshShaderFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMeshShaderPropertiesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMeshShaderFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMeshShaderPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RAY_TRACING_SHADER_GROUP_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkRayTracingShaderGroupCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RAY_TRACING_SHADER_GROUP_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkRayTracingShaderGroupCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkRayTracingPipelineCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkRayTracingPipelineCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GEOMETRY_TRIANGLES_NV:
-        {
-        return serialize_struct(json, ((VkGeometryTrianglesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GEOMETRY_AABB_NV:
-        {
-        return serialize_struct(json, ((VkGeometryAABBNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GEOMETRY_NV:
-        {
-        return serialize_struct(json, ((VkGeometryNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkAccelerationStructureInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkAccelerationStructureCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_ACCELERATION_STRUCTURE_MEMORY_INFO_NV:
-        {
-        return serialize_struct(json, ((VkBindAccelerationStructureMemoryInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_ACCELERATION_STRUCTURE_KHR:
-        {
-        return serialize_struct(json, ((VkWriteDescriptorSetAccelerationStructureKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_ACCELERATION_STRUCTURE_NV:
-        {
-        return serialize_struct(json, ((VkWriteDescriptorSetAccelerationStructureNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_INFO_NV:
-        {
-        return serialize_struct(json, ((VkAccelerationStructureMemoryRequirementsInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_FEATURES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceAccelerationStructureFeaturesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_FEATURES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceRayTracingPipelineFeaturesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_QUERY_FEATURES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceRayQueryFeaturesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_PROPERTIES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceAccelerationStructurePropertiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_PROPERTIES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceRayTracingPipelinePropertiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PROPERTIES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceRayTracingPropertiesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_MAINTENANCE_1_FEATURES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DRM_FORMAT_MODIFIER_PROPERTIES_LIST_EXT:
-        {
-        return serialize_struct(json, ((VkDrmFormatModifierPropertiesListEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_DRM_FORMAT_MODIFIER_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceImageDrmFormatModifierInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_LIST_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkImageDrmFormatModifierListCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_EXPLICIT_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkImageDrmFormatModifierExplicitCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkImageDrmFormatModifierPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_STENCIL_USAGE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkImageStencilUsageCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_MEMORY_OVERALLOCATION_CREATE_INFO_AMD:
-        {
-        return serialize_struct(json, ((VkDeviceMemoryOverallocationCreateInfoAMD*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFragmentDensityMapFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFragmentDensityMap2FeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_FEATURES_QCOM:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFragmentDensityMapPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFragmentDensityMap2PropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_PROPERTIES_QCOM:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_FRAGMENT_DENSITY_MAP_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkRenderPassFragmentDensityMapCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBPASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO_QCOM:
-        {
-        return serialize_struct(json, ((VkSubpassFragmentDensityMapOffsetEndInfoQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SCALAR_BLOCK_LAYOUT_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceScalarBlockLayoutFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SURFACE_PROTECTED_CAPABILITIES_KHR:
-        {
-        return serialize_struct(json, ((VkSurfaceProtectedCapabilitiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_UNIFORM_BUFFER_STANDARD_LAYOUT_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceUniformBufferStandardLayoutFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLIP_ENABLE_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDepthClipEnableFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_DEPTH_CLIP_STATE_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkPipelineRasterizationDepthClipStateCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_BUDGET_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMemoryBudgetPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PRIORITY_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMemoryPriorityFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_PRIORITY_ALLOCATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkMemoryPriorityAllocateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PAGEABLE_DEVICE_LOCAL_MEMORY_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceBufferDeviceAddressFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceBufferDeviceAddressFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_DEVICE_ADDRESS_INFO:
-        {
-        return serialize_struct(json, ((VkBufferDeviceAddressInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_OPAQUE_CAPTURE_ADDRESS_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkBufferOpaqueCaptureAddressCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_DEVICE_ADDRESS_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkBufferDeviceAddressCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_VIEW_IMAGE_FORMAT_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceImageViewImageFormatInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FILTER_CUBIC_IMAGE_VIEW_IMAGE_FORMAT_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkFilterCubicImageViewImageFormatPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGELESS_FRAMEBUFFER_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceImagelessFramebufferFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FRAMEBUFFER_ATTACHMENTS_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkFramebufferAttachmentsCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FRAMEBUFFER_ATTACHMENT_IMAGE_INFO:
-        {
-        return serialize_struct(json, ((VkFramebufferAttachmentImageInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_ATTACHMENT_BEGIN_INFO:
-        {
-        return serialize_struct(json, ((VkRenderPassAttachmentBeginInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_HDR_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceTextureCompressionASTCHDRFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceCooperativeMatrixFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceCooperativeMatrixPropertiesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_NV:
-        {
-        return serialize_struct(json, ((VkCooperativeMatrixPropertiesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_IMAGE_ARRAYS_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceYcbcrImageArraysFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_HANDLE_INFO_NVX:
-        {
-        return serialize_struct(json, ((VkImageViewHandleInfoNVX*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_ADDRESS_PROPERTIES_NVX:
-        {
-        return serialize_struct(json, ((VkImageViewAddressPropertiesNVX*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_CREATION_FEEDBACK_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkPipelineCreationFeedbackCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_BARRIER_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePresentBarrierFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_PRESENT_BARRIER_NV:
-        {
-        return serialize_struct(json, ((VkSurfaceCapabilitiesPresentBarrierNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_BARRIER_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkSwapchainPresentBarrierCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_QUERY_FEATURES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePerformanceQueryFeaturesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_QUERY_PROPERTIES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePerformanceQueryPropertiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_KHR:
-        {
-        return serialize_struct(json, ((VkPerformanceCounterKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_DESCRIPTION_KHR:
-        {
-        return serialize_struct(json, ((VkPerformanceCounterDescriptionKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUERY_POOL_PERFORMANCE_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkQueryPoolPerformanceCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACQUIRE_PROFILING_LOCK_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkAcquireProfilingLockInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PERFORMANCE_QUERY_SUBMIT_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkPerformanceQuerySubmitInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_HEADLESS_SURFACE_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkHeadlessSurfaceCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COVERAGE_REDUCTION_MODE_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceCoverageReductionModeFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_REDUCTION_STATE_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkPipelineCoverageReductionStateCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FRAMEBUFFER_MIXED_SAMPLES_COMBINATION_NV:
-        {
-        return serialize_struct(json, ((VkFramebufferMixedSamplesCombinationNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_FUNCTIONS_2_FEATURES_INTEL:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_INITIALIZE_PERFORMANCE_API_INFO_INTEL:
-        {
-        return serialize_struct(json, ((VkInitializePerformanceApiInfoINTEL*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUERY_POOL_PERFORMANCE_QUERY_CREATE_INFO_INTEL:
-        {
-        return serialize_struct(json, ((VkQueryPoolPerformanceQueryCreateInfoINTEL*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PERFORMANCE_MARKER_INFO_INTEL:
-        {
-        return serialize_struct(json, ((VkPerformanceMarkerInfoINTEL*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PERFORMANCE_STREAM_MARKER_INFO_INTEL:
-        {
-        return serialize_struct(json, ((VkPerformanceStreamMarkerInfoINTEL*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PERFORMANCE_OVERRIDE_INFO_INTEL:
-        {
-        return serialize_struct(json, ((VkPerformanceOverrideInfoINTEL*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PERFORMANCE_CONFIGURATION_ACQUIRE_INFO_INTEL:
-        {
-        return serialize_struct(json, ((VkPerformanceConfigurationAcquireInfoINTEL*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CLOCK_FEATURES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderClockFeaturesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceIndexTypeUint8FeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SM_BUILTINS_PROPERTIES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderSMBuiltinsPropertiesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SM_BUILTINS_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderSMBuiltinsFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_INTERLOCK_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SEPARATE_DEPTH_STENCIL_LAYOUTS_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ATTACHMENT_REFERENCE_STENCIL_LAYOUT:
-        {
-        return serialize_struct(json, ((VkAttachmentReferenceStencilLayout*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVE_TOPOLOGY_LIST_RESTART_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_STENCIL_LAYOUT:
-        {
-        return serialize_struct(json, ((VkAttachmentDescriptionStencilLayout*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_EXECUTABLE_PROPERTIES_FEATURES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkPipelineInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_PROPERTIES_KHR:
-        {
-        return serialize_struct(json, ((VkPipelineExecutablePropertiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkPipelineExecutableInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_STATISTIC_KHR:
-        {
-        return serialize_struct(json, ((VkPipelineExecutableStatisticKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_INTERNAL_REPRESENTATION_KHR:
-        {
-        return serialize_struct(json, ((VkPipelineExecutableInternalRepresentationKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_DEMOTE_TO_HELPER_INVOCATION_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceTexelBufferAlignmentProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceSubgroupSizeControlFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceSubgroupSizeControlProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkPipelineShaderStageRequiredSubgroupSizeCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBPASS_SHADING_PIPELINE_CREATE_INFO_HUAWEI:
-        {
-        return serialize_struct(json, ((VkSubpassShadingPipelineCreateInfoHUAWEI*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_PROPERTIES_HUAWEI:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceSubpassShadingPropertiesHUAWEI*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_PROPERTIES_HUAWEI:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_OPAQUE_CAPTURE_ADDRESS_ALLOCATE_INFO:
-        {
-        return serialize_struct(json, ((VkMemoryOpaqueCaptureAddressAllocateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_MEMORY_OPAQUE_CAPTURE_ADDRESS_INFO:
-        {
-        return serialize_struct(json, ((VkDeviceMemoryOpaqueCaptureAddressInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceLineRasterizationFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceLineRasterizationPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkPipelineRasterizationLineStateCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_CREATION_CACHE_CONTROL_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePipelineCreationCacheControlFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceVulkan11Features*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceVulkan11Properties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceVulkan12Features*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceVulkan12Properties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceVulkan13Features*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceVulkan13Properties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_COMPILER_CONTROL_CREATE_INFO_AMD:
-        {
-        return serialize_struct(json, ((VkPipelineCompilerControlCreateInfoAMD*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COHERENT_MEMORY_FEATURES_AMD:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceCoherentMemoryFeaturesAMD*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TOOL_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceToolProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_CUSTOM_BORDER_COLOR_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkSamplerCustomBorderColorCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceCustomBorderColorPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceCustomBorderColorFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_BORDER_COLOR_COMPONENT_MAPPING_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkSamplerBorderColorComponentMappingCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BORDER_COLOR_SWIZZLE_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceBorderColorSwizzleFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_TRIANGLES_DATA_KHR:
-        {
-        return serialize_struct(json, ((VkAccelerationStructureGeometryTrianglesDataKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_AABBS_DATA_KHR:
-        {
-        return serialize_struct(json, ((VkAccelerationStructureGeometryAabbsDataKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_INSTANCES_DATA_KHR:
-        {
-        return serialize_struct(json, ((VkAccelerationStructureGeometryInstancesDataKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_KHR:
-        {
-        return serialize_struct(json, ((VkAccelerationStructureGeometryKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_BUILD_GEOMETRY_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkAccelerationStructureBuildGeometryInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkAccelerationStructureCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_DEVICE_ADDRESS_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkAccelerationStructureDeviceAddressInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_VERSION_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkAccelerationStructureVersionInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_ACCELERATION_STRUCTURE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkCopyAccelerationStructureInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_ACCELERATION_STRUCTURE_TO_MEMORY_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkCopyAccelerationStructureToMemoryInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_MEMORY_TO_ACCELERATION_STRUCTURE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkCopyMemoryToAccelerationStructureInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_INTERFACE_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkRayTracingPipelineInterfaceCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_LIBRARY_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkPipelineLibraryCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceExtendedDynamicStateFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_2_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceExtendedDynamicState2FeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceExtendedDynamicState3FeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceExtendedDynamicState3PropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_TRANSFORM_BEGIN_INFO_QCOM:
-        {
-        return serialize_struct(json, ((VkRenderPassTransformBeginInfoQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_COMMAND_TRANSFORM_INFO_QCOM:
-        {
-        return serialize_struct(json, ((VkCopyCommandTransformInfoQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_RENDER_PASS_TRANSFORM_INFO_QCOM:
-        {
-        return serialize_struct(json, ((VkCommandBufferInheritanceRenderPassTransformInfoQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DIAGNOSTICS_CONFIG_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDiagnosticsConfigFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_DIAGNOSTICS_CONFIG_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkDeviceDiagnosticsConfigCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ZERO_INITIALIZE_WORKGROUP_MEMORY_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_FEATURES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceRobustness2FeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceRobustness2PropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_ROBUSTNESS_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceImageRobustnessFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_FEATURES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_4444_FORMATS_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDevice4444FormatsFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_FEATURES_HUAWEI:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceSubpassShadingFeaturesHUAWEI*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_FEATURES_HUAWEI:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_COPY_2:
-        {
-        return serialize_struct(json, ((VkBufferCopy2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_COPY_2:
-        {
-        return serialize_struct(json, ((VkImageCopy2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_BLIT_2:
-        {
-        return serialize_struct(json, ((VkImageBlit2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_IMAGE_COPY_2:
-        {
-        return serialize_struct(json, ((VkBufferImageCopy2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_RESOLVE_2:
-        {
-        return serialize_struct(json, ((VkImageResolve2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_BUFFER_INFO_2:
-        {
-        return serialize_struct(json, ((VkCopyBufferInfo2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_IMAGE_INFO_2:
-        {
-        return serialize_struct(json, ((VkCopyImageInfo2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BLIT_IMAGE_INFO_2:
-        {
-        return serialize_struct(json, ((VkBlitImageInfo2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_BUFFER_TO_IMAGE_INFO_2:
-        {
-        return serialize_struct(json, ((VkCopyBufferToImageInfo2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_IMAGE_TO_BUFFER_INFO_2:
-        {
-        return serialize_struct(json, ((VkCopyImageToBufferInfo2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RESOLVE_IMAGE_INFO_2:
-        {
-        return serialize_struct(json, ((VkResolveImageInfo2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_IMAGE_ATOMIC_INT64_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkFragmentShadingRateAttachmentInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_SHADING_RATE_STATE_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkPipelineFragmentShadingRateStateCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_FEATURES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFragmentShadingRateFeaturesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_PROPERTIES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFragmentShadingRatePropertiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFragmentShadingRateKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TERMINATE_INVOCATION_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderTerminateInvocationFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_PROPERTIES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_SHADING_RATE_ENUM_STATE_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkPipelineFragmentShadingRateEnumStateCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_BUILD_SIZES_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkAccelerationStructureBuildSizesInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_2D_VIEW_OF_3D_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceImage2DViewOf3DFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_SLICED_VIEW_OF_3D_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MUTABLE_DESCRIPTOR_TYPE_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MUTABLE_DESCRIPTOR_TYPE_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkMutableDescriptorTypeCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLIP_CONTROL_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDepthClipControlFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_DEPTH_CLIP_CONTROL_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkPipelineViewportDepthClipControlCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_INPUT_DYNAMIC_STATE_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_RDMA_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceExternalMemoryRDMAFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VERTEX_INPUT_BINDING_DESCRIPTION_2_EXT:
-        {
-        return serialize_struct(json, ((VkVertexInputBindingDescription2EXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VERTEX_INPUT_ATTRIBUTE_DESCRIPTION_2_EXT:
-        {
-        return serialize_struct(json, ((VkVertexInputAttributeDescription2EXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COLOR_WRITE_ENABLE_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceColorWriteEnableFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_COLOR_WRITE_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkPipelineColorWriteCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_BARRIER_2:
-        {
-        return serialize_struct(json, ((VkMemoryBarrier2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER_2:
-        {
-        return serialize_struct(json, ((VkImageMemoryBarrier2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER_2:
-        {
-        return serialize_struct(json, ((VkBufferMemoryBarrier2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEPENDENCY_INFO:
-        {
-        return serialize_struct(json, ((VkDependencyInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SEMAPHORE_SUBMIT_INFO:
-        {
-        return serialize_struct(json, ((VkSemaphoreSubmitInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_SUBMIT_INFO:
-        {
-        return serialize_struct(json, ((VkCommandBufferSubmitInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBMIT_INFO_2:
-        {
-        return serialize_struct(json, ((VkSubmitInfo2*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_CHECKPOINT_PROPERTIES_2_NV:
-        {
-        return serialize_struct(json, ((VkQueueFamilyCheckpointProperties2NV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_CHECKPOINT_DATA_2_NV:
-        {
-        return serialize_struct(json, ((VkCheckpointData2NV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SYNCHRONIZATION_2_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceSynchronization2Features*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_IMAGE_COPY_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceHostImageCopyFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_IMAGE_COPY_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceHostImageCopyPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_TO_IMAGE_COPY_EXT:
-        {
-        return serialize_struct(json, ((VkMemoryToImageCopyEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_TO_MEMORY_COPY_EXT:
-        {
-        return serialize_struct(json, ((VkImageToMemoryCopyEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_MEMORY_TO_IMAGE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkCopyMemoryToImageInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_IMAGE_TO_MEMORY_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkCopyImageToMemoryInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_IMAGE_TO_IMAGE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkCopyImageToImageInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_HOST_IMAGE_LAYOUT_TRANSITION_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkHostImageLayoutTransitionInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBRESOURCE_HOST_MEMCPY_SIZE_EXT:
-        {
-        return serialize_struct(json, ((VkSubresourceHostMemcpySizeEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_HOST_IMAGE_COPY_DEVICE_PERFORMANCE_QUERY_EXT:
-        {
-        return serialize_struct(json, ((VkHostImageCopyDevicePerformanceQueryEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVES_GENERATED_QUERY_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LEGACY_DITHERING_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceLegacyDitheringFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBPASS_RESOLVE_PERFORMANCE_QUERY_EXT:
-        {
-        return serialize_struct(json, ((VkSubpassResolvePerformanceQueryEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkMultisampledRenderToSingleSampledInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_PROTECTED_ACCESS_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePipelineProtectedAccessFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_VIDEO_PROPERTIES_KHR:
-        {
-        return serialize_struct(json, ((VkQueueFamilyVideoPropertiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_QUERY_RESULT_STATUS_PROPERTIES_KHR:
-        {
-        return serialize_struct(json, ((VkQueueFamilyQueryResultStatusPropertiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_PROFILE_LIST_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoProfileListInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_FORMAT_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceVideoFormatInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_FORMAT_PROPERTIES_KHR:
-        {
-        return serialize_struct(json, ((VkVideoFormatPropertiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_PROFILE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoProfileInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_CAPABILITIES_KHR:
-        {
-        return serialize_struct(json, ((VkVideoCapabilitiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_SESSION_MEMORY_REQUIREMENTS_KHR:
-        {
-        return serialize_struct(json, ((VkVideoSessionMemoryRequirementsKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_VIDEO_SESSION_MEMORY_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkBindVideoSessionMemoryInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_PICTURE_RESOURCE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoPictureResourceInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_REFERENCE_SLOT_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoReferenceSlotInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_CAPABILITIES_KHR:
-        {
-        return serialize_struct(json, ((VkVideoDecodeCapabilitiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_USAGE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoDecodeUsageInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoDecodeInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_PROFILE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoDecodeH264ProfileInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_CAPABILITIES_KHR:
-        {
-        return serialize_struct(json, ((VkVideoDecodeH264CapabilitiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_SESSION_PARAMETERS_ADD_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoDecodeH264SessionParametersAddInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_SESSION_PARAMETERS_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoDecodeH264SessionParametersCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_PICTURE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoDecodeH264PictureInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_DPB_SLOT_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoDecodeH264DpbSlotInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_PROFILE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoDecodeH265ProfileInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_CAPABILITIES_KHR:
-        {
-        return serialize_struct(json, ((VkVideoDecodeH265CapabilitiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_SESSION_PARAMETERS_ADD_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoDecodeH265SessionParametersAddInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_SESSION_PARAMETERS_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoDecodeH265SessionParametersCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_PICTURE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoDecodeH265PictureInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_DPB_SLOT_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoDecodeH265DpbSlotInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_SESSION_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoSessionCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_SESSION_PARAMETERS_CREATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoSessionParametersCreateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_SESSION_PARAMETERS_UPDATE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoSessionParametersUpdateInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_BEGIN_CODING_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoBeginCodingInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_END_CODING_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoEndCodingInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_CODING_CONTROL_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkVideoCodingControlInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INHERITED_VIEWPORT_SCISSOR_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceInheritedViewportScissorFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_VIEWPORT_SCISSOR_INFO_NV:
-        {
-        return serialize_struct(json, ((VkCommandBufferInheritanceViewportScissorInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_2_PLANE_444_FORMATS_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROVOKING_VERTEX_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceProvokingVertexFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROVOKING_VERTEX_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceProvokingVertexPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_PROVOKING_VERTEX_STATE_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkPipelineRasterizationProvokingVertexStateCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_CU_MODULE_CREATE_INFO_NVX:
-        {
-        return serialize_struct(json, ((VkCuModuleCreateInfoNVX*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_CU_FUNCTION_CREATE_INFO_NVX:
-        {
-        return serialize_struct(json, ((VkCuFunctionCreateInfoNVX*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_CU_LAUNCH_INFO_NVX:
-        {
-        return serialize_struct(json, ((VkCuLaunchInfoNVX*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDescriptorBufferFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDescriptorBufferPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_DENSITY_MAP_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_ADDRESS_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkDescriptorAddressInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_BUFFER_BINDING_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkDescriptorBufferBindingInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_BUFFER_BINDING_PUSH_DESCRIPTOR_BUFFER_HANDLE_EXT:
-        {
-        return serialize_struct(json, ((VkDescriptorBufferBindingPushDescriptorBufferHandleEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_GET_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkDescriptorGetInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_CAPTURE_DESCRIPTOR_DATA_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkBufferCaptureDescriptorDataInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_CAPTURE_DESCRIPTOR_DATA_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkImageCaptureDescriptorDataInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_CAPTURE_DESCRIPTOR_DATA_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkImageViewCaptureDescriptorDataInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_CAPTURE_DESCRIPTOR_DATA_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkSamplerCaptureDescriptorDataInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CAPTURE_DESCRIPTOR_DATA_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkAccelerationStructureCaptureDescriptorDataInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_OPAQUE_CAPTURE_DESCRIPTOR_DATA_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkOpaqueCaptureDescriptorDataCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderIntegerDotProductFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_PROPERTIES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderIntegerDotProductProperties*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DRM_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDrmPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_FEATURES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_PROPERTIES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_MOTION_BLUR_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceRayTracingMotionBlurFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_MOTION_TRIANGLES_DATA_NV:
-        {
-        return serialize_struct(json, ((VkAccelerationStructureGeometryMotionTrianglesDataNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_MOTION_INFO_NV:
-        {
-        return serialize_struct(json, ((VkAccelerationStructureMotionInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_GET_REMOTE_ADDRESS_INFO_NV:
-        {
-        return serialize_struct(json, ((VkMemoryGetRemoteAddressInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RGBA10X6_FORMATS_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_3:
-        {
-        return serialize_struct(json, ((VkFormatProperties3*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DRM_FORMAT_MODIFIER_PROPERTIES_LIST_2_EXT:
-        {
-        return serialize_struct(json, ((VkDrmFormatModifierPropertiesList2EXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_RENDERING_CREATE_INFO:
-        {
-        return serialize_struct(json, ((VkPipelineRenderingCreateInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDERING_INFO:
-        {
-        return serialize_struct(json, ((VkRenderingInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_INFO:
-        {
-        return serialize_struct(json, ((VkRenderingAttachmentInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkRenderingFragmentShadingRateAttachmentInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkRenderingFragmentDensityMapAttachmentInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_FEATURES:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDynamicRenderingFeatures*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_RENDERING_INFO:
-        {
-        return serialize_struct(json, ((VkCommandBufferInheritanceRenderingInfo*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ATTACHMENT_SAMPLE_COUNT_INFO_AMD:
-        {
-        return serialize_struct(json, ((VkAttachmentSampleCountInfoAMD*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MULTIVIEW_PER_VIEW_ATTRIBUTES_INFO_NVX:
-        {
-        return serialize_struct(json, ((VkMultiviewPerViewAttributesInfoNVX*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_VIEW_MIN_LOD_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceImageViewMinLodFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_MIN_LOD_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkImageViewMinLodCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINEAR_COLOR_ATTACHMENT_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceLinearColorAttachmentFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_LIBRARY_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkGraphicsPipelineLibraryCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_SET_HOST_MAPPING_FEATURES_VALVE:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_BINDING_REFERENCE_VALVE:
-        {
-        return serialize_struct(json, ((VkDescriptorSetBindingReferenceVALVE*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_HOST_MAPPING_INFO_VALVE:
-        {
-        return serialize_struct(json, ((VkDescriptorSetLayoutHostMappingInfoVALVE*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_MODULE_IDENTIFIER_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkPipelineShaderStageModuleIdentifierCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SHADER_MODULE_IDENTIFIER_EXT:
-        {
-        return serialize_struct(json, ((VkShaderModuleIdentifierEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_COMPRESSION_CONTROL_EXT:
-        {
-        return serialize_struct(json, ((VkImageCompressionControlEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceImageCompressionControlFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_COMPRESSION_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkImageCompressionPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_SUBRESOURCE_2_KHR:
-        {
-        return serialize_struct(json, ((VkImageSubresource2KHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBRESOURCE_LAYOUT_2_KHR:
-        {
-        return serialize_struct(json, ((VkSubresourceLayout2KHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_CREATION_CONTROL_EXT:
-        {
-        return serialize_struct(json, ((VkRenderPassCreationControlEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_CREATION_FEEDBACK_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkRenderPassCreationFeedbackCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_SUBPASS_FEEDBACK_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkRenderPassSubpassFeedbackCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_MERGE_FEEDBACK_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MICROMAP_BUILD_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkMicromapBuildInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MICROMAP_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkMicromapCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MICROMAP_VERSION_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkMicromapVersionInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_MICROMAP_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkCopyMicromapInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_MICROMAP_TO_MEMORY_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkCopyMicromapToMemoryInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_MEMORY_TO_MICROMAP_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkCopyMemoryToMicromapInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MICROMAP_BUILD_SIZES_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkMicromapBuildSizesInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceOpacityMicromapFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceOpacityMicromapPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP_EXT:
-        {
-        return serialize_struct(json, ((VkAccelerationStructureTrianglesOpacityMicromapEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_PROPERTIES_IDENTIFIER_EXT:
-        {
-        return serialize_struct(json, ((VkPipelinePropertiesIdentifierEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_PROPERTIES_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePipelinePropertiesFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_FEATURES_AMD:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_ACQUIRE_UNMODIFIED_EXT:
-        {
-        return serialize_struct(json, ((VkExternalMemoryAcquireUnmodifiedEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_NON_SEAMLESS_CUBE_MAP_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePipelineRobustnessFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_ROBUSTNESS_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkPipelineRobustnessCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePipelineRobustnessPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_SAMPLE_WEIGHT_CREATE_INFO_QCOM:
-        {
-        return serialize_struct(json, ((VkImageViewSampleWeightCreateInfoQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_FEATURES_QCOM:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceImageProcessingFeaturesQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_PROPERTIES_QCOM:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceImageProcessingPropertiesQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_PROPERTIES_FEATURES_QCOM:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceTilePropertiesFeaturesQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_TILE_PROPERTIES_QCOM:
-        {
-        return serialize_struct(json, ((VkTilePropertiesQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_AMIGO_PROFILING_FEATURES_SEC:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceAmigoProfilingFeaturesSEC*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_AMIGO_PROFILING_SUBMIT_INFO_SEC:
-        {
-        return serialize_struct(json, ((VkAmigoProfilingSubmitInfoSEC*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_LAYOUT_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLAMP_ZERO_ONE_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDepthClampZeroOneFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ADDRESS_BINDING_REPORT_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceAddressBindingReportFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_ADDRESS_BINDING_CALLBACK_DATA_EXT:
-        {
-        return serialize_struct(json, ((VkDeviceAddressBindingCallbackDataEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPTICAL_FLOW_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceOpticalFlowFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPTICAL_FLOW_PROPERTIES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceOpticalFlowPropertiesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_OPTICAL_FLOW_IMAGE_FORMAT_INFO_NV:
-        {
-        return serialize_struct(json, ((VkOpticalFlowImageFormatInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_OPTICAL_FLOW_IMAGE_FORMAT_PROPERTIES_NV:
-        {
-        return serialize_struct(json, ((VkOpticalFlowImageFormatPropertiesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_OPTICAL_FLOW_SESSION_CREATE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkOpticalFlowSessionCreateInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_OPTICAL_FLOW_SESSION_CREATE_PRIVATE_DATA_INFO_NV:
-        {
-        return serialize_struct(json, ((VkOpticalFlowSessionCreatePrivateDataInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_OPTICAL_FLOW_EXECUTE_INFO_NV:
-        {
-        return serialize_struct(json, ((VkOpticalFlowExecuteInfoNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FAULT_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFaultFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_FAULT_COUNTS_EXT:
-        {
-        return serialize_struct(json, ((VkDeviceFaultCountsEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_FAULT_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkDeviceFaultInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEPTH_BIAS_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkDepthBiasInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEPTH_BIAS_REPRESENTATION_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkDepthBiasRepresentationInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_PROPERTIES_ARM:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_FEATURES_ARM:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FRAME_BOUNDARY_EXT:
-        {
-        return serialize_struct(json, ((VkFrameBoundaryEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAME_BOUNDARY_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceFrameBoundaryFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_EXT:
-        {
-        return serialize_struct(json, ((VkSurfacePresentModeEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SURFACE_PRESENT_SCALING_CAPABILITIES_EXT:
-        {
-        return serialize_struct(json, ((VkSurfacePresentScalingCapabilitiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_COMPATIBILITY_EXT:
-        {
-        return serialize_struct(json, ((VkSurfacePresentModeCompatibilityEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SWAPCHAIN_MAINTENANCE_1_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkSwapchainPresentFenceInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODES_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkSwapchainPresentModesCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkSwapchainPresentModeInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_SCALING_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkSwapchainPresentScalingCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RELEASE_SWAPCHAIN_IMAGES_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkReleaseSwapchainImagesInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_BIAS_CONTROL_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDepthBiasControlFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DIRECT_DRIVER_LOADING_INFO_LUNARG:
-        {
-        return serialize_struct(json, ((VkDirectDriverLoadingInfoLUNARG*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DIRECT_DRIVER_LOADING_LIST_LUNARG:
-        {
-        return serialize_struct(json, ((VkDirectDriverLoadingListLUNARG*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES_QCOM:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_POSITION_FETCH_FEATURES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_IMAGE_SUBRESOURCE_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkDeviceImageSubresourceInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_ARM:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderCorePropertiesARM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_RENDER_AREAS_FEATURES_QCOM:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MULTIVIEW_PER_VIEW_RENDER_AREAS_RENDER_PASS_BEGIN_INFO_QCOM:
-        {
-        return serialize_struct(json, ((VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUERY_LOW_LATENCY_SUPPORT_NV:
-        {
-        return serialize_struct(json, ((VkQueryLowLatencySupportNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_MAP_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkMemoryMapInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_UNMAP_INFO_KHR:
-        {
-        return serialize_struct(json, ((VkMemoryUnmapInfoKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderObjectFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderObjectPropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SHADER_CREATE_INFO_EXT:
-        {
-        return serialize_struct(json, ((VkShaderCreateInfoEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TILE_IMAGE_FEATURES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderTileImageFeaturesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TILE_IMAGE_PROPERTIES_EXT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceShaderTileImagePropertiesEXT*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceCooperativeMatrixFeaturesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_KHR:
-        {
-        return serialize_struct(json, ((VkCooperativeMatrixPropertiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES_KHR:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceCooperativeMatrixPropertiesKHR*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUBIC_CLAMP_FEATURES_QCOM:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceCubicClampFeaturesQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_DEGAMMA_FEATURES_QCOM:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceYcbcrDegammaFeaturesQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_YCBCR_DEGAMMA_CREATE_INFO_QCOM:
-        {
-        return serialize_struct(json, ((VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUBIC_WEIGHTS_FEATURES_QCOM:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceCubicWeightsFeaturesQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_CUBIC_WEIGHTS_CREATE_INFO_QCOM:
-        {
-        return serialize_struct(json, ((VkSamplerCubicWeightsCreateInfoQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BLIT_IMAGE_CUBIC_WEIGHTS_INFO_QCOM:
-        {
-        return serialize_struct(json, ((VkBlitImageCubicWeightsInfoQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_2_FEATURES_QCOM:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceImageProcessing2FeaturesQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_2_PROPERTIES_QCOM:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceImageProcessing2PropertiesQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_BLOCK_MATCH_WINDOW_CREATE_INFO_QCOM:
-        {
-        return serialize_struct(json, ((VkSamplerBlockMatchWindowCreateInfoQCOM*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_POOL_OVERALLOCATION_FEATURES_NV:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV*)(member))[0]);
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_DRIVER_PROPERTIES_MSFT:
-        {
-        return serialize_struct(json, ((VkPhysicalDeviceLayeredDriverPropertiesMSFT*)(member))[0]);
-        }
-    
-
-default:
-    return serialize_pNext(json, (void*)(chain->pNext)); //Ignore invalid sTypes
-}
+    auto serialize_function=(void(*)(boost::json::object&, const void*))(handle_pNext(chain->sType,true));
+    if (serialize_function==NULL){
+        return serialize_pNext(json, (void*)(chain->pNext)); //Ignore invalid sTypes
+    }else{
+        return serialize_function(json, member);
+    }
 }
 
 
@@ -4329,6399 +12860,12 @@ void deserialize_pNext(boost::json::object& json, void*& member ){
         return;
     }
     
-    switch (value_to<int>(json["sType"])){
-
-
-    case VK_STRUCTURE_TYPE_APPLICATION_INFO:
-        {
-        auto result= new VkApplicationInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO:
-        {
-        auto result= new VkDeviceQueueCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO:
-        {
-        auto result= new VkDeviceCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO:
-        {
-        auto result= new VkInstanceCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO:
-        {
-        auto result= new VkMemoryAllocateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MAPPED_MEMORY_RANGE:
-        {
-        auto result= new VkMappedMemoryRange;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET:
-        {
-        auto result= new VkWriteDescriptorSet;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET:
-        {
-        auto result= new VkCopyDescriptorSet;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_USAGE_FLAGS_2_CREATE_INFO_KHR:
-        {
-        auto result= new VkBufferUsageFlags2CreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO:
-        {
-        auto result= new VkBufferCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_VIEW_CREATE_INFO:
-        {
-        auto result= new VkBufferViewCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_BARRIER:
-        {
-        auto result= new VkMemoryBarrier;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER:
-        {
-        auto result= new VkBufferMemoryBarrier;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER:
-        {
-        auto result= new VkImageMemoryBarrier;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO:
-        {
-        auto result= new VkImageCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO:
-        {
-        auto result= new VkImageViewCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_SPARSE_INFO:
-        {
-        auto result= new VkBindSparseInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO:
-        {
-        auto result= new VkShaderModuleCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO:
-        {
-        auto result= new VkDescriptorSetLayoutCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO:
-        {
-        auto result= new VkDescriptorPoolCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO:
-        {
-        auto result= new VkDescriptorSetAllocateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO:
-        {
-        auto result= new VkPipelineShaderStageCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_CREATE_INFO:
-        {
-        auto result= new VkComputePipelineCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMPUTE_PIPELINE_INDIRECT_BUFFER_INFO_NV:
-        {
-        auto result= new VkComputePipelineIndirectBufferInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_CREATE_FLAGS_2_CREATE_INFO_KHR:
-        {
-        auto result= new VkPipelineCreateFlags2CreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO:
-        {
-        auto result= new VkPipelineVertexInputStateCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO:
-        {
-        auto result= new VkPipelineInputAssemblyStateCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_STATE_CREATE_INFO:
-        {
-        auto result= new VkPipelineTessellationStateCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO:
-        {
-        auto result= new VkPipelineViewportStateCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO:
-        {
-        auto result= new VkPipelineRasterizationStateCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO:
-        {
-        auto result= new VkPipelineMultisampleStateCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO:
-        {
-        auto result= new VkPipelineColorBlendStateCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO:
-        {
-        auto result= new VkPipelineDynamicStateCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO:
-        {
-        auto result= new VkPipelineDepthStencilStateCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO:
-        {
-        auto result= new VkGraphicsPipelineCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_CACHE_CREATE_INFO:
-        {
-        auto result= new VkPipelineCacheCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO:
-        {
-        auto result= new VkPipelineLayoutCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO:
-        {
-        auto result= new VkSamplerCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO:
-        {
-        auto result= new VkCommandPoolCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO:
-        {
-        auto result= new VkCommandBufferAllocateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_INFO:
-        {
-        auto result= new VkCommandBufferInheritanceInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO:
-        {
-        auto result= new VkCommandBufferBeginInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO:
-        {
-        auto result= new VkRenderPassBeginInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO:
-        {
-        auto result= new VkRenderPassCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EVENT_CREATE_INFO:
-        {
-        auto result= new VkEventCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FENCE_CREATE_INFO:
-        {
-        auto result= new VkFenceCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO:
-        {
-        auto result= new VkSemaphoreCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUERY_POOL_CREATE_INFO:
-        {
-        auto result= new VkQueryPoolCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO:
-        {
-        auto result= new VkFramebufferCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBMIT_INFO:
-        {
-        auto result= new VkSubmitInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_MODE_CREATE_INFO_KHR:
-        {
-        auto result= new VkDisplayModeCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_SURFACE_CREATE_INFO_KHR:
-        {
-        auto result= new VkDisplaySurfaceCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_PRESENT_INFO_KHR:
-        {
-        auto result= new VkDisplayPresentInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_XLIB_SURFACE_CREATE_INFO_KHR:
-        {
-        auto result= new VkXlibSurfaceCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_XCB_SURFACE_CREATE_INFO_KHR:
-        {
-        auto result= new VkXcbSurfaceCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SWAPCHAIN_CREATE_INFO_KHR:
-        {
-        auto result= new VkSwapchainCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PRESENT_INFO_KHR:
-        {
-        auto result= new VkPresentInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_REPORT_CALLBACK_CREATE_INFO_EXT:
-        {
-        auto result= new VkDebugReportCallbackCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT:
-        {
-        auto result= new VkValidationFlagsEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VALIDATION_FEATURES_EXT:
-        {
-        auto result= new VkValidationFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_RASTERIZATION_ORDER_AMD:
-        {
-        auto result= new VkPipelineRasterizationStateRasterizationOrderAMD;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_NAME_INFO_EXT:
-        {
-        auto result= new VkDebugMarkerObjectNameInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_MARKER_OBJECT_TAG_INFO_EXT:
-        {
-        auto result= new VkDebugMarkerObjectTagInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_MARKER_MARKER_INFO_EXT:
-        {
-        auto result= new VkDebugMarkerMarkerInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_IMAGE_CREATE_INFO_NV:
-        {
-        auto result= new VkDedicatedAllocationImageCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_BUFFER_CREATE_INFO_NV:
-        {
-        auto result= new VkDedicatedAllocationBufferCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEDICATED_ALLOCATION_MEMORY_ALLOCATE_INFO_NV:
-        {
-        auto result= new VkDedicatedAllocationMemoryAllocateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO_NV:
-        {
-        auto result= new VkExternalMemoryImageCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO_NV:
-        {
-        auto result= new VkExportMemoryAllocateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceDeviceGeneratedCommandsFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_COMPUTE_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceDeviceGeneratedCommandsComputeFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_PRIVATE_DATA_CREATE_INFO:
-        {
-        auto result= new VkDevicePrivateDataCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PRIVATE_DATA_SLOT_CREATE_INFO:
-        {
-        auto result= new VkPrivateDataSlotCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIVATE_DATA_FEATURES:
-        {
-        auto result= new VkPhysicalDevicePrivateDataFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_GENERATED_COMMANDS_PROPERTIES_NV:
-        {
-        auto result= new VkPhysicalDeviceDeviceGeneratedCommandsPropertiesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTI_DRAW_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceMultiDrawPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GRAPHICS_SHADER_GROUP_CREATE_INFO_NV:
-        {
-        auto result= new VkGraphicsShaderGroupCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_SHADER_GROUPS_CREATE_INFO_NV:
-        {
-        auto result= new VkGraphicsPipelineShaderGroupsCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_TOKEN_NV:
-        {
-        auto result= new VkIndirectCommandsLayoutTokenNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_INDIRECT_COMMANDS_LAYOUT_CREATE_INFO_NV:
-        {
-        auto result= new VkIndirectCommandsLayoutCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GENERATED_COMMANDS_INFO_NV:
-        {
-        auto result= new VkGeneratedCommandsInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GENERATED_COMMANDS_MEMORY_REQUIREMENTS_INFO_NV:
-        {
-        auto result= new VkGeneratedCommandsMemoryRequirementsInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_INDIRECT_DEVICE_ADDRESS_INFO_NV:
-        {
-        auto result= new VkPipelineIndirectDeviceAddressInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2:
-        {
-        auto result= new VkPhysicalDeviceFeatures2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2:
-        {
-        auto result= new VkPhysicalDeviceProperties2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_2:
-        {
-        auto result= new VkFormatProperties2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_FORMAT_PROPERTIES_2:
-        {
-        auto result= new VkImageFormatProperties2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_FORMAT_INFO_2:
-        {
-        auto result= new VkPhysicalDeviceImageFormatInfo2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_PROPERTIES_2:
-        {
-        auto result= new VkQueueFamilyProperties2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PROPERTIES_2:
-        {
-        auto result= new VkPhysicalDeviceMemoryProperties2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SPARSE_IMAGE_FORMAT_PROPERTIES_2:
-        {
-        auto result= new VkSparseImageFormatProperties2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SPARSE_IMAGE_FORMAT_INFO_2:
-        {
-        auto result= new VkPhysicalDeviceSparseImageFormatInfo2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PUSH_DESCRIPTOR_PROPERTIES_KHR:
-        {
-        auto result= new VkPhysicalDevicePushDescriptorPropertiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DRIVER_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceDriverProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PRESENT_REGIONS_KHR:
-        {
-        auto result= new VkPresentRegionsKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VARIABLE_POINTERS_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceVariablePointersFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO:
-        {
-        auto result= new VkPhysicalDeviceExternalImageFormatInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXTERNAL_IMAGE_FORMAT_PROPERTIES:
-        {
-        auto result= new VkExternalImageFormatProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO:
-        {
-        auto result= new VkPhysicalDeviceExternalBufferInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXTERNAL_BUFFER_PROPERTIES:
-        {
-        auto result= new VkExternalBufferProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ID_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceIDProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_IMAGE_CREATE_INFO:
-        {
-        auto result= new VkExternalMemoryImageCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_BUFFER_CREATE_INFO:
-        {
-        auto result= new VkExternalMemoryBufferCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXPORT_MEMORY_ALLOCATE_INFO:
-        {
-        auto result= new VkExportMemoryAllocateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMPORT_MEMORY_FD_INFO_KHR:
-        {
-        auto result= new VkImportMemoryFdInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_FD_PROPERTIES_KHR:
-        {
-        auto result= new VkMemoryFdPropertiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_GET_FD_INFO_KHR:
-        {
-        auto result= new VkMemoryGetFdInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_SEMAPHORE_INFO:
-        {
-        auto result= new VkPhysicalDeviceExternalSemaphoreInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXTERNAL_SEMAPHORE_PROPERTIES:
-        {
-        auto result= new VkExternalSemaphoreProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO:
-        {
-        auto result= new VkExportSemaphoreCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_FD_INFO_KHR:
-        {
-        auto result= new VkImportSemaphoreFdInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SEMAPHORE_GET_FD_INFO_KHR:
-        {
-        auto result= new VkSemaphoreGetFdInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FENCE_INFO:
-        {
-        auto result= new VkPhysicalDeviceExternalFenceInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXTERNAL_FENCE_PROPERTIES:
-        {
-        auto result= new VkExternalFenceProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXPORT_FENCE_CREATE_INFO:
-        {
-        auto result= new VkExportFenceCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMPORT_FENCE_FD_INFO_KHR:
-        {
-        auto result= new VkImportFenceFdInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FENCE_GET_FD_INFO_KHR:
-        {
-        auto result= new VkFenceGetFdInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceMultiviewFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceMultiviewProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_MULTIVIEW_CREATE_INFO:
-        {
-        auto result= new VkRenderPassMultiviewCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_EXT:
-        {
-        auto result= new VkSurfaceCapabilities2EXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_POWER_INFO_EXT:
-        {
-        auto result= new VkDisplayPowerInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_EVENT_INFO_EXT:
-        {
-        auto result= new VkDeviceEventInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_EVENT_INFO_EXT:
-        {
-        auto result= new VkDisplayEventInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SWAPCHAIN_COUNTER_CREATE_INFO_EXT:
-        {
-        auto result= new VkSwapchainCounterCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GROUP_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceGroupProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_FLAGS_INFO:
-        {
-        auto result= new VkMemoryAllocateFlagsInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_INFO:
-        {
-        auto result= new VkBindBufferMemoryInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_BUFFER_MEMORY_DEVICE_GROUP_INFO:
-        {
-        auto result= new VkBindBufferMemoryDeviceGroupInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_INFO:
-        {
-        auto result= new VkBindImageMemoryInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_DEVICE_GROUP_INFO:
-        {
-        auto result= new VkBindImageMemoryDeviceGroupInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_GROUP_RENDER_PASS_BEGIN_INFO:
-        {
-        auto result= new VkDeviceGroupRenderPassBeginInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_GROUP_COMMAND_BUFFER_BEGIN_INFO:
-        {
-        auto result= new VkDeviceGroupCommandBufferBeginInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_GROUP_SUBMIT_INFO:
-        {
-        auto result= new VkDeviceGroupSubmitInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_GROUP_BIND_SPARSE_INFO:
-        {
-        auto result= new VkDeviceGroupBindSparseInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_CAPABILITIES_KHR:
-        {
-        auto result= new VkDeviceGroupPresentCapabilitiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_SWAPCHAIN_CREATE_INFO_KHR:
-        {
-        auto result= new VkImageSwapchainCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_IMAGE_MEMORY_SWAPCHAIN_INFO_KHR:
-        {
-        auto result= new VkBindImageMemorySwapchainInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACQUIRE_NEXT_IMAGE_INFO_KHR:
-        {
-        auto result= new VkAcquireNextImageInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_GROUP_PRESENT_INFO_KHR:
-        {
-        auto result= new VkDeviceGroupPresentInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_GROUP_DEVICE_CREATE_INFO:
-        {
-        auto result= new VkDeviceGroupDeviceCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_GROUP_SWAPCHAIN_CREATE_INFO_KHR:
-        {
-        auto result= new VkDeviceGroupSwapchainCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_CREATE_INFO:
-        {
-        auto result= new VkDescriptorUpdateTemplateCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_ID_FEATURES_KHR:
-        {
-        auto result= new VkPhysicalDevicePresentIdFeaturesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PRESENT_ID_KHR:
-        {
-        auto result= new VkPresentIdKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_WAIT_FEATURES_KHR:
-        {
-        auto result= new VkPhysicalDevicePresentWaitFeaturesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_HDR_METADATA_EXT:
-        {
-        auto result= new VkHdrMetadataEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_NATIVE_HDR_SURFACE_CAPABILITIES_AMD:
-        {
-        auto result= new VkDisplayNativeHdrSurfaceCapabilitiesAMD;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SWAPCHAIN_DISPLAY_NATIVE_HDR_CREATE_INFO_AMD:
-        {
-        auto result= new VkSwapchainDisplayNativeHdrCreateInfoAMD;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PRESENT_TIMES_INFO_GOOGLE:
-        {
-        auto result= new VkPresentTimesInfoGOOGLE;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_W_SCALING_STATE_CREATE_INFO_NV:
-        {
-        auto result= new VkPipelineViewportWScalingStateCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SWIZZLE_STATE_CREATE_INFO_NV:
-        {
-        auto result= new VkPipelineViewportSwizzleStateCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISCARD_RECTANGLE_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceDiscardRectanglePropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_DISCARD_RECTANGLE_STATE_CREATE_INFO_EXT:
-        {
-        auto result= new VkPipelineDiscardRectangleStateCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_ATTRIBUTES_PROPERTIES_NVX:
-        {
-        auto result= new VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_INPUT_ATTACHMENT_ASPECT_CREATE_INFO:
-        {
-        auto result= new VkRenderPassInputAttachmentAspectCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SURFACE_INFO_2_KHR:
-        {
-        auto result= new VkPhysicalDeviceSurfaceInfo2KHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_2_KHR:
-        {
-        auto result= new VkSurfaceCapabilities2KHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SURFACE_FORMAT_2_KHR:
-        {
-        auto result= new VkSurfaceFormat2KHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_PROPERTIES_2_KHR:
-        {
-        auto result= new VkDisplayProperties2KHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_PLANE_PROPERTIES_2_KHR:
-        {
-        auto result= new VkDisplayPlaneProperties2KHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_MODE_PROPERTIES_2_KHR:
-        {
-        auto result= new VkDisplayModeProperties2KHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_PLANE_INFO_2_KHR:
-        {
-        auto result= new VkDisplayPlaneInfo2KHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DISPLAY_PLANE_CAPABILITIES_2_KHR:
-        {
-        auto result= new VkDisplayPlaneCapabilities2KHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SHARED_PRESENT_SURFACE_CAPABILITIES_KHR:
-        {
-        auto result= new VkSharedPresentSurfaceCapabilitiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_16BIT_STORAGE_FEATURES:
-        {
-        auto result= new VkPhysicalDevice16BitStorageFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceSubgroupProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_EXTENDED_TYPES_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceShaderSubgroupExtendedTypesFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_MEMORY_REQUIREMENTS_INFO_2:
-        {
-        auto result= new VkBufferMemoryRequirementsInfo2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_BUFFER_MEMORY_REQUIREMENTS:
-        {
-        auto result= new VkDeviceBufferMemoryRequirements;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_MEMORY_REQUIREMENTS_INFO_2:
-        {
-        auto result= new VkImageMemoryRequirementsInfo2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_SPARSE_MEMORY_REQUIREMENTS_INFO_2:
-        {
-        auto result= new VkImageSparseMemoryRequirementsInfo2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_IMAGE_MEMORY_REQUIREMENTS:
-        {
-        auto result= new VkDeviceImageMemoryRequirements;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_REQUIREMENTS_2:
-        {
-        auto result= new VkMemoryRequirements2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SPARSE_IMAGE_MEMORY_REQUIREMENTS_2:
-        {
-        auto result= new VkSparseImageMemoryRequirements2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_POINT_CLIPPING_PROPERTIES:
-        {
-        auto result= new VkPhysicalDevicePointClippingProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_DEDICATED_REQUIREMENTS:
-        {
-        auto result= new VkMemoryDedicatedRequirements;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_DEDICATED_ALLOCATE_INFO:
-        {
-        auto result= new VkMemoryDedicatedAllocateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_USAGE_CREATE_INFO:
-        {
-        auto result= new VkImageViewUsageCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_SLICED_CREATE_INFO_EXT:
-        {
-        auto result= new VkImageViewSlicedCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_TESSELLATION_DOMAIN_ORIGIN_STATE_CREATE_INFO:
-        {
-        auto result= new VkPipelineTessellationDomainOriginStateCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_INFO:
-        {
-        auto result= new VkSamplerYcbcrConversionInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_CREATE_INFO:
-        {
-        auto result= new VkSamplerYcbcrConversionCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_IMAGE_PLANE_MEMORY_INFO:
-        {
-        auto result= new VkBindImagePlaneMemoryInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_PLANE_MEMORY_REQUIREMENTS_INFO:
-        {
-        auto result= new VkImagePlaneMemoryRequirementsInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_YCBCR_CONVERSION_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceSamplerYcbcrConversionFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_IMAGE_FORMAT_PROPERTIES:
-        {
-        auto result= new VkSamplerYcbcrConversionImageFormatProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_TEXTURE_LOD_GATHER_FORMAT_PROPERTIES_AMD:
-        {
-        auto result= new VkTextureLODGatherFormatPropertiesAMD;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_CONDITIONAL_RENDERING_BEGIN_INFO_EXT:
-        {
-        auto result= new VkConditionalRenderingBeginInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PROTECTED_SUBMIT_INFO:
-        {
-        auto result= new VkProtectedSubmitInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROTECTED_MEMORY_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceProtectedMemoryFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROTECTED_MEMORY_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceProtectedMemoryProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_QUEUE_INFO_2:
-        {
-        auto result= new VkDeviceQueueInfo2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_TO_COLOR_STATE_CREATE_INFO_NV:
-        {
-        auto result= new VkPipelineCoverageToColorStateCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLER_FILTER_MINMAX_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceSamplerFilterMinmaxProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLE_LOCATIONS_INFO_EXT:
-        {
-        auto result= new VkSampleLocationsInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_SAMPLE_LOCATIONS_BEGIN_INFO_EXT:
-        {
-        auto result= new VkRenderPassSampleLocationsBeginInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_SAMPLE_LOCATIONS_STATE_CREATE_INFO_EXT:
-        {
-        auto result= new VkPipelineSampleLocationsStateCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SAMPLE_LOCATIONS_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceSampleLocationsPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MULTISAMPLE_PROPERTIES_EXT:
-        {
-        auto result= new VkMultisamplePropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_REDUCTION_MODE_CREATE_INFO:
-        {
-        auto result= new VkSamplerReductionModeCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceBlendOperationAdvancedFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTI_DRAW_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceMultiDrawFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BLEND_OPERATION_ADVANCED_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_ADVANCED_STATE_CREATE_INFO_EXT:
-        {
-        auto result= new VkPipelineColorBlendAdvancedStateCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceInlineUniformBlockFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INLINE_UNIFORM_BLOCK_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceInlineUniformBlockProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_INLINE_UNIFORM_BLOCK:
-        {
-        auto result= new VkWriteDescriptorSetInlineUniformBlock;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_INLINE_UNIFORM_BLOCK_CREATE_INFO:
-        {
-        auto result= new VkDescriptorPoolInlineUniformBlockCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_MODULATION_STATE_CREATE_INFO_NV:
-        {
-        auto result= new VkPipelineCoverageModulationStateCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_FORMAT_LIST_CREATE_INFO:
-        {
-        auto result= new VkImageFormatListCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VALIDATION_CACHE_CREATE_INFO_EXT:
-        {
-        auto result= new VkValidationCacheCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SHADER_MODULE_VALIDATION_CACHE_CREATE_INFO_EXT:
-        {
-        auto result= new VkShaderModuleValidationCacheCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_3_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceMaintenance3Properties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_4_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceMaintenance4Features;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_4_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceMaintenance4Properties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_5_FEATURES_KHR:
-        {
-        auto result= new VkPhysicalDeviceMaintenance5FeaturesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_5_PROPERTIES_KHR:
-        {
-        auto result= new VkPhysicalDeviceMaintenance5PropertiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDERING_AREA_INFO_KHR:
-        {
-        auto result= new VkRenderingAreaInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_SUPPORT:
-        {
-        auto result= new VkDescriptorSetLayoutSupport;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_DRAW_PARAMETERS_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceShaderDrawParametersFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_FLOAT16_INT8_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceShaderFloat16Int8Features;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FLOAT_CONTROLS_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceFloatControlsProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_QUERY_RESET_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceHostQueryResetFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_QUEUE_GLOBAL_PRIORITY_CREATE_INFO_KHR:
-        {
-        auto result= new VkDeviceQueueGlobalPriorityCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GLOBAL_PRIORITY_QUERY_FEATURES_KHR:
-        {
-        auto result= new VkPhysicalDeviceGlobalPriorityQueryFeaturesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_GLOBAL_PRIORITY_PROPERTIES_KHR:
-        {
-        auto result= new VkQueueFamilyGlobalPriorityPropertiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_UTILS_OBJECT_NAME_INFO_EXT:
-        {
-        auto result= new VkDebugUtilsObjectNameInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_UTILS_OBJECT_TAG_INFO_EXT:
-        {
-        auto result= new VkDebugUtilsObjectTagInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_UTILS_LABEL_EXT:
-        {
-        auto result= new VkDebugUtilsLabelEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT:
-        {
-        auto result= new VkDebugUtilsMessengerCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CALLBACK_DATA_EXT:
-        {
-        auto result= new VkDebugUtilsMessengerCallbackDataEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEVICE_MEMORY_REPORT_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceDeviceMemoryReportFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_DEVICE_MEMORY_REPORT_CREATE_INFO_EXT:
-        {
-        auto result= new VkDeviceDeviceMemoryReportCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_MEMORY_REPORT_CALLBACK_DATA_EXT:
-        {
-        auto result= new VkDeviceMemoryReportCallbackDataEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMPORT_MEMORY_HOST_POINTER_INFO_EXT:
-        {
-        auto result= new VkImportMemoryHostPointerInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_HOST_POINTER_PROPERTIES_EXT:
-        {
-        auto result= new VkMemoryHostPointerPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_HOST_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceExternalMemoryHostPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CONSERVATIVE_RASTERIZATION_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceConservativeRasterizationPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_CALIBRATED_TIMESTAMP_INFO_EXT:
-        {
-        auto result= new VkCalibratedTimestampInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_AMD:
-        {
-        auto result= new VkPhysicalDeviceShaderCorePropertiesAMD;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_2_AMD:
-        {
-        auto result= new VkPhysicalDeviceShaderCoreProperties2AMD;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_CONSERVATIVE_STATE_CREATE_INFO_EXT:
-        {
-        auto result= new VkPipelineRasterizationConservativeStateCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceDescriptorIndexingFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_INDEXING_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceDescriptorIndexingProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_BINDING_FLAGS_CREATE_INFO:
-        {
-        auto result= new VkDescriptorSetLayoutBindingFlagsCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_ALLOCATE_INFO:
-        {
-        auto result= new VkDescriptorSetVariableDescriptorCountAllocateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_VARIABLE_DESCRIPTOR_COUNT_LAYOUT_SUPPORT:
-        {
-        auto result= new VkDescriptorSetVariableDescriptorCountLayoutSupport;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_2:
-        {
-        auto result= new VkAttachmentDescription2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ATTACHMENT_REFERENCE_2:
-        {
-        auto result= new VkAttachmentReference2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBPASS_DESCRIPTION_2:
-        {
-        auto result= new VkSubpassDescription2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBPASS_DEPENDENCY_2:
-        {
-        auto result= new VkSubpassDependency2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO_2:
-        {
-        auto result= new VkRenderPassCreateInfo2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBPASS_BEGIN_INFO:
-        {
-        auto result= new VkSubpassBeginInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBPASS_END_INFO:
-        {
-        auto result= new VkSubpassEndInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceTimelineSemaphoreFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TIMELINE_SEMAPHORE_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceTimelineSemaphoreProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SEMAPHORE_TYPE_CREATE_INFO:
-        {
-        auto result= new VkSemaphoreTypeCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_TIMELINE_SEMAPHORE_SUBMIT_INFO:
-        {
-        auto result= new VkTimelineSemaphoreSubmitInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SEMAPHORE_WAIT_INFO:
-        {
-        auto result= new VkSemaphoreWaitInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SEMAPHORE_SIGNAL_INFO:
-        {
-        auto result= new VkSemaphoreSignalInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_DIVISOR_STATE_CREATE_INFO_EXT:
-        {
-        auto result= new VkPipelineVertexInputDivisorStateCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceVertexAttributeDivisorPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PCI_BUS_INFO_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDevicePCIBusInfoPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_CONDITIONAL_RENDERING_INFO_EXT:
-        {
-        auto result= new VkCommandBufferInheritanceConditionalRenderingInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_8BIT_STORAGE_FEATURES:
-        {
-        auto result= new VkPhysicalDevice8BitStorageFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CONDITIONAL_RENDERING_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceConditionalRenderingFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_MEMORY_MODEL_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceVulkanMemoryModelFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_INT64_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceShaderAtomicInt64Features;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceShaderAtomicFloatFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_2_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceShaderAtomicFloat2FeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_ATTRIBUTE_DIVISOR_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceVertexAttributeDivisorFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_CHECKPOINT_PROPERTIES_NV:
-        {
-        auto result= new VkQueueFamilyCheckpointPropertiesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_CHECKPOINT_DATA_NV:
-        {
-        auto result= new VkCheckpointDataNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_STENCIL_RESOLVE_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceDepthStencilResolveProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBPASS_DESCRIPTION_DEPTH_STENCIL_RESOLVE:
-        {
-        auto result= new VkSubpassDescriptionDepthStencilResolve;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_ASTC_DECODE_MODE_EXT:
-        {
-        auto result= new VkImageViewASTCDecodeModeEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ASTC_DECODE_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceASTCDecodeFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceTransformFeedbackFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TRANSFORM_FEEDBACK_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceTransformFeedbackPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_STREAM_CREATE_INFO_EXT:
-        {
-        auto result= new VkPipelineRasterizationStateStreamCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_REPRESENTATIVE_FRAGMENT_TEST_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceRepresentativeFragmentTestFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_REPRESENTATIVE_FRAGMENT_TEST_STATE_CREATE_INFO_NV:
-        {
-        auto result= new VkPipelineRepresentativeFragmentTestStateCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXCLUSIVE_SCISSOR_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceExclusiveScissorFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_EXCLUSIVE_SCISSOR_STATE_CREATE_INFO_NV:
-        {
-        auto result= new VkPipelineViewportExclusiveScissorStateCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CORNER_SAMPLED_IMAGE_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceCornerSampledImageFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COMPUTE_SHADER_DERIVATIVES_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceComputeShaderDerivativesFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_IMAGE_FOOTPRINT_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceShaderImageFootprintFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEDICATED_ALLOCATION_IMAGE_ALIASING_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceDedicatedAllocationImageAliasingFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceCopyMemoryIndirectFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COPY_MEMORY_INDIRECT_PROPERTIES_NV:
-        {
-        auto result= new VkPhysicalDeviceCopyMemoryIndirectPropertiesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceMemoryDecompressionFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_DECOMPRESSION_PROPERTIES_NV:
-        {
-        auto result= new VkPhysicalDeviceMemoryDecompressionPropertiesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_SHADING_RATE_IMAGE_STATE_CREATE_INFO_NV:
-        {
-        auto result= new VkPipelineViewportShadingRateImageStateCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADING_RATE_IMAGE_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceShadingRateImageFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADING_RATE_IMAGE_PROPERTIES_NV:
-        {
-        auto result= new VkPhysicalDeviceShadingRateImagePropertiesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INVOCATION_MASK_FEATURES_HUAWEI:
-        {
-        auto result= new VkPhysicalDeviceInvocationMaskFeaturesHUAWEI;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_COARSE_SAMPLE_ORDER_STATE_CREATE_INFO_NV:
-        {
-        auto result= new VkPipelineViewportCoarseSampleOrderStateCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceMeshShaderFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES_NV:
-        {
-        auto result= new VkPhysicalDeviceMeshShaderPropertiesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceMeshShaderFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MESH_SHADER_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceMeshShaderPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RAY_TRACING_SHADER_GROUP_CREATE_INFO_NV:
-        {
-        auto result= new VkRayTracingShaderGroupCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RAY_TRACING_SHADER_GROUP_CREATE_INFO_KHR:
-        {
-        auto result= new VkRayTracingShaderGroupCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_CREATE_INFO_NV:
-        {
-        auto result= new VkRayTracingPipelineCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_CREATE_INFO_KHR:
-        {
-        auto result= new VkRayTracingPipelineCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GEOMETRY_TRIANGLES_NV:
-        {
-        auto result= new VkGeometryTrianglesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GEOMETRY_AABB_NV:
-        {
-        auto result= new VkGeometryAABBNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GEOMETRY_NV:
-        {
-        auto result= new VkGeometryNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_INFO_NV:
-        {
-        auto result= new VkAccelerationStructureInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CREATE_INFO_NV:
-        {
-        auto result= new VkAccelerationStructureCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_ACCELERATION_STRUCTURE_MEMORY_INFO_NV:
-        {
-        auto result= new VkBindAccelerationStructureMemoryInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_ACCELERATION_STRUCTURE_KHR:
-        {
-        auto result= new VkWriteDescriptorSetAccelerationStructureKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET_ACCELERATION_STRUCTURE_NV:
-        {
-        auto result= new VkWriteDescriptorSetAccelerationStructureNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_MEMORY_REQUIREMENTS_INFO_NV:
-        {
-        auto result= new VkAccelerationStructureMemoryRequirementsInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_FEATURES_KHR:
-        {
-        auto result= new VkPhysicalDeviceAccelerationStructureFeaturesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_FEATURES_KHR:
-        {
-        auto result= new VkPhysicalDeviceRayTracingPipelineFeaturesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_QUERY_FEATURES_KHR:
-        {
-        auto result= new VkPhysicalDeviceRayQueryFeaturesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ACCELERATION_STRUCTURE_PROPERTIES_KHR:
-        {
-        auto result= new VkPhysicalDeviceAccelerationStructurePropertiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PIPELINE_PROPERTIES_KHR:
-        {
-        auto result= new VkPhysicalDeviceRayTracingPipelinePropertiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_PROPERTIES_NV:
-        {
-        auto result= new VkPhysicalDeviceRayTracingPropertiesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_MAINTENANCE_1_FEATURES_KHR:
-        {
-        auto result= new VkPhysicalDeviceRayTracingMaintenance1FeaturesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DRM_FORMAT_MODIFIER_PROPERTIES_LIST_EXT:
-        {
-        auto result= new VkDrmFormatModifierPropertiesListEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_DRM_FORMAT_MODIFIER_INFO_EXT:
-        {
-        auto result= new VkPhysicalDeviceImageDrmFormatModifierInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_LIST_CREATE_INFO_EXT:
-        {
-        auto result= new VkImageDrmFormatModifierListCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_EXPLICIT_CREATE_INFO_EXT:
-        {
-        auto result= new VkImageDrmFormatModifierExplicitCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_DRM_FORMAT_MODIFIER_PROPERTIES_EXT:
-        {
-        auto result= new VkImageDrmFormatModifierPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_STENCIL_USAGE_CREATE_INFO:
-        {
-        auto result= new VkImageStencilUsageCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_MEMORY_OVERALLOCATION_CREATE_INFO_AMD:
-        {
-        auto result= new VkDeviceMemoryOverallocationCreateInfoAMD;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceFragmentDensityMapFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceFragmentDensityMap2FeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_FEATURES_QCOM:
-        {
-        auto result= new VkPhysicalDeviceFragmentDensityMapOffsetFeaturesQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceFragmentDensityMapPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_2_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceFragmentDensityMap2PropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_DENSITY_MAP_OFFSET_PROPERTIES_QCOM:
-        {
-        auto result= new VkPhysicalDeviceFragmentDensityMapOffsetPropertiesQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_FRAGMENT_DENSITY_MAP_CREATE_INFO_EXT:
-        {
-        auto result= new VkRenderPassFragmentDensityMapCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBPASS_FRAGMENT_DENSITY_MAP_OFFSET_END_INFO_QCOM:
-        {
-        auto result= new VkSubpassFragmentDensityMapOffsetEndInfoQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SCALAR_BLOCK_LAYOUT_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceScalarBlockLayoutFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SURFACE_PROTECTED_CAPABILITIES_KHR:
-        {
-        auto result= new VkSurfaceProtectedCapabilitiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_UNIFORM_BUFFER_STANDARD_LAYOUT_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceUniformBufferStandardLayoutFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLIP_ENABLE_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceDepthClipEnableFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_DEPTH_CLIP_STATE_CREATE_INFO_EXT:
-        {
-        auto result= new VkPipelineRasterizationDepthClipStateCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_BUDGET_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceMemoryBudgetPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MEMORY_PRIORITY_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceMemoryPriorityFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_PRIORITY_ALLOCATE_INFO_EXT:
-        {
-        auto result= new VkMemoryPriorityAllocateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PAGEABLE_DEVICE_LOCAL_MEMORY_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDevicePageableDeviceLocalMemoryFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceBufferDeviceAddressFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BUFFER_DEVICE_ADDRESS_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceBufferDeviceAddressFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_DEVICE_ADDRESS_INFO:
-        {
-        auto result= new VkBufferDeviceAddressInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_OPAQUE_CAPTURE_ADDRESS_CREATE_INFO:
-        {
-        auto result= new VkBufferOpaqueCaptureAddressCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_DEVICE_ADDRESS_CREATE_INFO_EXT:
-        {
-        auto result= new VkBufferDeviceAddressCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_VIEW_IMAGE_FORMAT_INFO_EXT:
-        {
-        auto result= new VkPhysicalDeviceImageViewImageFormatInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FILTER_CUBIC_IMAGE_VIEW_IMAGE_FORMAT_PROPERTIES_EXT:
-        {
-        auto result= new VkFilterCubicImageViewImageFormatPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGELESS_FRAMEBUFFER_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceImagelessFramebufferFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FRAMEBUFFER_ATTACHMENTS_CREATE_INFO:
-        {
-        auto result= new VkFramebufferAttachmentsCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FRAMEBUFFER_ATTACHMENT_IMAGE_INFO:
-        {
-        auto result= new VkFramebufferAttachmentImageInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_ATTACHMENT_BEGIN_INFO:
-        {
-        auto result= new VkRenderPassAttachmentBeginInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXTURE_COMPRESSION_ASTC_HDR_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceTextureCompressionASTCHDRFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceCooperativeMatrixFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES_NV:
-        {
-        auto result= new VkPhysicalDeviceCooperativeMatrixPropertiesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_NV:
-        {
-        auto result= new VkCooperativeMatrixPropertiesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_IMAGE_ARRAYS_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceYcbcrImageArraysFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_HANDLE_INFO_NVX:
-        {
-        auto result= new VkImageViewHandleInfoNVX;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_ADDRESS_PROPERTIES_NVX:
-        {
-        auto result= new VkImageViewAddressPropertiesNVX;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_CREATION_FEEDBACK_CREATE_INFO:
-        {
-        auto result= new VkPipelineCreationFeedbackCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRESENT_BARRIER_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDevicePresentBarrierFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SURFACE_CAPABILITIES_PRESENT_BARRIER_NV:
-        {
-        auto result= new VkSurfaceCapabilitiesPresentBarrierNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_BARRIER_CREATE_INFO_NV:
-        {
-        auto result= new VkSwapchainPresentBarrierCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_QUERY_FEATURES_KHR:
-        {
-        auto result= new VkPhysicalDevicePerformanceQueryFeaturesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PERFORMANCE_QUERY_PROPERTIES_KHR:
-        {
-        auto result= new VkPhysicalDevicePerformanceQueryPropertiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_KHR:
-        {
-        auto result= new VkPerformanceCounterKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PERFORMANCE_COUNTER_DESCRIPTION_KHR:
-        {
-        auto result= new VkPerformanceCounterDescriptionKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUERY_POOL_PERFORMANCE_CREATE_INFO_KHR:
-        {
-        auto result= new VkQueryPoolPerformanceCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACQUIRE_PROFILING_LOCK_INFO_KHR:
-        {
-        auto result= new VkAcquireProfilingLockInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PERFORMANCE_QUERY_SUBMIT_INFO_KHR:
-        {
-        auto result= new VkPerformanceQuerySubmitInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_HEADLESS_SURFACE_CREATE_INFO_EXT:
-        {
-        auto result= new VkHeadlessSurfaceCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COVERAGE_REDUCTION_MODE_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceCoverageReductionModeFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_COVERAGE_REDUCTION_STATE_CREATE_INFO_NV:
-        {
-        auto result= new VkPipelineCoverageReductionStateCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FRAMEBUFFER_MIXED_SAMPLES_COMBINATION_NV:
-        {
-        auto result= new VkFramebufferMixedSamplesCombinationNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_FUNCTIONS_2_FEATURES_INTEL:
-        {
-        auto result= new VkPhysicalDeviceShaderIntegerFunctions2FeaturesINTEL;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_INITIALIZE_PERFORMANCE_API_INFO_INTEL:
-        {
-        auto result= new VkInitializePerformanceApiInfoINTEL;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUERY_POOL_PERFORMANCE_QUERY_CREATE_INFO_INTEL:
-        {
-        auto result= new VkQueryPoolPerformanceQueryCreateInfoINTEL;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PERFORMANCE_MARKER_INFO_INTEL:
-        {
-        auto result= new VkPerformanceMarkerInfoINTEL;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PERFORMANCE_STREAM_MARKER_INFO_INTEL:
-        {
-        auto result= new VkPerformanceStreamMarkerInfoINTEL;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PERFORMANCE_OVERRIDE_INFO_INTEL:
-        {
-        auto result= new VkPerformanceOverrideInfoINTEL;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PERFORMANCE_CONFIGURATION_ACQUIRE_INFO_INTEL:
-        {
-        auto result= new VkPerformanceConfigurationAcquireInfoINTEL;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CLOCK_FEATURES_KHR:
-        {
-        auto result= new VkPhysicalDeviceShaderClockFeaturesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INDEX_TYPE_UINT8_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceIndexTypeUint8FeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SM_BUILTINS_PROPERTIES_NV:
-        {
-        auto result= new VkPhysicalDeviceShaderSMBuiltinsPropertiesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SM_BUILTINS_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceShaderSMBuiltinsFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_INTERLOCK_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceFragmentShaderInterlockFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SEPARATE_DEPTH_STENCIL_LAYOUTS_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceSeparateDepthStencilLayoutsFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ATTACHMENT_REFERENCE_STENCIL_LAYOUT:
-        {
-        auto result= new VkAttachmentReferenceStencilLayout;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVE_TOPOLOGY_LIST_RESTART_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDevicePrimitiveTopologyListRestartFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ATTACHMENT_DESCRIPTION_STENCIL_LAYOUT:
-        {
-        auto result= new VkAttachmentDescriptionStencilLayout;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_EXECUTABLE_PROPERTIES_FEATURES_KHR:
-        {
-        auto result= new VkPhysicalDevicePipelineExecutablePropertiesFeaturesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_INFO_KHR:
-        {
-        auto result= new VkPipelineInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_PROPERTIES_KHR:
-        {
-        auto result= new VkPipelineExecutablePropertiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_INFO_KHR:
-        {
-        auto result= new VkPipelineExecutableInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_STATISTIC_KHR:
-        {
-        auto result= new VkPipelineExecutableStatisticKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_INTERNAL_REPRESENTATION_KHR:
-        {
-        auto result= new VkPipelineExecutableInternalRepresentationKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_DEMOTE_TO_HELPER_INVOCATION_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceTexelBufferAlignmentFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TEXEL_BUFFER_ALIGNMENT_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceTexelBufferAlignmentProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceSubgroupSizeControlFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBGROUP_SIZE_CONTROL_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceSubgroupSizeControlProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO:
-        {
-        auto result= new VkPipelineShaderStageRequiredSubgroupSizeCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBPASS_SHADING_PIPELINE_CREATE_INFO_HUAWEI:
-        {
-        auto result= new VkSubpassShadingPipelineCreateInfoHUAWEI;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_PROPERTIES_HUAWEI:
-        {
-        auto result= new VkPhysicalDeviceSubpassShadingPropertiesHUAWEI;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_PROPERTIES_HUAWEI:
-        {
-        auto result= new VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_OPAQUE_CAPTURE_ADDRESS_ALLOCATE_INFO:
-        {
-        auto result= new VkMemoryOpaqueCaptureAddressAllocateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_MEMORY_OPAQUE_CAPTURE_ADDRESS_INFO:
-        {
-        auto result= new VkDeviceMemoryOpaqueCaptureAddressInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceLineRasterizationFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINE_RASTERIZATION_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceLineRasterizationPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_LINE_STATE_CREATE_INFO_EXT:
-        {
-        auto result= new VkPipelineRasterizationLineStateCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_CREATION_CACHE_CONTROL_FEATURES:
-        {
-        auto result= new VkPhysicalDevicePipelineCreationCacheControlFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceVulkan11Features;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_1_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceVulkan11Properties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceVulkan12Features;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_2_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceVulkan12Properties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceVulkan13Features;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VULKAN_1_3_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceVulkan13Properties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_COMPILER_CONTROL_CREATE_INFO_AMD:
-        {
-        auto result= new VkPipelineCompilerControlCreateInfoAMD;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COHERENT_MEMORY_FEATURES_AMD:
-        {
-        auto result= new VkPhysicalDeviceCoherentMemoryFeaturesAMD;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TOOL_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceToolProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_CUSTOM_BORDER_COLOR_CREATE_INFO_EXT:
-        {
-        auto result= new VkSamplerCustomBorderColorCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceCustomBorderColorPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUSTOM_BORDER_COLOR_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceCustomBorderColorFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_BORDER_COLOR_COMPONENT_MAPPING_CREATE_INFO_EXT:
-        {
-        auto result= new VkSamplerBorderColorComponentMappingCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BORDER_COLOR_SWIZZLE_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceBorderColorSwizzleFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_TRIANGLES_DATA_KHR:
-        {
-        auto result= new VkAccelerationStructureGeometryTrianglesDataKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_AABBS_DATA_KHR:
-        {
-        auto result= new VkAccelerationStructureGeometryAabbsDataKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_INSTANCES_DATA_KHR:
-        {
-        auto result= new VkAccelerationStructureGeometryInstancesDataKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_KHR:
-        {
-        auto result= new VkAccelerationStructureGeometryKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_BUILD_GEOMETRY_INFO_KHR:
-        {
-        auto result= new VkAccelerationStructureBuildGeometryInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CREATE_INFO_KHR:
-        {
-        auto result= new VkAccelerationStructureCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_DEVICE_ADDRESS_INFO_KHR:
-        {
-        auto result= new VkAccelerationStructureDeviceAddressInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_VERSION_INFO_KHR:
-        {
-        auto result= new VkAccelerationStructureVersionInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_ACCELERATION_STRUCTURE_INFO_KHR:
-        {
-        auto result= new VkCopyAccelerationStructureInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_ACCELERATION_STRUCTURE_TO_MEMORY_INFO_KHR:
-        {
-        auto result= new VkCopyAccelerationStructureToMemoryInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_MEMORY_TO_ACCELERATION_STRUCTURE_INFO_KHR:
-        {
-        auto result= new VkCopyMemoryToAccelerationStructureInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RAY_TRACING_PIPELINE_INTERFACE_CREATE_INFO_KHR:
-        {
-        auto result= new VkRayTracingPipelineInterfaceCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_LIBRARY_CREATE_INFO_KHR:
-        {
-        auto result= new VkPipelineLibraryCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceExtendedDynamicStateFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_2_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceExtendedDynamicState2FeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceExtendedDynamicState3FeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceExtendedDynamicState3PropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_TRANSFORM_BEGIN_INFO_QCOM:
-        {
-        auto result= new VkRenderPassTransformBeginInfoQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_COMMAND_TRANSFORM_INFO_QCOM:
-        {
-        auto result= new VkCopyCommandTransformInfoQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_RENDER_PASS_TRANSFORM_INFO_QCOM:
-        {
-        auto result= new VkCommandBufferInheritanceRenderPassTransformInfoQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DIAGNOSTICS_CONFIG_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceDiagnosticsConfigFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_DIAGNOSTICS_CONFIG_CREATE_INFO_NV:
-        {
-        auto result= new VkDeviceDiagnosticsConfigCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ZERO_INITIALIZE_WORKGROUP_MEMORY_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceZeroInitializeWorkgroupMemoryFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_SUBGROUP_UNIFORM_CONTROL_FLOW_FEATURES_KHR:
-        {
-        auto result= new VkPhysicalDeviceShaderSubgroupUniformControlFlowFeaturesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceRobustness2FeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ROBUSTNESS_2_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceRobustness2PropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_ROBUSTNESS_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceImageRobustnessFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_WORKGROUP_MEMORY_EXPLICIT_LAYOUT_FEATURES_KHR:
-        {
-        auto result= new VkPhysicalDeviceWorkgroupMemoryExplicitLayoutFeaturesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_4444_FORMATS_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDevice4444FormatsFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_SHADING_FEATURES_HUAWEI:
-        {
-        auto result= new VkPhysicalDeviceSubpassShadingFeaturesHUAWEI;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_FEATURES_HUAWEI:
-        {
-        auto result= new VkPhysicalDeviceClusterCullingShaderFeaturesHUAWEI;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_COPY_2:
-        {
-        auto result= new VkBufferCopy2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_COPY_2:
-        {
-        auto result= new VkImageCopy2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_BLIT_2:
-        {
-        auto result= new VkImageBlit2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_IMAGE_COPY_2:
-        {
-        auto result= new VkBufferImageCopy2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_RESOLVE_2:
-        {
-        auto result= new VkImageResolve2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_BUFFER_INFO_2:
-        {
-        auto result= new VkCopyBufferInfo2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_IMAGE_INFO_2:
-        {
-        auto result= new VkCopyImageInfo2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BLIT_IMAGE_INFO_2:
-        {
-        auto result= new VkBlitImageInfo2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_BUFFER_TO_IMAGE_INFO_2:
-        {
-        auto result= new VkCopyBufferToImageInfo2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_IMAGE_TO_BUFFER_INFO_2:
-        {
-        auto result= new VkCopyImageToBufferInfo2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RESOLVE_IMAGE_INFO_2:
-        {
-        auto result= new VkResolveImageInfo2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_IMAGE_ATOMIC_INT64_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceShaderImageAtomicInt64FeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO_KHR:
-        {
-        auto result= new VkFragmentShadingRateAttachmentInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_SHADING_RATE_STATE_CREATE_INFO_KHR:
-        {
-        auto result= new VkPipelineFragmentShadingRateStateCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_FEATURES_KHR:
-        {
-        auto result= new VkPhysicalDeviceFragmentShadingRateFeaturesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_PROPERTIES_KHR:
-        {
-        auto result= new VkPhysicalDeviceFragmentShadingRatePropertiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_KHR:
-        {
-        auto result= new VkPhysicalDeviceFragmentShadingRateKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TERMINATE_INVOCATION_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceShaderTerminateInvocationFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceFragmentShadingRateEnumsFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADING_RATE_ENUMS_PROPERTIES_NV:
-        {
-        auto result= new VkPhysicalDeviceFragmentShadingRateEnumsPropertiesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_FRAGMENT_SHADING_RATE_ENUM_STATE_CREATE_INFO_NV:
-        {
-        auto result= new VkPipelineFragmentShadingRateEnumStateCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_BUILD_SIZES_INFO_KHR:
-        {
-        auto result= new VkAccelerationStructureBuildSizesInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_2D_VIEW_OF_3D_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceImage2DViewOf3DFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_SLICED_VIEW_OF_3D_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceImageSlicedViewOf3DFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_DYNAMIC_STATE_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceAttachmentFeedbackLoopDynamicStateFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MUTABLE_DESCRIPTOR_TYPE_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceMutableDescriptorTypeFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MUTABLE_DESCRIPTOR_TYPE_CREATE_INFO_EXT:
-        {
-        auto result= new VkMutableDescriptorTypeCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLIP_CONTROL_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceDepthClipControlFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_DEPTH_CLIP_CONTROL_CREATE_INFO_EXT:
-        {
-        auto result= new VkPipelineViewportDepthClipControlCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VERTEX_INPUT_DYNAMIC_STATE_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceVertexInputDynamicStateFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_RDMA_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceExternalMemoryRDMAFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VERTEX_INPUT_BINDING_DESCRIPTION_2_EXT:
-        {
-        auto result= new VkVertexInputBindingDescription2EXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VERTEX_INPUT_ATTRIBUTE_DESCRIPTION_2_EXT:
-        {
-        auto result= new VkVertexInputAttributeDescription2EXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COLOR_WRITE_ENABLE_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceColorWriteEnableFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_COLOR_WRITE_CREATE_INFO_EXT:
-        {
-        auto result= new VkPipelineColorWriteCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_BARRIER_2:
-        {
-        auto result= new VkMemoryBarrier2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER_2:
-        {
-        auto result= new VkImageMemoryBarrier2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_MEMORY_BARRIER_2:
-        {
-        auto result= new VkBufferMemoryBarrier2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEPENDENCY_INFO:
-        {
-        auto result= new VkDependencyInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SEMAPHORE_SUBMIT_INFO:
-        {
-        auto result= new VkSemaphoreSubmitInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_SUBMIT_INFO:
-        {
-        auto result= new VkCommandBufferSubmitInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBMIT_INFO_2:
-        {
-        auto result= new VkSubmitInfo2;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_CHECKPOINT_PROPERTIES_2_NV:
-        {
-        auto result= new VkQueueFamilyCheckpointProperties2NV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_CHECKPOINT_DATA_2_NV:
-        {
-        auto result= new VkCheckpointData2NV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SYNCHRONIZATION_2_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceSynchronization2Features;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_IMAGE_COPY_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceHostImageCopyFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_HOST_IMAGE_COPY_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceHostImageCopyPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_TO_IMAGE_COPY_EXT:
-        {
-        auto result= new VkMemoryToImageCopyEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_TO_MEMORY_COPY_EXT:
-        {
-        auto result= new VkImageToMemoryCopyEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_MEMORY_TO_IMAGE_INFO_EXT:
-        {
-        auto result= new VkCopyMemoryToImageInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_IMAGE_TO_MEMORY_INFO_EXT:
-        {
-        auto result= new VkCopyImageToMemoryInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_IMAGE_TO_IMAGE_INFO_EXT:
-        {
-        auto result= new VkCopyImageToImageInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_HOST_IMAGE_LAYOUT_TRANSITION_INFO_EXT:
-        {
-        auto result= new VkHostImageLayoutTransitionInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBRESOURCE_HOST_MEMCPY_SIZE_EXT:
-        {
-        auto result= new VkSubresourceHostMemcpySizeEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_HOST_IMAGE_COPY_DEVICE_PERFORMANCE_QUERY_EXT:
-        {
-        auto result= new VkHostImageCopyDevicePerformanceQueryEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PRIMITIVES_GENERATED_QUERY_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDevicePrimitivesGeneratedQueryFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LEGACY_DITHERING_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceLegacyDitheringFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceMultisampledRenderToSingleSampledFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBPASS_RESOLVE_PERFORMANCE_QUERY_EXT:
-        {
-        auto result= new VkSubpassResolvePerformanceQueryEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_INFO_EXT:
-        {
-        auto result= new VkMultisampledRenderToSingleSampledInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_PROTECTED_ACCESS_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDevicePipelineProtectedAccessFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_VIDEO_PROPERTIES_KHR:
-        {
-        auto result= new VkQueueFamilyVideoPropertiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUEUE_FAMILY_QUERY_RESULT_STATUS_PROPERTIES_KHR:
-        {
-        auto result= new VkQueueFamilyQueryResultStatusPropertiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_PROFILE_LIST_INFO_KHR:
-        {
-        auto result= new VkVideoProfileListInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_VIDEO_FORMAT_INFO_KHR:
-        {
-        auto result= new VkPhysicalDeviceVideoFormatInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_FORMAT_PROPERTIES_KHR:
-        {
-        auto result= new VkVideoFormatPropertiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_PROFILE_INFO_KHR:
-        {
-        auto result= new VkVideoProfileInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_CAPABILITIES_KHR:
-        {
-        auto result= new VkVideoCapabilitiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_SESSION_MEMORY_REQUIREMENTS_KHR:
-        {
-        auto result= new VkVideoSessionMemoryRequirementsKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BIND_VIDEO_SESSION_MEMORY_INFO_KHR:
-        {
-        auto result= new VkBindVideoSessionMemoryInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_PICTURE_RESOURCE_INFO_KHR:
-        {
-        auto result= new VkVideoPictureResourceInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_REFERENCE_SLOT_INFO_KHR:
-        {
-        auto result= new VkVideoReferenceSlotInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_CAPABILITIES_KHR:
-        {
-        auto result= new VkVideoDecodeCapabilitiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_USAGE_INFO_KHR:
-        {
-        auto result= new VkVideoDecodeUsageInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_INFO_KHR:
-        {
-        auto result= new VkVideoDecodeInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_PROFILE_INFO_KHR:
-        {
-        auto result= new VkVideoDecodeH264ProfileInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_CAPABILITIES_KHR:
-        {
-        auto result= new VkVideoDecodeH264CapabilitiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_SESSION_PARAMETERS_ADD_INFO_KHR:
-        {
-        auto result= new VkVideoDecodeH264SessionParametersAddInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_SESSION_PARAMETERS_CREATE_INFO_KHR:
-        {
-        auto result= new VkVideoDecodeH264SessionParametersCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_PICTURE_INFO_KHR:
-        {
-        auto result= new VkVideoDecodeH264PictureInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_DPB_SLOT_INFO_KHR:
-        {
-        auto result= new VkVideoDecodeH264DpbSlotInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_PROFILE_INFO_KHR:
-        {
-        auto result= new VkVideoDecodeH265ProfileInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_CAPABILITIES_KHR:
-        {
-        auto result= new VkVideoDecodeH265CapabilitiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_SESSION_PARAMETERS_ADD_INFO_KHR:
-        {
-        auto result= new VkVideoDecodeH265SessionParametersAddInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_SESSION_PARAMETERS_CREATE_INFO_KHR:
-        {
-        auto result= new VkVideoDecodeH265SessionParametersCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_PICTURE_INFO_KHR:
-        {
-        auto result= new VkVideoDecodeH265PictureInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_DECODE_H265_DPB_SLOT_INFO_KHR:
-        {
-        auto result= new VkVideoDecodeH265DpbSlotInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_SESSION_CREATE_INFO_KHR:
-        {
-        auto result= new VkVideoSessionCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_SESSION_PARAMETERS_CREATE_INFO_KHR:
-        {
-        auto result= new VkVideoSessionParametersCreateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_SESSION_PARAMETERS_UPDATE_INFO_KHR:
-        {
-        auto result= new VkVideoSessionParametersUpdateInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_BEGIN_CODING_INFO_KHR:
-        {
-        auto result= new VkVideoBeginCodingInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_END_CODING_INFO_KHR:
-        {
-        auto result= new VkVideoEndCodingInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_VIDEO_CODING_CONTROL_INFO_KHR:
-        {
-        auto result= new VkVideoCodingControlInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_INHERITED_VIEWPORT_SCISSOR_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceInheritedViewportScissorFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_VIEWPORT_SCISSOR_INFO_NV:
-        {
-        auto result= new VkCommandBufferInheritanceViewportScissorInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_2_PLANE_444_FORMATS_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceYcbcr2Plane444FormatsFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROVOKING_VERTEX_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceProvokingVertexFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROVOKING_VERTEX_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceProvokingVertexPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_PROVOKING_VERTEX_STATE_CREATE_INFO_EXT:
-        {
-        auto result= new VkPipelineRasterizationProvokingVertexStateCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_CU_MODULE_CREATE_INFO_NVX:
-        {
-        auto result= new VkCuModuleCreateInfoNVX;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_CU_FUNCTION_CREATE_INFO_NVX:
-        {
-        auto result= new VkCuFunctionCreateInfoNVX;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_CU_LAUNCH_INFO_NVX:
-        {
-        auto result= new VkCuLaunchInfoNVX;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceDescriptorBufferFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceDescriptorBufferPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_BUFFER_DENSITY_MAP_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceDescriptorBufferDensityMapPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_ADDRESS_INFO_EXT:
-        {
-        auto result= new VkDescriptorAddressInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_BUFFER_BINDING_INFO_EXT:
-        {
-        auto result= new VkDescriptorBufferBindingInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_BUFFER_BINDING_PUSH_DESCRIPTOR_BUFFER_HANDLE_EXT:
-        {
-        auto result= new VkDescriptorBufferBindingPushDescriptorBufferHandleEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_GET_INFO_EXT:
-        {
-        auto result= new VkDescriptorGetInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BUFFER_CAPTURE_DESCRIPTOR_DATA_INFO_EXT:
-        {
-        auto result= new VkBufferCaptureDescriptorDataInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_CAPTURE_DESCRIPTOR_DATA_INFO_EXT:
-        {
-        auto result= new VkImageCaptureDescriptorDataInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_CAPTURE_DESCRIPTOR_DATA_INFO_EXT:
-        {
-        auto result= new VkImageViewCaptureDescriptorDataInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_CAPTURE_DESCRIPTOR_DATA_INFO_EXT:
-        {
-        auto result= new VkSamplerCaptureDescriptorDataInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_CAPTURE_DESCRIPTOR_DATA_INFO_EXT:
-        {
-        auto result= new VkAccelerationStructureCaptureDescriptorDataInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_OPAQUE_CAPTURE_DESCRIPTOR_DATA_CREATE_INFO_EXT:
-        {
-        auto result= new VkOpaqueCaptureDescriptorDataCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceShaderIntegerDotProductFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_INTEGER_DOT_PRODUCT_PROPERTIES:
-        {
-        auto result= new VkPhysicalDeviceShaderIntegerDotProductProperties;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DRM_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceDrmPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_FEATURES_KHR:
-        {
-        auto result= new VkPhysicalDeviceFragmentShaderBarycentricFeaturesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAGMENT_SHADER_BARYCENTRIC_PROPERTIES_KHR:
-        {
-        auto result= new VkPhysicalDeviceFragmentShaderBarycentricPropertiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_MOTION_BLUR_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceRayTracingMotionBlurFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_GEOMETRY_MOTION_TRIANGLES_DATA_NV:
-        {
-        auto result= new VkAccelerationStructureGeometryMotionTrianglesDataNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_MOTION_INFO_NV:
-        {
-        auto result= new VkAccelerationStructureMotionInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_GET_REMOTE_ADDRESS_INFO_NV:
-        {
-        auto result= new VkMemoryGetRemoteAddressInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RGBA10X6_FORMATS_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceRGBA10X6FormatsFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_3:
-        {
-        auto result= new VkFormatProperties3;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DRM_FORMAT_MODIFIER_PROPERTIES_LIST_2_EXT:
-        {
-        auto result= new VkDrmFormatModifierPropertiesList2EXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_RENDERING_CREATE_INFO:
-        {
-        auto result= new VkPipelineRenderingCreateInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDERING_INFO:
-        {
-        auto result= new VkRenderingInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDERING_ATTACHMENT_INFO:
-        {
-        auto result= new VkRenderingAttachmentInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDERING_FRAGMENT_SHADING_RATE_ATTACHMENT_INFO_KHR:
-        {
-        auto result= new VkRenderingFragmentShadingRateAttachmentInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDERING_FRAGMENT_DENSITY_MAP_ATTACHMENT_INFO_EXT:
-        {
-        auto result= new VkRenderingFragmentDensityMapAttachmentInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_FEATURES:
-        {
-        auto result= new VkPhysicalDeviceDynamicRenderingFeatures;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COMMAND_BUFFER_INHERITANCE_RENDERING_INFO:
-        {
-        auto result= new VkCommandBufferInheritanceRenderingInfo;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ATTACHMENT_SAMPLE_COUNT_INFO_AMD:
-        {
-        auto result= new VkAttachmentSampleCountInfoAMD;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MULTIVIEW_PER_VIEW_ATTRIBUTES_INFO_NVX:
-        {
-        auto result= new VkMultiviewPerViewAttributesInfoNVX;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_VIEW_MIN_LOD_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceImageViewMinLodFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_MIN_LOD_CREATE_INFO_EXT:
-        {
-        auto result= new VkImageViewMinLodCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RASTERIZATION_ORDER_ATTACHMENT_ACCESS_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceRasterizationOrderAttachmentAccessFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LINEAR_COLOR_ATTACHMENT_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceLinearColorAttachmentFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceGraphicsPipelineLibraryFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_GRAPHICS_PIPELINE_LIBRARY_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceGraphicsPipelineLibraryPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_LIBRARY_CREATE_INFO_EXT:
-        {
-        auto result= new VkGraphicsPipelineLibraryCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_SET_HOST_MAPPING_FEATURES_VALVE:
-        {
-        auto result= new VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_BINDING_REFERENCE_VALVE:
-        {
-        auto result= new VkDescriptorSetBindingReferenceVALVE;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_HOST_MAPPING_INFO_VALVE:
-        {
-        auto result= new VkDescriptorSetLayoutHostMappingInfoVALVE;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_MODULE_IDENTIFIER_CREATE_INFO_EXT:
-        {
-        auto result= new VkPipelineShaderStageModuleIdentifierCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SHADER_MODULE_IDENTIFIER_EXT:
-        {
-        auto result= new VkShaderModuleIdentifierEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_COMPRESSION_CONTROL_EXT:
-        {
-        auto result= new VkImageCompressionControlEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceImageCompressionControlFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_COMPRESSION_PROPERTIES_EXT:
-        {
-        auto result= new VkImageCompressionPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_COMPRESSION_CONTROL_SWAPCHAIN_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceImageCompressionControlSwapchainFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_SUBRESOURCE_2_KHR:
-        {
-        auto result= new VkImageSubresource2KHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SUBRESOURCE_LAYOUT_2_KHR:
-        {
-        auto result= new VkSubresourceLayout2KHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_CREATION_CONTROL_EXT:
-        {
-        auto result= new VkRenderPassCreationControlEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_CREATION_FEEDBACK_CREATE_INFO_EXT:
-        {
-        auto result= new VkRenderPassCreationFeedbackCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RENDER_PASS_SUBPASS_FEEDBACK_CREATE_INFO_EXT:
-        {
-        auto result= new VkRenderPassSubpassFeedbackCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SUBPASS_MERGE_FEEDBACK_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceSubpassMergeFeedbackFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MICROMAP_BUILD_INFO_EXT:
-        {
-        auto result= new VkMicromapBuildInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MICROMAP_CREATE_INFO_EXT:
-        {
-        auto result= new VkMicromapCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MICROMAP_VERSION_INFO_EXT:
-        {
-        auto result= new VkMicromapVersionInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_MICROMAP_INFO_EXT:
-        {
-        auto result= new VkCopyMicromapInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_MICROMAP_TO_MEMORY_INFO_EXT:
-        {
-        auto result= new VkCopyMicromapToMemoryInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COPY_MEMORY_TO_MICROMAP_INFO_EXT:
-        {
-        auto result= new VkCopyMemoryToMicromapInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MICROMAP_BUILD_SIZES_INFO_EXT:
-        {
-        auto result= new VkMicromapBuildSizesInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceOpacityMicromapFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPACITY_MICROMAP_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceOpacityMicromapPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP_EXT:
-        {
-        auto result= new VkAccelerationStructureTrianglesOpacityMicromapEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_PROPERTIES_IDENTIFIER_EXT:
-        {
-        auto result= new VkPipelinePropertiesIdentifierEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_PROPERTIES_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDevicePipelinePropertiesFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_EARLY_AND_LATE_FRAGMENT_TESTS_FEATURES_AMD:
-        {
-        auto result= new VkPhysicalDeviceShaderEarlyAndLateFragmentTestsFeaturesAMD;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_ACQUIRE_UNMODIFIED_EXT:
-        {
-        auto result= new VkExternalMemoryAcquireUnmodifiedEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_NON_SEAMLESS_CUBE_MAP_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceNonSeamlessCubeMapFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDevicePipelineRobustnessFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PIPELINE_ROBUSTNESS_CREATE_INFO_EXT:
-        {
-        auto result= new VkPipelineRobustnessCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_ROBUSTNESS_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDevicePipelineRobustnessPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_IMAGE_VIEW_SAMPLE_WEIGHT_CREATE_INFO_QCOM:
-        {
-        auto result= new VkImageViewSampleWeightCreateInfoQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_FEATURES_QCOM:
-        {
-        auto result= new VkPhysicalDeviceImageProcessingFeaturesQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_PROPERTIES_QCOM:
-        {
-        auto result= new VkPhysicalDeviceImageProcessingPropertiesQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_PROPERTIES_FEATURES_QCOM:
-        {
-        auto result= new VkPhysicalDeviceTilePropertiesFeaturesQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_TILE_PROPERTIES_QCOM:
-        {
-        auto result= new VkTilePropertiesQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_AMIGO_PROFILING_FEATURES_SEC:
-        {
-        auto result= new VkPhysicalDeviceAmigoProfilingFeaturesSEC;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_AMIGO_PROFILING_SUBMIT_INFO_SEC:
-        {
-        auto result= new VkAmigoProfilingSubmitInfoSEC;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ATTACHMENT_FEEDBACK_LOOP_LAYOUT_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceAttachmentFeedbackLoopLayoutFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_CLAMP_ZERO_ONE_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceDepthClampZeroOneFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_ADDRESS_BINDING_REPORT_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceAddressBindingReportFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_ADDRESS_BINDING_CALLBACK_DATA_EXT:
-        {
-        auto result= new VkDeviceAddressBindingCallbackDataEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPTICAL_FLOW_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceOpticalFlowFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_OPTICAL_FLOW_PROPERTIES_NV:
-        {
-        auto result= new VkPhysicalDeviceOpticalFlowPropertiesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_OPTICAL_FLOW_IMAGE_FORMAT_INFO_NV:
-        {
-        auto result= new VkOpticalFlowImageFormatInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_OPTICAL_FLOW_IMAGE_FORMAT_PROPERTIES_NV:
-        {
-        auto result= new VkOpticalFlowImageFormatPropertiesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_OPTICAL_FLOW_SESSION_CREATE_INFO_NV:
-        {
-        auto result= new VkOpticalFlowSessionCreateInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_OPTICAL_FLOW_SESSION_CREATE_PRIVATE_DATA_INFO_NV:
-        {
-        auto result= new VkOpticalFlowSessionCreatePrivateDataInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_OPTICAL_FLOW_EXECUTE_INFO_NV:
-        {
-        auto result= new VkOpticalFlowExecuteInfoNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FAULT_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceFaultFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_FAULT_COUNTS_EXT:
-        {
-        auto result= new VkDeviceFaultCountsEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_FAULT_INFO_EXT:
-        {
-        auto result= new VkDeviceFaultInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEPTH_BIAS_INFO_EXT:
-        {
-        auto result= new VkDepthBiasInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEPTH_BIAS_REPRESENTATION_INFO_EXT:
-        {
-        auto result= new VkDepthBiasRepresentationInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_PROPERTIES_ARM:
-        {
-        auto result= new VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_FEATURES_ARM:
-        {
-        auto result= new VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_FRAME_BOUNDARY_EXT:
-        {
-        auto result= new VkFrameBoundaryEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAME_BOUNDARY_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceFrameBoundaryFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_EXT:
-        {
-        auto result= new VkSurfacePresentModeEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SURFACE_PRESENT_SCALING_CAPABILITIES_EXT:
-        {
-        auto result= new VkSurfacePresentScalingCapabilitiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_COMPATIBILITY_EXT:
-        {
-        auto result= new VkSurfacePresentModeCompatibilityEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SWAPCHAIN_MAINTENANCE_1_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceSwapchainMaintenance1FeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_FENCE_INFO_EXT:
-        {
-        auto result= new VkSwapchainPresentFenceInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODES_CREATE_INFO_EXT:
-        {
-        auto result= new VkSwapchainPresentModesCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_MODE_INFO_EXT:
-        {
-        auto result= new VkSwapchainPresentModeInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SWAPCHAIN_PRESENT_SCALING_CREATE_INFO_EXT:
-        {
-        auto result= new VkSwapchainPresentScalingCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_RELEASE_SWAPCHAIN_IMAGES_INFO_EXT:
-        {
-        auto result= new VkReleaseSwapchainImagesInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DEPTH_BIAS_CONTROL_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceDepthBiasControlFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES_NV:
-        {
-        auto result= new VkPhysicalDeviceRayTracingInvocationReorderPropertiesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DIRECT_DRIVER_LOADING_INFO_LUNARG:
-        {
-        auto result= new VkDirectDriverLoadingInfoLUNARG;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DIRECT_DRIVER_LOADING_LIST_LUNARG:
-        {
-        auto result= new VkDirectDriverLoadingListLUNARG;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES_QCOM:
-        {
-        auto result= new VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_POSITION_FETCH_FEATURES_KHR:
-        {
-        auto result= new VkPhysicalDeviceRayTracingPositionFetchFeaturesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_DEVICE_IMAGE_SUBRESOURCE_INFO_KHR:
-        {
-        auto result= new VkDeviceImageSubresourceInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_PROPERTIES_ARM:
-        {
-        auto result= new VkPhysicalDeviceShaderCorePropertiesARM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_RENDER_AREAS_FEATURES_QCOM:
-        {
-        auto result= new VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MULTIVIEW_PER_VIEW_RENDER_AREAS_RENDER_PASS_BEGIN_INFO_QCOM:
-        {
-        auto result= new VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_QUERY_LOW_LATENCY_SUPPORT_NV:
-        {
-        auto result= new VkQueryLowLatencySupportNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_MAP_INFO_KHR:
-        {
-        auto result= new VkMemoryMapInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_MEMORY_UNMAP_INFO_KHR:
-        {
-        auto result= new VkMemoryUnmapInfoKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceShaderObjectFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceShaderObjectPropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SHADER_CREATE_INFO_EXT:
-        {
-        auto result= new VkShaderCreateInfoEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TILE_IMAGE_FEATURES_EXT:
-        {
-        auto result= new VkPhysicalDeviceShaderTileImageFeaturesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TILE_IMAGE_PROPERTIES_EXT:
-        {
-        auto result= new VkPhysicalDeviceShaderTileImagePropertiesEXT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES_KHR:
-        {
-        auto result= new VkPhysicalDeviceCooperativeMatrixFeaturesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_KHR:
-        {
-        auto result= new VkCooperativeMatrixPropertiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES_KHR:
-        {
-        auto result= new VkPhysicalDeviceCooperativeMatrixPropertiesKHR;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUBIC_CLAMP_FEATURES_QCOM:
-        {
-        auto result= new VkPhysicalDeviceCubicClampFeaturesQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_YCBCR_DEGAMMA_FEATURES_QCOM:
-        {
-        auto result= new VkPhysicalDeviceYcbcrDegammaFeaturesQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_YCBCR_DEGAMMA_CREATE_INFO_QCOM:
-        {
-        auto result= new VkSamplerYcbcrConversionYcbcrDegammaCreateInfoQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CUBIC_WEIGHTS_FEATURES_QCOM:
-        {
-        auto result= new VkPhysicalDeviceCubicWeightsFeaturesQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_CUBIC_WEIGHTS_CREATE_INFO_QCOM:
-        {
-        auto result= new VkSamplerCubicWeightsCreateInfoQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_BLIT_IMAGE_CUBIC_WEIGHTS_INFO_QCOM:
-        {
-        auto result= new VkBlitImageCubicWeightsInfoQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_2_FEATURES_QCOM:
-        {
-        auto result= new VkPhysicalDeviceImageProcessing2FeaturesQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_2_PROPERTIES_QCOM:
-        {
-        auto result= new VkPhysicalDeviceImageProcessing2PropertiesQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-
-    case VK_STRUCTURE_TYPE_SAMPLER_BLOCK_MATCH_WINDOW_CREATE_INFO_QCOM:
-        {
-        auto result= new VkSamplerBlockMatchWindowCreateInfoQCOM;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
+    auto deserialize_function=(void(*)(boost::json::object&, void*&))(handle_pNext(static_cast<VkStructureType>(value_to<int>(json["sType"])),false));
     
+    return deserialize_function(json, member);
 
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_POOL_OVERALLOCATION_FEATURES_NV:
-        {
-        auto result= new VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
+}
 
-    case VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_DRIVER_PROPERTIES_MSFT:
-        {
-        auto result= new VkPhysicalDeviceLayeredDriverPropertiesMSFT;
-        deserialize_struct(json, result[0]);
-        member=result;
-        return;
-        }
-    
-}}
 std::map<VkStructureType, size_t> structure_type_to_size={
 {VK_STRUCTURE_TYPE_APPLICATION_INFO, sizeof(VkApplicationInfo) },
 {VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO, sizeof(VkDeviceQueueCreateInfo) },
@@ -12318,7 +14462,7 @@ json["PFN_vkInternalFreeNotification"]=(uintptr_t)(member.pfnInternalFree);
             }
             }();
         }
-        }();pUserData=temp_YghEUhF;}();
+        }();pUserData=(void*)(temp_YghEUhF);}();
             #else 
                 auto pUserData=new pUserData_struct();
         
@@ -12341,7 +14485,7 @@ json["PFN_vkInternalFreeNotification"]=(uintptr_t)(member.pfnInternalFree);
             }
             }();
         }
-        }();pUserData->pUserData=temp_YghEUhF;}();
+        }();pUserData->pUserData=(void*)(temp_YghEUhF);}();
 pUserData->PFN_vkAllocationFunction=(value_to<uintptr_t>(json["PFN_vkAllocationFunction"]));
 pUserData->PFN_vkReallocationFunction=(value_to<uintptr_t>(json["PFN_vkReallocationFunction"]));
 pUserData->PFN_vkFreeFunction=(value_to<uintptr_t>(json["PFN_vkFreeFunction"]));
@@ -16190,9 +18334,9 @@ auto& pData_json=json["pData"];
             if (((char*)(member.pData))==NULL){
                 pData_json=boost::json::array();
             return; }pData_json=boost::json::array(member.dataSize);
-        auto& arr_cukaPTa=pData_json.as_array();
-        for(int UqwNSOA=0; UqwNSOA < member.dataSize; UqwNSOA++){
-            [&](){arr_cukaPTa[UqwNSOA]=((char*)(member.pData))[UqwNSOA];}();
+        auto& arr_yEdGeHa=pData_json.as_array();
+        for(int xKfVSmX=0; xKfVSmX < member.dataSize; xKfVSmX++){
+            [&](){arr_yEdGeHa[xKfVSmX]=((char*)(member.pData))[xKfVSmX];}();
         }
         }();}();
 }
@@ -16238,19 +18382,19 @@ auto& pData_json=json["pData"];
             if (pData_json.as_array().size()==0){
                 temp_qtCaFHh=NULL;
             return; }temp_qtCaFHh=(char*)malloc(member.dataSize*sizeof(char));
-        auto& arr_XpObFOU=pData_json.as_array();
-        for(int tUplioR=0; tUplioR < member.dataSize; tUplioR++){
+        auto& arr_EykplLZ=pData_json.as_array();
+        for(int PzakSTD=0; PzakSTD < member.dataSize; PzakSTD++){
             [&](){
-            if (arr_XpObFOU[tUplioR].is_uint64()){
-                temp_qtCaFHh[tUplioR]=static_cast<char>(arr_XpObFOU[tUplioR].as_uint64());
-            }else if (arr_XpObFOU[tUplioR].is_int64()){
-                temp_qtCaFHh[tUplioR]=static_cast<char>(arr_XpObFOU[tUplioR].as_int64());
+            if (arr_EykplLZ[PzakSTD].is_uint64()){
+                temp_qtCaFHh[PzakSTD]=static_cast<char>(arr_EykplLZ[PzakSTD].as_uint64());
+            }else if (arr_EykplLZ[PzakSTD].is_int64()){
+                temp_qtCaFHh[PzakSTD]=static_cast<char>(arr_EykplLZ[PzakSTD].as_int64());
             }else{
-                temp_qtCaFHh[tUplioR]=static_cast<char>(arr_XpObFOU[tUplioR].as_double());
+                temp_qtCaFHh[PzakSTD]=static_cast<char>(arr_EykplLZ[PzakSTD].as_double());
             }
             }();
         }
-        }();temp_rZvPbwc=temp_qtCaFHh;}();member.pData=temp_rZvPbwc;}();
+        }();temp_rZvPbwc=(void*)(temp_qtCaFHh);}();member.pData=temp_rZvPbwc;}();
 }
 
     void serialize_struct(boost::json::object& json, const VkPipelineShaderStageCreateInfo& member){
@@ -18197,9 +20341,9 @@ auto& pInitialData_json=json["pInitialData"];
             if (((char*)(member.pInitialData))==NULL){
                 pInitialData_json=boost::json::array();
             return; }pInitialData_json=boost::json::array(member.initialDataSize);
-        auto& arr_cScJjND=pInitialData_json.as_array();
-        for(int iGwyJEq=0; iGwyJEq < member.initialDataSize; iGwyJEq++){
-            [&](){arr_cScJjND[iGwyJEq]=((char*)(member.pInitialData))[iGwyJEq];}();
+        auto& arr_cgHREPa=pInitialData_json.as_array();
+        for(int LRRFSWe=0; LRRFSWe < member.initialDataSize; LRRFSWe++){
+            [&](){arr_cgHREPa[LRRFSWe]=((char*)(member.pInitialData))[LRRFSWe];}();
         }
         }();}();
 }
@@ -18247,19 +20391,19 @@ auto& pInitialData_json=json["pInitialData"];
             if (pInitialData_json.as_array().size()==0){
                 temp_jJhMRIG=NULL;
             return; }temp_jJhMRIG=(char*)malloc(member.initialDataSize*sizeof(char));
-        auto& arr_COCjXDl=pInitialData_json.as_array();
-        for(int zledvTk=0; zledvTk < member.initialDataSize; zledvTk++){
+        auto& arr_aqPTMjG=pInitialData_json.as_array();
+        for(int qjNnoXW=0; qjNnoXW < member.initialDataSize; qjNnoXW++){
             [&](){
-            if (arr_COCjXDl[zledvTk].is_uint64()){
-                temp_jJhMRIG[zledvTk]=static_cast<char>(arr_COCjXDl[zledvTk].as_uint64());
-            }else if (arr_COCjXDl[zledvTk].is_int64()){
-                temp_jJhMRIG[zledvTk]=static_cast<char>(arr_COCjXDl[zledvTk].as_int64());
+            if (arr_aqPTMjG[qjNnoXW].is_uint64()){
+                temp_jJhMRIG[qjNnoXW]=static_cast<char>(arr_aqPTMjG[qjNnoXW].as_uint64());
+            }else if (arr_aqPTMjG[qjNnoXW].is_int64()){
+                temp_jJhMRIG[qjNnoXW]=static_cast<char>(arr_aqPTMjG[qjNnoXW].as_int64());
             }else{
-                temp_jJhMRIG[zledvTk]=static_cast<char>(arr_COCjXDl[zledvTk].as_double());
+                temp_jJhMRIG[qjNnoXW]=static_cast<char>(arr_aqPTMjG[qjNnoXW].as_double());
             }
             }();
         }
-        }();temp_sCprdNy=temp_jJhMRIG;}();member.pInitialData=temp_sCprdNy;}();
+        }();temp_sCprdNy=(void*)(temp_jJhMRIG);}();member.pInitialData=temp_sCprdNy;}();
 }
 
     void serialize_struct(boost::json::object& json, const VkPipelineCacheHeaderVersionOne& member){
@@ -23766,7 +25910,7 @@ json["PFN_vkDebugReportCallbackEXT"]=(uintptr_t)(member.pfnCallback);
             }
             }();
         }
-        }();pUserData=temp_YghEUhF;}();
+        }();pUserData=(void*)(temp_YghEUhF);}();
             #else 
                 auto pUserData=new pUserData_struct();
         
@@ -23789,7 +25933,7 @@ json["PFN_vkDebugReportCallbackEXT"]=(uintptr_t)(member.pfnCallback);
             }
             }();
         }
-        }();pUserData->pUserData=temp_YghEUhF;}();
+        }();pUserData->pUserData=(void*)(temp_YghEUhF);}();
 pUserData->PFN_vkDebugReportCallbackEXT=(value_to<uintptr_t>(json["PFN_vkDebugReportCallbackEXT"]));
 
         #endif
@@ -24184,9 +26328,9 @@ auto& pTag_json=json["pTag"];
             if (((char*)(member.pTag))==NULL){
                 pTag_json=boost::json::array();
             return; }pTag_json=boost::json::array(member.tagSize);
-        auto& arr_FJzNXuD=pTag_json.as_array();
-        for(int LCdjkoW=0; LCdjkoW < member.tagSize; LCdjkoW++){
-            [&](){arr_FJzNXuD[LCdjkoW]=((char*)(member.pTag))[LCdjkoW];}();
+        auto& arr_MuhDRxQ=pTag_json.as_array();
+        for(int LfbmHYH=0; LfbmHYH < member.tagSize; LfbmHYH++){
+            [&](){arr_MuhDRxQ[LfbmHYH]=((char*)(member.pTag))[LfbmHYH];}();
         }
         }();}();
 }
@@ -24254,19 +26398,19 @@ auto& pTag_json=json["pTag"];
             if (pTag_json.as_array().size()==0){
                 temp_pWZkwTB=NULL;
             return; }temp_pWZkwTB=(char*)malloc(member.tagSize*sizeof(char));
-        auto& arr_ewjwcVs=pTag_json.as_array();
-        for(int uOzVzVX=0; uOzVzVX < member.tagSize; uOzVzVX++){
+        auto& arr_DSdIeUh=pTag_json.as_array();
+        for(int htHmFFA=0; htHmFFA < member.tagSize; htHmFFA++){
             [&](){
-            if (arr_ewjwcVs[uOzVzVX].is_uint64()){
-                temp_pWZkwTB[uOzVzVX]=static_cast<char>(arr_ewjwcVs[uOzVzVX].as_uint64());
-            }else if (arr_ewjwcVs[uOzVzVX].is_int64()){
-                temp_pWZkwTB[uOzVzVX]=static_cast<char>(arr_ewjwcVs[uOzVzVX].as_int64());
+            if (arr_DSdIeUh[htHmFFA].is_uint64()){
+                temp_pWZkwTB[htHmFFA]=static_cast<char>(arr_DSdIeUh[htHmFFA].as_uint64());
+            }else if (arr_DSdIeUh[htHmFFA].is_int64()){
+                temp_pWZkwTB[htHmFFA]=static_cast<char>(arr_DSdIeUh[htHmFFA].as_int64());
             }else{
-                temp_pWZkwTB[uOzVzVX]=static_cast<char>(arr_ewjwcVs[uOzVzVX].as_double());
+                temp_pWZkwTB[htHmFFA]=static_cast<char>(arr_DSdIeUh[htHmFFA].as_double());
             }
             }();
         }
-        }();temp_lyAiwyk=temp_pWZkwTB;}();member.pTag=temp_lyAiwyk;}();
+        }();temp_lyAiwyk=(void*)(temp_pWZkwTB);}();member.pTag=temp_lyAiwyk;}();
 }
 
     void serialize_struct(boost::json::object& json, const VkDebugMarkerMarkerInfoEXT& member){
@@ -33717,9 +35861,9 @@ auto& pData_json=json["pData"];
             if (((char*)(member.pData))==NULL){
                 pData_json=boost::json::array();
             return; }pData_json=boost::json::array(member.dataSize);
-        auto& arr_cukaPTa=pData_json.as_array();
-        for(int UqwNSOA=0; UqwNSOA < member.dataSize; UqwNSOA++){
-            [&](){arr_cukaPTa[UqwNSOA]=((char*)(member.pData))[UqwNSOA];}();
+        auto& arr_yEdGeHa=pData_json.as_array();
+        for(int xKfVSmX=0; xKfVSmX < member.dataSize; xKfVSmX++){
+            [&](){arr_yEdGeHa[xKfVSmX]=((char*)(member.pData))[xKfVSmX];}();
         }
         }();}();
 }
@@ -33757,19 +35901,19 @@ auto& pData_json=json["pData"];
             if (pData_json.as_array().size()==0){
                 temp_qtCaFHh=NULL;
             return; }temp_qtCaFHh=(char*)malloc(member.dataSize*sizeof(char));
-        auto& arr_XpObFOU=pData_json.as_array();
-        for(int tUplioR=0; tUplioR < member.dataSize; tUplioR++){
+        auto& arr_EykplLZ=pData_json.as_array();
+        for(int PzakSTD=0; PzakSTD < member.dataSize; PzakSTD++){
             [&](){
-            if (arr_XpObFOU[tUplioR].is_uint64()){
-                temp_qtCaFHh[tUplioR]=static_cast<char>(arr_XpObFOU[tUplioR].as_uint64());
-            }else if (arr_XpObFOU[tUplioR].is_int64()){
-                temp_qtCaFHh[tUplioR]=static_cast<char>(arr_XpObFOU[tUplioR].as_int64());
+            if (arr_EykplLZ[PzakSTD].is_uint64()){
+                temp_qtCaFHh[PzakSTD]=static_cast<char>(arr_EykplLZ[PzakSTD].as_uint64());
+            }else if (arr_EykplLZ[PzakSTD].is_int64()){
+                temp_qtCaFHh[PzakSTD]=static_cast<char>(arr_EykplLZ[PzakSTD].as_int64());
             }else{
-                temp_qtCaFHh[tUplioR]=static_cast<char>(arr_XpObFOU[tUplioR].as_double());
+                temp_qtCaFHh[PzakSTD]=static_cast<char>(arr_EykplLZ[PzakSTD].as_double());
             }
             }();
         }
-        }();temp_rZvPbwc=temp_qtCaFHh;}();member.pData=temp_rZvPbwc;}();
+        }();temp_rZvPbwc=(void*)(temp_qtCaFHh);}();member.pData=temp_rZvPbwc;}();
 }
 
     void serialize_struct(boost::json::object& json, const VkDescriptorPoolInlineUniformBlockCreateInfo& member){
@@ -34009,9 +36153,9 @@ auto& pInitialData_json=json["pInitialData"];
             if (((char*)(member.pInitialData))==NULL){
                 pInitialData_json=boost::json::array();
             return; }pInitialData_json=boost::json::array(member.initialDataSize);
-        auto& arr_cScJjND=pInitialData_json.as_array();
-        for(int iGwyJEq=0; iGwyJEq < member.initialDataSize; iGwyJEq++){
-            [&](){arr_cScJjND[iGwyJEq]=((char*)(member.pInitialData))[iGwyJEq];}();
+        auto& arr_cgHREPa=pInitialData_json.as_array();
+        for(int LRRFSWe=0; LRRFSWe < member.initialDataSize; LRRFSWe++){
+            [&](){arr_cgHREPa[LRRFSWe]=((char*)(member.pInitialData))[LRRFSWe];}();
         }
         }();}();
 }
@@ -34059,19 +36203,19 @@ auto& pInitialData_json=json["pInitialData"];
             if (pInitialData_json.as_array().size()==0){
                 temp_jJhMRIG=NULL;
             return; }temp_jJhMRIG=(char*)malloc(member.initialDataSize*sizeof(char));
-        auto& arr_COCjXDl=pInitialData_json.as_array();
-        for(int zledvTk=0; zledvTk < member.initialDataSize; zledvTk++){
+        auto& arr_aqPTMjG=pInitialData_json.as_array();
+        for(int qjNnoXW=0; qjNnoXW < member.initialDataSize; qjNnoXW++){
             [&](){
-            if (arr_COCjXDl[zledvTk].is_uint64()){
-                temp_jJhMRIG[zledvTk]=static_cast<char>(arr_COCjXDl[zledvTk].as_uint64());
-            }else if (arr_COCjXDl[zledvTk].is_int64()){
-                temp_jJhMRIG[zledvTk]=static_cast<char>(arr_COCjXDl[zledvTk].as_int64());
+            if (arr_aqPTMjG[qjNnoXW].is_uint64()){
+                temp_jJhMRIG[qjNnoXW]=static_cast<char>(arr_aqPTMjG[qjNnoXW].as_uint64());
+            }else if (arr_aqPTMjG[qjNnoXW].is_int64()){
+                temp_jJhMRIG[qjNnoXW]=static_cast<char>(arr_aqPTMjG[qjNnoXW].as_int64());
             }else{
-                temp_jJhMRIG[zledvTk]=static_cast<char>(arr_COCjXDl[zledvTk].as_double());
+                temp_jJhMRIG[qjNnoXW]=static_cast<char>(arr_aqPTMjG[qjNnoXW].as_double());
             }
             }();
         }
-        }();temp_sCprdNy=temp_jJhMRIG;}();member.pInitialData=temp_sCprdNy;}();
+        }();temp_sCprdNy=(void*)(temp_jJhMRIG);}();member.pInitialData=temp_sCprdNy;}();
 }
 
     void serialize_struct(boost::json::object& json, const VkShaderModuleValidationCacheCreateInfoEXT& member){
@@ -35316,9 +37460,9 @@ auto& pTag_json=json["pTag"];
             if (((char*)(member.pTag))==NULL){
                 pTag_json=boost::json::array();
             return; }pTag_json=boost::json::array(member.tagSize);
-        auto& arr_FJzNXuD=pTag_json.as_array();
-        for(int LCdjkoW=0; LCdjkoW < member.tagSize; LCdjkoW++){
-            [&](){arr_FJzNXuD[LCdjkoW]=((char*)(member.pTag))[LCdjkoW];}();
+        auto& arr_MuhDRxQ=pTag_json.as_array();
+        for(int LfbmHYH=0; LfbmHYH < member.tagSize; LfbmHYH++){
+            [&](){arr_MuhDRxQ[LfbmHYH]=((char*)(member.pTag))[LfbmHYH];}();
         }
         }();}();
 }
@@ -35386,19 +37530,19 @@ auto& pTag_json=json["pTag"];
             if (pTag_json.as_array().size()==0){
                 temp_pWZkwTB=NULL;
             return; }temp_pWZkwTB=(char*)malloc(member.tagSize*sizeof(char));
-        auto& arr_ewjwcVs=pTag_json.as_array();
-        for(int uOzVzVX=0; uOzVzVX < member.tagSize; uOzVzVX++){
+        auto& arr_DSdIeUh=pTag_json.as_array();
+        for(int htHmFFA=0; htHmFFA < member.tagSize; htHmFFA++){
             [&](){
-            if (arr_ewjwcVs[uOzVzVX].is_uint64()){
-                temp_pWZkwTB[uOzVzVX]=static_cast<char>(arr_ewjwcVs[uOzVzVX].as_uint64());
-            }else if (arr_ewjwcVs[uOzVzVX].is_int64()){
-                temp_pWZkwTB[uOzVzVX]=static_cast<char>(arr_ewjwcVs[uOzVzVX].as_int64());
+            if (arr_DSdIeUh[htHmFFA].is_uint64()){
+                temp_pWZkwTB[htHmFFA]=static_cast<char>(arr_DSdIeUh[htHmFFA].as_uint64());
+            }else if (arr_DSdIeUh[htHmFFA].is_int64()){
+                temp_pWZkwTB[htHmFFA]=static_cast<char>(arr_DSdIeUh[htHmFFA].as_int64());
             }else{
-                temp_pWZkwTB[uOzVzVX]=static_cast<char>(arr_ewjwcVs[uOzVzVX].as_double());
+                temp_pWZkwTB[htHmFFA]=static_cast<char>(arr_DSdIeUh[htHmFFA].as_double());
             }
             }();
         }
-        }();temp_lyAiwyk=temp_pWZkwTB;}();member.pTag=temp_lyAiwyk;}();
+        }();temp_lyAiwyk=(void*)(temp_pWZkwTB);}();member.pTag=temp_lyAiwyk;}();
 }
 
     void serialize_struct(boost::json::object& json, const VkDebugUtilsLabelEXT& member){
@@ -35520,7 +37664,7 @@ json["PFN_vkDebugUtilsMessengerCallbackEXT"]=(uintptr_t)(member.pfnUserCallback)
             }
             }();
         }
-        }();pUserData=temp_YghEUhF;}();
+        }();pUserData=(void*)(temp_YghEUhF);}();
             #else 
                 auto pUserData=new pUserData_struct();
         
@@ -35543,7 +37687,7 @@ json["PFN_vkDebugUtilsMessengerCallbackEXT"]=(uintptr_t)(member.pfnUserCallback)
             }
             }();
         }
-        }();pUserData->pUserData=temp_YghEUhF;}();
+        }();pUserData->pUserData=(void*)(temp_YghEUhF);}();
 pUserData->PFN_vkDebugUtilsMessengerCallbackEXT=(value_to<uintptr_t>(json["PFN_vkDebugUtilsMessengerCallbackEXT"]));
 
         #endif
@@ -35940,7 +38084,7 @@ json["PFN_vkDeviceMemoryReportCallbackEXT"]=(uintptr_t)(member.pfnUserCallback);
             }
             }();
         }
-        }();pUserData=temp_YghEUhF;}();
+        }();pUserData=(void*)(temp_YghEUhF);}();
             #else 
                 auto pUserData=new pUserData_struct();
         
@@ -35963,7 +38107,7 @@ json["PFN_vkDeviceMemoryReportCallbackEXT"]=(uintptr_t)(member.pfnUserCallback);
             }
             }();
         }
-        }();pUserData->pUserData=temp_YghEUhF;}();
+        }();pUserData->pUserData=(void*)(temp_YghEUhF);}();
 pUserData->PFN_vkDeviceMemoryReportCallbackEXT=(value_to<uintptr_t>(json["PFN_vkDeviceMemoryReportCallbackEXT"]));
 
         #endif
@@ -36165,9 +38309,9 @@ auto& pHostPointer_json=json["pHostPointer"];
             if (((char*)(member.pHostPointer))==NULL){
                 pHostPointer_json=boost::json::array();
             return; }pHostPointer_json=boost::json::array(strlen(((char*)(member.pHostPointer)))+1);
-        auto& arr_BrxoFPy=pHostPointer_json.as_array();
-        for(int ZYyfYiy=0; ZYyfYiy < strlen(((char*)(member.pHostPointer)))+1; ZYyfYiy++){
-            [&](){arr_BrxoFPy[ZYyfYiy]=((char*)(member.pHostPointer))[ZYyfYiy];}();
+        auto& arr_viXVbQU=pHostPointer_json.as_array();
+        for(int BGNhiQj=0; BGNhiQj < strlen(((char*)(member.pHostPointer)))+1; BGNhiQj++){
+            [&](){arr_viXVbQU[BGNhiQj]=((char*)(member.pHostPointer))[BGNhiQj];}();
         }
         }();}();
 }
@@ -36205,19 +38349,19 @@ auto& pHostPointer_json=json["pHostPointer"];
             if (pHostPointer_json.as_array().size()==0){
                 temp_XgjXTho=NULL;
             return; }temp_XgjXTho=(char*)malloc(pHostPointer_json.as_array().size()*sizeof(char));
-        auto& arr_BrxoFPy=pHostPointer_json.as_array();
-        for(int ZYyfYiy=0; ZYyfYiy < pHostPointer_json.as_array().size(); ZYyfYiy++){
+        auto& arr_viXVbQU=pHostPointer_json.as_array();
+        for(int BGNhiQj=0; BGNhiQj < pHostPointer_json.as_array().size(); BGNhiQj++){
             [&](){
-            if (arr_BrxoFPy[ZYyfYiy].is_uint64()){
-                temp_XgjXTho[ZYyfYiy]=static_cast<char>(arr_BrxoFPy[ZYyfYiy].as_uint64());
-            }else if (arr_BrxoFPy[ZYyfYiy].is_int64()){
-                temp_XgjXTho[ZYyfYiy]=static_cast<char>(arr_BrxoFPy[ZYyfYiy].as_int64());
+            if (arr_viXVbQU[BGNhiQj].is_uint64()){
+                temp_XgjXTho[BGNhiQj]=static_cast<char>(arr_viXVbQU[BGNhiQj].as_uint64());
+            }else if (arr_viXVbQU[BGNhiQj].is_int64()){
+                temp_XgjXTho[BGNhiQj]=static_cast<char>(arr_viXVbQU[BGNhiQj].as_int64());
             }else{
-                temp_XgjXTho[ZYyfYiy]=static_cast<char>(arr_BrxoFPy[ZYyfYiy].as_double());
+                temp_XgjXTho[BGNhiQj]=static_cast<char>(arr_viXVbQU[BGNhiQj].as_double());
             }
             }();
         }
-        }();member.pHostPointer=temp_XgjXTho;}();
+        }();member.pHostPointer=(void*)(temp_XgjXTho);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkMemoryHostPointerPropertiesEXT& member){
@@ -39716,9 +41860,9 @@ auto& pCheckpointMarker_json=json["pCheckpointMarker"];
             if (((char*)(member.pCheckpointMarker))==NULL){
                 pCheckpointMarker_json=boost::json::array();
             return; }pCheckpointMarker_json=boost::json::array(strlen(((char*)(member.pCheckpointMarker)))+1);
-        auto& arr_camgBwN=pCheckpointMarker_json.as_array();
-        for(int RrhLchW=0; RrhLchW < strlen(((char*)(member.pCheckpointMarker)))+1; RrhLchW++){
-            [&](){arr_camgBwN[RrhLchW]=((char*)(member.pCheckpointMarker))[RrhLchW];}();
+        auto& arr_RcLHqad=pCheckpointMarker_json.as_array();
+        for(int PTyGLAc=0; PTyGLAc < strlen(((char*)(member.pCheckpointMarker)))+1; PTyGLAc++){
+            [&](){arr_RcLHqad[PTyGLAc]=((char*)(member.pCheckpointMarker))[PTyGLAc];}();
         }
         }();}();
 }
@@ -39756,19 +41900,19 @@ auto& pCheckpointMarker_json=json["pCheckpointMarker"];
             if (pCheckpointMarker_json.as_array().size()==0){
                 temp_YQxDhdf=NULL;
             return; }temp_YQxDhdf=(char*)malloc(pCheckpointMarker_json.as_array().size()*sizeof(char));
-        auto& arr_camgBwN=pCheckpointMarker_json.as_array();
-        for(int RrhLchW=0; RrhLchW < pCheckpointMarker_json.as_array().size(); RrhLchW++){
+        auto& arr_RcLHqad=pCheckpointMarker_json.as_array();
+        for(int PTyGLAc=0; PTyGLAc < pCheckpointMarker_json.as_array().size(); PTyGLAc++){
             [&](){
-            if (arr_camgBwN[RrhLchW].is_uint64()){
-                temp_YQxDhdf[RrhLchW]=static_cast<char>(arr_camgBwN[RrhLchW].as_uint64());
-            }else if (arr_camgBwN[RrhLchW].is_int64()){
-                temp_YQxDhdf[RrhLchW]=static_cast<char>(arr_camgBwN[RrhLchW].as_int64());
+            if (arr_RcLHqad[PTyGLAc].is_uint64()){
+                temp_YQxDhdf[PTyGLAc]=static_cast<char>(arr_RcLHqad[PTyGLAc].as_uint64());
+            }else if (arr_RcLHqad[PTyGLAc].is_int64()){
+                temp_YQxDhdf[PTyGLAc]=static_cast<char>(arr_RcLHqad[PTyGLAc].as_int64());
             }else{
-                temp_YQxDhdf[RrhLchW]=static_cast<char>(arr_camgBwN[RrhLchW].as_double());
+                temp_YQxDhdf[PTyGLAc]=static_cast<char>(arr_RcLHqad[PTyGLAc].as_double());
             }
             }();
         }
-        }();member.pCheckpointMarker=temp_YQxDhdf;}();
+        }();member.pCheckpointMarker=(void*)(temp_YQxDhdf);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkPhysicalDeviceDepthStencilResolveProperties& member){
@@ -42223,9 +44367,9 @@ auto& pShaderGroupCaptureReplayHandle_json=json["pShaderGroupCaptureReplayHandle
             if (((char*)(member.pShaderGroupCaptureReplayHandle))==NULL){
                 pShaderGroupCaptureReplayHandle_json=boost::json::array();
             return; }pShaderGroupCaptureReplayHandle_json=boost::json::array(strlen(((char*)(member.pShaderGroupCaptureReplayHandle)))+1);
-        auto& arr_YQnRSSx=pShaderGroupCaptureReplayHandle_json.as_array();
-        for(int HWueAJF=0; HWueAJF < strlen(((char*)(member.pShaderGroupCaptureReplayHandle)))+1; HWueAJF++){
-            [&](){arr_YQnRSSx[HWueAJF]=((char*)(member.pShaderGroupCaptureReplayHandle))[HWueAJF];}();
+        auto& arr_JaEpCFD=pShaderGroupCaptureReplayHandle_json.as_array();
+        for(int iwZlZnp=0; iwZlZnp < strlen(((char*)(member.pShaderGroupCaptureReplayHandle)))+1; iwZlZnp++){
+            [&](){arr_JaEpCFD[iwZlZnp]=((char*)(member.pShaderGroupCaptureReplayHandle))[iwZlZnp];}();
         }
         }();}();
 }
@@ -42303,19 +44447,19 @@ auto& pShaderGroupCaptureReplayHandle_json=json["pShaderGroupCaptureReplayHandle
             if (pShaderGroupCaptureReplayHandle_json.as_array().size()==0){
                 temp_FxNNGvm=NULL;
             return; }temp_FxNNGvm=(char*)malloc(pShaderGroupCaptureReplayHandle_json.as_array().size()*sizeof(char));
-        auto& arr_RsdjemY=pShaderGroupCaptureReplayHandle_json.as_array();
-        for(int vSGMexC=0; vSGMexC < pShaderGroupCaptureReplayHandle_json.as_array().size(); vSGMexC++){
+        auto& arr_xkWOzJC=pShaderGroupCaptureReplayHandle_json.as_array();
+        for(int gRVXATv=0; gRVXATv < pShaderGroupCaptureReplayHandle_json.as_array().size(); gRVXATv++){
             [&](){
-            if (arr_RsdjemY[vSGMexC].is_uint64()){
-                temp_FxNNGvm[vSGMexC]=static_cast<char>(arr_RsdjemY[vSGMexC].as_uint64());
-            }else if (arr_RsdjemY[vSGMexC].is_int64()){
-                temp_FxNNGvm[vSGMexC]=static_cast<char>(arr_RsdjemY[vSGMexC].as_int64());
+            if (arr_xkWOzJC[gRVXATv].is_uint64()){
+                temp_FxNNGvm[gRVXATv]=static_cast<char>(arr_xkWOzJC[gRVXATv].as_uint64());
+            }else if (arr_xkWOzJC[gRVXATv].is_int64()){
+                temp_FxNNGvm[gRVXATv]=static_cast<char>(arr_xkWOzJC[gRVXATv].as_int64());
             }else{
-                temp_FxNNGvm[vSGMexC]=static_cast<char>(arr_RsdjemY[vSGMexC].as_double());
+                temp_FxNNGvm[gRVXATv]=static_cast<char>(arr_xkWOzJC[gRVXATv].as_double());
             }
             }();
         }
-        }();temp_BCKEQOX=temp_FxNNGvm;}();member.pShaderGroupCaptureReplayHandle=temp_BCKEQOX;}();
+        }();temp_BCKEQOX=(void*)(temp_FxNNGvm);}();member.pShaderGroupCaptureReplayHandle=temp_BCKEQOX;}();
 }
 
     void serialize_struct(boost::json::object& json, const VkRayTracingPipelineCreateInfoNV& member){
@@ -47858,7 +50002,7 @@ auto& data_json=json["data"];
             }
             }();
         }
-        }();pUserData=temp_YghEUhF;}();
+        }();pUserData=(void*)(temp_YghEUhF);}();
             #else 
                 auto pUserData=new pUserData_struct();
         
@@ -47881,7 +50025,7 @@ auto& data_json=json["data"];
             }
             }();
         }
-        }();pUserData->pUserData=temp_YghEUhF;}();
+        }();pUserData->pUserData=(void*)(temp_YghEUhF);}();
 
         #endif
         member.pUserData=pUserData;
@@ -48999,9 +51143,9 @@ auto& pData_json=json["pData"];
             if (((char*)(member.pData))==NULL){
                 pData_json=boost::json::array();
             return; }pData_json=boost::json::array(member.dataSize);
-        auto& arr_BbZMMzi=pData_json.as_array();
-        for(int NEiuWIo=0; NEiuWIo < member.dataSize; NEiuWIo++){
-            [&](){arr_BbZMMzi[NEiuWIo]=((char*)(member.pData))[NEiuWIo];}();
+        auto& arr_mqdwdvb=pData_json.as_array();
+        for(int KlbyJhB=0; KlbyJhB < member.dataSize; KlbyJhB++){
+            [&](){arr_mqdwdvb[KlbyJhB]=((char*)(member.pData))[KlbyJhB];}();
         }
         }();}();
 }
@@ -49079,19 +51223,19 @@ auto& pData_json=json["pData"];
             if (pData_json.as_array().size()==0){
                 temp_BLfUMet=NULL;
             return; }temp_BLfUMet=(char*)malloc(member.dataSize*sizeof(char));
-        auto& arr_BbZMMzi=pData_json.as_array();
-        for(int NEiuWIo=0; NEiuWIo < member.dataSize; NEiuWIo++){
+        auto& arr_mqdwdvb=pData_json.as_array();
+        for(int KlbyJhB=0; KlbyJhB < member.dataSize; KlbyJhB++){
             [&](){
-            if (arr_BbZMMzi[NEiuWIo].is_uint64()){
-                temp_BLfUMet[NEiuWIo]=static_cast<char>(arr_BbZMMzi[NEiuWIo].as_uint64());
-            }else if (arr_BbZMMzi[NEiuWIo].is_int64()){
-                temp_BLfUMet[NEiuWIo]=static_cast<char>(arr_BbZMMzi[NEiuWIo].as_int64());
+            if (arr_mqdwdvb[KlbyJhB].is_uint64()){
+                temp_BLfUMet[KlbyJhB]=static_cast<char>(arr_mqdwdvb[KlbyJhB].as_uint64());
+            }else if (arr_mqdwdvb[KlbyJhB].is_int64()){
+                temp_BLfUMet[KlbyJhB]=static_cast<char>(arr_mqdwdvb[KlbyJhB].as_int64());
             }else{
-                temp_BLfUMet[NEiuWIo]=static_cast<char>(arr_BbZMMzi[NEiuWIo].as_double());
+                temp_BLfUMet[KlbyJhB]=static_cast<char>(arr_mqdwdvb[KlbyJhB].as_double());
             }
             }();
         }
-        }();member.pData=temp_BLfUMet;}();
+        }();member.pData=(void*)(temp_BLfUMet);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkPhysicalDeviceShaderDemoteToHelperInvocationFeatures& member){
@@ -52868,9 +55012,9 @@ auto& hostAddress_json=json["hostAddress"];
             if (((char*)(member.hostAddress))==NULL){
                 hostAddress_json=boost::json::array();
             return; }hostAddress_json=boost::json::array(strlen(((char*)(member.hostAddress)))+1);
-        auto& arr_vecfklo=hostAddress_json.as_array();
-        for(int rebBrIs=0; rebBrIs < strlen(((char*)(member.hostAddress)))+1; rebBrIs++){
-            [&](){arr_vecfklo[rebBrIs]=((char*)(member.hostAddress))[rebBrIs];}();
+        auto& arr_dLPRUkq=hostAddress_json.as_array();
+        for(int cPtdjkC=0; cPtdjkC < strlen(((char*)(member.hostAddress)))+1; cPtdjkC++){
+            [&](){arr_dLPRUkq[cPtdjkC]=((char*)(member.hostAddress))[cPtdjkC];}();
         }
         }();}();
 }
@@ -52893,19 +55037,19 @@ auto& hostAddress_json=json["hostAddress"];
             if (hostAddress_json.as_array().size()==0){
                 temp_fiKuQcW=NULL;
             return; }temp_fiKuQcW=(char*)malloc(hostAddress_json.as_array().size()*sizeof(char));
-        auto& arr_vecfklo=hostAddress_json.as_array();
-        for(int rebBrIs=0; rebBrIs < hostAddress_json.as_array().size(); rebBrIs++){
+        auto& arr_dLPRUkq=hostAddress_json.as_array();
+        for(int cPtdjkC=0; cPtdjkC < hostAddress_json.as_array().size(); cPtdjkC++){
             [&](){
-            if (arr_vecfklo[rebBrIs].is_uint64()){
-                temp_fiKuQcW[rebBrIs]=static_cast<char>(arr_vecfklo[rebBrIs].as_uint64());
-            }else if (arr_vecfklo[rebBrIs].is_int64()){
-                temp_fiKuQcW[rebBrIs]=static_cast<char>(arr_vecfklo[rebBrIs].as_int64());
+            if (arr_dLPRUkq[cPtdjkC].is_uint64()){
+                temp_fiKuQcW[cPtdjkC]=static_cast<char>(arr_dLPRUkq[cPtdjkC].as_uint64());
+            }else if (arr_dLPRUkq[cPtdjkC].is_int64()){
+                temp_fiKuQcW[cPtdjkC]=static_cast<char>(arr_dLPRUkq[cPtdjkC].as_int64());
             }else{
-                temp_fiKuQcW[rebBrIs]=static_cast<char>(arr_vecfklo[rebBrIs].as_double());
+                temp_fiKuQcW[cPtdjkC]=static_cast<char>(arr_dLPRUkq[cPtdjkC].as_double());
             }
             }();
         }
-        }();member.hostAddress=temp_fiKuQcW;}();
+        }();member.hostAddress=(void*)(temp_fiKuQcW);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkDeviceOrHostAddressConstKHR& member){
@@ -52921,9 +55065,9 @@ auto& hostAddress_json=json["hostAddress"];
             if (((char*)(member.hostAddress))==NULL){
                 hostAddress_json=boost::json::array();
             return; }hostAddress_json=boost::json::array(strlen(((char*)(member.hostAddress)))+1);
-        auto& arr_FsCizYU=hostAddress_json.as_array();
-        for(int hLpIlSM=0; hLpIlSM < strlen(((char*)(member.hostAddress)))+1; hLpIlSM++){
-            [&](){arr_FsCizYU[hLpIlSM]=((char*)(member.hostAddress))[hLpIlSM];}();
+        auto& arr_hDLtrsy=hostAddress_json.as_array();
+        for(int njXdCKd=0; njXdCKd < strlen(((char*)(member.hostAddress)))+1; njXdCKd++){
+            [&](){arr_hDLtrsy[njXdCKd]=((char*)(member.hostAddress))[njXdCKd];}();
         }
         }();}();
 }
@@ -52946,19 +55090,19 @@ auto& hostAddress_json=json["hostAddress"];
             if (hostAddress_json.as_array().size()==0){
                 temp_tyXPSns=NULL;
             return; }temp_tyXPSns=(char*)malloc(hostAddress_json.as_array().size()*sizeof(char));
-        auto& arr_EdreUCK=hostAddress_json.as_array();
-        for(int txdGZNV=0; txdGZNV < hostAddress_json.as_array().size(); txdGZNV++){
+        auto& arr_wWYDdwZ=hostAddress_json.as_array();
+        for(int QIQcfdU=0; QIQcfdU < hostAddress_json.as_array().size(); QIQcfdU++){
             [&](){
-            if (arr_EdreUCK[txdGZNV].is_uint64()){
-                temp_tyXPSns[txdGZNV]=static_cast<char>(arr_EdreUCK[txdGZNV].as_uint64());
-            }else if (arr_EdreUCK[txdGZNV].is_int64()){
-                temp_tyXPSns[txdGZNV]=static_cast<char>(arr_EdreUCK[txdGZNV].as_int64());
+            if (arr_wWYDdwZ[QIQcfdU].is_uint64()){
+                temp_tyXPSns[QIQcfdU]=static_cast<char>(arr_wWYDdwZ[QIQcfdU].as_uint64());
+            }else if (arr_wWYDdwZ[QIQcfdU].is_int64()){
+                temp_tyXPSns[QIQcfdU]=static_cast<char>(arr_wWYDdwZ[QIQcfdU].as_int64());
             }else{
-                temp_tyXPSns[txdGZNV]=static_cast<char>(arr_EdreUCK[txdGZNV].as_double());
+                temp_tyXPSns[QIQcfdU]=static_cast<char>(arr_wWYDdwZ[QIQcfdU].as_double());
             }
             }();
         }
-        }();temp_sYgHmJE=temp_tyXPSns;}();member.hostAddress=temp_sYgHmJE;}();
+        }();temp_sYgHmJE=(void*)(temp_tyXPSns);}();member.hostAddress=temp_sYgHmJE;}();
 }
 
     void serialize_struct(boost::json::object& json, const VkAccelerationStructureGeometryTrianglesDataKHR& member){
@@ -58835,9 +60979,9 @@ auto& pCheckpointMarker_json=json["pCheckpointMarker"];
             if (((char*)(member.pCheckpointMarker))==NULL){
                 pCheckpointMarker_json=boost::json::array();
             return; }pCheckpointMarker_json=boost::json::array(strlen(((char*)(member.pCheckpointMarker)))+1);
-        auto& arr_camgBwN=pCheckpointMarker_json.as_array();
-        for(int RrhLchW=0; RrhLchW < strlen(((char*)(member.pCheckpointMarker)))+1; RrhLchW++){
-            [&](){arr_camgBwN[RrhLchW]=((char*)(member.pCheckpointMarker))[RrhLchW];}();
+        auto& arr_RcLHqad=pCheckpointMarker_json.as_array();
+        for(int PTyGLAc=0; PTyGLAc < strlen(((char*)(member.pCheckpointMarker)))+1; PTyGLAc++){
+            [&](){arr_RcLHqad[PTyGLAc]=((char*)(member.pCheckpointMarker))[PTyGLAc];}();
         }
         }();}();
 }
@@ -58875,19 +61019,19 @@ auto& pCheckpointMarker_json=json["pCheckpointMarker"];
             if (pCheckpointMarker_json.as_array().size()==0){
                 temp_YQxDhdf=NULL;
             return; }temp_YQxDhdf=(char*)malloc(pCheckpointMarker_json.as_array().size()*sizeof(char));
-        auto& arr_camgBwN=pCheckpointMarker_json.as_array();
-        for(int RrhLchW=0; RrhLchW < pCheckpointMarker_json.as_array().size(); RrhLchW++){
+        auto& arr_RcLHqad=pCheckpointMarker_json.as_array();
+        for(int PTyGLAc=0; PTyGLAc < pCheckpointMarker_json.as_array().size(); PTyGLAc++){
             [&](){
-            if (arr_camgBwN[RrhLchW].is_uint64()){
-                temp_YQxDhdf[RrhLchW]=static_cast<char>(arr_camgBwN[RrhLchW].as_uint64());
-            }else if (arr_camgBwN[RrhLchW].is_int64()){
-                temp_YQxDhdf[RrhLchW]=static_cast<char>(arr_camgBwN[RrhLchW].as_int64());
+            if (arr_RcLHqad[PTyGLAc].is_uint64()){
+                temp_YQxDhdf[PTyGLAc]=static_cast<char>(arr_RcLHqad[PTyGLAc].as_uint64());
+            }else if (arr_RcLHqad[PTyGLAc].is_int64()){
+                temp_YQxDhdf[PTyGLAc]=static_cast<char>(arr_RcLHqad[PTyGLAc].as_int64());
             }else{
-                temp_YQxDhdf[RrhLchW]=static_cast<char>(arr_camgBwN[RrhLchW].as_double());
+                temp_YQxDhdf[PTyGLAc]=static_cast<char>(arr_RcLHqad[PTyGLAc].as_double());
             }
             }();
         }
-        }();member.pCheckpointMarker=temp_YQxDhdf;}();
+        }();member.pCheckpointMarker=(void*)(temp_YQxDhdf);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkPhysicalDeviceSynchronization2Features& member){
@@ -59133,9 +61277,9 @@ auto& pHostPointer_json=json["pHostPointer"];
             if (((char*)(member.pHostPointer))==NULL){
                 pHostPointer_json=boost::json::array();
             return; }pHostPointer_json=boost::json::array(strlen(((char*)(member.pHostPointer)))+1);
-        auto& arr_kKQnyNo=pHostPointer_json.as_array();
-        for(int HbGymWe=0; HbGymWe < strlen(((char*)(member.pHostPointer)))+1; HbGymWe++){
-            [&](){arr_kKQnyNo[HbGymWe]=((char*)(member.pHostPointer))[HbGymWe];}();
+        auto& arr_mwohrDJ=pHostPointer_json.as_array();
+        for(int JziQvof=0; JziQvof < strlen(((char*)(member.pHostPointer)))+1; JziQvof++){
+            [&](){arr_mwohrDJ[JziQvof]=((char*)(member.pHostPointer))[JziQvof];}();
         }
         }();}();
 auto& memoryRowLength_json=json["memoryRowLength"];
@@ -59182,19 +61326,19 @@ auto& pHostPointer_json=json["pHostPointer"];
             if (pHostPointer_json.as_array().size()==0){
                 temp_oxrKMdu=NULL;
             return; }temp_oxrKMdu=(char*)malloc(pHostPointer_json.as_array().size()*sizeof(char));
-        auto& arr_jtlRKsJ=pHostPointer_json.as_array();
-        for(int EpJrNfa=0; EpJrNfa < pHostPointer_json.as_array().size(); EpJrNfa++){
+        auto& arr_qdhKfLJ=pHostPointer_json.as_array();
+        for(int mfypTJQ=0; mfypTJQ < pHostPointer_json.as_array().size(); mfypTJQ++){
             [&](){
-            if (arr_jtlRKsJ[EpJrNfa].is_uint64()){
-                temp_oxrKMdu[EpJrNfa]=static_cast<char>(arr_jtlRKsJ[EpJrNfa].as_uint64());
-            }else if (arr_jtlRKsJ[EpJrNfa].is_int64()){
-                temp_oxrKMdu[EpJrNfa]=static_cast<char>(arr_jtlRKsJ[EpJrNfa].as_int64());
+            if (arr_qdhKfLJ[mfypTJQ].is_uint64()){
+                temp_oxrKMdu[mfypTJQ]=static_cast<char>(arr_qdhKfLJ[mfypTJQ].as_uint64());
+            }else if (arr_qdhKfLJ[mfypTJQ].is_int64()){
+                temp_oxrKMdu[mfypTJQ]=static_cast<char>(arr_qdhKfLJ[mfypTJQ].as_int64());
             }else{
-                temp_oxrKMdu[EpJrNfa]=static_cast<char>(arr_jtlRKsJ[EpJrNfa].as_double());
+                temp_oxrKMdu[mfypTJQ]=static_cast<char>(arr_qdhKfLJ[mfypTJQ].as_double());
             }
             }();
         }
-        }();temp_SgjnWPf=temp_oxrKMdu;}();member.pHostPointer=temp_SgjnWPf;}();
+        }();temp_SgjnWPf=(void*)(temp_oxrKMdu);}();member.pHostPointer=temp_SgjnWPf;}();
 auto& memoryRowLength_json=json["memoryRowLength"];
 [&](){
             if (memoryRowLength_json.is_uint64()){
@@ -59250,9 +61394,9 @@ auto& pHostPointer_json=json["pHostPointer"];
             if (((char*)(member.pHostPointer))==NULL){
                 pHostPointer_json=boost::json::array();
             return; }pHostPointer_json=boost::json::array(100000);
-        auto& arr_BrxoFPy=pHostPointer_json.as_array();
-        for(int ZYyfYiy=0; ZYyfYiy < 100000; ZYyfYiy++){
-            [&](){arr_BrxoFPy[ZYyfYiy]=((char*)(member.pHostPointer))[ZYyfYiy];}();
+        auto& arr_viXVbQU=pHostPointer_json.as_array();
+        for(int BGNhiQj=0; BGNhiQj < 100000; BGNhiQj++){
+            [&](){arr_viXVbQU[BGNhiQj]=((char*)(member.pHostPointer))[BGNhiQj];}();
         }
         }();}();
 auto& memoryRowLength_json=json["memoryRowLength"];
@@ -59299,19 +61443,19 @@ auto& pHostPointer_json=json["pHostPointer"];
             if (pHostPointer_json.as_array().size()==0){
                 temp_LWTmyZj=NULL;
             return; }temp_LWTmyZj=(char*)malloc(100000*sizeof(char));
-        auto& arr_BrxoFPy=pHostPointer_json.as_array();
-        for(int ZYyfYiy=0; ZYyfYiy < 100000; ZYyfYiy++){
+        auto& arr_viXVbQU=pHostPointer_json.as_array();
+        for(int BGNhiQj=0; BGNhiQj < 100000; BGNhiQj++){
             [&](){
-            if (arr_BrxoFPy[ZYyfYiy].is_uint64()){
-                temp_LWTmyZj[ZYyfYiy]=static_cast<char>(arr_BrxoFPy[ZYyfYiy].as_uint64());
-            }else if (arr_BrxoFPy[ZYyfYiy].is_int64()){
-                temp_LWTmyZj[ZYyfYiy]=static_cast<char>(arr_BrxoFPy[ZYyfYiy].as_int64());
+            if (arr_viXVbQU[BGNhiQj].is_uint64()){
+                temp_LWTmyZj[BGNhiQj]=static_cast<char>(arr_viXVbQU[BGNhiQj].as_uint64());
+            }else if (arr_viXVbQU[BGNhiQj].is_int64()){
+                temp_LWTmyZj[BGNhiQj]=static_cast<char>(arr_viXVbQU[BGNhiQj].as_int64());
             }else{
-                temp_LWTmyZj[ZYyfYiy]=static_cast<char>(arr_BrxoFPy[ZYyfYiy].as_double());
+                temp_LWTmyZj[BGNhiQj]=static_cast<char>(arr_viXVbQU[BGNhiQj].as_double());
             }
             }();
         }
-        }();member.pHostPointer=temp_LWTmyZj;}();
+        }();member.pHostPointer=(void*)(temp_LWTmyZj);}();
 auto& memoryRowLength_json=json["memoryRowLength"];
 [&](){
             if (memoryRowLength_json.is_uint64()){
@@ -62543,9 +64687,9 @@ auto& pData_json=json["pData"];
             if (((char*)(member.pData))==NULL){
                 pData_json=boost::json::array();
             return; }pData_json=boost::json::array(member.dataSize);
-        auto& arr_cukaPTa=pData_json.as_array();
-        for(int UqwNSOA=0; UqwNSOA < member.dataSize; UqwNSOA++){
-            [&](){arr_cukaPTa[UqwNSOA]=((char*)(member.pData))[UqwNSOA];}();
+        auto& arr_yEdGeHa=pData_json.as_array();
+        for(int xKfVSmX=0; xKfVSmX < member.dataSize; xKfVSmX++){
+            [&](){arr_yEdGeHa[xKfVSmX]=((char*)(member.pData))[xKfVSmX];}();
         }
         }();}();
 }
@@ -62583,19 +64727,19 @@ auto& pData_json=json["pData"];
             if (pData_json.as_array().size()==0){
                 temp_qtCaFHh=NULL;
             return; }temp_qtCaFHh=(char*)malloc(member.dataSize*sizeof(char));
-        auto& arr_XpObFOU=pData_json.as_array();
-        for(int tUplioR=0; tUplioR < member.dataSize; tUplioR++){
+        auto& arr_EykplLZ=pData_json.as_array();
+        for(int PzakSTD=0; PzakSTD < member.dataSize; PzakSTD++){
             [&](){
-            if (arr_XpObFOU[tUplioR].is_uint64()){
-                temp_qtCaFHh[tUplioR]=static_cast<char>(arr_XpObFOU[tUplioR].as_uint64());
-            }else if (arr_XpObFOU[tUplioR].is_int64()){
-                temp_qtCaFHh[tUplioR]=static_cast<char>(arr_XpObFOU[tUplioR].as_int64());
+            if (arr_EykplLZ[PzakSTD].is_uint64()){
+                temp_qtCaFHh[PzakSTD]=static_cast<char>(arr_EykplLZ[PzakSTD].as_uint64());
+            }else if (arr_EykplLZ[PzakSTD].is_int64()){
+                temp_qtCaFHh[PzakSTD]=static_cast<char>(arr_EykplLZ[PzakSTD].as_int64());
             }else{
-                temp_qtCaFHh[tUplioR]=static_cast<char>(arr_XpObFOU[tUplioR].as_double());
+                temp_qtCaFHh[PzakSTD]=static_cast<char>(arr_EykplLZ[PzakSTD].as_double());
             }
             }();
         }
-        }();temp_rZvPbwc=temp_qtCaFHh;}();member.pData=temp_rZvPbwc;}();
+        }();temp_rZvPbwc=(void*)(temp_qtCaFHh);}();member.pData=temp_rZvPbwc;}();
 }
 
     void serialize_struct(boost::json::object& json, const VkCuFunctionCreateInfoNVX& member){
@@ -62691,46 +64835,46 @@ auto& pParams_json=json["pParams"];
 [&](){
             if (member.pParams==NULL){
                 pParams_json=boost::json::array();
-            return; }pParams_json=boost::json::array(1);
-        auto& arr_UKdddHW=pParams_json.as_array();
-        for(int lwGCeVE=0; lwGCeVE < 1; lwGCeVE++){
-            [&](){
-            if (member.pParams[lwGCeVE]==NULL){
-                arr_UKdddHW[lwGCeVE]=boost::json::array();
             return; }[&](){
-            if (((char*)(member.pParams[lwGCeVE]))==NULL){
-                arr_UKdddHW[lwGCeVE]=boost::json::array();
-            return; }arr_UKdddHW[lwGCeVE]=boost::json::array(member.paramCount);
-        auto& arr_ZeylACs=arr_UKdddHW[lwGCeVE].as_array();
-        for(int sXfeKcP=0; sXfeKcP < member.paramCount; sXfeKcP++){
-            [&](){arr_ZeylACs[sXfeKcP]=((char*)(member.pParams[lwGCeVE]))[sXfeKcP];}();
-        }
-        }();}();
+            if (((char**)(member.pParams))==NULL){
+                pParams_json=boost::json::array();
+            return; }pParams_json=boost::json::array(1);
+        auto& arr_fbeVGbI=pParams_json.as_array();
+        for(int SaRWlJO=0; SaRWlJO < 1; SaRWlJO++){
+            [&](){
+            if (((char**)(member.pParams))[SaRWlJO]==NULL){
+                arr_fbeVGbI[SaRWlJO]=boost::json::array();
+            return; }arr_fbeVGbI[SaRWlJO]=boost::json::array(member.paramCount);
+        auto& arr_gKiFEfN=arr_fbeVGbI[SaRWlJO].as_array();
+        for(int ahUwWvX=0; ahUwWvX < member.paramCount; ahUwWvX++){
+            [&](){arr_gKiFEfN[ahUwWvX]=((char**)(member.pParams))[SaRWlJO][ahUwWvX];}();
         }
         }();
+        }
+        }();}();
 auto& extraCount_json=json["extraCount"];
 [&](){extraCount_json=member.extraCount;}();
 auto& pExtras_json=json["pExtras"];
 [&](){
             if (member.pExtras==NULL){
                 pExtras_json=boost::json::array();
-            return; }pExtras_json=boost::json::array(1);
-        auto& arr_JybOQtK=pExtras_json.as_array();
-        for(int TjXAhjK=0; TjXAhjK < 1; TjXAhjK++){
-            [&](){
-            if (member.pExtras[TjXAhjK]==NULL){
-                arr_JybOQtK[TjXAhjK]=boost::json::array();
             return; }[&](){
-            if (((char*)(member.pExtras[TjXAhjK]))==NULL){
-                arr_JybOQtK[TjXAhjK]=boost::json::array();
-            return; }arr_JybOQtK[TjXAhjK]=boost::json::array(member.extraCount);
-        auto& arr_VUsnEbF=arr_JybOQtK[TjXAhjK].as_array();
-        for(int QaQDEqf=0; QaQDEqf < member.extraCount; QaQDEqf++){
-            [&](){arr_VUsnEbF[QaQDEqf]=((char*)(member.pExtras[TjXAhjK]))[QaQDEqf];}();
-        }
-        }();}();
+            if (((char**)(member.pExtras))==NULL){
+                pExtras_json=boost::json::array();
+            return; }pExtras_json=boost::json::array(1);
+        auto& arr_FDJpNcQ=pExtras_json.as_array();
+        for(int lUYbvOR=0; lUYbvOR < 1; lUYbvOR++){
+            [&](){
+            if (((char**)(member.pExtras))[lUYbvOR]==NULL){
+                arr_FDJpNcQ[lUYbvOR]=boost::json::array();
+            return; }arr_FDJpNcQ[lUYbvOR]=boost::json::array(member.extraCount);
+        auto& arr_TqHUBWD=arr_FDJpNcQ[lUYbvOR].as_array();
+        for(int teZDtnR=0; teZDtnR < member.extraCount; teZDtnR++){
+            [&](){arr_TqHUBWD[teZDtnR]=((char**)(member.pExtras))[lUYbvOR][teZDtnR];}();
         }
         }();
+        }
+        }();}();
 }
 void deserialize_struct(boost::json::object& json, VkCuLaunchInfoNVX& member){
 auto& sType_json=json["sType"];
@@ -62834,31 +64978,31 @@ auto& pParams_json=json["pParams"];
 [&](){ void*  * temp_ISnBMiO;;[&](){
             if (pParams_json.as_array().size()==0){
                 temp_ISnBMiO=NULL;
-            return; }temp_ISnBMiO=(void**)malloc(1*sizeof(void*));
-        auto& arr_yGQtRYX=pParams_json.as_array();
-        for(int nElQNmD=0; nElQNmD < 1; nElQNmD++){
+            return; }char** temp_KBSGNLN;[&](){
+            if (pParams_json.as_array().size()==0){
+                temp_KBSGNLN=NULL;
+            return; }temp_KBSGNLN=(char**)malloc(1*sizeof(char*));
+        auto& arr_uiynrEM=pParams_json.as_array();
+        for(int BjdfNtn=0; BjdfNtn < 1; BjdfNtn++){
             [&](){
-            if (arr_yGQtRYX[nElQNmD].as_array().size()==0){
-                temp_ISnBMiO[nElQNmD]=NULL;
-            return; }char* temp_yGQtRYX;[&](){
-            if (arr_yGQtRYX[nElQNmD].as_array().size()==0){
-                temp_yGQtRYX=NULL;
-            return; }temp_yGQtRYX=(char*)malloc(member.paramCount*sizeof(char));
-        auto& arr_WjHuHAJ=arr_yGQtRYX[nElQNmD].as_array();
-        for(int bqNaAvH=0; bqNaAvH < member.paramCount; bqNaAvH++){
+            if (arr_uiynrEM[BjdfNtn].as_array().size()==0){
+                temp_KBSGNLN[BjdfNtn]=NULL;
+            return; }temp_KBSGNLN[BjdfNtn]=(char*)malloc(member.paramCount*sizeof(char));
+        auto& arr_yIIADVl=arr_uiynrEM[BjdfNtn].as_array();
+        for(int yUIwUsa=0; yUIwUsa < member.paramCount; yUIwUsa++){
             [&](){
-            if (arr_WjHuHAJ[bqNaAvH].is_uint64()){
-                temp_yGQtRYX[bqNaAvH]=static_cast<char>(arr_WjHuHAJ[bqNaAvH].as_uint64());
-            }else if (arr_WjHuHAJ[bqNaAvH].is_int64()){
-                temp_yGQtRYX[bqNaAvH]=static_cast<char>(arr_WjHuHAJ[bqNaAvH].as_int64());
+            if (arr_yIIADVl[yUIwUsa].is_uint64()){
+                temp_KBSGNLN[BjdfNtn][yUIwUsa]=static_cast<char>(arr_yIIADVl[yUIwUsa].as_uint64());
+            }else if (arr_yIIADVl[yUIwUsa].is_int64()){
+                temp_KBSGNLN[BjdfNtn][yUIwUsa]=static_cast<char>(arr_yIIADVl[yUIwUsa].as_int64());
             }else{
-                temp_yGQtRYX[bqNaAvH]=static_cast<char>(arr_WjHuHAJ[bqNaAvH].as_double());
+                temp_KBSGNLN[BjdfNtn][yUIwUsa]=static_cast<char>(arr_yIIADVl[yUIwUsa].as_double());
             }
             }();
         }
-        }();temp_ISnBMiO[nElQNmD]=temp_yGQtRYX;}();
+        }();
         }
-        }();member.pParams=temp_ISnBMiO;}();
+        }();temp_ISnBMiO=(void**)(temp_KBSGNLN);}();member.pParams=temp_ISnBMiO;}();
 auto& extraCount_json=json["extraCount"];
 [&](){
             if (extraCount_json.is_uint64()){
@@ -62873,31 +65017,31 @@ auto& pExtras_json=json["pExtras"];
 [&](){ void*  * temp_FUVwtsd;;[&](){
             if (pExtras_json.as_array().size()==0){
                 temp_FUVwtsd=NULL;
-            return; }temp_FUVwtsd=(void**)malloc(1*sizeof(void*));
-        auto& arr_MnVTqgJ=pExtras_json.as_array();
-        for(int kzGewvh=0; kzGewvh < 1; kzGewvh++){
+            return; }char** temp_szsfrju;[&](){
+            if (pExtras_json.as_array().size()==0){
+                temp_szsfrju=NULL;
+            return; }temp_szsfrju=(char**)malloc(1*sizeof(char*));
+        auto& arr_ylZzsEb=pExtras_json.as_array();
+        for(int BPDsiBW=0; BPDsiBW < 1; BPDsiBW++){
             [&](){
-            if (arr_MnVTqgJ[kzGewvh].as_array().size()==0){
-                temp_FUVwtsd[kzGewvh]=NULL;
-            return; }char* temp_MnVTqgJ;[&](){
-            if (arr_MnVTqgJ[kzGewvh].as_array().size()==0){
-                temp_MnVTqgJ=NULL;
-            return; }temp_MnVTqgJ=(char*)malloc(member.extraCount*sizeof(char));
-        auto& arr_ndLULUm=arr_MnVTqgJ[kzGewvh].as_array();
-        for(int gCJMSyN=0; gCJMSyN < member.extraCount; gCJMSyN++){
+            if (arr_ylZzsEb[BPDsiBW].as_array().size()==0){
+                temp_szsfrju[BPDsiBW]=NULL;
+            return; }temp_szsfrju[BPDsiBW]=(char*)malloc(member.extraCount*sizeof(char));
+        auto& arr_YRCaVbJ=arr_ylZzsEb[BPDsiBW].as_array();
+        for(int LIsCvIl=0; LIsCvIl < member.extraCount; LIsCvIl++){
             [&](){
-            if (arr_ndLULUm[gCJMSyN].is_uint64()){
-                temp_MnVTqgJ[gCJMSyN]=static_cast<char>(arr_ndLULUm[gCJMSyN].as_uint64());
-            }else if (arr_ndLULUm[gCJMSyN].is_int64()){
-                temp_MnVTqgJ[gCJMSyN]=static_cast<char>(arr_ndLULUm[gCJMSyN].as_int64());
+            if (arr_YRCaVbJ[LIsCvIl].is_uint64()){
+                temp_szsfrju[BPDsiBW][LIsCvIl]=static_cast<char>(arr_YRCaVbJ[LIsCvIl].as_uint64());
+            }else if (arr_YRCaVbJ[LIsCvIl].is_int64()){
+                temp_szsfrju[BPDsiBW][LIsCvIl]=static_cast<char>(arr_YRCaVbJ[LIsCvIl].as_int64());
             }else{
-                temp_MnVTqgJ[gCJMSyN]=static_cast<char>(arr_ndLULUm[gCJMSyN].as_double());
+                temp_szsfrju[BPDsiBW][LIsCvIl]=static_cast<char>(arr_YRCaVbJ[LIsCvIl].as_double());
             }
             }();
         }
-        }();temp_FUVwtsd[kzGewvh]=temp_MnVTqgJ;}();
+        }();
         }
-        }();member.pExtras=temp_FUVwtsd;}();
+        }();temp_FUVwtsd=(void**)(temp_szsfrju);}();member.pExtras=temp_FUVwtsd;}();
 }
 
     void serialize_struct(boost::json::object& json, const VkPhysicalDeviceDescriptorBufferFeaturesEXT& member){
@@ -64079,9 +66223,9 @@ auto& opaqueCaptureDescriptorData_json=json["opaqueCaptureDescriptorData"];
             if (((char*)(member.opaqueCaptureDescriptorData))==NULL){
                 opaqueCaptureDescriptorData_json=boost::json::array();
             return; }opaqueCaptureDescriptorData_json=boost::json::array(strlen(((char*)(member.opaqueCaptureDescriptorData)))+1);
-        auto& arr_rVjycpg=opaqueCaptureDescriptorData_json.as_array();
-        for(int HRdcEte=0; HRdcEte < strlen(((char*)(member.opaqueCaptureDescriptorData)))+1; HRdcEte++){
-            [&](){arr_rVjycpg[HRdcEte]=((char*)(member.opaqueCaptureDescriptorData))[HRdcEte];}();
+        auto& arr_KROLrDI=opaqueCaptureDescriptorData_json.as_array();
+        for(int tOsDBqY=0; tOsDBqY < strlen(((char*)(member.opaqueCaptureDescriptorData)))+1; tOsDBqY++){
+            [&](){arr_KROLrDI[tOsDBqY]=((char*)(member.opaqueCaptureDescriptorData))[tOsDBqY];}();
         }
         }();}();
 }
@@ -64109,19 +66253,19 @@ auto& opaqueCaptureDescriptorData_json=json["opaqueCaptureDescriptorData"];
             if (opaqueCaptureDescriptorData_json.as_array().size()==0){
                 temp_oilqpwP=NULL;
             return; }temp_oilqpwP=(char*)malloc(opaqueCaptureDescriptorData_json.as_array().size()*sizeof(char));
-        auto& arr_sEKzMyF=opaqueCaptureDescriptorData_json.as_array();
-        for(int GdODMOR=0; GdODMOR < opaqueCaptureDescriptorData_json.as_array().size(); GdODMOR++){
+        auto& arr_ywoEIop=opaqueCaptureDescriptorData_json.as_array();
+        for(int GwBzzbu=0; GwBzzbu < opaqueCaptureDescriptorData_json.as_array().size(); GwBzzbu++){
             [&](){
-            if (arr_sEKzMyF[GdODMOR].is_uint64()){
-                temp_oilqpwP[GdODMOR]=static_cast<char>(arr_sEKzMyF[GdODMOR].as_uint64());
-            }else if (arr_sEKzMyF[GdODMOR].is_int64()){
-                temp_oilqpwP[GdODMOR]=static_cast<char>(arr_sEKzMyF[GdODMOR].as_int64());
+            if (arr_ywoEIop[GwBzzbu].is_uint64()){
+                temp_oilqpwP[GwBzzbu]=static_cast<char>(arr_ywoEIop[GwBzzbu].as_uint64());
+            }else if (arr_ywoEIop[GwBzzbu].is_int64()){
+                temp_oilqpwP[GwBzzbu]=static_cast<char>(arr_ywoEIop[GwBzzbu].as_int64());
             }else{
-                temp_oilqpwP[GdODMOR]=static_cast<char>(arr_sEKzMyF[GdODMOR].as_double());
+                temp_oilqpwP[GwBzzbu]=static_cast<char>(arr_ywoEIop[GwBzzbu].as_double());
             }
             }();
         }
-        }();temp_DKgMqmE=temp_oilqpwP;}();member.opaqueCaptureDescriptorData=temp_DKgMqmE;}();
+        }();temp_DKgMqmE=(void*)(temp_oilqpwP);}();member.opaqueCaptureDescriptorData=temp_DKgMqmE;}();
 }
 
     void serialize_struct(boost::json::object& json, const VkPhysicalDeviceShaderIntegerDotProductFeatures& member){
@@ -69991,9 +72135,9 @@ auto& pPrivateData_json=json["pPrivateData"];
             if (((char*)(member.pPrivateData))==NULL){
                 pPrivateData_json=boost::json::array();
             return; }pPrivateData_json=boost::json::array(strlen(((char*)(member.pPrivateData)))+1);
-        auto& arr_jSPWUwe=pPrivateData_json.as_array();
-        for(int IsTGaYP=0; IsTGaYP < strlen(((char*)(member.pPrivateData)))+1; IsTGaYP++){
-            [&](){arr_jSPWUwe[IsTGaYP]=((char*)(member.pPrivateData))[IsTGaYP];}();
+        auto& arr_bfxVvKU=pPrivateData_json.as_array();
+        for(int UoHHXkn=0; UoHHXkn < strlen(((char*)(member.pPrivateData)))+1; UoHHXkn++){
+            [&](){arr_bfxVvKU[UoHHXkn]=((char*)(member.pPrivateData))[UoHHXkn];}();
         }
         }();}();
 }
@@ -70041,19 +72185,19 @@ auto& pPrivateData_json=json["pPrivateData"];
             if (pPrivateData_json.as_array().size()==0){
                 temp_BmEmXzz=NULL;
             return; }temp_BmEmXzz=(char*)malloc(pPrivateData_json.as_array().size()*sizeof(char));
-        auto& arr_bmJmfhQ=pPrivateData_json.as_array();
-        for(int nmMljYJ=0; nmMljYJ < pPrivateData_json.as_array().size(); nmMljYJ++){
+        auto& arr_pfFxKlj=pPrivateData_json.as_array();
+        for(int ikQlRTk=0; ikQlRTk < pPrivateData_json.as_array().size(); ikQlRTk++){
             [&](){
-            if (arr_bmJmfhQ[nmMljYJ].is_uint64()){
-                temp_BmEmXzz[nmMljYJ]=static_cast<char>(arr_bmJmfhQ[nmMljYJ].as_uint64());
-            }else if (arr_bmJmfhQ[nmMljYJ].is_int64()){
-                temp_BmEmXzz[nmMljYJ]=static_cast<char>(arr_bmJmfhQ[nmMljYJ].as_int64());
+            if (arr_pfFxKlj[ikQlRTk].is_uint64()){
+                temp_BmEmXzz[ikQlRTk]=static_cast<char>(arr_pfFxKlj[ikQlRTk].as_uint64());
+            }else if (arr_pfFxKlj[ikQlRTk].is_int64()){
+                temp_BmEmXzz[ikQlRTk]=static_cast<char>(arr_pfFxKlj[ikQlRTk].as_int64());
             }else{
-                temp_BmEmXzz[nmMljYJ]=static_cast<char>(arr_bmJmfhQ[nmMljYJ].as_double());
+                temp_BmEmXzz[ikQlRTk]=static_cast<char>(arr_pfFxKlj[ikQlRTk].as_double());
             }
             }();
         }
-        }();temp_XOIvhnK=temp_BmEmXzz;}();member.pPrivateData=temp_XOIvhnK;}();
+        }();temp_XOIvhnK=(void*)(temp_BmEmXzz);}();member.pPrivateData=temp_XOIvhnK;}();
 }
 
     void serialize_struct(boost::json::object& json, const VkOpticalFlowExecuteInfoNV& member){
@@ -70400,9 +72544,9 @@ auto& pVendorBinaryData_json=json["pVendorBinaryData"];
             if (((char*)(member.pVendorBinaryData))==NULL){
                 pVendorBinaryData_json=boost::json::array();
             return; }pVendorBinaryData_json=boost::json::array(strlen(((char*)(member.pVendorBinaryData)))+1);
-        auto& arr_UjtduAY=pVendorBinaryData_json.as_array();
-        for(int svQUInl=0; svQUInl < strlen(((char*)(member.pVendorBinaryData)))+1; svQUInl++){
-            [&](){arr_UjtduAY[svQUInl]=((char*)(member.pVendorBinaryData))[svQUInl];}();
+        auto& arr_IQhiDBa=pVendorBinaryData_json.as_array();
+        for(int FBGfNBx=0; FBGfNBx < strlen(((char*)(member.pVendorBinaryData)))+1; FBGfNBx++){
+            [&](){arr_IQhiDBa[FBGfNBx]=((char*)(member.pVendorBinaryData))[FBGfNBx];}();
         }
         }();}();
 }
@@ -70471,19 +72615,19 @@ auto& pVendorBinaryData_json=json["pVendorBinaryData"];
             if (pVendorBinaryData_json.as_array().size()==0){
                 temp_qkBFJQZ=NULL;
             return; }temp_qkBFJQZ=(char*)malloc(pVendorBinaryData_json.as_array().size()*sizeof(char));
-        auto& arr_UjtduAY=pVendorBinaryData_json.as_array();
-        for(int svQUInl=0; svQUInl < pVendorBinaryData_json.as_array().size(); svQUInl++){
+        auto& arr_IQhiDBa=pVendorBinaryData_json.as_array();
+        for(int FBGfNBx=0; FBGfNBx < pVendorBinaryData_json.as_array().size(); FBGfNBx++){
             [&](){
-            if (arr_UjtduAY[svQUInl].is_uint64()){
-                temp_qkBFJQZ[svQUInl]=static_cast<char>(arr_UjtduAY[svQUInl].as_uint64());
-            }else if (arr_UjtduAY[svQUInl].is_int64()){
-                temp_qkBFJQZ[svQUInl]=static_cast<char>(arr_UjtduAY[svQUInl].as_int64());
+            if (arr_IQhiDBa[FBGfNBx].is_uint64()){
+                temp_qkBFJQZ[FBGfNBx]=static_cast<char>(arr_IQhiDBa[FBGfNBx].as_uint64());
+            }else if (arr_IQhiDBa[FBGfNBx].is_int64()){
+                temp_qkBFJQZ[FBGfNBx]=static_cast<char>(arr_IQhiDBa[FBGfNBx].as_int64());
             }else{
-                temp_qkBFJQZ[svQUInl]=static_cast<char>(arr_UjtduAY[svQUInl].as_double());
+                temp_qkBFJQZ[FBGfNBx]=static_cast<char>(arr_IQhiDBa[FBGfNBx].as_double());
             }
             }();
         }
-        }();member.pVendorBinaryData=temp_qkBFJQZ;}();
+        }();member.pVendorBinaryData=(void*)(temp_qkBFJQZ);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkDeviceFaultVendorBinaryHeaderVersionOneEXT& member){
@@ -71017,9 +73161,9 @@ auto& pTag_json=json["pTag"];
             if (((char*)(member.pTag))==NULL){
                 pTag_json=boost::json::array();
             return; }pTag_json=boost::json::array(strlen(((char*)(member.pTag)))+1);
-        auto& arr_FJzNXuD=pTag_json.as_array();
-        for(int LCdjkoW=0; LCdjkoW < strlen(((char*)(member.pTag)))+1; LCdjkoW++){
-            [&](){arr_FJzNXuD[LCdjkoW]=((char*)(member.pTag))[LCdjkoW];}();
+        auto& arr_MuhDRxQ=pTag_json.as_array();
+        for(int LfbmHYH=0; LfbmHYH < strlen(((char*)(member.pTag)))+1; LfbmHYH++){
+            [&](){arr_MuhDRxQ[LfbmHYH]=((char*)(member.pTag))[LfbmHYH];}();
         }
         }();}();
 }
@@ -71127,19 +73271,19 @@ auto& pTag_json=json["pTag"];
             if (pTag_json.as_array().size()==0){
                 temp_ggwGDbs=NULL;
             return; }temp_ggwGDbs=(char*)malloc(pTag_json.as_array().size()*sizeof(char));
-        auto& arr_ewjwcVs=pTag_json.as_array();
-        for(int uOzVzVX=0; uOzVzVX < pTag_json.as_array().size(); uOzVzVX++){
+        auto& arr_DSdIeUh=pTag_json.as_array();
+        for(int htHmFFA=0; htHmFFA < pTag_json.as_array().size(); htHmFFA++){
             [&](){
-            if (arr_ewjwcVs[uOzVzVX].is_uint64()){
-                temp_ggwGDbs[uOzVzVX]=static_cast<char>(arr_ewjwcVs[uOzVzVX].as_uint64());
-            }else if (arr_ewjwcVs[uOzVzVX].is_int64()){
-                temp_ggwGDbs[uOzVzVX]=static_cast<char>(arr_ewjwcVs[uOzVzVX].as_int64());
+            if (arr_DSdIeUh[htHmFFA].is_uint64()){
+                temp_ggwGDbs[htHmFFA]=static_cast<char>(arr_DSdIeUh[htHmFFA].as_uint64());
+            }else if (arr_DSdIeUh[htHmFFA].is_int64()){
+                temp_ggwGDbs[htHmFFA]=static_cast<char>(arr_DSdIeUh[htHmFFA].as_int64());
             }else{
-                temp_ggwGDbs[uOzVzVX]=static_cast<char>(arr_ewjwcVs[uOzVzVX].as_double());
+                temp_ggwGDbs[htHmFFA]=static_cast<char>(arr_DSdIeUh[htHmFFA].as_double());
             }
             }();
         }
-        }();temp_PSkTDjB=temp_ggwGDbs;}();member.pTag=temp_PSkTDjB;}();
+        }();temp_PSkTDjB=(void*)(temp_ggwGDbs);}();member.pTag=temp_PSkTDjB;}();
 }
 
     void serialize_struct(boost::json::object& json, const VkPhysicalDeviceFrameBoundaryFeaturesEXT& member){
@@ -72440,9 +74584,9 @@ auto& pQueriedLowLatencyData_json=json["pQueriedLowLatencyData"];
             if (((char*)(member.pQueriedLowLatencyData))==NULL){
                 pQueriedLowLatencyData_json=boost::json::array();
             return; }pQueriedLowLatencyData_json=boost::json::array(strlen(((char*)(member.pQueriedLowLatencyData)))+1);
-        auto& arr_TaYZcsf=pQueriedLowLatencyData_json.as_array();
-        for(int KKwdYza=0; KKwdYza < strlen(((char*)(member.pQueriedLowLatencyData)))+1; KKwdYza++){
-            [&](){arr_TaYZcsf[KKwdYza]=((char*)(member.pQueriedLowLatencyData))[KKwdYza];}();
+        auto& arr_QLuIdTS=pQueriedLowLatencyData_json.as_array();
+        for(int MoBYfIl=0; MoBYfIl < strlen(((char*)(member.pQueriedLowLatencyData)))+1; MoBYfIl++){
+            [&](){arr_QLuIdTS[MoBYfIl]=((char*)(member.pQueriedLowLatencyData))[MoBYfIl];}();
         }
         }();}();
 }
@@ -72470,19 +74614,19 @@ auto& pQueriedLowLatencyData_json=json["pQueriedLowLatencyData"];
             if (pQueriedLowLatencyData_json.as_array().size()==0){
                 temp_TDNanoF=NULL;
             return; }temp_TDNanoF=(char*)malloc(pQueriedLowLatencyData_json.as_array().size()*sizeof(char));
-        auto& arr_TaYZcsf=pQueriedLowLatencyData_json.as_array();
-        for(int KKwdYza=0; KKwdYza < pQueriedLowLatencyData_json.as_array().size(); KKwdYza++){
+        auto& arr_QLuIdTS=pQueriedLowLatencyData_json.as_array();
+        for(int MoBYfIl=0; MoBYfIl < pQueriedLowLatencyData_json.as_array().size(); MoBYfIl++){
             [&](){
-            if (arr_TaYZcsf[KKwdYza].is_uint64()){
-                temp_TDNanoF[KKwdYza]=static_cast<char>(arr_TaYZcsf[KKwdYza].as_uint64());
-            }else if (arr_TaYZcsf[KKwdYza].is_int64()){
-                temp_TDNanoF[KKwdYza]=static_cast<char>(arr_TaYZcsf[KKwdYza].as_int64());
+            if (arr_QLuIdTS[MoBYfIl].is_uint64()){
+                temp_TDNanoF[MoBYfIl]=static_cast<char>(arr_QLuIdTS[MoBYfIl].as_uint64());
+            }else if (arr_QLuIdTS[MoBYfIl].is_int64()){
+                temp_TDNanoF[MoBYfIl]=static_cast<char>(arr_QLuIdTS[MoBYfIl].as_int64());
             }else{
-                temp_TDNanoF[KKwdYza]=static_cast<char>(arr_TaYZcsf[KKwdYza].as_double());
+                temp_TDNanoF[MoBYfIl]=static_cast<char>(arr_QLuIdTS[MoBYfIl].as_double());
             }
             }();
         }
-        }();member.pQueriedLowLatencyData=temp_TDNanoF;}();
+        }();member.pQueriedLowLatencyData=(void*)(temp_TDNanoF);}();
 }
 
     void serialize_struct(boost::json::object& json, const VkMemoryMapInfoKHR& member){
@@ -72731,9 +74875,9 @@ auto& pCode_json=json["pCode"];
             if (((char*)(member.pCode))==NULL){
                 pCode_json=boost::json::array();
             return; }pCode_json=boost::json::array(member.codeSize);
-        auto& arr_IFfhMkY=pCode_json.as_array();
-        for(int OYFIRtg=0; OYFIRtg < member.codeSize; OYFIRtg++){
-            [&](){arr_IFfhMkY[OYFIRtg]=((char*)(member.pCode))[OYFIRtg];}();
+        auto& arr_sEFeQAr=pCode_json.as_array();
+        for(int oLPRZVu=0; oLPRZVu < member.codeSize; oLPRZVu++){
+            [&](){arr_sEFeQAr[oLPRZVu]=((char*)(member.pCode))[oLPRZVu];}();
         }
         }();}();
 auto& pName_json=json["pName"];
@@ -72861,19 +75005,19 @@ auto& pCode_json=json["pCode"];
             if (pCode_json.as_array().size()==0){
                 temp_dSsBPnc=NULL;
             return; }temp_dSsBPnc=(char*)malloc(member.codeSize*sizeof(char));
-        auto& arr_TlXMCuz=pCode_json.as_array();
-        for(int FNdEBir=0; FNdEBir < member.codeSize; FNdEBir++){
+        auto& arr_hODSuzm=pCode_json.as_array();
+        for(int VGCsQSV=0; VGCsQSV < member.codeSize; VGCsQSV++){
             [&](){
-            if (arr_TlXMCuz[FNdEBir].is_uint64()){
-                temp_dSsBPnc[FNdEBir]=static_cast<char>(arr_TlXMCuz[FNdEBir].as_uint64());
-            }else if (arr_TlXMCuz[FNdEBir].is_int64()){
-                temp_dSsBPnc[FNdEBir]=static_cast<char>(arr_TlXMCuz[FNdEBir].as_int64());
+            if (arr_hODSuzm[VGCsQSV].is_uint64()){
+                temp_dSsBPnc[VGCsQSV]=static_cast<char>(arr_hODSuzm[VGCsQSV].as_uint64());
+            }else if (arr_hODSuzm[VGCsQSV].is_int64()){
+                temp_dSsBPnc[VGCsQSV]=static_cast<char>(arr_hODSuzm[VGCsQSV].as_int64());
             }else{
-                temp_dSsBPnc[FNdEBir]=static_cast<char>(arr_TlXMCuz[FNdEBir].as_double());
+                temp_dSsBPnc[VGCsQSV]=static_cast<char>(arr_hODSuzm[VGCsQSV].as_double());
             }
             }();
         }
-        }();temp_QXiYhLC=temp_dSsBPnc;}();member.pCode=temp_QXiYhLC;}();
+        }();temp_QXiYhLC=(void*)(temp_dSsBPnc);}();member.pCode=temp_QXiYhLC;}();
 auto& pName_json=json["pName"];
 [&](){ char* temp_AzKgJNk;;[&](){
             if (pName_json.as_array().size()==0){
@@ -73802,9 +75946,9 @@ std::map<uintptr_t,PFN_vkInternalAllocationNotification> id_to_PFN_vkInternalAll
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
-            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < strlen(((char*)(pUserData)))+1; jMlrKzT++){
+            [&](){arr_TGyIRyL[jMlrKzT]=((char*)(pUserData))[jMlrKzT];}();
         }
         }();}();
 [&](){json["size"]=size;}();
@@ -73823,19 +75967,19 @@ std::map<uintptr_t,PFN_vkInternalAllocationNotification> id_to_PFN_vkInternalAll
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
             return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < json["pUserData"].as_array().size(); jMlrKzT++){
             [&](){
-            if (arr_wKsaVqw[EuMrPhh].is_uint64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_uint64());
-            }else if (arr_wKsaVqw[EuMrPhh].is_int64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_int64());
+            if (arr_TGyIRyL[jMlrKzT].is_uint64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_uint64());
+            }else if (arr_TGyIRyL[jMlrKzT].is_int64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_int64());
             }else{
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_double());
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_double());
             }
             }();
         }
-        }();pUserData=temp_PunOKTH;}();
+        }();pUserData=(void*)(temp_PunOKTH);}();
 [&](){
             if (json["size"].is_uint64()){
                 size=static_cast<size_t>(json["size"].as_uint64());
@@ -73887,19 +76031,19 @@ void* pUserData;;
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
             return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < json["pUserData"].as_array().size(); jMlrKzT++){
             [&](){
-            if (arr_wKsaVqw[EuMrPhh].is_uint64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_uint64());
-            }else if (arr_wKsaVqw[EuMrPhh].is_int64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_int64());
+            if (arr_TGyIRyL[jMlrKzT].is_uint64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_uint64());
+            }else if (arr_TGyIRyL[jMlrKzT].is_int64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_int64());
             }else{
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_double());
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_double());
             }
             }();
         }
-        }();pUserData=temp_PunOKTH;}();
+        }();pUserData=(void*)(temp_PunOKTH);}();
 size_t size;;
 [&](){
             if (json["size"].is_uint64()){
@@ -73939,9 +76083,9 @@ json.clear();
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
-            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < strlen(((char*)(pUserData)))+1; jMlrKzT++){
+            [&](){arr_TGyIRyL[jMlrKzT]=((char*)(pUserData))[jMlrKzT];}();
         }
         }();}();
 [&](){json["size"]=size;}();
@@ -73978,9 +76122,9 @@ std::map<uintptr_t,PFN_vkInternalFreeNotification> id_to_PFN_vkInternalFreeNotif
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
-            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < strlen(((char*)(pUserData)))+1; jMlrKzT++){
+            [&](){arr_TGyIRyL[jMlrKzT]=((char*)(pUserData))[jMlrKzT];}();
         }
         }();}();
 [&](){json["size"]=size;}();
@@ -73999,19 +76143,19 @@ std::map<uintptr_t,PFN_vkInternalFreeNotification> id_to_PFN_vkInternalFreeNotif
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
             return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < json["pUserData"].as_array().size(); jMlrKzT++){
             [&](){
-            if (arr_wKsaVqw[EuMrPhh].is_uint64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_uint64());
-            }else if (arr_wKsaVqw[EuMrPhh].is_int64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_int64());
+            if (arr_TGyIRyL[jMlrKzT].is_uint64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_uint64());
+            }else if (arr_TGyIRyL[jMlrKzT].is_int64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_int64());
             }else{
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_double());
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_double());
             }
             }();
         }
-        }();pUserData=temp_PunOKTH;}();
+        }();pUserData=(void*)(temp_PunOKTH);}();
 [&](){
             if (json["size"].is_uint64()){
                 size=static_cast<size_t>(json["size"].as_uint64());
@@ -74063,19 +76207,19 @@ void* pUserData;;
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
             return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < json["pUserData"].as_array().size(); jMlrKzT++){
             [&](){
-            if (arr_wKsaVqw[EuMrPhh].is_uint64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_uint64());
-            }else if (arr_wKsaVqw[EuMrPhh].is_int64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_int64());
+            if (arr_TGyIRyL[jMlrKzT].is_uint64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_uint64());
+            }else if (arr_TGyIRyL[jMlrKzT].is_int64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_int64());
             }else{
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_double());
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_double());
             }
             }();
         }
-        }();pUserData=temp_PunOKTH;}();
+        }();pUserData=(void*)(temp_PunOKTH);}();
 size_t size;;
 [&](){
             if (json["size"].is_uint64()){
@@ -74115,9 +76259,9 @@ json.clear();
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
-            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < strlen(((char*)(pUserData)))+1; jMlrKzT++){
+            [&](){arr_TGyIRyL[jMlrKzT]=((char*)(pUserData))[jMlrKzT];}();
         }
         }();}();
 [&](){json["size"]=size;}();
@@ -74154,9 +76298,9 @@ std::map<uintptr_t,PFN_vkReallocationFunction> id_to_PFN_vkReallocationFunction;
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
-            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < strlen(((char*)(pUserData)))+1; jMlrKzT++){
+            [&](){arr_TGyIRyL[jMlrKzT]=((char*)(pUserData))[jMlrKzT];}();
         }
         }();}();
 [&](){
@@ -74166,9 +76310,9 @@ std::map<uintptr_t,PFN_vkReallocationFunction> id_to_PFN_vkReallocationFunction;
             if (((char*)(pOriginal))==NULL){
                 json["pOriginal"]=boost::json::array();
             return; }json["pOriginal"]=boost::json::array(strlen(((char*)(pOriginal)))+1);
-        auto& arr_rITHcbq=json["pOriginal"].as_array();
-        for(int oHRYLxY=0; oHRYLxY < strlen(((char*)(pOriginal)))+1; oHRYLxY++){
-            [&](){arr_rITHcbq[oHRYLxY]=((char*)(pOriginal))[oHRYLxY];}();
+        auto& arr_AvPbXlQ=json["pOriginal"].as_array();
+        for(int zxdTCfx=0; zxdTCfx < strlen(((char*)(pOriginal)))+1; zxdTCfx++){
+            [&](){arr_AvPbXlQ[zxdTCfx]=((char*)(pOriginal))[zxdTCfx];}();
         }
         }();}();
 [&](){json["size"]=size;}();
@@ -74187,19 +76331,19 @@ std::map<uintptr_t,PFN_vkReallocationFunction> id_to_PFN_vkReallocationFunction;
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
             return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < json["pUserData"].as_array().size(); jMlrKzT++){
             [&](){
-            if (arr_wKsaVqw[EuMrPhh].is_uint64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_uint64());
-            }else if (arr_wKsaVqw[EuMrPhh].is_int64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_int64());
+            if (arr_TGyIRyL[jMlrKzT].is_uint64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_uint64());
+            }else if (arr_TGyIRyL[jMlrKzT].is_int64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_int64());
             }else{
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_double());
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_double());
             }
             }();
         }
-        }();pUserData=temp_PunOKTH;}();
+        }();pUserData=(void*)(temp_PunOKTH);}();
 [&](){
             if (json["pOriginal"].as_array().size()==0){
                 pOriginal=NULL;
@@ -74207,19 +76351,19 @@ std::map<uintptr_t,PFN_vkReallocationFunction> id_to_PFN_vkReallocationFunction;
             if (json["pOriginal"].as_array().size()==0){
                 temp_SZtjdWN=NULL;
             return; }temp_SZtjdWN=(char*)malloc(json["pOriginal"].as_array().size()*sizeof(char));
-        auto& arr_rITHcbq=json["pOriginal"].as_array();
-        for(int oHRYLxY=0; oHRYLxY < json["pOriginal"].as_array().size(); oHRYLxY++){
+        auto& arr_AvPbXlQ=json["pOriginal"].as_array();
+        for(int zxdTCfx=0; zxdTCfx < json["pOriginal"].as_array().size(); zxdTCfx++){
             [&](){
-            if (arr_rITHcbq[oHRYLxY].is_uint64()){
-                temp_SZtjdWN[oHRYLxY]=static_cast<char>(arr_rITHcbq[oHRYLxY].as_uint64());
-            }else if (arr_rITHcbq[oHRYLxY].is_int64()){
-                temp_SZtjdWN[oHRYLxY]=static_cast<char>(arr_rITHcbq[oHRYLxY].as_int64());
+            if (arr_AvPbXlQ[zxdTCfx].is_uint64()){
+                temp_SZtjdWN[zxdTCfx]=static_cast<char>(arr_AvPbXlQ[zxdTCfx].as_uint64());
+            }else if (arr_AvPbXlQ[zxdTCfx].is_int64()){
+                temp_SZtjdWN[zxdTCfx]=static_cast<char>(arr_AvPbXlQ[zxdTCfx].as_int64());
             }else{
-                temp_SZtjdWN[oHRYLxY]=static_cast<char>(arr_rITHcbq[oHRYLxY].as_double());
+                temp_SZtjdWN[zxdTCfx]=static_cast<char>(arr_AvPbXlQ[zxdTCfx].as_double());
             }
             }();
         }
-        }();pOriginal=temp_SZtjdWN;}();
+        }();pOriginal=(void*)(temp_SZtjdWN);}();
 [&](){
             if (json["size"].is_uint64()){
                 size=static_cast<size_t>(json["size"].as_uint64());
@@ -74251,23 +76395,23 @@ void* result;
 [&](){
             if (json["result"].as_array().size()==0){
                 result=NULL;
-            return; }char* temp_IcIzwPV;[&](){
+            return; }char* temp_pNqSwit;[&](){
             if (json["result"].as_array().size()==0){
-                temp_IcIzwPV=NULL;
-            return; }temp_IcIzwPV=(char*)malloc(json["result"].as_array().size()*sizeof(char));
-        auto& arr_LiwXrkM=json["result"].as_array();
-        for(int CrRTcID=0; CrRTcID < json["result"].as_array().size(); CrRTcID++){
+                temp_pNqSwit=NULL;
+            return; }temp_pNqSwit=(char*)malloc(size*sizeof(char));
+        auto& arr_RPoyZnz=json["result"].as_array();
+        for(int PDZxtrn=0; PDZxtrn < size; PDZxtrn++){
             [&](){
-            if (arr_LiwXrkM[CrRTcID].is_uint64()){
-                temp_IcIzwPV[CrRTcID]=static_cast<char>(arr_LiwXrkM[CrRTcID].as_uint64());
-            }else if (arr_LiwXrkM[CrRTcID].is_int64()){
-                temp_IcIzwPV[CrRTcID]=static_cast<char>(arr_LiwXrkM[CrRTcID].as_int64());
+            if (arr_RPoyZnz[PDZxtrn].is_uint64()){
+                temp_pNqSwit[PDZxtrn]=static_cast<char>(arr_RPoyZnz[PDZxtrn].as_uint64());
+            }else if (arr_RPoyZnz[PDZxtrn].is_int64()){
+                temp_pNqSwit[PDZxtrn]=static_cast<char>(arr_RPoyZnz[PDZxtrn].as_int64());
             }else{
-                temp_IcIzwPV[CrRTcID]=static_cast<char>(arr_LiwXrkM[CrRTcID].as_double());
+                temp_pNqSwit[PDZxtrn]=static_cast<char>(arr_RPoyZnz[PDZxtrn].as_double());
             }
             }();
         }
-        }();result=temp_IcIzwPV;}();
+        }();result=(void*)(temp_pNqSwit);}();
 json.clear();
 registerAllocatedMem(result,size);
 json["mem"]=(uintptr_t)result;
@@ -74293,19 +76437,19 @@ void* pUserData;;
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
             return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < json["pUserData"].as_array().size(); jMlrKzT++){
             [&](){
-            if (arr_wKsaVqw[EuMrPhh].is_uint64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_uint64());
-            }else if (arr_wKsaVqw[EuMrPhh].is_int64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_int64());
+            if (arr_TGyIRyL[jMlrKzT].is_uint64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_uint64());
+            }else if (arr_TGyIRyL[jMlrKzT].is_int64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_int64());
             }else{
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_double());
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_double());
             }
             }();
         }
-        }();pUserData=temp_PunOKTH;}();
+        }();pUserData=(void*)(temp_PunOKTH);}();
 void* pOriginal;;
 [&](){
             if (json["pOriginal"].as_array().size()==0){
@@ -74314,19 +76458,19 @@ void* pOriginal;;
             if (json["pOriginal"].as_array().size()==0){
                 temp_SZtjdWN=NULL;
             return; }temp_SZtjdWN=(char*)malloc(json["pOriginal"].as_array().size()*sizeof(char));
-        auto& arr_rITHcbq=json["pOriginal"].as_array();
-        for(int oHRYLxY=0; oHRYLxY < json["pOriginal"].as_array().size(); oHRYLxY++){
+        auto& arr_AvPbXlQ=json["pOriginal"].as_array();
+        for(int zxdTCfx=0; zxdTCfx < json["pOriginal"].as_array().size(); zxdTCfx++){
             [&](){
-            if (arr_rITHcbq[oHRYLxY].is_uint64()){
-                temp_SZtjdWN[oHRYLxY]=static_cast<char>(arr_rITHcbq[oHRYLxY].as_uint64());
-            }else if (arr_rITHcbq[oHRYLxY].is_int64()){
-                temp_SZtjdWN[oHRYLxY]=static_cast<char>(arr_rITHcbq[oHRYLxY].as_int64());
+            if (arr_AvPbXlQ[zxdTCfx].is_uint64()){
+                temp_SZtjdWN[zxdTCfx]=static_cast<char>(arr_AvPbXlQ[zxdTCfx].as_uint64());
+            }else if (arr_AvPbXlQ[zxdTCfx].is_int64()){
+                temp_SZtjdWN[zxdTCfx]=static_cast<char>(arr_AvPbXlQ[zxdTCfx].as_int64());
             }else{
-                temp_SZtjdWN[oHRYLxY]=static_cast<char>(arr_rITHcbq[oHRYLxY].as_double());
+                temp_SZtjdWN[zxdTCfx]=static_cast<char>(arr_AvPbXlQ[zxdTCfx].as_double());
             }
             }();
         }
-        }();pOriginal=temp_SZtjdWN;}();
+        }();pOriginal=(void*)(temp_SZtjdWN);}();
 size_t size;;
 [&](){
             if (json["size"].is_uint64()){
@@ -74366,9 +76510,9 @@ json.clear();
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
-            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < strlen(((char*)(pUserData)))+1; jMlrKzT++){
+            [&](){arr_TGyIRyL[jMlrKzT]=((char*)(pUserData))[jMlrKzT];}();
         }
         }();}();
 [&](){
@@ -74378,9 +76522,9 @@ json.clear();
             if (((char*)(pOriginal))==NULL){
                 json["pOriginal"]=boost::json::array();
             return; }json["pOriginal"]=boost::json::array(strlen(((char*)(pOriginal)))+1);
-        auto& arr_rITHcbq=json["pOriginal"].as_array();
-        for(int oHRYLxY=0; oHRYLxY < strlen(((char*)(pOriginal)))+1; oHRYLxY++){
-            [&](){arr_rITHcbq[oHRYLxY]=((char*)(pOriginal))[oHRYLxY];}();
+        auto& arr_AvPbXlQ=json["pOriginal"].as_array();
+        for(int zxdTCfx=0; zxdTCfx < strlen(((char*)(pOriginal)))+1; zxdTCfx++){
+            [&](){arr_AvPbXlQ[zxdTCfx]=((char*)(pOriginal))[zxdTCfx];}();
         }
         }();}();
 [&](){json["size"]=size;}();
@@ -74392,10 +76536,10 @@ json.clear();
             return; }[&](){
             if (((char*)(result))==NULL){
                 json["result"]=boost::json::array();
-            return; }json["result"]=boost::json::array(strlen(((char*)(result)))+1);
-        auto& arr_fKfzVOD=json["result"].as_array();
-        for(int rfEQqjG=0; rfEQqjG < strlen(((char*)(result)))+1; rfEQqjG++){
-            [&](){arr_fKfzVOD[rfEQqjG]=((char*)(result))[rfEQqjG];}();
+            return; }json["result"]=boost::json::array(size);
+        auto& arr_wJAawpC=json["result"].as_array();
+        for(int CVCKAyC=0; CVCKAyC < size; CVCKAyC++){
+            [&](){arr_wJAawpC[CVCKAyC]=((char*)(result))[CVCKAyC];}();
         }
         }();}();
 writeToConn(json);
@@ -74435,9 +76579,9 @@ std::map<uintptr_t,PFN_vkAllocationFunction> id_to_PFN_vkAllocationFunction;
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
-            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < strlen(((char*)(pUserData)))+1; jMlrKzT++){
+            [&](){arr_TGyIRyL[jMlrKzT]=((char*)(pUserData))[jMlrKzT];}();
         }
         }();}();
 [&](){json["size"]=size;}();
@@ -74456,19 +76600,19 @@ std::map<uintptr_t,PFN_vkAllocationFunction> id_to_PFN_vkAllocationFunction;
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
             return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < json["pUserData"].as_array().size(); jMlrKzT++){
             [&](){
-            if (arr_wKsaVqw[EuMrPhh].is_uint64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_uint64());
-            }else if (arr_wKsaVqw[EuMrPhh].is_int64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_int64());
+            if (arr_TGyIRyL[jMlrKzT].is_uint64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_uint64());
+            }else if (arr_TGyIRyL[jMlrKzT].is_int64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_int64());
             }else{
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_double());
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_double());
             }
             }();
         }
-        }();pUserData=temp_PunOKTH;}();
+        }();pUserData=(void*)(temp_PunOKTH);}();
 [&](){
             if (json["size"].is_uint64()){
                 size=static_cast<size_t>(json["size"].as_uint64());
@@ -74504,19 +76648,19 @@ void* result;
             if (json["result"].as_array().size()==0){
                 temp_vIskEJn=NULL;
             return; }temp_vIskEJn=(char*)malloc(size*sizeof(char));
-        auto& arr_hfmlfUi=json["result"].as_array();
-        for(int irXenxH=0; irXenxH < size; irXenxH++){
+        auto& arr_pnjopvK=json["result"].as_array();
+        for(int zdXRPtt=0; zdXRPtt < size; zdXRPtt++){
             [&](){
-            if (arr_hfmlfUi[irXenxH].is_uint64()){
-                temp_vIskEJn[irXenxH]=static_cast<char>(arr_hfmlfUi[irXenxH].as_uint64());
-            }else if (arr_hfmlfUi[irXenxH].is_int64()){
-                temp_vIskEJn[irXenxH]=static_cast<char>(arr_hfmlfUi[irXenxH].as_int64());
+            if (arr_pnjopvK[zdXRPtt].is_uint64()){
+                temp_vIskEJn[zdXRPtt]=static_cast<char>(arr_pnjopvK[zdXRPtt].as_uint64());
+            }else if (arr_pnjopvK[zdXRPtt].is_int64()){
+                temp_vIskEJn[zdXRPtt]=static_cast<char>(arr_pnjopvK[zdXRPtt].as_int64());
             }else{
-                temp_vIskEJn[irXenxH]=static_cast<char>(arr_hfmlfUi[irXenxH].as_double());
+                temp_vIskEJn[zdXRPtt]=static_cast<char>(arr_pnjopvK[zdXRPtt].as_double());
             }
             }();
         }
-        }();result=temp_vIskEJn;}();
+        }();result=(void*)(temp_vIskEJn);}();
 json.clear();
 registerAllocatedMem(result,size);
 json["mem"]=(uintptr_t)result;
@@ -74542,19 +76686,19 @@ void* pUserData;;
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
             return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < json["pUserData"].as_array().size(); jMlrKzT++){
             [&](){
-            if (arr_wKsaVqw[EuMrPhh].is_uint64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_uint64());
-            }else if (arr_wKsaVqw[EuMrPhh].is_int64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_int64());
+            if (arr_TGyIRyL[jMlrKzT].is_uint64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_uint64());
+            }else if (arr_TGyIRyL[jMlrKzT].is_int64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_int64());
             }else{
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_double());
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_double());
             }
             }();
         }
-        }();pUserData=temp_PunOKTH;}();
+        }();pUserData=(void*)(temp_PunOKTH);}();
 size_t size;;
 [&](){
             if (json["size"].is_uint64()){
@@ -74594,9 +76738,9 @@ json.clear();
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
-            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < strlen(((char*)(pUserData)))+1; jMlrKzT++){
+            [&](){arr_TGyIRyL[jMlrKzT]=((char*)(pUserData))[jMlrKzT];}();
         }
         }();}();
 [&](){json["size"]=size;}();
@@ -74609,9 +76753,9 @@ json.clear();
             if (((char*)(result))==NULL){
                 json["result"]=boost::json::array();
             return; }json["result"]=boost::json::array(size);
-        auto& arr_xtFOIbA=json["result"].as_array();
-        for(int CcKxMXg=0; CcKxMXg < size; CcKxMXg++){
-            [&](){arr_xtFOIbA[CcKxMXg]=((char*)(result))[CcKxMXg];}();
+        auto& arr_ZqWTZpS=json["result"].as_array();
+        for(int YxZxnjO=0; YxZxnjO < size; YxZxnjO++){
+            [&](){arr_ZqWTZpS[YxZxnjO]=((char*)(result))[YxZxnjO];}();
         }
         }();}();
 writeToConn(json);
@@ -74651,9 +76795,9 @@ std::map<uintptr_t,PFN_vkFreeFunction> id_to_PFN_vkFreeFunction;
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
-            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < strlen(((char*)(pUserData)))+1; jMlrKzT++){
+            [&](){arr_TGyIRyL[jMlrKzT]=((char*)(pUserData))[jMlrKzT];}();
         }
         }();}();
 [&](){
@@ -74663,9 +76807,9 @@ std::map<uintptr_t,PFN_vkFreeFunction> id_to_PFN_vkFreeFunction;
             if (((char*)(pMemory))==NULL){
                 json["pMemory"]=boost::json::array();
             return; }json["pMemory"]=boost::json::array(strlen(((char*)(pMemory)))+1);
-        auto& arr_qKvWVRO=json["pMemory"].as_array();
-        for(int LkSrwrv=0; LkSrwrv < strlen(((char*)(pMemory)))+1; LkSrwrv++){
-            [&](){arr_qKvWVRO[LkSrwrv]=((char*)(pMemory))[LkSrwrv];}();
+        auto& arr_jLCgzmk=json["pMemory"].as_array();
+        for(int emdVtWn=0; emdVtWn < strlen(((char*)(pMemory)))+1; emdVtWn++){
+            [&](){arr_jLCgzmk[emdVtWn]=((char*)(pMemory))[emdVtWn];}();
         }
         }();}();
 
@@ -74681,19 +76825,19 @@ std::map<uintptr_t,PFN_vkFreeFunction> id_to_PFN_vkFreeFunction;
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
             return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < json["pUserData"].as_array().size(); jMlrKzT++){
             [&](){
-            if (arr_wKsaVqw[EuMrPhh].is_uint64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_uint64());
-            }else if (arr_wKsaVqw[EuMrPhh].is_int64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_int64());
+            if (arr_TGyIRyL[jMlrKzT].is_uint64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_uint64());
+            }else if (arr_TGyIRyL[jMlrKzT].is_int64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_int64());
             }else{
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_double());
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_double());
             }
             }();
         }
-        }();pUserData=temp_PunOKTH;}();
+        }();pUserData=(void*)(temp_PunOKTH);}();
 [&](){
             if (json["pMemory"].as_array().size()==0){
                 pMemory=NULL;
@@ -74701,19 +76845,19 @@ std::map<uintptr_t,PFN_vkFreeFunction> id_to_PFN_vkFreeFunction;
             if (json["pMemory"].as_array().size()==0){
                 temp_TQlreEU=NULL;
             return; }temp_TQlreEU=(char*)malloc(json["pMemory"].as_array().size()*sizeof(char));
-        auto& arr_qKvWVRO=json["pMemory"].as_array();
-        for(int LkSrwrv=0; LkSrwrv < json["pMemory"].as_array().size(); LkSrwrv++){
+        auto& arr_jLCgzmk=json["pMemory"].as_array();
+        for(int emdVtWn=0; emdVtWn < json["pMemory"].as_array().size(); emdVtWn++){
             [&](){
-            if (arr_qKvWVRO[LkSrwrv].is_uint64()){
-                temp_TQlreEU[LkSrwrv]=static_cast<char>(arr_qKvWVRO[LkSrwrv].as_uint64());
-            }else if (arr_qKvWVRO[LkSrwrv].is_int64()){
-                temp_TQlreEU[LkSrwrv]=static_cast<char>(arr_qKvWVRO[LkSrwrv].as_int64());
+            if (arr_jLCgzmk[emdVtWn].is_uint64()){
+                temp_TQlreEU[emdVtWn]=static_cast<char>(arr_jLCgzmk[emdVtWn].as_uint64());
+            }else if (arr_jLCgzmk[emdVtWn].is_int64()){
+                temp_TQlreEU[emdVtWn]=static_cast<char>(arr_jLCgzmk[emdVtWn].as_int64());
             }else{
-                temp_TQlreEU[LkSrwrv]=static_cast<char>(arr_qKvWVRO[LkSrwrv].as_double());
+                temp_TQlreEU[emdVtWn]=static_cast<char>(arr_jLCgzmk[emdVtWn].as_double());
             }
             }();
         }
-        }();pMemory=temp_TQlreEU;}();
+        }();pMemory=(void*)(temp_TQlreEU);}();
 json.clear();
 json.erase("mem");
 
@@ -74738,19 +76882,19 @@ void* pUserData;;
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
             return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < json["pUserData"].as_array().size(); jMlrKzT++){
             [&](){
-            if (arr_wKsaVqw[EuMrPhh].is_uint64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_uint64());
-            }else if (arr_wKsaVqw[EuMrPhh].is_int64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_int64());
+            if (arr_TGyIRyL[jMlrKzT].is_uint64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_uint64());
+            }else if (arr_TGyIRyL[jMlrKzT].is_int64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_int64());
             }else{
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_double());
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_double());
             }
             }();
         }
-        }();pUserData=temp_PunOKTH;}();
+        }();pUserData=(void*)(temp_PunOKTH);}();
 void* pMemory;;
 [&](){
             if (json["pMemory"].as_array().size()==0){
@@ -74759,19 +76903,19 @@ void* pMemory;;
             if (json["pMemory"].as_array().size()==0){
                 temp_TQlreEU=NULL;
             return; }temp_TQlreEU=(char*)malloc(json["pMemory"].as_array().size()*sizeof(char));
-        auto& arr_qKvWVRO=json["pMemory"].as_array();
-        for(int LkSrwrv=0; LkSrwrv < json["pMemory"].as_array().size(); LkSrwrv++){
+        auto& arr_jLCgzmk=json["pMemory"].as_array();
+        for(int emdVtWn=0; emdVtWn < json["pMemory"].as_array().size(); emdVtWn++){
             [&](){
-            if (arr_qKvWVRO[LkSrwrv].is_uint64()){
-                temp_TQlreEU[LkSrwrv]=static_cast<char>(arr_qKvWVRO[LkSrwrv].as_uint64());
-            }else if (arr_qKvWVRO[LkSrwrv].is_int64()){
-                temp_TQlreEU[LkSrwrv]=static_cast<char>(arr_qKvWVRO[LkSrwrv].as_int64());
+            if (arr_jLCgzmk[emdVtWn].is_uint64()){
+                temp_TQlreEU[emdVtWn]=static_cast<char>(arr_jLCgzmk[emdVtWn].as_uint64());
+            }else if (arr_jLCgzmk[emdVtWn].is_int64()){
+                temp_TQlreEU[emdVtWn]=static_cast<char>(arr_jLCgzmk[emdVtWn].as_int64());
             }else{
-                temp_TQlreEU[LkSrwrv]=static_cast<char>(arr_qKvWVRO[LkSrwrv].as_double());
+                temp_TQlreEU[emdVtWn]=static_cast<char>(arr_jLCgzmk[emdVtWn].as_double());
             }
             }();
         }
-        }();pMemory=temp_TQlreEU;}();
+        }();pMemory=(void*)(temp_TQlreEU);}();
 funcpointer(pUserData,pMemory);
 json.clear();
 [&](){
@@ -74781,9 +76925,9 @@ json.clear();
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
-            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < strlen(((char*)(pUserData)))+1; jMlrKzT++){
+            [&](){arr_TGyIRyL[jMlrKzT]=((char*)(pUserData))[jMlrKzT];}();
         }
         }();}();
 [&](){
@@ -74793,9 +76937,9 @@ json.clear();
             if (((char*)(pMemory))==NULL){
                 json["pMemory"]=boost::json::array();
             return; }json["pMemory"]=boost::json::array(strlen(((char*)(pMemory)))+1);
-        auto& arr_qKvWVRO=json["pMemory"].as_array();
-        for(int LkSrwrv=0; LkSrwrv < strlen(((char*)(pMemory)))+1; LkSrwrv++){
-            [&](){arr_qKvWVRO[LkSrwrv]=((char*)(pMemory))[LkSrwrv];}();
+        auto& arr_jLCgzmk=json["pMemory"].as_array();
+        for(int emdVtWn=0; emdVtWn < strlen(((char*)(pMemory)))+1; emdVtWn++){
+            [&](){arr_jLCgzmk[emdVtWn]=((char*)(pMemory))[emdVtWn];}();
         }
         }();}();
 
@@ -74852,9 +76996,9 @@ std::map<uintptr_t,PFN_vkDebugReportCallbackEXT> id_to_PFN_vkDebugReportCallback
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
-            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < strlen(((char*)(pUserData)))+1; jMlrKzT++){
+            [&](){arr_TGyIRyL[jMlrKzT]=((char*)(pUserData))[jMlrKzT];}();
         }
         }();}();
 
@@ -74917,19 +77061,19 @@ std::map<uintptr_t,PFN_vkDebugReportCallbackEXT> id_to_PFN_vkDebugReportCallback
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
             return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < json["pUserData"].as_array().size(); jMlrKzT++){
             [&](){
-            if (arr_wKsaVqw[EuMrPhh].is_uint64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_uint64());
-            }else if (arr_wKsaVqw[EuMrPhh].is_int64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_int64());
+            if (arr_TGyIRyL[jMlrKzT].is_uint64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_uint64());
+            }else if (arr_TGyIRyL[jMlrKzT].is_int64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_int64());
             }else{
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_double());
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_double());
             }
             }();
         }
-        }();pUserData=temp_PunOKTH;}();
+        }();pUserData=(void*)(temp_PunOKTH);}();
 VkBool32 result;
 [&](){uint32_t temp_WFCRZTD;[&](){
             if (json["result"].is_uint64()){
@@ -75050,19 +77194,19 @@ void* pUserData;;
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
             return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < json["pUserData"].as_array().size(); jMlrKzT++){
             [&](){
-            if (arr_wKsaVqw[EuMrPhh].is_uint64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_uint64());
-            }else if (arr_wKsaVqw[EuMrPhh].is_int64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_int64());
+            if (arr_TGyIRyL[jMlrKzT].is_uint64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_uint64());
+            }else if (arr_TGyIRyL[jMlrKzT].is_int64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_int64());
             }else{
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_double());
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_double());
             }
             }();
         }
-        }();pUserData=temp_PunOKTH;}();
+        }();pUserData=(void*)(temp_PunOKTH);}();
 auto result=funcpointer(flags,objectType,object,location,messageCode,pLayerPrefix,pMessage,pUserData);
 json.clear();
 [&](){[&](){[&](){json["flags"]=flags;}();}();}();
@@ -75095,9 +77239,9 @@ json.clear();
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
-            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < strlen(((char*)(pUserData)))+1; jMlrKzT++){
+            [&](){arr_TGyIRyL[jMlrKzT]=((char*)(pUserData))[jMlrKzT];}();
         }
         }();}();
 [&](){[&](){json["result"]=result;}();}();
@@ -75145,9 +77289,9 @@ std::map<uintptr_t,PFN_vkDebugUtilsMessengerCallbackEXT> id_to_PFN_vkDebugUtilsM
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
-            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < strlen(((char*)(pUserData)))+1; jMlrKzT++){
+            [&](){arr_TGyIRyL[jMlrKzT]=((char*)(pUserData))[jMlrKzT];}();
         }
         }();}();
 
@@ -75182,19 +77326,19 @@ std::map<uintptr_t,PFN_vkDebugUtilsMessengerCallbackEXT> id_to_PFN_vkDebugUtilsM
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
             return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < json["pUserData"].as_array().size(); jMlrKzT++){
             [&](){
-            if (arr_wKsaVqw[EuMrPhh].is_uint64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_uint64());
-            }else if (arr_wKsaVqw[EuMrPhh].is_int64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_int64());
+            if (arr_TGyIRyL[jMlrKzT].is_uint64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_uint64());
+            }else if (arr_TGyIRyL[jMlrKzT].is_int64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_int64());
             }else{
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_double());
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_double());
             }
             }();
         }
-        }();pUserData=temp_PunOKTH;}();
+        }();pUserData=(void*)(temp_PunOKTH);}();
 VkBool32 result;
 [&](){uint32_t temp_PEAhYzx;[&](){
             if (json["result"].is_uint64()){
@@ -75262,19 +77406,19 @@ void* pUserData;;
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
             return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < json["pUserData"].as_array().size(); jMlrKzT++){
             [&](){
-            if (arr_wKsaVqw[EuMrPhh].is_uint64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_uint64());
-            }else if (arr_wKsaVqw[EuMrPhh].is_int64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_int64());
+            if (arr_TGyIRyL[jMlrKzT].is_uint64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_uint64());
+            }else if (arr_TGyIRyL[jMlrKzT].is_int64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_int64());
             }else{
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_double());
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_double());
             }
             }();
         }
-        }();pUserData=temp_PunOKTH;}();
+        }();pUserData=(void*)(temp_PunOKTH);}();
 auto result=funcpointer(messageSeverity,messageTypes,pCallbackData,pUserData);
 json.clear();
 [&](){[&](){[&](){json["messageSeverity"]=messageSeverity;}();}();}();
@@ -75298,9 +77442,9 @@ json.clear();
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
-            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < strlen(((char*)(pUserData)))+1; jMlrKzT++){
+            [&](){arr_TGyIRyL[jMlrKzT]=((char*)(pUserData))[jMlrKzT];}();
         }
         }();}();
 [&](){[&](){json["result"]=result;}();}();
@@ -75346,9 +77490,9 @@ std::map<uintptr_t,PFN_vkDeviceMemoryReportCallbackEXT> id_to_PFN_vkDeviceMemory
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
-            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < strlen(((char*)(pUserData)))+1; jMlrKzT++){
+            [&](){arr_TGyIRyL[jMlrKzT]=((char*)(pUserData))[jMlrKzT];}();
         }
         }();}();
 
@@ -75365,19 +77509,19 @@ std::map<uintptr_t,PFN_vkDeviceMemoryReportCallbackEXT> id_to_PFN_vkDeviceMemory
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
             return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < json["pUserData"].as_array().size(); jMlrKzT++){
             [&](){
-            if (arr_wKsaVqw[EuMrPhh].is_uint64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_uint64());
-            }else if (arr_wKsaVqw[EuMrPhh].is_int64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_int64());
+            if (arr_TGyIRyL[jMlrKzT].is_uint64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_uint64());
+            }else if (arr_TGyIRyL[jMlrKzT].is_int64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_int64());
             }else{
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_double());
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_double());
             }
             }();
         }
-        }();pUserData=temp_PunOKTH;}();
+        }();pUserData=(void*)(temp_PunOKTH);}();
 json.clear();
 json.erase("mem");
 
@@ -75415,19 +77559,19 @@ void* pUserData;;
             if (json["pUserData"].as_array().size()==0){
                 temp_PunOKTH=NULL;
             return; }temp_PunOKTH=(char*)malloc(json["pUserData"].as_array().size()*sizeof(char));
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < json["pUserData"].as_array().size(); EuMrPhh++){
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < json["pUserData"].as_array().size(); jMlrKzT++){
             [&](){
-            if (arr_wKsaVqw[EuMrPhh].is_uint64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_uint64());
-            }else if (arr_wKsaVqw[EuMrPhh].is_int64()){
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_int64());
+            if (arr_TGyIRyL[jMlrKzT].is_uint64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_uint64());
+            }else if (arr_TGyIRyL[jMlrKzT].is_int64()){
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_int64());
             }else{
-                temp_PunOKTH[EuMrPhh]=static_cast<char>(arr_wKsaVqw[EuMrPhh].as_double());
+                temp_PunOKTH[jMlrKzT]=static_cast<char>(arr_TGyIRyL[jMlrKzT].as_double());
             }
             }();
         }
-        }();pUserData=temp_PunOKTH;}();
+        }();pUserData=(void*)(temp_PunOKTH);}();
 funcpointer(pCallbackData,pUserData);
 json.clear();
 [&](){
@@ -75449,9 +77593,9 @@ json.clear();
             if (((char*)(pUserData))==NULL){
                 json["pUserData"]=boost::json::array();
             return; }json["pUserData"]=boost::json::array(strlen(((char*)(pUserData)))+1);
-        auto& arr_wKsaVqw=json["pUserData"].as_array();
-        for(int EuMrPhh=0; EuMrPhh < strlen(((char*)(pUserData)))+1; EuMrPhh++){
-            [&](){arr_wKsaVqw[EuMrPhh]=((char*)(pUserData))[EuMrPhh];}();
+        auto& arr_TGyIRyL=json["pUserData"].as_array();
+        for(int jMlrKzT=0; jMlrKzT < strlen(((char*)(pUserData)))+1; jMlrKzT++){
+            [&](){arr_TGyIRyL[jMlrKzT]=((char*)(pUserData))[jMlrKzT];}();
         }
         }();}();
 

@@ -3701,7 +3701,9 @@
         "type": "void",
         "num_indirection": 1,
         "relation": "return",
-        "length": [],
+        "length": [
+            "size"
+        ],
         "params": [
             {
                 "const": false,

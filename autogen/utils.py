@@ -107,21 +107,24 @@ def convert(variable, value, info, serialize, initialize=False):
             """
         result +="return; }"
         
-    if (type=="void" and num_indirection>1):
+    if (type=="void" and num_indirection>=1):
         info["type"]="char"
-        info["header"]=info["header"].replace("void","char",1)
-        indirection_type_string="char"+("*"*num_indirection)
+        
+        if "header" in info:
+            info["header"]=info["header"].replace("void","char",1)
+            
+        char_cast="char"+("*"*num_indirection)
         if serialize:
-            variable=f"(({indirection_type_string})({variable}))"
+            variable=f"(({char_cast})({variable}))"
         else:
             variable=temp_variable
-            result+=f"{indirection_type_string} {temp_variable};"
+            result+=f"{char_cast} {temp_variable};"
             initialize=True
             
         result+=convert(*args())
         
         if deserialize:
-            result+=f"{old_variable}={temp_variable};"
+            result+=f"{old_variable}=({char_cast.replace('char','void')})({temp_variable});"
     
     elif (kind=="external_handle" and num_indirection<=1):
             if serialize:
@@ -171,7 +174,7 @@ def convert(variable, value, info, serialize, initialize=False):
     
     elif kind=="pUserData": #Has to be handled specially as we are dealing with the parent, not just the child
         #Deserializing on the client shouldn't do anything --- similarly on the server
-        return  
+        raise ValueError("This is an error!")
     elif kind in ["struct","funcpointer"]:
         if info["type"]=="pNext": #pNext is handled specially
             kind=info["type"]
