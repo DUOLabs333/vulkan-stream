@@ -35,6 +35,7 @@ ThreadStruct* currStruct(){
         
         result->uuid=-1;
         result->is=new std::istream(&result->buf);
+        
         #ifdef CLIENT
             setAddressandPort();
             
@@ -57,4 +58,8 @@ ThreadStruct* currStruct(){
     }
     
     return thread_to_struct[thread_id];
+}
+
+void deleteCurrStruct(){
+    thread_to_struct.erase(std::this_thread::get_id());
 }

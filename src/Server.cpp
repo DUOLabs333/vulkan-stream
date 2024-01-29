@@ -55,6 +55,7 @@ class RWError : public std::exception {
             }
             catch (const RWError& e){
                 currStruct()->conn->close();
+                deleteCurrStruct();
                 break;
             }
             
@@ -100,12 +101,12 @@ boost::json::object readFromConn(){
     
     std::getline(*(curr->is),line);
     
-    boost::json::object result=boost::json::parse(line,{}, {.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).as_object();
+    boost::json::object json=boost::json::parse(line,{}, {.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).as_object();
     
-    return result;
+    return json;
 }
 
-void writeToConn(boost::json::object& data){
+void writeToConn(boost::json::object& json){
     data["uuid"]=uuid;
     
     asio::error_code ec;

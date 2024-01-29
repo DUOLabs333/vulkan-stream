@@ -22,3 +22,4 @@ typedef struct {
     
 ThreadStruct* currStruct();
 void setAddressandPort();
+void deleteCurrStruct();
