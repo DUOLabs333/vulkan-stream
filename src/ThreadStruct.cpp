@@ -34,7 +34,7 @@ ThreadStruct* currStruct(){
         auto result=new ThreadStruct();
         
         result->uuid=-1;
-        
+        result->is=new std::istream(&result->buf);
         #ifdef CLIENT
             setAddressandPort();
             

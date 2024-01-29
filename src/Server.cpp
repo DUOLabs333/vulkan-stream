@@ -9,7 +9,7 @@
 
 #include <sstream>
 #include <random>
-#include <asio/read.hpp>
+#include <asio/read_until.hpp>
 #include <asio/write.hpp>
 
 int UUID_MAX=10000000;
@@ -88,96 +88,30 @@ uint32_t deserializeInt(std::array<uint8_t,4>& buf){ //Deserialzes from little e
 }
 
 boost::json::object readFromConn(){
-    debug_printf("Reading!...\n");
-    auto curr=currStruct();
-      
-    asio::error_code ec;
-    
-    /*
-    asio::read(*(curr->conn), asio::buffer(cur->size_buf,4), asio::transfer_exactly(4), ec);
-    auto size=deserializeInt(curr->size_buf);
-    
-    if (ec){
-        throw RWError(ec);
-    }
-    */
-    
-    auto size_buf = asio::buffer(curr->size_buf, 4);
-    auto data_buf = asio::buffer(curr->data_buf, BUFFER_SIZE);
-    
-    curr->parser.reset();
-    
-    while (true){
-    asio::read(*(curr->conn), size_buf, asio::transfer_exactly(4), ec);
-    if (ec){
-        throw RWError(ec);
-    }
-    
-    auto bytes_read=deserializeInt(curr->size_buf);
-    asio::read(*(curr->conn), data_buf, asio::transfer_exactly(bytes_read), ec);
-    if (ec){
-        throw RWError(ec);
-    }
-    
-    //size-=bytes_read;
-    
-    curr->parser.write(curr->data_buf, bytes_read);
-    
-    //if (size==0){ //All of the bytes have been read
-    if(curr->parser.done()){
-        auto json=curr->parser.release().as_object();
-        debug_printf("Type to recieve: %d\n", value_to<int>(json["stream_type"]));
-        return json;
-    }else{
-        continue;
-    }
-    }
 
+    auto curr=currStruct();
+    std::string line;
+    
+    asio::error_code ec;
+    asio::read_until(*(curr->conn), curr->buf, '\n', ec);
+    if (ec){
+        throw RWError(ec);
+    }
+    
+    std::getline(*(curr->is),line);
+    
+    boost::json::object result=boost::json::parse(line,{}, {.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).as_object();
+    
+    return result;
 }
 
-void writeToConn(boost::json::object& json){
-    json["uuid"]=uuid;
-    auto curr=currStruct();
-    asio::error_code ec;
+void writeToConn(boost::json::object& data){
+    data["uuid"]=uuid;
     
-    debug_printf("Type to send: %d\n", value_to<int>(json["stream_type"]));
-    /*
-    std::size_t size = 0;
-    auto size_buf=(uint8_t*)malloc(4*sizeof(uint8_t)); //Buffer to hold the size to transfer
-    auto size=sizeof(capnp::word)*computeSerializedSizeInWords(m);
-    serializeInt(size_buf, size);
-    asio::write(*(curr->conn),asio::buffer(size_buf),ec);
-    free(size_buf);
+    asio::error_code ec;
+    asio::write(*(currStruct()->conn), asio::buffer(boost::json::serialize(data,boost::json::serialize_options{.allow_infinity_and_nan=true})+"\n"), ec);
+    
     if (ec){
         throw RWError(ec);
-    }
-    */
-    
-    curr->serializer.reset(&json);
-    
-    std::size_t bytes_serialized=0; //Also serves to point to the first empty space in data_buf
-    auto size_buf=asio::buffer(curr->size_buf, 4);
-    
-    while(true){
-    auto written_chars=curr->serializer.read(&(curr->data_buf[bytes_serialized]), BUFFER_SIZE-bytes_serialized);
-    bytes_serialized+=(written_chars.size());
-    
-    if ((bytes_serialized==BUFFER_SIZE) || (curr->serializer.done())){
-        serializeInt(curr->size_buf, bytes_serialized);
-        asio::write(*(curr->conn), size_buf, ec);
-        if (ec){
-            throw RWError(ec);
-        }
-        
-        asio::write(*(curr->conn), asio::buffer(curr->data_buf, bytes_serialized), ec);
-        if (ec){
-            throw RWError(ec);
-        }
-        bytes_serialized=0;
-        
-        if (curr->serializer.done()){
-            return;
-        }
-    }
     }
 }

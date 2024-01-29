@@ -5,7 +5,7 @@ import copy
 write("""
 #include <debug.hpp>
 #include <boost/json.hpp>
-#include <ThreadStruct.hpp>
+
 #include <stdexcept>
 #include <shared_mutex>
 #include <future>

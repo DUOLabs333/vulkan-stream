@@ -15,10 +15,8 @@ const int BUFFER_SIZE=1000000; //1 MB
 typedef struct {
     tcp::socket* conn;
     int uuid;
-    boost::json::serializer serializer = {{.allow_infinity_and_nan=true}};
-    boost::json::stream_parser parser = {{}, {.max_depth=150, .allow_invalid_utf8=true,.allow_infinity_and_nan=true}};
-    char data_buf[BUFFER_SIZE]; //Make data_buf an array
-    std::array<uint8_t, 4> size_buf; //Holding the size of the incoming message (32 bits should be good enough for everyone, right?)
+    asio::streambuf buf;
+    std::istream* is;
     
 } ThreadStruct;
     
