@@ -8,20 +8,36 @@
 #include <shared_mutex>
 #include <atomic>
 #include <algorithm>
-
-std::shared_mutex DisplayLock;
+#include <queue>
+#include <thread>
 
 typedef struct {
 std::atomic_int c;
 std::mutex mu;
 std::condition_variable cv;
-} CounterInfo;
+} DeviceCounterInfo;
+
+typedef struct {
+VkFence fence;
+VkSwapchainKHR swapchain;
+uint32_t index;
+} PresentInfo;
+
+typedef struct {
+std::queue<PresentInfo> queue;
+std::shared_mutex queue_mutex;
+
+std::mutex notify_mutex; //Notifies when the queue (when checking if empty, lock queue_mutex and only unlock it just before 
+std::condition_variable notify_condition;
+} SwapchainQueueInfo;
 
 std::map<uintptr_t, SurfaceInfo> surface_to_info;
 
 std::map<uintptr_t, VkSurfaceKHR> swapchain_to_surface;
 std::map<uintptr_t, VkDevice> swapchain_to_device;
 std::map<uintptr_t, VkExtent2D> swapchain_to_extent;
+std::map<uintptr_t, std::vector<VkImage>> swapchain_to_images;
+std::map<uintptr_t, SwapchainQueueInfo*> swapchain_to_queue_info;
 
 //device maps to a map of different sized buffers
 //Each buffer maps to a devicememory
@@ -38,7 +54,7 @@ std::map<uintptr_t, void*> devicememory_to_mapped;
 
 std::map<uintptr_t, VkQueue> device_to_queue;
 std::map<uintptr_t, uint32_t> device_to_queue_family_index;
-std::map<uintptr_t, CounterInfo*> device_to_counter_info;
+std::map<uintptr_t, DeviceCounterInfo*> device_to_counter_info;
 
 void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
     auto surface_info=SurfaceInfo{.type=type};
@@ -71,19 +87,13 @@ void registerSurface(VkSurfaceKHR pSurface, std::any info, SurfaceType type){
 }
 
 
-void registerSwapchain(VkSwapchainKHR swapchain, VkDevice device, const VkSwapchainCreateInfoKHR* info){
-    swapchain_to_surface[(uintptr_t)swapchain]=info->surface;
-    swapchain_to_device[(uintptr_t)swapchain]=device;
-    swapchain_to_extent[(uintptr_t)swapchain]=info->imageExtent;
-}
-
 void registerDevice(VkDevice device, VkPhysicalDevice phyiscal_device){
     device_to_phyiscal_device[(uintptr_t)device]=phyiscal_device;
     
-    auto counter_info = new CounterInfo;
+    auto counter_info = new DeviceCounterInfo;
     device_to_counter_info[(uintptr_t)device]=counter_info;
 }
-
+ 
 void updateCounter(VkDevice device, int direction){
     auto info=device_to_counter_info[(uintptr_t)device];
     
@@ -93,7 +103,6 @@ void updateCounter(VkDevice device, int direction){
         info->cv.notify_all();
     }
 }
- 
 void waitForCounterIdle(VkDevice device){
     auto info=device_to_counter_info[(uintptr_t)device];
     if (info->c.load()==0){ //Happens when there's no present currently enqueued.
@@ -366,57 +375,60 @@ return;
 
 }
 
-void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, const uint32_t* indices_list, uint32_t swapchain_count){
-    for(int i=0; i<swapchain_count; i++){
-        auto swapchain=swapchains_list[i];
-        auto device=swapchain_to_device[(uintptr_t)swapchain];
-        updateCounter(device, 1);
-    }
-    
-    DisplayLock.lock(); //This is important --- otherwise, every thread will be stepping all over each other
-    std::map<uintptr_t, std::vector<VkImage>> swapchain_to_images;
-    
-    for(int i=0; i<swapchain_count; i++){
-        debug_printf("Index: %i\n",i);
-        uint32_t numImages=0;
-        VkImage* images=NULL;
-        auto swapchain=swapchains_list[i];
-        auto device=swapchain_to_device[(uintptr_t)swapchain];
+void pushToQueue(VkFence fence, VkSwapchainKHR swapchain, uint32_t index){
+auto info = swapchain_to_queue_info[(uintptr_t)swapchain];
+
+info->queue_mutex.lock();
+info->queue.push({fence, swapchain, index});
+info->notify_condition.notify_all();
+info->queue_mutex.unlock();
+
+updateCounter(swapchain_to_device[(uintptr_t)swapchain], 1);
+
+}
+
+void HandleSwapchainQueue(SwapchainQueueInfo* info){
+    std::unique_lock<std::mutex> lock(info->notify_mutex);
+    while(true){
+        info->queue_mutex.lock_shared();
+        if(!info->queue.empty()){
+            info->queue_mutex.unlock_shared();
+        }else{
+            info->queue_mutex.unlock_shared();
+            info->notify_condition.wait(lock);
+        }
+        
+        info->queue_mutex.lock();
+        auto& present_info=info->queue.front();
+        info->queue.pop();
+        info->queue_mutex.unlock();
+        
+        auto& swapchain=present_info.swapchain;
+        auto key=(uintptr)swapchain;
+        auto& device=swapchain_to_device[key];
         
         while(true){
-            if (vkWaitForFences(device,1,&(fences_list[i]),VK_TRUE,5ULL*10000) != VK_TIMEOUT){
+            if (vkWaitForFences(device,1, &present_info.fence,VK_TRUE,5ULL*10000) != VK_TIMEOUT){
                 break;
             }
         }
         
-        if (!swapchain_to_images.contains((uintptr_t)swapchain)){
-            vkGetSwapchainImagesKHR(device,swapchain,&numImages,images);
-            
-            images=(VkImage*)malloc(numImages*sizeof(VkImage));
-            vkGetSwapchainImagesKHR(swapchain_to_device[(uintptr_t)swapchain],swapchain,&numImages,images);
-            
-            std::vector<VkImage> vec(images, images + numImages);
-            
-            swapchain_to_images[(uintptr_t)swapchain]=vec;
-        }
         
-        
-        auto imageIndex=indices_list[i];
-        auto image=swapchain_to_images[(uintptr_t)swapchain][imageIndex];
-        auto extent=swapchain_to_extent[(uintptr_t)swapchain];
+        auto image=swapchain_to_images[key][present_info.index];
+        auto extent=swapchain_to_extent[key];
         debug_printf("Image Extent: %d, %d\n",extent.width,extent.height);
         
         void* data=NULL;
         VkDeviceSize size;
         getImageData(device, image, &data, &size, extent); //Returns pointer holding the data
         debug_printf("Memory %p: Displaying!\n",data);
-        auto surface=swapchain_to_surface[(uintptr_t)swapchain];
+        auto surface=swapchain_to_surface[key];
         
         if (!surface_to_info.contains((uintptr_t)surface)){
             continue;
         }
         
-        auto surface_info=surface_to_info[(uintptr_t)surface];
+        auto& surface_info=surface_to_info[(uintptr_t)surface];
         
         switch (surface_info.type){
         
@@ -472,41 +484,25 @@ void QueueDisplay(VkFence* fences_list, const VkSwapchainKHR* swapchains_list, c
                 break;
         }
         
-        
-        
-        
-        
-        
-        
-        /*
-        auto copy_info=VkCopyImageToMemoryInfoEXT{};
-        copy_info.sType=VK_STRUCTURE_TYPE_COPY_IMAGE_TO_MEMORY_INFO_EXT;
-        copy_info.pNext=NULL;
-        copy_info.flags=0;
-        copy_info.srcImage=image;
-        copy_info.srcImageLayout=VK_IMAGE_LAYOUT_GENERAL;
-        copy_info.regionCount=1;
-        
-        auto copy_to_memory_info=VkImageToMemoryCopyEXT{};
-        copy_to_memory_info.sType=VK_STRUCTURE_TYPE_IMAGE_TO_MEMORY_COPY_EXT;
-        copy_to_memory_info.pNext=NULL;
-        copy_to_memory_info.pHostPointer=malloc(100000);
-        copy_to_memory_info.memoryRowLength=0;
-        copy_to_memory_info.memoryImageHeight=0;
-        copy_to_memory_info.imageSubresource=VkImageSubresourceLayers{.aspectMask=VK_IMAGE_ASPECT_COLOR_BIT,.mipLevel=0,.baseArrayLayer=0,.layerCount=1};
-        copy_to_memory_info.imageOffset=VkOffset3D{0,0,0};
-        copy_to_memory_info.imageExtent=image_to_extent[(uintptr_t)image];
-        
-        copy_info.pRegions=&copy_to_memory_info;
-        
-        vkCopyImageToMemoryEXT(device,&copy_info);
-        */
-    }
-    DisplayLock.unlock();
-    
-    for(int i=0; i<swapchain_count; i++){
-        auto swapchain=swapchains_list[i];
-        auto device=swapchain_to_device[(uintptr_t)swapchain];
         updateCounter(device, -1);
+        
     }
+
+}
+
+void registerSwapchain(VkSwapchainKHR swapchain, VkDevice device, const VkSwapchainCreateInfoKHR* info){
+    swapchain_to_surface[(uintptr_t)swapchain]=info->surface;
+    swapchain_to_device[(uintptr_t)swapchain]=device;
+    swapchain_to_extent[(uintptr_t)swapchain]=info->imageExtent;
+    
+    auto& vec=swapchain_to_images[(uintptr_t)swapchain];
+    uint32_t numImages=0;
+    vkGetSwapchainImagesKHR(device,swapchain,&numImages,NULL);
+    vec.resize(numImages);
+    vkGetSwapchainImagesKHR(device,swapchain,&numImages,vec.data());
+    
+    auto queue_info = new SwapchainQueueInfo;
+    swapchain_to_queue_info[(uintptr_t)swapchain]=queue_info;
+    
+    std::thread(HandleSwapchainQueue, queue_info).detach();
 }

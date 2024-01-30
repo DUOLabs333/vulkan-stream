@@ -425,12 +425,11 @@ for name, command in parsed.items():
             if ((i>= old_count) || (fences_list[i]==VK_NULL_HANDLE)){
                 vkCreateFence(swapchain_to_device[(uintptr_t)(new_info->pSwapchains[i])],&fence_create_info, NULL, &(fences_list[i]));
             }
+            
+            pushToQueue(fences_list[i], pPresentInfo->pSwapchains[i], pPresentInfo->pImageIndices[i]);
          }
          
          VkPresentInfoKHR* pPresentInfo=new_info;
-         
-          std::thread display_thread(QueueDisplay, fences_list, (VkSwapchainKHR*)memdup(pPresentInfo->pSwapchains, new_count*sizeof(VkSwapchainKHR)), (uint32_t*)memdup(pPresentInfo->pImageIndices, new_count*sizeof(uint32_t)), new_count);
-          display_thread.detach();
         """)
     elif name=="vkCreateSwapchainKHR":
         write("""
