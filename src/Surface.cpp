@@ -376,14 +376,15 @@ return;
 }
 
 void pushToQueue(VkFence fence, VkSwapchainKHR swapchain, uint32_t index){
-auto info = swapchain_to_queue_info[(uintptr_t)swapchain];
+auto key=(uintptr_t)swapchain;
+auto info = swapchain_to_queue_info[key];
 
 info->queue_mutex.lock();
 info->queue.push({fence, swapchain, index});
 info->notify_condition.notify_all();
 info->queue_mutex.unlock();
 
-updateCounter(swapchain_to_device[(uintptr_t)swapchain], 1);
+updateCounter(swapchain_to_device[key], 1);
 
 }
 
@@ -404,7 +405,7 @@ void HandleSwapchainQueue(SwapchainQueueInfo* info){
         info->queue_mutex.unlock();
         
         auto& swapchain=present_info.swapchain;
-        auto key=(uintptr)swapchain;
+        auto key=(uintptr_t)swapchain;
         auto& device=swapchain_to_device[key];
         
         while(true){
