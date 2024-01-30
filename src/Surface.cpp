@@ -382,9 +382,8 @@ auto info = swapchain_to_queue_info[key];
 info->queue_mutex.lock();
 info->queue.push({fence, swapchain, index});
 info->notify_condition.notify_all();
-info->queue_mutex.unlock();
-
 updateCounter(swapchain_to_device[key], 1);
+info->queue_mutex.unlock();
 
 }
 
