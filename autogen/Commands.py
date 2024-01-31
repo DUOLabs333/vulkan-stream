@@ -66,13 +66,8 @@ def deregisterDeviceMemoryMap(name):
     
 write("#ifndef CLIENT")
 write("""
-#ifdef __APPLE__
-    std::string vulkan_library_name="libvulkan.dylib";
-#endif
-#include <dlfcn.h>
-auto vulkan_library=dlopen(vulkan_library_name.c_str(), RTLD_LAZY | RTLD_GLOBAL);
-auto get_instance_proc_addr=(PFN_vkGetInstanceProcAddr)dlsym(vulkan_library,"vkGetInstanceProcAddr");
-auto get_device_proc_addr=(PFN_vkGetDeviceProcAddr)dlsym(vulkan_library,"vkGetDeviceProcAddr");
+auto get_instance_proc_addr=vkGetInstanceProcAddr;
+auto get_device_proc_addr=vkGetDeviceProcAddr;
 """)
 
 for name, command in parsed.items():

@@ -292,8 +292,11 @@ for name in parsed:
 
 
 from ahocorapy.keywordtree import KeywordTree
-import os, string
-header=open("vulkan_header.h","r").read()
+import os, string, subprocess
+
+header=subprocess.run(["g++", "-E", "-P"]+os.environ.get("VK_HEADER_FLAGS","").split(" ")+["-I","../external/Vulkan-Headers/include","../external/Vulkan-Headers/include/vulkan/vulkan.h"],capture_output=True,text=True).stdout
+
+
 word_boundary=(string.punctuation+string.whitespace).replace("_","")
 def are_features_implemented(features):
     result={}

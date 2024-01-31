@@ -4,12 +4,13 @@ import subprocess
 import itertools
 import glob
 import re
+#Proto-make (only recompile if changed), but don't want to deal with setting up make/cmake
 
 CLIENT=os.environ.get("CLIENT","0")
 DEBUG=os.environ.get("DEBUG","1")
-#Proto-make (only recompile if changed), but don't want to deal with setting up make/cmake
 
-VK_LIB_PATH="/opt/homebrew/lib"
+VK_LIB_PATH=os.path.expanduser(os.environ.get("VK_LIB_PATH","~/.nix-profile/lib"))
+
 
 SRC_FILES=["autogen/*","src/*","external/shm_open_anon/shm_open_anon.c"]
 INCLUDE_PATHS=["autogen","src", "external/PicoSHA2", "external/shm_open_anon", "external/Vulkan-Headers/include","external/asio/asio/include","external/boost"]
@@ -17,7 +18,6 @@ FLAGS=(["-DCLIENT"] if CLIENT=="1" else []) + (["-g","-DDEBUG"] if DEBUG=="1" el
 STATIC_LIBS=[]
 SHARED_LIBS_PATHS=[VK_LIB_PATH]
 SHARED_LIBS=(["vulkan"] if CLIENT=="0" else ["xcb","X11","xcb-image"])
-FRAMEWORKS=[]
 
 def get_object_file(name):
     if not (name.endswith(".cpp") or name.endswith(".c")):
@@ -27,7 +27,6 @@ def get_object_file(name):
 INCLUDE_PATHS=list(itertools.chain.from_iterable([['-I', x] for x in INCLUDE_PATHS]))
 SHARED_LIBS=["-l"+_ for _ in SHARED_LIBS]
 SHARED_LIBS_PATHS=["-L"+_ for _ in SHARED_LIBS_PATHS]
-FRAMEWORKS=list(itertools.chain.from_iterable([['-framework',x] for x in FRAMEWORKS]))
 
 for i, e in enumerate(SRC_FILES):
    SRC_FILES[i]=[_ for _ in glob.glob(e) if get_object_file(_)]
@@ -63,5 +62,5 @@ for file in SRC_FILES:
     os.utime(object_file, (modified_time, modified_time))
 
 if os.environ.get("CLEAN","0")=="0":
-    subprocess.run(["g++"]+(["-shared","-o","vulkan_stream.so"] if CLIENT=="1" else ["-o","vulkan_stream"])+[get_object_file(_) for _ in SRC_FILES]+(FRAMEWORKS if sys.platform=="darwin" else [])+["-Wl,-rpath",(VK_LIB_PATH if sys.platform=="darwin" else "")]+FLAGS+STATIC_LIBS+SHARED_LIBS_PATHS+SHARED_LIBS)
+    subprocess.run(["g++"]+(["-shared","-o","vulkan_stream.so"] if CLIENT=="1" else ["-o","vulkan_stream"])+[get_object_file(_) for _ in SRC_FILES]+FLAGS+STATIC_LIBS+SHARED_LIBS_PATHS+SHARED_LIBS)
 
