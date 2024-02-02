@@ -439,8 +439,10 @@ void HandleSwapchainQueue(SwapchainQueueInfo* info){
             auto display=info.dpy;
             auto window=info.window;
             
-            int screen = DefaultScreen(display);
-            XImage *x_image = XCreateImage(display, DefaultVisual(display, screen), 0,
+            XWindowAttributes attributes;
+            XGetWindowAttributes(display, window, &attributes);
+            
+            XImage *x_image = XCreateImage(display, attributes.visual, attributes.depth,
                              ZPixmap, 0, (char *)data, extent.width, extent.height, 32, 0);
             
             GC gc = XCreateGC(display, window, 0, NULL);
