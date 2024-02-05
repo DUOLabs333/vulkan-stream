@@ -13,9 +13,9 @@ VK_LIB_PATH=os.path.expanduser(os.environ.get("VK_LIB_PATH","~/.nix-profile/lib"
 
 
 SRC_FILES=["autogen/*","src/*","external/shm_open_anon/shm_open_anon.c"]
-INCLUDE_PATHS=["autogen","src", "external/PicoSHA2", "external/shm_open_anon", "external/Vulkan-Headers/include","external/asio/asio/include","external/boost"]
+INCLUDE_PATHS=["autogen","src", "external/PicoSHA2", "external/shm_open_anon", "external/Vulkan-Headers/include","external/asio/asio/include","external/boost","lz4/lib"]
 FLAGS=(["-DCLIENT"] if CLIENT=="1" else []) + (["-g","-DDEBUG"] if DEBUG=="1" else ["-O3","-DNDEBUG"]) + ["-Wfatal-errors","-fPIC","-Winvalid-pch"]+os.environ["VK_HEADER_FLAGS"].split(" ")
-STATIC_LIBS=[]
+STATIC_LIBS=["lz4/lib/liblz4.a"]
 SHARED_LIBS_PATHS=[VK_LIB_PATH]
 SHARED_LIBS=(["vulkan"] if CLIENT=="0" else ["xcb","X11","xcb-image"])
 
@@ -62,5 +62,6 @@ for file in SRC_FILES:
     os.utime(object_file, (modified_time, modified_time))
 
 if os.environ.get("CLEAN","0")=="0":
+    print(["g++"]+(["-shared","-o","vulkan_stream.so"] if CLIENT=="1" else ["-o","vulkan_stream"])+[get_object_file(_) for _ in SRC_FILES]+FLAGS+STATIC_LIBS+SHARED_LIBS_PATHS+SHARED_LIBS)
     subprocess.run(["g++"]+(["-shared","-o","vulkan_stream.so"] if CLIENT=="1" else ["-o","vulkan_stream"])+[get_object_file(_) for _ in SRC_FILES]+FLAGS+STATIC_LIBS+SHARED_LIBS_PATHS+SHARED_LIBS)
 
