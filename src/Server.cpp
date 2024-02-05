@@ -102,9 +102,9 @@ boost::json::object readFromConn(){
     auto compressed_size=deserializeInt(curr->size_buf, 0);
     auto input_size=deserializeInt(curr->size_buf, 4);
     
+
     auto compressed_data=(char*)malloc(compressed_size);
     auto input=(char*)malloc(input_size);
-    auto line=std::string_view(input,input_size);
     
     asio::read(*(curr->conn), asio::buffer(compressed_data, compressed_size), asio::transfer_exactly(compressed_size), ec);
     
@@ -112,6 +112,7 @@ boost::json::object readFromConn(){
         throw RWError(ec);
     }
     
+    auto line=std::string_view(input,input_size);
     LZ4_decompress_safe(compressed_data, input, compressed_size, input_size);
 
     boost::json::object json=boost::json::parse(line,{}, {.max_depth=180,.allow_invalid_utf8=true,.allow_infinity_and_nan=true}).get_object();
@@ -150,4 +151,6 @@ void writeToConn(boost::json::object& json){
     if (ec){
         throw RWError(ec);
     }
+    
+    free(compressed_data);
 }
